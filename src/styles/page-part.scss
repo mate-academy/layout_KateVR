@@ -1,0 +1,32 @@
+.page-part {
+  position: relative;
+  padding: 50px 20px;
+
+  &__paragraph {
+
+    &--small {
+      margin-top: 30px;
+
+      font-size: 12px;
+    }
+  }
+
+  &--bg-gradient {
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+
+      height: 100%;
+      width: 100vw;
+      background: $header-gradient;
+
+      z-index: -1;
+    }
+  }
+
+  @media (min-width: 700px) {
+    padding: 100px 0;
+  }
+}

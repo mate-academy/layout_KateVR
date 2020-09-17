@@ -1,0 +1,59 @@
+.img-description {
+  position: relative;
+
+  width: $tech-img-size-mobile;
+  height: $tech-img-size-mobile;
+  margin: 40px auto 0;
+
+  background: -6px -3px / 105% url(../images/tech-img.png) no-repeat;
+  border: 4px solid $tech-img-round;
+  border-radius: 50%;
+
+  &__paragraph {
+    font-size: 0;
+
+    // after-click-button {
+    // min-width: 168px;
+    // padding: 5px 10px;
+
+    // font-size: $subtitle-size-mobile;
+    // line-height: $subtitle-line-mobile;
+
+    // background: $gradient-start;
+    // transform: translate(-50%);
+    // }
+
+    &::before {
+      content: url(../images/tech-button-mob.svg);
+    }
+
+    &--position-top {
+      @include position(20px, -62px);
+
+      &::before {
+        @include position(-35px, 118px);
+      }
+    }
+
+    &--position-right {
+      @include position(25px, -34px);
+
+      &::before {
+        @include position(54px, 164px);
+      }
+    }
+
+    &--position-left {
+      @include position(30px, -52px);
+
+      &::before {
+        @include position(125px, 30px);
+      }
+    }
+  }
+
+  &__title {
+    display: none;
+    @include paragraph-title(20);
+  }
+}

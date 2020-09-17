@@ -1,0 +1,67 @@
+.nav {
+
+  &__mobile-ico {
+    position: relative;
+    top: -6px;
+
+    z-index: 2;
+    cursor: pointer;
+  }
+
+  &__list {
+    display: block;
+
+    transition: translatex 1s;
+
+    &--slider {
+      transform: translateX(100%);
+    }
+
+    &--active {
+      transform: translateX(0%);
+    }
+
+    &--main {
+      position: fixed;
+      top: 15.2vh;
+      left: 0;
+
+      z-index: 1;
+    }
+
+    &--secondary {
+      position: fixed;
+      left: 0;
+      bottom: 10vh;
+
+      z-index: 1;
+    }
+  }
+
+  &__item {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--in-slider {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    color: $white;
+
+    &--in-slider {
+      display: block;
+      width: 100vw;
+      padding: 12px 0 12px 7vw;
+
+      font-size: $title-size-mobile;
+
+      @include hover(color, $contrast-color);
+      @include hover(background, $nav-mobile-hower);
+    }
+  }
+}
