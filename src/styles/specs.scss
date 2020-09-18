@@ -1,0 +1,125 @@
+
+.specs {
+  @include section;
+  position: relative;
+  background: $bgDarkColor;
+  
+  &__bg {
+    display: block;
+    margin: 0 auto;
+    max-width: 357.95px;
+    min-height: 194.7px;
+    position: relative;
+    background-image: url("../images/specs/footer.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__title {
+    margin-bottom: 41px;
+  }
+
+  &__button {
+    &--sensor {
+      position: absolute;
+      top: -5%;
+      left: 35%;
+    }
+
+    &--connection {
+      position: absolute;
+      top: 41%;
+      left: 63%;
+    }
+
+    &--batterries {
+      position: absolute;
+      top: 75%;
+      left: 9%;
+    }
+  }
+  
+  &__sensor,
+  &__batterries,
+  &__connection {
+    display: none;
+  }
+
+}
+@media (min-width: $mobileLWidth) {
+  .specs {
+    @include width450;
+  }
+}
+
+@media (min-width: $tabletWidth) {
+  .specs {
+    &__bg {
+      min-height: 357.95px;
+    }
+    &__button {
+      height: 62px;
+      width: 62px;
+      &--sensor {
+        top: -6%;
+        left: 18%;
+      }
+      &--connection {
+        left: 69%;
+      }
+      &--batterries {
+        top: 77%;
+        left: -15%;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .specs {
+    @include width900;
+    width: 100%;
+
+    &__title {
+      margin-bottom: 80px;
+      text-align: right;
+    }
+    &__bg {
+      margin: 0 auto;
+      height: 425px;
+      min-width: 800px;
+      background: url("../images/specs/footer-big1.png");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    &__button {
+      &--sensor,
+      &--connection,
+      &--batterries {
+        display: none;
+      }
+    }
+    &__sensor,
+    &__batterries,
+    &__connection {
+      display: block;
+      position: absolute;
+    }
+    &__sensor {
+      left: -10%;
+    }
+    &__batterries {
+      left: 82%;
+    }
+    &__connection {
+      top: 60%;
+      left: -5%;
+    }
+    
+    &__subtitle {
+      margin-bottom: 20px;
+    }
+  }
+}

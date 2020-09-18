@@ -1,0 +1,137 @@
+
+.header {
+  @include section;
+  height: 100vh;
+  max-height: 782px;
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  &__container {
+    padding: 5%;
+  }
+  &__lang {
+    display: none;
+    position: absolute;
+    left: 222.5px;
+    color: $highLightColor;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      width: 9px;
+      height: 6px;
+      background-image: url("../images/Polygon.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+  &__more {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: $highLightColor;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 9px;
+      height: 6px;
+
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      background-image: url("../images/Polygon.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+  &__top {
+    position: relative;
+    @include space-between;
+  }
+  &__main-title {
+    font-size: 26px;
+    font-family: "Mark-heavy", Helvetica, sans-serif;
+    margin-bottom: 14px;
+  }
+
+  &__top-nav {
+    display: none;
+    max-width: 500px;
+  }
+  
+  &__text--price {
+    text-align: center;
+  }
+  &__bottom {
+    display: none;
+  }
+
+  &__play {
+    left: 50%;
+  }
+  &__top-button {
+    display: block;
+    height: 48px;
+    width: 50px;
+  }
+}
+
+@media (min-width: 450px) {
+  .header {
+    &__slider {
+      @include space-between;
+      height: 60vh;
+    }
+
+    &__aside {
+      height: 40vh;
+      max-width: 479px;
+      margin-right: 50%;
+    }
+    &__aside-wrapper {
+      position: relative;
+      width: 300px;
+    }
+    &__top {
+      margin-bottom: 50px;
+    }
+
+    &__slider-nav {
+      position: relative;
+      bottom: 0;
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .header {
+    &__top-nav ,
+    &__bottom {
+      @include space-between;
+    }
+  }
+}
+
+@media (min-width: $laptopWidth) {
+  .header {
+    &__container {
+      padding: 47px 110px 87px;
+    }
+    &__main-title {
+      font-size: 30px;
+    }
+    &__top {
+      margin-bottom: 110px;
+    }
+    &__aside-wrapper {
+      padding-left: 15%;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .header {
+    &__main-title {
+      font-size: 46px;
+    }
+  }
+}
