@@ -39,32 +39,32 @@ const navSlide = () => {
 navSlide();
 
 // function pointsToggle(e) {
-//   const shortParagraphs = document.querySelector('.paragraph--lines-two');
+//   const shortParagraphs = document.querySelectorAll('.paragraph--lines-two');
 
-// if (e.matches) {
-//   shortParagraphs.classList.remove('paragraph--red');
-// } else {
-//   shortParagraphs.classList.toggle('paragraph--red');
+//   // if (e.matches) {
+//   //   shortParagraphs.classList.remove('paragraph--red');
+//   // } else {
+//   //   shortParagraphs.classList.toggle('paragraph--red');
+//   // }
+
+//   // if (e.matches) {
+//   //   shortParagraphs.classList.toggle('paragraph--lines-two');
+//   // } else {
+//   //   shortParagraphs.classList.remove('paragraph--lines-two');
+//   // }
+
+//   if (e.matches) {
+//     // shortParagraphs.classList.toggle('paragraph--blue');
+//     // shortParagraphs.classList.remove('paragraph--red');
+//     document.body.style.backgroundColor = 'blue';
+//   } else {
+//     // shortParagraphs.classList.toggle('paragraph--red');
+//     // shortParagraphs.classList.remove('paragraph--blue');
+//     document.body.style.backgroundColor = 'red';
+//   }
 // }
 
-// if (e.matches) {
-//   shortParagraphs.classList.toggle('paragraph--lines-two');
-// } else {
-//   shortParagraphs.classList.remove('paragraph--lines-two');
-// }
-
-// if (e.matches) {
-//   // shortParagraphs.classList.toggle('paragraph--blue');
-//   // shortParagraphs.classList.remove('paragraph--red');
-//   document.body.style.backgroundColor = 'blue';
-// } else {
-//   // shortParagraphs.classList.toggle('paragraph--red');
-//   // shortParagraphs.classList.remove('paragraph--blue');
-//   document.body.style.backgroundColor = 'red';
-// }
-// }
-
-// const point1 = window.matchMedia('(min-width: 769px)');
+// const point1 = window.matchMedia('(min-width: 768px)');
 
 // pointsToggle(point1);
 

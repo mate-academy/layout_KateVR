@@ -1,13 +1,11 @@
 .about {
-  // position: relative;
+  position: relative;
 
   &:first-child {
     margin-bottom: 80px;
   }
 
   &__title {
-    position: absolute;
-    left: 60%;
     margin-bottom: 20px;
   }
 
@@ -23,11 +21,35 @@
     display: none;
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: 768px) {
     display: flex;
+    max-width: 875px;
 
-    &__art-block {
-      display: block;
+    &:first-child {
+      margin: 0 0 190px auto;
+    }
+
+    &__title {
+
+      &--firs-part {
+        position: absolute;
+        left: 60%;
+      }
+    }
+
+    &__slider {
+      width: 48%;
+      margin: 0 auto 0 0;
+    }
+
+    &__container {
+      max-width: 430px;
+      
+      &--firs-part {
+        max-width: 332px;
+        margin: 0 0 0 auto;
+        padding-top: 80px;
+      }
     }
   }
 }
