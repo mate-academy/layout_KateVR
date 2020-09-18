@@ -1,9 +1,13 @@
 .about {
+  // position: relative;
+
   &:first-child {
     margin-bottom: 80px;
   }
 
   &__title {
+    position: absolute;
+    left: 60%;
     margin-bottom: 20px;
   }
 
@@ -12,10 +16,18 @@
   }
 
   &__play-button {
-    margin-top: 20px;
+    margin: 20px auto 0;
   }
 
-  &__art-bloc {
+  &__art-block {
     display: none;
+  }
+
+  @media (min-width: 769px) {
+    display: flex;
+
+    &__art-block {
+      display: block;
+    }
   }
 }

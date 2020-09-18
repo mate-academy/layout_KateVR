@@ -1,10 +1,14 @@
 .header {
+  position: relative;
+
   height: 100vh;
+  max-height: 600px;
   padding: 18px 20px 45px;
 
   background: $header-gradient;
 
   &--active {
+    max-height: 100vh;
     background: $gradient-start;
   }
 
@@ -46,7 +50,7 @@
   }
 
   &__oreder-button {
-    @include position(100vh, 50%);
+    @include position(100%, 50%);
     // зробити потім нижче щоб зупинялась у певному місці,
     // можливо перенести у структурі html доведеться
 
