@@ -10,7 +10,7 @@
   &__lang {
     display: none;
     position: absolute;
-    left: 222.5px;
+    left: 222px;
     color: $highLightColor;
     &::after {
       content: "";
@@ -28,13 +28,19 @@
     left: 50%;
     transform: translateX(-50%);
     color: $highLightColor;
+    transition: transform $global-transition color $global-transition;
+    &:hover {
+      font-weight: bold;
+      color: transparent;
+      -webkit-text-stroke: 1px $highLightColor;
+    }
     &::after {
       content: "";
       position: absolute;
       width: 9px;
       height: 6px;
 
-      bottom: -15px;
+      top: 85%;
       left: 50%;
       transform: translateX(-50%);
 

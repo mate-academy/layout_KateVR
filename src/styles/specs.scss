@@ -21,9 +21,13 @@
   }
 
   &__button {
+    transition: transform $global-transition;
+    &:hover {
+      transform: scale(1.2);
+    }
     &--sensor {
       position: absolute;
-      top: -5%;
+      bottom: 90%;
       left: 35%;
     }
 
@@ -56,13 +60,13 @@
 @media (min-width: $tabletWidth) {
   .specs {
     &__bg {
-      min-height: 357.95px;
+      min-height: 357px;
     }
     &__button {
       height: 62px;
       width: 62px;
       &--sensor {
-        top: -6%;
+        bottom: 94%;
         left: 18%;
       }
       &--connection {
@@ -70,7 +74,7 @@
       }
       &--batterries {
         top: 77%;
-        left: -15%;
+        right: 85%;
       }
     }
   }
@@ -115,7 +119,7 @@
     }
     &__connection {
       top: 60%;
-      left: -5%;
+      right: 95%;
     }
     
     &__subtitle {

@@ -52,7 +52,7 @@
     background: linear-gradient(107.56deg, #191536 0%, #000 100%);
     box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
   
-    transition-duration: $global-transition;
+    transition: transform $global-transition;
   }
   
   &__item {
@@ -72,12 +72,12 @@
   }
 
   &__item:hover {
-    color: red;
+    color: $highLightColor;
   }
   
   &__btn > span::before {
     content: "";
-    top: -8px;
+    bottom: 8px;
   }
 
   &__btn > span::after {
@@ -102,7 +102,7 @@
   #burger-menu__toggle:checked ~ &__list {
     visibility: visible;
     right: 0;
-    transition: $global-transition;
+    transition: transform $global-transition;
   }
 }
 
