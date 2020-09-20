@@ -5,6 +5,13 @@
   }
 }
 
+@mixin active($_property, $_toValue) {
+  transition: #{$_property} $main-hover-duration;
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
 @mixin text-owerflow($count) {
   display: -webkit-box;
   -webkit-line-clamp: #{$count};
@@ -16,7 +23,7 @@
 }
 
 @mixin paragraph-title($bootom-space) {
-  padding-bottom: #{$bootom-space}px;
+  padding-bottom: $bootom-space;
 
   font-family: "Mark-Heavy", Geneva, Verdana, sans-serif;
   font-size: $card-title-size;
@@ -48,6 +55,11 @@
 
   background: none;
   border-bottom: 1px solid $dark-grey;
+
+  &:focus {
+    border-color: $contrast-color;
+    outline: none;
+  }
 }
 
 @mixin page-centered {

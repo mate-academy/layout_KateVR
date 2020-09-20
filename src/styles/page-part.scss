@@ -26,6 +26,10 @@
     }
   }
 
+  &__oreder-button {
+    display: none;
+  }
+
   @media (min-width: 768px) {
     padding: 100px 34px;
 
@@ -36,11 +40,38 @@
 
     &__benefit-card {
       min-height: 230px;
-      margin-right: 20px;
+      margin-right: 5px;
 
       &:last-child {
         margin-right: 0;
       }
+    }
+
+    &__paragraph {
+      &--small {
+        @include position(170px, 34px);
+        width: 340px;
+
+        font-size: inherit;
+      }
+    }
+
+    &__oreder-button {
+      display: block;
+      margin: 90px auto 0;
+    }
+
+    &--bg-gradient {
+      &::before {
+        left: -30vw;
+
+        width: 130vw;
+      }
+    }
+
+    &__contact-form {
+      max-width: 50%;
+      margin: -90px 0 0 auto;
     }
   }
 }

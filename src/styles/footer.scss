@@ -28,6 +28,8 @@
 
     font-size: $footer-font-size-mob;
     color: $text-color;
+
+    @include hover(color, $white);
   }
 
   &__socmedia {
@@ -37,6 +39,8 @@
 
   &__icon {
     height: 15px;
+
+    @include hover(transform, scale(1.2));
   }
 
   &--active {
@@ -44,6 +48,52 @@
   }
 
   @media (min-width: 768px) {
+    position: relative;
+
     @include page-centered;
+    padding: 40px 34px;
+
+    &::before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: -30vw;
+
+      height: 100%;
+      width: 130vw;
+      background: $gradient-end;
+
+      z-index: -1;
+    }
+
+    &__logo-img {
+      margin-bottom: 0;
+    }
+
+    &__container {
+      display: flex;
+    }
+
+    &__nav {
+      margin-left: 70%;
+    }
+
+    &__contacts {
+      position: absolute;
+      top: -240px;
+      left: 34px;
+    }
+
+    &__contact {
+      font-size: inherit;
+    }
+
+    &__link {
+      margin-right: 15px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
   }
 }

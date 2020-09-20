@@ -13,6 +13,10 @@
     margin-bottom: 20px;
   }
 
+  &__slide {
+    display: none;
+  }
+
   &__play-button {
     margin: 20px auto 0;
   }
@@ -23,17 +27,18 @@
 
   @media (min-width: 768px) {
     display: flex;
-    max-width: 875px;
 
     &:first-child {
+      max-width: 875px;
       margin: 0 0 190px auto;
     }
 
     &__title {
+      white-space: nowrap;
 
       &--firs-part {
         position: absolute;
-        left: 60%;
+        left: 62%;
       }
     }
 
@@ -42,14 +47,28 @@
       margin: 0 auto 0 0;
     }
 
+    &__slider-nav {
+      display: none;
+    }
+
+    &__slide {
+      display: block;
+      width: 50%;
+      min-width: 207px;
+    }
+
     &__container {
       max-width: 430px;
-      
+
       &--firs-part {
         max-width: 332px;
         margin: 0 0 0 auto;
         padding-top: 80px;
       }
+    }
+
+    &__art-block {
+      margin-left: 110px;
     }
   }
 }
