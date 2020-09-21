@@ -2,9 +2,8 @@
 .slider {
   @include section;
   display: block;
-  max-height: 540px;
 
-  &__gallery {
+  &__interactive {
     margin: 0 auto;
   }
 
@@ -12,37 +11,26 @@
     position: relative;
     min-width: 280px;
     height: 189px;
-
-    padding-left: 10%;
-    margin-bottom: 14px;
+    margin: 0 auto 14px;
   }
 
   &__img--big {
+    display: block;
     position: relative;
-    width: 80vw;
-    max-width: 812px;
-    height: 40vh;
-    margin: 0 auto;
+    width: 280px;
+    min-height: 189px;
     object-fit: contain;
+    margin: 0 auto;
   }
-
-  &__aside {
-    max-width: 479px;
-    &--reverse {
-      grid-row: 1;
-    }
+  &__gallery {
+    display: flex;
+    margin-bottom: 15px;
   }
   
   &__number {
     display: none;
-    position: absolute;
+    position: relative;
     color: $highLightColor;
-  }
-
-  &__text {
-    margin-bottom: 25px;
-    max-width: 336px;
-    line-height: 24px;
   }
 }
 
@@ -56,7 +44,7 @@
   }
 }
 
-@media (min-width: 600px) {
+@media (min-width: 750px) {
   .slider {
 
     &__nav {
@@ -66,16 +54,13 @@
     &__img {
       min-width: 340px;
       height: 270px;
+      margin: 0;
 
       &--big {
         position: absolute;
-        width: 70vw;
-        max-width: 486px;
         height: 100%;
-        top: 10%;
-        right: -5%;
-        transform: translateY(-25%);
-
+        top: 50%;
+        transform: translateY(-50%);
       }
     }
 
@@ -95,7 +80,17 @@
         width: 60vw;
         max-width: 650px;
         height: 100%;
-        right: -5%;
+      }
+    }
+  }
+}
+
+@media (max-height: 450px) {
+  .slider {
+    &__img {
+      &--big {
+        margin: 0;
+        right: 0;
       }
     }
   }

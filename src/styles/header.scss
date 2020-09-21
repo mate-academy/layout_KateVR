@@ -1,11 +1,12 @@
 
 .header {
   @include section;
-  height: 100vh;
   max-height: 782px;
   background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  height: 100%;
   &__container {
-    padding: 5%;
+    padding: 2%;
+    height: 100%;
   }
   &__lang {
     display: none;
@@ -22,6 +23,11 @@
       background-size: contain;
       background-repeat: no-repeat;
     }
+  }
+  &__body {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    max-height: 560px;
   }
   &__more {
     position: absolute;
@@ -40,7 +46,7 @@
       width: 9px;
       height: 6px;
 
-      top: 85%;
+      bottom: -10px;
       left: 50%;
       transform: translateX(-50%);
 
@@ -53,6 +59,7 @@
     position: relative;
     @include space-between;
   }
+
   &__main-title {
     font-size: 26px;
     font-family: "Mark-heavy", Helvetica, sans-serif;
@@ -65,7 +72,9 @@
   }
   
   &__text--price {
-    text-align: center;
+    text-align: left;
+    color: white;
+    margin-bottom: 20px;
   }
   &__bottom {
     display: none;
@@ -79,19 +88,24 @@
     height: 48px;
     width: 50px;
   }
+
 }
 
-@media (min-width: 450px) {
+@media (min-width: 550px) {
   .header {
-    &__slider {
+    &__top-nav ,
+    &__bottom {
       @include space-between;
-      height: 60vh;
+    }
+
+    &__body {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      height: 70%;
     }
 
     &__aside {
-      height: 40vh;
-      max-width: 479px;
-      margin-right: 50%;
+      grid-row: 1;
     }
     &__aside-wrapper {
       position: relative;
@@ -108,25 +122,16 @@
   }
 }
 
-@media (min-width: 768px) {
-  .header {
-    &__top-nav ,
-    &__bottom {
-      @include space-between;
-    }
-  }
-}
-
 @media (min-width: $laptopWidth) {
   .header {
     &__container {
-      padding: 47px 110px 87px;
+      padding: 47px 60px;
     }
     &__main-title {
       font-size: 30px;
     }
     &__top {
-      margin-bottom: 110px;
+      margin-bottom: 10vh;
     }
     &__aside-wrapper {
       padding-left: 15%;
@@ -138,6 +143,42 @@
   .header {
     &__main-title {
       font-size: 46px;
+    }
+  }
+}
+
+@media (max-height: 450px) {
+  .header {
+    &__container {
+      padding: 5px 20px;
+    }
+    &__body {
+      max-height: 260px;
+    }
+    &__text {
+      &--price {
+        margin-bottom: 5px;
+      }
+    }
+    &__top {
+      margin-bottom: 15px;
+    }
+    &__bottom {
+      margin-top: 1%;
+    }
+  }
+}
+
+@media (min-height: 960px) {
+  .header {
+    &__container {
+      padding: 45px 48px;
+    }
+    &__top {
+      margin-bottom: 15px;
+    }
+    &__bottom {
+      bottom: 0;
     }
   }
 }
