@@ -1,7 +1,5 @@
 'use strict';
 
-// @import styles from '../styles/utils/_export.scss';
-
 const navSlide = () => {
   const burgerIco = document.querySelector('.nav__mobile-ico');
   const mainList = document.querySelector('.nav__list--main');
@@ -31,41 +29,15 @@ const navSlide = () => {
       main.classList.remove('main--active');
       footer.classList.remove('footer--active');
       orderButton.classList.remove('header__oreder-button--hidden');
-      // header.style.background = 'green'; // NOT work(
     }
   });
 };
 
 navSlide();
 
-// function pointsToggle(e) {
-//   const shortParagraphs = document.querySelectorAll('.paragraph--lines-two');
+const form = document.querySelector('form');
 
-//   // if (e.matches) {
-//   //   shortParagraphs.classList.remove('paragraph--red');
-//   // } else {
-//   //   shortParagraphs.classList.toggle('paragraph--red');
-//   // }
-
-//   // if (e.matches) {
-//   //   shortParagraphs.classList.toggle('paragraph--lines-two');
-//   // } else {
-//   //   shortParagraphs.classList.remove('paragraph--lines-two');
-//   // }
-
-//   if (e.matches) {
-//     // shortParagraphs.classList.toggle('paragraph--blue');
-//     // shortParagraphs.classList.remove('paragraph--red');
-//     document.body.style.backgroundColor = 'blue';
-//   } else {
-//     // shortParagraphs.classList.toggle('paragraph--red');
-//     // shortParagraphs.classList.remove('paragraph--blue');
-//     document.body.style.backgroundColor = 'red';
-//   }
-// }
-
-// const point1 = window.matchMedia('(min-width: 768px)');
-
-// pointsToggle(point1);
-
-// point1.addListener(pointsToggle);
+form.addEventListener('submit', event => {
+  document.location.reload();
+  event.preventDefault();
+});

@@ -11,27 +11,15 @@
     }
   }
 
-  &--bg-gradient {
-    &::before {
-      position: absolute;
-      content: "";
-      top: 0;
-      left: 0;
-
-      height: 100%;
-      width: 100vw;
-      background: $header-gradient;
-
-      z-index: -1;
-    }
-  }
-
   &__oreder-button {
     display: none;
   }
 
   @media (min-width: 768px) {
+    @include page-centered;
     padding: 100px 34px;
+
+    overflow-x: hidden;
 
     &__container {
       display: flex;
@@ -59,14 +47,6 @@
     &__oreder-button {
       display: block;
       margin: 90px auto 0;
-    }
-
-    &--bg-gradient {
-      &::before {
-        left: -30vw;
-
-        width: 130vw;
-      }
     }
 
     &__contact-form {

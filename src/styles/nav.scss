@@ -11,7 +11,7 @@
   &__list {
     display: block;
 
-    transition: translatex 1s;
+    transition: transform $main-hover-duration;
   }
 
   &__item {
@@ -34,10 +34,12 @@
     &__list {
       &--slider {
         transform: translateX(100%);
+        opacity: 0;
       }
 
       &--active {
         transform: translateX(0%);
+        opacity: 1;
       }
 
       &--main {
