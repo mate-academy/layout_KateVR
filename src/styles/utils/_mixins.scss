@@ -1,6 +1,68 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $main-hover-duration;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin active($_property, $_toValue) {
+  transition: #{$_property} $main-hover-duration;
+  &:active {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin text-owerflow($count) {
+  display: -webkit-box;
+  -webkit-line-clamp: #{$count};
+  -webkit-box-orient: vertical;
+
+  text-overflow: ellipsis;
+
+  overflow: hidden;
+}
+
+@mixin paragraph-title($bootom-space) {
+  padding-bottom: $bootom-space;
+
+  font-family: "Mark-Heavy", Geneva, Verdana, sans-serif;
+  font-size: $card-title-size;
+  color: $white;
+  text-transform: uppercase;
+}
+
+@mixin position($vertical, $horisontal, $type : absolute) {
+  position: $type;
+  top: $vertical;
+  left: $horisontal;
+}
+
+@mixin button-font($_size, $_color: $white) {
+  font-family: inherit;
+  font-size: #{$_size};
+  color: #{$_color};
+}
+
+@mixin input-style($_height: 40px) {
+  width: 100%;
+  height: $_height;
+  margin-bottom: 24px;
+
+  font-size: $button-font-size-mobile;
+  line-height: inherit;
+  font-family: inherit;
+  color: inherit;
+
+  background: none;
+  border-bottom: 1px solid $dark-grey;
+
+  &:focus {
+    border-color: $contrast-color;
+    outline: none;
+  }
+}
+
+@mixin page-centered {
+  max-width: 1060px;
+  margin: auto;
 }

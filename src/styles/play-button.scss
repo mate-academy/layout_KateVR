@@ -1,0 +1,22 @@
+.play-button {
+  position: relative;
+  display: block;
+  width: 100%;
+  max-width: 280px;
+  padding-right: 32px;
+
+  @include button-font($page-font-size);
+
+  background: transparent;
+
+  cursor: pointer;
+
+  @include hover(transform, scale(1.1));
+  @include active(transform, scale(1));
+
+  &__text {
+    @include position(50%, 50%);
+
+    transform: translate(-50%, -50%);
+  }
+}

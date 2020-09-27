@@ -1,0 +1,41 @@
+.slide-nav {
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: -10px;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+    background: #212121;
+  }
+
+  &__btn {
+    color: $white;
+
+    @include hover(color, $text-color);
+
+    &:first-child {
+      margin-right: 100px;
+    }
+
+    &--active {
+      position: relative;
+      color: $text-color;
+
+      &::after {
+        position: absolute;
+        content: "";
+        bottom: -14px;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+        background: $contrast-color;
+        z-index: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+.contact-form {
+  padding-top: 10px;
+
+  &__name {
+    @include input-style;
+  }
+
+  &__email {
+    @include input-style;
+  }
+
+  &__number {
+    @include input-style;
+  }
+
+  &__message {
+    @include input-style(88px);
+
+    resize: none;
+  }
+
+  &__submit {
+    @extend %contrast-button;
+    display: block;
+    margin: 0 auto;
+
+    @media (min-width: 768px) {
+      max-width: 200px;
+      margin: 0;
+    }
+  }
+}

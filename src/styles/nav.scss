@@ -1,0 +1,100 @@
+.nav {
+
+  &__mobile-ico {
+    position: fixed;
+    right: 20px;
+
+    z-index: 2;
+    cursor: pointer;
+    @include hover(transform, scale(1.1));
+    @include active(transform, scale(0.9));
+  }
+
+  &__list {
+    display: block;
+
+    transition: transform $main-hover-duration;
+  }
+
+  &__item {
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--in-slider {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link {
+    color: $white;
+  }
+
+  @media (max-width: 767px) {
+    &__list {
+      &--slider {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+
+      &--active {
+        transform: translateX(0%);
+        opacity: 1;
+      }
+
+      &--main {
+        position: fixed;
+        top: 15.2vh;
+        left: 0;
+
+        z-index: 1;
+      }
+
+      &--secondary {
+        position: fixed;
+        left: 0;
+        bottom: 10vh;
+
+        z-index: 1;
+      }
+    }
+
+    &__link {
+      @include hover(color, $contrast-color);
+
+      &--in-slider {
+        display: block;
+        width: 100vw;
+        padding: 12px 0 12px 7vw;
+
+        font-size: $title-size-mobile;
+
+        @include hover(background, $nav-mobile-hower);
+      }
+    }
+  }
+
+  @media (min-width: 768px) {
+    &__mobile-ico {
+      display: none;
+    }
+
+    &__list {
+      display: flex;
+    }
+
+    &__item {
+      margin: 0 34px 0 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &__link {
+      @include hover(color, $contrast-color);
+    }
+  }
+}
