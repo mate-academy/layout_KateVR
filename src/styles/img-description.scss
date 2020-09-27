@@ -3,7 +3,6 @@
 
   width: $tech-img-size-mobile;
   height: $tech-img-size-mobile;
-  margin: 40px auto 0;
 
   background: -6px -3px / 105% url(../images/tech-img.png) no-repeat;
   border: 4px solid $tech-img-round;
@@ -21,7 +20,20 @@
         content: url(../images/tech-button-mob.svg);
         @include position(-35px, 118px);
 
+        transition: transform $main-hover-duration;
         cursor: pointer;
+      }
+
+      &:hover {
+        &::before {
+          transform: scale(1.4);
+        }
+      }
+
+      &:active {
+        &::before {
+          transform: scale(0.9);
+        }
       }
     }
 
@@ -32,7 +44,20 @@
         content: url(../images/tech-button-mob.svg);
         @include position(54px, 164px);
 
+        transition: transform $main-hover-duration;
         cursor: pointer;
+      }
+
+      &:hover {
+        &::before {
+          transform: scale(1.4);
+        }
+      }
+
+      &:active {
+        &::before {
+          transform: scale(0.9);
+        }
       }
     }
 
@@ -43,19 +68,64 @@
         content: url(../images/tech-button-mob.svg);
         @include position(125px, 30px);
 
+        transition: transform $main-hover-duration;
         cursor: pointer;
+      }
+
+      &:hover {
+        &::before {
+          transform: scale(1.4);
+        }
+      }
+
+      &:active {
+        &::before {
+          transform: scale(0.9);
+        }
       }
     }
 
     &__title {
       display: none;
     }
+
+    @media (min-width: 768px) {
+      width: $tech-img-size-mobile + 160px;
+      height: $tech-img-size-mobile + 160px;
+
+      background-position-x: -11px;
+
+      &__top {
+        @include position(30px, -52px);
+
+        &::before {
+          transform: scale(1.7);
+        }
+      }
+
+      &__right {
+        @include position(105px, 90px);
+
+        &::before {
+          transform: scale(1.7);
+        }
+      }
+
+      &__left {
+        @include position(165px, -52px);
+
+        &::before {
+          transform: scale(1.7);
+        }
+      }
+    }
   }
 
   @media (min-width: 1060px) {
     width: $tech-img-size;
     height: $tech-img-size;
-    margin: 140px auto 0;
+
+    background-position-x: -9px;
 
     &::before {
       @include position(-56px, -260px);
