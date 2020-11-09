@@ -1,5 +1,11 @@
 # KateVR Landing
-[DEMO LINK](https://putsan.github.io/KateVRLanding/)
+
+Tech stack: HTML5, SASS, BEM methodology.
+
+Fully responsive design was made my using Flexbox.
+
+Click the link to [SEE PREVIEW](https://putsan.github.io/KateVRLanding/)
+
 Design of layout you could see [here](https://www.figma.com/file/hhtGde1r4hMr5wghrKm6vl/KatVR?node-id=159%3A0)
 
 #### Optimised for:
