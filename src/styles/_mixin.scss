@@ -42,12 +42,12 @@
 
 @mixin section {
   position: relative;
-  overflow: hidden;
 
   &__container {
-    max-width: 1275px;
     position: relative;
+    max-width: 1275px;
     min-width: 320px;
+
     margin: 0 auto;
     padding: 50px 20px;
     overflow: hidden;
@@ -75,11 +75,17 @@
       margin-bottom: 10px;
     }
   }
-  
+
   &__text {
     font-size: 0.75rem;
     color: $greyColor;
   }
+}
+
+@mixin position($vertical, $horisontal, $type : relative) {
+  position: $type;
+  top: $vertical;
+  left: $horisontal;
 }
 
 @mixin width450 {
