@@ -1,11 +1,25 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "buttons/buy.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Mark-Regular", sans-serif;
+}
 
 body {
   background: $c-gray;
   margin: 0;
 }
+
+a {
+  text-decoration: none;
+}
+
 
 .visually-hidden {
   position: absolute;
@@ -17,15 +31,16 @@ body {
 
 .home {
   position: relative;
-  background: linear-gradient(107.56deg, #191536 0%, #000000 100%);
+  background: $gradient;
   padding: 50px 110px 80px;
   height: 100vh;
+  color: white
 }
 
 .home__photo {
   position: absolute;
-  left: 50%;
-  top: 0;
+  right: 0;
+  top: 10px;
 }
 
 .nav__list {
@@ -33,4 +48,15 @@ body {
   gap: 34px;
   grid-template-columns: repeat(7, auto);
   justify-content: center;
+}
+
+.video {
+  display: block;
+  background-image: url(./../images/play_video.svg);
+  background-repeat: no-repeat;
+  height: 100px;
+}
+
+.video:hover {
+  background-image: url(./../images/play_video_hover.svg);
 }
