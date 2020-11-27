@@ -1,7 +1,35 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "utils/vars";
+@import "utils/vars";
 
-body {
-  background: $c-gray;
+* {
+  box-sizing: border-box;
+}
+
+.header__option:hover {
+  background-color: purple
+}
+.header__option {
+  background-color: gray
+}
+.header__langs {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  border: 2px solid transparent;
+  width: 40px;
+}
+.wrapper {
+  display: inline-block;
+  position: relative;
+}
+.wrapper::after {
+  content: '';
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  background-color: red;
+  width: 15px;
+  height: 15px;
+  //ПРИ условии прозрачного select
+  z-index: -1;
 }

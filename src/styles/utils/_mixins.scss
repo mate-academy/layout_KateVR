@@ -1,6 +1,51 @@
+@import "utils/vars";
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin site-title-font {
+  font-family: Mark-Heavy;
+  font-size: 46px;
+  line-height: 130%;
+  @media (min-width: 1920px) {
+    font-size: 54px;
+  }
+}
+
+@mixin section-title {
+  font-family: Mark-Heavy;
+  font-size: 36px;
+  line-height: 46px;
+}
+
+@mixin statement-title {
+  font-family: Mark-Heavy;
+  font-size: 16px;
+  line-height: 20px;
+  color: $white;
+}
+
+@mixin statement-text {
+  font-family: Mark-Regular;
+  font-size: 16px; //INCREASE for min 1920 in home section only
+  line-height: 150%;
+  color: $text-gray;
+}
+
+@mixin navbar-text {
+  font-family: Mark-Medium;
+  font-size: 16px;
+  line-height: 130%;
+  color: $white;
+}
+
+@mixin text-emphasis {
+  font-family: Mark-Regular;
+  font-size: 14px;
+  line-height: 18px;
+  color: $contrast-color;
 }
