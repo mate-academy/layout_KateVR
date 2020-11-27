@@ -1,7 +1,9 @@
 .home {
-  width: 1280px;
-  height: 740px;
-  padding: 50px 110px 80px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 50px 0 80px;
+  // background: $gradient;
   color: white;
 
   &__image {
@@ -10,10 +12,13 @@
     right: 0;
     top: 0;
     width: 63%;
+    z-index: 1;
   }
 
   &__info {
     margin-top: 100px;
+    position: relative;
+    z-index: 2;
   }
 
   &__title {
@@ -47,9 +52,9 @@
   }
 
   &__bottom {
-    margin-top: 100px;
     display: grid;
     grid-template-columns: repeat(3, auto);
     justify-content: space-between;
+    @include textLink;
   }
 }

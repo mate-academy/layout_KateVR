@@ -2,8 +2,10 @@
 @import "fonts";
 @import "typography";
 @import "sections/home";
+@import "sections/more";
 @import "blocks/header";
 @import "blocks/nav";
+@import "blocks/remote.scss";
 @import "buttons/buy";
 
 * {
@@ -15,7 +17,8 @@ html {
 }
 
 body {
-  background: $c-gray;
+  // background: $c-gray;
+  background: $gradient;
   margin: 0;
 }
 
@@ -37,11 +40,40 @@ h2 {
   margin: -1px;
 }
 
+.container {
+  width: 1084px;
+  margin: 0 auto;
+
+  @media (min-width: 1600px) {
+    width: 1472px;
+  }
+
+  @media (max-width: 1200) {
+    width: 700px;
+  }
+
+  @media (max-width: 340px) {
+    width: 280px;
+  }
+}
+
 .page__home {
   position: relative;
-  background: $gradient;
   height: 100vh;
-  width: 100vw;
+  width: 1084px;
+  margin: 0 auto;
+
+  @media (min-width: 1600px) {
+    width: 1472px;
+  }
+
+  @media (max-width: 1200) {
+    width: 700px;
+  }
+
+  @media (max-width: 340px) {
+    width: 280px;
+  }
 }
 
 .video {
