@@ -2,6 +2,8 @@
 @import "fonts";
 @import "typography";
 @import "sections/home";
+@import "blocks/header";
+@import "blocks/nav";
 @import "buttons/buy";
 
 * {
@@ -19,6 +21,8 @@ body {
 
 a {
   text-decoration: none;
+  @include textLink;
+  color: $colorWhite;
 }
 
 h2 {
@@ -33,11 +37,11 @@ h2 {
   margin: -1px;
 }
 
-.nav__list {
-  display: grid;
-  gap: 34px;
-  grid-template-columns: repeat(7, auto);
-  justify-content: center;
+.page__home {
+  position: relative;
+  background: $gradient;
+  height: 100vh;
+  width: 100vw;
 }
 
 .video {
