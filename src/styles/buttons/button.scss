@@ -1,4 +1,4 @@
-.buy {
+.button {
   display: block;
   width: 200px;
   height: 48px;
@@ -8,15 +8,8 @@
   line-height: 48px;
   @include textLink;
   color: $colorWhite;
-  transition: 0.3s;
-
-  &:hover {
-    color: $colorContrast;
-    background-color: $colorWhite;
-  }
-
-  &:active {
-    color: $colorDark;
-    background-color: $colorPlus;
-  }
+  @include hover (color, $colorContrast);
+  @include hover (background-color, $colorWhite);
+  @include active (color, $colorDark);
+  @include active (background-color, $colorPlus);
 }

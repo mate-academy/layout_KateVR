@@ -10,13 +10,10 @@
     position: absolute;
     object-fit: contain;
     right: 0;
-    top: 0;
-    width: 63%;
+    top: 10px;
+    // width: 63%;
+    height: 90%;
     z-index: -1;
-  }
-
-  &__info {
-    margin-top: 100px;
   }
 
   &__title {
@@ -55,4 +52,41 @@
     justify-content: space-between;
     @include textLink;
   }
+
+  &__bottom-left {
+    display: grid;
+    gap: $gap-nav;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+  }
+
+  &__more-button {
+    position: relative;
+  }
+
+  &__more-link {
+    margin: 0;
+    color: $colorContrast;
+    text-align: center;
+    line-height: 36px;
+    @include hover(color, $colorWhite);
+  }
+
+  &__more-link::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid $colorContrast;
+    transition: 0.3s;
+  }
+
+  &__more-link:hover::after {
+    border-top: 9px solid $colorWhite;
+    }
 }
