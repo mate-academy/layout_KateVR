@@ -1,0 +1,116 @@
+.about {
+
+  &__product {
+    margin: 100px auto 190px;
+    display: grid;
+    gap: $gap;
+    grid-template-columns: 2fr 5fr 1fr 4fr;
+    grid-template-areas:
+      "number photo space about";
+  }
+
+  &__numbers {
+    grid-area: number;
+    justify-self: end;
+    color: $colorContrast;
+    font-size: 14px;
+  }
+
+  &__img {
+    grid-area: photo;
+    height: 290px;
+    width: 430px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__product-right {
+    grid-area: about;
+  }
+
+  &__heading {
+    letter-spacing: normal;
+  }
+
+  &__heading.heading {
+    padding: 0;
+  }
+
+  &__text {
+    margin-top: 30px;
+    @include text1;
+  }
+
+  &__meet {
+    // margin: 100px auto 190px;
+    display: grid;
+    gap: $gap;
+    grid-template-columns: 5fr 1fr 6fr;
+    grid-template-areas:
+      "meet space about";
+    align-items: space-between;
+
+  }
+
+  &__meet-left {
+    grid-area: meet;
+    text-align: left;
+  }
+
+  &__hello {
+    @include text2;
+    color: $colorContrast;
+  }
+
+  &__meet-heading.heading {
+    margin: 14px auto;
+    justify-content: start;
+    padding: 0;
+  }
+
+  &__meet-rigth {
+    padding: 0;
+    margin: 0;
+    grid-area: about;
+    display: grid;
+    gap: $gap;
+    grid-template-columns: (5, auto);
+    justify-content: space-between;
+    transform: rotate(90deg);
+    align-items: space-between;
+
+  }
+
+  &__efect {
+
+    @include textH1;
+    text-align: center;
+    vertical-align: middle;
+    padding: 0;
+    font-size: 64px;
+    -webkit-text-stroke: 1px rgba(5, 194, 223, 1.0);
+    text-shadow: 1px rgba(5, 194, 223, 1.0);
+    color: transparent;
+  }
+
+  &__efect:nth-child(1) {
+    -webkit-text-stroke: 1px rgba(5, 194, 223, 0.0);
+    // transform: rotate(-180deg);
+  }
+
+  &__efect:nth-child(2) {
+    -webkit-text-stroke: 1px rgba(5, 194, 223, 0.1);
+    transform: rotate(180deg);
+  }
+
+  &__efect:nth-child(3) {
+    -webkit-text-stroke: 1px rgba(5, 194, 223, 0.2);
+  }
+
+  &__efect:nth-child(4) {
+    -webkit-text-stroke: 1px rgba(5, 194, 223, 0.5);
+    transform: rotate(180deg);
+  }
+ }
+
+
