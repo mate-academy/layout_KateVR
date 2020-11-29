@@ -1,0 +1,111 @@
+.gaming {
+  background-color: $black;
+  padding: 158px 15px;
+  &__section-title {
+    margin-bottom: 14px;
+    @include section-title;
+    text-align: center;
+  }
+  &__contrast {
+    @include section-title-contrast;
+  }
+  &__section-subtitle {
+    margin-bottom: 69px;
+    @include text-emphasis;
+    text-align: center;
+  }
+  &__flex-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: calc(100% - (var(--container-padding-mid) + 6.5vw) * 2);
+    margin: auto;
+  }
+  &__fact {
+    width: 348px;
+    text-align: center;
+    padding-bottom: 10px;
+  }
+  &__icon {
+    margin-bottom: 30px;
+  }
+  &__title {
+    @include statement-title;
+    margin-bottom: 30px;
+  }
+  &__description {
+    @include statement-text;
+  }
+  @media(max-width: 1600px) {
+    &__fact {
+      width: 250px;
+      margin: 10px;
+    }
+  }
+  @media(max-width: 1280px) {
+    & {
+      padding: 100px 15px;
+    }
+    &__flex-wrapper {
+      width: calc(100% - var(--container-padding-mid) * 2);
+    }
+  }
+  @media (max-width: 1023px) {
+    &__flex-wrapper {
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+  @media (max-width: 810px) {
+    &__flex-wrapper {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      width: calc(100% - var(--container-padding-tablet) * 2);
+    }
+    &__fact {
+      margin: 10px 5px;
+      width: 48%;
+    }
+    & {
+      padding: 70px 15px;
+    }
+    &__title {
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width: 768px) {
+    &__section-subtitle {
+      margin-bottom: 50px;
+    }
+    &__icon {
+      margin-bottom: 20px;
+    }
+  }
+  @media (max-width: 615px) {
+    &__fact {
+      margin: 10px;
+      width: 100%;
+    }
+    &__flex-wrapper {
+      width: calc(100% - var(--container-padding-mobile) * 2);
+    }
+  }
+  @media (max-width: 320px) {
+    & {
+      padding: 33px 15px;
+    }
+    &__section-subtitle {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+    &__title {
+      margin-bottom: 10px;
+      text-align: left;
+    }
+    &__fact {
+      text-align: left;
+    }
+    &__icon {
+      display: none;
+    }
+  }
+}

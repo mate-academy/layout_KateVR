@@ -1,0 +1,128 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding-top: $section-home-padding-top; //до кнопки
+  padding-bottom: 120px;
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  &__middle {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title {
+    @include site-title-font;
+    text-transform: uppercase;
+  }
+  &__contrast {
+    display: block;
+    @include section-title-contrast;
+  }
+  &__text-container {
+    margin-left: calc(var(--figma-grid-column) + var(--figma-grid-gap) );
+  }
+  &__description {
+    @include statement-text;
+    margin-top: 1.5em;
+    width: 439px;
+  }
+  &__price {
+    margin-top: 1.7em;
+    margin-bottom: 2.2em;
+    font-family: "Mark-Medium", sans-serif;
+    font-size: 20px;
+    line-height: 25px;
+    color: $white;
+  }
+  &__video {
+    width: 285px;
+    height: 74px;
+    background: url("../images/play-button.svg") no-repeat;
+  }
+  &__play {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    @include play-button-text;
+    line-height: 74px;
+    @include neon-hover;
+  }
+  &__image-container {
+    width: calc(var(--figma-grid-column) * 8 + var(--figma-grid-gap) * 8);
+  }
+  &__product {
+    width: 100%;
+    object-fit: none;
+    object-position: bottom left;
+  }
+
+  &__lower {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__faq,
+  &__help {
+    flex-basis: 36px;
+    flex-grow: 1;
+    font-family: "Mark-Medium", sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    color: $white;
+    @include neon-hover;
+  }
+  &__more {
+    position: relative;
+    flex-basis: 41px;
+    flex-grow: 10;
+    @include text-emphasis;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.3s;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 9px;
+      height: 5px;
+      background: url("../images/caret.svg")no-repeat;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: transform 0.3s;
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+    &:hover::after {
+      transform: translateX(-50%) translateY(5px);
+    }
+  }
+  &__controls {
+    display: flex;
+    flex-basis: 207px;
+    flex-grow: 0;
+    justify-content: space-between;
+    width: 207px;
+    height: 34px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  }
+  &__prev,
+  &__next {
+    @include play-button-text;
+    line-height: 24px;
+  }
+  &__prev {
+    border-bottom: 1px solid $contrast-color;
+  }
+  @media (max-width: 1280px) {
+    &__price {
+      font-size: 18px;
+      line-height: 23px;
+    }
+  }
+  @media (max-width: 1023px) {
+    &__lower {
+      display: none;
+    }
+  }
+}

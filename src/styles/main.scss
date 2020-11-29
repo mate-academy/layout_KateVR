@@ -1,35 +1,60 @@
 @import "utils/vars";
-@import "utils/vars";
+@import "utils/mixins";
+@import "reset";
+@import "fonts";
+@import "container";
+@import "header";
+@import "navbar";
+@import "home";
+@import "gaming";
+
+/* z-index: 
+burger: 11;
+navbar-mobile: 10;
+overlay:9
+button: 8
+button-overlay: 7;
+*/
+:root {
+  --container-padding-mid: 110px;
+  --container-padding-tablet: 34px;
+  --container-padding-mob: 21px;
+  --main-button-height: 48px;
+  --figma-grid-column: calc(100% / 16);
+  --figma-grid-gap: 20px;
+}
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
-.header__option:hover {
-  background-color: purple
+.page {
+  overflow-x: hidden;
+  
 }
-.header__option {
-  background-color: gray
+
+.page__container {
+  @media (min-width: 1921px) {
+    margin: 0 auto;
+    padding: 0;
+  }
 }
-.header__langs {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: transparent;
-  border: 2px solid transparent;
-  width: 40px;
-}
-.wrapper {
-  display: inline-block;
-  position: relative;
-}
-.wrapper::after {
-  content: '';
+
+.page__overlay {
   position: absolute;
-  right: 5px;
-  top: 5px;
-  background-color: red;
-  width: 15px;
-  height: 15px;
-  //ПРИ условии прозрачного select
-  z-index: -1;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  display: none;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.3;
+}
+
+@media (max-width: 1023px) {
+  .header__checkbox:checked ~ .page__overlay {
+    display: block;
+  }
 }
