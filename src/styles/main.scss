@@ -14,6 +14,7 @@
 @import "blocks/remote";
 @import "blocks/heading";
 @import "blocks/video";
+@import "blocks/leng";
 @import "buttons/button";
 
 * {
@@ -87,6 +88,7 @@ h2 {
 
   @media (max-width: 1200px) {
     width: $width768;
+    height: 445px;
   }
 
   @media (max-width: 700px) {
@@ -98,11 +100,11 @@ h2 {
   position: sticky;
   top: 0;
   background: linear-gradient(180deg,
-   #191536 0%,
-   rgba(25, 21, 54, 0.83) 70.31%,
-   rgba(25, 21, 54, 0) 100%);
-   opacity: 0;
-   @include hover (opacity, 1);
+  #191536 0%,
+  rgba(25, 21, 54, 0.83) 70.31%,
+  rgba(25, 21, 54, 0) 100%);
+  opacity: 0;
+  @include hover (opacity, 1);
 }
 
 .blocks__header {
@@ -113,24 +115,8 @@ h2 {
     width: $width1920;
     margin-bottom: 70px;
   }
-}
 
-.leng {
-  position: relative;
-  @include textLink;
-  color: $colorContrast;
-}
-
-.leng__name::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  right: -75%;
-  transform: translate(0, -100%);
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid $colorContrast;
-  transition: 0.3s;
+  @media (max-width: 1200px) {
+    display: none;
+  }
 }

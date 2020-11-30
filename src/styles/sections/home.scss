@@ -4,9 +4,16 @@
   justify-content: space-between;
   padding: 24px 0 80px;
   color: white;
+  height: 445px;
 
   @media (min-width: 1900px) {
     padding-bottom: 110px;
+  }
+
+  @media (max-width: 1200px) {
+    height: 445px;
+    padding: 30px 0;
+
   }
 
   &__image {
@@ -16,6 +23,11 @@
     top: 10px;
     height: 90%;
     z-index: -1;
+
+    @media (max-width: 1200px) {
+      top: 0;
+    height: 425px;
+    }
   }
 
   &__title {
@@ -24,6 +36,11 @@
 
     @media (min-width: 1900px) {
       font-size: 54px;
+    }
+
+    @media (max-width: 1200px) {
+      font-size: 26px;
+      margin: 0;
     }
   }
 
@@ -38,6 +55,11 @@
     @include textLink;
     line-height: 1.5;
     color: $colorText;
+
+    @media (max-width: 1200px) {
+      font-size: 26px;
+      margin: 14px 0 0;
+    }
   }
 
   &__description {
@@ -57,6 +79,10 @@
     grid-template-columns: repeat(3, auto);
     justify-content: space-between;
     @include textLink;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
 
   &__bottom-left {

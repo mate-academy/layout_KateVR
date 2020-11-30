@@ -6,6 +6,10 @@
     padding: 160px 0 200px;
   }
 
+  @media (max-width: 1200px) {
+    padding: 70px 0 70px;
+  }
+
   &__section {
     display: grid;
     gap: $gap;
@@ -49,5 +53,11 @@
     border: 0.5px solid $colorContrast;
     color: $colorContrast;
     @include textLink;
+    @include hover (color, $colorWhite);
+    @include hover (background-color, $colorContrast);
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
   }
 }
