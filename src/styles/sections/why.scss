@@ -2,7 +2,11 @@
   background: linear-gradient(108.62deg, #191536 0%, #000 77.34%);
   color: $colorText;
   border-top: 1px solid #05040b;
-  padding-bottom: 100px;
+  padding: 100px 0;
+
+  @media (min-width: 1900px) {
+    padding: 160px 0;
+  }
 
   &__articles {
     padding: 80px 0 90px;
@@ -10,6 +14,11 @@
     gap: $gap;
     grid-template-columns: repeat(3, auto);
     justify-content: space-between;
+
+    @media (min-width: 1900px) {
+      padding-bottom: 0;
+      gap: 72px*2 + 20px*3;
+    }
   }
 
   &__part {
@@ -34,4 +43,12 @@
   &__button {
     margin: 0 auto;
   }
+
+
+  &__button.button {
+    @media (min-width: 1900px) {
+      display: none;
+    }
+  }
+
 }

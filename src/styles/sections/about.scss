@@ -1,7 +1,12 @@
 .about {
+  padding: 100px 0;
+
+  @media (min-width: 1900px) {
+    padding: 160px 0;
+  }
 
   &__product {
-    margin: 100px auto 190px;
+    margin: 0 auto 190px;
     display: grid;
     gap: $gap;
     grid-template-columns: 2fr 5fr 1fr 4fr;
@@ -41,7 +46,6 @@
   }
 
   &__meet {
-    // margin: 100px auto 190px;
     display: grid;
     gap: $gap;
     grid-template-columns: 5fr 1fr 6fr;
@@ -67,13 +71,13 @@
   }
 
   &__meet-rigth {
+    height: 333px;
     padding: 0;
-    margin: 0;
+    margin: -30px 0 0;
     grid-area: about;
     display: grid;
     gap: $gap;
     grid-template-columns: (5, auto);
-    justify-content: space-between;
     transform: rotate(90deg);
     align-items: space-between;
 
@@ -83,12 +87,12 @@
 
     @include textH1;
     text-align: center;
-    vertical-align: middle;
     padding: 0;
     font-size: 64px;
     -webkit-text-stroke: 1px rgba(5, 194, 223, 1);
     text-shadow: 1px rgba(5, 194, 223, 1);
     color: transparent;
+    // transform-origin: 50% 50%;
   }
 
   &__efect:nth-child(1) {

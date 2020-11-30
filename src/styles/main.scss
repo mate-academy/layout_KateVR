@@ -8,6 +8,7 @@
 @import "sections/why";
 @import "sections/question";
 @import "sections/footer";
+@import "blocks/contact";
 @import "blocks/header";
 @import "blocks/nav";
 @import "blocks/remote";
@@ -23,6 +24,7 @@ html {
   font-family: "Mark-Regular", sans-serif;
   font-size: 16px;
   color: $colorWhite;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -92,14 +94,22 @@ h2 {
   }
 }
 
-.page__up {
-  display: block;
-  height: 48px;
-  width: 48px;
-  line-height: 48px;
-  text-align: center;
-  border-radius: 50%;
-  border: 0.5px solid $colorContrast;
-  color: $colorContrast;
+.leng {
+  position: relative;
   @include textLink;
+  color: $colorContrast;
+}
+
+.leng__name::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: -75%;
+  transform: translate(0, -100%);
+  width: 0;
+  height: 0;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid $colorContrast;
+  transition: 0.3s;
 }
