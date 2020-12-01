@@ -1,4 +1,6 @@
 .footer {
+  position: relative;
+  z-index: 1;
   background-color: black;
 
   &__section {
@@ -11,11 +13,48 @@
       height: 64px;
     }
 
+    @media (max-width: 720px) {
+      margin: 10px 0;
+      height: 320px;
+      display: flex;
+      flex-direction: column;
+      justify-content: start;
+    }
+
+    & .nav__list {
+      position: relative;
+      visibility: visible;
+      display: flex;
+      flex-direction: row;
+      background-color: transparent;
+      padding: 0;
+      line-height: 64px;
+      gap: 34px;
+
+      @media (max-width: 720px) {
+        flex-direction: column;
+        line-height: 48px;
+        padding-top: 15px;
+        gap: 0;
+      }
+    }
+
     & .nav__item {
       @media (max-width: 1200px) {
+        display: inline-block;
         font-size: 14px;
         line-height: 64px;
+        padding: 0;
+        @include hover (background-color, black);
       }
+
+      @media (max-width: 720px) {
+        line-height: 48px;
+      }
+    }
+
+    & .nav__item:nth-child(n+5) {
+      display: none;
     }
 
     & .nav__link {
@@ -23,12 +62,21 @@
         font-size: 14px;
         line-height: 64px;
       }
+
+      @media (max-width: 720px) {
+        line-height: 48px;
+      }
     }
   }
 
   &__left {
     display: flex;
     align-self: center;
+
+    @media (max-width: 720px) {
+      align-self: start;
+      margin-top: 50px;
+    }
   }
 
   &__logo {
@@ -38,10 +86,22 @@
     }
   }
 
+  &__center {
+    @media (max-width: 720px) {
+      align-self: start;
+    }
+  }
+
   &__right {
     display: grid;
     gap: 18px;
     grid-template-columns: repeat(4, auto);
     align-self: center;
+
+    @media (max-width: 720px) {
+      position: absolute;
+      bottom: 50px;
+      align-self: flex-end;
+    }
   }
 }

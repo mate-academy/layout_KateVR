@@ -1,6 +1,8 @@
 .question {
+  position: relative;
   background-color: #05040b;
   padding: 100px 0;
+  z-index: 4;
 
   @media (min-width: 1900px) {
     padding: 160px 0 200px;
@@ -14,6 +16,12 @@
     display: grid;
     gap: $gap;
     grid-template-columns: 1fr 1fr;
+
+    @media (max-width: 720px) {
+      display: flex;
+      flex-direction: column;
+      height: 530px;
+    }
   }
 
   &__pretext {
@@ -26,14 +34,49 @@
     justify-content: start;
   }
 
+  &__text-main {
+    margin: 0;
+    @include text1;
+    width: 338px;
+
+    @media (max-width: 720px) {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 12px;
+      text-align: center;
+      width: 280px;
+    }
+  }
+
   &__text {
     margin: 0;
     @include text1;
     width: 338px;
+
+    @media (max-width: 720px) {
+      width: 280px;
+      text-align: right;
+      font-size: 14px;
+      justify-self: flex-end;
+      line-height: 48px;
+    }
   }
 
   &__contacts {
     padding-top: 52px;
+
+    @media (max-width: 720px) {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      justify-self: flex-end;
+      bottom: -220px;
+      // margin-right: 0;
+      color: red;
+      font-size: 14px;
+    }
   }
 
   &__contact-form {

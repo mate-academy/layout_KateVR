@@ -11,41 +11,6 @@
     }
   }
 
-  &__toggle:checked ~ &__btn > &__span {
-    width: 0px;
-    transform: rotate(360deg);
-  }
-  &__toggle:checked ~ &__btn > &__span::before {
-    top: 0;
-    transform: rotate(45deg);
-  }
-  &__toggle:checked ~ &__btn > &__span::after {
-    top: 0;
-    transform: rotate(135deg);
-  }
-
-  &__toggle:checked ~ &__list {
-    visibility: visible;
-    // left: 0;
-    // top: 40px;
-  }
-
-  &__btn {
-    display: none;
-    position: relative;
-    margin: 12px auto 0;
-
-    width:29px;
-    height: 13px;
-
-    cursor: pointer;
-    z-index: 1;
-
-    @media (max-width: 1200px) {
-      display: block;
-    }
-  }
-
   &__span {
     display: none;
     position: absolute;
@@ -54,7 +19,7 @@
     height: 1px;
 
     background-color: #fff;
-    transition-duration: .3s;
+    transition-duration: 0.3s;
 
     @media (max-width: 1200px) {
       display: block;
@@ -70,17 +35,16 @@
     height: 1px;
 
     background-color: #fff;
-    transition-duration: .3s;
+    transition-duration: 0.3s;
   }
 
-
   &__span::before {
-    content: '';
+    content: "";
     top: -6px;
   }
 
   &__span::after {
-    content: '';
+    content: "";
     top: 6px;
   }
 
@@ -88,6 +52,19 @@
   &__btn:hover &__span::before,
   &__btn:hover &__span::after {
     background-color: $colorContrast;
+  }
+
+  &__toggle:checked ~ &__btn > &__span {
+    width: 0;
+    transform: rotate(360deg);
+  }
+  &__toggle:checked ~ &__btn > &__span::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  &__toggle:checked ~ &__btn > &__span::after {
+    top: 0;
+    transform: rotate(135deg);
   }
 
   &__list {
@@ -105,11 +82,29 @@
       right: 0;
       left: 0;
       padding: 98px 0;
-      background-color:#191536;
-      gap: 0px;
+      background-color: #191536;
+      gap: 0;
     }
+  }
 
+  &__toggle:checked ~ &__list {
+    visibility: visible;
+  }
 
+  &__btn {
+    display: none;
+    position: relative;
+    margin: 12px auto 0;
+
+    width: 29px;
+    height: 13px;
+
+    cursor: pointer;
+    z-index: 1;
+
+    @media (max-width: 1200px) {
+      display: block;
+    }
   }
 
   &__item {
@@ -119,9 +114,7 @@
     @media (max-width: 1200px) {
       display: block;
       line-height: 48px;
-      padding: 0;
       padding: 0 150px;
-
       margin: 0;
       @include hover (background-color, #110E25);
 
