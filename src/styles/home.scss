@@ -3,8 +3,8 @@
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  padding-top: $section-home-padding-top; //до кнопки
-  padding-bottom: 120px;
+  @include section-padding;
+  padding-top: $section-home-padding-top;
   background: linear-gradient(107.56deg, #191536 0%, #000 100%);
   &__middle {
     display: flex;
@@ -14,17 +14,21 @@
     @include site-title-font;
     text-transform: uppercase;
   }
+  &__slogan {
+    width: 552px;
+  }
   &__contrast {
     display: block;
     @include section-title-contrast;
   }
   &__text-container {
-    margin-left: calc(var(--figma-grid-column) + var(--figma-grid-gap) );
+    margin-left: calc(var(--figma-grid-column-lg) + var(--figma-grid-gap) );
   }
   &__description {
     @include statement-text;
+    font-size: 20px;
     margin-top: 1.5em;
-    width: 439px;
+    max-width: 439px;
   }
   &__price {
     margin-top: 1.7em;
@@ -35,31 +39,22 @@
     color: $white;
   }
   &__video {
-    width: 285px;
-    height: 74px;
-    background: url("../images/play-button.svg") no-repeat;
+    @extend %video-buttons;
   }
   &__play {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    @include play-button-text;
-    line-height: 74px;
-    @include neon-hover;
+    @extend %video-button-text;
   }
   &__image-container {
-    width: calc(var(--figma-grid-column) * 8 + var(--figma-grid-gap) * 8);
+    width: 57%;
   }
   &__product {
     width: 100%;
-    object-fit: none;
-    object-position: bottom left;
   }
 
   &__lower {
     display: flex;
     justify-content: space-between;
+    margin-top: 93px;
   }
   &__faq,
   &__help {
@@ -77,52 +72,92 @@
     flex-grow: 10;
     @include text-emphasis;
     text-align: center;
-    cursor: pointer;
-    transition: transform 0.3s;
+    transition: color 0.3s;
     &::after {
       position: absolute;
       content: "";
-      width: 9px;
-      height: 5px;
       background: url("../images/caret.svg")no-repeat;
       bottom: 0;
       left: 50%;
+      width: 9px;
+      height: 5px;
       transform: translateX(-50%);
-      transition: transform 0.3s;
+      
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      background: url("../images/more-button-hover.svg")no-repeat;
+      bottom: 0;
+      left: 50%;
+      z-index: 1;
+      width: 9px;
+      height: 5px;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
     }
     &:hover {
-      transform: scale(1.1);
+      color: $white;
     }
-    &:hover::after {
-      transform: translateX(-50%) translateY(5px);
+    &:hover::before {
+      color: $white;
+      opacity: 1;
     }
   }
   &__controls {
-    display: flex;
-    flex-basis: 207px;
-    flex-grow: 0;
-    justify-content: space-between;
-    width: 207px;
-    height: 34px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    @extend %slider-controls;
   }
   &__prev,
   &__next {
-    @include play-button-text;
-    line-height: 24px;
+    @extend %slider-buttons;
   }
   &__prev {
-    border-bottom: 1px solid $contrast-color;
+    @extend %slider-buttons-active;
+  }
+  @media (max-width: 1500px) {
+    &__slogan {
+      width: 45%;
+    }
+    &__image-container {
+      width: 49%;
+    }
   }
   @media (max-width: 1280px) {
     &__price {
       font-size: 18px;
       line-height: 23px;
     }
+    &__image-container {
+      width: 49%;
+    }
+  }
+  @media (max-width: 1100px) {
+    &__image-container {
+      min-height: initial;
+    }
   }
   @media (max-width: 1023px) {
+    &__description {
+      font-size: 16px;
+    }
+    &__text-container {
+      margin-left: initial;
+    }
+    &__middle {
+      margin-top: 55px;
+    }
     &__lower {
       display: none;
+    }
+  }
+  @media (max-width: 600px) {
+    &__middle {
+      flex-flow: column-reverse;
+    }
+    &__image-container,
+    &__slogan {
+      width: 100%;
     }
   }
 }

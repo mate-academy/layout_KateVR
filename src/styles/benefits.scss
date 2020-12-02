@@ -1,29 +1,28 @@
-.gaming {
+.benefits {
   @include section-padding;
-  background-color: $black;
+  background: linear-gradient(
+    108.62deg, 
+    #191536 0%, 
+    #000 77.34%);
   &__section-title {
-    margin-bottom: 14px;
+    margin-bottom: 69px;
     @include section-title;
     text-align: center;
   }
   &__contrast {
     @include section-title-contrast;
-  }
-  &__section-subtitle {
-    margin-bottom: 69px;
-    @include text-emphasis;
     text-align: center;
   }
   &__flex-wrapper {
     display: flex;
     justify-content: space-between;
+    margin: 0 auto;
     width: calc(100% - (var(--container-padding-mid) + 6.5vw) * 2);
-    margin: auto;
   }
   &__fact {
     width: 348px;
+    margin: 15px;
     text-align: center;
-    padding-bottom: 10px;
   }
   &__description {
     @include statement-text;
@@ -44,13 +43,7 @@
       width: 1450px;
     }
   }
-  @media(max-width: 1600px) {
-    &__fact {
-      width: 250px;
-      margin: 15px;
-    }
-  }
-  @media(max-width: 1280px) {
+  @media (max-width: 1280px) {
     &__flex-wrapper {
       width: calc(100% - var(--container-padding-mid) * 2);
     }
@@ -58,38 +51,30 @@
   @media (max-width: 1023px) {
     &__flex-wrapper {
       flex-wrap: wrap;
-      justify-content: space-between;
+      justify-content: center;
     }
   }
+
   @media (max-width: 810px) {
     &__flex-wrapper {
-      flex-wrap: wrap;
-      justify-content: space-between;
       width: calc(100% - var(--container-padding-tablet) * 2);
-    }
-    &__fact {
-      margin: 10px 5px;
-      width: 48%;
-    }
-    &__title {
-      margin-bottom: 20px;
     }
   }
   @media (max-width: 768px) {
-    &__section-subtitle {
+    &__section-title {
       margin-bottom: 50px;
-    }
-    &__icon {
-      margin-bottom: 20px;
     }
   }
   @media (max-width: 615px) {
+    &__flex-wrapper {
+      width: calc(100% - var(--container-padding-mobile) * 2);
+    }
     &__fact {
       margin: 10px auto;
       width: 75%;
     }
-    &__flex-wrapper {
-      width: calc(100% - var(--container-padding-mobile) * 2);
+    &__title {
+      white-space: initial;
     }
   }
   @media (max-width: 320px) {
@@ -98,19 +83,15 @@
       padding-right: 15px;
     }
     &__section-title {
-      text-align: left;
-    }
-    &__section-subtitle {
       margin-bottom: 30px;
       text-align: left;
     }
-    &__title {
-      margin-bottom: 10px;
-      text-align: left;
+    &__flex-wrapper {
+      justify-content: flex-start;
     }
     &__fact {
-      margin: 10px 0;
       text-align: left;
+      margin: 10px 0;
     }
     &__icon {
       display: none;
