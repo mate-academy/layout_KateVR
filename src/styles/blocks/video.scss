@@ -8,22 +8,18 @@
 
   @include hover (color, $colorContrast);
 
+  &__arrow {
+    margin-left: 25px;
+    @include textH1;
+    color: $colorContrast;
+    @include hover (color, $colorWhite);
+  }
+
   &__link {
-    margin-left: 30px;
+    margin-left: 70px;
     @include textLink;
     color: $colorText;
     line-height: 70px;
     @include hover (color, $colorWhite);
-  }
-
-  &__link::before {
-    content: ">";
-    margin-right: 50px;
-    color: $colorContrast;
-    transition: 0.3s;
-  }
-
-  &__link:hover::before {
-    color: $colorWhite;
   }
 }
