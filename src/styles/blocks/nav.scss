@@ -5,6 +5,7 @@
     position: absolute;
     // top: 100%;
     display: none;
+    z-index: 6;
 
     @media (max-width: 1200px) {
       display: block;
@@ -20,6 +21,7 @@
 
     background-color: #fff;
     transition-duration: 0.3s;
+    z-index: 6;
 
     @media (max-width: 1200px) {
       display: block;
@@ -68,10 +70,12 @@
   }
 
   &__list {
+    position: relative;
     margin: 0;
     display: flex;
     gap: $gap-nav;
     line-height: 98px;
+    z-index: 2;
 
     @media (max-width: 1200px) {
       visibility: hidden;
@@ -89,6 +93,10 @@
 
   &__toggle:checked ~ &__list {
     visibility: visible;
+
+    .nav__list {
+      visibility: visible;
+    }
   }
 
   &__btn {
@@ -100,7 +108,7 @@
     height: 13px;
 
     cursor: pointer;
-    z-index: 1;
+    z-index: 6;
 
     @media (max-width: 1200px) {
       display: block;
@@ -139,5 +147,9 @@
       margin: 0;
       padding: 0;
     }
+  }
+
+  &__item:checked &__link {
+    display: none;
   }
 }

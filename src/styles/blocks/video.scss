@@ -1,10 +1,31 @@
 .video {
-  display: block;
-  background-image: url(./../images/play_video.svg);
+  display: flex;
+  align-items: center;
+  background-image: url(./../images/play.svg);
   background-repeat: no-repeat;
-  height: 100px;
+  height: 70px;
+  width: 250px;
 
-  &:hover {
-    background-image: url(./../images/play_video_hover.svg);
+  @include hover (color, $colorContrast);
+
+
+  &__link {
+    margin-left: 30px;
+    @include textLink;
+    color: $colorText;
+    line-height: 70px;
+    @include hover (color, $colorWhite);
+
+  }
+
+  &__link::before {
+    content: ">";
+    margin-right: 50px;
+    color: $colorContrast;
+    transition: 0.3s;
+  }
+
+  &__link:hover::before{
+    color: $colorWhite;
   }
 }
