@@ -13,6 +13,3 @@
 //   nav.classList.toggle('nav__list');
 //   toggler.classList.toggle('toggler');
 // }
-
-
-
