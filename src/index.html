@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KatVR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body class="page">
@@ -93,24 +96,35 @@
           </div>
 
           <div class="home__image-container">
-            <img
-              src="./images/home-product.png"
-              alt="product"
-              class="home__product"
-            >
+            <div class="home__prod-wrap">
+              <img
+                src="./images/home-product.png"
+                alt="product"
+                class="home__product"
+              >
+            </div>
+            <div class="home__prod-wrap">
+              <img
+                src="./images/home-product.png"
+                alt="product"
+                class="home__product"
+              >
+            </div>
           </div>
         </div>
+      </div>
+      <div class="container page__container">
         <div class="home__lower">
           <a class="home__faq">FAQ</a>
           <a class="home__help">Help</a>
           <a class="home__more" href="#about">More</a>
           <div class="home__controls">
-            <button class="home__prev">
+            <div class="home__prev">
               Previous
-            </button>
-            <button class="home__next">
+            </div>
+            <div class="home__next">
               Next
-            </button>
+            </div>
           </div>
         </div>
       </div>
@@ -181,14 +195,29 @@
     <!--====================  Section About Start  ======================-->
     <section class="about" id="about">
       <div class="container page__container">
+        <h2 class="about__section-title about__section-title--mobile">
+          About
+          <span class="about__contrast">
+            Product
+          </span>
+        </h2>
         <div class="about__product">
-          <div class="about__slider">
-            <div class="about__slide">
-              <img
-                class="about__fit-photo"
-                src="./images/about-photo.png"
-                alt="usage"
-              >
+          <div class="about__slider-wrapper">
+            <div class="about__slider">
+              <div class="about__slide">
+                <img
+                  class="about__fit-photo"
+                  src="./images/about-photo.png"
+                  alt="usage"
+                >
+              </div>
+              <div class="about__slide">
+                <img
+                  class="about__fit-photo"
+                  src="./images/about-photo.png"
+                  alt="usage"
+                >
+              </div>
             </div>
             <div class="about__controls">
               <button type="button" class="about__prev">
@@ -202,7 +231,7 @@
             <p class="about__counter">1/5</p>
           </div>
           <div class="about__product-details">
-            <h2 class="about__section-title">
+            <h2 class="about__section-title about__section-title--desktop">
               About
               <span class="about__contrast">
                 Product

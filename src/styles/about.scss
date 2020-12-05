@@ -6,10 +6,13 @@
     grid-template-columns: 10fr 5fr;
     column-gap: calc(var(--figma-grid-column-lg) + var(--figma-grid-gap) * 2);
   }
-  &__slider {
+  &__slider-wrapper {
     position: relative;
+  }
+  &__slider {
     justify-self: end;
   }
+
   &__slide {
     margin-bottom: 12px;
   }
@@ -29,9 +32,6 @@
     bottom: 20px;
     left: 50%;
     transform: translateX(-50%);
-    background: url("../images/slider-points.png")no-repeat;
-    width: 44px;
-    height: 4px;
   }
   &__prev,
   &__next {
@@ -40,12 +40,12 @@
   &__prev {
     @extend %slider-buttons-active;
   }
-  /*&__product-details {
-    
-  }*/
   &__section-title {
     @include section-title;
     margin-bottom: 32px;
+    &--mobile {
+      display: none;
+    }
   }
   &__contrast {
     @include section-title-contrast;
@@ -151,6 +151,15 @@
     }
     &__slide {
       width: 100%;
+    }
+    &__section-title--mobile {
+      display: block;
+    }
+    &__section-title--desktop {
+      display: none;
+    }
+    &__contrast {
+      display: inline-block;
     }
   }
   @media (max-width: 450px) {
