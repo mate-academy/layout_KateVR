@@ -40,6 +40,11 @@ textarea {
   border: none;
 }
 
+input:-internal-autofill-selected {
+  color: red !important;
+  background-color: purple !important;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -55,10 +60,17 @@ select:-webkit-autofill:focus {
   transition: background-color 5000s ease-in-out 0s;
   margin: 0;
   padding: 0;
+  //same as empty input
+  font-family: "Mark-Regular", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: #05c2df;
+  background-color: transparent;
+  padding-bottom: 19px;
 }
-/*
+
 input:-webkit-autofill::placeholder,
 input:-webkit-autofill:hover::placeholder,
 input:-webkit-autofill:focus::placeholder {
   color: red;
-}*/
+}
