@@ -1,6 +1,142 @@
+@import "utils/vars";
+@import "fonts";
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin site-title-font {
+  font-family: "Mark-Heavy", sans-serif;
+  font-size: 54px;
+  line-height: 130%;
+  color: $white;
+  @media (max-width: 1650px) {
+    font-size: 46px;
+  }
+  @media (max-width: 1100px) {
+    font-size: 29px;
+  }
+  @media (max-width: 768px) {
+    font-size: 26px;
+  }
+}
+
+@mixin section-title {
+  font-family: "Mark-Heavy", sans-serif;
+  font-size: 36px;
+  line-height: 46px;
+  text-transform: uppercase;
+  color: $white;
+  @media (max-width: 768px) {
+    font-size: 21px;
+    line-height: 21px;
+  }
+}
+
+@mixin section-title-contrast {
+  font-family: "Quantum", sans-serif;
+  color: $contrast-color;
+}
+
+@mixin statement-title {
+  font-family: "Mark-Heavy", sans-serif;
+  font-size: 18px;
+  line-height: 23px;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: $white;
+}
+
+@mixin statement-text {
+  font-family: "Mark-Regular", sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  color: $text-gray;
+}
+
+@mixin navbar-text {
+  font-family: "Mark-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 130%;
+  color: $white;
+  @media (max-width: 768px) {
+    font-size: 21px;
+  }
+}
+
+@mixin text-emphasis {
+  font-family: "Mark-Regular", sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: $contrast-color;
+}
+
+@mixin play-button-text {
+  font-family: "Mark-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 130%;
+  color: $white;
+}
+
+@mixin container-padding {
+  padding-left: calc(var(--container-padding-mid) + 6.5vw);
+  padding-right: calc(var(--container-padding-mid) + 6.5vw);
+  @media(max-width: 1600px) {
+    padding-left: var(--container-padding-mid);
+    padding-right: var(--container-padding-mid);
+  }
+  @media(max-width: 1023px) {
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+  @media(max-width: 320px) {
+    padding-left: var(--container-padding-mob);
+    padding-right: var(--container-padding-mob);
+  }
+}
+
+@mixin button-styles {
+  display: inline-flex;
+  flex-basis: 200px;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  min-width: 200px;
+  height: var(--main-button-height);
+  @include navbar-text;
+  background-color: $contrast-color;
+  border-radius: 4px;
+  transition: background-color 0.5s, color 0.5s;
+  cursor: pointer;
+  &:hover {
+    background-color: $white;
+    color: $contrast-color;
+  }
+}
+
+@mixin neon-hover {
+  transition: text-shadow 0.3s, color 0.3s;
+  &:hover {
+    text-shadow: 1px 1px 10px rgba(255, 255, 255, 1);
+    color: $white;
+  }
+}
+
+@mixin section-padding {
+  padding: 160px 0;
+  @media (max-width: 1100px) {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  @media (max-width: 768px) {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  @media (max-width: 320px) {
+    padding-top: 33px;
+    padding-bottom: 33px;
   }
 }

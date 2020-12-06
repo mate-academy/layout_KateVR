@@ -1,0 +1,134 @@
+.tech {
+  background-color: $black;
+  @include section-padding;
+  &__grid-clone {
+    display: grid;
+    //grid-template-columns: repeat(16, calc(75% / 16 ));
+    grid-template-columns: repeat(16, 1fr);
+  }
+  &__section-title {
+    @include section-title;
+    grid-column: 12 / span 5;
+  }
+  &__contrast {
+    @include section-title-contrast;
+  }
+  /*
+  .tech__section-title {
+  }
+  .tech__contrast {
+  }
+  */
+  &__product {
+    text-align: center;
+    margin-top: 140px;
+  }
+  &__product-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 300px;
+  }
+  &__photo {
+    width: 100%;
+    height: 100%;
+  }
+  &__arrow {
+    position: absolute;
+    &:nth-child(2) {
+      top: -47px;
+      left: -283px;
+    }
+    &:nth-child(3) {
+      top: 62px;
+      left: -242px;
+    }
+    &:nth-child(4) {
+      top: 42px;
+      left: -13px;
+    }
+    &:nth-child(5) {
+      top: -48px;
+      left: 151px;
+    }
+  }
+  &__profile {
+    text-align: left;
+    position: absolute;
+    &:nth-child(9) {
+      top: -54px;
+      left: -382px;
+      width: 250px;
+    }
+    &:nth-child(10) {
+      top: 160px;
+      left: -382px;
+      width: 250px;
+    }
+    &:nth-child(11) {
+      top: -62px;
+      left: 352px;
+      width: 345px;
+    }
+  }
+  &__title {
+    @include statement-title;
+    margin-bottom: 20px;
+  }
+  &__list {
+    @include statement-text;
+  }
+  /* .tech__description {
+  } */
+  &__adaptive-toggler {
+    display: none;
+    position: absolute;
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    background-color: $contrast-color;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 36%;
+      height: 2px;
+      border-radius: 1px;
+      background-color: $white;
+    }
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 2px;
+      height: 36%;
+      border-radius: 1px;
+      background-color: $white;
+    }
+    &:nth-child(6) {
+      top: -21px;
+      left: 37px;
+    }
+    &:nth-child(7) {
+      top: 252px;
+      left: -54px;
+    }
+    &:nth-child(8) {
+      top: 120px;
+      left: 215px;
+    }
+  }
+  @media (max-width:1200px) {
+    &__profile,
+    &__arrow {
+      display: none;
+    }
+    &__adaptive-toggler {
+      display: block;
+    }
+  }
+}
