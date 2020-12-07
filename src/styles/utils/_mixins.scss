@@ -10,6 +10,10 @@
     width: $fullHdScreenWidth;
   }
 
+  @include onLargeScreen {
+    width: $laptopScreenWidth;
+  }
+
   @include onLaptop {
     width: $laptopScreenWidth;
   }
@@ -24,25 +28,37 @@
 }
 
 @mixin onFullHd {
-  @media (max-width: $fullHdBreakpoint) {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 1281px) {
     @content;
   }
 }
 
 @mixin onLaptop {
-  @media (max-width: $laptopBreakpoint) {
+  @media (min-width: 1024px) and (max-width: 1280px) {
     @content;
   }
 }
 
 @mixin onTablet {
-  @media (max-width: $tabletBreakpoint) {
+  @media (max-width: 1023px) {
     @content;
   }
 }
 
 @mixin onMobile {
-  @media (max-width: $mobileBreakpoint) {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onMobile-down {
+  @media (max-width: 650px) {
     @content;
   }
 }
@@ -51,4 +67,10 @@
   font-size: $size;
   font-weight: $weight;
   line-height: $lineHeight;
+}
+
+@mixin centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
