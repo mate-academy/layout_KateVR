@@ -11,9 +11,7 @@
     min-width: 430px;
     max-width: 622px;
   }
-  &__slider {
-    justify-self: end;
-  }
+  
 
   &__slide {
     margin-bottom: 12px;
@@ -96,8 +94,16 @@
     height: 340px;
     background: url("../images/about-about-us.svg") no-repeat;
   }
-  //===================================
-
+  @media (min-width: 1921px) {
+    &__slider-wrapper {
+      min-width: 100%;
+    }
+  }
+  @media (min-width: 1281px) and (max-width: 1920px) {
+    &__slider-wrapper {
+      justify-self: end;
+    }
+  }
   @media (max-width: 1280px) {
     &__product {
       grid-template-columns: 7fr 4fr;
@@ -112,7 +118,6 @@
       height: 100%;
       object-fit: cover;
     }
-    //====
     &__greeting {
       margin-left: 0;
       width: calc(50% - var(--figma-grid-column-lg));
