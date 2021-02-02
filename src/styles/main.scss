@@ -1,7 +1,152 @@
-@import "utils";
+@import "utils/vars";
+@import "utils/mixins";
+@import "reset";
+@import "normalize";
 @import "fonts";
-@import "typography";
+@import "container";
+@import "header";
+@import "navbar";
+@import "home";
+@import "about";
+@import "gaming";
+@import "tech";
+@import "benefits";
+@import "form";
+@import "contact";
+@import "footer";
 
-body {
-  background: $c-gray;
+/* z-index: 
+burger: 11;
+navbar-mobile: 10;
+overlay:9
+button: 8
+button-overlay: 7;
+*/
+:root {
+  --container-padding-mid: 110px;
+  --container-padding-tablet: 34px;
+  --container-padding-mob: 21px;
+  --main-button-height: 48px;
+  --figma-grid-gap: 20px;
+  --figma-grid-column-lg: calc(75% / 16);//1450 75%
+  --figma-grid-column-md: calc(82% / 12);//1060 82%
+  --figma-grid-column-tab: calc(91% / 6);//700 91%
+  --figma-grid-column-mob: calc(88% / 2);//280 88%
+}
+
+.page {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    display: none;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.3;
+  }
+  &__total-wrapper {
+    overflow: hidden;
+    position: relative;
+  }
+  @media (min-width: 1921px) {
+    &__container {
+      margin: 0 auto;
+      padding: 0;
+      width: 1450px;
+    }
+  }
+}
+
+@media (max-width: 1023px) {
+  .header__checkbox:checked ~ .page__overlay {
+    display: block;
+  }
+}
+
+%video-buttons {
+  position: relative;
+  max-width: 285px;
+  height: 74px;
+  background: url("../images/play-button.svg") no-repeat;
+  &::after {
+    content: "";
+    position: absolute;
+    top: 24px;
+    left: 27px;
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+    background: url("../images/play-triangle.svg") no-repeat;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  &:hover::after {
+    opacity: 1;
+  }
+}
+%video-button-text {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  @include play-button-text;
+  line-height: 74px;
+  @include neon-hover;
+}
+
+%slider-controls {
+  display: flex;
+  flex-basis: 207px;
+  flex-grow: 0;
+  justify-content: space-between;
+  width: 207px;
+  height: 34px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+%slider-buttons {
+  position: relative;
+  @include play-button-text;
+  line-height: 24px;
+  background-color: transparent;
+}
+
+%slider-buttons-active {
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    z-index: 1;
+    width: 100%;
+    height: 1px;
+    background-color: $contrast-color;
+  }
+}
+
+.bx-next,
+.bx-prev {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.bx-pager.bx-default-pager a {
+  background: #666;
+  text-indent: -9999px;
+  display: block;
+  width: 10px;
+  height: 10px;
+  margin: 0 5px;
+  outline: 0;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+}
+
+.bx-pager.bx-default-pager {
+  display: flex;
 }

@@ -1,0 +1,94 @@
+
+.form {
+  position: relative;
+  width: 50%;
+  &__input,
+  &__input::placeholder {
+    @include text-emphasis;
+    color: $text-gray;
+    background-color: transparent;
+    padding-bottom: 19px;
+  }
+  &__input {
+    width: 100%;
+    margin-bottom: 24px;
+    border-bottom: 1px solid $text-gray;
+    color: $text-gray;
+    &:nth-child(4) {
+      margin-bottom: 62px;
+    }
+    &:focus {
+      border-bottom-color: $white;
+      color: $white;
+    }
+    &:focus::placeholder {
+      color: $white;
+    }
+  }
+  &__input--resize {
+    resize: none;
+  }
+  &__button {
+    @include button-styles;
+  }
+  &__button-up {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    border: 1px solid $contrast-color;
+    border-radius: 50%;
+    transition: background-color 0.3s;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 57%;
+      left: 50%;
+      width: 15px;
+      height: 15px;
+      border-top: 1px solid $contrast-color;
+      border-right: 1px solid $contrast-color;
+      transform: translate(-50%, -50%) rotateZ(-45deg);
+      transition: border-color 0.3s;
+    }
+    &:hover {
+      background-color: $contrast-color;
+    }
+    &:hover::before {
+      border-color: $white;
+    }
+  }
+  @media (max-width: 768px) {
+    &__button-up {
+      display: none;
+    }
+    &__button {
+      width: 100%;
+    }
+  }
+  @media (max-width: 600px) {
+    & {
+      width: initial;
+    }
+  }
+  @media (max-width: 320px) {
+    &__button {
+      margin-bottom: 30px;
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  @include text-emphasis;
+  -webkit-text-fill-color: $text-gray;
+}

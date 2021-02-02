@@ -1,0 +1,183 @@
+.about {
+  background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+  @include section-padding;
+  &__product {
+    display: grid;
+    grid-template-columns: 10fr 5fr;
+    column-gap: calc(var(--figma-grid-column-lg) + var(--figma-grid-gap) * 2);
+  }
+  &__slider-wrapper {
+    position: relative;
+    min-width: 430px;
+    max-width: 622px;
+  }
+  
+
+  &__slide {
+    margin-bottom: 12px;
+  }
+  &__fit-photo {
+    width: 100%;
+  }
+  &__counter {
+    position: absolute;
+    top: 0;
+    left: -36px;
+    z-index: 1;
+    @include text-emphasis;
+  }
+  &__controls {
+    @extend %slider-controls;
+  }
+  &__controls-points {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &__prev,
+  &__next {
+    @extend %slider-buttons;
+  }
+  &__prev {
+    @extend %slider-buttons-active;
+  }
+  &__section-title {
+    @include section-title;
+    margin-bottom: 32px;
+    &--mobile {
+      display: none;
+    }
+  }
+  &__contrast {
+    @include section-title-contrast;
+    display: block;
+  }
+  &__description {
+    @include statement-text;
+    margin-bottom: 42px;
+  }
+  &__video {
+    @extend %video-buttons;
+  }
+  &__play {
+    @extend %video-button-text;
+  }
+  //  ====== Subsection about us =====
+  &__us {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 180px;
+  }
+  &__greeting {
+    margin-right: var(--figma-grid-column-lg);
+    margin-left: var(--figma-grid-column-lg);
+    width: calc(50% - var(--figma-grid-column-lg) * 2);
+  }
+  &__hello {
+    @include text-emphasis;
+    margin-bottom: 14px;
+  }
+  &__subsection-title {
+    @include section-title;
+    margin-bottom: 30px;
+  }
+  &__contrast-greet {
+    @include section-title-contrast;
+  }
+  &__company-introduce {
+    @include statement-text;
+  }
+  &__decor {
+    width: 50%;
+    height: 340px;
+    background: url("../images/about-about-us.svg") no-repeat;
+  }
+  @media (min-width: 1921px) {
+    &__slider-wrapper {
+      min-width: 100%;
+    }
+  }
+  @media (min-width: 1281px) and (max-width: 1920px) {
+    &__slider-wrapper {
+      justify-self: end;
+    }
+  }
+  @media (max-width: 1280px) {
+    &__product {
+      grid-template-columns: 7fr 4fr;
+      column-gap: calc(var(--figma-grid-column-md) + var(--figma-grid-gap) * 2);
+    }
+    &__slide {
+      width: 430px;
+      height: 290px;
+    }
+    &__fit-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    &__greeting {
+      margin-left: 0;
+      width: calc(50% - var(--figma-grid-column-lg));
+    }
+  }
+  @media (max-width: 1023px) {
+    &__slide {
+      width: 340px;
+    }
+    &__product {
+      grid-template-columns: 5fr 5fr;
+      column-gap: var(--figma-grid-gap);
+    }
+    &__counter {
+      display: none;
+    }
+  }
+  @media (max-width: 768px) {
+    &__controls-points {
+      display: block;
+    }
+    &__controls {
+      display: none;
+      visibility: hidden;
+      height: 0;
+    }
+    &__greeting {
+      width: 64%;
+      margin-right: 0;
+    }
+    &__decor {
+      width: 32%;
+    }
+    &__us {
+      margin-top: 80px;
+    }
+  }
+  @media (max-width: 750px) {
+    &__product {
+      display: block;
+    }
+    &__slide {
+      width: 100%;
+    }
+    &__section-title--mobile {
+      display: block;
+    }
+    &__section-title--desktop {
+      display: none;
+    }
+    &__contrast {
+      display: inline-block;
+    }
+  }
+  @media (max-width: 450px) {
+    &__decor {
+      display: none;
+    }
+    &__greeting {
+      width: 100%;
+    }
+  }
+}

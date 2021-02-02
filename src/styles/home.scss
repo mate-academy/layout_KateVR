@@ -1,0 +1,163 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding-top: $section-home-padding-top;
+  padding-bottom: 107px;
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  &__middle {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__title {
+    @include site-title-font;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  &__slogan {
+    width: 552px;
+  }
+  &__contrast {
+    display: block;
+    @include section-title-contrast;
+  }
+  &__text-container {
+    margin-left: calc(var(--figma-grid-column-lg) + var(--figma-grid-gap) );
+  }
+  &__description {
+    @include statement-text;
+    font-size: 20px;
+    margin-top: 1.5em;
+    max-width: 439px;
+  }
+  &__price {
+    margin-top: 1.7em;
+    margin-bottom: 2.2em;
+    font-family: "Mark-Medium", sans-serif;
+    font-size: 20px;
+    line-height: 25px;
+    color: $white;
+  }
+  &__video {
+    @extend %video-buttons;
+  }
+  &__play {
+    @extend %video-button-text;
+  }
+  &__image-container {
+    width: 57%;
+  }
+  &__product {
+    width: 100%;
+  }
+
+  &__lower {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__faq,
+  &__help {
+    flex-basis: 36px;
+    flex-grow: 1;
+    font-family: "Mark-Medium", sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    color: $white;
+    @include neon-hover;
+  }
+  &__more {
+    position: relative;
+    flex-basis: 41px;
+    flex-grow: 10;
+    @include text-emphasis;
+    text-align: center;
+    transition: color 0.3s;
+    &::after {
+      position: absolute;
+      content: "";
+      background: url("../images/caret.svg")no-repeat;
+      bottom: 0;
+      left: 50%;
+      width: 9px;
+      height: 5px;
+      transform: translateX(-50%);
+      
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      background: url("../images/more-button-hover.svg")no-repeat;
+      bottom: 0;
+      left: 50%;
+      z-index: 1;
+      width: 9px;
+      height: 5px;
+      transform: translateX(-50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    &:hover {
+      color: $white;
+    }
+    &:hover::before {
+      color: $white;
+      opacity: 1;
+    }
+  }
+  &__controls {
+    @extend %slider-controls;
+  }
+  &__prev,
+  &__next {
+    @extend %slider-buttons;
+  }
+  &__prev {
+    @extend %slider-buttons-active;
+  }
+  @media (max-width: 1500px) {
+    &__slogan {
+      width: 45%;
+    }
+    &__image-container {
+      width: 49%;
+    }
+  }
+  @media (max-width: 1280px) {
+    &__price {
+      font-size: 18px;
+      line-height: 23px;
+    }
+    &__image-container {
+      width: 49%;
+    }
+  }
+  @media (max-width: 1100px) {
+    &__image-container {
+      min-height: initial;
+    }
+  }
+  @media (max-width: 1023px) {
+    &__description {
+      font-size: 16px;
+    }
+    &__text-container {
+      margin-left: initial;
+    }
+    &__middle {
+      margin-top: 55px;
+    }
+    &__lower {
+      display: none;
+    }
+  }
+  @media (max-width: 600px) {
+    &__middle {
+      flex-flow: column-reverse;
+    }
+    &__image-container,
+    &__slogan {
+      width: 100%;
+    }
+  }
+}
