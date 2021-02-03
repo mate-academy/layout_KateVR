@@ -1,0 +1,70 @@
+.bottom {
+  display: flex;
+  justify-content: space-between;
+
+  &__help {
+    display: flex;
+    justify-content: space-between;
+    width: 106px;
+  }
+
+  &__more {
+    position: absolute;
+    left: calc(50% - 20.5px);
+  }
+
+  &__carousel {
+    position: relative;
+    display: flex;
+    width: 207px;
+    justify-content: space-between;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      width: 100%;
+      height: 1px;
+      background-color: $underline-color;
+
+      z-index: 0;
+    }
+  }
+
+  &__link {
+    color: white;
+    text-decoration: none;
+
+    &_active {
+      position: relative;
+      color: $grey-color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+
+        width: 100%;
+        height: 1px;
+
+        background-color: $decoration-color;
+
+        z-index: 1;
+      }
+    }
+
+    &_port {
+      color: $decoration-color;
+
+      &::after {
+        position: absolute;
+        content: url(../images/Polygon.svg);
+        width: 9px;
+        height: 6px;
+        left: calc(50% - 3px);
+        bottom: -4px;
+      }
+    }
+  }
+}
