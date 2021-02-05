@@ -5,8 +5,6 @@
   overflow: hidden;
   align-items: center;
 
-  height: 514px;
-
   &__heading {
     word-spacing: 7px;
   }
@@ -15,18 +13,21 @@
     display: flex;
     gap: 20px;
     justify-content: space-between;
+
+    height: 320px;
+
+    padding-top: 82px;
   }
 
   &__cell {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
 
-    height: 107px;
     width: 340px;
   }
 
-  &__image {
+  &__img {
     width: 80px;
     height: 80px;
   }
@@ -47,5 +48,27 @@
 
   &__button {
     align-content: center;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .reason {
+    
+    &__cell {
+      width: 222px;
+    }
+
+    &__text {
+      width: 200px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+    }
+
+    &__button {
+      display: none;
+    }
   }
 }
