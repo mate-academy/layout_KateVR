@@ -2,11 +2,8 @@
   position: relative;
 
   &__heading {
-    font-size: 36px;
     line-height: 46px;
     text-align: center;
-
-    color: white;
   }
 
   &__foreword {
@@ -25,7 +22,7 @@
     grid-template-columns: repeat(auto-fit, 253px);
     gap: 20px;
 
-    padding: 82px 0 100px ;
+    padding-top: 82px;
   }
 
   &__cell {
@@ -50,6 +47,16 @@
 
   &__text {
     line-height: 1.5;
-    color: $grey-color;
+    color: #929292;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .benefit {
+    
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(2, 340px);
+    }
   }
 }

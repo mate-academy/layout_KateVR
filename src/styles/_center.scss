@@ -1,40 +1,24 @@
-.content {
+.center {
   display: flex;
   justify-content: space-between;
-  
-  &__title {
-    font-size: 46px;
-    line-height: 1.3;
-    color: white;
-    font-family: "Mark-Heavy", sans-serif;
-
-    padding: 101px 0 14px;
-  }
 
   &__description {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: 336px;
     padding-left: 92px;
 
-  }
-
-  &__text {
-    width: 336px;
-    color: $grey-color;
-    line-height: 1.5;
+    gap: 15px;
   }
 
   &__price {
-    color: white;
+    font-family: "Mark-Medium", sans-serif;
     font-size: 18px;
-
-    padding: 5px 0 19px;
+    color: white;
   }
 
   &__play {
-    display: block;
-
     background-image: url("../images/play.svg");
     background-repeat: no-repeat;
     background-color: transparent;
@@ -49,9 +33,28 @@
   }
 
   &__img {
-    background-image: url(../images/image_h.png);
+    position: absolute;
+    right: 0;
+    bottom: 5%;
+
+    z-index: 0;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .center {
     
-    width: 810px;
-    height: 688px;
+    &__description {
+      padding: 0;
+    }
+
+    &__img {
+      position: absolute;
+      width: 63%;
+      height: 93%;
+
+      right: 10%;
+      bottom: 35%;
+    }
   }
 }
