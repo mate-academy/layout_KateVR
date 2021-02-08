@@ -1,60 +1,49 @@
 .nav {
   display: flex;
-  flex-direction: row;
-  width: 100%;
+  font-size: 16px;
+  line-height: 21px;
+
   justify-content: space-between;
-
-  &__logo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    width: 140px;
-  }
-
-  &__picture {
-    background-image: url(../images/logo-img/logo.svg);
-    width: 77.5px;
-    height: 16px;
-  }
-
-  &__language {
-    width: 33px;
-    appearance: none;
-    border: none;
-    color: $decoration-color;
-    background: none;
-    background-image: url(../images/Polygon.svg);
-    background-repeat: no-repeat;
-    background-position: right;
-
-    font-family: "Mark-Medium", sans-serif;
-    font-size: 16px;
-  }
+  z-index: 1;
 
   &__list {
     display: flex;
-    justify-content: space-between;
-    list-style: none;
+    gap: 37px;
     align-items: center;
-
-    width: 551px;
+    list-style: none;
   }
 
   &__item {
     text-align: center;
 
-    &:last-child {
-      background-color: $decoration-color;
-      border-radius: 4px;
-      padding: 13px 65.25px;
-      
-      cursor: pointer;
+    &_small {
+      font-size: 14px;
     }
   }
 
   &__link {
+    font-family: "Mark-Medium", sans-serif;
     color: white;
     text-decoration: none;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .nav {
+    display: none;
+  }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .nav {
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+
+      gap: 20px;
+
+      padding-top: 20px;
+    }
   }
 }

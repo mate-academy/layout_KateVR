@@ -1,0 +1,85 @@
+.center {
+  display: flex;
+  justify-content: space-between;
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 336px;
+    padding-left: 92px;
+
+    gap: 15px;
+  }
+
+  &__price {
+    font-family: "Mark-Medium", sans-serif;
+    font-size: 18px;
+    color: white;
+  }
+
+  &__play {
+    background-image: url("../images/play.svg");
+    background-repeat: no-repeat;
+    background-color: transparent;
+
+    width: 290px;
+    height: 69px;
+
+    color: white;
+    text-decoration: none;
+
+    cursor: pointer;
+  }
+
+  &__img {
+    position: absolute;
+    right: 0;
+    bottom: 5%;
+
+    z-index: 0;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .center {
+    
+    &__description {
+      padding: 0;
+    }
+
+    &__img {
+      position: absolute;
+      width: 71%;
+      height: 130%;
+
+      right: 0;
+      bottom: -10%;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .center {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 320px;
+
+    &__description {
+      width: 275px;
+    }
+
+    &__img {
+      position: absolute;
+      width: 135%;
+      height: 65%;
+
+      top: -13%;
+      left: -22%;
+    }
+
+    &__text {
+      width: 272px;
+    }
+  }
+}

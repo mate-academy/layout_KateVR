@@ -2,6 +2,11 @@
   display: flex;
   justify-content: space-between;
 
+  position: absolute;
+  bottom: 100px;
+  right: 110px;
+  left: 110px;
+
   &__help {
     display: flex;
     justify-content: space-between;
@@ -26,8 +31,6 @@
       width: 100%;
       height: 1px;
       background-color: $underline-color;
-
-      z-index: 0;
     }
   }
 
@@ -37,7 +40,7 @@
 
     &_active {
       position: relative;
-      color: $grey-color;
+      color: #929292;
 
       &::after {
         content: "";
@@ -66,5 +69,11 @@
         bottom: -4px;
       }
     }
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .bottom {
+    display: none;
   }
 }

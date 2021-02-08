@@ -1,33 +1,28 @@
 .about {
   position: relative;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
+  gap: 130px;
 
   &__product {
-    box-sizing: border-box;
     display: flex;
     justify-content: flex-end;
-    width: 100%;
 
-    gap: 0 130px;
+    gap: 0 110px;
 
-    padding-bottom: 137px;
     padding-right: 100px;
   }
 
   &__picture {
-    position: relative;
     display: flex;
     flex-direction: column;
-
-    width: 430px;
+    gap: 12px;
   }
 
   &__carousel {
     display: flex;
     justify-content: space-between;
-
-    padding-top: 12px;
 
     position: relative;
     width: 207px;
@@ -58,6 +53,9 @@
 
   &__description {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     &_narrow {
       width: 340px;
     }
@@ -69,10 +67,8 @@
   &__heading {
     position: relative;
     display: inline;
-    color: white;
-    font-size: 36px;
 
-    &::before {
+    &_down::before {
       content: "Hello,";
       position: absolute;
       color: $decoration-color;
@@ -84,24 +80,21 @@
   }
 
   &__text {
-    font-size: 16px;
-    line-height: 1.5;
-    color: $grey-color;
-
     padding: 30px 0 25px;
   }
 
   &__us {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     gap: 0 110px;
     align-items: center;
-    width: 100%;
   }
 
   &__decoration {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+    
     gap: 17px 0;
     transform: rotate(-90deg);
 
@@ -125,5 +118,76 @@
       }
     }
 
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    &__product {
+      display: flex;
+      gap: 40px;
+
+      padding: 0;
+      justify-content: center;
+    }
+
+    &__carousel {
+      display: none;
+    }
+
+    &__picture::after {
+      content: url(../images/dots.svg);
+      text-align: center;
+    }
+
+    &__us {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__description {
+      width: 460px;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .about {
+
+    &__heading {
+      font-size: 21px;
+
+      &_down::before {
+        position: absolute;
+        bottom: 40px;
+      }
+    }
+
+    &__product {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    &__us {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__decoration {
+      display: none;
+    }
+
+    &__text {
+      padding-top: 5px;
+      width: 275px;
+    }
+
+    &__description {
+      width: 275px;
+    }
   }
 }

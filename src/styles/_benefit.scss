@@ -2,11 +2,8 @@
   position: relative;
 
   &__heading {
-    font-size: 36px;
     line-height: 46px;
     text-align: center;
-
-    color: white;
   }
 
   &__foreword {
@@ -25,7 +22,7 @@
     grid-template-columns: repeat(auto-fit, 253px);
     gap: 20px;
 
-    padding: 82px 0 100px ;
+    padding-top: 82px;
   }
 
   &__cell {
@@ -50,6 +47,60 @@
 
   &__text {
     line-height: 1.5;
-    color: $grey-color;
+    color: #929292;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .benefit {
+    
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(2, 340px);
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .benefit {
+    &__heading {
+      font-size: 21px;
+      text-align: left;
+    }
+
+    &__foreword {
+      text-align: left;
+    }
+
+    &__content {
+      display: grid;
+      grid-template-columns: repeat(1, 275px);
+
+      padding-top: 10px;
+    }
+
+    &__img {
+      display: none;
+    }
+
+    &__cell {
+      display: flex;
+      flex-direction: column;
+      justify-content: left;
+      text-align: left;
+    }
+
+    &__name {
+      font-size: 18px;
+      padding: 20px 0 15px;
+    }
+
+    &__text {
+      width: 275px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
   }
 }
