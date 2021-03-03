@@ -6,18 +6,23 @@
 
   background: $background-gradient;
 
-  &__icons {
+  &__top {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 15px;
   }
 
-  &__image {
-    max-width: 100%;
-    height: 172px;
+  &__image--mob {
+    width: 100%;
+    height: 30vh;
 
     background: url(../images/header.png) no-repeat center;
     background-size: cover;
+  }
+
+  &__nav {
+    display: none;
   }
 
   &__heading {
@@ -41,10 +46,120 @@
     transform: translate(-50%,-50%);
     left: 50%;
     top: 100%;
+    max-width: 100% - 12;
+  }
 
-    // right: 0;
-    // left: 5%;
-    // bottom: -20px;
-    // margin: auto 0;
+  &__play {
+    justify-self: center;
+  }
+
+  &__footer {
+    display: none;
+  }
+}
+
+@media (min-width: $tablet-screen-breakpoint) {
+  .header {
+    padding: 30px 35px;
+
+    &__top {
+      margin-bottom: 55px;
+    }
+
+    &__main {
+      max-width: 1600px;
+      max-height: 700px;
+    }
+
+    &__image--mob {
+      display: none;
+    }
+
+    &__image {
+      position: absolute;
+      top: 100px;
+      right: 0;
+
+      background: url(../images/header.png) no-repeat center;
+      background-size: cover;
+    }
+  }
+}
+
+@media (min-width: $desktop-screen-breakpoint) {
+  .header {
+    position: relative;
+    padding: 60px 110px;
+    height: 100%;
+
+    &__top {
+      margin-right: 20%;
+      margin-bottom: 120px;
+    }
+
+    &__main {
+      max-width: 1600px;
+      max-height: 700px;
+    }
+
+    &__content {
+      margin-left: 90px;
+      max-width: 350px;
+    }
+
+    &__text {
+      margin-bottom: 25px;
+    }
+
+    &__text--price {
+      text-align: start;
+    }
+
+    &__icon {
+      display: none;
+    }
+
+    &__nav {
+      display: table-row;
+    }
+
+    &__button {
+      top: 70px;
+      left: 85%;
+      max-width: 200px;
+    }
+
+    &__image {
+      width: 810px;
+      height: 400px;
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 70px;
+    }
+
+    &__questions {
+      display: flex;
+      gap: 0 35px;
+    }
+
+    &__link {
+      color: #fff;
+      font-size: 16px;
+      height: 20px;
+      transition: color $hover-duration;
+
+      &:hover {
+        color: $contrast-color;
+      }
+    }
+
+    &__more {
+      position: absolute;
+      left: 50% - 1;
+    }
   }
 }

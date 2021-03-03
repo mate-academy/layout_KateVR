@@ -14,37 +14,81 @@
 
   <body>
     <header class="header">
-      <div class="header__icons">
+      <div class="header__top">
         <img
-          src="#"
+          src="./images/logo.svg"
           alt="logo"
-          class="logo"
         >
 
-        <span class="burger">
-          <img
-            src="#"
-            alt="burger icon"
-            class="burger__icon"
-          >
-        </span>
+        <img
+          src="./images/burger-menu.svg"
+          alt="icon"
+          class="header__icon"
+        >
+
+        <nav class="nav header__nav">
+          <ul class="nav__list header__list">
+            <li class="nav__item">
+              <a href="#about" class="nav__link">About</a><br>
+            </li>
+
+            <li class="nav__item">
+              <a href="#tech" class="nav__link">Tech</a><br>
+            </li>
+
+            <li class="nav__item">
+              <a href="#benefits" class="nav__link">Benefits</a><br>
+            </li>
+
+            <li class="nav__item">
+              <a href="#contact" class="nav__link">Contact</a><br>
+            </li>
+          </ul>
+        </nav>
       </div>
 
-      <div class="header__image"></div>
+      <div class="header__main">
+        <div class="header__image--mob"></div>
 
-      <h1 class="header__heading">The new start of<br><span class="text-custom">VR locomotion</span></h1>
-      <p class="text-medium header__text">
-        Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!
-      </p>
+        <h1 class="header__heading">The new start of<br><span class="text-custom">VR locomotion</span></h1>
 
-      <h3 class="header__text header__text--price">1200$</h3>
-      <img src="./images/play.svg" alt="play">
+        <div class="header__content">
+          <p class="text-medium header__text">
+            Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!
+          </p>
+
+          <h3 class="header__text header__text--price">1200$</h3>
+          <img
+            src="./images/play.svg"
+            alt="play"
+            class="header__play"
+          >
+        </div>
+
+        <div class="header__image"></div>
+      </div>
+
+      <div class="header__footer">
+        <div class="header__questions">
+          <a href="#contact" class="header__link">FAQ</a>
+          <a href="#contact" class="header__link">Help</a>
+        </div>
+
+        <div class="header__more">
+          <a href="#more" class="header__link">
+            <img src="./images/more.svg" alt="more about product">
+          </a>
+        </div>
+
+        <img src="./images/prev.svg" alt="previous">
+      </div>
+
       <button class="button header__button">Buy Now</button>
     </header>
 
     <main>
-      <section class="section section--black">
-        <h2 class="section__heading">
+      <section class="section section--black" id="more">
+        <h2 class="section__heading info__heading">
           More than <span class="text-custom">gaming!</span>
         </h2>
         <div class="info">
@@ -52,38 +96,88 @@
             This also made for people who are interested in...
           </p>
 
-          <div class="info__text">
-            <h3>Education</h3>
-            <p class="text-medium">
-              Create aducational simulations, trainings and much more with...
-            </p>
-            <h3>Real estate</h3>
-            <p class="text-medium">
-              Desighn architectural projects in a deeply realistic environment...
-            </p>
-            <h3>Fitness</h3>
-            <p class="text-medium">
-              Combine business with pleasure, and discover countless ways...
-            </p>
-            <h3>Social interactions</h3>
-            <p class="text-medium">
-              Hang out with your friends in the virtual world when you can’t...
-            </p>
+          <div class="info__benefits">
+            <div class="info__card">
+              <img
+                src="./images/education.svg"
+                alt="education"
+                class="info__image"
+              >
+              <h3>Education</h3>
+              <p class="text-medium info__mobile">
+                Create aducational simulations, trainings and much more with...
+              </p>
+              <p class="text-medium info__normal">
+                Create aducational simulations, trainings and much more with unlimited virtual space and minimum physical space
+              </p>
+            </div>
+
+            <div class="info__card">
+              <img
+                src="./images/skyline1.svg"
+                alt="skyline"
+                class="info__image"
+              >
+              <h3>Real estate</h3>
+              <p class="text-medium info__mobile">
+                Desighn architectural projects in a deeply realistic environment...
+              </p>
+              <p class="text-medium info__normal">
+                Desighn architectural projects in a deeply realistic environment allowing visitors to freely walk around, and feel their vibe
+              </p>
+            </div>
+
+            <div class="info__card">
+              <img
+                src="./images/fitness.svg"
+                alt="fitness"
+                class="info__image"
+              >
+              <h3>Fitness</h3>
+              <p class="text-medium info__mobile">
+                Combine business with pleasure, and discover countless ways...
+              </p>
+              <p class="text-medium info__normal">
+                Combine business with pleasure, and discover countless ways to stay fit while playing your favorite VR Games!
+              </p>
+            </div>
+
+            <div class="info__card">
+              <img
+                src="./images/network.svg"
+                alt="network"
+                class="info__image"
+              >
+              <h3>Social interactions</h3>
+              <p class="text-medium info__mobile">
+                Hang out with your friends in the virtual world when you can’t...
+              </p>
+              <p class="text-medium info__normal">
+                Hang out with your friends in the virtual world when you can’t meet space requirements
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section section--gradient">
+      <section class="section section--gradient" id="about">
         <h2 class="section__heading">
           About <span class="text-custom">product</span>
         </h2>
 
         <div class="product">
-          <img
-            src="./images/product.png"
-            alt="product image"
-            class="product__image"
-          >
+          <div class="product__image">
+            <img
+              src="./images/product.png"
+              alt="product image"
+              class="product__img"
+            >
+            <img
+              src="./images/slide.svg"
+              alt="product slide"
+              class="product__slide"
+            >
+          </div>
 
           <p class="text-medium">
             KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body
@@ -111,7 +205,7 @@
         </div>
       </section>
 
-      <section class="section section--black">
+      <section class="section section--black" id="tech">
         <h2 class="section__heading">
           Tech <span class="text-custom">specs</span>
         </h2>
@@ -120,7 +214,7 @@
         </div>
       </section>
 
-      <section class="section section--gradient">
+      <section class="section section--gradient" id="benefits">
         <h2 class="section__heading">
           Why <span class="text-custom">kat loco?</span>
         </h2>
@@ -142,7 +236,7 @@
         </div>
       </section>
 
-      <section class="section section--black">
+      <section class="section section--black"  id="contact">
         <span class="text-regular section__heading--custom consultation__heading">Have any questions?</span>
         <h2 class="section__heading">
           Get in <span class="text-custom">touch</span>
@@ -194,28 +288,28 @@
 
     <footer class="footer">
       <img
-        src="#"
+        src="./images/logo.svg"
         alt="logo"
-        class="logo footer__logo"
+        class="footer__logo"
       >
 
       <div class="footer__container">
         <nav class="nav">
           <ul class="nav__list footer__list">
             <li class="nav__item">
-              <a href="#" class="nav__link">About</a><br>
+              <a href="#about" class="nav__link">About</a><br>
             </li>
 
             <li class="nav__item">
-              <a href="#" class="nav__link">Tech</a><br>
+              <a href="#tech" class="nav__link">Tech</a><br>
             </li>
 
             <li class="nav__item">
-              <a href="#" class="nav__link">Benefits</a><br>
+              <a href="#benefits" class="nav__link">Benefits</a><br>
             </li>
 
             <li class="nav__item">
-              <a href="#" class="nav__link">Contact</a><br>
+              <a href="#contact" class="nav__link">Contact</a><br>
             </li>
           </ul>
         </nav>

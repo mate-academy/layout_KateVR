@@ -3,7 +3,7 @@
     margin-bottom: 30px;
   }
 
-  &__text {
+  &__benefits {
     :nth-child(n) {
       margin-bottom: 10px;
     }
@@ -12,6 +12,59 @@
     }
     :last-child {
       margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    display: none;
+  }
+
+  &__normal {
+    display: none;
+  }
+}
+
+@media (min-width: $tablet-screen-breakpoint) {
+  .info {
+    &__heading {
+      text-align: center;
+    }
+
+    &__benefits {
+      display: grid;
+      gap: 40px 20px;
+      grid-template-columns: repeat(2, 1fr);
+
+      :nth-child(n) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__card {
+      display: grid;
+      gap: 20px 0;
+      text-align: center;
+    }
+
+    &__image {
+      display: flex;
+      justify-self: center;
+    }
+
+    &__mobile {
+      display: none;
+    }
+
+    &__normal {
+      display: table;
+    }
+  }
+}
+
+@media (min-width: $desktop-screen-breakpoint) {
+  .info {
+    &__benefits {
+      grid-template-columns: repeat(4, 1fr);
     }
   }
 }
