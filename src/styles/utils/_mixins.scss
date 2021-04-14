@@ -1,6 +1,29 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin mobile-reverse {
+  @media (max-height: 567px) {
+    @content;
   }
+}
+
+@mixin tablet-screen {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop-screen {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin extra-screen {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin font($size, $weight, $line-height) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
 }
