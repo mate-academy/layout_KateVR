@@ -1,19 +1,11 @@
 .tech {
-  padding: 50px 20px;
+  padding: $padding-mobile;
 
   background-color: $bg-black;
 
   &__title {
     width: 87.5vw;
     margin: 0 auto 41px;
-
-    @include font(21px, bold, 27px);
-    color: $white;
-
-    & :last-child {
-      font-family: Quantum, sans-serif;
-      color: $contrast-color;
-    }
   }
 
   &__image-box {
@@ -61,7 +53,7 @@
   }
 
   @include tablet-screen {
-    padding: 80px 34px;
+    padding: $padding-tablet;
 
     &__title {
       width: 91vw;
@@ -97,14 +89,12 @@
   }
 
   @include desktop-screen {
-    padding: 100px 113px;
+    padding: $padding-desktop;
 
     &__title {
       width: 265px;
       margin-bottom: 141px;
       margin-left: 68%;
-
-      @include font(36px, bold, 46px);
     }
 
     &__image-box {
@@ -194,18 +184,10 @@
 
     &__image-description-title {
       margin-bottom: 20px;
-
-      @include font(18px, bold, 23px);
-      color: $white;
-    }
-
-    &__image-description-text {
-      @include font(16px, normal, 150%);
-      color: $text-color;
     }
   }
 
   @include extra-screen {
-    padding: 160px 234px;
+    padding: $padding-extra;
   }
 }
