@@ -18,26 +18,26 @@
   &__lang {
     display: none;
   }
-  
+
   &__nav-mobile-toggler {
     position: relative;
     z-index: 2;
-  
+
     height: 13px;
     width: 30px;
   
     background: url(../images/menu.svg) no-repeat center;
-  
+
     transition: background-image 0.4s;
-  
+
     &--active {
       background: url(../images/exit.svg) no-repeat center;
-  
+
       transition: transform 1s;
       transform: rotate(180deg);
     }
   }
-  
+
   &__nav-mobile {
     position: absolute;
     top: 0;
@@ -46,34 +46,14 @@
   }
 
   &__button {
+    @include button-style;
+
     position: absolute;
     top: 528px;
     left: calc(50% - 280px / 2);
 
-    display: block;
     height: 40px;
     width: 280px;
-
-    font-family: Mark-Pro, sans-serif;
-    @include font(14px, 500, 18px);
-    color: $white;
-    background-color: $contrast-color;
-    border: none;
-    border-radius: 4px;
-
-    cursor: pointer;
-
-    transition: all 0.4s;
-
-    &:hover {
-      color: $contrast-color;
-      background-color: $white;
-    }
-
-    &:active {
-      color: $dark-grey;
-      background-color: #191536;
-    }
   }
 
   @include tablet-screen {
@@ -81,7 +61,7 @@
       height: 14px;
       width: 67px;
     }
-  
+
     &__button {
       display: none;
     }
