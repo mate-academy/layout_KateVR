@@ -1,0 +1,141 @@
+.benefits {
+  padding: 50px 20px;
+
+  background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+
+  &__title {
+    width: 87.5vw;
+    margin: 0 auto 30px;
+
+    @include font(21px, bold, 27px);
+    color: $white;
+
+    & :last-child {
+      font-family: Quantum, sans-serif;
+      color: $contrast-color;
+    }
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 87.5vw;
+    margin: 0 auto;
+  }
+
+  &__subtitle {
+    margin-bottom: 10px;
+
+    @include font(16px, bold, 20px);
+    color: $white;
+  }
+
+  &__text {
+    @include font(16px, normal, 150%);
+    color: $text-color;
+
+    & :last-child {
+      display: none;
+    }
+
+    &::after {
+      content: "...";
+    }
+  }
+
+  &__button {
+    display: none;
+  }
+
+  @include tablet-screen {
+    padding: 70px 34px;
+
+    &__title {
+      width: auto;
+    }
+
+    &__info {
+      grid-template-columns: repeat(3, 1fr);
+      width: auto;
+
+      text-align: center;
+    }
+
+    &__image {
+      display: block;
+      height: 80px;
+      width: 110px;
+      margin: 0 auto 25px;
+
+      &--universally {
+        background: url(../images/universally.svg) no-repeat center;
+      }
+
+      &--control {
+        background: url(../images/control.svg) no-repeat center;
+      }
+
+      &--sensors {
+        background: url(../images/sensors.svg) no-repeat center;
+      }
+    }
+
+    &__subtitle {
+      margin-bottom: 15px;
+    }
+  }
+
+  @include desktop-screen {
+    padding: 100px 110px;
+
+    &__title {
+      margin-bottom: 80px;
+
+      @include font(36px, bold, 46px);
+      text-align: center;
+    }
+
+    &__info {
+      margin-bottom: 90px;
+    }
+
+    &__info-block {
+      width: 340px;
+      margin: 0 auto;
+    }
+
+    &__subtitle {
+      @include font(18px, bold, 23px);
+    }
+
+    &__text {
+      & :last-child {
+        display: inline;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &__button {
+      @include button-style;
+
+      margin: 0 auto;
+    }
+  }
+
+  @include extra-screen {
+    padding: 160px 234px;
+
+    &__info {
+      gap: 205px;
+      margin-bottom: 0;
+    }
+
+    &__button {
+      display: none;
+    }
+  }
+}
