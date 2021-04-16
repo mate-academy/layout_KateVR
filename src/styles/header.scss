@@ -88,7 +88,6 @@
 
 @media (min-width: $desktop-screen-breakpoint) {
   .header {
-    position: relative;
     padding: 60px 110px;
     height: 100%;
 
@@ -138,7 +137,11 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 70px;
+
+      position: absolute;
+      bottom: 15%;
+      left: 15%;
+      right: 15%;
     }
 
     &__questions {
@@ -156,10 +159,29 @@
         color: $contrast-color;
       }
     }
+  }
+}
 
-    &__more {
-      position: absolute;
-      left: 50% - 1;
+@media (min-width: $large-screen-breakpoint) {
+  .header {
+    padding: 65px 230px;
+
+    &__top {
+      margin-right: 14%;
+      margin-bottom: 250px;
+    }
+
+    &__main {
+      margin-left: 30px;
+    }
+
+    &__image {
+      width: 1150px;
+      height: 1000px;
+    }
+
+    &__button {
+      top: 75px;
     }
   }
 }

@@ -1,4 +1,64 @@
 .specs {
   display: flex;
   justify-content: center;
+
+  &__image {
+    position: relative;
+    width: 260px;
+    height: 260px;
+
+    background: url('../images/specs-mobile.svg') no-repeat center;
+  }
+
+  &__text {
+    display: none;
+  }
+}
+
+@media (min-width: $tablet-screen-breakpoint) {
+  .specs {
+    &__image {
+      width: 360px;
+      height: 360px;
+    }
+  }
+}
+
+@media (min-width: $desktop-screen-breakpoint) {
+  .specs {
+    &__image {
+      right: 100px;
+      width: 1200px;
+      height: 500px;
+
+
+      background: url('../images/tech-specs.svg') no-repeat center;
+    }
+
+    &__text {
+      position: absolute;
+      display: block;
+      width: 360px;
+    }
+
+    &__sensor {
+      top: 14%;
+      left: 13%;
+    }
+
+    &__battery {
+      top: 14%;
+      right: -15%;
+    }
+
+    &__connection {
+      bottom: 19%;
+      left: 21%;
+    }
+
+    &__description {
+      white-space: pre-line;
+    }
+  }
+
 }

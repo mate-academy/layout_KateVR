@@ -16,6 +16,14 @@
       font-size: 14px;
       color: $contrast-color;
     }
+
+    &--about {
+      display: none;
+    }
+
+    &--desktop {
+      display: none;
+    }
   }
 
   &--gradient {
@@ -31,6 +39,27 @@
 
 @media (min-width: $desktop-screen-breakpoint) {
   .section {
-    padding: 100px 110px;
+    padding: 100px 120px;
+
+    &__heading {
+      &--mob {
+        display: none;
+      }
+
+      &--desktop {
+        display: block;
+      }
+
+      &--right {
+        text-align: right;
+        margin-right: 70px;
+      }
+    }
+
+    &__consultation {
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+    }
   }
 }
