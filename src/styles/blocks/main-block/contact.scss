@@ -34,6 +34,7 @@
 
     margin-bottom: 24px;
 
+    font-family: Mark-Pro, sans-serif;
     @include font(16px, normal, 150%);
     color: $white;
 
@@ -63,6 +64,14 @@
       &:focus {
         height: 67px;
       }
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px $bg-black inset;
+      -webkit-text-fill-color: $white;
     }
   }
 
@@ -174,6 +183,8 @@
     padding: $padding-extra 205px;
 
     &__wrapper {
+      max-width: 1500px;
+      margin: 0 auto;
       gap: 0 400px;
     }
 

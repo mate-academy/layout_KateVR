@@ -1,9 +1,5 @@
-.about {
-  &__product {
-    margin-bottom: 79px;
-  }
-
-  &__product-title {
+.about-product {
+  &__title {
     margin-bottom: 20px;
   }
 
@@ -12,6 +8,7 @@
   }
 
   &__image {
+    object-fit: cover;
     display: block;
     height: 189px;
     width: 100%;
@@ -30,7 +27,7 @@
     display: none;
   }
 
-  &__product-text {
+  &__text {
     margin-bottom: 15px;
   }
 
@@ -39,19 +36,14 @@
   }
 
   @include tablet-screen {
-    &__product {
-      position: relative;
+    display: flex;
+    justify-content: flex-end;
 
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 107px;
-    }
-
-    &__product-description {
+    &__description {
       width: 44vw;
     }
 
-    &__product-title {
+    &__title {
       margin-bottom: 30px;
     }
 
@@ -66,17 +58,13 @@
       width: 44vw;
     }
 
-    &__product-text {
+    &__text {
       margin-bottom: 20px;
     }
   }
 
   @include desktop-screen {
-    &__product {
-      margin-bottom: 235px;
-    }
-
-    &__product-description {
+    &__description {
       width: 26vw;
     }
 
@@ -112,12 +100,16 @@
   }
 
   @include extra-screen {
-    &__product-description {
-      width: 23vw;
+    &__description {
+      width: 435px;
     }
 
     &__image-block {
-      left: 13%;
+      left: 0;
+    }
+
+    &__image {
+      width: 630px;
     }
   }
 }

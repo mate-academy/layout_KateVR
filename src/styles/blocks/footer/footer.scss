@@ -55,25 +55,44 @@
     width: 130px;
 
     & :nth-child(n) {
-      height: 18px;
+      height: 19px;
       width: 19px;
+
+      transition: transform 0.4s;
+      backface-visibility: hidden;
     }
   }
 
   &__facebook {
     background: url(../images/facebook.svg) no-repeat bottom;
+
+    &:hover {
+      transform: scale(2);
+    }
   }
 
   &__twitter {
     background: url(../images/twitter.svg) no-repeat bottom;
+
+    &:hover {
+      transform: scale(2);
+    }
   }
 
   &__youtube {
     background: url(../images/youtube.svg) no-repeat bottom;
+
+    &:hover {
+      transform: scale(2);
+    }
   }
 
   &__reddit {
     background: url(../images/reddit.svg) no-repeat bottom;
+
+    &:hover {
+      transform: scale(2);
+    }
   }
 
   &__contact-links {
@@ -103,7 +122,6 @@
       justify-content: space-between;
       gap: 0;
       width: auto;
-      margin: 0;
     }
 
     &__nav-list {
@@ -131,5 +149,10 @@
 
   @include extra-screen {
     padding: 40px 234px;
+
+    &__wrapper {
+      max-width: 1500px;
+      margin: 0 auto;
+    }
   }
 }
