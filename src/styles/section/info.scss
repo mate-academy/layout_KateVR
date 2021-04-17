@@ -1,0 +1,75 @@
+.info {
+  &__heading {
+    margin-bottom: 30px;
+  }
+
+  &__benefits {
+    :nth-child(n) {
+      margin-bottom: 10px;
+    }
+    :nth-child(2n) {
+      margin-bottom: 20px;
+    }
+    :last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__image {
+    display: none;
+  }
+
+  &__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@media (min-width: $tablet-screen-breakpoint) {
+  .info {
+    &__heading {
+      text-align: center;
+    }
+
+    &__benefits {
+      display: grid;
+      gap: 40px 20px;
+      grid-template-columns: repeat(2, 1fr);
+
+      :nth-child(n) {
+        margin-bottom: 0;
+      }
+    }
+
+    &__card {
+      display: grid;
+      gap: 20px 0;
+      text-align: center;
+    }
+
+    &__image {
+      display: flex;
+      justify-self: center;
+    }
+
+    &__text {
+      overflow: visible;
+      -webkit-line-clamp: initial;
+    }
+  }
+}
+
+@media (min-width: $desktop-screen-breakpoint) {
+  .info {
+    &__heading {
+      margin-bottom: 80px;
+    }
+
+    &__benefits {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}

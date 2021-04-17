@@ -1,0 +1,190 @@
+.header {
+  position: relative;
+  padding: 18px 20px;
+  height: 100%;
+  max-width: 100%;
+
+  background: $background-gradient;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  &__image--mob {
+    width: 100%;
+    height: 30vh;
+
+    background: url(../images/header.png) no-repeat center;
+    background-size: cover;
+  }
+
+  &__nav {
+    display: none;
+  }
+
+  &__heading {
+    position: relative;
+    margin-bottom: 14px;
+  }
+
+  &__text {
+    font-family: Mark-Medium, sans-serif;
+    margin-bottom: 8px;
+
+    &--price {
+      text-align: center;
+      font-size: 18px;
+      line-height: 130%;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 97%;
+    max-width: 100% - 12;
+  }
+
+  &__play {
+    justify-self: center;
+  }
+
+  &__footer {
+    display: none;
+  }
+}
+
+@media (min-width: $tablet-screen-breakpoint) {
+  .header {
+    padding: 30px 35px;
+
+    &__top {
+      margin-bottom: 55px;
+    }
+
+    &__main {
+      max-width: 1600px;
+      max-height: 700px;
+    }
+
+    &__image--mob {
+      display: none;
+    }
+
+    &__image {
+      position: absolute;
+      top: 100px;
+      right: 0;
+
+      background: url(../images/header.png) no-repeat center;
+      background-size: cover;
+    }
+
+    &__button {
+      top: 98%;
+    }
+  }
+}
+
+@media (min-width: $desktop-screen-breakpoint) {
+  .header {
+    padding: 60px 110px;
+    height: 100%;
+
+    &__top {
+      margin-right: 20%;
+      margin-bottom: 120px;
+    }
+
+    &__main {
+      max-width: 1600px;
+      max-height: 700px;
+    }
+
+    &__content {
+      margin-left: 90px;
+      max-width: 350px;
+    }
+
+    &__text {
+      margin-bottom: 25px;
+    }
+
+    &__text--price {
+      text-align: start;
+    }
+
+    &__icon {
+      display: none;
+    }
+
+    &__nav {
+      display: table-row;
+    }
+
+    &__button {
+      top: 50px;
+      left: 77%;
+      max-width: 200px;
+    }
+
+    &__image {
+      width: 810px;
+      height: 400px;
+    }
+
+    &__footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      position: absolute;
+      bottom: 15%;
+      left: 15%;
+      right: 15%;
+    }
+
+    &__questions {
+      display: flex;
+      gap: 0 35px;
+    }
+
+    &__link {
+      color: #fff;
+      font-size: 16px;
+      height: 20px;
+      transition: color $hover-duration;
+
+      &:hover {
+        color: $contrast-color;
+      }
+    }
+  }
+}
+
+@media (min-width: $large-screen-breakpoint) {
+  .header {
+    padding: 65px 230px;
+
+    &__top {
+      margin-right: 14%;
+      margin-bottom: 250px;
+    }
+
+    &__main {
+      margin-left: 30px;
+    }
+
+    &__image {
+      width: 1150px;
+      height: 1000px;
+    }
+
+    &__button {
+      top: 55px;
+      left: 79%;
+    }
+  }
+}

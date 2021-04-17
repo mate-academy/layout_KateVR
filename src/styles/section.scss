@@ -1,0 +1,71 @@
+@import "section/info";
+@import "section/product";
+@import "section/about";
+@import "section/specs";
+@import "section/advantages";
+@import "section/consultation";
+
+.section {
+  padding: 50px 20px;
+  background-color: $background-black;
+
+  &__heading {
+    margin-bottom: 10px;
+
+    &--custom {
+      font-size: 14px;
+      color: $contrast-color;
+    }
+
+    &--about {
+      display: none;
+    }
+
+    &--desktop {
+      display: none;
+    }
+  }
+
+  &--gradient {
+    background: $background-gradient;
+  }
+}
+
+@media (min-width: $tablet-screen-breakpoint) {
+  .section {
+    padding: 70px 35px;
+  }
+}
+
+@media (min-width: $desktop-screen-breakpoint) {
+  .section {
+    padding: 100px 120px;
+
+    &__heading {
+      &--mob {
+        display: none;
+      }
+
+      &--desktop {
+        display: block;
+      }
+
+      &--right {
+        text-align: right;
+        margin-right: 70px;
+      }
+    }
+
+    &__consultation {
+      display: flex;
+      position: relative;
+      justify-content: space-between;
+    }
+  }
+}
+
+@media (min-width: $large-screen-breakpoint) {
+  .section__consultation {
+    justify-content: space-evenly;
+  }
+}
