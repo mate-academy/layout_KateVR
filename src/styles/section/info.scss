@@ -19,8 +19,12 @@
     display: none;
   }
 
-  &__normal {
-    display: none;
+  &__text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
   }
 }
 
@@ -51,12 +55,9 @@
       justify-self: center;
     }
 
-    &__mobile {
-      display: none;
-    }
-
-    &__normal {
-      display: inline;
+    &__text {
+      overflow: visible;
+      -webkit-line-clamp: initial;
     }
   }
 }

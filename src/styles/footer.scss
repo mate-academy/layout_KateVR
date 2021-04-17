@@ -2,8 +2,6 @@
   position: relative;
   box-sizing: border-box;
   padding: 45px 20px 50px;
-  width: 100%;
-  height: 70%;
 
   &__logo {
     width: 69px;
@@ -40,13 +38,33 @@
   .footer {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    padding: 100px 120px;
 
     &__links {
       display: grid;
       gap: 10px;
       position: absolute;
-      top: -80%;
+      top: -135%;
       left: 120px;
+    }
+
+    &__media {
+      position: absolute;
+      top: 42.5%;
+      right: 10%;
+      gap: 20px;
+    }
+  }
+}
+
+@media (min-width: $large-screen-breakpoint) {
+  .footer {
+    display: flex;
+    justify-content: center;
+    gap: 375px;
+
+    &__links {
+      left: 21.5%;
     }
   }
 }

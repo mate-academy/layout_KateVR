@@ -27,6 +27,8 @@
 @media (min-width: $desktop-screen-breakpoint) {
   .about {
     display: flex;
+    justify-content: space-around;
+    align-items: center;
     gap: 110px;
 
     &__header {
@@ -54,19 +56,19 @@
     }
 
     &__text {
-      font-family: Mark-Heavy, sans-serif;
+      font-family: "Mark-Heavy", sans-serif;
       text-transform: uppercase;
       font-size: 64px;
       line-height: 130%;
 
       color: transparent;
       -webkit-text-stroke: 1px $contrast-color;
-    }
-  }
-}
 
-@media (min-width: $large-screen-breakpoint) {
-  .about {
-    justify-content: space-around;
+      @for $i from 1 through 5 {
+        &:nth-child(#{$i}) {
+          opacity: 1.05 - ($i*0.2);
+        }
+      }
+    }
   }
 }
