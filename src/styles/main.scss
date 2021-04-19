@@ -14,58 +14,80 @@ body {
 .header {
   background: linear-gradient(107.56deg, #191536 0%, #000 100%);
 
-  &__wrapper {
-    background-image: url(../images/header__img.png);
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__burger {
+    height: 14px;
+    width: 29.25px;
+    background-image: url(../images/vectors/burger-menu.svg);
+    background-position: center;
+    background-size: contain;
     background-repeat: no-repeat;
 
-    @media (max-width: 320px) {
-      background-size: 320px 320px;
-      background-position: top;
-    }
-
-    @media (min-width: 321px) and (max-width: 768px) {
-      background-size: 486px 439px;
-      background-position: 100% 0;
-    }
-    @media (min-width: 769px) and (max-width: 1280px) {
-      background-size: 810px 688px;
-      background-position: 100% 0;
-    }
-
-    @media (min-width: 1281px) {
-      background-size: 1150px 988px;
-      background-position: 90% 0;
+    @media (min-width: 769px) {
+      display: none;
     }
   }
 
-  &__menu {
-    display: flex;
-    align-items: center;
+  &__burger-nav {
+    display: none;
+  }
+
+  &__burger-list {
+    padding: 0;
+    list-style: none;
+  }
+
+  &__burger-item {
+    height: 49px;
+
+    @media (max-width: 320px) {
+      padding-left: 20px;
+    }
+
+    @media (min-width: 321px) {
+      padding-left: 150px;
+    }
+
+    &:hover {
+      background: #110e25;
+    }
+  }
+
+  &__burger-link {
+    color: #fff;
+    font-size: 21px;
+    line-height: 49px;
+    text-decoration: none;
+
+    &:hover {
+      color: #05c2df;
+    }
   }
 
   &__help {
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   &__select {
     color: #05c2df;
     border: none;
     background: none;
-
-    @media (max-width: 768px) {
-      display: none;
-    }
   }
 
   &__nav {
     display: flex;
     align-items: center;
-
-    @media (max-width: 768px) {
-      display: none;
-    }
   }
 
   &__list {
@@ -89,6 +111,9 @@ body {
 
   &__content {
     padding: 100px 0;
+    @media (max-width: 768px) {
+      padding: 55px 0 0;
+    }
   }
 
   &__title {
@@ -111,6 +136,7 @@ body {
 
   &__text {
     margin-bottom: 5px;
+    max-width: 336px;
   }
 
   &__price {
@@ -120,6 +146,18 @@ body {
     line-height: 23px;
   }
 
+  &__play {
+    @media (max-width: 320px) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__btn {
+    @media (min-width: 321px) {
+      display: none;
+    }
+  }
+
   &__footer {
     display: flex;
     justify-content: space-between;
@@ -127,6 +165,98 @@ body {
       display: none;
     }
   }
+}
+
+.logo {
+  background-image: url(../images/vectors/katvr.svg);
+  background-size: 100%;
+  background-repeat: no-repeat;
+
+  &--header {
+
+    margin-right: 34px;
+    flex-shrink: 0;
+
+    @media (max-width: 320px) {
+      height: 12px;
+      width: 58px;
+    }
+
+    @media (min-width: 321px) and (max-width: 768px) {
+      height: 14px;
+      width: 67px;
+    }
+
+    @media (min-width: 769px) {
+      height: 16px;
+      width: 77.5px;
+    }
+
+  }
+
+  &--footer {
+    height: 14px;
+
+    @media (max-width: 768px) {
+      width: 69px;
+    }
+
+    @media (min-width: 769px) {
+      width: 72px;
+    }
+    
+  }
+}
+
+#header {
+  &__burger {
+    position: absolute;
+    visibility: hidden;
+
+    &:checked ~ .header__wrapper > .header__burger-nav {
+      display: block;
+    }
+
+    &:checked ~ .header__wrapper {
+      background-image: none;
+      background-color: #191536;
+
+      @media (max-width: 320px) {
+        padding: 50px 0;
+      }
+
+      @media (min-width: 321px) {
+        padding: 70px 0;
+      }
+    }
+
+    &:checked ~ .header__wrapper > .header__menu {
+      justify-content: flex-end;
+
+      @media (max-width: 320px) {
+        margin-bottom: 38px;
+        padding-right: 20px;
+      }
+
+      @media (min-width: 321px) {
+        margin-bottom: 46px;
+        padding-right: 34px;
+      }
+    }
+
+    &:checked ~ .header__wrapper > .header__menu > .logo--header,
+    &:checked ~ .header__wrapper > .header__content,
+    &:checked ~ .header__wrapper > .header__footer {
+      display: none;
+    }
+
+    &:checked ~ .header__wrapper > .header__menu > .header__burger {
+      background-image: url(../images/vectors/burger-close.svg);
+      background-position: center;
+      background-size: 100%;
+    }
+  }
+
 }
 
 .gaming {
@@ -732,47 +862,6 @@ body {
     height: 80px;
     width: 80px;
     margin-bottom: 24px;
-  }
-}
-
-.logo {
-  background-image: url(../images/vectors/katvr.svg);
-  background-size: 100%;
-  background-repeat: no-repeat;
-
-  &--header {
-
-    margin-right: 34px;
-    flex-shrink: 0;
-
-    @media (max-width: 320px) {
-      height: 12px;
-      width: 58px;
-    }
-
-    @media (min-width: 321px) and (max-width: 768px) {
-      height: 14px;
-      width: 67px;
-    }
-
-    @media (min-width: 769px) {
-      height: 16px;
-      width: 77.5px;
-    }
-
-  }
-
-  &--footer {
-    height: 14px;
-
-    @media (max-width: 768px) {
-      width: 69px;
-    }
-
-    @media (min-width: 769px) {
-      width: 72px;
-    }
-    
   }
 }
 
