@@ -14,6 +14,10 @@ body {
 .header {
   background: linear-gradient(107.56deg, #191536 0%, #000 100%);
 
+  &__wrapper {
+    position: relative;
+  }
+
   &__menu {
     display: flex;
     justify-content: space-between;
@@ -21,8 +25,10 @@ body {
   }
 
   &__burger {
+    position: relative;
     height: 14px;
     width: 29.25px;
+    z-index: 2;
     background-image: url(../images/vectors/burger-menu.svg);
     background-position: center;
     background-size: contain;
@@ -110,10 +116,41 @@ body {
   }
 
   &__content {
-    padding: 100px 0;
-    @media (max-width: 768px) {
+
+    @media (max-width: 320px) {
+      padding-top: 187px;
+    }
+
+    @media (min-width: 321px) and (max-width: 768px) {
       padding: 55px 0 0;
     }
+  }
+
+  &__img {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @media (max-width: 320px) {
+      max-height: 311px;
+      max-width: 444px;
+    }
+
+    @media (min-width: 321px) and (max-width: 768px) {
+      height: 439px;
+      width: 486px;
+    }
+
+    @media (min-width: 769px) and (max-width: 1280px) {
+      height: 688px;
+      width: 811px;
+    }
+
+    @media (min-width: 1281px) {
+      height: 988px;
+      width: 1150px;
+    }
+
   }
 
   &__title {
@@ -144,6 +181,10 @@ body {
     color: #fff;
     font-size: 18px;
     line-height: 23px;
+
+    @media (max-width: 320px) {
+      text-align: center;
+    }
   }
 
   &__play {
@@ -341,7 +382,11 @@ body {
 
   &__product {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+
+    @media (max-width: 320px) {
+      display: block;
+    }
 
     @media (max-width: 768px) {
       margin-bottom: 88px;
@@ -354,7 +399,6 @@ body {
 
   &__meet {
     display: flex;
-    justify-content: space-between;
     width: 100%;
   }
   
@@ -364,6 +408,13 @@ body {
 
   &__p {
     margin-right: 20px;
+    margin-bottom: 10px;
+
+    &--1 {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
   }
 
   &__subtitle {
@@ -375,15 +426,67 @@ body {
     @media (min-width: 321px) {
       margin-bottom: 30px;
     }
+
+    &--1 {
+      @media (max-width: 320px) {
+        display: none;
+      }
+    }
   }
 
   &__img {
     display: block;
-    margin-bottom: 12px;
+
+    @media (max-width: 320px) {
+      width: 280px;
+      height: 207px;
+      margin-bottom: 20px;
+    }
+
+    @media (min-width: 321px) and (max-width: 768px) {
+      height: 270px;
+      width: 340px;
+      margin-right: 20px;
+    }
+
+    @media (min-width: 769px) {
+      height: 290px;
+      width: 430px;
+      margin-right: 110px;
+    }
+  }
+
+  &__page {
+    @media (max-width: 769px) {
+      display: none;
+    }
   }
 
   &__text {
     margin-bottom: 30px;
+
+    &--1 {
+      @media (max-width: 768px) {
+        max-width: 340px;
+      }
+      @media (min-width: 769px) {
+        max-width: 435px;
+      }
+    }
+
+    &--2 {
+      margin-bottom: 0;
+
+      @media (max-width: 768px) {
+        max-width: 430px;
+        margin-right: 11px;
+      }
+
+      @media (min-width: 769px) {
+        max-width: 460px;
+        margin-right: 112px;
+      }
+    }
   }
 
   &__about-us {
@@ -392,6 +495,14 @@ body {
     background-image: url(../images/About.svg);
     background-repeat: no-repeat;
     background-size: cover;
+
+    @media (max-width: 320px) {
+      display: none;
+    }
+    @media (min-width: 321px) and (max-width: 768px) {
+      height: 250px;
+      width: 232px;
+    }
   }
 }
 
@@ -878,6 +989,10 @@ body {
   gap: 102px;
   padding-bottom: 10px;
   border-bottom: 1px solid #212121;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 
   &__link {
     color: #fff;
