@@ -1,0 +1,43 @@
+.transition {
+  position: relative;
+  width: 207px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+  line-height: 150%;
+    
+  &::after {
+    content: "";
+    position: absolute;
+    border: $colorDarkGgray solid $transitionBorderWidth;
+    background-color: $colorDarkGgray;
+    border-radius: $transitionBorderWidth;
+    bottom: -10px;
+    right: 0;
+    left: 0;
+  }
+
+  &--1 > :first-child {
+    pointer-events: none;
+    color: $colorText;
+  }
+  &--1 > :first-child::after {
+    @extend %activeUnderLine;
+    pointer-events: none;
+  }
+    
+  &--2 > :last-child {
+    pointer-events: none;
+    color: $colorText;
+  }
+  &--2 > :last-child::after {
+    @extend %activeUnderLine;
+    pointer-events: none;
+  }
+  
+  &__indicator {
+    display: inline-block;
+    position: relative;
+    @extend %mainLinks;
+  }
+}

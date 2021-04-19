@@ -1,0 +1,117 @@
+$decorPhrazeWidth: 83px;
+$decorPhrazeGap: 17.25px;
+
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 240px;
+
+  &__first-section {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    gap: 190px;
+  }
+
+  &__photo-block {
+    position: relative;
+    
+    &::before {
+      content: "1/5";
+      position: absolute;
+      top: 0;
+      left: -35px;
+      font-family: inherit;
+      color: $colorBlue;
+    }
+  }
+
+  &__photo {
+    width: 430px;
+  }
+
+  &__transition {
+    position: absolute;
+    left: 0;
+    bottom: -35px;
+  }
+
+  &__title-block {
+    max-width: 32%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__video-button {
+    @extend %buttonPlayVideo;
+    @extend %buttonVideoDesktopSize;
+  }
+    
+  &__second-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__greeting-wrap {
+    width: 40%;
+  }
+
+  &__second-title {
+    position: relative;
+    margin-bottom: 30px;
+
+    &::before {
+      content: "Hello,";
+      position: absolute;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: normal;
+      color: $colorBlue;
+      top: -14px;
+    }
+  }
+
+  &__decor-block {
+    display: grid;
+    grid-template-columns: repeat(5, $decorPhrazeWidth);
+    gap: 17.25px;
+    height: 335px;
+  }
+
+  &__decor {
+    transform: rotate(90deg);
+    transform-origin: top left;
+    text-transform: uppercase;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px $colorBlue;
+    font-size: 64px;
+    line-height: 130%;
+    font-weight: bold;
+    margin-left: $decorPhrazeWidth;
+
+    &--1 {
+      -webkit-text-stroke-color: rgba(5, 194, 223, 0.5);
+    }
+
+    &--2 {
+      -webkit-text-stroke-color: rgba(5, 194, 223, 0.2);
+    }
+
+    &--3 {
+      -webkit-text-stroke-color: rgba(5, 194, 223, 0.1);
+    }
+
+    &--4 {
+      -webkit-text-stroke-color: rgba(5, 194, 223, 0.05);
+    }
+  }
+
+  @media (max-width: $screenMaxTablet) {
+  
+    &__first-section {
+      gap: 20px;
+    }
+  }
+}

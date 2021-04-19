@@ -1,0 +1,107 @@
+.start-view {
+  height: 100vh;
+  position: relative;
+
+  &__photo {
+    position: absolute;
+    top: 10px;
+    right: 0;
+    max-width: 66.6%;
+    z-index: -1;
+  }
+
+  &__title-wrap {
+    margin-top: 27vh;
+    max-width: 45%;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__subtext {
+    margin-right: 50px;
+    max-width: 315px;
+  }
+
+  &__price {
+    margin-top: 20px;
+    color: $colorWhite;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 19px;
+  }
+
+  &__video-btn {
+    @extend %buttonPlayVideo;
+    @extend %buttonVideoDesktopSize;
+    position: relative;
+    left: -27%;
+  }
+
+  &__subnavigation {
+    position: relative;
+    bottom: -5%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__sub-links {
+    display: flex;
+    gap: $navigationGap;
+  }
+
+  &__anchors {
+    @extend %mainLinks;
+  }
+
+  &__more-link {
+    position: relative;
+    @extend %mainLinks;
+    color: $colorBlue;
+
+    &::after {
+      content: "▾";
+      position: absolute;
+      right: 15px;
+      top: 15px;
+    }
+  }
+
+  @media (max-width: $screenMaxTablet) {
+
+    &__title {
+      font-size: 26px;
+      line-height: 34px;
+      width: 100%;
+    }
+
+    &__subtext {
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+    }
+
+    &__subnavigation {
+      display: none;
+    }
+
+    &__video-btn {
+      position: absolute;
+      height: 15vh;
+      bottom: 15vh;
+      left: $marginContentTablet / 2;
+    }
+
+    &__photo {
+      top: -20px;
+    }
+  }
+}

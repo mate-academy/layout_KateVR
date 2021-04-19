@@ -1,0 +1,117 @@
+$titleBeforeHeight: 14px;
+
+.contacts {
+  padding: $marginBetweenSections 0;
+  background-color: $colorBlack;
+
+  
+  &__content {
+    margin: 0 $marginContentDesktop;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &__title-block {
+    position: relative;
+    margin-bottom: 50px;
+  }
+  
+  &__title {
+    margin-bottom: 24px;
+    
+    &::before {
+      content: "Have any questions?";
+      position: absolute;
+      top: -($titleBeforeHeight + 12px);
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 500;
+      color: $colorBlue;
+    }
+  }
+
+  &__text {
+    line-height: 24px;
+  }
+  
+  &__list {
+    list-style-type: none;
+  }
+  
+  &__item {
+    margin-bottom: 10px;
+  }
+  
+  &__links {
+    display: inline-block;
+    color: $colorText;
+    text-decoration: none;
+    transition: 0.3s;
+    
+    &:hover {
+      color: $colorBlue;
+      transform: translateX(10px);
+    }
+  }
+  
+  &__form {
+    width: 50%;
+  }
+  
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 90px;
+  }
+  
+  &__inputs {
+    font-family: "MarkPro", monospace;
+    border: none;
+    line-height: 21px;
+    font-size: 14px;
+    color: $colorBlue;
+    border-bottom: 1px solid $colorText;
+    background-color: transparent;
+    height: 40px;
+    outline: none;
+  }
+  
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &__button {
+    width: 200px;
+    height: 48px;
+  }
+  
+  &__home {
+    width: 48px;
+    height: 48px;
+    background-image: url("../images/icons/homeArrow.svg");
+    background-position: 50% 45%;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: $colorBlue solid 1px;
+    transition: 0.3s;
+    
+    &:hover {
+      background-image: url("../images/icons/homeArrowHover.svg");
+      background-color: $colorBlue;
+    }
+  }
+
+  @media (max-width: $screenMaxTablet) {
+    
+    &__content {
+      margin: 0 $marginContentTablet;
+    }
+
+    &__buttons {
+      display: none;
+    }
+  }
+}

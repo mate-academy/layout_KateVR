@@ -1,0 +1,82 @@
+$headerLogoPadding: 25px;
+
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20vh;
+  z-index: 1;
+  
+  &__content {
+    margin: 0 $marginContentDesktop;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &__logo-link {
+    position: relative;
+    left: -$headerLogoPadding;
+    padding: $headerLogoPadding;
+    outline: none;
+  }
+  
+  &__settings {
+    display: flex;
+    align-items: center;
+    gap: $navigationGap - $headerLogoPadding;
+  }
+  
+  &__lang {
+    width: 21px;
+    height: 21px;
+    cursor: pointer;
+    
+    &::after {
+      content: "▾";
+      position: relative;
+      color: $colorBlue;
+      bottom: -3px;
+      left: 3px;
+      height: 3px;
+      
+    }
+    
+    &--en {
+      &::before {
+        content: "En";
+        color: $colorBlue;
+        @extend %textMedium16130;
+        font-weight: 500;
+      }
+    }
+  }
+  
+  &__menu {
+    width: 30px;
+    height: 15px;
+    background-image: url("../images/icons/menu.svg");
+    background-size: cover;
+    border: none;
+    background-color: transparent;
+    transition: 0.3;
+    outline: none;
+    display: none;
+  }
+
+  @media (max-width: $screenMaxTablet) {
+    &__content {
+      margin: 0 $marginContentTablet;
+    }
+
+    &__lang {
+      display: none;
+    }
+
+    &__menu {
+      display: inline-block;
+    }
+  }
+}

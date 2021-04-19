@@ -1,0 +1,50 @@
+.possibilities {
+  padding: $marginBetweenSections 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $colorBlack;
+  
+  &__title {
+    margin-bottom: 14px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 18px;
+    color: $colorBlue;
+    margin-bottom: 80px;
+  }
+  
+  &__content {
+    display: flex;
+    gap: 20px;
+  }
+
+  @media (max-width: $screenMaxTablet) {
+
+    &__title {
+      font-size: 21px;
+      line-height: 21px;
+    }
+
+    &__subtitle {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &__content {
+      margin-left: $marginContentTablet;
+      margin-right: $marginContentTablet;
+      display: grid;
+      grid-template-columns: 340px 340px;
+      grid-template-rows: 1fr 1fr;
+      gap: 40px 20px;
+    }
+
+    &__card {
+      width: 340px;
+    }
+  }
+}
