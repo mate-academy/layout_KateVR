@@ -1,6 +1,3 @@
-$decorPhrazeWidth: 83px;
-$decorPhrazeGap: 17.25px;
-
 .about {
   display: flex;
   flex-direction: column;
@@ -28,6 +25,18 @@ $decorPhrazeGap: 17.25px;
 
   &__photo {
     width: 430px;
+    height: 270px;
+  }
+
+  &__slide {
+    display: none;
+  }
+
+  &__dots {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: $colorDarkGgray;
   }
 
   &__transition {
@@ -49,6 +58,7 @@ $decorPhrazeGap: 17.25px;
   }
     
   &__second-section {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -74,44 +84,131 @@ $decorPhrazeGap: 17.25px;
   }
 
   &__decor-block {
+    position: relative;
+    right: $marginContentDesktop;
+    bottom: 0;
     display: grid;
-    grid-template-columns: repeat(5, $decorPhrazeWidth);
+    grid-template-rows: repeat(5, 1fr);
     gap: 17.25px;
+    transform: rotate(-90deg);
     height: 335px;
+    align-items: center;
+    justify-items: center;
+
+    & > :nth-child(odd) {
+      transform: rotate(180deg);
+    }
   }
 
   &__decor {
-    transform: rotate(90deg);
-    transform-origin: top left;
     text-transform: uppercase;
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke: 1px $colorBlue;
     font-size: 64px;
-    line-height: 130%;
     font-weight: bold;
-    margin-left: $decorPhrazeWidth;
-
-    &--1 {
-      -webkit-text-stroke-color: rgba(5, 194, 223, 0.5);
-    }
 
     &--2 {
-      -webkit-text-stroke-color: rgba(5, 194, 223, 0.2);
+      opacity: 0.5;
     }
 
     &--3 {
-      -webkit-text-stroke-color: rgba(5, 194, 223, 0.1);
+      opacity: 0.2;
     }
 
     &--4 {
-      -webkit-text-stroke-color: rgba(5, 194, 223, 0.05);
+      opacity: 0.1;
+    }
+
+    &--5 {
+      opacity: 0.05;
     }
   }
 
   @media (max-width: $screenMaxTablet) {
-  
+    gap: 100px;
+    overflow: hidden;
+
     &__first-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
       gap: 20px;
+      margin: 0 $marginContentTablet;
+    }
+
+    &__photo-block::before {
+      display: none;
+    }
+
+    &__photo {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+
+    &__slide {
+      display: flex;
+      gap: 6px;
+      justify-content: center;
+
+      &--1 > :first-child {
+        background-color: $colorBlue;
+      }
+    }
+
+    &__transition {
+      display: none;
+    }
+
+    &__title-block {
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__first-title {
+      font-size: 21px;
+      line-height: 21px;
+    }
+
+    &__first-text {
+      font-size: 16px;
+      line-height: 24px;
+    }
+    
+    &__video-button {
+      width: 65%;
+      height: 25%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &__second-section {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      gap: 15px;
+      margin-bottom: 50px;
+    }
+
+    &__second-title {
+      font-size: 21px;
+      line-height: 21px;
+
+      &:before {
+        top: -18px;
+      }
+    }
+
+    &__greeting-wrap {
+      width: 100%;
+    }
+
+    &__decor-block {
+      right: -25%;
+    }
+
+    &__decor {
+      font-size: 48px;
     }
   }
 }

@@ -1,6 +1,11 @@
+$subBlockMargin: 12%;
+
 .start-view {
   height: 100vh;
   position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
 
   &__photo {
     position: absolute;
@@ -10,54 +15,55 @@
     z-index: -1;
   }
 
-  &__title-wrap {
-    margin-top: 27vh;
-    max-width: 45%;
-    display: inline-flex;
+  &__content {
+    display: flex;
     flex-direction: column;
-    align-items: flex-end;
+    justify-content: space-between;
+    height: 70vh;
+    width: 100%;
   }
-
+  
+  &__title-wrap {
+    max-width: 45%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
   &__title {
     margin-bottom: 8px;
   }
-
+  
   &__subtext {
-    margin-right: 50px;
+    margin-left: $subBlockMargin;
     max-width: 315px;
   }
-
+  
   &__price {
     margin-top: 20px;
     color: $colorWhite;
     font-weight: 500;
     font-size: 18px;
     line-height: 23px;
-    margin-bottom: 19px;
   }
-
+ 
   &__video-btn {
     @extend %buttonPlayVideo;
     @extend %buttonVideoDesktopSize;
-    position: relative;
-    left: -27%;
+    margin-left: $subBlockMargin / 2;
   }
-
+  
   &__subnavigation {
-    position: relative;
-    bottom: -5%;
-    left: 0;
-    right: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-
+  
   &__sub-links {
     display: flex;
     gap: $navigationGap;
   }
-
+  
   &__anchors {
     @extend %mainLinks;
   }
@@ -66,7 +72,7 @@
     position: relative;
     @extend %mainLinks;
     color: $colorBlue;
-
+    
     &::after {
       content: "▾";
       position: absolute;
@@ -74,8 +80,18 @@
       top: 15px;
     }
   }
-
+  
   @media (max-width: $screenMaxTablet) {
+
+    &__content {
+      height: 60vh;
+    }
+
+    &__photo {
+      min-width: 730px;
+      right: -10%;
+      top: -20px;
+    }
 
     &__title {
       font-size: 26px;
@@ -84,6 +100,7 @@
     }
 
     &__subtext {
+      margin-left: 0;
       font-weight: 500;
       font-size: 16px;
       line-height: 130%;
@@ -94,14 +111,12 @@
     }
 
     &__video-btn {
-      position: absolute;
-      height: 15vh;
-      bottom: 15vh;
-      left: $marginContentTablet / 2;
-    }
-
-    &__photo {
-      top: -20px;
+      margin-left: 0;
+      height: 70px;
+      width: 250px;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
   }
 }

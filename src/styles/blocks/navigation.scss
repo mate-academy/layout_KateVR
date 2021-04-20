@@ -1,13 +1,13 @@
 .navigation {
   display: flex;
-
-  @media (max-width: $screenMaxTablet) {
-    display: none;
+  
+  &__button {
+    @extend %basicButtonDesktopSize;
   }
-
+  
   &__list {
     display: flex;
-    gap: $navigationGap /2;
+    gap: $navigationGap / 2;
     margin-right: $navigationGap;
   }
   
@@ -17,21 +17,17 @@
     align-items: center;
     justify-content: center;
   }
-
+  
   &__links {
     padding: $navigationGap / 2;
     @extend %mainLinks;
-
+  
     &:hover {
       @extend %mainLinksHover;
     }
-
+  
     &:active {
       @extend %mainLinksActive;
     }
-  }
-
-  &__button {
-    @extend %basicButtonDesktopSize;
   }
 }

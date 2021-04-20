@@ -1,3 +1,5 @@
+$specificationsSchemeWidth: 1280px;
+
 .specifications {
   padding: $marginBetweenSections 0;
   background-color: $colorBlack;
@@ -15,30 +17,34 @@
   
   &__main {
     position: relative;
-    display: flex;
+    align-self: center ;
+    width: $specificationsSchemeWidth - $marginContentDesktop * 2;
+    display: inline-flex;
     justify-content: center;
     align-items: flex-end;
-    width: 100%;
+    padding-top: 65px;
   }
 
   &__loco {
     border-radius: 50%;
-    border: 3px solid $colorBlue;
+    border: 4px solid $colorBlack;
+    box-shadow: $colorBlue 0 0 5px 3px;
   }
   
   &__info {
     position: absolute;
+
     &--sen {
       top: 0;
       left: 0;
     }
     &--bat {
-      right: 0;
-      bottom: 50px;
+      right: -10px;
+      top: 0;
     }
     &--con {
-      left: 50px;
-      bottom: 50px;
+      left: 106px;
+      bottom: 33px;
     }
   }
   
@@ -48,5 +54,132 @@
 
   &__text {
     max-width: 340px;
+  }
+
+  &__line {
+    position: absolute;
+    background-size: cover;
+    
+    &--se {
+      background-image: url("../images/decoration/sensor.svg");
+      width: 450px;
+      height: 78px;
+      top: 1%;
+      left: 7.5%;
+    }
+
+    &--ba {
+      background-image: url("../images/decoration/batterries.svg");
+      width: 187px;
+      height: 240px;
+      bottom: 122px;
+      left: 50%;
+    }
+
+    &--co {
+      background-image: url("../images/decoration/connection.svg");
+      width: 130px;
+      height: 110px;
+      left: 240px;
+      bottom: 120px;
+    }
+
+    &--el {
+      background-image: url("../images/decoration/ellipse.svg");
+      height: 201px;
+      width: 40px;
+      left: 33.5%;
+      bottom: 15%;
+      transform: rotate(-1deg);
+    }
+  }
+
+  &__button-sen {
+    @extend %specificationsButtonsStyle;
+    top: 5%;
+    left: 40%;
+  }
+
+  &__button-bat {
+    @extend %specificationsButtonsStyle;
+    top: 50%;
+    right: 30%;
+  }
+
+  &__button-con {
+    @extend %specificationsButtonsStyle;
+    right: 0;
+    left: 25%;
+  }
+
+  &__button--open {
+    background-image: url("../images/icons/tabletSpecButton-act.svg");
+  }
+  
+  @media (max-width: $screenMaxTablet) {
+    
+    &__content {
+      margin: 0 $marginContentTablet;
+    }
+    
+    &__title {
+      font-size: 21px;
+      line-height: 21px;
+      align-self: flex-start;
+    }
+
+    &__line {
+      display: none;
+    }
+
+    &__info {
+      box-sizing: border-box;
+      max-height: 0;
+      overflow: hidden;
+      background-color: $colorIndigo;
+      transition: 1s;
+      border-radius: 4px;
+
+      &--con {
+        left: 0;
+        bottom: 17%;
+      }
+    }
+
+    &__subtitles {
+      display: none;
+    }
+
+    &__text {
+      padding: 17px 10px 22px;
+      line-height: 18px;
+      font-size: 12px;
+    }
+    
+    &__main {
+      width: 100%;
+    
+      &--sen .specifications__info--sen {
+        max-height: 360px;
+      }
+
+      &--bat .specifications__info--bat {
+        max-height: 360px;
+      }
+
+      &--con .specifications__info--con {
+        max-height: 360px;
+      }
+    }
+
+    &__button-sen {
+      display: inline-block;
+    }
+    &__button-bat {
+      display: inline-block;
+    }
+    &__button-con {
+      display: inline-block;
+    }
   }
 }

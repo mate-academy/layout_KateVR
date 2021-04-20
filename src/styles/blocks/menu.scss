@@ -1,0 +1,42 @@
+.menu {
+  position: absolute;
+  width: 100vw;
+  top: -100%;
+  display: flex;
+  align-items: center;
+  background-color: $colorIndigo;
+  z-index: 1;
+  transition: 0.5s;
+  height: 70vh;
+
+  &__list {
+    list-style-type: none;
+    width: 100vw;
+  }
+
+  &__link {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+    color: $colorWhite;
+    font-size: 21px;
+    font-weight: 500;
+    padding: 11px 0 11px 150px;
+
+    &:active {
+      color: $colorBlue;
+      background-color: #110e25;
+    }
+  }
+
+  &--switch {
+    top: 0;
+  }
+
+  @media (max-width: $screenMaxMobile) {
+    
+    &__link {
+      padding-left: $marginContentMobile;
+    }
+  }
+}
