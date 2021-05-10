@@ -1,0 +1,45 @@
+.soc-network {
+  @include space-between;
+  min-width: 130px;
+  &__item {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    transition: transform $global-transition ease;
+    &:hover {
+      transform: scale(1.4);
+    }
+    &:nth-child(1) {
+      min-width: 6px;
+      min-height: 12px;
+
+      background-image: url("../images/social/facebook.svg");
+    }
+    &:nth-child(2) {
+      min-width: 15px;
+      min-height: 11px;
+
+      background-image: url("../images/social/twitter.svg");
+    }
+    &:nth-child(3) {
+      min-width: 14px;
+      min-height: 11px;
+
+      background-image: url("../images/social/youtube.svg");
+    }
+    &:nth-child(4) {
+      width: 14px;
+      height: 14px;
+
+      background-image: url("../images/social/hz.svg");
+    }
+  }
+}
+
+@media (min-width: 636px) {
+  .social-network {
+    max-height: 100px;
+  }
+}

@@ -1,0 +1,124 @@
+.burger-menu {
+  display: flex;
+
+  #burger-menu__toggle {
+    display: none;
+  }
+
+  * > a {
+    display: block;
+    width: fit-content;
+  }
+
+  &__btn > span,
+  span::before,
+  ::after {
+    display: block;
+    position: absolute;
+
+    height: 1px;
+
+    background-color: white;
+
+    transition-duration: $global-transition;
+  }
+
+  &__btn > span {
+    top: 15%;
+    right: 50%;
+    width: 100%;
+  }
+  &__btn > span::after,
+  :before {
+    width: 110%;
+    left: 25%;
+  }
+
+  &__btn {
+    position: relative;
+    width: 22px;
+    height: 18px;
+
+    top: 5px;
+    z-index: 3;
+
+    cursor: pointer;
+  }
+
+  &__list {
+    display: block;
+    position: absolute;
+
+    width: 100%;
+    height: 100vh;
+
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 5;
+    z-index: 2;
+    list-style: none;
+    background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+    box-shadow: 1px 0 6px rgba(0, 0, 0, 0.2);
+
+    transition: transform $global-transition;
+  }
+
+  &__item {
+    display: block;
+    position: relative;
+    top: 120px;
+
+    padding: 12px 20px;
+
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align: center;
+
+  }
+
+  &__item:hover {
+    color: $highLightColor;
+  }
+
+  &__btn > span::before {
+    content: "";
+    bottom: 8px;
+  }
+
+  &__btn > span::after {
+    content: "";
+    top: 8px;
+  }
+
+  #burger-menu__toggle:checked ~ &__btn > span {
+    transform: rotate(45deg);
+  }
+
+  #burger-menu__toggle:checked ~ &__btn > span::before {
+    top: 0;
+    transform: rotate(0);
+  }
+
+  #burger-menu__toggle:checked ~ &__btn > span::after {
+    top: 0;
+    transform: rotate(90deg);
+  }
+
+  #burger-menu__toggle:checked ~ &__list {
+    visibility: visible;
+    right: 0;
+    transition: transform $global-transition;
+  }
+}
+
+@media (min-width: 770px) {
+  .burger-menu {
+    display: none;
+  }
+}

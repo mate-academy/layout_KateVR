@@ -1,0 +1,58 @@
+.benefits {
+  @include section;
+  background: linear-gradient(108.62deg, #191536 0%, #000 77.34%);
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__subtitle {
+    margin-bottom: 10px;
+  }
+
+  &__grid {
+    grid-template-columns: 1fr;
+  }
+
+  &__button {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) {
+  .benefits {
+    @include width450;
+
+    &__grid {
+      grid-template-columns: repeat(3,1fr);
+    }
+
+    &__title {
+      margin-bottom: 53px;
+      &--subtext {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .benefits {
+    @include width900;
+    
+    &__title {
+      text-align: center;
+      margin-bottom: 83px;
+      &--subtext {
+        margin-bottom: 40px;
+      }
+    }
+
+    &__button {
+      display: block;
+      height: 48px;
+      min-width: 200px;
+      margin: 90px auto 0;
+    }
+  }
+}

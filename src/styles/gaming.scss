@@ -1,0 +1,32 @@
+.gaming {
+  @include section;
+  background: $bgDarkColor;
+}
+
+@media (min-width: $mobileLWidth) {
+  .gaming {
+    @include width450;
+
+    &__title {
+      text-align: center;
+
+      &--subtext {
+        text-align: center;
+      }
+    }
+  }
+}
+
+@media (min-width: $laptopWidth) {
+  .gaming {
+    @include width900;
+
+    &__title {
+      margin-bottom: 14px;
+      
+      &--subtext {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}

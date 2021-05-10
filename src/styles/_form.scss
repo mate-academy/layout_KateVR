@@ -1,0 +1,55 @@
+.form {
+
+  &__wrapper {
+    width: $formMinWidth;
+    position: relative;
+    left: 50%;
+
+    transform: translateX(-50%);
+  }
+
+  &__input {
+    background: inherit;
+    height: 40px;
+    width: $formMinWidth;
+
+    border-bottom: 2px solid #2f2f2f;
+    color: white;
+
+    transition: border, transform $global-transition, border-radius 1s ease;
+
+    &--message {
+      height: 88px;
+      padding-bottom: 68px;
+    }
+
+    &:focus {
+      border: 2px $highLightColor groove;
+      border-radius: 8px;
+      transform: scale(1.1);
+    }
+  }
+
+  &__item {
+    display: block;
+    margin-bottom: 24px;
+
+  }
+
+  &__item:last-child {
+    margin-bottom: 30px;
+  }
+}
+
+@media (min-width: 670px) {
+  .form {
+
+    &__wrapper {
+      width: $formMaxWidth;
+    }
+
+    &__input {
+      width: $formMaxWidth;
+    }
+  }
+}

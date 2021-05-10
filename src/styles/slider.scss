@@ -1,0 +1,69 @@
+
+.slider {
+  @include section;
+  display: block;
+
+  &__interactive {
+    margin: 0 auto;
+  }
+
+  &__img {
+    position: relative;
+    min-width: 280px;
+    height: 189px;
+
+    margin: 0 auto 14px;
+  }
+
+  &__gallery {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  &__number {
+    display: none;
+    position: relative;
+    color: $highLightColor;
+    margin-right: 10px;
+  }
+}
+
+@media (min-width: 467px) {
+  .slider {
+
+    &__button,
+    &__number {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: 750px) {
+  .slider {
+
+    &__nav {
+      @include space-between;
+    }
+
+    &__img {
+      min-width: 340px;
+      height: 270px;
+      margin: 0;
+
+    }
+
+    &__circle {
+      display: none;
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .slider {
+    &__img {
+      min-width: 430px;
+      height: 290px;
+
+    }
+  }
+}

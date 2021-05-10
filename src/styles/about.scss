@@ -1,0 +1,101 @@
+
+.about {
+  @include section;
+
+  background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+  &__interactive {
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    &--subtext {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__text {
+    max-width: 429px;
+    margin-bottom: 15px;
+    line-height: 24px;
+  }
+
+  &__background {
+    display: none;
+    @include about-bg-text;
+    &--text {
+      font-family: "Mark-heavy" , Helvetica, sans-serif;
+      font-size: 3rem;
+      line-height: 5rem;
+
+      color: transparent;
+      -webkit-text-stroke: 1px $highLightColor;
+      writing-mode: vertical-rl;
+
+    }
+  }
+}
+
+@media (min-width: $mobileLWidth) {
+  .about {
+    @include width450;
+
+    &__interactive {
+      display: grid;
+      gap: 20px;
+      grid-template-columns: 1.5fr 1fr;
+    }
+  }
+}
+
+@media (min-width: 500px) {
+  .about {
+
+    &__interactive {
+      margin-bottom: 28px;
+    }
+
+    &__greeting {
+      min-width: 460px;
+      min-height: 249px;
+    }
+
+    &__body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    &__background {
+      position: relative;
+      max-width: 483px;
+
+      @include space-around;
+
+      cursor: default;
+      &--text {
+        &:nth-child(n+4) {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $laptopWidth) {
+  .about {
+    @include width900;
+
+    &__interactive {
+      margin-bottom: 88px;
+    }
+
+    &__background {
+      &--text {
+        &:nth-child(n+4) {
+          display: block;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,131 @@
+
+.specs {
+  @include section;
+  position: relative;
+  background: $bgDarkColor;
+
+  &__bg {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+    max-width: 357.95px;
+    min-height: 194.7px;
+
+    background-image: url("../images/specs/footer.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__title {
+    margin-bottom: 41px;
+  }
+
+  &__button {
+    transition: transform $global-transition;
+    &:hover {
+      transform: scale(1.2);
+    }
+    &--sensor {
+      position: absolute;
+      bottom: 90%;
+      left: 35%;
+    }
+
+    &--connection {
+      position: absolute;
+      top: 41%;
+      left: 63%;
+    }
+
+    &--batterries {
+      position: absolute;
+      top: 75%;
+      left: 25%;
+    }
+  }
+
+  &__sensor,
+  &__batterries,
+  &__connection {
+    display: none;
+  }
+
+}
+@media (min-width: $mobileLWidth) {
+  .specs {
+    @include width450;
+  }
+}
+
+@media (min-width: 500px) {
+  .specs {
+    &__bg {
+      min-height: 357px;
+    }
+    &__button {
+      height: 62px;
+      width: 62px;
+      &--sensor {
+        bottom: 94%;
+        left: 18%;
+      }
+      &--connection {
+        left: 69%;
+      }
+      &--batterries {
+        top: 75%;
+        left: 10%;
+      }
+    }
+  }
+}
+
+@media (min-width: 900px) {
+  .specs {
+    @include width900;
+    width: 100%;
+
+    &__title {
+      margin-bottom: 80px;
+      text-align: right;
+    }
+    &__bg {
+      height: 425px;
+      min-width: 800px;
+      margin: 0 auto;
+
+      background: url("../images/specs/footer-big1.png");
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    &__button {
+      &--sensor,
+      &--connection,
+      &--batterries {
+        display: none;
+      }
+    }
+    &__sensor,
+    &__batterries,
+    &__connection {
+      display: block;
+      position: absolute;
+    }
+    &__sensor {
+      left: -10%;
+    }
+    &__batterries {
+      left: 82%;
+    }
+    &__connection {
+      top: 60%;
+      right: 95%;
+    }
+
+    &__subtitle {
+      margin-bottom: 20px;
+    }
+  }
+}

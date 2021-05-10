@@ -1,0 +1,67 @@
+.footer {
+  @include section;
+  background: #000;
+
+  &__row {
+    @include space-between;
+    padding: 0 20px;
+  }
+
+  &__logo {
+    margin-bottom: 15px;
+  }
+
+  &__link {
+    font-size: 0.75rem;
+    color: $greyColor;
+    margin-bottom: 12px;
+
+    transition: transform $transitionGlobal ease;
+    &:hover {
+      transform: scale(1.05);
+      color: white;
+    }
+    &:last-of-type {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__contact {
+    @include space-between;
+    flex-direction: column;
+  }
+
+  &__list {
+    position: relative;
+    flex-direction: column;
+    left: -20%;
+  }
+}
+
+@media (min-width: 768px) {
+  .footer {
+
+    &__container {
+      @include space-between;
+      flex-direction: row;
+      padding: 10px 34px;
+    }
+
+    &__link {
+      display: none;
+    }
+
+    &__row,
+    &__list {
+      height: 64px;
+      flex-direction: row;
+    }
+
+    &__row {
+      width: 62%;
+    }
+    &____soc-network {
+      flex-direction: row;
+    }
+  }
+}

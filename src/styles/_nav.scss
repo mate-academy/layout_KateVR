@@ -1,0 +1,38 @@
+.nav {
+
+  &__list {
+    @include space-between;
+  }
+
+  &__item {
+    margin-right: 34px;
+    padding-bottom: 12px;
+  }
+
+  &__link {
+    display: block;
+    color: $linkColor;
+
+    transition: color $transitionGlobal , transform $transitionGlobal ease;
+    &:hover {
+      color: $highLightColor;
+      transform: translateY(-3px);
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .nav {
+    &__link {
+      padding-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .nav {
+    &__item {
+      margin-right: 15px;
+    }
+  }
+}
