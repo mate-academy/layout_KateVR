@@ -3,7 +3,6 @@
 const $ = window.$;
 
 $(document).ready(function() {
-  // work with main menu
   const menuBtn = $('.header__menu-btn');
   const menu = $('.menu');
   const menuBtnWrapper = $('.header__button-wrap');
@@ -25,7 +24,6 @@ $(document).ready(function() {
 
   menuBtn.click(toggleMenu);
 
-  // buttons in the specifications section
   const specMain = $('.specifications__main');
   const senBtn = $('#sen');
   const batBtn = $('#bat');
@@ -52,8 +50,6 @@ $(document).ready(function() {
   conBtn.click(function() {
     specSwitcher(openConClass, conBtn);
   });
-
-  // change language block
 
   const langChoosedIcon = $('.lang__icon');
   const langList = $('.lang__slide');
@@ -121,10 +117,18 @@ $(document).ready(function() {
   languageButton.pl.click(function() {
     langSelect('pl');
   });
+
+  const windowElement = $(window);
+  const mainBuyButton = $('.page-main__buy-button');
+  const activeButtonClass = 'page-main__buy-button--active';
+
+  const showTabletButton = () => {
+    if (windowElement.scrollTop() > 850) {
+      mainBuyButton.addClass(activeButtonClass);
+    } else {
+      mainBuyButton.removeClass(activeButtonClass);
+    }
+  };
+
+  windowElement.scroll(showTabletButton);
 });
-
-// main buyButton of the mobile version
-
-const mainBuyButton = $('#mainMobileButton');
-
-mainBuyButton.style.background = 'red';
