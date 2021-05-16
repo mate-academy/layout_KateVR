@@ -1,7 +1,13 @@
 .about {
   display: flex;
-  flex-direction: column;
-  gap: 240px;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 240px;
+    max-width: $maxPossibleContentWidth;
+  }
 
   &__first-section {
     position: relative;
@@ -23,9 +29,15 @@
     }
   }
 
+  &__mobile-title {
+    @include titleTablet;
+    display: none;
+  }
+
   &__photo {
     width: 430px;
     height: 270px;
+    border-radius: 10px;
   }
 
   &__slide {
@@ -60,7 +72,7 @@
   &__second-section {
     position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
   }
 
@@ -79,7 +91,7 @@
       line-height: 18px;
       font-weight: normal;
       color: $colorBlue;
-      top: -14px;
+      top: -32px;
     }
   }
 
@@ -166,8 +178,7 @@
     }
 
     &__first-title {
-      font-size: 21px;
-      line-height: 21px;
+      @include titleTablet;
     }
 
     &__first-text {
@@ -191,16 +202,13 @@
     }
 
     &__second-title {
-      font-size: 21px;
-      line-height: 21px;
-
-      &:before {
-        top: -18px;
-      }
+      @include titleTablet;
     }
 
     &__greeting-wrap {
-      width: 100%;
+      position: relative;
+      left: 2%;
+      width: 99%;
     }
 
     &__decor-block {
@@ -209,6 +217,61 @@
 
     &__decor {
       font-size: 48px;
+    }
+  }
+
+  @media (max-width: $screenMaxMobile) {
+
+    &__photo {
+      max-height: 270px;
+    }
+
+    &__container {
+      align-items: center;
+      gap: 110px;
+    }
+
+    &__first-section {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 38px;
+      width: 100%;
+    }
+
+    &__mobile-title {
+      display: inline-block;
+    }
+
+    &__photo-block {
+      max-width: 410px;
+      align-self: center;
+    }
+
+    &__video-button {
+      width: 100%;
+      height: 66px;
+      background-size: contain;
+    }
+
+    &__first-title {
+      display: none;
+    }
+
+    &__greeting-wrap {
+      position: static;
+    }
+
+    &__second-section {
+      display: block;
+    }
+
+    &__decor-block {
+      display: none;
+    }
+    
+    &__decor {
+      display: none;
     }
   }
 }

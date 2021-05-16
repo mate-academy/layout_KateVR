@@ -1,14 +1,22 @@
 $titleBeforeHeight: 14px;
 
 .contacts {
+  position: relative;
   padding: $marginBetweenSections 0;
   background-color: $colorBlack;
+  display: flex;
+  justify-content: center;
 
-  
   &__content {
     margin: 0 $marginContentDesktop;
+    width: 100%;
+    max-width: $maxPossibleContentWidth;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
+  }
+
+  &__info {
+    width: 50%;
   }
   
   &__title-block {
@@ -34,26 +42,6 @@ $titleBeforeHeight: 14px;
     line-height: 24px;
   }
   
-  &__list {
-    list-style-type: none;
-  }
-  
-  &__item {
-    margin-bottom: 10px;
-  }
-  
-  &__links {
-    display: inline-block;
-    color: $colorText;
-    text-decoration: none;
-    transition: 0.3s;
-    
-    &:hover {
-      color: $colorBlue;
-      transform: translateX(10px);
-    }
-  }
-  
   &__form {
     width: 50%;
   }
@@ -75,7 +63,6 @@ $titleBeforeHeight: 14px;
     background-color: transparent;
     height: 40px;
     outline: none;
-    
 
     &:-webkit-autofill {
       -webkit-text-fill-color: $colorWhite;
@@ -84,7 +71,6 @@ $titleBeforeHeight: 14px;
 
       &::first-line {
         font-family: inherit;
-
       }
     }
   }
@@ -116,8 +102,12 @@ $titleBeforeHeight: 14px;
     }
   }
 
+  &__mobile-text {
+    display: none;
+  }
+
   @media (max-width: $screenMaxTablet) {
-    
+
     &__content {
       margin: 0 $marginContentTablet;
     }
@@ -133,6 +123,46 @@ $titleBeforeHeight: 14px;
     }
 
     &__buttons {
+      display: none;
+    }
+  }
+
+  @media (max-width: $screenMaxMobile) {
+    &__content {
+      flex-direction: column;
+    }
+
+    &__info {
+      width: 100%;
+    }
+
+    &__form {
+      width: 100%;
+    }
+
+    &__list {
+      display: none;
+    }
+
+    &__text {
+      display: none;
+    }
+
+    &__mobile-text {
+      display: block;
+    }
+
+    &__buttons {
+      display: block;
+    }
+
+    &__button {
+      display: block;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    &__home {
       display: none;
     }
   }

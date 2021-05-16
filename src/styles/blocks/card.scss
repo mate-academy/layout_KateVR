@@ -51,4 +51,20 @@
     line-height: 150%;
     font-weight: normal;
   }
+
+  @media (max-width: $screenMaxMobile) {
+    width: 100%;
+    align-items: flex-start;
+    
+    &__icon {
+      display: none;
+    }
+
+    &__text {
+      max-width: 100%;
+      @include lineHide;
+      @include lineCount(2);
+      text-align: start;
+    }
+  }
 }

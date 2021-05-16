@@ -22,27 +22,38 @@
               alt="logo"
               class="header__logo">
           </a>
-          <div class="header__lang header__lang--en"></div>
+          <div class="header__lang lang">
+            <div class="lang__icon lang__icon--ua">
+              <div class="lang__slide">
+                <ul class="lang__list">
+                  <li class="lang__item" id="item_en">En</li>
+                  <li class="lang__item" id="item_ru">Ru</li>
+                  <li class="lang__item" id="item_pl">Pl</li>
+                  <li class="lang__item" id="item_ua">Ua</li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
         <nav class="header__navigation navigation">
           <ul class="navigation__list">
             <li class="navigation__item">
-              <a href="" class="navigation__links">
+              <a href="#id_about" class="navigation__links">
                 About
               </a>
             </li>
             <li class="navigation__item">
-              <a href="" class="navigation__links">
+              <a href="#id_specifications" class="navigation__links">
                 Tech
               </a>
             </li>
             <li class="navigation__item">
-              <a href="" class="navigation__links">
+              <a href="#id_benefits" class="navigation__links">
                 Benefits
               </a>
             </li>
             <li class="navigation__item">
-              <a href="" class="navigation__links">
+              <a href="#id_contacts" class="navigation__links">
                 Contact
               </a>
             </li>
@@ -50,7 +61,7 @@
           <button class="navigation__button button">Buy now</button>
         </nav>
         <div class="header__button-wrap">
-          <div class="header__menu-btn"></div>
+          <div class="header__menu-btn header__menu-btn--animateCross"></div>
         </div>
       </div>
     </header>
@@ -60,12 +71,14 @@
         class="page-main__start-view start-view"
         id="id_start-view"
       >
-        <img
-          class="start-view__photo"
-          src="./images/photos/three_kats.png"
-          alt="KAT locomotion"
-        >
         <div class="start-view__content">
+          <div class="start-view__photo-wrapper">
+            <img
+              class="start-view__photo"
+              src="./images/photos/three_kats.png"
+              alt="KAT locomotion"
+            >
+          </div>
           <div class="start-view__title-wrap">
             <h1 class="start-view__title">
               THE NEW START OF
@@ -75,26 +88,29 @@
             <div class="start-view__subtext">
               Discover the most comprehensive VR Locomotion system,
               and unlock infinite motion in any games on any platforms!
-              <p class="start-view__price">1200$</p>
+              <div class="start-view__price-wrapper">
+                <p class="start-view__price">1200$</p>
+              </div>
             </div>
           </div>
-
           <button class="start-view__video-btn"></button>
-
-          <div class="start-view__subnavigation">
-            <div class="start-view__sub-links">
-              <a href="#" class="start-view__anchors">FAQ</a>
-              <a href="#" class="start-view__anchors">Help</a>
-            </div>
-            <a href="#" class="start-view__more-link">More</a>
-            <div class="start-view__transition transition transition--1">
-              <a href="" class="transition__indicator">Previous</a>
-              <a href="" class="transition__indicator">Next</a>
-            </div>
+          <button class="start-view__buy-button button" id="mainMobileButton">
+            Buy Now
+          </button>
+        </div>
+        <div class="start-view__subnavigation">
+          <div class="start-view__sub-links">
+            <a href="#" class="start-view__anchors">FAQ</a>
+            <a href="#" class="start-view__anchors">Help</a>
           </div>
-
+          <a href="#id_possibilities" class="start-view__more-link">More</a>
+          <div class="start-view__transition transition transition--1">
+            <a href="" class="transition__indicator">Previous</a>
+            <a href="" class="transition__indicator">Next</a>
+          </div>
         </div>
       </section>
+
       <section class="page-main__menu menu">
         <div>
           <ul class="menu__list">
@@ -117,10 +133,9 @@
               <a href="#" class="menu__link">FAQ</a>
             </li>
             <li class="menu__item">
-              <a href="#" class="menu__link">Help</a>
+              <a href="#id_footer" class="menu__link">Help</a>
             </li>
           </ul>
-
         </div>
       </section>
 
@@ -128,100 +143,107 @@
         class="page-main__possibilities possibilities"
         id="id_possibilities"
       >
-        <div class="possibilities__title-wrap">
-          <h2 class="possibilities__title">
-            MORE THAN <span>GAMING!</span>
-          </h2>
-          <p class="possibilities__subtitle">
-            This also made for people who are interested in...
-          </p>
-        </div>
-        <div class="possibilities__content">
-          <article class="possibilities__card card">
-            <div class="card__icon card__icon--education"></div>
-            <h3 class="card__title">EDUCATION</h3>
-            <div class="card__text">
-              Create aducational simulations, trainings and much
-              more with unlimited virtual space and minimum physical space
-            </div>
-          </article>
-          <article class="possibilities__card card">
-            <div class="card__icon card__icon--real"></div>
-            <h3 class="card__title">REAL ESTATE</h3>
-            <div class="card__text">
-              Desighn architectural projects in a deeply realistic
-              environment allowing visitors to freely walk around, and feel their vibe
-            </div>
-          </article>
-          <article class="possibilities__card card">
-            <div class="card__icon card__icon--fitness"></div>
-            <h3 class="card__title">FITNESS</h3>
-            <div class="card__text">
-              Combine business with pleasure, and discover countless ways to stay fit
-              while playing your favorite VR Games!
-            </div>
-          </article>
-          <article class="possibilities__card card">
-            <div class="card__icon card__icon--soc"></div>
-            <h3 class="card__title">SOCIAL INTERACTIONS</h3>
-            <div class="card__text">
-              Hang out with your friends in the virtual world when you can’t meet
-              space requirements
-            </div>
-          </article>
+        <div class="possibilities__container">
+          <div class="possibilities__title-wrap">
+            <h2 class="possibilities__title">
+              MORE THAN <span>GAMING!</span>
+            </h2>
+            <p class="possibilities__subtitle">
+              This also made for people who are interested in...
+            </p>
+          </div>
+          <div class="possibilities__content">
+            <article class="possibilities__card card">
+              <div class="card__icon card__icon--education"></div>
+              <h3 class="card__title">EDUCATION</h3>
+              <div class="card__text">
+                Create aducational simulations, trainings and much
+                more with unlimited virtual space and minimum physical space
+              </div>
+            </article>
+            <article class="possibilities__card card">
+              <div class="card__icon card__icon--real"></div>
+              <h3 class="card__title">REAL ESTATE</h3>
+              <div class="card__text">
+                Desighn architectural projects in a deeply realistic
+                environment allowing visitors to freely walk around, and feel their vibe
+              </div>
+            </article>
+            <article class="possibilities__card card">
+              <div class="card__icon card__icon--fitness"></div>
+              <h3 class="card__title">FITNESS</h3>
+              <div class="card__text">
+                Combine business with pleasure, and discover countless ways to stay fit
+                while playing your favorite VR Games!
+              </div>
+            </article>
+            <article class="possibilities__card card">
+              <div class="card__icon card__icon--soc"></div>
+              <h3 class="card__title">SOCIAL INTERACTIONS</h3>
+              <div class="card__text">
+                Hang out with your friends in the virtual world when you can’t meet
+                space requirements
+              </div>
+            </article>
+          </div>
         </div>
       </section>
-      <section class="page-main__about about" id="id_about">
-        <div class="about__first-section">
-          <div class="about__photo-block">
-            <img
-              src="./images/photos/video-screen.jpg"
-              alt="screenshot from the video about using the KAT loco"
-              class="about__photo"
-            >
-            <div class="about__transition transition transition--1">
-              <a href="" class="transition__indicator">Previous</a>
-              <a href="" class="transition__indicator">Next</a>
-            </div>
-            <div class="about__slide about__slide--1 ">
-              <div class="about__dots"></div>
-              <div class="about__dots"></div>
-              <div class="about__dots"></div>
-              <div class="about__dots"></div>
-              <div class="about__dots"></div>
-            </div>
-          </div>
 
-          <article class="about__title-block">
-            <h2 class="about__first-title">
-              ABOUT <span>PRODUCT</span>
+      <section class="page-main__about about" id="id_about">
+        <div class="about__container">
+          <div class="about__first-section">
+            <h2 class="about__mobile-title">
+              ABOUT <span> PRODUCT</span>
             </h2>
-            <p class="about__first-text">
-              KAT loco is a foot-based VR locomotion system that gives complete
-              physical control over lower-body actions, allowing you to freely walk,
-              run, and carry out just any other movement in virtual reality.
-            </p>
-            <button class="about__video-button"></button>
-          </article>
-        </div>
-        <div class="about__second-section">
-          <div class="about__greeting-wrap">
-            <h2 class="about__second-title">
-              NICE TO MEET <span>YOU!</span>
-            </h2>
-            <p class="about__greeting">
-              KAT VR is an independent company dedicated to the research,
-              development, and sales of VR Locomotion products and solutions.
-              Founded in 2013, we have quickly grown to become one of the world’s
-              leading professional suppliers of VR games’ & simulations’ equipment
-            </p>
+            <div class="about__photo-block">
+              <img
+                src="./images/photos/video-screen.jpg"
+                alt="screenshot from the video about using the KAT loco"
+                class="about__photo"
+              >
+              <div class="about__transition transition transition--1">
+                <a href="" class="transition__indicator">Previous</a>
+                <a href="" class="transition__indicator">Next</a>
+              </div>
+              <div class="about__slide about__slide--1 ">
+                <div class="about__dots"></div>
+                <div class="about__dots"></div>
+                <div class="about__dots"></div>
+                <div class="about__dots"></div>
+                <div class="about__dots"></div>
+              </div>
+            </div>
+            <article class="about__title-block">
+              <h2 class="about__first-title">
+                ABOUT <span>PRODUCT</span>
+              </h2>
+              <p class="about__first-text">
+                KAT loco is a foot-based VR locomotion system that gives complete
+                physical control over lower-body actions, allowing you to freely walk,
+                run, and carry out just any other movement in virtual reality.
+              </p>
+              <button class="about__video-button"></button>
+            </article>
           </div>
-          <div class="about__decor-block">
-            <p class="about__decor">about&nbsp;us</p>
-            <p class="about__decor about__decor--2">about&nbsp;us</p>
-            <p class="about__decor about__decor--3">about&nbsp;us</p>
-            <p class="about__decor about__decor--4">about&nbsp;us</p>
-            <p class="about__decor about__decor--5">about&nbsp;us</p>
+          <div class="about__second-section">
+            <div class="about__greeting-wrap">
+              <h2 class="about__second-title">
+                NICE TO MEET <span>YOU!</span>
+              </h2>
+              <p class="about__greeting">
+                KAT VR is an independent company dedicated to the research,
+                development, and sales of VR Locomotion products and solutions.
+                Founded in 2013, we have quickly grown to become one of the world’s
+                leading professional suppliers of VR games’ & simulations’ equipment
+              </p>
+            </div>
+            <div class="about__decor-block">
+              <p class="about__decor">about&nbsp;us</p>
+              <p class="about__decor about__decor--2">about&nbsp;us</p>
+              <p class="about__decor about__decor--3">about&nbsp;us</p>
+              <p class="about__decor about__decor--4">about&nbsp;us</p>
+              <p class="about__decor about__decor--5">about&nbsp;us</p>
+            </div>
           </div>
         </div>
       </section>
@@ -241,8 +263,8 @@
             <img
               class="specifications__loco"
               src="./images/photos/loco.jpg"
-              alt="KAT locomotion">
-
+              alt="KAT locomotion"
+            >
             <article class="specifications__info specifications__info--sen">
               <h3 class="specifications__subtitles">SENSOR</h3>
               <p class="specifications__text">
@@ -286,6 +308,7 @@
           </div>
         </div>
       </section>
+
       <section class="page-main__benefits benefits" id="id_benefits">
         <h2 class="benefits__title">
           WHY <span> KAT LOCO?</span>
@@ -294,7 +317,7 @@
           <article class="benefits__card card">
             <div class="card__icon card__icon--compatible"></div>
             <h3 class="card__title">UNIVERSALLY COMPATIBLE</h3>
-            <p class="card__text">
+            <p class="card__text benefits__text">
               KAT Loco offers universal compatibility across all major VR
               headsets and platforms allowing you to play any VR game with
               support for Free Locomotion
@@ -303,7 +326,7 @@
           <article class="benefits__card card">
             <div class="card__icon card__icon--panel"></div>
             <h3 class="card__title">VR/PC CONTROL PANEL</h3>
-            <p class="card__text">
+            <p class="card__text benefits__text">
               Our Multifunctional Software allows for quick access to KAT
               Loco’s control panel both from a computer desktop, and
               directly from your VR headset.
@@ -312,18 +335,18 @@
           <article class="benefits__card card">
             <div class="card__icon card__icon--sensors"></div>
             <h3 class="card__title">WIRELESS SENSORS</h3>
-            <p class="card__text">
+            <p class="card__text benefits__text">
               What makes it even more advanced, KAT Loco is entirely
               wireless, and comes with a complete system of algorithms,
               super durable batteries and more!
             </p>
           </article>
         </div>
-
         <button class="benefits__button button">
           Buy Now
         </button>
       </section>
+
       <section class="page-main__contacts contacts" id="id_contacts">
         <div class="contacts__content">
           <div class="contacts__info">
@@ -335,27 +358,27 @@
                 Our manager will reply you within 15 minutes
               </p>
             </div>
-            <ul class="contacts__list">
-              <li class="contacts__item">
-                <a href="tel:86057186105373" class="contacts__links">
+            <ul class="contacts__list contacts-list">
+              <li class="contacts-list__item">
+                <a href="tel:86057186105373" class="contacts-list__links">
                   +86-0571-86105373
                 </a>
               </li>
-              <li class="contacts__item">
+              <li class="contacts-list__item">
                 <a
                   rel="noopener"
                   href="https://mail.google.com/mail/"
-                  class="contacts__links"
+                  class="contacts-list__links"
                   target="_blank"
                 >
                   global@katvr.com
                 </a>
               </li>
-              <li class="contacts__item">
+              <li class="contacts-list__item">
                 <a
                   rel="noopener"
                   href="https://mail.google.com/mail/"
-                  class="contacts__links"
+                  class="contacts-list__links"
                   target="_blank"
                 >
                   overseas@katvr.com
@@ -400,12 +423,15 @@
               </button>
               <a href="#id_start-view" class="contacts__home"></a>
             </div>
+            <p class="contacts__mobile-text">
+              Our manager will reply you within 15 minutes
+            </p>
           </form>
         </div>
       </section>
     </main>
 
-    <footer class="page__footer footer">
+    <footer class="page__footer footer" id="id_footer">
       <div class="footer__content">
         <a href="#" class="footer__logo-link">
           <img
@@ -415,28 +441,58 @@
         </a>
         <nav class="footer__navigation navigation">
           <ul class="navigation__list footer__nav-list">
-            <li class="navigation__item">
-              <a href="" class="navigation__links">
+            <li class="navigation__item footer__item">
+              <a href="#id_about" class="navigation__links footer__links">
                 About
               </a>
             </li>
-            <li class="navigation__item">
-              <a href="" class="navigation__links">
+            <li class="navigation__item footer__item">
+              <a href="#id_specifications" class="navigation__links footer__links">
                 Tech
               </a>
             </li>
-            <li class="navigation__item">
-              <a href="" class="navigation__links">
+            <li class="navigation__item footer__item">
+              <a href="#id_benefits" class="navigation__links footer__links">
                 Benefits
               </a>
             </li>
-            <li class="navigation__item">
-              <a href="" class="navigation__links">
+            <li class="navigation__item footer__item">
+              <a href="#id_contacts" class="navigation__links footer__links">
                 Contact
               </a>
             </li>
           </ul>
         </nav>
+        <ul class="footer__contacts contacts-list">
+          <li class="contacts-list__item">
+            <a
+              href="tel:86057186105373"
+              class="contacts-list__links footer__contact-links"
+            >
+              +86-0571-86105373
+            </a>
+          </li>
+          <li class="contacts-list__item">
+            <a
+              rel="noopener"
+              href="https://mail.google.com/mail/"
+              class="contacts-list__links footer__contact-links"
+              target="_blank"
+            >
+              global@katvr.com
+            </a>
+          </li>
+          <li class="contacts-list__item">
+            <a
+              rel="noopener"
+              href="https://mail.google.com/mail/"
+              class="contacts-list__links footer__contact-links"
+              target="_blank"
+            >
+              overseas@katvr.com
+            </a>
+          </li>
+        </ul>
         <div class="footer__soc">
           <a
             rel="noopener"

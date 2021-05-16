@@ -1,12 +1,47 @@
 $headerLogoPadding: 25px;
+$menuButtonWidth: 20px;
+
+@keyframes wavesAnimation {
+  0% {
+    opacity: 1;
+    transform: scale(1.7);
+  }
+  10% {
+    background-color: $colorIndigo;
+  }
+  50% {
+    transform: scale(2.4);
+  }
+  100% {
+    transform: scale(3.1);
+    opacity: 0;
+  }
+}
+
+@keyframes rotateAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
 
 .header {
-  height: 20vh;
-  z-index: 1;
-  
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+
   &__content {
     margin: 0 $marginContentDesktop;
     height: 100px;
+    width: 100%;
+    max-width: $maxPossibleContentWidth;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -17,11 +52,20 @@ $headerLogoPadding: 25px;
     left: -$headerLogoPadding;
     padding: $headerLogoPadding;
     outline: none;
+    opacity: 1;
+    transition: 0.4s;
+
+    &--hide {
+      opacity: 0;
+    }
+  }
+
+  &__lang {
+    top: -3px;
   }
 
   &__logo {
     position: relative;
-    z-index: 0;
   }
   
   &__settings {
@@ -29,73 +73,78 @@ $headerLogoPadding: 25px;
     align-items: center;
     gap: $navigationGap - $headerLogoPadding;
   }
-  
-  &__lang {
-    width: 21px;
-    height: 21px;
-    cursor: pointer;
-    
-    &::after {
-      content: "▾";
-      position: relative;
-      color: $colorBlue;
-      bottom: -3px;
-      left: 3px;
-      height: 3px;
-    }
-    
-    &--en {
-      &::before {
-        content: "En";
-        color: $colorBlue;
-        @extend %textMedium16130;
-        font-weight: 500;
-      }
+
+  &__button-wrap {
+    display: none;
+
+    &--rotate {
+      animation-name: rotateAnimation;
+      animation-duration: 1s;
     }
   }
 
   &__menu-btn {
-    width: 30px;
-    height: 15px;
+    position: relative;
+    width: $menuButtonWidth;
+    height: 20px;
     border: none;
     outline: none;
-    background-image: url("../images/icons/menu.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: contain;
     background-color: transparent;
     transition: 0.3s;
     display: none;
     cursor: pointer;
-    z-index: 10;
 
-    &--showed {
+    &--animateBurger {
       background-image: url("../images/icons/menu-close.svg");
-      width: 30px;
-      height: 30px;
+    
 
       &:active {
         background-image: url("../images/icons/menu-close-active.svg");
       }
+
+      &::after {
+        animation-delay: 0.1s;
+        @include wave(-2px);
+      }
+      
+      &::before {
+        @include wave(-5px);
+      }
     }
 
+    &--animateCross {
+      height: 30px;
+      background-image: url("../images/icons/menu.svg");
+      animation-name: rotateAnimation;
+      animation-duration: 1s;
+    }
   }
 
   @media (max-width: $screenMaxTablet) {
+    height: 70px;
+
     &__content {
       margin: 0 $marginContentTablet;
+      height: 70px;
     }
 
+    &__logo {
+      width: 67px;
+      height: 14px;
+    }
     &__lang {
       display: none;
     }
 
-    &__menu-btn {
+    &__button-wrap {
       display: inline-block;
-      z-index: 1;
     }
 
-    &__navigation {
-      position: absolute;
-      visibility: hidden;
+    &__menu-btn {
+      display: inline-block;
     }
   }
 }

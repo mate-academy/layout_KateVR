@@ -3,16 +3,20 @@ $specificationsSchemeWidth: 1280px;
 .specifications {
   padding: $marginBetweenSections 0;
   background-color: $colorBlack;
+  display: flex;
+  justify-content: center;
   
   &__content {
     margin: 0 $marginContentDesktop;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    max-width: $maxPossibleContentWidth;
   }
 
   &__title {
     margin-bottom: 80px;
+    margin-right: 100px;
   }
   
   &__main {
@@ -123,8 +127,7 @@ $specificationsSchemeWidth: 1280px;
     }
     
     &__title {
-      font-size: 21px;
-      line-height: 21px;
+      @include titleTablet;
       align-self: flex-start;
     }
 
@@ -157,7 +160,8 @@ $specificationsSchemeWidth: 1280px;
     }
     
     &__main {
-      width: 100%;
+      width: $screenMaxMobile;
+
     
       &--sen .specifications__info--sen {
         max-height: 360px;
@@ -172,6 +176,11 @@ $specificationsSchemeWidth: 1280px;
       }
     }
 
+    &__loco {
+      width: 354px;
+      height: 358px;
+    }
+
     &__button-sen {
       display: inline-block;
     }
@@ -180,6 +189,43 @@ $specificationsSchemeWidth: 1280px;
     }
     &__button-con {
       display: inline-block;
+    }
+  }
+
+  @media (max-width: $screenMaxMobile) {
+    &__main {
+      width: 320px;
+      padding-top: 10px;
+    }
+
+    &__loco {
+      width: 197px;
+      height: 194px;
+    }
+
+    &__button-sen {
+      @include specificationMobileButton;
+    }
+
+    &__button-bat {
+      @include specificationMobileButton;
+    }
+
+    &__button-con {
+      @include specificationMobileButton;
+    }
+    
+    &__info--bat {
+      top: -60%;
+      width: 50%;
+    }
+
+    &__info--sen {
+      top: 24%;
+    }
+
+    &__info--con {
+      bottom: -48%;
     }
   }
 }
