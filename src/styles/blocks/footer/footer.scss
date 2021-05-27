@@ -1,0 +1,139 @@
+.footer {
+  background: #000;
+
+  &__wrapper {
+    @media (max-width: 767px) {
+      padding: 50px 20px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      display: flex;
+      justify-content: space-between;
+      padding: 25px 34px;
+    }
+
+    @media (min-width: 1280px) and (max-width: 1919px) {
+      display: flex;
+      justify-content: space-between;
+      padding: 40px 110px;
+    }
+
+    @media (min-width: 1920px) {
+      display: flex;
+      justify-content: space-between;
+      padding: 40px 234px;
+    }
+  }
+
+  &__logo {
+    height: 14px;
+    width: 72px;
+  }
+
+  &__nav {
+    &--big {
+      @media (max-width: 767px) {
+        display: none;
+      }
+
+      @media (min-width: 768px) {
+        display: grid;
+        align-items: center;
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &--media {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &--small {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  &__item {
+
+    @media (max-width: 767px) {
+      display: block;
+    }
+
+    @media (min-width: 768px) {
+      display: grid;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    display: block;
+    margin: 0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+      color: #05c2df;
+    }
+
+    &--fb {
+      height: 12px;
+      width: 6px;
+      background-image: url("/images/social/fb.svg");
+    }
+
+    &--tw {
+      height: 11px;
+      width: 15px;
+      background-image: url("/images/social/tw.svg");
+    }
+
+    &--yt {
+      height: 11px;
+      width: 14px;
+      background-image: url("/images/social/yt.svg");
+    }
+
+    &--rd {
+      height: 14px;
+      width: 14px;
+      background-image: url("/images/social/rd.svg");
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 14px;
+    color: #929292;
+  }
+}

@@ -1,7 +1,167 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "./blocks/header/header.scss";
+@import "./blocks/main/main.scss";
+@import "./blocks/footer/footer.scss";
 
 body {
   background: $c-gray;
+  font-family: sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.wrapper {
+  max-width: 1920px;
+  margin: 0 auto;
+
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+  }
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    padding: 70px 34px;
+  }
+
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    padding: 110px 100px;
+  }
+
+  @media (min-width: 1920px) {
+    padding: 160px 234px;
+  }
+}
+
+.subtitle {
+  @media (max-width: 1279px) {
+    font-size: 21px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 36px;
+  }
+}
+
+.p {
+  color: #05c2df;
+
+  @media (max-width: 1279px) {
+    font-size: 12px;
+  }
+
+  @media (min-width: 1280px) {
+    font-size: 14px;
+  }
+}
+
+.h3 {
+
+  @media (max-width: 767px) {
+    margin-bottom: 10px;
+    text-align: left;
+    font-size: 16px;
+  }
+
+  @media (min-width: 768px) {
+    text-align: center;
+    margin-bottom: 20px;
+
+  }
+}
+
+.text {
+  font-size: 16px;
+  line-height: 24px;
+  color: #929292;
+}
+
+.btn {
+  height: 48px;
+  width: 200px;
+  color: #fff;
+  background: #05c2df;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+
+  &:hover {
+    color: #05c2df;
+    background: #fff;
+    cursor: pointer;
+  }
+}
+
+.logo {
+  background-image: url("/images/katvr.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.nav {
+  &__list {
+    display: flex;
+    gap: 40px;
+    list-style: none;
+  }
+
+  &__link {
+    color: #f2f2f2;
+    text-decoration: none;
+  }
+}
+
+.pages {
+  display: flex;
+  gap: 102px;
+  max-width: 207px;
+  margin: 0;
+  padding: 0;
+  padding-bottom: 10px;
+  list-style: none;
+  border-bottom: 1px solid #212121;
+
+  &__link {
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+
+    &--active {
+      position: relative;
+
+      &::after {
+        display: block;
+        position: absolute;
+        bottom: -11px;
+        height: 1px;
+        width: 69px;
+        content: "";
+        background: #05c2df;
+      }
+    }
+  }
+}
+
+.play {
+  display: block;
+  height: 66px;
+  width: 257px;
+  background: none;
+  border: none;
+  background-image: url("/images/play.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+
+  &:hover {
+    background-image: url("/images/play-hover.png");
+  }
 }
