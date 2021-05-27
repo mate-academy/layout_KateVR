@@ -1,0 +1,73 @@
+.kat-loco {
+  background: linear-gradient(108.62deg, #191536 0%, #000 77.34%);
+
+  &__subtitle {
+    @media (max-width: 767px) {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      margin-bottom: 30px;
+      text-align: left;
+    }
+
+    @media (min-width: 1280px) {
+      margin-bottom: 82px;
+      text-align: center;
+    }
+  }
+
+  &__container {
+    display: grid;
+    gap: 20px;
+
+    @media (max-width: 767px) {
+      grid-template-columns: repeat(1, 1fr);
+    }
+
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  &__icon {
+    margin: 0 auto 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+
+    &--uni {
+      height: 81px;
+      width: 98px;
+      background-image: url("/images/kat-loco/uni.svg");
+    }
+
+    &--vrpc {
+      height: 80px;
+      width: 88px;
+      background-image: url("/images/kat-loco/vrpc.svg");
+    }
+
+    &--wir {
+      height: 80px;
+      width: 112px;
+      background-image: url("/images/kat-loco/wir.svg");
+    }
+  }
+
+  &__btn {
+    @media (max-width: 1279px) {
+      display: none;
+    }
+
+    @media (min-width: 1280px) {
+      display: block;
+      margin: 90px auto 0;
+    }
+  }
+}
