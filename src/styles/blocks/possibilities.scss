@@ -1,0 +1,79 @@
+.possibilities {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: $colorBlack;
+
+  &__container {
+    max-width: $maxPossibleContentWidth;
+    text-align: center;
+  }
+  
+  &__title {
+    margin-bottom: 14px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 18px;
+    color: $colorBlue;
+    margin-bottom: 80px;
+  }
+  
+  &__content {
+    display: flex;
+    gap: 20px;
+  }
+
+  @media (max-width: $screenMaxTablet) {
+
+    &__title {
+      font-size: 21px;
+      line-height: 21px;
+      text-align: center;
+    }
+
+    &__subtitle {
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &__content {
+      margin-left: $marginContentTablet;
+      margin-right: $marginContentTablet;
+      display: grid;
+      grid-template-columns: 340px 340px;
+      grid-template-rows: 1fr 1fr;
+      gap: 40px 20px;
+    }
+
+    &__card {
+      width: 340px;
+    }
+  }
+
+  @media (max-width: $screenMaxMobile) {
+    
+    &__content {
+      margin: 0 $marginContentMobile;
+      background-clip: plum;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__card {
+      width: 100%;
+    }
+
+    &__title {
+      margin-bottom: 10px;
+    }
+
+    &__subtitle {
+      margin-bottom: 30px;
+    }
+  }
+}

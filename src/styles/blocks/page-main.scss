@@ -1,0 +1,69 @@
+.page-main {
+  
+  &__buy-button {
+    max-width: 0;
+    visibility: hidden;
+    position: sticky;
+    left: 10%;
+    width: 80%;
+    height: 37px;
+    z-index: 1;
+    transition: 0.5s;
+    overflow: hidden;
+  }
+
+  &__start-view {
+    margin: 0 $marginContentDesktop;
+  }
+
+  &__possibilities {
+    margin-bottom: $marginBetweenSections;
+    padding: $marginBetweenSections 0;
+  }
+
+  &__about {
+    margin: 0 $marginContentDesktop;
+    margin-bottom: $marginBetweenSections;
+  }
+  
+  &__specifications {
+    margin-bottom: $marginBetweenSections;
+    padding: $marginBetweenSections 0;
+  }
+
+  &__benefits {
+    margin-bottom: $marginBetweenSections;
+  }
+
+  &__contacts {
+    padding: $marginBetweenSections 0;
+  }
+
+  @media (max-width: $screenMaxTablet) {
+    
+    &__start-view {
+      margin: 0 $marginContentTablet;
+    }
+    
+    &__about {
+      margin: 0 $marginContentTablet;
+    }
+
+    &__buy-button {
+      top: 89vh;
+
+      &--active {
+        visibility: visible;
+        max-width: 80%;
+      }
+    }
+  }
+
+  @media (max-width: $screenMaxMobile) {
+    
+    &__buy-button {
+      top: 92vh;
+    }
+
+  }
+}

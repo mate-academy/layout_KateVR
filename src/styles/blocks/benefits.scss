@@ -1,0 +1,64 @@
+.benefits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  &__title {
+    margin-bottom: 80px;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 90px;
+    gap: 23px;
+  }
+
+  &__card {
+    width: 340px;
+  }
+
+  &__button {
+    @extend %basicButtonDesktopSize;
+  }
+
+  @media (max-width: $screenMaxTablet) {
+    
+    &__title {
+      font-size: 21px;
+      line-height: 21px;
+      align-self: flex-start;
+      margin-left: $marginContentTablet;
+    }
+
+    &__card {
+      width: 221px;
+    }
+
+    &__button {
+      display: none;
+    }
+  }
+
+  @media (max-width: $screenMaxMobile) {
+
+    &__content {
+      margin: 0 $marginContentMobile;
+      flex-direction: column;
+    }
+
+    &__title {
+      margin-bottom: 30px;
+      margin-left: $marginContentMobile;
+    }
+
+    &__card {
+      width: 100%;
+    }
+
+    &__text {
+      @include lineCount(3);
+    }
+
+  }
+}

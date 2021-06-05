@@ -1,0 +1,70 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 250px;
+
+  &__icon {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 115px;
+    height: 85px;
+    margin-bottom: 30px;
+    
+    &--education {
+      background-image: url("../images/icons/education.svg");
+    }
+
+    &--real {
+      background-image: url("../images/icons/real.svg");
+    }
+
+    &--fitness {
+      background-image: url("../images/icons/fitness.svg");
+    }
+
+    &--soc {
+      background-image: url("../images/icons/soc.svg");
+    }
+
+    &--compatible {
+      background-image: url("../images/icons/compatible.svg");
+    }
+
+    &--panel {
+      background-image: url("../images/icons/panel.svg");
+    }
+
+    &--sensors {
+      background-image: url("../images/icons/sensors.svg");
+    }
+  }
+
+  &__title {
+    margin-bottom: 17px;
+  }
+
+  &__text {
+    text-align: center;
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: normal;
+  }
+
+  @media (max-width: $screenMaxMobile) {
+    width: 100%;
+    align-items: flex-start;
+    
+    &__icon {
+      display: none;
+    }
+
+    &__text {
+      max-width: 100%;
+      @include lineHide;
+      @include lineCount(2);
+      text-align: start;
+    }
+  }
+}

@@ -1,0 +1,168 @@
+$titleBeforeHeight: 14px;
+
+.contacts {
+  position: relative;
+  background-color: $colorBlack;
+  display: flex;
+  justify-content: center;
+
+  &__content {
+    margin: 0 $marginContentDesktop;
+    width: 100%;
+    max-width: $maxPossibleContentWidth;
+    display: flex;
+    justify-content: space-evenly;
+  }
+
+  &__info {
+    width: 50%;
+  }
+  
+  &__title-block {
+    position: relative;
+    margin-bottom: 50px;
+  }
+  
+  &__title {
+    margin-bottom: 24px;
+    
+    &::before {
+      content: "Have any questions?";
+      position: absolute;
+      top: -($titleBeforeHeight + 12px);
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 500;
+      color: $colorBlue;
+    }
+  }
+
+  &__text {
+    line-height: 24px;
+  }
+  
+  &__form {
+    width: 50%;
+  }
+  
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 90px;
+  }
+  
+  &__inputs {
+    font-family: "MarkPro", monospace;
+    border: none;
+    line-height: 21px;
+    font-size: 14px;
+    color: $colorBlue;
+    border-bottom: 1px solid $colorText;
+    background-color: transparent;
+    height: 40px;
+    outline: none;
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $colorWhite;
+      -webkit-box-shadow: 0 0 0 1000px $colorBlue inset;
+      text-align: center;
+
+      &::first-line {
+        font-family: inherit;
+      }
+    }
+  }
+  
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  &__button {
+    width: 200px;
+    height: 48px;
+  }
+  
+  &__home {
+    width: 48px;
+    height: 48px;
+    background-image: url("../images/icons/homeArrow.svg");
+    background-position: 50% 45%;
+    background-size: 40%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    border: $colorBlue solid 1px;
+    transition: 0.3s;
+    
+    &:hover {
+      background-image: url("../images/icons/homeArrowHover.svg");
+      background-color: $colorBlue;
+    }
+  }
+
+  &__mobile-text {
+    display: none;
+  }
+
+  @media (max-width: $screenMaxTablet) {
+
+    &__content {
+      margin: 0 $marginContentTablet;
+    }
+
+    &__title {
+      font-size: 21px;
+      line-height: 21px;
+      margin-bottom: 48px;
+
+      &::before {
+        font-weight: normal;
+      }
+    }
+
+    &__buttons {
+      display: none;
+    }
+  }
+
+  @media (max-width: $screenMaxMobile) {
+    &__content {
+      flex-direction: column;
+    }
+
+    &__info {
+      width: 100%;
+    }
+
+    &__form {
+      width: 100%;
+    }
+
+    &__list {
+      display: none;
+    }
+
+    &__text {
+      display: none;
+    }
+
+    &__mobile-text {
+      display: block;
+    }
+
+    &__buttons {
+      display: block;
+    }
+
+    &__button {
+      display: block;
+      width: 100%;
+      margin-bottom: 30px;
+    }
+
+    &__home {
+      display: none;
+    }
+  }
+}

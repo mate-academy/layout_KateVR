@@ -1,0 +1,135 @@
+.footer {
+  background-color: black;
+  max-height: 100px;
+  height: 14.3vh;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  
+  &__content {
+    margin: 0 $marginContentDesktop;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__nav-list {
+    margin-right: 0;
+  }
+
+  &__contacts {
+    display: none;
+  }
+  
+  &__soc {
+    display: flex;
+    gap: 18px;
+  }
+
+  &__soc-link {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 0.3s;
+
+    &:hover {
+      transform: scale(1.4);
+      fill: $colorBlue;
+    }
+
+    &--facebook {
+      background-image: url("../images/icons/facebook.svg");
+    }
+
+    &--twitter {
+      background-image: url("../images/icons/twitter.svg");
+    }
+
+    &--youtube {
+      background-image: url("../images/icons/youtube.svg");
+    }
+
+    &--reddit {
+      background-image: url("../images/icons/reddit.svg");
+    }
+  }
+
+  @media (max-width: $screenMaxTablet) {
+    
+    &__content {
+      margin: 0 $marginContentTablet;
+    }
+
+    &__navigation {
+      display: flex;
+    }
+  }
+
+  @media (max-width: $screenMaxMobile) {
+    height: 320px;
+    max-height: 240px;
+
+    &__content {
+      height: 145px;
+      margin: 0 $marginContentMobile;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 30px 85px 30px;
+      
+      grid-template-areas: "logo logo"
+        "navigation contacts"
+        "navigation social";
+    }
+
+    &__logo {
+      position: relative;
+      width: 69px;
+      height: 14px;
+
+    }
+
+    &__logo-link {
+      grid-area: logo;
+    }
+
+    &__soc {
+      grid-area: social;
+      justify-self: end;
+    }
+
+    &__navigation {
+      grid-area: navigation;
+      align-self: start;
+    }
+
+    &__nav-list {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    &__contacts {
+      display: inline-block;
+      grid-area: contacts;
+      justify-self: end;
+      align-self: center;
+    }
+
+    &__item {
+      justify-content: flex-start;
+    }
+
+    &__links {
+      margin-bottom: 0;
+      padding: 2px;
+      font-size: 13px;
+    }
+
+    &__contact-links {
+      font-size: 13px;
+    }
+  }
+}
