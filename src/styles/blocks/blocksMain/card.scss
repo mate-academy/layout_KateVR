@@ -1,0 +1,94 @@
+.card {
+  width: 250px;
+
+  @media (max-width:1024px) {
+    width: 50%;
+  }
+
+  @media (max-width:760px) {
+    width: 100%;
+  }
+
+  &__picture {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 32px;
+
+    @media (max-width:760px) {
+      display: none;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    @include title;
+    font-size: 18px;
+    line-height: 23px;
+    margin-bottom: 20px;
+
+    @media (max-width:760px) {
+      text-align: start;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__text {
+    @include regular;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #929292;
+    margin-bottom: 112px;
+
+    @media (max-width:760px) {
+      display: none;
+    }
+  }
+
+  &__text-phone {
+    display: none;
+    @include regular;
+    font-size: 16px;
+    line-height: 24px;
+    color: #929292;
+
+    @media (max-width:760px) {
+      display: block;
+    }
+  }
+
+  &__text-phone--last {
+    padding-bottom: 50px;
+  }
+
+  &__text--button {
+    margin-bottom: 89px;
+
+    @media (max-width:1024px) {
+      display: none;
+    }
+  }
+
+  &__text--button-tablet {
+    display: none;
+
+    @media (max-width:1024px) {
+      display: block;
+      margin-bottom: 70px;
+    }
+
+    @media (max-width:760px) {
+      margin-bottom: 20px;
+      text-align: start;
+    }
+  }
+}
+
+.card--size {
+  width: 33%;
+
+  @media (max-width:760px) {
+    width: 100%;
+  }
+}
