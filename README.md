@@ -1,4 +1,4 @@
-# layout_KateVR
+# KateVR landing page
 Implement landing page according to [Figma design](https://www.figma.com/file/hhtGde1r4hMr5wghrKm6vl/KatVR?node-id=159%3A0) - Use BEM and SCSS
 
 - Large screens 2560px
