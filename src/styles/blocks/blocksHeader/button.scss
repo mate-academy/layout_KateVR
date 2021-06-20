@@ -1,0 +1,59 @@
+.button {
+  background: #05c2df;
+  border-radius: 4px;
+  width: 200px;
+  padding: 13px 0;
+  margin-bottom: 150px;
+  border: none;
+  cursor: pointer;
+
+  &:hover {
+    color: #05c2df;
+    background: #fff;
+  }
+
+  @media (max-width:1024px) {
+    display: none;
+  }
+
+  &__link {
+    @include text;
+    line-height: 21px;
+    text-align: center;
+    padding: 13px 41px;
+
+    &:hover {
+      color: #05c2df;
+      background: #fff;
+    }
+  }
+}
+
+.button-position {
+  display: flex;
+  justify-content: center;
+}
+
+.button-picture {
+  @media (max-width:1024px) {
+    display: none;
+  }
+}
+
+.button--phone {
+  @media (max-width:760px) {
+    display: block;
+    position: absolute;
+    top: 625px;
+    width: 280px;
+    margin-bottom: 0;
+  }
+}
+
+.button--contact {
+  @media (max-width:760px) {
+    display: block;
+    width: 280px;
+    margin-bottom: 27px;
+  }
+}
