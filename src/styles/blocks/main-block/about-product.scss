@@ -1,0 +1,115 @@
+.about-product {
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__image-block {
+    margin-bottom: 20px;
+  }
+
+  &__image {
+    object-fit: cover;
+    display: block;
+    height: 189px;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  &__image-scroll {
+    height: 4px;
+    width: 44px;
+    margin: 0 auto;
+
+    background: url(../images/dots.svg) no-repeat center;
+  }
+
+  &__image-slide {
+    display: none;
+  }
+
+  &__text {
+    margin-bottom: 15px;
+  }
+
+  &__button-play {
+    @extend %button-play;
+  }
+
+  @include tablet-screen {
+    display: flex;
+    justify-content: flex-end;
+
+    &__description {
+      width: 44vw;
+    }
+
+    &__title {
+      margin-bottom: 30px;
+    }
+
+    &__image-block {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &__image {
+      height: 270px;
+      width: 44vw;
+    }
+
+    &__text {
+      margin-bottom: 20px;
+    }
+  }
+
+  @include desktop-screen {
+    &__description {
+      width: 26vw;
+    }
+
+    &__image-block {
+      left: 17%;
+
+      &::before {
+        content: "1/5";
+        position: absolute;
+        top: 0;
+        left: -44px;
+
+        height: 18px;
+        width: 24px;
+
+        @include font(14px, normal, 18px);
+        color: $contrast-color;
+      }
+    }
+
+    &__image {
+      height: 290px;
+      width: 34vw;
+    }
+
+    &__image-scroll {
+      display: none;
+    }
+
+    &__image-slide {
+      display: flex;
+    }
+  }
+
+  @include extra-screen {
+    &__description {
+      width: 435px;
+    }
+
+    &__image-block {
+      left: 0;
+    }
+
+    &__image {
+      width: 630px;
+    }
+  }
+}

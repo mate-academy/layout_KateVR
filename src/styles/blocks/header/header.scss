@@ -1,0 +1,59 @@
+@import "top-actions";
+@import "content";
+@import "bottom-menu";
+
+.header {
+  height: 568px;
+  padding: 20px;
+
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+
+  &__content {
+    margin: 0 auto;
+  }
+
+  @include tablet-screen {
+    position: relative;
+
+    height: 445px;
+    padding: 30px 34px;
+
+    &__top-actions {
+      margin-bottom: 55px;
+    }
+
+    &__content {
+      margin: 0;
+    }
+  }
+
+  @include desktop-screen {
+    height: 740px;
+    padding: 50px 110px;
+
+    &__top-actions {
+      margin-bottom: 101px;
+    }
+
+    &__bottom-menu {
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  @include extra-screen {
+    height: 1105px;
+    padding: 50px 234px;
+
+    &__wrapper {
+      position: relative;
+
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    &__top-actions {
+      margin-bottom: 232px;
+    }
+  }
+}

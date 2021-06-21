@@ -1,0 +1,197 @@
+.contact {
+  padding: $padding-mobile;
+
+  background-color: $bg-black;
+
+  &__wrapper {
+    width: 87.5vw;
+    margin: 0 auto;
+  }
+
+  &__subtitle {
+    margin-bottom: 10px;
+
+    @include font(14px, normal, 18px);
+    color: $contrast-color;
+  }
+
+  &__title-block {
+    margin-bottom: 30px;
+  }
+
+  &__form {
+    margin-bottom: 30px;
+  }
+
+  &__field-name {
+    font-size: 14px;
+  }
+
+  &__field {
+    display: block;
+    height: 19px;
+    width: 100%;
+
+    margin-bottom: 24px;
+
+    font-family: Mark-Pro, sans-serif;
+    @include font(16px, normal, 150%);
+    color: $white;
+
+    background-color: $bg-black;
+
+    border: none;
+    border-bottom: 1px solid $text-color;
+    outline: none;
+
+    transition: height 0.4s;
+
+    &:hover {
+      border-color: $contrast-color;
+    }
+
+    &:focus {
+      height: 34px;
+
+      border-color: $contrast-color;
+    }
+
+    &--message {
+      height: 67px;
+      margin-bottom: 30px;
+      resize: none;
+
+      &:focus {
+        height: 67px;
+      }
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      -webkit-box-shadow: 0 0 0 30px $bg-black inset;
+      -webkit-text-fill-color: $white;
+    }
+  }
+
+  &__form-button {
+    @include button-style;
+    width: 100%;
+  }
+
+  &__description {
+    font-size: 12px;
+  }
+
+  &__links {
+    display: none;
+  }
+
+  &__go-top {
+    display: none;
+  }
+
+  @include tablet-screen {
+    padding: $padding-tablet;
+
+    &__wrapper {
+      position: relative;
+
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas: "title-block form"
+        "description form"
+        "links form";
+      gap: 0 20px;
+      width: auto;
+    }
+
+    &__title-block {
+      grid-area: title-block;
+      margin-bottom: 0;
+    }
+
+    &__form {
+      grid-area: form;
+      margin-bottom: 0;
+    }
+
+    &__form-button {
+      width: 200px;
+    }
+  
+    &__description {
+      grid-area: description;
+      font-size: 16px;
+    }
+
+    &__links {
+      display: block;
+      grid-area: links;
+
+      & :nth-child(n) {
+        display: block;
+        margin-bottom: 10px;
+
+        @include font(16px, normal, 20px);
+        color: $text-color;
+        text-decoration: none;
+
+        transition: color 0.4s;
+
+        &:hover {
+          color: $contrast-color;
+        }
+      }
+    }
+
+    &__go-top {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      display: block;
+      height: 49px;
+      width: 49px;
+
+      background: url(../images/up.svg) no-repeat center;
+
+      transition: all 0.4s;
+
+      &:hover {
+        background: url(../images/up-hover.svg);
+      }
+    }
+  }
+
+  @include desktop-screen {
+    padding: $padding-desktop;
+
+    &__wrapper {
+      gap: 0 200px;
+    }
+
+    &__field {
+      &--message {
+        margin-bottom: 90px;
+      }
+    }
+  }
+
+  @include extra-screen {
+    padding: $padding-extra 205px;
+
+    &__wrapper {
+      max-width: 1500px;
+      margin: 0 auto;
+      gap: 0 400px;
+    }
+
+    &__field {
+      &--message {
+        margin-bottom: 50px;
+      }
+    }
+  }
+}
