@@ -1,0 +1,38 @@
+.why-kat {
+  &__title {
+    @extend %text-title;
+    margin-bottom: 30px;
+  
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 60px;
+    }
+  }
+  
+  &__title-quantum {
+    @extend %quantum;
+  }
+  
+  &__articles {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+  
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &__pic {
+    display: none;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+}

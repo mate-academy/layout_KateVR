@@ -1,0 +1,51 @@
+.menu {
+  min-height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+
+  &__content {
+    padding-bottom: 128px;
+    height: 100vh;
+    background-color: #191536;
+    @include onTablet {
+      height: 50%;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    padding: 15px 20px 0;
+    margin-bottom: 15px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100vw;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 11px 22px;
+    color: $white-color;
+
+    transition: 0.3s;
+
+    &:active {
+      background: #110e25;
+      color: $blue-color;
+    }
+
+    @include onTablet {
+      padding-left: 152px;
+    }
+  }
+
+  &__link {
+    @include textDesign(21px, 500, 130%);
+    color: inherit;
+  }
+}

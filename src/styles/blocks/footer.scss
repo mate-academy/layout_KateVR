@@ -1,0 +1,48 @@
+.footer {
+  background-color: #000;
+
+  &__content {
+    padding: 45px 0 50px;
+    row-gap: 15px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0;
+      height: 64px;
+    }
+  
+    @include onDesktop {
+      height: 100px;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: space-between;
+    margin-bottom: 25px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__contact {
+    @include textDesign(13px, normal, 16px);
+    color: $text-color;
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 130px;
+
+    @include onTablet {
+      gap: 18px;
+    }
+  }
+}

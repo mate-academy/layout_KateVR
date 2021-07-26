@@ -1,0 +1,154 @@
+.header {
+  background: $background-gradient;
+  position: relative;
+
+  &__container {
+    @include onTablet {
+      background-size: contain;
+      background-position: right center;
+      background-image: url("../images/product-tablet.png");
+      background-repeat: no-repeat;
+    }
+
+    @include onDesktop {
+      background-image: url("../images/product-desktop.png");
+    }
+
+    @include onFull {
+      background-image: url("../images/product-full.png");
+    }
+  }
+
+  &__content {
+    min-height: 97vh;
+    padding: 15px 0 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      padding: 30px 0 60px;
+      min-height: 445px;
+    }
+
+    @include onDesktop {
+      padding: 47px 0 85px;
+      min-height: 740px;
+    }
+
+    @include onFull {
+      min-height: 1100px;
+      padding-bottom: 107px;
+    }
+  }
+
+  &__top-menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__top-left {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+  }
+
+  &__languages {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__menu {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__title {
+    @include textDesign(26px, bold, 130%);
+    margin-bottom: 14px;
+    color: $white-color;
+
+    @include onDesktop {
+      font-size: 46px;
+    }
+
+    @include onFull {
+      font-size: 54px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title-quantum {
+    @extend %quantum;
+  }
+
+  &__paragraph {
+    @include textDesign(16px, 500, 150%);
+    color: $text-color;
+    margin-bottom: 10px;
+
+    @include onFull {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__price {
+    @include textDesign(18px, 500, 23px);
+    color: $white-color;
+    text-align: center;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    @include onFull {
+      line-height: 25px;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__product {
+    min-width: 100vw;
+    background-image: url("../images/product-mobile.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    flex-basis: 172px;
+    flex-grow: 1;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    display: none;
+    width: 100%;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-weight: 500;
+    }
+  }
+}

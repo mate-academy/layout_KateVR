@@ -1,0 +1,49 @@
+.slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 6px;
+
+  @include onDesktop {
+    border-bottom: 1px solid #212121;
+    gap: 102px;
+  }
+
+  &__item {
+    padding: 0;
+    margin: 0;
+    height: 4px;
+    width: 4px;
+    border: none;
+    border-radius: 50%;
+    background-color: #484848;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--desktop {
+      display: none;
+      height: fit-content;
+      width: fit-content;
+      border-radius: 0;
+      background-color: transparent;
+
+      @include onDesktop {
+        display: block;
+        padding-bottom: 10px;
+        color: $white-color;
+      }
+    }
+
+    &--active {
+      background-color: #ababab;
+      
+      @include onDesktop {
+        background-color: transparent;
+        color: $text-color;
+        border-bottom: 1px solid $blue-color;
+      }
+    }
+  }
+}

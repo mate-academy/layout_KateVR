@@ -1,0 +1,44 @@
+.article {
+  &__title {
+    @extend %text-subtitle;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 17px;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    color: $text-color;
+    overflow: hidden;
+
+    @for $index from 1 through 12 {
+      &--maxlines-#{$index} {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        height: 1.5em * $index;
+        -webkit-line-clamp: $index;
+
+        @include onTablet {
+          display: block;
+          height: fit-content;
+          text-align: center;
+        }
+      }
+
+      &--maxlines-tablet-#{$index} {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        height: 1.5em * $index;
+        -webkit-line-clamp: $index;
+
+        @include onDesktop {
+          display: block;
+          height: fit-content;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

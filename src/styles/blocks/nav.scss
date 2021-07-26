@@ -1,0 +1,39 @@
+.nav {
+  @include textDesign(16px, normal, 130%);
+  color: $white-color;
+
+  &--footer {
+    font-size: 13px;
+    line-height: 150%;
+
+    @include onTablet {
+      font-size: 14px;
+      color: #f2f2f2;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 34px;
+
+    &--footer {
+      flex-direction: column;
+      gap: 12px;
+
+      @include onTablet {
+        flex-direction: row;
+        gap: 41px;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    color: inherit;
+  }
+}
