@@ -43,25 +43,6 @@
 
     transition: transform 0.3s, color 0.3s;
 
-    &--active {
-      background-color: #ababab;
-      
-      @include onDesktop {
-        background-color: transparent;
-        color: $text-color;
-        border-bottom: 1px solid $blue-color;
-      }
-    }
-
-    &:not(&--active) {
-      cursor: pointer;
-    }
-
-    &:hover:not(&--active) {
-      transform: scale(1.05);
-      color: $blue-color;
-    }
-
     &--mobile {
       padding: 0;
       height: 8px;
@@ -89,6 +70,25 @@
           width: 102px;
         }
       }
+    }
+
+    &--active {
+      background-color: #ababab;
+      
+      @include onDesktop {
+        background-color: transparent;
+        color: $text-color;
+        border-bottom: 1px solid $blue-color;
+      }
+    }
+
+    &:not(.slider__control-item--active) {
+      cursor: pointer;
+    }
+
+    &:hover:not(.slider__control-item--active) {
+      transform: scale(1.05);
+      color: $blue-color;
     }
   }
 }
