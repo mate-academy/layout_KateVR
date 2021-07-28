@@ -4,7 +4,7 @@
 
   &__container {
     @include onTablet {
-      background-size: contain;
+      background-size: 65%;
       background-position: right center;
       background-image: url("../images/product-tablet.png");
       background-repeat: no-repeat;
@@ -20,7 +20,7 @@
   }
 
   &__content {
-    min-height: 97vh;
+    min-height: 100vh;
     padding: 15px 0 50px;
     display: flex;
     flex-direction: column;
@@ -34,11 +34,10 @@
 
     @include onDesktop {
       padding: 47px 0 85px;
-      min-height: 740px;
+      min-height: 100vh;
     }
 
     @include onFull {
-      min-height: 1100px;
       padding-bottom: 107px;
     }
   }
@@ -65,6 +64,15 @@
   }
 
   &__menu {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      
+    }
     @include onDesktop {
       display: none;
     }
@@ -126,14 +134,12 @@
     }
   }
 
-  &__product {
+  &__product-mobile {
     min-width: 100vw;
     background-image: url("../images/product-mobile.png");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    flex-basis: 172px;
-    flex-grow: 1;
 
     @include onTablet {
       display: none;

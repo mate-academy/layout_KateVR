@@ -1,0 +1,94 @@
+.contact-us {
+  &__content {
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &__title {
+    @extend %text-title;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__title-quantum {
+    @extend %quantum;
+  }
+
+  &__additional {
+    margin-bottom: 10px;
+    @include textDesign(14px, normal, 18px);
+    color: $blue-color;
+
+    @include onDesktop {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__reply {
+    height: 3em;
+    font-size: 12px;
+    color: $text-color;
+
+    @include onTablet {
+      font-size: 16px;
+      margin-bottom: 52px;
+    }
+  }
+
+  &__form-container {
+    grid-row: 1 / 4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include onDesktop {
+      grid-row: 1 / 6;
+    }
+  }
+
+  &__form {
+    margin-bottom: 30px;
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 27px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__top-anchor {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__contacts {
+    display: none;
+    align-self: end;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+}

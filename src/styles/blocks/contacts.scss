@@ -1,0 +1,20 @@
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: space-between;
+
+  &__contact {
+    @include textDesign(13px, normal, 16px);
+    color: $text-color;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
+
+  @include onTablet {
+    gap: 10px;
+  }
+}
