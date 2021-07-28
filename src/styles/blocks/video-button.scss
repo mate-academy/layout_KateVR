@@ -1,6 +1,7 @@
 .video-button {
   box-sizing: border-box;
   display: block;
+  background-color: transparent;
   background-image: url(../images/video-button.svg);
   background-repeat: no-repeat;
   background-size: contain;
@@ -8,13 +9,21 @@
   padding: 22px 55px 22px 105px;
   border: none;
   outline: none;
+  cursor: pointer;
 
   @include textDesign(16px, 500, 130%);
   color: $white-color;
 
-  transition: 0.3s;
+  transition: background-image 0.3s, transform 0.3s, color 0.3s;
 
-  &:hover {
-    background-image: url(../images/video-button-hover.svg);
+  &:hover,
+  &:active {
+    color: $blue-color;
   }
+
+  &:active {
+    background-image: url(../images/video-button-hover.svg);
+    transform: scale(1.1);
+  }
+
 }

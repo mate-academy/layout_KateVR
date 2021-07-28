@@ -1,0 +1,129 @@
+.about {
+
+  &__main {
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onTablet {
+      margin-bottom: 190px;
+    }
+  }
+
+  &__title {
+    @extend %text-title;
+    margin-bottom: 20px;
+  
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+  
+  &__title-quantum {
+    @extend %quantum;
+  }
+
+  &__slider {
+    grid-row: 1 / 4;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    line-height: 2em;
+    color: $text-color;
+  }
+
+  &__hello {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__comment {
+    @include textDesign(14px, normal, 18px);
+    color: $blue-color;
+    margin-bottom: 10px;
+
+    @include onDesktop {
+      margin-bottom: 14px;
+    }
+  }
+
+  &__video-button {
+    margin-top: 15px;
+
+    @include onTablet {
+      margin-top: 20px;
+    }
+  }
+
+  &__fade {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__fade-item {
+    display: none;
+    @include textDesign(48px, bold, 130%);
+    padding-right: 6px;
+    color: transparent;
+    -webkit-text-stroke: 1px $blue-color;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: center;
+
+    &:nth-child(2n) {
+      transform: rotate(180deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0.5;
+    }
+
+    &:nth-child(3) {
+      opacity: 0.2;
+    }
+
+    &:nth-child(4) {
+      opacity: 0.1;
+    }
+
+    &:nth-child(5) {
+      opacity: 0.05;
+    }
+
+    &:nth-child(6) {
+      opacity: 0.03;
+    }
+
+    &:nth-child(7) {
+      opacity: 0.02;
+    }
+
+    @include onTablet {
+      &:nth-child(-n + 3) {
+        display: block;
+      }
+    }
+
+    @include onDesktop {
+      font-size: 64px;
+      &:nth-child(-n + 5) {
+        display: block;
+      }
+    }
+
+    @include onFull {
+      &:nth-child(n) {
+        display: block;
+      }
+    }
+  }
+}

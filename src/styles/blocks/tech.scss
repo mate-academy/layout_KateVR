@@ -1,14 +1,179 @@
 .tech {
+  &__content {
+    row-gap: 30px;
+  }
+
   &__title {
     @extend %text-title;
     margin-bottom: 30px;
 
     @include onDesktop {
-      margin-bottom: 60px;
+      margin-bottom: 90px;
     }
   }
   
   &__title-quantum {
     @extend %quantum;
+  }
+
+  &__product {
+    grid-row: 2 / 4;
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__product-image {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    background-image: url(../images/tech.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include onTablet {
+      width: 350px;
+      height: 350px;
+    }
+
+    @include onDesktop {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  &__circle {
+    @include onDesktop {
+      top: 45px;
+      position: absolute;
+      height: 201px;
+      width: 40px;
+      background-image: url(../images/tech-circle.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      transform: translateX(-15px);
+    }
+  }
+
+  &__article {
+    display: none;
+    @include onDesktop {
+      display: block;
+      z-index: 1;
+    }
+  }
+
+  &__sensor {
+    display: none;
+    height: 49px;
+    width: 30vw;
+    position: absolute;
+    right: 50%;
+    background-image: url(../images/sensor.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateY(-20px);
+
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onFull {
+      width: 20vw;
+    }
+  }
+
+  &__batteries {
+    display: none;
+    height: 210px;
+    width: 195px;
+    position: absolute;
+    left: 60%;
+    bottom: 36%;
+    background-image: url(../images/batteries.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onFull {
+      width: 283px;
+      background-image: url(../images/batteries-full.svg);
+    }
+    
+  }
+
+  &__connection {
+    display: none;
+    height: 107px;
+    width: 13vw;
+    position: absolute;
+    transform: translate(-110%, 85%);
+    background-image: url(../images/connection.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: right;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    @media (min-width: 1600px) {
+      background-image: url(../images/connection-full.svg);
+    }
+  }
+
+  &__button {
+    position: absolute;
+    height: 34px;
+    width: 34px;
+
+    background-color: $blue-color;
+    background-image: url(../images/icons/plus.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 50%;
+
+    transition: background-color 0.3s;
+
+    &:hover,
+    &:active {
+      background-color: #07798b;
+    }
+
+    &:active {
+      border: 2px solid rgba(255, 255, 255, 0.14);
+    }
+
+    @include onTablet {
+      height: 62px;
+      width: 62px;
+      background-size: auto 22px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--first {
+      top: 0;
+      right: 50%;
+      transform: translate(-20% , -30%);
+    }
+
+    &--second {
+      top: 50%;
+      right: 15%;
+      transform: translateY(-50%);
+    }
+
+    &--third {
+      left: 0;
+      bottom: 8px;
+      transform: translateX(-50%);
+    }
   }
 }

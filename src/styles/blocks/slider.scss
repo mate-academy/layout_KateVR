@@ -1,40 +1,47 @@
 .slider {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
-  gap: 6px;
-
-  @include onDesktop {
-    border-bottom: 1px solid #212121;
-    gap: 102px;
-  }
-
   &__item {
-    padding: 0;
-    margin: 0;
-    height: 4px;
-    width: 4px;
-    border: none;
-    border-radius: 50%;
-    background-color: #484848;
+    max-width: 100%;
+    min-height: 189px;
+    margin-bottom: 14px;
+    object-position: left center;
+    object-fit: cover;
+    cursor: pointer;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include onTablet {
+      height: 270px;
+    }
 
     @include onDesktop {
-      display: none;
+      height: 290px;
     }
+  }
 
-    &--desktop {
-      display: none;
-      height: fit-content;
-      width: fit-content;
-      border-radius: 0;
-      background-color: transparent;
+  &__controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
 
-      @include onDesktop {
-        display: block;
-        padding-bottom: 10px;
-        color: $white-color;
-      }
+    @include onDesktop {
+      margin-right: auto;
+      border-bottom: 1px solid #212121;
+      width: 207px;
+      justify-content: flex-start;
     }
+  }
+
+  &__control-item {
+
+    transition: transform 0.3s, color 0.3s;
 
     &--active {
       background-color: #ababab;
@@ -43,6 +50,44 @@
         background-color: transparent;
         color: $text-color;
         border-bottom: 1px solid $blue-color;
+      }
+    }
+
+    &:not(&--active) {
+      cursor: pointer;
+    }
+
+    &:hover:not(&--active) {
+      transform: scale(1.05);
+      color: $blue-color;
+    }
+
+    &--mobile {
+      padding: 0;
+      height: 8px;
+      width: 8px;
+      border: none;
+      border-radius: 50%;
+      background-color: #484848;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        background-color: transparent;
+        padding-bottom: 10px;
+        color: $white-color;
+
+        &-middle {
+          height: 100%;
+          width: 102px;
+        }
       }
     }
   }

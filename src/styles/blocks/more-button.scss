@@ -5,11 +5,22 @@
   gap: 7px;
   color: $blue-color;
 
+  transition: color 0.3s;
+
   &::after {
     display: block;
     height: 6px;
     width: 9px;
     content: "";
     background: url("../images/icons/triangle.svg") no-repeat;
+
+    transition: background-image 0.3s;
+  }
+
+  &:hover {
+    color: #fff;
+    &::after {
+      background: url("../images/icons/triangle-hover.svg") no-repeat;
+    }
   }
 }

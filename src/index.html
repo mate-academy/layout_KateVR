@@ -6,25 +6,25 @@
     <title>Home | KatVR</title>
     <link
       rel="icon"
-      href="./images/icons/favicon32.png"
+      href="./images/favicon/favicon32.png"
       sizes="32x32"
     >
     <link
       rel="icon"
-      href="./images/icons/favicon64.png"
+      href="./images/favicon/favicon64.png"
       sizes="64x64"
     >
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body class="page">
-    <header class="header page__header">
+    <header class="header page__header" id="header">
       <div class="container header__container">
         <div class="header__content">
           <div class="header__top-menu">
             <div class="header__top-left">
               <a href="/" class="logo">
                 <img
-                  src="./images/icons/logo.png"
+                  src="./images/logo.png"
                   alt="KatVR"
                   class="logo__image"
                 >
@@ -45,23 +45,23 @@
             <nav class="nav header__nav">
               <ul class="nav__list">
                 <li class="nav__item">
-                  <a href="" class="nav__link">About</a>
+                  <a href="#about" class="nav__link">About</a>
                 </li>
                 <li class="nav__item">
-                  <a href="" class="nav__link">Tech</a>
+                  <a href="#tech" class="nav__link">Tech</a>
                 </li>
                 <li class="nav__item">
-                  <a href="" class="nav__link">Benefits</a>
+                  <a href="#benefits" class="nav__link">Benefits</a>
                 </li>
                 <li class="nav__item">
-                  <a href="" class="nav__link">Contact</a>
+                  <a href="#contact-us" class="nav__link">Contact</a>
                 </li>
                 <li class="nav__item">
                   <button class="button">Buy now</button>
                 </li>
               </ul>
             </nav>
-            <a href="#menu" class="icon icon--menu"></a>
+            <a href="#menu" class="header__menu icon icon--menu"></a>
           </div>
           <img
             class="header__product-mobile"
@@ -83,7 +83,7 @@
                 <p class="header__price">
                   1200$
                 </p>
-                <a class="video-button">Play Video</a>
+                <button class="video-button">Play Video</button>
               </div>
             </div>
           </div>
@@ -100,8 +100,11 @@
             </nav>
             <a href="" class="more-button">More</a>
             <div class="slider">
-              <button class="slider__item slider__item--desktop slider__item--active">Previous</button>
-              <button class="slider__item slider__item--desktop">Next</button>
+              <div class="slider__controls">
+                <button class="slider__control-item slider__control-item--desktop slider__control-item--active">Previous</button>
+                <div class="slider__control-item--desktop-middle"></div>
+                <button class="slider__control-item slider__control-item--desktop">Next</button>
+              </div>
             </div>
           </div>
         </div>
@@ -118,16 +121,16 @@
         </div>
         <ul class="menu__list">
           <li class="menu__item">
-            <a href="" class="menu__link">About</a>
+            <a href="#about" class="menu__link">About</a>
           </li>
           <li class="menu__item">
-            <a href="" class="menu__link">Tech</a>
+            <a href="#tech" class="menu__link">Tech</a>
           </li>
           <li class="menu__item">
-            <a href="" class="menu__link">Benefits</a>
+            <a href="#benefits" class="menu__link">Benefits</a>
           </li>
           <li class="menu__item">
-            <a href="" class="menu__link">Contact</a>
+            <a href="#contact-us" class="menu__link">Contact</a>
           </li>
           <li class="menu__item">
             <a href="" class="menu__link">Language</a>
@@ -205,14 +208,124 @@
           </div>
         </div>
       </section>
-      <section class="section section--background-black">
+      <section class="section section--background-grad" id="about">
         <div class="container">
-          <div class="section__content tech">
-            <h2 class="tech__title">TECH <span class="tech__title-quantum">SPECS</span></h2>
+          <div class="section__content about">
+            <div class="grid grid--tablet about__main">
+              <div class="grid__item grid__item--tablet-4-6 grid__item--desktop-9-12 grid__item--full-12-16">
+                <h2 class="about__title">ABOUT <span class="about__title-quantum">PRODUCT</span></h2>
+              </div>
+              <div class="grid__item grid__item--tablet-1-3 grid__item--desktop-3-7 grid__item--full-3-9 slider about__slider">
+                <video
+                  src=""
+                  poster="./images/video.png"
+                  class="slider__item"
+                >
+                </video>
+                <div class="slider__controls">
+                  <button class="slider__control-item slider__control-item--mobile slider__control-item--active"></button>
+                  <button class="slider__control-item slider__control-item--mobile"></button>
+                  <button class="slider__control-item slider__control-item--mobile"></button>
+                  <button class="slider__control-item slider__control-item--mobile"></button>
+                  <button class="slider__control-item slider__control-item--mobile"></button>
+                  <button class="slider__control-item slider__control-item--desktop slider__control-item--active" disabled>Previous</button>
+                  <div class="slider__control-item slider__control-item--desktop-middle"></div>
+                  <button class="slider__control-item slider__control-item--desktop">Next</button>
+                </div>
+              </div>
+              <div class="grid__item grid__item--tablet-4-6 grid__item--desktop-9-12 grid__item--full-12-16">
+                <p class="about__text">
+                  KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.
+                </p>
+              </div>
+              <div class="grid__item grid__item--tablet-4-6 grid__item--desktop-9-12 grid__item--full-12-16">
+                <button class="video-button about__video-button">Play Video</button>
+              </div>
+            </div>
+            <div class="grid grid--tablet">
+              <div class="grid__item grid__item--tablet-1-4 grid__item--desktop-1-5 grid__item--full-2-7 about__hello">
+                <p class="about__comment">Hello,</p>
+                <h2 class="about__title">NICE TO MEET <span class="about__title-quantum">YOU!</span></h2>
+                <p class="about__text">
+                  KAT VR is an independent company dedicated to the research, development, and sales of VR Locomotion products and solutions. Founded in 2013, we have quickly grown to become one of the world’s leading professional suppliers of VR games’ & simulations’ equipment
+                </p>
+              </div>
+              <div class="grid__item grid__item--tablet-5-6 grid__item--desktop-7-12 grid__item--full-9-16">
+                <div class="about__fade">
+                  <p class="about__fade-item">ABOUT US</p>
+                  <p class="about__fade-item">ABOUT US</p>
+                  <p class="about__fade-item">ABOUT US</p>
+                  <p class="about__fade-item">ABOUT US</p>
+                  <p class="about__fade-item">ABOUT US</p>
+                  <p class="about__fade-item">ABOUT US</p>
+                  <p class="about__fade-item">ABOUT US</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
-      <section class="section section--background-grad">
+      <section class="section section--background-black" id="tech">
+        <div class="container">
+          <div class="section__content tech">
+            <div class="grid grid--desktop tech__content">
+              <div class="grid__item grid__item--9-12 grid__item--full-12-14">
+                <h2 class="tech__title">TECH <span class="tech__title-quantum">SPECS</span></h2>
+              </div>
+              <div class="grid__item grid__item--1-3 grid__item--full-3-5 article tech__article">
+                <h3 class="article__title article__title--left">SENSOR</h3>
+                <p class="article__text">
+                  Weight: 35g/1.23oz each
+                  <br>
+                  Dimension: 50mm/1.97in
+                  <br>
+                  24mm/0.94in
+                  <br>
+                  Light: LED lights
+                </p>
+              </div>
+              <div class="grid__item grid__item--9-12 grid__item--full-12-15 article tech__article">
+                <h3 class="article__title article__title--left">BATTERRIES</h3>
+                <p class="article__text">
+                  Type: Lithium-lon polymer batteries
+                  <br>
+                  Capacity: 370mAh
+                  <br>
+                  Battery life: 10h of continuous use
+                  <br>
+                  150 hours on stand by
+                  <br>
+                  Charging: Fast charging - 1 hour
+                  <br>
+                  Charging voltage and current: 5V = 0.5A
+                </p>
+              </div>
+              <div class="grid__item grid__item--2-4 grid__item--full-3-5 article tech__article">
+                <h3 class="article__title article__title--left">CONNECTION</h3>
+                <p class="article__text">
+                  Wireless: Bluetooth 4.2
+                  <br>
+                  Signal range: 5m
+                  <br>
+                  Receiver: USB 2.0 and above
+                </p>
+              </div>
+              <div class="grid__item grid__item--5-8 grid__item--full-7-10 tech__product">
+                <div class="tech__product-image">
+                  <div class="tech__circle"></div>
+                  <div class="tech__sensor"></div>
+                  <div class="tech__batteries"></div>
+                  <div class="tech__connection"></div>
+                  <button class="tech__button tech__button--first"></button>
+                  <button class="tech__button tech__button--second"></button>
+                  <button class="tech__button tech__button--third"></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section section--background-grad" id="benefits">
         <div class="container">
           <div class="section__content benefits">
             <h2 class="benefits__title">WHY <span class="benefits__title-quantum">KAT LOCO?</span></h2>
@@ -255,7 +368,7 @@
           </div>
         </div>
       </section>
-      <section class="section section--background-black">
+      <section class="section section--background-black" id="contact-us">
         <div class="container">
           <div class="section__content contact-us">
             <div class="grid grid--tablet contact-us__content">
@@ -307,7 +420,7 @@
                   >
                     Contact Us
                   </button>
-                  <a class="top-anchor contact-us__top-anchor">
+                  <a href="#header" class="top-anchor contact-us__top-anchor">
                     <div class="top-anchor__arrow"></div>
                   </a>
                 </div>
@@ -326,10 +439,10 @@
           </div>
         </div>
       </section>
-      <div class="page__button-container">
-        <button class="button page__button-buy">Buy now</button>
-      </div>
     </main>
+    <div class="page__button-container">
+      <button class="button page__button-buy">Buy now</button>
+    </div>
 
     <footer class="footer">
       <div class="container">
@@ -338,7 +451,7 @@
             <a href="/" class="logo">
               <img
                 class="logo__image logo__image--medium"
-                src="./images/icons/logo.png"
+                src="./images/logo.png"
                 alt="KatVR"
               >
             </a>
@@ -347,16 +460,16 @@
             <nav class="nav nav--footer">
               <ul class="nav__list nav__list--footer">
                 <li class="nav__item">
-                  <a href="" class="nav__link">About</a>
+                  <a href="#about" class="nav__link">About</a>
                 </li>
                 <li class="nav__item">
-                  <a href="" class="nav__link">Tech</a>
+                  <a href="#tech" class="nav__link">Tech</a>
                 </li>
                 <li class="nav__item">
-                  <a href="" class="nav__link">Benefits</a>
+                  <a href="#benefits" class="nav__link">Benefits</a>
                 </li>
                 <li class="nav__item">
-                  <a href="" class="nav__link">Contact</a>
+                  <a href="#contact-us" class="nav__link">Contact</a>
                 </li>
               </ul>
             </nav>
