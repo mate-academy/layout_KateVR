@@ -1,0 +1,52 @@
+.form {
+  position: relative;
+  &::after {
+    position: absolute;
+    font-size: 40px;
+    top: 30%;
+    left: 20%;
+    content: "In develop";
+    color: $contrast-color;
+    transform: rotate(60deg);
+  }
+
+  &__field {
+    margin-bottom: 24px;
+  }
+
+  &__placeholder {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 21px;
+    color: $text-color;
+    transform: translateY(130%);
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    background-color: inherit;
+    color: #fff;
+    border-bottom: 1px solid $dark-grey;
+
+    &:focus {
+      outline: none;
+      border-bottom-color: $contrast-color;
+    }
+
+    &:focus + .form__placeholder {
+      transform: translateY(0);
+      color: $contrast-color;
+    }
+
+    &--last {
+      font-family: inherit;
+      height: 80px;
+      resize: none;
+    }
+  }
+}
