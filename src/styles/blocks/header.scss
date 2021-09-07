@@ -1,0 +1,270 @@
+.header {
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  color: #fff;
+
+  // TOP HEADER
+  &__content {
+    padding-top: 60px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 200px;
+  }
+
+  &__logo-select {
+    display: inline-block;
+    margin-left: 34px;
+    background-color: transparent;
+    color: #05c2df;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .header__burger {
+    display: none;
+  }
+
+  // MIDDLE HEADER
+  &__middle {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 38px;
+  }
+
+  &__middle-description {
+    z-index: 1;
+    margin-left: 254px;
+  }
+
+  &__middle-image {
+    position: absolute;
+    top: 0;
+    right: 45px;
+    width: 1200px;
+  }
+
+  &__title {
+    z-index: 1;
+    display: block;
+    font-size: 54px;
+    margin-bottom: 14px;
+    font-family: Mark-Heavy, sans-serif;
+    &--special {
+      color: #05c2df;
+      font-family: Quantum, sans-serif;
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    color: #929292;
+    font-size: 20px;
+    line-height: 30px;
+    width: 400px;
+    margin-left: 90px;
+    margin-bottom: 30px;
+  }
+
+  &__amount {
+    display: inline-block;
+    margin-left: 90px;
+    margin-bottom: 35px;
+  }
+
+  &__play {
+    display: block;
+    margin-left: 90px;
+    margin-bottom: 230px;
+    position: relative;
+
+    &::after {
+      content: "";
+      top: 200px;
+      height: 200px;
+      width: 200px;
+      position: absolute;
+      color: red;
+    }
+  }
+
+  //only for tablet and phones
+  .buy-header {
+    display: none;
+    color: #fff;
+    background-color: #05c2df;
+    padding: 13px 48px;
+    border-radius: 4px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+
+  }
+
+  // HEADER FEATURES
+  &__features {
+    font-family: Mark-Medium, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 108px;
+  }
+
+  .features-info-faq {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .features-info-help {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 34px;
+  }
+
+  &__features-more {
+    position: relative;
+    text-decoration: none;
+    z-index: 1;
+    color: #05c2df;
+    font-size: 14px;
+    transform: translate(155%, 0);
+
+    &::before {
+      content: "";
+      top: 27px;
+      right: 38%;
+      bottom: 0;
+      position: absolute;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 6px solid #05c2df;
+      color: #05c2df;
+    }
+  }
+  &__features-pagination {
+    z-index: 1;
+    border-bottom: 1px solid #212121;
+    height: 45px;
+
+    &-prev {
+      display: inline-block;
+      height: 100%;
+      color: #fff;
+      text-decoration: none;
+      margin-right: 102px;
+
+      &:hover {
+        border-bottom: 1px solid #05c2df;
+      }
+    }
+
+    &-next {
+      display: inline-block;
+      height: 100%;
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        border-bottom: 1px solid #05c2df;
+      }
+    }
+  }
+
+  //tablet
+  @media (max-width: 1024px) {
+    .header__content {
+      margin-bottom: 55px;
+      padding-top: 30px;
+    }
+
+    &__logo-select {
+      display: none;
+    }
+
+    .header__burger {
+      display: block;
+      height: 18px;
+      width: 30px;
+    }
+    .container {
+      padding: 0 34px;
+    }
+
+    &__middle {
+      margin-bottom: -1px;
+    }
+
+    &__middle-description {
+      margin-left: 34px;
+    }
+
+    &__title {
+      font-size: 26px;
+    }
+
+    &__subtitle {
+      font-size: 16px;
+      margin-left: 0;
+      width: 340px;
+      margin-bottom: 10px;
+      line-height: 24px;
+    }
+    &__middle-image {
+      width: 480px;
+    }
+
+    &__amount {
+      font-size: 18px;
+      margin-left: 0;
+    }
+    &__play {
+      margin-left: 0;
+      margin-bottom: 61px;
+    }
+    &__features {
+      display: none;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .header__middle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .header__middle-description {
+      order: 2;
+      margin: -80px 0 0 45px;
+    }
+
+    &__amount {
+      margin-top: 8px;
+      margin-left: 125px;
+      margin-bottom: 25px;
+    }
+
+    &__middle-image {
+      order: 1;
+      position: static;
+      width: 450px;
+      margin-top: -130px;
+      margin-left: -32px;
+    }
+    &__play {
+      width: 80%;
+      margin-bottom: 23px;
+    }
+
+    .buy-header {
+      display: inline-block;
+      text-align: center;
+      width: 87%;
+      position: relative;
+
+      &:hover {
+        background-color: #fff;
+        color: #05c2df;
+      }
+    }
+  }
+}
