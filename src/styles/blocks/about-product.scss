@@ -38,8 +38,19 @@
       margin-bottom: 15px;
     }
     .about-product__play-video {
-      display: inline-block;
+      position: relative;
       margin-bottom: 80px;
+      &:hover {
+        &::after {
+          top: 25px;
+          left: 28px;
+          content: "";
+          border-top: 10px solid transparent;
+          border-left: 17px solid white;
+          border-bottom: 10px solid transparent;
+          position: absolute;
+        }
+      }
     }
 
     .about-product__greet {

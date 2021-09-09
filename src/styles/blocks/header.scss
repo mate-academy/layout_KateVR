@@ -19,6 +19,14 @@
     outline: none;
     font-size: 16px;
     cursor: pointer;
+    border-radius: 5px;
+
+    &-option {
+      background-color: #191536;
+      outline: none;
+      border: 1px solid red;
+    }
+
   }
 
   .header__burger {
@@ -73,18 +81,19 @@
   }
 
   &__play {
-    display: block;
     margin-left: 90px;
     margin-bottom: 230px;
     position: relative;
-
-    &::after {
-      content: "";
-      top: 200px;
-      height: 200px;
-      width: 200px;
-      position: absolute;
-      color: red;
+    &:hover {
+      &::after {
+        top: 25px;
+        left: 28px;
+        content: "";
+        border-top: 10px solid transparent;
+        border-left: 17px solid white;
+        border-bottom: 10px solid transparent;
+        position: absolute;
+      }
     }
   }
 
