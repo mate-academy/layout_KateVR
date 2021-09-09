@@ -1,17 +1,19 @@
-#menu {
-  display: none;
-}
-
-.z-menu {
-  position: absolute;
-  z-index: 200;
-  background-color: #191536;
+.page__menu {
+  position: fixed;
+  top: 0;
   width: 100%;
+  z-index: 200;
+  transform: translateX(+200%);
+  background-color: #191536;
+  transition: transform 0.5s;
+
+  &:target {
+    transform: translateX(0);
+  }
 
   &__close {
     float: right;
-    margin-right: 34px;
-    margin-top: 34px;
+    margin: 30px;
   }
 
   &__list {
@@ -38,4 +40,15 @@
       color: #05c2df;
     }
   }
+}
+
+@media (max-width: 767px) {
+  .page__menu {
+    height: 100vh;
+
+    &__item {
+      padding: 11px 0 0 22px;
+    }
+  }
+
 }

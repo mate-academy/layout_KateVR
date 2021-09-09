@@ -6,27 +6,29 @@
     <title>Title</title>
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
-  <body>
+  <body class="page">
 
-    <div class="z-menu" hidden>
-      <!--      MENU -->
-      <img
-        class="z-menu__close"
-        src="./images/close-burger.png"
-        alt="close-menu"
-      >
-      <ul class="z-menu__list">
-        <li class="z-menu__item"><a class="z-menu__link" href="#">About</a></li>
-        <li class="z-menu__item"><a class="z-menu__link" href="#">Tech</a></li>
-        <li class="z-menu__item"><a class="z-menu__link" href="#">Benefits</a></li>
-        <li class="z-menu__item"><a class="z-menu__link" href="#">Contact</a></li>
-        <li class="z-menu__item"><a class="z-menu__link" href="#">Language</a></li>
-        <li class="z-menu__item"><a class="z-menu__link" href="#">FAQ</a></li>
-        <li class="z-menu__item"><a class="z-menu__link" href="#">Help</a></li>
+
+    <div class="page__menu" id="menu">
+
+      <a href="#" class="header__burger">
+        <img
+          class="page__menu__close"
+          src="./images/close-burger.png"
+          alt="close-menu"
+        >
+      </a>
+
+      <ul class="page__menu__list">
+        <li class="page__menu__item"><a class="page__menu__link" href="#">About</a></li>
+        <li class="page__menu__item"><a class="page__menu__link" href="#">Tech</a></li>
+        <li class="page__menu__item"><a class="page__menu__link" href="#">Benefits</a></li>
+        <li class="page__menu__item"><a class="page__menu__link" href="#">Contact</a></li>
+        <li class="page__menu__item"><a class="page__menu__link" href="#">Language</a></li>
+        <li class="page__menu__item"><a class="page__menu__link" href="#">FAQ</a></li>
+        <li class="page__menu__item"><a class="page__menu__link" href="#">Help</a></li>
       </ul>
     </div>
-    <input type="checkbox" id="menu">
-    <label for="menu"></label>
 
     <header class="header">
       <div class="container">
@@ -66,11 +68,14 @@
               </li>
             </ul>
           </nav>
-          <img
-            class="header__burger"
-            src="./images/burger.png"
-            alt="header-burger"
-          >
+
+          <a href="#menu" class="header__burger" >
+            <img
+              src="./images/burger.png"
+              alt="header-burger"
+            >
+          </a>
+
         </div>
       </div>
       <div class="header__middle">
@@ -177,41 +182,38 @@
       <section class="about-product">
         <div class="container">
 
-            <div class="about-product__content">
+          <div class="about-product__content">
 
-              <div class="about-product__page">
-                1 / 5
-              </div>
+            <div class="about-product__page">
+              1 / 5
+            </div>
 
-                  <img
-                    class="about-product__video"
-                    src="./images/about-product-image.png"
-                    alt="play-video"
-                  >
-                <div class="about-product__prev-next">
-                  <div  class="about-product__pagination-block">
-                    <a href = "#" class="about-product__pagination-prev about-product__pagination-prev--active">
-                      Previous
-                    </a>
-                    <a href ="#" class="about-product__pagination-next">
-                      Next
-                    </a>
-                  </div>
-                </div>
-
-                <div class="about-product__title">
-                  ABOUT  <span class="about-product__title-special">PRODUCT</span>
-                </div>
-                <div class="about-product__subtitle">
-                  KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.
-                </div>
-
-                <a class="about-product__play-video" href="#">
-                  <img src="./images/header_button.png" alt="play-video">
+            <img
+              class="about-product__video"
+              src="./images/about-product-image.png"
+              alt="play-video"
+            >
+            <div class="about-product__prev-next">
+              <div  class="about-product__pagination-block">
+                <a href = "#" class="about-product__pagination-prev about-product__pagination-prev--active">
+                  Previous
                 </a>
+                <a href ="#" class="about-product__pagination-next">
+                      Next
+                </a>
+              </div>
+            </div>
 
+            <div class="about-product__title">
+              ABOUT  <span class="about-product__title-special">PRODUCT</span>
+            </div>
+            <div class="about-product__subtitle">
+              KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.
+            </div>
 
-
+            <a class="about-product__play-video" href="#">
+              <img src="./images/header_button.png" alt="play-video">
+            </a>
 
             <div class="about-product__greet">
               <p class ="about-product__greet-hello">Hello,</p>
@@ -220,12 +222,140 @@
             </div>
           </div>
 
+          <div class="about-product__tech-specs">
+            <div class="about-product__tech-specs-title">Tech <span class="about-product__tech-specs-title-special">specs</span></div>
+            <div class="about-product__tech-specs-image">
+              <img
+                class="about-product__tech-specs-image-circle--1"
+                src="./images/Ellipse.png"
+                alt="cirle-1"
+              >
+              <img
+                class="about-product__tech-specs-image-circle--2"
+                src="./images/Ellipse.png"
+                alt="cirle-2"
+              >
+              <img
+                class="about-product__tech-specs-image-circle--3"
+                src="./images/Ellipse.png"
+                alt="cirle-3"
+              >
+              <img
+                class="tech-spec-image"
+                src="./images/tech-specs.png"
+                alt="tech-specs-image"
+              >
+            </div>
+          </div>
+
 
         </div>
 
       </section>
 
-      <section></section>
+      <section class="why-kat">
+        <div class="container">
+          <div class="why-kat__title">Why cat <span class="why-kat__title-special">loco?</span></div>
+          <div class="why-kat__list">
+            <div class="why-kat__item">
+              <div class="why-kat__item-title">UNIVERSALLY COMPATIBLE</div>
+              <div class="why-kat__item-subtitle">KAT Loco offers universal compatibility across all major VR headsets and platforms...</div>
+            </div>
+
+            <div class="why-kat__item">
+              <div class="why-kat__item-title">VR/PC CONTROL PANEL</div>
+              <div class="why-kat__item-subtitle">Our Multifunctional Software allows for quick access to KAT Loco’s control panel both from...</div>
+            </div>
+
+            <div class="why-kat__item">
+              <div class="why-kat__item-title">WIRELESS SENSORS</div>
+              <div class="why-kat__item-subtitle">What makes it even more advanced, KAT Loco is entirely wireless, and comes with a...</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="get-in-touch">
+        <div class="container">
+          <p class="get-in-touch__pre-title">
+            Have any questions?
+          </p>
+          <div class="get-in-touch__title">
+            Get in <span class="get-in-touch__title-special">touch</span>
+          </div>
+
+          <form
+            action="#"
+            id = "form1"
+            class="get-in-touch__form"
+          >
+            <label class="get-in-touch__label" for="name">Name*</label><br>
+            <input
+              required
+              autocomplete="off"
+              class="get-in-touch__input"
+              id="name"
+              name = "name"
+              type="text"
+            >
+            <br>
+            <label class="get-in-touch__label" for="email">Email*</label>
+            <br>
+            <input
+              required
+              autocomplete="off"
+              class="get-in-touch__input"
+              id ="email"
+              name = "email"
+              type="email"
+            >
+            <br>
+            <label class="get-in-touch__label" for="email">Phone*</label>
+            <br>
+            <input
+              required
+              autocomplete="off"
+              class="get-in-touch__input"
+              id ="phone"
+              name = "phone"
+              type="phone"
+            >
+            <br>
+            <label class="get-in-touch__label" for="email">Message</label><br>
+            <textarea autocomplete="off" class="get-in-touch__textarea"></textarea>
+          </form>
+
+          <button
+            class="get-in-touch__form-submit"
+            type="submit"
+            form="form1"
+            value="Submit"
+          >
+            Contact Us
+          </button>
+
+          <p class="get-in-touch__info">Our manager will reply you within 15 minutes</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+
+          <img
+            class="footer__logo"
+            src="./images/logo.png"
+            alt="footer-logo"
+          >
+          <div class="footer__nav">
+            nav
+          </div>
+
+          <div class="footer__contacts">
+            contacts
+          </div>
+
+        </div>
+      </footer>
 
     </main>
     <script type="text/javascript" src="scripts/main.js"></script>
