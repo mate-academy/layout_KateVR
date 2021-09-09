@@ -1,0 +1,253 @@
+
+.main {
+  margin: 0 auto;
+  position: relative;
+  background-color: #05040b;
+
+  &__title {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 44px;
+    }
+
+    &--h2 {
+      margin: 0;
+      padding: 0;
+      @extend %headLine2mob;
+      margin-bottom: 10px;
+
+      &-quantum {
+        margin: 0;
+        padding: 0;
+        @extend %textQuantum;
+      }
+    }
+
+    &--h3 {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+      @extend %headLine3mob;
+
+      &-quantum {
+        margin: 0;
+        padding: 0;
+        @extend %textQuantum;
+      }
+
+      &-mb {
+        margin-bottom: 20px;
+      }
+
+      @include onTablet {
+        text-align: center;
+      }
+    }
+
+    &--text {
+      margin: 0;
+      @extend %textStandart;
+      color: $contrastColor;
+
+      &-hello {
+        margin: 0 0 10px;
+        @extend %textStandart;
+        color: $contrastColor;
+      }
+    }
+  }
+
+  &__text {
+    margin: 0;
+    padding: 0;
+    @extend %textMedium;
+    color: $textColor;
+  }
+
+  &__article {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 78px;
+    }
+
+    &--education,
+    &--estate,
+    &--fitnes,
+    &--social {
+      margin-bottom: 20px;
+      @include onTablet {
+        margin-bottom: 40px;
+      }
+    }
+
+    &--education {
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 104px;
+          background-image: url(../images/icon/education.svg);
+        }
+      }
+    }
+
+    &--estate {
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 84px;
+          background-image: url(../images/icon/real_estate.svg);
+        }
+      }
+    }
+
+    &--fitnes {
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 114px;
+          background-image: url(../images/icon/fitnes.svg);
+        }
+      }
+    }
+
+    &--socials {
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 84px;
+          background-image: url(../images/icon/social.svg);
+        }
+      }
+    }
+
+    &-text {
+      height: 52px;
+      overflow: hidden;
+  
+      &:hover {
+        cursor: pointer;
+        overflow-y: scroll;
+      }
+  
+      @include onTablet {
+        text-align: center;
+        height: max-content;
+  
+        &:hover {
+          cursor: default;
+          overflow-y: hidden;
+        }
+      }
+    }
+  }
+
+  &__about {
+    position: relative;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 72px;
+    }
+
+    &--photo {
+      position: relative;
+      margin: 0 auto;
+      padding: 0;
+      @extend %bgStyle;
+      background-image: url(../images/about.png);
+
+      @include onMobile {
+        height: 189px;
+        width: 280px;
+        margin-bottom: 38px;
+      }
+
+      @include onTablet {
+        height: 270px;
+        margin-bottom: 108px;
+      }
+
+      &-choser {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        @include onMobile {
+          top: 200px;
+        }
+  
+        @include onTablet {
+          top: 280px;
+        }
+      }
+    }
+
+    &--description {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 78px;
+    }
+
+    &--player-mb {
+      margin-bottom: 14px;
+    }
+
+    &--vertical {
+      display: none;
+      margin: 0 auto;
+      padding: 0;
+
+      @include onTablet {
+        display: flex;
+        position: absolute;
+        bottom: -16px;
+        right: 0;
+        // flex-direction: row;
+        // justify-content: space-between;
+      }
+
+      &-icon {
+        margin: 0;
+        padding: 0;
+        @extend %bgStyle;
+      }
+    }
+  }
+
+  &__radio {
+    height: 8px;
+    width: 8px;
+    margin: 0 4px;
+    padding: 0;
+  }
+
+}

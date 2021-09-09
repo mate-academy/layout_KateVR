@@ -1,13 +1,28 @@
 
 .header {
   margin: 0 auto;
+  background: $bgGradient;
+  position: relative;
 
   &__nav {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    justify-items: center;
-    background: $bgGradient;
+    margin: 0;
+    padding: 0;
+
+    @include onMobile {
+      margin-bottom: 12px;
+    }
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onNotebook {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @include onDesign {
+      grid-template-columns: repeat(16, 1fr);
+    }
 
     &--top {
       display: flex;
@@ -21,10 +36,10 @@
     width: max-content;
     height: max-content;
 
-    &--item {
+    &-bigScreen {
       display: none;
 
-      @include screenBig {
+      @include onNotebook {
         display: flex;
         margin: 0;
         padding: 0;
@@ -51,12 +66,32 @@
   &__product {
     height: max-content;
     text-align: left;
-    margin-bottom: 32px;
+    @include onMobile {
+      margin-bottom: 60px;
+    }
 
     &--photo {
       @extend %bgStyle;
-      height: 172px;
-      background-image: url(../images/image1.jpg);
+      width: 100%;
+      background-image: url(../images/image.svg);
+
+      @include onMobile {
+        height: 172px;
+        order: -1;
+      }
+  
+      @include onTablet {
+        height: 210px;
+        order: 0;
+      }
+  
+      // @include onNotebook {
+      //   grid-template-columns: repeat(12, 1fr);
+      // }
+  
+      // @include onDesign {
+      //   grid-template-columns: repeat(16, 1fr);
+      // }
     }
 
     &--describe {
@@ -76,6 +111,10 @@
 
       &-position {
         text-align: center;
+
+        @include onTablet {
+          text-align: left;
+        }
       }
     }
   }
@@ -90,18 +129,44 @@
     }
   }
 
-  &__player {
-    margin: 0;
-    padding: 0;
+  &__buttom {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 40px;
+    background-color: $contrastColor;
+    border-radius: 4px;
+    z-index: 1;
+    text-decoration: none;
+    @extend %linksButtons;
+    line-height: 130%;
+    color: $whiteColor;
+    transition: background-color 0.5s;
 
-    &--icon {
-      @extend %bgStyle;
-      height: 66px;
-      width: 100%;
-      background-image: url(../images/icon/player2.svg);
+    &:hover {
+      background-color: $whiteColor;
+      color: $contrastColor;
+    }
+
+    @include onMobile {
+      left: 20px;
+      right: 20px;
+      bottom: -20px;
+    }
+
+    @include onTablet {
+      left: 34px;
+      right: 34px;
+      bottom: -20px;
+    }
+
+    @include onNotebook {
+      top: 47px;
+      left: 970px;
+      width: 200px;
     }
   }
 }
