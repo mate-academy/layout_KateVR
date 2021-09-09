@@ -1,0 +1,29 @@
+
+.grid {
+  display: grid;
+  gap: 20px;
+
+  &--size {
+    @include onMobile {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include onTablet {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include onNotebook {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @include onDesign {
+      grid-template-columns: repeat(16, 1fr);
+    }
+  }
+
+  &--item {
+    &--1-last {
+      grid-column: 1 / -1;
+    }
+  }
+}

@@ -1,0 +1,30 @@
+
+.container {
+  margin: 0 auto;
+
+  &--size {
+    @include onMobile {
+      box-sizing: border-box;
+      padding: 18px 20px 4px;
+      width: 320px;
+    }
+
+    @include onTablet {
+      box-sizing: border-box;
+      padding: 30px 34px 16px;
+      width: 768px;
+    }
+
+    @include onNotebook {
+      box-sizing: border-box;
+      padding: 60px 110px 96px;
+      width: 1280px;
+    }
+
+    @include onDesign {
+      box-sizing: border-box;
+      padding: 60px 234px 114px;
+      width: 1920px;
+    }
+  }
+}

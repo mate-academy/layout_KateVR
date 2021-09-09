@@ -1,0 +1,107 @@
+
+.header {
+  margin: 0 auto;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    justify-items: center;
+    background: $bgGradient;
+
+    &--top {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__menu {
+    width: max-content;
+    height: max-content;
+
+    &--item {
+      display: none;
+
+      @include screenBig {
+        display: flex;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        color: #fff;
+      }
+    }
+
+    &--opener {
+      display: block;
+      margin: 0;
+      padding: 0;
+      @extend %bgStyle;
+
+      @include screenSmall {
+        width: 20px;
+        height: 10px;
+        background-image: url(../images/icon/menu.svg);
+      }
+
+    }
+  }
+
+  &__product {
+    height: max-content;
+    text-align: left;
+    margin-bottom: 32px;
+
+    &--photo {
+      @extend %bgStyle;
+      height: 172px;
+      background-image: url(../images/image1.jpg);
+    }
+
+    &--describe {
+      @extend %textMedium;
+      color: $textColor;
+      font-size: 16px;
+      line-height: 150%;
+      margin-bottom: 8px;
+    }
+
+    &--price {
+      @extend %textMedium;
+      color: $whiteColor;
+      font-size: 18px;
+      line-height: 23px;
+      margin-bottom: 14px;
+
+      &-position {
+        text-align: center;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: $whiteColor;
+    margin-bottom: 14px;
+
+    &--quantum {
+      @extend %textQuantum;
+    }
+  }
+
+  &__player {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--icon {
+      @extend %bgStyle;
+      height: 66px;
+      width: 100%;
+      background-image: url(../images/icon/player2.svg);
+    }
+  }
+}
