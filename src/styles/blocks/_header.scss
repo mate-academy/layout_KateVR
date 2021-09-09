@@ -2,13 +2,34 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
+  position: relative;
   height: 100vh;
   max-height: 568px;
   padding: 20px 20px 0;
+  overflow: hidden;
   background: linear-gradient(107.56deg, $dark-blue 0%, #000 100%);
+
+  @include tablet {
+    padding: 30px 35px 60px;
+    max-height: 445px;
+  }
+
+  @include desktop {
+    padding: 50px 110px 100px;
+    max-height: 740px;
+  }
+
+  @include desktopL {
+    padding: 60px 235px 120px;
+    max-height: 1100px;
+  }
 
   &__top-action {
     margin-bottom: 14px;
+
+    @include tablet {
+      margin-bottom: 70px;
+    }
   }
 
   &__products {
@@ -17,16 +38,60 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+
+    @include tablet {
+      position: absolute;
+      height: 50%;
+      width: 50%;
+      top: 0;
+      right: 0;
+      background-image: url(../images/Products-mobile.png);
+      transform: translate(-5%, 50%);
+    }
   }
 
   &__tittle {
+    display: block;
     font-size: 26px;
     line-height: 34px;
     margin-bottom: 14px;
+
+    @include tablet {
+      margin: 0 auto;
+      transform: translateX(-83%);
+    }
+
+    @include desktop {
+      font-size: 46px;
+      line-height: 60px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      margin: 0 auto;
+      transform: translateX(-50%);
+    }
+
+    @include desktop {
+      transform: translateX(-100%);
+    }
+
+    @include desktopL {
+      transform: translateX(-100%);
+    }
   }
 
   &__text {
-    margin-bottom: 8px;
+    font-family: MarkProMedium, sans-serif;
+    margin-bottom: 10px;
+
+    @include tablet {
+      width: 340px;
+    }
   }
 
   &__price {
@@ -35,9 +100,24 @@
     font-size: 18px;
     line-height: 23px;
     color: #fff;
+
+    @include tablet {
+      text-align: left;
+      margin-bottom: 24px;
+    }
   }
 
   &__play-button {
     margin: 0 auto 24px;
+
+    @include tablet {
+      margin: 0 0 24px;
+    }
+  }
+
+  &__main-button {
+    @include tablet {
+      display: none;
+    }
   }
 }

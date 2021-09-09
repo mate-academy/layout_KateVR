@@ -2,18 +2,73 @@
   padding: 50px 20px;
   background-color: $bg-black;
 
+  @include tablet {
+    padding: 70px 35px;
+  }
+
+  &__tittle-block {
+    margin-bottom: 30px;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
   &__tittle {
+    display: block;
     margin-bottom: 10px;
   }
 
   &__comment {
-    margin-bottom: 30px;
     font-size: 12px;
     line-height: 15px;
     color: $contrast-color;
   }
 
+  &__content {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+  }
+
+  &__img {
+    flex-shrink: 0;
+    height: 70%;
+    width: 56%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(0.7);
+
+    &--education {
+      background-image: url(../images/learn.svg);
+    }
+
+    &--estate {
+      width: 48%;
+      background-image: url(../images/skyline.svg);
+    }
+
+    &--fitness {
+      width: 64%;
+      background-image: url(../images/fitness.svg);
+    }
+
+    &--social {
+      width: 48%;
+      background-image: url(../images/network.svg);
+    }
+  }
+
   &__info-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     margin-bottom: 20px;
     cursor: pointer;
 
@@ -23,6 +78,11 @@
 
     &:focus .info__text::after {
       content: "";
+    }
+
+    @include tablet {
+      width: 340px;
+      height: 230px;
     }
   }
 
