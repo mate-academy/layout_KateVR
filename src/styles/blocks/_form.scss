@@ -1,52 +1,113 @@
 .form {
-  position: relative;
-  &::after {
-    position: absolute;
-    font-size: 40px;
-    top: 30%;
-    left: 20%;
-    content: "In develop";
-    color: $contrast-color;
-    transform: rotate(60deg);
-  }
-
   &__field {
+    display: flex;
+    align-items: flex-end;
     margin-bottom: 24px;
+
+    &--last {
+      margin-bottom: 30px;
+    }
+
+    &--pay-last {
+      margin-bottom: 40px;
+    }
   }
 
   &__placeholder {
-    display: inline-block;
+    display: block;
+    width: 100%;
     font-size: 14px;
     line-height: 21px;
     color: $text-color;
-    transform: translateY(130%);
+    transition: 0.3s;
+
+    &--card-holder {
+      margin-bottom: 30px;
+    }
+
+    &--blue {
+      color: $contrast-color;
+    }
   }
 
   &__input {
     display: block;
     width: 100%;
-    height: 40px;
+    max-height: 8px;
     font-size: 16px;
     line-height: 24px;
     border: none;
     background-color: inherit;
     color: #fff;
     border-bottom: 1px solid $dark-grey;
+    transition: 0.3s;
 
     &:focus {
-      outline: none;
       border-bottom-color: $contrast-color;
     }
 
-    &:focus + .form__placeholder {
-      transform: translateY(0);
-      color: $contrast-color;
+    &--focus {
+      max-height: 40px;
+      outline: none;
     }
 
-    &--last {
+    &--message {
+      max-height: 40px;
       font-family: inherit;
-      height: 80px;
+      overflow: hidden;
       resize: none;
+
+      &--focus {
+        max-height: 65px;
+        overflow: auto;
+      }
     }
+  }
+
+  &__card-number {
+    display: block;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 18px;
+    color: $text-color;
+  }
+
+  &__card-input {
+    margin-right: 17px;
+    width: 54px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: 0.2em;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $dark-grey;
+    color: #fff;
+
+    &--expiration-date {
+      width: 90px;
+    }
+
+    &--cvv {
+      width: 40px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &::placeholder {
+      color: $dark-grey;
+    }
+  }
+
+  &__card {
+    margin-bottom: 50px;
+  }
+
+  &__card-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
 }
