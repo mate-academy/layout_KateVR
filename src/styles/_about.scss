@@ -1,0 +1,166 @@
+.about {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 130px;
+
+  &__product {
+    display: flex;
+    justify-content: space-evenly;
+    padding-left: calc(15vw - 3vw);
+    gap: 100px;
+  }
+
+  &__picture {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    width: 31vw;
+  }
+
+  &__carousel {
+    display: flex;
+    justify-content: space-between;
+
+    position: relative;
+    width: 207px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      width: 100%;
+      height: 1px;
+      background-color: $underline-color;
+
+      z-index: 0;
+    }
+
+    &::before {
+      content: "1/5";
+      position: absolute;
+      color: $decoration-color;
+
+      font-family: "Mark-Regular", sans-serif;
+      font-size: 14px;
+
+      left: -40px;
+      bottom: 303px;
+    }
+  }
+
+  &__description {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 25vw;
+  }
+
+  &__heading {
+    &-down::before {
+      content: "Hello,";
+      position: absolute;
+      color: $decoration-color;
+      font-family: "Mark-Regular", sans-serif;
+      font-size: 14px;
+
+      top: -30px;
+    }
+  }
+
+  &__text {
+    padding: 30px 0 25px;
+  }
+
+  &__us {
+    display: flex;
+    justify-content: space-around;
+    gap: 0 110px;
+    align-items: center;
+  }
+
+  &__decoration {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    gap: 17px 0;
+    transform: rotate(-90deg);
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    &__product {
+      display: flex;
+      gap: 40px;
+
+      padding: 0;
+      justify-content: center;
+    }
+
+    &__carousel {
+      display: none;
+    }
+
+    &__picture::after {
+      content: url(../images/dots.svg);
+      text-align: center;
+    }
+
+    &__us {
+      display: flex;
+      justify-content: center;
+    }
+
+    &__heading {
+      &-down::before {
+        position: absolute;
+        bottom: 60px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $small-tablet-screen) {
+  .about {
+    gap: 150px;
+
+    &__heading {
+      font-size: 26px;
+    }
+
+    &__product {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+
+    &__description {
+      max-width: 60vw;
+    }
+
+    &__picture {
+      width: 70vw;
+    }
+
+    &__us {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+    }
+
+    &__decoration {
+      display: none;
+    }
+
+    &__text {
+      padding-top: 5px;
+    }
+  }
+}

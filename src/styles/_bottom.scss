@@ -1,0 +1,39 @@
+.bottom {
+  display: flex;
+  justify-content: space-between;
+
+  max-width: 1340px;
+
+  &__help {
+    display: flex;
+    justify-content: space-between;
+    width: 106px;
+  }
+
+  &__more {
+    position: absolute;
+    left: calc(50% - 20.5px);
+  }
+
+  &__carousel {
+    position: relative;
+    display: flex;
+    width: 207px;
+    justify-content: space-between;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      width: 100%;
+      height: 1px;
+      background-color: $underline-color;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .bottom {
+    display: none;
+  }
+}

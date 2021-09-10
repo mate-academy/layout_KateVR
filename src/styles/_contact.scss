@@ -1,0 +1,80 @@
+.contact {
+  display: flex;
+  justify-content: space-between;
+
+  &__heading {
+    padding-bottom: 50px;
+
+    &::before {
+      content: "Have any questions?";
+      position: absolute;
+      top: -3%;
+      font-family: "Mark-Regular", sans-serif;
+      font-size: 14px;
+      line-height: 3;
+      color: $decoration-color;
+
+      padding-bottom: 30px;
+    }
+  }
+
+  &__manager {
+    width: 340px;
+    padding-bottom: 52px;
+  }
+
+  &__text {
+    position: relative;
+    padding-top: 30px;
+    line-height: 1.5;
+  }
+
+  &__link {
+    color: $gray-color;
+    line-height: 30px;
+
+    &:hover {
+      color: $gray-color;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .contact {
+    justify-content: space-evenly;
+
+    &__heading {
+      font-size: 21px;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .contact {
+    display: flex;
+    flex-direction: column;
+
+    &__adress {
+      position: absolute;
+      top: 580%;
+      right: 0;
+
+      font-size: 13px;
+    }
+
+    &__enter {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      padding-bottom: 30px;
+    }
+
+    &__manager {
+      position: absolute;
+      width: 100%;
+
+      top: 480px;
+    }
+  }
+}

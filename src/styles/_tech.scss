@@ -1,0 +1,90 @@
+.tech {
+
+  &__heading {
+    text-align: right;
+    padding-right: 75px;
+  }
+
+  &__image {
+    background: url(../images/tech/tech.svg) no-repeat center;
+    position: relative;
+    right: 130px;
+    top: 70px;
+    height: 500px;
+  }
+
+  &__char {
+    display: flex;
+    flex-direction: column;
+    width: 340px;
+    gap: 20px;
+  }
+  
+  &__title {
+    font-family: "Mark-Heavy", sans-serif;
+    font-size: 18px;
+    color: white;
+  }
+  
+  &__text {
+    line-height: 24px;
+  }
+
+  &__batterry {
+    position: absolute;
+    right: -1%;
+    top: 14%;
+  }
+
+  &__sensor {
+    position: absolute;
+    left: 19%;
+    top: 14%;
+  }
+
+  &__connection {
+    position: absolute;
+    left: 25%;
+    bottom: 20%;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .tech {
+    &__batterry {
+      display: none;
+    }
+    
+    &__sensor {
+      display: none;
+    }
+
+    &__connection {
+      display: none;
+    }
+
+    &__image {
+      background: url(../images/tech/tech-small.svg) no-repeat center;
+      background-size: 260px 260px;
+      right: 0;
+      top: 25px;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .tech {
+    height: 280px;
+
+    &__heading {
+      font-size: 21px;
+      text-align: left;
+    }
+
+    &__image {
+      top: -80px;
+      background-size: 195px 195px;
+    }
+  }
+}
+  

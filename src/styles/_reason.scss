@@ -1,0 +1,111 @@
+.reason {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  &__heading {
+    word-spacing: 7px;
+  }
+
+  &__content {
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+
+    padding: 82px 0 90px;
+  }
+
+  &__cell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 340px;
+  }
+
+  &__img {
+    width: 80px;
+    height: 80px;
+  }
+
+  &__name {
+    font-family: "Mark-Heavy", sans-serif;
+    line-height: 20px;
+    color: white;
+    text-align: center;
+
+    padding: 34px 0 17px;
+  }
+
+  &__text {
+    line-height: 1.5;
+    text-align: center;
+  }
+
+  &__button {
+    align-content: center;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .reason {
+    
+    &__cell {
+      width: 222px;
+    }
+
+    &__text {
+      width: 200px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+
+    }
+
+    &__button {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $small-tablet-screen) {
+  .reason {
+    &__content {
+      flex-direction: column;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .reason {
+    align-items: flex-start;
+    height: auto;
+
+    &__heading {
+      font-size: 21px;
+    }
+
+    &__cell {
+      align-items: flex-start;
+    }
+
+    &__img {
+      display: none;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+
+      padding-top: 10px;
+    }
+
+    &__text {
+      text-align: left;
+      width: 250px;
+    }
+  }
+}

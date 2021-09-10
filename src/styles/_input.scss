@@ -1,0 +1,36 @@
+.input {
+  height: 40px;
+
+  padding: 0 10px;
+
+  background: transparent;
+
+  border-bottom: 1px solid $border-color;
+
+  color: $gray-color;
+
+  &__textarea {
+    height: 100px;
+  }
+
+  &:focus,
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    outline: none;
+    border-bottom: 1px solid $decoration-color;
+    -webkit-text-fill-color: $gray-color;
+    -webkit-box-shadow: 0 0 0 1000px $section-color-alt inset;
+    transition: background-color 5000s ease-in-out 0s;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .input {
+    height: 25px;
+
+    &__textarea {
+      height: 50px;
+    }
+  }
+}

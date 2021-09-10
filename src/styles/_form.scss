@@ -1,0 +1,53 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+  
+  padding-bottom: 90px;
+
+  width: 34vw;
+
+  &__label {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  &__button::after {
+    content: url("../images/arrow.svg");
+    width: 48px;
+    height: 48px;
+
+    position: absolute;
+    bottom: 100.5px;
+    right: 110px;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .form {
+    width: 260px;
+    padding: 0;
+
+    &__button {
+      display: none;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .form {
+    padding-bottom: 30px;
+
+    width: 100%;
+
+    &__button {
+      display: initial;
+      width: 100%;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

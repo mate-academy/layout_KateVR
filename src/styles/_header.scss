@@ -1,0 +1,120 @@
+.header {
+  height: 100vh;
+
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+
+  font-family: "Mark-Medium", sans-serif;
+
+  position: relative;
+  box-sizing: border-box;
+
+  padding: 47px 0 47px 110px;
+
+  &__content {
+    max-width: 1450px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  &__language {
+    width: 33px;
+    appearance: none;
+    border: none;
+    color: $decoration-color;
+    background: url(../images/Polygon.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+
+    font-family: "Mark-Medium", sans-serif;
+    font-size: 16px;
+  }
+
+  &__heading {
+    font-size: 46px;
+    line-height: 60px;
+  }
+
+  &__text {
+    font-family: "Mark-Medium", sans-serif;
+
+    display: flex;
+    flex-direction: column;
+    min-width: 453px;
+    gap: 14px;
+  }
+
+  &__menu {
+    display: none;
+  }
+
+  &__bottom {
+    position: absolute;
+    bottom: 100px;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 0 110px;
+  }
+}
+
+@media screen and (max-width: $tablet-screen) {
+  .header {
+    height: 445px;
+
+    padding: 30px 0 30px 35px;
+
+    &__nav {
+      display: none;
+    }
+
+    &__button {
+      display: none;
+    }
+
+    &__heading {
+      font-size: 26px;
+      line-height: 34px;
+    }
+
+    &__text {
+      min-width: auto;
+    }
+
+    &__menu {
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: $phone-screen) {
+  .header {
+    padding: 18px 20px;
+    height: auto;
+    overflow: hidden;
+
+    &__content {
+      padding-bottom: 70px;
+    }
+
+    &__language {
+      display: none;
+    }
+
+    &__text {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    &__button {
+      display: initial;
+      position: absolute;
+      bottom: 18px;
+      left: calc(50% - 100px);
+    }
+  }
+}
