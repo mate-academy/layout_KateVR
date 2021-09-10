@@ -1,33 +1,34 @@
 .header {
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
   position: relative;
-  max-height: 568px;
-  padding: 20px 20px 0;
-  overflow: hidden;
   background: linear-gradient(107.56deg, $dark-blue 0%, #000 100%);
 
   @include tablet {
-    padding: 30px 35px 60px;
     max-height: 445px;
   }
 
   @include desktop {
-    padding: 50px 110px 100px;
-    max-height: 740px;
-  }
-
-  @include desktopL {
-    padding: 60px 235px 120px;
-    max-height: 1100px;
+    height: 100vh;
+    max-height: unset;
   }
 
   &__top-action {
-    margin-bottom: 14px;
-
     @include tablet {
-      margin-bottom: 70px;
+      margin-bottom: 55px;
+    }
+  }
+
+  &__img {
+    @include tablet {
+      position: absolute;
+      margin: 0 auto;
+      top: 50%;
+      right: 50%;
+      height: 50vh;
+      width: 50vw;
+      min-height: 250px;
+      min-width: 350px;
+      max-height: 550px;
+      transform: translate(90%, -50%);
     }
   }
 
@@ -39,13 +40,9 @@
     background-repeat: no-repeat;
 
     @include tablet {
-      position: absolute;
-      height: 50%;
-      width: 50%;
-      top: 0;
-      right: 0;
+      height: 100%;
+      width: 100%;
       background-image: url(../images/Products-mobile.png);
-      transform: translate(-5%, 50%);
     }
   }
 
@@ -57,7 +54,6 @@
 
     @include tablet {
       margin: 0 auto;
-      transform: translateX(-83%);
     }
 
     @include desktop {
@@ -72,15 +68,6 @@
 
     @include tablet {
       margin: 0 auto;
-      transform: translateX(-50%);
-    }
-
-    @include desktop {
-      transform: translateX(-100%);
-    }
-
-    @include desktopL {
-      transform: translateX(-100%);
     }
   }
 
