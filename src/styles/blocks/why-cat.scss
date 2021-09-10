@@ -1,13 +1,105 @@
+
 .why-kat {
-  padding: 50px 0;
+  padding: 160px 0;
   background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+  color: #fff;
 
   &__title {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 82px;
+    font-size: 36px;
+
+    &-special {
+      font-family: Quantum, sans-serif;
+      color: #05c2df;
+    }
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    &-image {
+      display: block;
+      margin: 0 auto;
+      margin-bottom: 35px;
+    }
+    &-title {
+      margin-bottom: 17px;
+      text-align: center;
+    }
+
+    &-subtitle {
+      margin-bottom: 17px;
+      text-align: center;
+      font-size: 16px;
+      font-family: Mark-Regular, sans-serif;
+      color: #929292;
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .why-kat {
+    padding: 50px 0;
+    .why-kat__title {
+      margin-bottom: 30px;
+      font-family: Mark-Heavy, sans-serif;
+      font-size: 21px;
+      color: #fff;
+      text-transform: uppercase;
+
+      &-special {
+        font-family: Quantum, sans-serif;
+        color: #05c2df;
+      }
+    }
+    &__list {
+      display: flex;
+    }
+    &__item {
+
+      &-image {
+        display: block;
+        margin: 0 auto;
+        margin-bottom: 26px;
+      }
+
+      &-title {
+        font-size: 15px;
+        text-align: center;
+        margin-bottom: 36px;
+      }
+
+      &-subtitle {
+        text-align: center;
+        font-family: Mark-Regular, sans-serif;
+        font-size: 16px;
+        line-height: 150%;
+        color: #929292;
+      }
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .why-kat {
+    padding: 30px 0x;
+  }
+  .why-kat__list {
+    display: block;
+  }
+
+  .why-kat__title {
     margin-bottom: 30px;
     font-family: Mark-Heavy, sans-serif;
     font-size: 21px;
     color: #fff;
     text-transform: uppercase;
+
     &-special {
       font-family: Quantum, sans-serif;
       color: #05c2df;
@@ -17,6 +109,11 @@
   .why-kat__item {
     margin-bottom: 20px;
 
+    &-image {
+      display: none;
+
+    }
+
     &-title {
       text-transform: uppercase;
       text-align: left;
@@ -24,12 +121,13 @@
       font-size: 16px;
       color: #fff;
     }
+
     &-subtitle {
       font-family: Mark-Regular, sans-serif;
       font-size: 16px;
       line-height: 150%;
       color: #929292;
+      text-align: left;
     }
   }
-
 }
