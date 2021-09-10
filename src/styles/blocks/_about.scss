@@ -1,10 +1,16 @@
 .about {
   position: relative;
+  box-sizing: border-box;
   padding: 50px 20px;
   background: linear-gradient(146.86deg, $dark-blue -0.5%, #000 99.5%);
 
+  @include tablet {
+    padding: 70px 35px;
+    height: 750px;
+  }
+
   &__grid {
-    column-gap: 15px;
+    column-gap: 20px;
 
     @include tablet {
       display: grid;
@@ -29,25 +35,20 @@
 
   &__gallery {
     grid-area: gallery;
-    width: 100%;
-    height: 100%;
+    height: 300px;
     overflow: hidden;
     margin-bottom: 20px;
 
     @include tablet {
-      justify-self: center;
-      max-width: 340px;
-      max-height: 300px;
+      justify-self: right;
     }
   }
 
   &__slider {
     display: flex;
     margin: 0 auto;
-    height: 34vh;
-    width: 100%;
-    max-width: 340px;
-    max-height: 270px;
+    width: 340px;
+    height: 270px;
     overflow: auto;
     transform: translateX(0%);
     transition: transform 0.3s;
@@ -127,6 +128,14 @@
     margin-bottom: 80px;
   }
 
+  &__content {
+    @include tablet {
+      margin: 0 auto;
+      max-width: 450px;
+      transform: translate(-27%, 32%);
+    }
+  }
+
   &__comment {
     margin-bottom: 10px;
     font-size: 12px;
@@ -146,25 +155,26 @@
     display: none;
     position: absolute;
     bottom: 20%;
-    right: 0;
+    right: 50%;
+    margin: 0 auto;
     font-family: MarkProHeavy, sans-serif;
     font-size: 48px;
     text-transform: uppercase;
     color: transparent;
     -webkit-text-stroke: 1px $contrast-color;
-    transform: rotate(90deg) translateY(120px);
+    transform: rotate(90deg) translateY(-280px);
 
     @include tablet {
       display: block;
     }
 
     &--second {
-      transform: rotate(-90deg) translateY(-20px);
+      transform: rotate(-90deg) translateY(367px);
       -webkit-text-stroke: 1px #05c2df80;;
     }
 
     &--third {
-      transform: rotate(90deg) translateY(-60px);
+      transform: rotate(90deg) translateY(-440px);
       -webkit-text-stroke: 1px #05c2df33;;
     }
   }

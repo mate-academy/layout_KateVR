@@ -8,6 +8,10 @@
 
   &__content {
     padding: 0 20px;
+
+    @include tablet {
+      padding: 0 35px;
+    }
   }
 
   &__top {
@@ -27,6 +31,27 @@
     text-decoration: none;
   }
 
+  &__wrapper {
+    margin-bottom: 50px;
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 150px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
   &__link {
     display: block;
     width: max-content;
@@ -35,6 +60,10 @@
     line-height: 24px;
     color: $contrast-color;
     text-decoration: none;
+
+    @include tablet {
+      margin: 0;
+    }
   }
 
   &__link-grey {
@@ -48,6 +77,10 @@
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    @include tablet {
+      margin: 0;
     }
   }
 }

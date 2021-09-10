@@ -2,6 +2,12 @@
   padding: 50px 20px;
   background-color: #000;
 
+  @include tablet {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 35px;
+  }
+
   &__logo {
     display: inline-block;
     margin-bottom: 15px;
@@ -16,6 +22,11 @@
   &__navigation {
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      margin-right: 90px;
+    }
   }
 
   &__link {
@@ -23,22 +34,34 @@
     font-size: 13px;
     line-height: 19px;
     text-decoration: none;
-    color: #fff;
+    color: $gray;
 
     &:last-child {
       margin-bottom: 0;
+    }
+
+    @include tablet {
+      margin-right: 40px;
     }
   }
 
   &__secondary-wrapper {
     display: flex;
     flex-direction: column;
+
+    @include tablet {
+      width: 104px;
+    }
   }
 
   &__contact {
     display: flex;
     flex-direction: column;
     margin-bottom: 24px;
+
+    @include tablet {
+      display: none;
+    }
   }
 
   &__link-grey {
