@@ -1,6 +1,7 @@
 
 .main {
   margin: 0 auto;
+  padding: 0;
   position: relative;
   background-color: #05040b;
 
@@ -12,8 +13,7 @@
     @include onTablet {
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
+      align-items: left;
       margin-bottom: 44px;
     }
 
@@ -56,7 +56,7 @@
       @extend %textStandart;
       color: $contrastColor;
 
-      &-hello {
+      &-beforeH {
         margin: 0 0 10px;
         @extend %textStandart;
         color: $contrastColor;
@@ -69,15 +69,22 @@
     padding: 0;
     @extend %textMedium;
     color: $textColor;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
   }
 
-  &__article {
+  &__interested {
     position: relative;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
 
     @include onTablet {
-      margin-bottom: 78px;
+      padding-top: 70px;
+      padding-bottom: 30px;
     }
 
     &--education,
@@ -149,16 +156,16 @@
     &-text {
       height: 52px;
       overflow: hidden;
-  
+
       &:hover {
         cursor: pointer;
         overflow-y: scroll;
       }
-  
+
       @include onTablet {
         text-align: center;
         height: max-content;
-  
+
         &:hover {
           cursor: default;
           overflow-y: hidden;
@@ -169,11 +176,13 @@
 
   &__about {
     position: relative;
-    margin-top: 50px;
-    margin-bottom: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: $bgGradientMain;
 
     @include onTablet {
-      margin-bottom: 72px;
+      padding-top: 70px;
+      padding-bottom: 70px;
     }
 
     &--photo {
@@ -181,17 +190,17 @@
       margin: 0 auto;
       padding: 0;
       @extend %bgStyle;
+      width: 100%;
       background-image: url(../images/about.png);
 
       @include onMobile {
         height: 189px;
-        width: 280px;
         margin-bottom: 38px;
       }
 
       @include onTablet {
         height: 270px;
-        margin-bottom: 108px;
+        transform: translateY(-31%);
       }
 
       &-choser {
@@ -215,6 +224,11 @@
       margin: 0;
       padding: 0;
       margin-bottom: 78px;
+
+      @include onTablet {
+        margin-bottom: 0;
+        transform: translateY(-10%);
+      }
     }
 
     &--player-mb {
@@ -228,11 +242,9 @@
 
       @include onTablet {
         display: flex;
-        position: absolute;
+        position: reletive;
         bottom: -16px;
         right: 0;
-        // flex-direction: row;
-        // justify-content: space-between;
       }
 
       &-icon {
@@ -248,6 +260,268 @@
     width: 8px;
     margin: 0 4px;
     padding: 0;
+  }
+
+  &__tech {
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    margin-bottom: 50px;
+
+    @include onTablet {
+      padding-top: 70px;
+      margin-bottom: 70px;
+    }
+
+    &--photo {
+      position: relative;
+      margin: 0 auto;
+      padding: 0;
+      @extend %bgStyle;
+      background-image: url(../images/icon/tech_spec.svg);
+
+      @include onMobile {
+        height: 194px;
+        width: 194px;
+      }
+
+      @include onTablet {
+        height: 358px;
+        width: 358px;
+      }
+    }
+
+    &--specs-focus {
+      position: absolute;
+      @extend %bgStyle;
+      background-image: url(../images/icon/tech_specs_focus.svg);
+
+      @include onMobile {
+        height: 34px;
+        width: 34px;
+      }
+
+      @include onTablet {
+        height: 62px;
+        width: 62px;
+      }
+
+      &1 {
+        top: -6%;
+        left: 30%;
+      }
+
+      &2 {
+        top: 40%;
+        left: 67%;
+      }
+
+      &3 {
+        top: 80%;
+        left: -10%;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &__benefits {
+    position: relative;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background: $bgGradientMain;
+
+    @include onTablet {
+      padding-top: 70px;
+      padding-bottom: 30px;
+    }
+
+    &--universal,
+    &--panel,
+    &--wireless {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 40px;
+      }
+    }
+
+    &--universal {
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 104px;
+          background-image: url(../images/icon/universally.svg);
+        }
+      }
+    }
+
+    &--panel {
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 84px;
+          background-image: url(../images/icon/panel.svg);
+        }
+      }
+    }
+
+    &--wireless {
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 114px;
+          background-image: url(../images/icon/wireless.svg);
+        }
+      }
+    }
+
+    &-text {
+
+      @include onTablet {
+        text-align: center;
+        height: max-content;
+  
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  &__contuct-us {
+    margin: 0;
+    padding: 0;
+    padding-top: 50px;
+    padding-bottom: 50px;
+
+    @include onTablet {
+      padding-top: 70px;
+      padding-bottom: 70px;
+      height: 355px;
+    }
+
+    &--onMB {
+      @include onMobile {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @include onTablet {
+        display: grid;
+      }
+
+    }
+
+    &--text {
+      @include onMobile {
+        order: 1;
+      }
+
+      @include onTablet {
+        margin-bottom: 52px;
+        position: relative;
+        top: 0;
+      }
+    }
+
+    &--contacts {
+      height: max-content;
+
+      @include onMobile {
+        order: 2;
+      }
+
+      @include onTablet {
+        transform: translateY(-112%);
+      }
+
+      &-link {
+        text-decoration: none;
+
+        @include onMobile {
+          display: none;
+        }
+
+        @include onTablet {
+          display: block;
+        }
+      }
+    }
+
+    &--form {
+
+      @include onMobile {
+        margin-bottom: 27px;
+      }
+
+      &-request {
+        margin: 0;
+        padding: 0;
+        margin-bottom: 24px;
+      }
+
+      
+      &-message {
+        height: 88px;
+        resize: none;
+      }
+
+      &-input,
+      &-message {
+        box-sizing: border-box;
+        border: none;
+        width: 100%;
+        height: 40px;
+        outline: none;
+        background-color: transparent;
+        border-bottom: 1px solid #2f2f2f;
+        color: $contrastColor;
+        transition: transform 0.5s;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.05);
+        }
+
+        &:focus {
+          border-bottom: 1px solid $contrastColor;
+        }
+      }
+
+      &-button {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 40px;
+        background-color: $contrastColor;
+        border: none;
+        border-radius: 4px;
+        color: $whiteColor;
+        @extend %linksButtons;
+        transition: background-color 0.5s;
+
+        &:hover {
+          background-color: $whiteColor;
+          color: $contrastColor;
+        }
+      }
+    }
   }
 
 }
