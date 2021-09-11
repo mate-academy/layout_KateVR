@@ -1,5 +1,4 @@
 .header {
-  position: relative;
   background: linear-gradient(107.56deg, $dark-blue 0%, #000 100%);
 
   @include tablet {
@@ -11,9 +10,21 @@
     max-height: unset;
   }
 
+  @include desktopL {
+    height: unset;
+  }
+
   &__top-action {
     @include tablet {
       margin-bottom: 55px;
+    }
+
+    @include desktop {
+      margin-bottom: 110px;
+    }
+
+    @include desktopL {
+      margin-bottom: 180px;
     }
   }
 
@@ -21,14 +32,23 @@
     @include tablet {
       position: absolute;
       margin: 0 auto;
-      top: 50%;
-      right: 50%;
+      top: 0;
+      right: 0;
       height: 50vh;
       width: 50vw;
-      min-height: 250px;
-      min-width: 350px;
-      max-height: 550px;
-      transform: translate(90%, -50%);
+      height: 445px;
+      max-width: 385px;
+      transform: translateX(-10%);
+    }
+
+    @include desktop {
+      max-width: 600px;
+      transform: translate(-10%, 30%);
+    }
+
+    @include desktopL {
+      max-width: 900px;
+      transform: translate(-25%, 55%);
     }
   }
 
@@ -42,7 +62,6 @@
     @include tablet {
       height: 100%;
       width: 100%;
-      background-image: url(../images/Products-mobile.png);
     }
   }
 
@@ -53,7 +72,7 @@
     margin-bottom: 14px;
 
     @include tablet {
-      margin: 0 auto;
+      margin: 0 auto 14px;
     }
 
     @include desktop {
@@ -67,7 +86,16 @@
     flex-direction: column;
 
     @include tablet {
-      margin: 0 auto;
+      margin-bottom: 108px;
+      max-width: 280px;
+    }
+
+    @include desktop {
+      margin-left: 50px;
+    }
+
+    @include desktopL {
+      margin-bottom: 180px;
     }
   }
 
@@ -104,6 +132,14 @@
   &__main-button {
     @include tablet {
       display: none;
+    }
+  }
+
+  &__bottom-action {
+    display: none;
+
+    @include desktop {
+      display: flex;
     }
   }
 }

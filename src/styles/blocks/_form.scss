@@ -3,10 +3,18 @@
     max-width: 340px;
   }
 
+  @include desktop {
+    max-width: unset;
+  }
+
   &__field {
     display: flex;
     align-items: flex-end;
     margin-bottom: 24px;
+
+    @include desktop {
+      width: 520px;
+    }
 
     &--last {
       margin-bottom: 30px;
@@ -113,5 +121,15 @@
   &__card-info {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+
+  &__main-button {
+    @include desktop {
+      transform: translateX(-80%);
+    }
+
+    @include desktopL {
+      transform: translateX(-140%);
+    }
   }
 }

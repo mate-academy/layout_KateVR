@@ -20,6 +20,11 @@
     font-size: 12px;
     line-height: 15px;
     color: $contrast-color;
+
+    @include desktop {
+      font-size: 14px;
+      line-height: 18px;
+    }
   }
 
   &__content {
@@ -27,37 +32,12 @@
       display: flex;
       flex-direction: row;
       flex-wrap: wrap;
-      justify-content: center;
-    }
-  }
-
-  &__img {
-    flex-shrink: 0;
-    margin: 0 auto;
-    height: 70%;
-    width: 56%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    transform: scale(0.7);
-
-    &--education {
-      background-image: url(../images/learn.svg);
+      justify-content: space-between;
     }
 
-    &--estate {
-      width: 48%;
-      background-image: url(../images/skyline.svg);
-    }
-
-    &--fitness {
-      width: 64%;
-      background-image: url(../images/fitness.svg);
-    }
-
-    &--social {
-      width: 48%;
-      background-image: url(../images/network.svg);
+    @include desktop {
+      flex-wrap: nowrap;
+      gap: 20px;
     }
   }
 
@@ -79,14 +59,65 @@
       width: 340px;
       height: 230px;
     }
+
+    @include desktop {
+      flex-shrink: 0;
+      width: 250px;
+    }
+  }
+
+  &__img {
+    flex-shrink: 0;
+    margin: 0 auto;
+    height: 70%;
+    width: 56%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(0.7);
+
+    &--education {
+      background-image: url(../images/learn.svg);
+
+      @include desktop {
+        width: 78%;
+      }
+    }
+
+    &--estate {
+      width: 48%;
+      background-image: url(../images/skyline.svg);
+
+      @include desktop {
+        width: 56%;
+      }
+    }
+
+    &--fitness {
+      width: 64%;
+      background-image: url(../images/fitness.svg);
+
+      @include desktop {
+        width: 88%;
+      }
+    }
+
+    &--social {
+      width: 48%;
+      background-image: url(../images/network.svg);
+
+      @include desktop {
+        width: 64%;
+      }
+    }
   }
 
   &__subtittle {
     font-family: MarkProHeavy, sans-serif;
     margin-bottom: 10px;
     text-transform: uppercase;
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 18px;
+    line-height: 23px;
     color: #fff;
 
     @include tablet {
@@ -107,6 +138,14 @@
 
     &:last-child::after {
       content: "";
+    }
+
+    @include desktop {
+      text-align: center;
+
+      &::after {
+        content: "";
+      }
     }
   }
 }

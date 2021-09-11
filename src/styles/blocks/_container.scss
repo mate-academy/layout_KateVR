@@ -8,11 +8,30 @@
     max-width: 820px;
   }
 
+  @include desktop {
+    padding: 100px 110px;
+    max-width: 1440px;
+  }
+
+  @include desktopL {
+    padding: 160px 235px;
+    max-width: 2100px;
+  }
+
   &--first {
     padding: 20px 20px;
 
     @include tablet {
+      position: relative;
       padding: 30px 35px 60px;
+    }
+
+    @include desktop {
+      padding: 50px 110px 90px;
+    }
+
+    @include desktopL {
+      padding: 65px 235px 110px;
     }
   }
 
@@ -21,6 +40,14 @@
       padding: 25px 35px;
       display: flex;
       justify-content: space-between;
+    }
+
+    @include desktop {
+      padding: 40px 110px;
+    }
+
+    @include desktopL {
+      padding: 40px 235px;
     }
   }
 }

@@ -1,0 +1,48 @@
+.bottom-action {
+  display: flex;
+  justify-content: space-between;
+  font-family: MarkProMedium, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+
+    &:first-child {
+      margin-right: 35px;
+    }
+  }
+
+  &__more {
+    position: relative;
+    height: 40px;
+    color: $contrast-color;
+    text-decoration: none;
+
+    &::after {
+      position: absolute;
+      bottom: 0;
+      left: 30%;
+      content: '▼';
+      transform: scale(0.5);
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    border-bottom: 1px solid #212121;
+  }
+
+  &__button {
+    position: relative;
+    cursor: pointer;
+    color: #fff;
+
+    &:first-child {
+      color: $text-color;
+      margin-right: 100px;
+      border-bottom: 1px solid $contrast-color;
+    }
+  }
+}

@@ -7,6 +7,15 @@
     height: 750px;
   }
 
+  @include desktop {
+    height: 1066px;
+  }
+
+  @include desktopL {
+    overflow: hidden;
+    height: 1166px;
+  }
+
   &__grid {
     column-gap: 20px;
 
@@ -18,6 +27,16 @@
         "gallery tittle"
         "gallery text"
         "gallery play";
+    }
+
+    @include desktop {
+      column-gap: 110px;
+      transform: translateX(10%);
+    }
+
+    @include desktopL {
+      column-gap: 120px;
+      transform: translateX(20%);
     }
   }
 
@@ -40,6 +59,10 @@
     @include tablet {
       justify-self: right;
     }
+
+    @include desktop {
+      height: 350px;
+    }
   }
 
   &__slider {
@@ -53,6 +76,16 @@
 
     &::-webkit-scrollbar {
       width: 0;
+    }
+
+    @include desktop {
+      width: 430px;
+      height: 290px;
+    }
+
+    @include desktopL {
+      width: 622px;
+      height: 290px;
     }
   }
 
@@ -89,11 +122,25 @@
     display: flex;
     justify-content: center;
     gap: 10px;
+
+    @include desktop {
+      display: none;
+    }
   }
 
   &__ellipce {
     @include circle (5px);
     background-color: #484848;
+  }
+
+  &__buttons {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      height: 30px;
+      width: 200px;
+    }
   }
 
   &__text {
@@ -132,6 +179,10 @@
       max-width: 450px;
       transform: translate(-27%, 32%);
     }
+
+    @include desktop {
+      transform: translate(-65%, 100%);
+    }
   }
 
   &__comment {
@@ -139,6 +190,11 @@
     font-size: 12px;
     line-height: 15px;
     color: $contrast-color;
+
+    @include desktop {
+      font-size: 14px;
+      line-height: 18px;
+    }
   }
 
   &__us {
@@ -166,14 +222,47 @@
       display: block;
     }
 
+    @include desktop {
+      font-size: 64px;
+      transform: rotate(90deg) translateY(-185px);
+    }
+
     &--second {
       transform: rotate(-90deg) translateY(367px);
-      -webkit-text-stroke: 1px #05c2df80;;
+      -webkit-text-stroke: 1px #05c2df80;
+
+      @include desktop {
+        transform: rotate(-90deg) translateY(300px);
+      }
     }
 
     &--third {
       transform: rotate(90deg) translateY(-440px);
-      -webkit-text-stroke: 1px #05c2df33;;
+      -webkit-text-stroke: 1px #05c2df33;
+
+      @include desktop {
+        transform: rotate(90deg) translateY(-405px);
+      }
+    }
+
+    &--fourth {
+      display: none;
+      transform: rotate(-90deg) translateY(525px);
+      -webkit-text-stroke: 1px #05c2df1a;
+
+      @include desktop {
+        display: block;
+      }
+    }
+
+    &--fifth {
+      display: none;
+      transform: rotate(90deg) translateY(-625px);
+      -webkit-text-stroke: 1px #05c2df0d;
+
+      @include desktop {
+        display: block;
+      }
     }
   }
 }
