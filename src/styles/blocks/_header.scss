@@ -1,17 +1,8 @@
 .header {
   background: linear-gradient(107.56deg, $dark-blue 0%, #000 100%);
 
-  @include tablet {
-    max-height: 445px;
-  }
-
   @include desktop {
     height: 100vh;
-    max-height: unset;
-  }
-
-  @include desktopL {
-    height: unset;
   }
 
   &__top-action {
@@ -36,19 +27,21 @@
       right: 0;
       height: 50vh;
       width: 50vw;
-      height: 445px;
+      height: 245px;
       max-width: 385px;
-      transform: translateX(-10%);
+      transform: translate(-10%, 40%);
+      overflow: hidden;
     }
 
     @include desktop {
       max-width: 600px;
-      transform: translate(-10%, 30%);
+      transform: translate(-10%, 80%);
     }
 
     @include desktopL {
       max-width: 900px;
-      transform: translate(-25%, 55%);
+      height: 345px;
+      transform: translate(-25%, 75%);
     }
   }
 
@@ -86,11 +79,11 @@
     flex-direction: column;
 
     @include tablet {
-      margin-bottom: 108px;
       max-width: 280px;
     }
 
     @include desktop {
+      margin-bottom: 108px;
       margin-left: 50px;
     }
 
@@ -130,7 +123,7 @@
   }
 
   &__main-button {
-    @include tablet {
+    @include desktop {
       display: none;
     }
   }

@@ -45,7 +45,6 @@
     display: flex;
     flex-direction: column;
     margin-bottom: 20px;
-    cursor: pointer;
 
     &:focus .info__hidden {
       max-height: 100px;
@@ -58,6 +57,7 @@
     @include tablet {
       width: 340px;
       height: 230px;
+      margin-bottom: 40px;
     }
 
     @include desktop {
@@ -122,6 +122,21 @@
 
     @include tablet {
       text-align: center;
+    }
+  }
+
+  &__tablet {
+    display: none;
+    text-align: center;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__mobile {
+    @include tablet {
+      display: none;
     }
   }
 

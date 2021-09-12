@@ -2,18 +2,39 @@
   background: linear-gradient(107.56deg, #191536 0%, #000 100%);
 
   &__top-action {
-    margin-bottom: 20px;
+    margin: 20px 20px 30px;
   }
 
   &__steps {
-    margin: 0 -20px 30px;
+    margin-bottom: 30px;
+  }
+
+  &__products {
+    display: none;
+    margin: 0 auto;
+    height: 300px;
+    width: 500px;
+    background-image: url(../images/Products-mobile.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include tablet {
+      display: block;
+    }
   }
 
   &__quantity {
     display: flex;
     justify-content: space-between;
-    padding: 0 20px;
+    margin: 0 40px 10px;
     transition: 0.3s;
+
+    @include tablet {
+      justify-content: flex-start;
+      gap: 150px;
+      margin-right: 0;
+    }
   }
 
   &__text {
@@ -46,6 +67,8 @@
     background-color: $dark-blue;
 
     &--long {
+      font-size: 16px;
+      line-height: 21px;
       width: 100%;
     }
   }
@@ -63,13 +86,24 @@
   }
 
   &__wrapper {
+    margin: 0 20px 40px;
     display: flex;
+    gap: 40px;
+
+    @include tablet {
+      margin: 0 35px 40px;
+      gap: 75px;
+    }
   }
 
   &__order {
     flex-shrink: 0;
     width: 100%;
     margin-top: 30px;
+  }
+
+  &__form {
+    max-width: 700px;
   }
 
   &__pay {

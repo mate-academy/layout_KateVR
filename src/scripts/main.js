@@ -13,10 +13,11 @@ const purchaseButtonPay = document.getElementById('purchase-button-pay');
 const purchaseButtonEnd = document.querySelector('.purchase__end-button');
 const purchaseSlider = document.querySelector('.purchase__slider');
 const purchaseQuantity = document.querySelector('.purchase__quantity');
-const purchase = document.getElementById('.purchase');
+const purchase = document.getElementById('purchase');
 
 
 function buyMenuOpener() {
+  // purchase.style.height = "unset";
   purchaseSlider.style.transform = 'translateX(0)';
   purchaseQuantity.style.opacity = '1';
   stepOrder.classList.add('steps__link--active');
@@ -36,6 +37,7 @@ buyOpener[2].addEventListener('click', () => {
 });
 
 function purchaseSliderPay() {
+  // purchase.style.height = "600px";
   purchaseQuantity.style.opacity = '1';
   purchaseSlider.style.transform = 'translateX(-100%)';
   stepOrder.classList.remove('steps__link--active');
@@ -52,7 +54,7 @@ purchaseButton.addEventListener('click', () => {
 });
 
 function purchaseSliderComplete() {
-  // purchase.style.max-height = '500px';
+  // purchase.style.height = "600px";
   purchaseSlider.style.transform = 'translateX(-200%)';
   purchaseQuantity.style.opacity = '0';
   stepOrder.classList.remove('steps__link--active');
@@ -69,7 +71,7 @@ purchaseButtonPay.addEventListener('click', () => {
 });
 
 function purchaseSliderOrder() {
-  // purchase.style.max-height = '800px';
+  // purchase.style.height = "unset";
   purchaseQuantity.style.opacity = '1';
   purchaseSlider.style.transform = 'translateX(0)';
   stepPay.classList.remove('steps__link--active');
@@ -82,6 +84,7 @@ stepOrder.addEventListener('click', () => {
 });
 
 function buyMenuСlosure() {
+  // purchase.style.height = "unset";
   purchaseQuantity.style.opacity = '1';
   stepOrder.classList.remove('steps__link--active');
   stepPay.classList.remove('steps__link--active');
@@ -99,54 +102,101 @@ purchaseButtonEnd.addEventListener('click', () => {
 
 //#endregion buy menu
 
-//#region contact form
+//#region form
 
-const formLabelName = document.querySelector('.form__placeholder--name');
-const formName = document.querySelector('.form__input--name');
+const formLabel = document.querySelectorAll('[id="label"]');
+const formInput = document.querySelectorAll('[id="input"]');
 
-const formLabelEmail = document.querySelector('.form__placeholder--email');
-const formEmail = document.querySelector('.form__input--email');
-
-const formLabelPhone = document.querySelector('.form__placeholder--phone');
-const formPhone = document.querySelector('.form__input--phone');
-
-const formLabelMessage = document.querySelector('.form__placeholder--message');
-const formMessage = document.querySelector('.form__input--message');
-
-formName.addEventListener('focus', () => {
-  formLabelName.classList.add('form__placeholder--blue');
-  formName.classList.add('form__input--focus');
+formInput[0].addEventListener('focus', () => {
+  formLabel[0].classList.add('form__placeholder--blue');
+  formInput[0].classList.add('form__input--focus');
 });
-formName.addEventListener('blur', () => {
-  formLabelName.classList.remove('form__placeholder--blue');
+formInput[0].addEventListener('blur', () => {
+  formLabel[0].classList.remove('form__placeholder--blue');
 });
 
-formEmail.addEventListener('focus', () => {
-  formLabelEmail.classList.add('form__placeholder--blue');
-  formEmail.classList.add('form__input--focus');
+formInput[1].addEventListener('focus', () => {
+  formLabel[1].classList.add('form__placeholder--blue');
+  formInput[1].classList.add('form__input--focus');
 });
-formEmail.addEventListener('blur', () => {
-  formLabelEmail.classList.remove('form__placeholder--blue');
-});
-
-formPhone.addEventListener('focus', () => {
-  formLabelPhone.classList.add('form__placeholder--blue');
-  formPhone.classList.add('form__input--focus');
-});
-formPhone.addEventListener('blur', () => {
-  formLabelPhone.classList.remove('form__placeholder--blue');
+formInput[1].addEventListener('blur', () => {
+  formLabel[1].classList.remove('form__placeholder--blue');
 });
 
-formMessage.addEventListener('focus', () => {
-  formLabelMessage.classList.add('form__placeholder--blue');
-  formMessage.classList.add('form__input--message--focus');
-  formMessage.classList.add('form__input--focus');
+formInput[2].addEventListener('focus', () => {
+  formLabel[2].classList.add('form__placeholder--blue');
+  formInput[2].classList.add('form__input--focus');
 });
-formMessage.addEventListener('blur', () => {
-  formLabelMessage.classList.remove('form__placeholder--blue');
+formInput[2].addEventListener('blur', () => {
+  formLabel[2].classList.remove('form__placeholder--blue');
 });
 
-//#endregion contact form
+formInput[3].addEventListener('focus', () => {
+  formLabel[3].classList.add('form__placeholder--blue');
+  formInput[3].classList.add('form__input--focus');
+});
+formInput[3].addEventListener('blur', () => {
+  formLabel[3].classList.remove('form__placeholder--blue');
+});
+
+formInput[4].addEventListener('focus', () => {
+  formLabel[4].classList.add('form__placeholder--blue');
+  formInput[4].classList.add('form__input--focus');
+});
+formInput[4].addEventListener('blur', () => {
+  formLabel[4].classList.remove('form__placeholder--blue');
+});
+
+formInput[5].addEventListener('focus', () => {
+  formLabel[5].classList.add('form__placeholder--blue');
+  formInput[5].classList.add('form__input--focus');
+});
+formInput[5].addEventListener('blur', () => {
+  formLabel[5].classList.remove('form__placeholder--blue');
+});
+
+formInput[6].addEventListener('focus', () => {
+  formLabel[6].classList.add('form__placeholder--blue');
+  formInput[6].classList.add('form__input--focus');
+});
+formInput[6].addEventListener('blur', () => {
+  formLabel[6].classList.remove('form__placeholder--blue');
+});
+
+formInput[7].addEventListener('focus', () => {
+  formLabel[7].classList.add('form__placeholder--blue');
+  formInput[7].classList.add('form__input--focus');
+});
+formInput[7].addEventListener('blur', () => {
+  formLabel[7].classList.remove('form__placeholder--blue');
+});
+
+formInput[8].addEventListener('focus', () => {
+  formLabel[8].classList.add('form__placeholder--blue');
+  formInput[8].classList.add('form__input--focus');
+});
+formInput[8].addEventListener('blur', () => {
+  formLabel[8].classList.remove('form__placeholder--blue');
+});
+
+formInput[9].addEventListener('focus', () => {
+  formLabel[9].classList.add('form__placeholder--blue');
+  formInput[9].classList.add('form__input--focus');
+});
+formInput[9].addEventListener('blur', () => {
+  formLabel[9].classList.remove('form__placeholder--blue');
+});
+
+formInput[10].addEventListener('focus', () => {
+  formLabel[10].classList.add('form__placeholder--blue');
+  formInput[10].classList.add('form__input--focus');
+  formInput[10].classList.add('form__input--message--focus');
+});
+formInput[10].addEventListener('blur', () => {
+  formLabel[10].classList.remove('form__placeholder--blue');
+});
+
+//#endregion form
 
 //#region tech buttons
 
@@ -175,8 +225,18 @@ techButtonConnection.addEventListener('click', () => {
 
 //#endregion tech buttons
 
-//#region about slider
+//#region input card
 
+//#endregion input card
 
+//#region price
 
-//#endregion about slider
+const selector = document.querySelector('.purchase__selector');
+const price = document.querySelector('.purchase__number');
+
+selector.addEventListener('click', () => {
+  let value = selector.value;
+  price.textContent = value * 1200 + '$';
+});
+
+//#endregion price

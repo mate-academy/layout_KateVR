@@ -45,6 +45,8 @@
         </div>
       </div>
 
+      <div class="purchase__products"></div>
+
       <div class="purchase__quantity">
         <div class="purchase__amount">
           <label class="purchase__text">
@@ -84,45 +86,55 @@
               class="purchase__form form"
             >
               <div class="form__field">
-                <label class="form__placeholder form__placeholder--first-name">
+                <label class="form__placeholder" id="label">
                   First Name*
                   <input
-                    class="form__input form__input--first-name"
+                    class="form__input"
+                    id="input"
                     type="text"
                     name="first-name"
+                    minlength="3"
+                    required
                   >
                 </label>
               </div>
 
               <div class="form__field">
-                <label class="form__placeholder form__placeholder--last-name">
+                <label class="form__placeholder" id="label">
                   Last Name*
                   <input
-                    class="form__input form__input--last-name"
+                    class="form__input"
+                    id="input"
                     type="text"
                     name="last-name"
+                    minlength="3"
+                    required
                   >
                 </label>
               </div>
 
               <div class="form__field">
-                <label class="form__placeholder form__placeholder--buy-email">
+                <label class="form__placeholder" id="label">
                   Email*
                   <input
-                    class="form__input form__input--buy-email"
+                    class="form__input"
+                    id="input"
                     type="email"
                     name="email"
+                    required
                   >
                 </label>
               </div>
 
               <div class="form__field">
-                <label class="form__placeholder form__placeholder--buy-phone">
+                <label class="form__placeholder" id="label">
                   Phone Number*
                   <input
-                    class="form__input form__input--buy-phone"
+                    class="form__input"
+                    id="input"
                     type="number"
                     name="phone"
+                    required
                   >
                 </label>
               </div>
@@ -131,38 +143,55 @@
                 <label class="purchase__selector-label">
                   Country*
                   <br>
-                  <select class="purchase__selector purchase__selector--long" name="country">
-                    <option value=""></option>
+                  <select
+                    class="purchase__selector purchase__selector--long"
+                    name="country"
+                    required
+                  >
+                    <option value="Ukraine">Ukraine</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Spain">Spain</option>
                   </select>
                 </label>
               </div>
 
               <div class="form__field">
-                <label class="purchase__selector-label">
+                <label
+                  class="purchase__selector-label">
                   City*
                   <br>
-                  <select class="purchase__selector purchase__selector--long" name="city">
-                    <option value=""></option>
+                  <select
+                    class="purchase__selector purchase__selector--long"
+                    name="city"
+                    required
+                  >
+                    <option value="Kyiv">Kyiv</option>
+                    <option value="Cherkassy">Cherkassy</option>
+                    <option value="Kherson">Kherson</option>
+                    <option value="Odessa">Odessa</option>
                   </select>
                 </label>
               </div>
 
               <div class="form__field">
-                <label class="form__placeholder form__placeholder--adress">
+                <label class="form__placeholder" id="label">
                   Shipping Adress*
                   <input
-                    class="form__input form__input--adress"
+                    class="form__input"
+                    id="input"
                     type="text"
                     name="shipping-adress"
+                    required
                   >
                 </label>
               </div>
 
               <div class="form__field form__field--pay-last">
-                <label class="form__placeholder form__placeholder--adress2">
+                <label class="form__placeholder" id="label">
                   Shipping Adress 2
                   <input
-                    class="form__input form__input--adress2"
+                    class="form__input"
+                    id="input"
                     type="text"
                     name="shipping-adress2"
                   >
@@ -170,6 +199,7 @@
               </div>
 
               <a
+                type="button"
                 href="#purchase"
                 class="form__main-button main-button"
                 id="purchase-button"
@@ -193,32 +223,29 @@
                     type="number"
                     class="form__card-input"
                     placeholder="0000"
-                    maxlength="4"
                   >
                   <input
                     type="number"
                     class="form__card-input"
                     placeholder="0000"
-                    maxlength="4"
                   >
                   <input
                     type="number"
                     class="form__card-input"
                     placeholder="0000"
-                    maxlength="4"
                   >
                   <input
                     type="number"
                     class="form__card-input"
                     placeholder="0000"
-                    maxlength="4"
                   >
                 </label>
 
-                <label class="form__placeholder form__placeholder--card-holder">
+                <label class="form__placeholder form__placeholder--card-holder" id="label">
                   Card Holder Name*
                   <input
-                    class="form__input form__input--card-hilder"
+                    class="form__input"
+                    id="input"
                     type="text"
                     name="card-holder"
                   >
@@ -244,7 +271,7 @@
                       class="form__card-input form__card-input--cvv"
                       type="number"
                       name="cvv"
-                      maxlength="5"
+                      maxlength="3"
                       placeholder="000"
                       >
                   </label>
@@ -675,13 +702,18 @@
               <h3 class="info__subtittle">
                 education
               </h3>
-              <p class="info__text text">
-                Create aducational simulations, trainings and much more with
+              <p class="info__tablet text">
+                Create aducational simulations, trainings and much more with unlimited virtual space and minimum physical space
               </p>
-              <div class="info__hidden">
-                <p class="info__text text">
-                  unlimited virtual space and minimum physical space
-                </p>
+              <div class="info__mobile">
+                  <p class="info__text text">
+                    Create aducational simulations, trainings and much more with
+                  </p>
+                  <div class="info__hidden">
+                    <p class="info__text text">
+                      unlimited virtual space and minimum physical space
+                    </p>
+                </div>
               </div>
             </div>
 
@@ -690,13 +722,18 @@
               <h3 class="info__subtittle">
                 real estate
               </h3>
-              <p class="info__text text">
-                Desighn architectural projects in a deeply realistic environment
+              <p class="info__tablet text">
+                Desighn architectural projects in a deeply realistic environment allowing visitors to freely walk around, and feel their vibe
               </p>
-              <div class="info__hidden">
+              <div class="info__mobile">
                 <p class="info__text text">
-                  allowing visitors to freely walk around, and feel their vibe
+                  Desighn architectural projects in a deeply realistic environment
                 </p>
+                <div class="info__hidden">
+                  <p class="info__text text">
+                    allowing visitors to freely walk around, and feel their vibe
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -705,13 +742,18 @@
               <h3 class="info__subtittle">
                 fitness
               </h3>
-              <p class="info__text text">
-                Combine business with pleasure, and discover countless ways
+              <p class="info__tablet text">
+                Combine business with pleasure, and discover countless ways to stay fit while playing your favorite VR Games!
               </p>
-              <div class="info__hidden">
+              <div class="info__mobile">
                 <p class="info__text text">
-                  to stay fit while playing your favorite VR Games!
+                  Combine business with pleasure, and discover countless ways
                 </p>
+                <div class="info__hidden">
+                  <p class="info__text text">
+                    to stay fit while playing your favorite VR Games!
+                  </p>
+                </div>
               </div>
             </div>
 
@@ -720,13 +762,18 @@
               <h3 class="info__subtittle">
                 social interactions
               </h3>
-              <p class="info__text text">
-                Hang out with your friends in the virtual world when you can’t
+              <p class="info__tablet text">
+                Hang out with your friends in the virtual world when you can’t meet space requirements
               </p>
-              <div class="info__hidden">
+              <div class="info__mobile">
                 <p class="info__text text">
-                  meet space requirements
+                  Hang out with your friends in the virtual world when you can’t
                 </p>
+                <div class="info__hidden">
+                  <p class="info__text text">
+                    meet space requirements
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -894,6 +941,9 @@
               <div class="benefits__img benefits__img--tech"></div>
               <div class="benefits__subtittle">universally compatible</div>
               <span class="benefits__text text">
+                KAT Loco offers universal compatibility across all major VR headsets and platforms allowing you to play any VR game with support for Free Locomotion
+              </span>
+              <span class="benefits__text benefits__text--tablet text">
                 KAT Loco offers universal compatibility across all major VR headsets and...
               </span>
             </div>
@@ -902,6 +952,9 @@
               <div class="benefits__img benefits__img--PC"></div>
               <div class="benefits__subtittle">VR/PC control panel</div>
               <span class="benefits__text text">
+                Our Multifunctional Software allows for quick access to KAT Loco’s control panel both from a computer desktop, and directly from your VR headset.
+              </span>
+              <span class="benefits__text benefits__text--tablet text">
                 Our Multifunctional Software allows for quick access to KAT Loco’s...
               </span>
             </div>
@@ -910,6 +963,9 @@
               <div class="benefits__img benefits__img--connection"></div>
               <div class="benefits__subtittle">wireless sensors</div>
               <span class="benefits__text text">
+                What makes it even more advanced, KAT Loco is entirely wireless, and comes with a complete system of algorithms, super durable batteries and more!
+              </span>
+              <span class="benefits__text benefits__text--tablet text">
                 What makes it even more advanced, KAT Loco is entirely wireless, and..
               </span>
             </div>
@@ -995,56 +1051,69 @@
           </div>
 
           <form
-            action=""
+            action="/layout_KateVR"
             method="GET"
             class="contact__form form"
           >
             <div class="form__field">
-              <label class="form__placeholder form__placeholder--name">
+              <label class="form__placeholder" id="label">
                 Name*
                 <input
-                  class="form__input form__input--name"
+                  class="form__input"
+                  id="input"
                   type="text"
                   name="name"
+                  minlength="3"
+                  required
                 >
               </label>
             </div>
 
             <div class="form__field">
-              <label class="form__placeholder form__placeholder--email">
+              <label class="form__placeholder" id="label">
                 Email*
                 <input
-                  class="form__input form__input--email"
+                  class="form__input"
+                  id="input"
                   type="email"
                   name="email"
+                  required
                 >
               </label>
             </div>
 
             <div class="form__field">
-              <label class="form__placeholder form__placeholder--phone">
+              <label class="form__placeholder" id="label">
                 Phone*
                 <input
-                  class="form__input form__input--phone"
+                  class="form__input"
+                  id="input"
                   type="number"
                   name="phone"
+                  minlength="10"
+                  required
                 >
               </label>
             </div>
 
             <div class="form__field form__field--last">
-              <label class="form__placeholder form__placeholder--message">
+              <label class="form__placeholder" id="label">
                 Message
                 <textarea
                   class="form__input form__input--message"
+                  id="input"
                   name="message"
                   rows="60"
+                  minlength="5"
                 ></textarea>
               </label>
             </div>
-            <button type="button" class="form__main-button main-button">
-              Contact Us
-            </button>
+            <div class="form__bottom">
+              <button type="submit" class="form__main-button main-button">
+                Contact Us
+              </button>
+              <a href="#" class="form__up"></a>
+            </div>
           </form>
 
           <p class="contact__small-text">

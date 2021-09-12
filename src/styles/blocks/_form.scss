@@ -12,10 +12,6 @@
     align-items: flex-end;
     margin-bottom: 24px;
 
-    @include desktop {
-      width: 520px;
-    }
-
     &--last {
       margin-bottom: 30px;
     }
@@ -123,13 +119,29 @@
     grid-template-columns: 1fr 1fr;
   }
 
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
   &__main-button {
     @include desktop {
-      transform: translateX(-80%);
+      margin: 0;
     }
+  }
 
-    @include desktopL {
-      transform: translateX(-140%);
+  &__up {
+    display: none;
+    height: 48px;
+    width: 48px;
+    cursor: pointer;
+    background-image: url(../images/up.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include desktop {
+      display: block;
     }
   }
 }

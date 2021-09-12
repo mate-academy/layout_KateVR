@@ -60,7 +60,25 @@
 
   &__text {
     text-align: center;
-    max-width: 220px;
+    display: none;
+
+    @include desktop {
+      display: block;
+      max-width: 300px;
+    }
+
+    @include desktopL {
+      max-width: 350px;
+    }
+
+    &--tablet {
+      display: block;
+      max-width: 220px;
+
+      @include desktop {
+        display: none;
+      }
+    }
   }
 
   &__content-block {
