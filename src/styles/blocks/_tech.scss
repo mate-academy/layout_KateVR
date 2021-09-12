@@ -20,6 +20,15 @@
     display: flex;
     align-items: center;
     height: $tech-product-height;
+
+    @include desktop {
+      max-height: 350px;
+    }
+
+    @include desktopL {
+      min-height: 500px;
+      max-height: 580px;
+    }
   }
 
   &__img {
@@ -46,6 +55,11 @@
 
     @include desktop {
       display: block;
+      max-height: 300px;
+    }
+
+    @include desktopL {
+      max-height: 500px;
     }
   }
 
@@ -163,24 +177,24 @@
     &--sensor {
       transform: translate(-225%, -130%);
 
-      @include desktop {
-        transform: translate(-290%, -175%);
+      @include desktopL {
+        transform: translate(-300%, -180%);
       }
     }
 
     &--batteries {
       transform: translate(90%, -90%);
 
-      @include desktop {
-        transform: translate(130%, -120%);
+      @include desktopL {
+        transform: translate(130%, -130%);
       }
     }
 
     &--connection {
       transform: translate(-220%, -5%);
 
-      @include desktop {
-        transform: translate(-280%, 0);
+      @include desktopL {
+        transform: translate(-280%, -5%);
       }
     }
   }

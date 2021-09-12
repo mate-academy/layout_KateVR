@@ -2,7 +2,7 @@
 
 //#region buy menu
 
-const buyOpener = document.getElementById('buy-button');
+const buyOpener = document.querySelectorAll('[id="buy-button"]');
 const purchaseMenu = document.getElementById('purchase');
 const buyClosure = document.getElementById('buy-cross');
 const stepOrder = document.getElementById('steps-link-order');
@@ -23,7 +23,15 @@ function buyMenuOpener() {
   purchaseMenu.classList.add('page__purchase--active');
 };
 
-buyOpener.addEventListener('click', () => {
+buyOpener[0].addEventListener('click', () => {
+  buyMenuOpener();
+});
+
+buyOpener[1].addEventListener('click', () => {
+  buyMenuOpener();
+});
+
+buyOpener[2].addEventListener('click', () => {
   buyMenuOpener();
 });
 
