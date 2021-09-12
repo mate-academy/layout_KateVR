@@ -4,7 +4,126 @@
   color: #fff;
 }
 
+@media (min-width:1025px) {
+  .about-product {
+    margin-bottom: -1px;
+  }
+  .container--about-product-desktop {
+    display: flex;
+    justify-content: flex-end;
+    gap: 120px;
+  }
+
+  .about-product__page {
+    font-family: Mark-Regular, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: #05c2df;
+    margin-left: 150px;
+  }
+
+  .about-product__video {
+    width: 622px;
+    height: 290px;
+    margin-left: 200px;
+    margin-bottom: 12px;
+  }
+
+  .about-product__title {
+    font-family: Mark-Heavy, sans-serif;
+    font-size: 36px;
+    line-height: 46px;
+    margin-bottom: 30px;
+
+    // dont allow select
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  .about-product__title-special {
+    color: #05c2df;
+    font-family: Quantum, sans-serif;
+  }
+
+  .about-product__subtitle {
+    font-family: Mark-Regular, sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+    margin-bottom: 21px;
+  }
+
+  .about-product__play-video {
+    display: block;
+    position: relative;
+    transition: 0.5s ease-in;
+    z-index: 1;
+
+    &:hover {
+      &::after {
+        top: 25px;
+        left: 28px;
+        content: "";
+        border-top: 10px solid transparent;
+        border-left: 17px solid white;
+        border-bottom: 10px solid transparent;
+        position: absolute;
+      }
+    }
+  }
+
+  .about-product__pagination-block {
+    margin-left: 200px;
+    font-family: Mark-Medium, sans-serif;
+    font-size: 16px;
+    line-height: 150%;
+    padding-bottom: 11px;
+    margin-right: 405px;
+    border-bottom: 1px solid #212121;
+  }
+
+  .about-product__pagination-prev {
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 150%;
+    padding-bottom: 15px;
+
+    &--active {
+      color: #929292;
+      border-bottom: 1px solid #05c2df;
+      cursor: not-allowed;
+    }
+    
+    &:hover {
+      border-bottom: 1px solid #05c2df;
+    }
+  }
+
+  .about-product__pagination-next {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 102px;
+    font-size: 16px;
+    line-height: 150%;
+    padding-bottom: 15px;
+    transition: all 0.5s;
+
+    &:hover {
+      border-bottom: 1px solid #05c2df;
+    }
+  }
+}
+
 @media (max-width: 1024px) {
+  .container--about-product-desktop {
+    display: block;
+  }
+
   .container--about-product-tablet {
     display: flex;
     gap: 20px;
@@ -58,6 +177,7 @@
 }
 
 @media (max-width: 767px) {
+
   .container--about-product-tablet {
     display: block;
   }
