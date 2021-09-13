@@ -1,7 +1,7 @@
 'use strict';
 
 const pageBody = document.querySelector('.page__body');
-const menuOpen = document.querySelector('.header__menu--opener');
+const menuOpen = document.querySelector('.header__menu');
 const menuCloser = document.querySelector('.menuByList--item');
 const lenguageOpen = document.querySelector('.goto-language');
 const lenguageCloser = document.querySelector('.menuLanguage');
