@@ -1,32 +1,57 @@
 
 .main {
   margin: 0 auto;
-  padding: 0;
   position: relative;
   background-color: #05040b;
 
   &__title {
+    grid-area: title;
     margin: 0;
     padding: 0;
-    margin-bottom: 30px;
+
+    @include onMobile {
+      margin-bottom: 20px;
+    }
 
     @include onTablet {
       display: flex;
       flex-direction: column;
       align-items: left;
-      margin-bottom: 44px;
+      margin-bottom: 30px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 80px;
+    }
+
+    @include onFullHD {
+      margin-bottom: 0;
+      margin-right: 150px;
+    }
+
+    &-center {
+      align-items: center;
     }
 
     &--h2 {
       margin: 0;
       padding: 0;
       @extend %headLine2mob;
-      margin-bottom: 10px;
+
+      @include onTablet {
+        font-size: 36px;
+        line-height: 46px;
+      }
 
       &-quantum {
         margin: 0;
         padding: 0;
         @extend %textQuantum;
+
+        @include onTablet {
+          font-size: 36px;
+          line-height: 46px;
+        }
       }
     }
 
@@ -36,10 +61,20 @@
       margin-bottom: 10px;
       @extend %headLine3mob;
 
+      @include onTablet {
+        font-size: 18px;
+        line-height: 23px;
+      }
+
       &-quantum {
         margin: 0;
         padding: 0;
         @extend %textQuantum;
+
+        @include onTablet {
+          font-size: 18px;
+          line-height: 23px;
+        }
       }
 
       &-mb {
@@ -48,6 +83,10 @@
 
       @include onTablet {
         text-align: center;
+      }
+
+      &-left {
+        text-align: left;
       }
     }
 
@@ -79,25 +118,29 @@
 
   &__interested {
     position: relative;
-    padding-top: 50px;
-    padding-bottom: 50px;
-
-    @include onTablet {
-      padding-top: 70px;
-      padding-bottom: 30px;
-    }
 
     &--education,
     &--estate,
     &--fitnes,
     &--social {
       margin-bottom: 20px;
+
       @include onTablet {
-        margin-bottom: 40px;
+        margin-bottom: 78px;
+      }
+  
+      @include onNotebook {
+        margin-bottom: 112px;
+      }
+  
+      @include onFullHD {
+        margin-bottom: 166px;
       }
     }
 
     &--education {
+      grid-area: education;
+
       &-icon {
         margin: 0 auto;
         @extend %bgStyle;
@@ -112,6 +155,8 @@
     }
 
     &--estate {
+      grid-area: estate;
+
       &-icon {
         margin: 0 auto;
         @extend %bgStyle;
@@ -126,6 +171,8 @@
     }
 
     &--fitnes {
+      grid-area: fitness;
+
       &-icon {
         margin: 0 auto;
         @extend %bgStyle;
@@ -140,6 +187,8 @@
     }
 
     &--socials {
+      grid-area: social;
+
       &-icon {
         margin: 0 auto;
         @extend %bgStyle;
@@ -176,58 +225,84 @@
 
   &__about {
     position: relative;
-    padding-top: 50px;
-    padding-bottom: 50px;
     background: $bgGradientMain;
 
+    @include onMobile {
+      padding-bottom: 50px;
+    }
+
     @include onTablet {
-      padding-top: 70px;
       padding-bottom: 70px;
     }
 
+    @include onNotebook {
+      padding-bottom: 100px;
+    }
+
+    @include onFullHD {
+      padding-bottom: 160px;
+    }
+
     &--photo {
-      position: relative;
+      grid-area: photo;
       margin: 0 auto;
       padding: 0;
       @extend %bgStyle;
       width: 100%;
       background-image: url(../images/about.png);
+      margin-bottom: 12px;
 
       @include onMobile {
         height: 189px;
-        margin-bottom: 38px;
       }
 
       @include onTablet {
         height: 270px;
-        transform: translateY(-31%);
+        width: 340px;
+      }
+
+      @include onNotebook {
+        height: 290px;
+        width: 430px;
+      }
+
+      @include onFullHD {
+        height: 290px;
+        width: 622px;
       }
 
       &-choser {
+        grid-area: choser;
         margin: 0;
         padding: 0;
         display: flex;
         justify-content: center;
-        position: relative;
 
         @include onMobile {
-          top: 200px;
+          height: 4px;
+          margin-bottom: 20px;
         }
-  
+
         @include onTablet {
-          top: 280px;
+          height: 4px;
+          margin-bottom: 88px;
+        }
+
+        @include onNotebook {
+          height: 34px;
+          margin-bottom: 190px;
         }
       }
     }
 
     &--description {
+      grid-area: description;
       margin: 0;
       padding: 0;
       margin-bottom: 78px;
 
       @include onTablet {
         margin-bottom: 0;
-        transform: translateY(-10%);
       }
     }
 
@@ -235,16 +310,21 @@
       margin-bottom: 14px;
     }
 
+    &--hello {
+      grid-area: wellcome;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+
     &--vertical {
+      grid-area: vertical;
       display: none;
       margin: 0 auto;
       padding: 0;
 
       @include onTablet {
         display: flex;
-        position: reletive;
-        bottom: -16px;
-        right: 0;
       }
 
       &-icon {
@@ -263,17 +343,21 @@
   }
 
   &__tech {
-    margin: 0;
-    padding: 0;
-    padding-top: 50px;
-    margin-bottom: 50px;
+    position: relative;
+    margin: 0 auto;
 
-    @include onTablet {
-      padding-top: 70px;
-      margin-bottom: 70px;
+    &--title {
+      @include onTablet {
+        margin-bottom: 56px;
+      }
+
+      @include onNotebook {
+        margin-bottom: 80px;
+      }
     }
 
     &--photo {
+      grid-area: photo;
       position: relative;
       margin: 0 auto;
       padding: 0;
@@ -283,11 +367,25 @@
       @include onMobile {
         height: 194px;
         width: 194px;
+        margin-bottom: 50px;
       }
 
       @include onTablet {
         height: 358px;
         width: 358px;
+        margin-bottom: 70px;
+      }
+
+      @include onNotebook {
+        height: 296px;
+        width: 296px;
+        margin-bottom: 100px;
+      }
+
+      @include onFullHD {
+        height: 296px;
+        width: 296px;
+        margin-bottom: 160px;
       }
     }
 
@@ -330,62 +428,70 @@
 
   &__benefits {
     position: relative;
-    padding-top: 50px;
-    padding-bottom: 50px;
     background: $bgGradientMain;
 
-    @include onTablet {
-      padding-top: 70px;
-      padding-bottom: 30px;
-    }
-
-    &--universal,
-    &--panel,
-    &--wireless {
-      margin-bottom: 20px;
-
-      @include onTablet {
-        margin-bottom: 40px;
+    &--title {
+      @include onNotebook {
+        margin: 0 auto 80px;
       }
     }
 
     &--universal {
+      grid-area: universal;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+
       &-icon {
         margin: 0 auto;
         @extend %bgStyle;
+        background-size: contain;
 
         @include onTablet {
           margin-bottom: 30px;
           height: 84px;
-          width: 104px;
+          width: 84px;
           background-image: url(../images/icon/universally.svg);
         }
       }
     }
 
     &--panel {
+      grid-area: panel;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+
       &-icon {
         margin: 0 auto;
         @extend %bgStyle;
+        background-size: contain;
 
         @include onTablet {
           margin-bottom: 30px;
           height: 84px;
-          width: 84px;
+          width: 106px;
           background-image: url(../images/icon/panel.svg);
         }
       }
     }
 
     &--wireless {
+      grid-area: wireless;
+
       &-icon {
         margin: 0 auto;
         @extend %bgStyle;
+        background-size: contain;
 
         @include onTablet {
           margin-bottom: 30px;
           height: 84px;
-          width: 114px;
+          width: 120px;
           background-image: url(../images/icon/wireless.svg);
         }
       }
@@ -402,54 +508,38 @@
         }
       }
     }
+
+    &--button {
+      grid-area: button;
+      display: none;
+  
+      @include onNotebook {
+        display: flex;
+        margin: 90px auto 0;
+        justify-content: center;
+        height: 48px;
+        width: 200px;
+      }
+    }
   }
 
-  &__contuct-us {
-    margin: 0;
-    padding: 0;
-    padding-top: 50px;
-    padding-bottom: 50px;
-
-    @include onTablet {
-      padding-top: 70px;
-      padding-bottom: 70px;
-      height: 355px;
-    }
-
-    &--onMB {
-      @include onMobile {
-        display: flex;
-        flex-direction: column;
-      }
-
-      @include onTablet {
-        display: grid;
-      }
-
-    }
+  &__contact-us {
+    position: relative;
 
     &--text {
-      @include onMobile {
-        order: 1;
-      }
+      margin: 0;
+      font-size: 12px;
+      line-height: 18px;
 
       @include onTablet {
+        font-size: 16px;
+        line-height: 24px;
         margin-bottom: 52px;
-        position: relative;
-        top: 0;
       }
     }
 
     &--contacts {
-      height: max-content;
-
-      @include onMobile {
-        order: 2;
-      }
-
-      @include onTablet {
-        transform: translateY(-112%);
-      }
+      grid-area: contacts;
 
       &-link {
         text-decoration: none;
@@ -465,61 +555,83 @@
     }
 
     &--form {
+      grid-area: form;
 
       @include onMobile {
         margin-bottom: 27px;
       }
 
-      &-request {
+      &-label {
         margin: 0;
         padding: 0;
-        margin-bottom: 24px;
-      }
-
-      
-      &-message {
-        height: 88px;
-        resize: none;
-      }
-
-      &-input,
-      &-message {
-        box-sizing: border-box;
-        border: none;
-        width: 100%;
-        height: 40px;
-        outline: none;
-        background-color: transparent;
-        border-bottom: 1px solid #2f2f2f;
-        color: $contrastColor;
+        color: $textColor;
         transition: transform 0.5s;
 
         &:hover {
           cursor: pointer;
           transform: scale(1.05);
+          color: $contrastColor;
+        }
+      }
+
+      &-input,
+      &-message {
+        box-sizing: border-box;
+        padding: 0;
+        border: none;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        border-bottom: 1px solid #2f2f2f;
+        font-size: 14px;
+        line-height: 150%;
+        color: $textColor;
+        transition: transform 0.5s;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.05);
+          border-bottom: 1px solid $contrastColor;
         }
 
         &:focus {
           border-bottom: 1px solid $contrastColor;
+          color: $contrastColor;
         }
       }
 
-      &-button {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-        height: 40px;
-        background-color: $contrastColor;
-        border: none;
-        border-radius: 4px;
-        color: $whiteColor;
-        @extend %linksButtons;
-        transition: background-color 0.5s;
+      &__input {
+        height: 19px;
+        margin-bottom: 24px;
+      }
 
-        &:hover {
-          background-color: $whiteColor;
-          color: $contrastColor;
-        }
+      &__message {
+        height: 88px;
+        resize: none;
+      }
+    }
+
+    &--button {
+      grid-area: button;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 28px;
+      width: 100%;
+      height: 40px;
+      background-color: $contrastColor;
+      border: none;
+      border-radius: 4px;
+      color: $whiteColor;
+      @extend %linksButtons;
+      transition: background-color 0.5s;
+
+      @include onNotebook {
+        width: 200px;
+      }
+
+      &:hover {
+        background-color: $whiteColor;
+        color: $contrastColor;
       }
     }
   }

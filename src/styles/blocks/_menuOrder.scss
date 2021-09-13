@@ -1,0 +1,367 @@
+
+.menuOrder {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  overflow-y: auto;
+  height: 100vh;
+  z-index: 1;
+  background: $bgGradientMenu;
+
+  &__closure {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 0 33px;
+    padding: 0;
+  }
+
+  &__closer {
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/icon/menu-closure.svg);
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    @include onMobile {
+      margin-bottom: 30px;
+    }
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style: none;
+    padding: 0;
+
+    @include onMobile {
+      width: 320px;
+      margin: 0 -20px 30px;
+      padding: 0 20px;
+    }
+
+    @include onTablet {
+      width: 768px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 33.33%;
+    height: 49px;
+    border-bottom: 1px solid $darkGrey;
+  }
+
+  &__link {
+    width: 100%;
+    line-height: 49px;
+    text-decoration: none;
+    @extend %linksButtons;
+    color: #545454;
+    transition: background-color 0.5s;
+
+    &--active {
+      color: $contrastColor;
+      border-bottom: 1px solid $contrastColor;
+    }
+
+    &--filled {
+      color: $whiteColor;
+      border-bottom: 1px solid $darkGrey;
+    }
+  }
+
+  &__photo {
+    grid-area: photo;
+    margin: 0 auto;
+    @extend %bgStyle;
+    width: 100%;
+    background-image: url(../images/image.svg);
+
+    @include onMobile {
+      display: block;
+    }
+
+    @include onTablet {
+      height: 280px;
+      width: 524px;
+    }
+
+    @include onNotebook {
+      width: 650px;
+      transform: translateX(-10%);
+    }
+  }
+
+  &__totally {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    @include onTablet {
+      grid-area: totally;
+    }
+  }
+
+  &__quantity {
+    grid-area: quantity;
+    margin: 0;
+    padding: 0;
+    width: 90px;
+    height: 80px;
+    margin-bottom: 30px;
+
+    &-title {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      @extend %textMedium;
+      color: $textColor;
+      margin-bottom: 10px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-count {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      background-color: #191536;
+    }
+
+    &-number {
+      margin: 0;
+      padding: 0;
+      @extend %markRegular;
+      font-size: 20px;
+      color: $whiteColor;
+      width: 70px;
+      text-align: center;
+    }
+
+    &-icon {
+      margin: 0 auto;
+      padding: 0;
+      @extend %bgStyle;
+      width: 16px;
+      height: 8px;
+      background-image: url(../images/icon/arrows/arrow_down.svg);
+    }
+  }
+
+  &__sum {
+    grid-area: sum;
+    margin: 0;
+    padding: 0;
+    width: 90px;
+    height: 80px;
+    margin-bottom: 30px;
+
+    &-title {
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      @extend %textMedium;
+      color: $textColor;
+      margin-bottom: 10px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-count {
+      margin: 0;
+      padding: 0;
+    }
+
+    &-number {
+      display: block;
+      margin: 0 auto;
+      padding: 0;
+      @extend %markMedium;
+      font-size: 26px;
+      color: $contrastColor;
+      text-align: center;
+    }
+
+  }
+
+  &__filds {
+    margin: 0;
+    padding: 0;
+    height: max-content;
+  }
+
+  &__userForm {
+    grid-area: form;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 58px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 68px;
+    }
+
+    &-label {
+      margin: 0;
+      padding: 0;
+      color: $textColor;
+      transition: transform 0.5s;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        color: $contrastColor;
+      }
+    }
+
+    &-input,
+    &-message,
+    &-select {
+      box-sizing: border-box;
+      padding: 0;
+      border: none;
+      width: 100%;
+      outline: none;
+      background-color: transparent;
+      border-bottom: 1px solid #2f2f2f;
+      font-size: 14px;
+      line-height: 150%;
+      color: $textColor;
+      transition: transform 0.5s;
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.05);
+        border-bottom: 1px solid $contrastColor;
+      }
+
+      &:focus {
+        border-bottom: 1px solid $contrastColor;
+        color: $contrastColor;
+      }
+    }
+
+    &__input {
+      height: 19px;
+      margin-bottom: 24px;
+    }
+
+    &__select {
+      height: 19px;
+      margin-bottom: 24px;
+      background-color: #191536;
+    }
+
+    &__message {
+      height: 88px;
+      resize: none;
+    }
+
+    &-firstName {
+      grid-area: firstName;
+    }
+
+    &-lastName {
+      grid-area: lastName;
+    }
+
+    &-emain {
+      grid-area: email;
+    }
+
+    &-telNumber {
+      grid-area: telNumber;
+    }
+
+    &-country {
+      grid-area: country;
+    }
+
+    &-city {
+      grid-area: city;
+    }
+
+    &-shipping1 {
+      grid-area: shipping1;
+    }
+
+    &-shipping2 {
+      grid-area: shipping2;
+    }
+  }
+
+  &__fildPay {
+    margin: 0;
+    padding: 0;
+    border: 1px solid black;
+    
+  }
+
+  &__fildComplete {
+    margin: 0;
+    padding: 0;
+    border: 1px solid red;
+    
+  }
+
+  &__button {
+    grid-area: button;
+    margin: 0 auto;
+    padding: 0;
+    height: 40px;
+    width: 100%;
+
+    @include onTablet {
+      height: 48px;
+      width: 458px;
+    }
+
+    @include onNotebook {
+      margin: 0;
+      width: 200px;
+      transform: translateY(50%);
+    }
+  }
+
+  &--move {
+    transform: translateY(-100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+}

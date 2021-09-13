@@ -1,13 +1,22 @@
 
 .button {
-  display: block;
-  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $contrastColor;
+  border-radius: 4px;
+  text-decoration: none;
+  @extend %linksButtons;
+  line-height: 130%;
+  color: $whiteColor;
+  transition: background-color 0.5s;
 
-  @include onTablet {
-    display: none;
-  }
-
-  @include onMobile {
-    display: none;
+  &:hover {
+    background-color: $whiteColor;
+    color: $contrastColor;
   }
 }

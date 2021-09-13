@@ -1,0 +1,150 @@
+
+.footer {
+  margin: 0 auto;
+  background-color: #000;
+
+  @include onTablet {
+    padding: 22px 0;
+    margin: 0 auto;
+  }
+
+  &__link {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    @extend %linksButtonsRegular;
+    color: $whiteColor;
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 50px;
+    padding-bottom: 0;
+
+    @include onTablet {
+      flex-direction: row;
+      padding-top: 0;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 15px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-bottom: 50px;
+
+    @include onTablet {
+      flex-grow: 1;
+      padding-bottom: 0;
+    }
+
+    &--menu {
+      margin: 0;
+      padding: 0;
+      padding-top: 3px;
+
+      @include onTablet {
+        flex-grow: 1;
+      }
+
+      &-item {
+        margin: 0 auto;
+        padding: 0;
+        list-style: none;
+
+        @include onTablet {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+          width: 309px;
+        }
+      }
+
+      &-list {
+        margin: 0;
+        padding: 0;
+
+        &:not(:last-child) {
+          margin-bottom: 15px;
+
+          @include onTablet {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+
+    &--connection {
+      margin: 0;
+      width: max-content;
+      text-align: center;
+    }
+  }
+
+  &__contacts {
+    margin: 0 auto;
+    padding: 0;
+    margin-bottom: 15px;
+    width: min-content;
+    text-align: left;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__followed {
+    margin: 0;
+    padding: 0;
+    width: 130px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &--icon {
+      margin: 0 auto;
+      @extend %bgStyle;
+
+      &-fb {
+        width: 6px;
+        height: 12px;
+        background-image: url(../images/icon/followed/facebook.svg);
+      }
+
+      &-tw {
+        width: 18px;
+        height: 14px;
+        background-image: url(../images/icon/followed/twitter.svg);
+      }
+
+      &-yt {
+        width: 18px;
+        height: 14px;
+        background-image: url(../images/icon/followed/youtube.svg);
+      }
+
+      &-ff {
+        width: 18px;
+        height: 18px;
+        background-image: url(../images/icon/followed/fun_face.svg);
+      }
+    }
+  }
+
+}

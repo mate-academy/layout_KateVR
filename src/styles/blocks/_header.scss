@@ -6,6 +6,7 @@
   position: relative;
 
   &__nav {
+    grid-area: nav;
     margin: 0;
     padding: 0;
 
@@ -34,19 +35,81 @@
   }
 
   &__menu {
-    width: max-content;
-    height: max-content;
+    display: none;
 
-    &-bigScreen {
-      display: none;
+    @include onNotebook {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0 200px 0 34px;
+      padding: 0;
+      flex-grow: 1;
+      list-style: none;
+      color: #fff;
+    }
+
+    &--language {
+      outline: none;
+
+      &-selector {
+        margin: 0;
+        padding: 0;
+        height: 20px;
+        width: 38px;
+        outline: none;
+        background: none;
+        border: none;
+        @extend %linksButtons;
+        font-size: 10px;
+        color: $contrastColor;
+        transition: transform 0.5s;
+  
+        &:hover {
+          transform: scale(1.2);
+          cursor: pointer;
+        }
+      }
+
+      &-option {
+        outline: none;
+        border: 0 solid #191536;
+        background-color: #191536;
+        border-radius: 4px;
+      }
+    }
+
+    &--item {
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
 
       @include onNotebook {
         display: flex;
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        color: #fff;
+        flex-direction: row;
+        justify-content: right;
+        align-items: center;
+        flex-grow: 1;
       }
+    }
+
+    &--list {
+      margin: 0;
+      padding: 0;
+      margin-right: 34px;
+      transition: transform 0.5s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+
+    &--link {
+      display: block;
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      @extend %linksButtonsRegular;
+      color: $whiteColor;
     }
 
     &--opener {
@@ -57,31 +120,17 @@
       width: 20px;
       height: 10px;
       background-image: url(../images/icon/menu.svg);
+
+      @include onNotebook {
+        display: none;
+      }
     }
   }
 
   &__product {
+    grid-area: product;
     height: max-content;
     text-align: left;
-    @include onMobile {
-      margin-bottom: 60px;
-    }
-
-    &--photo {
-      @extend %bgStyle;
-      width: 100%;
-      background-image: url(../images/image.svg);
-
-      @include onMobile {
-        height: 172px;
-        order: -1;
-      }
-  
-      @include onTablet {
-        height: 210px;
-        order: 0;
-      }
-    }
 
     &--describe {
       @extend %textMedium;
@@ -89,6 +138,11 @@
       font-size: 16px;
       line-height: 150%;
       margin-bottom: 8px;
+
+      @include onNotebook {
+        margin: 0 auto 6px;
+        width: 336px;
+      }
     }
 
     &--price {
@@ -104,7 +158,50 @@
         @include onTablet {
           text-align: left;
         }
+
+        @include onNotebook {
+          margin: 0 auto 18px;
+          width: 336px;
+        }
       }
+    }
+  }
+
+  &__photo {
+    @extend %bgStyle;
+    background-size: cover;
+    width: 100%;
+    background-image: url(../images/image.svg);
+
+    @include onMobile {
+      height: 172px;
+    }
+
+    @include onTablet {
+      position: absolute;
+      top: 30%;
+      right: 1%;
+      height: 200px;
+      width: 400px;
+      order: 0;
+    }
+
+    @include onNotebook {
+      position: absolute;
+      top: 35%;
+      right: 6%;
+      height: 300px;
+      width: 600px;
+      order: 0;
+    }
+
+    @include onFullHD {
+      position: absolute;
+      top: 25%;
+      right: 10%;
+      height: 450px;
+      width: 1000px;
+      order: 0;
     }
   }
 
@@ -116,29 +213,18 @@
     &--quantum {
       @extend %textQuantum;
     }
+
+    @include onNotebook {
+      font-size: 46px;
+    }
+
+    @include onFullHD {
+      font-size: 54px;
+    }
   }
 
-  &__buttom {
+  &__button {
     position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    height: 40px;
-    background-color: $contrastColor;
-    border-radius: 4px;
-    z-index: 1;
-    text-decoration: none;
-    @extend %linksButtons;
-    line-height: 130%;
-    color: $whiteColor;
-    transition: background-color 0.5s;
-
-    &:hover {
-      background-color: $whiteColor;
-      color: $contrastColor;
-    }
 
     @include onMobile {
       left: 20px;
@@ -147,14 +233,30 @@
     }
 
     @include onTablet {
-      left: 34px;
-      right: 34px;
-      bottom: -20px;
+      position: fixed;
+      z-index: 1;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 60px;
+      height: 48px;
+      width: 458px;
     }
 
     @include onNotebook {
-      top: 47px;
-      left: 970px;
+      position: absolute;
+      left: 968px;
+      right: 0;
+      transform: translateX(0);
+      top: 50px;
+      width: 200px;
+    }
+
+    @include onFullHD {
+      position: absolute;
+      left: 1487px;
+      right: 0;
+      transform: translateX(0);
+      top: 50px;
       width: 200px;
     }
   }
