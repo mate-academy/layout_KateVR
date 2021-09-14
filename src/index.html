@@ -78,9 +78,7 @@
           </section>
         </nav>
 
-        <div class="background-img">
-          <div class="header__photo"></div>
-        </div>
+        <div class="header__photo"></div>
         <div class="header__product">
           <h1 class="header__title">
             THE NEW START OF
@@ -228,7 +226,7 @@
       </ul>
     </div>
 
-    <!--    menu order and pay   -->
+    <!--    menu order / pay / complete   -->
     <div
       class="menuOrder menuOrder--move container container--size"
       id="page__order"
@@ -245,22 +243,23 @@
           <a class="menuOrder__closer" href="#"></a>
         </div>
       </div>
+
       <nav class="menuOrder__nav">
         <ul class="menuOrder__item">
-          <li class="menuOrder__list">
-            <a class="menuOrder__link-order menuOrder__link menuOrder__link--active" href="#page__order">
+          <li class="menuOrder__Order menuOrder__list">
+            <div class="menuOrder__link menuOrder__link--active">
               Place Order
-            </a>
+            </div>
           </li>
-          <li class="menuOrder__link-pay menuOrder__list">
-            <a class="menuOrder__link" href="#pay">
+          <li class="menuOrder__Pay menuOrder__list">
+            <div class="menuOrder__link">
               Pay
-            </a>
+            </div>
           </li>
-          <li class="menuOrder__link-complete menuOrder__list">
-            <a class="menuOrder__link" href="#complete">
+          <li class="menuOrder__Complete menuOrder__list">
+            <div class="menuOrder__link">
               Complete
-            </a>
+            </div>
           </li>
         </ul>
       </nav>
@@ -278,7 +277,15 @@
               <span class="menuOrder__quantity-number">
                 1
               </span>
-              <a class="menuOrder__quantity-icon" href="#quantityNumbers"></a>
+              <div class="menuOrder__quantity-icon"></div>
+            </div>
+
+            <div class="menuOrder__quantityMenu" id="quantityMenu">
+              <div class="menuOrder__quantityMenu--style">
+                <span class="menuOrder__quantity-number">2</span>
+                <span class="menuOrder__quantity-number">3</span>
+                <span class="menuOrder__quantity-number">4</span>
+              </div>
             </div>
           </div>
 
@@ -294,53 +301,58 @@
           </div>
         </div>
 
-        <form class="menuOrder__userForm menuOrder__fild--active" action="">
+        <!-- Order -->
+        <form
+          class="menuOrder__userOrder"
+          id="order"
+          action=""
+        >
           <div class="grid grid__menuOrder--order-form grid--size">
 
-            <lable class="menuOrder__userForm__label menuOrder__userForm-firstName">
-              First Name*
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-firstName">
+              First Name *
               <input
-                class="menuOrder__userForm menuOrder__userForm--input"
+                class="menuOrder__userOrder menuOrder__userOrder--input"
                 type="text"
                 name="firstname"
                 id="firstname"
                 required
               >
             </lable>
-            <lable class="menuOrder__userForm__label menuOrder__userForm-lastName">
-              Last Name*
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-lastName">
+              Last Name *
               <input
-                class="menuOrder__userForm menuOrder__userForm--input"
+                class="menuOrder__userOrder menuOrder__userOrder--input"
                 type="text"
                 name="last_name"
                 id="last_name"
                 required
               >
             </lable>
-            <lable class="menuOrder__userForm__label menuOrder__userForm-email">
-              Email*
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-email">
+              Email *
               <input
-                class="menuOrder__userForm menuOrder__userForm--input"
+                class="menuOrder__userOrderI menuOrder__userOrder--input"
                 type="email"
                 name="email"
                 id="email"
                 required
               >
             </lable>
-            <lable class="menuOrder__userForm__label menuOrder__userForm-telNumber">
-              Phone Number*
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-telNumber">
+              Phone Number *
               <input
-                class="menuOrder__userFormI menuOrder__userForm--input"
+                class="menuOrder__userOrderI menuOrder__userOrder--input"
                 type="tel"
                 name="telnumber"
                 id="telnumber"
                 required
               >
             </lable>
-            <lable class="menuOrder__userForm__label menuOrder__userForm-country">
-              Country*
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-country">
+              Country *
               <select
-                class="menuOrder__userForm menuOrder__userForm--select"
+                class="menuOrder__userOrder menuOrder__userOrder--select"
                 name="coutry"
                 id="country"
                 required
@@ -350,10 +362,10 @@
                 <option value="Pl">Poland</option>
               </select>
             </lable>
-            <lable class="menuOrder__userForm__label menuOrder__userForm-city">
-              City*
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-city">
+              City *
               <select
-                class="menuOrder__userForm menuOrder__userForm--select"
+                class="menuOrder__userOrder menuOrder__userOrder--select"
                 name="city"
                 id="city"
                 required
@@ -363,20 +375,20 @@
                 <option value="Pl">Warshawa</option>
               </select>
             </lable>
-            <lable class="menuOrder__userForm__label menuOrder__userForm-shipping1">
-              Shipping Adress*
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-shipping1">
+              Shipping Adress *
               <textarea
-                class="menuOrder__userForm menuOrder__userForm--message"
+                class="menuOrder__userOrder menuOrder__userOrder--message"
                 name="adress1"
                 id="adress1"
                 required
               >
               </textarea>
             </lable>
-            <lable class="menuOrder__userForm__label menuOrder__userForm-shipping2">
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-shipping2">
               Shipping Adress 2
               <textarea
-                class="menuOrder__userForm menuOrder__userForm--message"
+                class="menuOrder__userOrder menuOrder__userOrder--message"
                 name="adress2"
                 id="adress2"
               >
@@ -386,9 +398,92 @@
           </div>
         </form>
 
+        <!-- Pay -->
+        <form
+          class="menuOrder__userPay"
+          id="pay"
+          action=""
+        >
+          <div class="grid grid__menuPay--order-form grid--size">
+
+            <div class="menuOrder__userPay-card">
+              <lable class="menuOrder__userPay__label menuPay__userPay-cardNumber">
+                Card Number *
+                <input
+                  class="menuOrder__userPay menuOrder__userPay--input"
+                  type="number"
+                  name="cardNumber"
+                  id="cardNumber"
+                  placeholder="0000 - 0000 - 0000 - 0000"
+                  required
+                >
+              </lable>
+              <div class="menuOrder__userPay-cardIcon"></div>
+            </div>
+            <lable class="menuOrder__userPay__label menuPay__userPay-cardName">
+              Card Holder Name *
+              <input
+                class="menuOrder__userPay menuOrder__userPay--input"
+                type="text"
+                name="cardName"
+                id="cardName"
+                required
+              >
+            </lable>
+            <lable class="menuOrder__userPay__label menuPay__userPay-cardExpiration">
+              Expiration Date *
+              <input
+                class="menuOrder__userPayI menuOrder__userPay--input"
+                type="text"
+                name="cardExpiration"
+                id="cardExpiration"
+                placeholder="MM / YY"
+                required
+              >
+            </lable>
+            <lable class="menuOrder__userPay__label menuPay__userPay-cardCVN">
+              CVN *
+              <input
+                class="menuOrder__userPayI menuOrder__userPay--input"
+                type="number"
+                name="cardCVN"
+                id="cardCVN"
+                placeholder="000"
+                required
+              >
+            </lable>
+
+          </div>
+        </form>
+
         <div class="menuOrder__button">
-          <a class="button" href="#page__order">
+          <div class="button">
             Purchase
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Complete order-->
+      <div class="menuOrder__complete">
+
+        <div class="menuOrder__complete-title">
+          <h2 class="menuOrder__complete-title--h2">
+            Thank you for&nbsp;
+            <span class="menuOrder__complete-title--h2-quantum">
+              your
+            </span>
+            &nbsp;order!
+          </h2>
+          <p class="menuOrder__complete-title--text">
+            Your order has been placed and is being processed.
+            You will recive an email with the order details
+          </p>
+        </div>
+
+        <div class="menuOrder__complete-button">
+          <a class="button" href="#">
+            Back to homepage
           </a>
         </div>
 
@@ -472,8 +567,8 @@
               </span>
             </h2>
           </div>
-          <div class="main__about--photo"></div>
-          <div class="main__about--photo-choser">
+          <div class="main__about-photo"></div>
+          <div class="main__about-photo-choser">
             <input
               class="main__radio"
               type="radio" name="photo"
