@@ -5,7 +5,7 @@ const menuOpen = document.querySelector('.header__menu');
 const menuCloser = document.querySelector('.menuByList--item');
 const lenguageOpen = document.querySelector('.goto-language');
 const lenguageCloser = document.querySelector('.menuLanguage');
-// const header = document.querySelector('.header');
+const menuOrder = document.querySelector('.menuOrder__closer');
 // const mainContant = document.querySelector('.main');
 // const footer = document.querySelector('.footer');
 
@@ -22,5 +22,9 @@ lenguageOpen.addEventListener('click', function() {
 });
 
 lenguageCloser.addEventListener('click', function() {
+  pageBody.classList.remove('hidden-blocks');
+});
+
+menuOrder.addEventListener('click', function() {
   pageBody.classList.remove('hidden-blocks');
 });

@@ -19,4 +19,64 @@
     background-color: $whiteColor;
     color: $contrastColor;
   }
+
+  &-onSmall {
+    @include onNotebook {
+      position: none;
+    }
+  }
+
+  &__header {
+
+    @include onMobile {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      z-index: 1;
+      height: 40px;
+      bottom: -20px;
+    }
+
+    @include onTablet {
+      position: fixed;
+      top: 15px;
+      height: 48px;
+      width: 200px;
+    }
+
+    @include onNotebook {
+      position: relative;
+      top: 0;
+    }
+
+    @include onFullHD {
+      position: relative;
+      width: 200px;
+    }
+  }
+
+  &__main-contacts {
+    grid-area: button;
+    margin: 0;
+    margin-bottom: 28px;
+    height: 40px;
+    border: none;
+
+    @include onNotebook {
+      width: 200px;
+    }
+  }
+
+  &__main-benefits {
+    display: none;
+
+    @include onNotebook {
+      grid-area: button;
+      display: flex;
+      margin: 90px auto 0;
+      justify-content: center;
+      height: 48px;
+      width: 200px;
+    }
+  }
 }
