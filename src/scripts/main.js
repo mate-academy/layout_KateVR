@@ -36,6 +36,10 @@ buyOpener[2].addEventListener('click', () => {
   buyMenuOpener();
 });
 
+buyOpener[3].addEventListener('click', () => {
+  buyMenuOpener();
+});
+
 function purchaseSliderPay() {
   // purchase.style.height = "600px";
   purchaseQuantity.style.opacity = '1';
