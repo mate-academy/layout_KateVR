@@ -7,9 +7,24 @@
   right: 0;
   margin: 0;
   overflow-y: auto;
-  height: 100vh;
   z-index: 1;
   background: $bgGradientMenu;
+
+  @include onMobile {
+    height: 100vh;
+  }
+
+  @include onTablet {
+    height: 100vh;
+  }
+
+  @include onNotebook {
+    height: 880px;
+  }
+
+  @include onFullHD {
+    height: 1080px;
+  }
 
   &__closure {
     display: flex;
@@ -17,6 +32,16 @@
     justify-content: space-between;
     margin: 0;
     padding: 0;
+
+    &--along {
+      display: flex;
+      flex-direction: row;
+      justify-content: end;
+
+      @include onNotebook {
+        display: none;
+      }
+    }
   }
 
   &__closer {
@@ -105,12 +130,19 @@
     }
 
     @include onTablet {
-      height: 280px;
+      height: 320px;
       width: 524px;
     }
 
     @include onNotebook {
+      height: 380px;
       width: 650px;
+      transform: translateX(-10%);
+    }
+
+    @include onFullHD {
+      width: 960px;
+      height: 448px;
       transform: translateX(-10%);
     }
   }
@@ -326,11 +358,11 @@
     }
 
     &-firstName {
-      grid-area: firstName;
+      grid-area: fN;
     }
 
     &-lastName {
-      grid-area: lastName;
+      grid-area: LN;
     }
 
     &-email {
@@ -338,7 +370,7 @@
     }
 
     &-telNumber {
-      grid-area: telNumber;
+      grid-area: tN;
     }
 
     &-country {
@@ -350,11 +382,11 @@
     }
 
     &-shipping1 {
-      grid-area: shipping1;
+      grid-area: ship1;
     }
 
     &-shipping2 {
-      grid-area: shipping2;
+      grid-area: ship2;
     }
   }
 
@@ -425,7 +457,7 @@
     }
 
     &-cardNumber {
-      grid-area: firstName;
+      grid-area: fN;
     }
 
     &-cardIcon {
@@ -439,7 +471,7 @@
     }
 
     &-cardName {
-      grid-area: lastName;
+      grid-area: LN;
     }
 
     &-cardExpiration {
@@ -447,7 +479,7 @@
     }
 
     &-cardCVN {
-      grid-area: telNumber;
+      grid-area: tN;
     }
   }
 
@@ -460,6 +492,10 @@
 
     @include onTablet {
       padding: 180px 0;
+    }
+
+    @include onNotebook {
+      padding: 140px 0 270px;
     }
 
     &-title {
@@ -519,7 +555,7 @@
     }
 
     &-button {
-      margin: 0;
+      margin: 0 auto;
       padding: 0;
       height: 40px;
       width: 100%;
@@ -537,6 +573,10 @@
     padding: 0;
     height: 40px;
     max-width: 458px;
+
+    @include onMobile {
+      width: 100%;
+    }
 
     @include onTablet {
       height: 48px;
