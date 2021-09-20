@@ -39,8 +39,8 @@
     }
 
     @include onTablet {
-      position: fixed;
-      top: 15px;
+      position: absolute;
+      top: 17px;
       left: 12%;
       height: 48px;
       width: 200px;
@@ -67,6 +67,7 @@
 
     @include onNotebook {
       width: 200px;
+      margin-bottom: 0;
     }
   }
 
@@ -80,6 +81,11 @@
       justify-content: center;
       height: 48px;
       width: 200px;
+    }
+
+    @include onFullHD {
+      grid-area: none;
+      display: none;
     }
   }
 }

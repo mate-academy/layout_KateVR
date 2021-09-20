@@ -19,7 +19,13 @@
   }
 
   @include onNotebook {
-    height: 880px;
+    @media (min-height: 500px) {
+      height: 100vh;
+    }
+
+    @media (min-height: 880px) {
+      height: 880px;
+    }
   }
 
   @include onFullHD {
@@ -495,7 +501,7 @@
     }
 
     @include onNotebook {
-      padding: 140px 0 270px;
+      padding: 40px 0 84px;
     }
 
     &-title {
