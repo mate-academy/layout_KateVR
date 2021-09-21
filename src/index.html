@@ -491,7 +491,7 @@
 
         <!-- Order -->
         <form
-          class="menuOrder__userOrder"
+          class="menuOrder__userOrder orderForm"
           id="order"
           action=""
         >
@@ -585,47 +585,73 @@
 
           </div>
 
-          <div class="menuOrder__button">
+          <div class="menuOrder__button orderClick">
             <div class="button">
               Purchase
             </div>
           </div>
+
         </form>
 
         <!-- Pay -->
         <form
-          class="menuOrder__userPay"
+          class="menuOrder__userPay payForm"
           id="pay"
           action=""
         >
 
-          <div class="grid grid__menuPay--order-form grid--size">
-
+          <div class="menuOrder__userPay-form">
             <div class="menuOrder__userPay-card">
-              <lable class="menuOrder__userPay__label menuPay__userPay-cardNumber">
+              <lable class="menuOrder__userPay__label">
                 Card Number *
-                <input
-                  class="menuOrder__userPay menuOrder__userPay--input"
-                  type="number"
-                  name="cardNumber"
-                  id="cardNumber"
-                  placeholder="0000 - 0000 - 0000 - 0000"
-                  required
-                >
+                <div class="menuOrder__userPay__label-cardNumber">
+                  <input
+                    class="menuOrder__userPay--input menuOrder__userPay--input-cardN"
+                    type="text"
+                    name="cardNumber1"
+                    id="cardNumber1"
+                    placeholder="0000"
+                    required
+                  >
+                  <input
+                    class="menuOrder__userPay--input menuOrder__userPay--input-cardN"
+                    type="text"
+                    name="cardNumber2"
+                    id="cardNumber2"
+                    placeholder="0000"
+                    required
+                  >
+                  <input
+                    class="menuOrder__userPay--input menuOrder__userPay--input-cardN"
+                    type="text"
+                    name="cardNumber3"
+                    id="cardNumber3"
+                    placeholder="0000"
+                    required
+                  >
+                  <input
+                    class="menuOrder__userPay--input menuOrder__userPay--input-cardN"
+                    type="text"
+                    name="cardNumber4"
+                    id="cardNumber4"
+                    placeholder="0000"
+                    required
+                  >
+                </div>
               </lable>
               <div class="menuOrder__userPay-cardIcon"></div>
             </div>
-            <lable class="menuOrder__userPay__label menuPay__userPay-cardName">
+            <lable class="menuOrder__userPay__label">
               Card Holder Name *
               <input
-                class="menuOrder__userPay menuOrder__userPay--input"
+                class="menuOrder__userPayI menuOrder__userPay--input"
                 type="text"
                 name="cardName"
                 id="cardName"
                 required
               >
             </lable>
-            <lable class="menuOrder__userPay__label menuPay__userPay-cardExpiration">
+            <lable class="menuOrder__userPay__label">
               Expiration Date *
               <input
                 class="menuOrder__userPayI menuOrder__userPay--input"
@@ -636,21 +662,20 @@
                 required
               >
             </lable>
-            <lable class="menuOrder__userPay__label menuPay__userPay-cardCVN">
+            <lable class="menuOrder__userPay__label">
               CVN *
               <input
-                class="menuOrder__userPayI menuOrder__userPay--input"
-                type="number"
+                class="menuOrder__userPay--input"
+                type="text"
                 name="cardCVN"
                 id="cardCVN"
                 placeholder="000"
                 required
               >
             </lable>
-
           </div>
 
-          <div class="menuOrder__button">
+          <div class="menuOrder__button payClick">
             <div class="button">
               Purchase
             </div>
@@ -661,7 +686,7 @@
       </div>
 
       <!-- Complete order-->
-      <div class="menuOrder__complete">
+      <div class="menuOrder__complete completeForm">
 
         <div class="menuOrder__complete-title">
           <h2 class="menuOrder__complete-title--h2">
@@ -984,7 +1009,6 @@
             Buy Now
           </a>
         </div>
-        <a class="to-top" href="#"></a>
       </div>
 
       <div class="main__contact-us container container--main-size" id="contact-us">
@@ -1040,12 +1064,7 @@
               </textarea>
             </label>
           </form>
-          <a
-            class="button button__main-contacts"
-            href="https://www.kat-vr.com/pages/contact-us-now"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
+          <a class="button button__main-contacts">
             Contact Us
           </a>
           <div class="main__contact-us--contacts">
@@ -1078,7 +1097,6 @@
           <a class="to-top" href="#"></a>
         </div>
       </div>
-
     </main>
 
     <footer class="footer">

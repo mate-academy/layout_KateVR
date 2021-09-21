@@ -39,7 +39,31 @@ function turnOnScroll(find, page) {
   });
 }
 
-/** Work with Main Info */
+function addOrderActive(find, page) {
+  find.addEventListener('click', function() {
+    page.classList.add('menuOrder__link--active');
+  });
+}
+
+function removeOrderActive(find, page) {
+  find.addEventListener('click', function() {
+    page.classList.remove('menuOrder__link--active');
+  });
+}
+
+function addDisplayFlex(find, page) {
+  find.addEventListener('click', function() {
+    page.classList.add('displayFlex');
+  });
+}
+
+function removeDisplayFlex(find, page) {
+  find.addEventListener('click', function() {
+    page.classList.remove('displayFlex');
+  });
+}
+
+/** Work with Main Menu */
 
 // find menu opener
 const menuOpener = document.querySelector('.header__menu--opener');
@@ -65,7 +89,7 @@ turnOnScroll(menuFAQCloser, pageBody);
 turnOnScroll(menuHelpCloser, pageBody);
 turnOnScroll(menuHelpToContacts, pageBody);
 
-/** End Work with Main Info */
+/** End Work with Main Menu */
 
 /** Work with Tech Info */
 
@@ -95,10 +119,12 @@ removeDisplayBlock(connectClosure, connectInfo);
 
 /** Work with Order menu */
 
+// find order / pay page
+const pageOrderPay = document.querySelector('.grid__menuOrder--order');
 // find order form
-const orderForm = document.querySelector('.grid__menuOrder--order');
+const orderForm = document.querySelector('.orderForm');
 // find pay form
-// const payForm = document.querySelector('.menuOrder__userPay');
+const payForm = document.querySelector('.payForm');
 // find complete page
 const completePage = document.querySelector('.menuOrder__complete');
 
@@ -112,36 +138,50 @@ turnOffScroll(clickBuyButton, pageBody);
 turnOffScroll(clickBuyButton1, pageBody);
 turnOffScroll(clickBuyButton2, pageBody);
 
+// find nav items in order / pay / complete menu
+const navOrder = document.querySelector('.menuOrder__linkOrder');
+const navPay = document.querySelector('.menuOrder__linkPay');
+const navComplete = document.querySelector('.menuOrder__linkComplete');
+
+// click to purchase button in orderform
+const clickOrderButton = document.querySelector('.orderClick');
+
+removeOrderActive(clickOrderButton, navOrder); // disactivate pay nav
+addDisplayNone(clickOrderButton, orderForm); // close order form
+addOrderActive(clickOrderButton, navPay); // activate pay nav
+addDisplayFlex(clickOrderButton, payForm); // open pay form
+
+// click to pay nav
+removeOrderActive(navPay, navOrder); // disactivate pay nav
+addDisplayNone(navPay, orderForm); // close order form
+addOrderActive(navPay, navPay); // activate pay nav
+addDisplayFlex(navPay, payForm); // open pay form
+
+// click to order nav
+addOrderActive(navOrder, navOrder); // activate pay nav
+removeDisplayNone(navOrder, orderForm); // open order form
+removeOrderActive(navOrder, navPay); // disactivate pay nav
+removeDisplayFlex(navOrder, payForm); // close pay form
+
+// click to purchase button in pay form
+const clickPayButton = document.querySelector('.payClick');
+
+removeDisplayFlex(clickPayButton, payForm); // close pay form
+removeOrderActive(clickPayButton, navPay); // disactivate pay nav
+addDisplayNone(clickPayButton, pageOrderPay); // close order/pay form
+addDisplayBlock(clickPayButton, completePage); // open complete message
+addOrderActive(clickPayButton, navComplete); // activate complete nav
+
 // close order menu
 const orderCloser = document.querySelector('.menuOrder__closer');
 
 turnOnScroll(orderCloser, pageBody); // turn on scroll on body
-removeDisplayNone(orderCloser, orderForm);
+removeDisplayNone(orderCloser, pageOrderPay);
 removeDisplayBlock(orderCloser, completePage);
-
-// click to purchase button
-const clickOrderButton = document.querySelector('.menuOrder__button');
-const navOrder = document.querySelector('.menuOrder__linkOrder');
-const navComplete = document.querySelector('.menuOrder__linkComplete');
-
-turnOffScroll(clickOrderButton, pageBody); // disable scroll on body
-addDisplayNone(clickOrderButton, orderForm); // close order form
-addDisplayBlock(clickOrderButton, completePage); // open complete message
-
-orderCloser.addEventListener('click', function() {
-  navOrder.classList.add('menuOrder__link--active');
-});
-
-clickOrderButton.addEventListener('click', function() {
-  navOrder.classList.remove('menuOrder__link--active');
-});
-
-clickOrderButton.addEventListener('click', function() {
-  navComplete.classList.add('menuOrder__link--active');
-});
-
-orderCloser.addEventListener('click', function() {
-  navComplete.classList.remove('menuOrder__link--active');
-});
+removeDisplayNone(orderCloser, orderForm); // visible order form
+removeDisplayFlex(orderCloser, payForm); // close pay form
+removeOrderActive(orderCloser, navPay); // disactivate pay nav
+removeOrderActive(orderCloser, navComplete); // disactivate complete nav
+addOrderActive(orderCloser, navOrder); // activate order nav
 
 /* */
