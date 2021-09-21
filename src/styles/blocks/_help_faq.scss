@@ -14,7 +14,6 @@
   @include onNotebook {
     left: 200px;
     right: 200px;
-    // max-height: 854px;
     padding: 60px 90px 48px;
     z-index: 1;
     border-radius: 4px;
@@ -22,18 +21,6 @@
     @media (min-height: 500px) {
       height: 85%;
     }
-    // @media (min-height: 600px) {
-    //   height: 85%;
-    // }
-    // @media (min-height: 700px) {
-    //   height: 85%;
-    // }
-    // @media (min-height: 800px) {
-    //   height: 85%;
-    // }
-    // @media (min-height: 900px) {
-    //   height: 854px;
-    // }
     @media (min-height: 1000px) {
       height: 854px;
     }
@@ -52,6 +39,8 @@
     width: 18px;
     height: 18px;
     background-image: url(../images/icon/menu-closure.svg);
+
+    @include hover(transform, scale(0.8));
   }
 
   &__title {
@@ -152,7 +141,6 @@
       margin: 0;
       padding: 0;
       color: #545454;
-      @include hover(transform, scale(1.05));
     }
 
     &Help {

@@ -84,11 +84,9 @@
         @extend %linksButtonsRegular;
         color: $contrastColor;
         transition: transform 0.5s;
-  
-        &:hover {
-          transform: scale(1.2);
-          cursor: pointer;
-        }
+
+        @include hover(color, $contrastColor);
+        @include hover(transform, scale(1.2));
       }
 
       &-option {
@@ -123,9 +121,7 @@
         margin-right: 0;
       }
 
-      &:hover {
-        transform: scale(1.2);
-      }
+      @include hover(transform, scale(1.2));
     }
 
     &--link {

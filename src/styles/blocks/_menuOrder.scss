@@ -55,9 +55,7 @@
     height: 18px;
     background-image: url(../images/icon/menu-closure.svg);
 
-    &:hover {
-      cursor: pointer;
-    }
+    @include hover(transform, scale(0.8));
   }
 
   &__nav {
@@ -113,9 +111,7 @@
     color: #545454;
     transition: background-color 0.5s;
 
-    &:hover {
-      cursor: pointer;
-    }
+    @include hover(color, $contrastColor);
 
     &--active {
       color: $contrastColor;
@@ -213,10 +209,7 @@
       text-align: center;
       transition: color 0.5s;
 
-      &:hover {
-        color: $contrastColor;
-        cursor: pointer;
-      }
+      @include hover(color, $contrastColor);
     }
 
     &-icon {
@@ -227,9 +220,7 @@
       height: 8px;
       background-image: url(../images/icon/arrows/arrow_down.svg);
 
-      &:hover {
-        cursor: pointer;
-      }
+      @include hover(color, $contrastColor);
     }
 
     &Menu {
@@ -317,11 +308,7 @@
       color: $textColor;
       transition: transform 0.5s;
 
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.05);
-        color: $contrastColor;
-      }
+      @include hover(color, $contrastColor);
     }
 
     &--input {
@@ -355,11 +342,8 @@
       color: $textColor;
       transition: transform 0.5s;
 
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.05);
-        border-bottom: 1px solid $contrastColor;
-      }
+      @include hover(color, $contrastColor);
+      @include hover(border-bottom, 1px solid $contrastColor);
 
       &:focus {
         border-bottom: 1px solid $contrastColor;
@@ -445,11 +429,7 @@
         height: 50px;
       }
 
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.05);
-        color: $contrastColor;
-      }
+      @include hover(color, $contrastColor);
     }
 
     &--input {
@@ -479,11 +459,8 @@
         }
       }
 
-      &:hover {
-        cursor: pointer;
-        transform: scale(1.05);
-        border-bottom: 1px solid $contrastColor;
-      }
+      @include hover(color, $contrastColor);
+      @include hover(border-bottom, 1px solid $contrastColor);
 
       &:focus {
         border-bottom: 1px solid $contrastColor;
@@ -592,9 +569,6 @@
 
   &__button {
     grid-area: button;
-    // position: absolute;
-    // top: 94%;
-    // left: 61%;
     margin: 0 auto;
     padding: 0;
     height: 40px;
