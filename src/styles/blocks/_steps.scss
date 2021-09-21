@@ -1,0 +1,36 @@
+.steps {
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  grid-template-columns: repeat(3, 1fr);
+
+  &__block {
+    height: 45px;
+    width: 100%;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    font-size: 12px;
+    line-height: 16px;
+    color: $inactive;
+    text-decoration: none;
+    cursor: pointer;
+    border-bottom: 1px solid $dark-grey;
+    transition: 0.3s;
+
+    &:hover {
+      color: $contrast-color;
+      border-bottom-color: $contrast-color;
+    }
+
+    &--active {
+      color: $contrast-color;
+      border-bottom-color: $contrast-color;
+    }
+  }
+}

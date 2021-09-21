@@ -1,0 +1,138 @@
+.header {
+  background: linear-gradient(107.56deg, $dark-blue 0%, #000 100%);
+
+  @include desktop {
+    height: 100vh;
+  }
+
+  &__top-action {
+    @include tablet {
+      margin-bottom: 55px;
+    }
+
+    @include desktop {
+      margin-bottom: 110px;
+    }
+
+    @include desktopL {
+      margin-bottom: 180px;
+    }
+  }
+
+  &__img {
+    @include tablet {
+      position: absolute;
+      margin: 0 auto;
+      top: 0;
+      right: 0;
+      height: 50vh;
+      width: 50vw;
+      height: 245px;
+      max-width: 385px;
+      transform: translate(-10%, 40%);
+      overflow: hidden;
+    }
+
+    @include desktop {
+      max-width: 600px;
+      transform: translate(-10%, 80%);
+    }
+
+    @include desktopL {
+      max-width: 900px;
+      height: 345px;
+      transform: translate(-25%, 75%);
+    }
+  }
+
+  &__products {
+    height: 30vh;
+    background-image: url(../images/Products-mobile.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include tablet {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  &__tittle {
+    display: block;
+    font-size: 26px;
+    line-height: 34px;
+    margin-bottom: 14px;
+
+    @include tablet {
+      margin: 0 auto 14px;
+    }
+
+    @include desktop {
+      font-size: 46px;
+      line-height: 60px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      max-width: 280px;
+    }
+
+    @include desktop {
+      margin-bottom: 108px;
+      margin-left: 50px;
+    }
+
+    @include desktopL {
+      margin-bottom: 180px;
+    }
+  }
+
+  &__text {
+    font-family: MarkProMedium, sans-serif;
+    margin-bottom: 10px;
+
+    @include tablet {
+      width: 340px;
+    }
+  }
+
+  &__price {
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 23px;
+    color: #fff;
+
+    @include tablet {
+      text-align: left;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__play-button {
+    margin: 0 auto 24px;
+
+    @include tablet {
+      margin: 0 0 24px;
+    }
+  }
+
+  &__main-button {
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__bottom-action {
+    display: none;
+
+    @include desktop {
+      display: flex;
+    }
+  }
+}

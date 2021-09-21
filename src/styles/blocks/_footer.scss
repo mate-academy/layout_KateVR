@@ -1,0 +1,146 @@
+.footer {
+  background-color: #000;
+
+  &__logo {
+    display: inline-block;
+    margin-bottom: 15px;
+    height: 14px;
+  }
+
+  &__main-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      flex-direction: row;
+      margin-right: 90px;
+    }
+
+    @include desktop {
+      margin-right: 272px;
+    }
+
+    @include desktopL {
+      margin-right: 470px;
+    }
+  }
+
+  &__link {
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 19px;
+    text-decoration: none;
+    color: $gray;
+    transition: color 0.3s;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: $contrast-color;
+    }
+
+    @include tablet {
+      margin-right: 40px;
+    }
+  }
+
+  &__secondary-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      width: 104px;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__link-grey {
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 16px;
+    text-decoration: none;
+    color: $text-color;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link-away-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link-away {
+    height: 14px;
+    width: 14px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 0.3s;
+
+    &--facebook {
+      background-image: url(../images/facebook.svg);
+
+      &:hover {
+        margin: -8px;
+        padding: 8px;
+        background-color: #fff;
+        border-radius: 8px;
+        background-image: url(../images/facebook_hover.svg);
+      }
+    }
+
+    &--twitter {
+      background-image: url(../images/twitter.svg);
+
+      &:hover {
+        margin: -8px;
+        padding: 8px;
+        background-color: #fff;
+        border-radius: 8px;
+        background-image: url(../images/twitter_hover.svg);
+      }
+    }
+
+    &--youtube {
+      background-image: url(../images/youtube.svg);
+
+      &:hover {
+        margin: -8px;
+        padding: 8px;
+        background-color: #fff;
+        border-radius: 8px;
+        background-image: url(../images/youtube_hover.svg);
+      }
+    }
+
+    &--reddit {
+      background-image: url(../images/reddit.svg);
+
+      &:hover {
+        margin: -8px;
+        padding: 8px;
+        background-color: #fff;
+        border-radius: 8px;
+        background-image: url(../images/reddit_hover.svg);
+      }
+    }
+  }
+}

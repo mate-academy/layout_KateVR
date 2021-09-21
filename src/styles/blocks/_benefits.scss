@@ -1,0 +1,105 @@
+.benefits {
+  background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+
+  &__tittle {
+    display: block;
+    margin-bottom: 30px;
+
+    @include desktop {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+  }
+
+  &__content {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      justify-content: space-evenly;
+    }
+
+    @include desktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__img {
+    flex-shrink: 0;
+    height: 110px;
+    width: 120px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(0.8);
+    margin-bottom: 15px;
+
+    &--tech {
+      background-image: url(../images/tech.svg);
+    }
+
+    &--PC {
+      background-image: url(../images/PC.svg);
+    }
+
+    &--connection {
+      width: 160px;
+      background-image: url(../images/connection.svg);
+    }
+  }
+
+  &__subtittle {
+    display: block;
+    margin-bottom: 15px;
+    font-family: MarkProHeavy, sans-serif;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__text {
+    text-align: center;
+    display: none;
+
+    @include desktop {
+      display: block;
+      max-width: 300px;
+    }
+
+    @include desktopL {
+      max-width: 350px;
+    }
+
+    &--tablet {
+      display: block;
+      max-width: 220px;
+
+      @include desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__content-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__main-button {
+    display: none;
+
+    @include desktop {
+      display: flex;
+    }
+  }
+
+  &__info {
+    display: block;
+
+    @include tablet {
+      display: none;
+    }
+  }
+}

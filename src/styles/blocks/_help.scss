@@ -1,0 +1,86 @@
+.help {
+  overflow: auto;
+
+  &__tittle {
+    display: block;
+    margin-bottom: 30px;
+  }
+
+  &__content {
+    padding: 0 20px;
+
+    @include tablet {
+      padding: 0 35px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+    font-size: 16px;
+    line-height: 24px;
+    color: $text-color;
+  }
+
+  &__contrast-link {
+    color: $contrast-color;
+    text-decoration: none;
+  }
+
+  &__wrapper {
+    margin-bottom: 50px;
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      height: 150px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+
+  &__link {
+    display: block;
+    width: max-content;
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 24px;
+    color: $contrast-color;
+    text-decoration: none;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__link-grey {
+    display: block;
+    width: max-content;
+    margin-bottom: 10px;
+    font-size: 16px;
+    line-height: 20px;
+    text-decoration: none;
+    color: $text-color;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+}

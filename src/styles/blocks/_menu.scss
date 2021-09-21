@@ -1,0 +1,65 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding-bottom: 20px;
+  height: 100vh;
+  z-index: 1;
+  background-color: $dark-blue;
+
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px 20px 36px;
+    width: 100%;
+
+    @include tablet {
+      max-height: 568px;
+      padding: 35px 35px 50px;
+    }
+
+    &--left {
+      justify-content: flex-start;
+    }
+  }
+
+  &__closing {
+    margin: -5px;
+    padding: 5px;
+  }
+
+  &__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  &__item {
+    padding-left: 20px;
+    list-style: none;
+    height: 48px;
+
+    @include tablet {
+      padding-left: 150px;
+    }
+
+    &:hover {
+      background-color: #110e25;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 21px;
+    line-height: 27px;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+}

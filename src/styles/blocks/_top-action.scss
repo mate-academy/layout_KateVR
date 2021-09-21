@@ -1,0 +1,79 @@
+.top-action {
+  display: flex;
+  justify-content: space-between;
+  height: 12px;
+
+  @include tablet {
+    height: 14px;
+  }
+
+  @include desktop {
+    height: 16px;
+  }
+
+  &__left {
+    display: flex;
+  }
+
+  &__logo {
+    height: 100%;
+
+    @include desktop {
+      margin-right: 35px;
+    }
+  }
+
+  &__language {
+    display: none;
+    font-family: MarkProMedium, sans-serif;
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+    overflow: auto;
+    outline: none;
+    color: $contrast-color;
+    background-color: #191536;
+    border: transparent;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  &__navigation {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      align-items: baseline;
+      width: 600px;
+      transform: translate(200px, -50%);
+    }
+
+    @include desktopL {
+      transform: translate(360px, -50%);
+    }
+  }
+
+  &__link {
+    margin-right: 35px;
+    font-family: MarkProMedium, sans-serif;
+    font-size: 16px;
+    line-height: 21px;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+
+  &__menu {
+    height: 100%;
+
+    @include desktop {
+      display: none;
+    }
+  }
+}

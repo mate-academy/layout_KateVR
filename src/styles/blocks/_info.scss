@@ -1,0 +1,186 @@
+.info {
+  background-color: $bg-black;
+
+  &__tittle-block {
+    margin-bottom: 30px;
+
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__tittle {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__comment {
+    font-size: 12px;
+    line-height: 15px;
+    color: $contrast-color;
+
+    @include desktop {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  &__content {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      flex-wrap: nowrap;
+      gap: 20px;
+    }
+  }
+
+  &__info-block {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    &:focus .info__hidden {
+      max-height: 100px;
+    }
+
+    &:focus .info__text::after {
+      content: "";
+    }
+
+    @include tablet {
+      width: 340px;
+      height: 230px;
+      margin-bottom: 40px;
+    }
+
+    @include desktop {
+      flex-shrink: 0;
+      width: 250px;
+    }
+
+    @include desktopL {
+      width: 350px;
+    }
+  }
+
+  &__img {
+    flex-shrink: 0;
+    margin: 0 auto;
+    height: 70%;
+    width: 56%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(0.7);
+
+    &--education {
+      background-image: url(../images/learn.svg);
+
+      @include desktop {
+        width: 78%;
+      }
+
+      @include desktopL {
+        width: 56%;
+      }
+    }
+
+    &--estate {
+      width: 48%;
+      background-image: url(../images/skyline.svg);
+
+      @include desktop {
+        width: 56%;
+      }
+
+      @include desktopL {
+        width: 48%;
+      }
+    }
+
+    &--fitness {
+      width: 64%;
+      background-image: url(../images/fitness.svg);
+
+      @include desktop {
+        width: 88%;
+      }
+
+      @include desktopL {
+        width: 64%;
+      }
+    }
+
+    &--social {
+      width: 48%;
+      background-image: url(../images/network.svg);
+
+      @include desktop {
+        width: 64%;
+      }
+
+      @include desktopL {
+        width: 46%;
+      }
+    }
+  }
+
+  &__subtittle {
+    font-family: MarkProHeavy, sans-serif;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 18px;
+    line-height: 23px;
+    color: #fff;
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  &__tablet {
+    display: none;
+    text-align: center;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__mobile {
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__hidden {
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.5s;
+  }
+
+  &__text {
+    &::after {
+      content: "...";
+    }
+
+    &:last-child::after {
+      content: "";
+    }
+
+    @include desktop {
+      text-align: center;
+
+      &::after {
+        content: "";
+      }
+    }
+  }
+}

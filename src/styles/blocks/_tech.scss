@@ -1,0 +1,220 @@
+.tech {
+  background-color: $bg-black;
+
+  &__tittle {
+    display: block;
+    margin-bottom: 40px;
+
+    @include desktop {
+      text-align: end;
+    }
+
+    @include desktopL {
+      text-align: end;
+      padding-right: 100px;
+    }
+  }
+
+  &__product {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: $tech-product-height;
+
+    @include desktop {
+      max-height: 350px;
+    }
+
+    @include desktopL {
+      min-height: 500px;
+      max-height: 580px;
+    }
+  }
+
+  &__img {
+    height: 90%;
+    width: 100%;
+    background-image: url(../images/Product.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include desktop {
+      height: 75%;
+    }
+  }
+
+  &__lines {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100%;
+    width: 60%;
+    background-image: url(../images/tech-lines.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: translate(-56%, -61%);
+
+    @include desktop {
+      display: block;
+      max-height: 300px;
+    }
+
+    @include desktopL {
+      max-height: 500px;
+    }
+  }
+
+  &__round-button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 50%;
+    left: 50%;
+    @include circle ($tech-product-height / 7.9);
+    background-color: $contrast-color;
+    transition: 0.3s;
+    cursor: pointer;
+
+    @include desktop {
+      display: none;
+    }
+
+    &::after {
+      font-size: ($tech-product-height / 10);
+      content: "+";
+      color: #fff;
+    }
+
+    &--active {
+      background: #07798b;
+      border: 2px solid #ffffff24;
+      box-sizing: border-box;
+
+      &::after {
+        content: "-";
+      }
+    }
+
+    &--sensor {
+      transform: translate(-250%, -300%);
+    }
+
+    &--batterries {
+      transform: translate(80%, -50%);
+    }
+
+    &--connection {
+      transform: translate(-250%, 200%);
+    }
+  }
+
+  &__info {
+    position: absolute;
+    max-height: 0;
+    padding: 0;
+    font-size: 12px;
+    line-height: 18px;
+    border-radius: 4px;
+    overflow: hidden;
+    color: $text-color;
+    background-color: $dark-blue;
+    transition: all 0.3s;
+
+    @include tablet {
+      top: 50%;
+      left: 50%;
+      font-size: 18px;
+      line-height: 24px;
+    }
+
+    &--sensor {
+      max-height: 150px;
+      padding: 15px 10px;
+
+      @include tablet {
+        transform: translate(0%, -180%);
+        padding: 20px;
+        max-height: 140px;
+      }
+    }
+
+    &--batterries {
+      max-height: 135px;
+      padding: 15px 10px;
+      transform: translateY(-70%);
+
+      @include tablet {
+        transform: translate(-90%, -50%);
+        padding: 20px;
+        max-height: 210px;
+      }
+    }
+
+    &--connection {
+      transform: translate(60%, 100%);
+      max-height: 80px;
+      padding: 15px 10px;
+
+      @include tablet {
+        transform: translate(0%, 80%);
+        padding: 20px;
+        max-height: 110px;
+      }
+    }
+  }
+
+  &__info-block {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    @include desktop {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--sensor {
+      transform: translate(-225%, -130%);
+
+      @include desktopL {
+        transform: translate(-300%, -180%);
+      }
+    }
+
+    &--batteries {
+      transform: translate(90%, -90%);
+
+      @include desktopL {
+        transform: translate(130%, -130%);
+      }
+    }
+
+    &--connection {
+      transform: translate(-220%, -5%);
+
+      @include desktopL {
+        transform: translate(-280%, -5%);
+      }
+    }
+  }
+
+  &__subtittle {
+    margin-bottom: 20px;
+    font-family: MarkProHeavy, sans-serif;
+    font-size: 18px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 24px;
+    color: $text-color;
+  }
+}

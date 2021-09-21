@@ -1,0 +1,147 @@
+.form {
+  @include tablet {
+    max-width: 340px;
+  }
+
+  @include desktop {
+    max-width: unset;
+  }
+
+  &__field {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 24px;
+
+    &--last {
+      margin-bottom: 30px;
+    }
+
+    &--pay-last {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__placeholder {
+    display: block;
+    width: 100%;
+    font-size: 14px;
+    line-height: 21px;
+    color: $text-color;
+    transition: 0.3s;
+
+    &--card-holder {
+      margin-bottom: 30px;
+    }
+
+    &--blue {
+      color: $contrast-color;
+    }
+  }
+
+  &__input {
+    display: block;
+    width: 100%;
+    max-height: 8px;
+    font-size: 16px;
+    line-height: 24px;
+    border: none;
+    background-color: inherit;
+    color: #fff;
+    outline: none;
+    border-bottom: 1px solid $dark-grey;
+    transition: 0.3s;
+
+    &:focus {
+      border-bottom-color: $contrast-color;
+    }
+
+    &--focus {
+      max-height: 40px;
+    }
+
+    &--message {
+      max-height: 40px;
+      font-family: inherit;
+      overflow: hidden;
+      resize: none;
+
+      &--focus {
+        max-height: 65px;
+        overflow: auto;
+      }
+    }
+  }
+
+  &__card-number {
+    display: block;
+    margin-bottom: 30px;
+    font-size: 14px;
+    line-height: 18px;
+    color: $text-color;
+  }
+
+  &__card-input {
+    margin-right: 17px;
+    width: 54px;
+    height: 30px;
+    font-size: 18px;
+    line-height: 23px;
+    letter-spacing: 0.2em;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $dark-grey;
+    color: #fff;
+
+    &--expiration-date {
+      width: 90px;
+    }
+
+    &--cvv {
+      width: 40px;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &::placeholder {
+      color: $dark-grey;
+    }
+  }
+
+  &__card {
+    margin-bottom: 50px;
+  }
+
+  &__card-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__main-button {
+    @include desktop {
+      margin: 0;
+    }
+  }
+
+  &__up {
+    display: none;
+    height: 48px;
+    width: 48px;
+    cursor: pointer;
+    background-image: url(../images/up.svg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include desktop {
+      display: block;
+    }
+  }
+}

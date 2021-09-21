@@ -1,0 +1,268 @@
+.about {
+  position: relative;
+  box-sizing: border-box;
+  background: linear-gradient(146.86deg, $dark-blue -0.5%, #000 99.5%);
+
+  @include tablet {
+    height: 750px;
+  }
+
+  @include desktop {
+    height: 1066px;
+  }
+
+  @include desktopL {
+    overflow: hidden;
+    height: 1166px;
+  }
+
+  &__grid {
+    column-gap: 20px;
+
+    @include tablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto auto;
+      grid-template-areas:
+        "gallery tittle"
+        "gallery text"
+        "gallery play";
+    }
+
+    @include desktop {
+      column-gap: 110px;
+      transform: translateX(10%);
+    }
+
+    @include desktopL {
+      column-gap: 120px;
+      transform: translateX(20%);
+    }
+  }
+
+  &__tittle {
+    display: block;
+    grid-area: tittle;
+    margin-bottom: 20px;
+
+    @include tablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__gallery {
+    grid-area: gallery;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 20px;
+
+    @include tablet {
+      justify-self: right;
+    }
+
+    @include desktop {
+      height: 350px;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    margin: 0 auto;
+    width: 340px;
+    height: 270px;
+    overflow: auto;
+    transform: translateX(0%);
+    transition: transform 0.3s;
+
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+    @include desktop {
+      width: 430px;
+      height: 290px;
+    }
+
+    @include desktopL {
+      width: 622px;
+      height: 290px;
+    }
+  }
+
+  &__photo {
+    height: 100%;
+    width: 100%;
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    &--1 {
+      background-image: url(../images/Product-on-belt.png);
+    }
+
+    &--2 {
+      background-image: url(../images/product-1.png);
+    }
+
+    &--3 {
+      background-image: url(../images/product-2.jpg);
+    }
+
+    &--4 {
+      background-image: url(../images/product-3.gif);
+    }
+
+    &--5 {
+      background-image: url(../images/product-4.gif);
+    }
+  }
+
+  &__ellipses {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__ellipce {
+    @include circle (5px);
+    background-color: #484848;
+  }
+
+  &__buttons {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      height: 30px;
+      width: 200px;
+    }
+  }
+
+  &__text {
+    grid-area: text;
+    margin-bottom: 15px;
+
+    @include tablet {
+      max-width: 340px;
+    }
+
+    &--second {
+      @include tablet {
+        max-width: 460px;
+      }
+    }
+  }
+
+  &__play-button-wrapper {
+    grid-area: play;
+    display: flex;
+    justify-content: center;
+
+    @include tablet {
+      justify-self: start;
+    }
+  }
+
+  &__play-button {
+    display: block;
+    margin-bottom: 80px;
+  }
+
+  &__content {
+    @include tablet {
+      margin: 0 auto;
+      max-width: 450px;
+      transform: translate(-27%, 32%);
+    }
+
+    @include desktop {
+      transform: translate(-65%, 100%);
+    }
+  }
+
+  &__comment {
+    margin-bottom: 10px;
+    font-size: 12px;
+    line-height: 15px;
+    color: $contrast-color;
+
+    @include desktop {
+      font-size: 14px;
+      line-height: 18px;
+    }
+  }
+
+  &__us {
+    display: none;
+
+    @include tablet {
+      position: absolute;
+    }
+  }
+
+  &__us-text {
+    display: none;
+    position: absolute;
+    bottom: 20%;
+    right: 50%;
+    margin: 0 auto;
+    font-family: MarkProHeavy, sans-serif;
+    font-size: 48px;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px $contrast-color;
+    transform: rotate(90deg) translateY(-280px);
+
+    @include tablet {
+      display: block;
+    }
+
+    @include desktop {
+      font-size: 64px;
+      transform: rotate(90deg) translateY(-185px);
+    }
+
+    &--second {
+      transform: rotate(-90deg) translateY(367px);
+      -webkit-text-stroke: 1px #05c2df80;
+
+      @include desktop {
+        transform: rotate(-90deg) translateY(300px);
+      }
+    }
+
+    &--third {
+      transform: rotate(90deg) translateY(-440px);
+      -webkit-text-stroke: 1px #05c2df33;
+
+      @include desktop {
+        transform: rotate(90deg) translateY(-405px);
+      }
+    }
+
+    &--fourth {
+      display: none;
+      transform: rotate(-90deg) translateY(525px);
+      -webkit-text-stroke: 1px #05c2df1a;
+
+      @include desktop {
+        display: block;
+      }
+    }
+
+    &--fifth {
+      display: none;
+      transform: rotate(90deg) translateY(-625px);
+      -webkit-text-stroke: 1px #05c2df0d;
+
+      @include desktop {
+        display: block;
+      }
+    }
+  }
+}
