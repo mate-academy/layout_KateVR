@@ -10,17 +10,17 @@ Implement landing page according to [Figma design](https://www.figma.com/file/hh
 
 
 ## HR important moments
-- Скорость анимаций на всем лендинге одинаковая (например увеличение при наведении или выезд блоков при скроле)
-- Placeholder в формах подсказывают что именно ввести, а если стоит валидация формы, то понятно в каком формате вводить номер телефона
-- Убедитесь, что с мобильных выглядит все аккуратно и без горизонтальной прокрутки
-- Добавьте favicon
-- Добавьте мягкий скролл при клике на меню до соответствующих блоков страницы
-- Видео в лендинге должно работать. Если оно будет нерабочее, это может смутить рекрутера/пользователя, так как тогда совсем не понятно зачем оно в лендинге.
-- Кнопка Next активна и кликабельна и ведет на следующий блок 
-- Кнопки Buy now активны и кликабельны и ведут на контактную форму 
-- Форма не должна отправляться пустой
-- Форма не должна принимать некорректные данные в поле с номером телефона (например, номер с буквой и не было никакой ошибки), лучше предусмотреть так, чтобы форма отправлялась только тогда, когда все поля заполнены корректно
-
+- The speed of animations is the same throughout the landing page (for example, increasing when hovering or moving blocks when scrolling)
+- Placeholders in the forms suggest what to enter, and if there is a validation of the form, then it is clear in what format to enter the phone number
+- Make sure everything looks neat on mobile and without horizontal scrolling
+- Add favicon
+- Add a smooth scroll for the whole page
+- When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded
+- The video should work. If it is not working, it can confuse the recruiter/user, because then it is not clear why it is on the landing page.
+- The Next button is active and clickable and leads to the next block
+- “Buy now” buttons are active and clickable and lead to the contact form
+- The form shouldn’t submit empty
+- The form should not accept incorrect data in a field with a phone number (for example, a number with a letter and there was no error), it is better to validate the input so that the form is sent only when all fields are filled incorrectly
 
 ## Github flow
 1. **Fork** the repo.
