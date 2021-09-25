@@ -7,106 +7,162 @@
     <link rel="logo" href="./images/icons/favicon-64x64.svg">
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
-  <body>
-    <header class="header">
+  <body class="page__body">
+    <header class="header page__section">
       <div class="header__content">
         <div class="header__top-bar">
-          <a href="./">
+          <a class="header__logo-link" href="./">
             <img
-              src="./images/Logo_iphone.svg"
+              src="./images/icons/logo-mobile.png"
               alt="KateVR logo"
               class="header__logo"
             >
           </a>
 
-          <a href="#nav" class="header__menu icon"></a>
+          <a href="#menu" class="header__menu icon"></a>
         </div>
 
-        <div class="header__image-container">
+        <div class="top-bar-desktop">
+          <a class="header__logo-link" href="./">
+            <img
+              src="./images/icons/logo-pc.png"
+              alt="katvr logo"
+              class="header__logo"
+            >
+          </a>
+
+          <div class="top-bar-desktop__middle-bar">
+            <select
+              class="select"
+              name="language"
+              id="language"
+            >
+              <option class="select__item" value="english">English</option>
+              <option class="select__item" value="arabic">Arabic</option>
+              <option class="select__item" value="chinese-simplified">Chinese (Simplified)</option>
+              <option class="select__item" value="chinese-traditional">Chinese (Traditional)</option>
+              <option class="select__item" value="french">French</option>
+              <option class="select__item" value="german">German</option>
+              <option class="select__item" value="italian">Italian</option>
+              <option class="select__item" value="polish">Polish</option>
+              <option class="select__item" value="russian">Russian</option>
+              <option class="select__item" value="ukrainian">Ukrainian</option>
+            </select>
+
+            <ul class="top-bar-desktop__list">
+              <li class="top-bar-desktop__item">
+                <a class="top-bar-desktop__link" href="#about">
+                  About
+                </a>
+              </li>
+              <li class="top-bar-desktop__item">
+                <a class="top-bar-desktop__link" href="#tech">
+                  Tech
+                </a>
+              </li>
+              <li class="top-bar-desktop__item">
+                <a class="top-bar-desktop__link" href="#benefits">
+                  Benefits
+                </a>
+              </li>
+              <li class="top-bar-desktop__item">
+                <a class="top-bar-desktop__link" href="#contact">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+          <a href="#buy-now" class="button">Buy Now</a>
+        </div>
+
+        <div class="header__main-content">
           <img
-            src="./images/mobile-images/katvr-320x172.png"
+            src="./images/desktop-images/katvr.png"
             alt="katvr image"
             class="header__device-image"
           >
-        </div>
 
-        <article class="header__describe">
-          <h1 class="header__title">
-            The new start of
-            <span class="header__title--Quantum">
-              VR locomotion
-            </span>
-          </h1>
+          <div class="grid">
+            <div class="grid__item grid__item--1-6">
+              <h1 class="header__title">
+                The new start of
+                <br>
+                <span class="header__title--Quantum">
+                  VR locomotion
+                </span>
+              </h1>
+            </div>
 
-          <p class="header__paragraph">
-            Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!
-          </p>
+            <div class="grid__item grid__item--2-5">
+              <p class="header__paragraph">
+                Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!
+              </p>
 
-          <div class="header__cost">
-            1200$
+              <div class="header__cost">
+                1200$
+              </div>
+
+              <a
+                href="https://www.youtube.com/watch?v=oaKfyMeRwJs"
+                target="_blank"
+                rel="noopener"
+                class="header__play-video-button">
+              </a>
+            </div>
           </div>
-        </article>
-
-        <a
-          href="https://www.youtube.com/watch?v=oaKfyMeRwJs"
-          target="_blank"
-          rel="noopener"
-          class="header__play-video-button">
-        </a>
+        </div>
       </div>
     </header>
 
-    <nav class="nav page__nav" id="nav">
-      <div class="nav__content">
-        <div class="nav__top">
+    <nav class="menu page__menu" id="menu">
+      <div class="menu__content">
+        <div class="menu__top">
           <a class="icon icon--cross" href="#"></a>
         </div>
-        <ul class="nav__list">
-          <a href="#about" class="nav__link">
-            <li class="nav__item">
+        <ul class="menu__list">
+          <a href="#about" class="menu__link">
+            <li class="menu__item">
               About
             </li>
           </a>
 
-          <a href="#tech" class="nav__link">
-            <li class="nav__item">
+          <a href="#tech" class="menu__link">
+            <li class="menu__item">
               Tech
             </li>
           </a>
 
-          <a href="#benefits" class="nav__link">
-            <li class="nav__item">
+          <a href="#benefits" class="menu__link">
+            <li class="menu__item">
               Benefits
             </li>
           </a>
 
-          <a href="#contact" class="nav__link">
-            <li class="nav__item">
+          <a href="#contact" class="menu__link">
+            <li class="menu__item">
               Contact
             </li>
           </a>
 
-          <a href="#language" class="nav__link">
-            <li class="nav__item">
+          <a href="#language" class="menu__link">
+            <li class="menu__item">
               Language
             </li>
           </a>
 
-          <a href="#faq" class="nav__link">
-            <li class="nav__item">
+          <a href="#faq" class="menu__link">
+            <li class="menu__item">
               FAQ
             </li>
           </a>
 
-          <a href="#help" class="nav__link">
-            <li class="nav__item">
+          <a href="#help" class="menu__link">
+            <li class="menu__item">
               Help
             </li>
           </a>
         </ul>
       </div>
     </nav>
-
-    <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>
