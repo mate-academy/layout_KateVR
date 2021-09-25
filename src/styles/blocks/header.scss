@@ -1,7 +1,10 @@
 .header {
-  width: 320px;
-  height: 554px;
+  height: 100vh;
   background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+
+  @include onDesktop {
+    display: block;
+  }
 
   &__top-bar {
     padding: 18px 20px 14px;
@@ -17,11 +20,7 @@
 
   &__menu {
     display: block;
-    height: 8px;
-    width: 16px;
     background-image: url(../images/icons/menu.svg);
-    background-position: center;
-    background-size: contain;
   }
 
   &__image-container {
