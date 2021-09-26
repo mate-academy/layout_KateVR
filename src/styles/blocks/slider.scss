@@ -1,0 +1,40 @@
+.slider {
+  position: relative;
+  display: block;
+
+  &::after {
+    position: absolute;
+    content: "";
+    border-bottom: 1px solid $slider-color;
+    left: 0;
+    right: 0;
+  }
+
+  &__list {
+    display: flex;
+    padding: 0;
+  }
+
+  &__item {
+    list-style: none;
+    padding-right: 102px;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  &__link {
+    font-family: "Mark-Medium", sans-serif;
+    color: $white;
+
+    &--active::after {
+      position: absolute;
+      content: "";
+      border-bottom: 1px solid $contrast-color;
+      left: 0;
+      right: 139.06px;
+      bottom: 0;
+    }
+  }
+}

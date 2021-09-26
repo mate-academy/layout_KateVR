@@ -1,5 +1,11 @@
 .header {
-  height: 100vh;
+
+  &__content {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
   &__top-bar {
     display: flex;
@@ -32,16 +38,19 @@
   }
 
   &__device-image {
-    position: relative;
-    top: 0%;
     max-height: 100%;
     max-width: 100%;
-    z-index: 0;
-
+   
     @include onDesktop {
       position: absolute;
-      right: 0;
       top: 96px;
+      right: 0;
+      height: 600px;
+      width: 800px;
+      background-image: url(../images/desktop-images/katvr.png);
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
     }
   }
 
@@ -92,6 +101,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
+    margin-bottom: 84px;
     width: 248px;
     height: 64px;
 
@@ -100,6 +110,53 @@
     &:hover {
       background-image: url(../images/buttons/play-video-hover.png);
       transform: scale(1.1);
+    }
+  }
+
+  &__bottom-bar {
+    display: none;
+    position: relative;
+    margin-bottom: 84px;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__help-list {
+    display: flex;
+  }
+
+  &__help-list-item {
+    list-style: none;
+    padding-right: 34px;
+  }
+
+  &__help-list-link {
+    font-family: "Mark-Medium", sans-serif;
+    color: $white;
+  }
+
+  &__more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    font-family: "Mark-Medium", sans-serif;
+    color: $contrast-color;
+
+    &::after {
+      position: absolute;
+      content: "";
+      height: 6px;
+      width: 9px;
+      background-image: url(../images/icons/arrow.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      bottom: 0;
     }
   }
 }
