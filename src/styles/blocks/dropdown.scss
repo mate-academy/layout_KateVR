@@ -1,0 +1,27 @@
+.dropdown {
+  position: relative;
+  margin-left: 34px;
+  @extend %pbig;
+  color: $color-blue;
+  background: transparent;
+  border-radius: 4px;
+  border-color: transparent;
+
+  ::before {
+    position: absolute;
+    content: "&#9660";
+    top: 0;
+    left: 0;
+    height: 8px;
+    width: 8px;
+    color: white;
+  }
+
+  &:focus {
+    background-color: $color-dblue;
+    color: $color-blue;
+    outline: none;
+    border: none;
+    border-radius: 4px;
+  }
+}
