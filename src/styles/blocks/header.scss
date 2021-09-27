@@ -1,17 +1,22 @@
 .header {
+  position: relative;
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
 
   &__content {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+
+    @include onDesktop {
+      justify-content: space-between;
+    }
   }
 
   &__top-bar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 18px 0 14px;
+    padding: 12px 0 14px;
 
     @include onDesktop {
       display: none;
@@ -26,10 +31,6 @@
 
   &__logo {
     height: 100%;
-
-    @include onDesktop {
-      height: 100%;
-    }
   }
 
   &__menu {
@@ -38,19 +39,38 @@
   }
 
   &__device-image {
-    max-height: 100%;
-    max-width: 100%;
-   
+    background-image: url(../images/mobile-images/Katvr-tablet.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 172px;
+    width: 320px;
+    border-radius: 35%;
+
     @include onDesktop {
-      position: absolute;
-      top: 96px;
-      right: 0;
-      height: 600px;
-      width: 800px;
+      display: none;
+    }
+  }
+
+  &__desktop-device-image-container {
+    display: none;
+    height: 100%;
+    width: 100%;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__desktop-device-image {
+    width: 100%;
+    height: 100%;
+
+    @include onDesktop {
       background-image: url(../images/desktop-images/katvr.png);
-      background-size: contain;
+      background-size: 140%;
       background-position: center;
       background-repeat: no-repeat;
+      border-radius: 50%;
     }
   }
 
@@ -73,10 +93,29 @@
     }
   }
 
+  &__main-content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
   &__paragraph {
     margin-bottom: 8px;
 
     @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__paragraph-desktop {
+    display: none;
+
+    @include onDesktop {
+      display: block;
       margin-bottom: 24px;
     }
   }
@@ -127,15 +166,20 @@
 
   &__help-list {
     display: flex;
+    padding: 0;
   }
 
   &__help-list-item {
     list-style: none;
     padding-right: 34px;
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 
   &__help-list-link {
-    font-family: "Mark-Medium", sans-serif;
+    font-family: "`rk-Medium", sans-serif;
     color: $white;
   }
 
