@@ -1,0 +1,64 @@
+.contacts {
+
+  &__title {
+    position: relative;
+    padding-top: 30px;
+    margin-bottom: 24px;
+    &-before::before {
+      position: absolute;
+      content: "Have any questions?";
+      color: $color-blue;
+      font-size: 14px;
+      line-height: 18px;
+      @extend %markR;
+      text-transform: none;
+      top: 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: 76px;
+  }
+  
+  &__mail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 10px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-gray;
+    @extend %markR;
+    font-size: 16px;
+    line-height: 20px;
+    transition: color $tduration;
+    
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  &__top {
+    display: block;
+    background-image: url(../images/arrhome.svg);
+    padding-bottom: 100%;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+  }
+}
