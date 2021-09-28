@@ -1,6 +1,5 @@
 .header {
   position: relative;
-  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
 
   &__content {
     height: 100vh;
@@ -140,11 +139,15 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    margin-bottom: 84px;
+    margin-bottom: 24px;
     width: 248px;
     height: 64px;
 
     transition: transform 300ms;
+
+    @include onDesktop {
+      margin-bottom: 84px;
+    }
 
     &:hover {
       background-image: url(../images/buttons/play-video-hover.png);
