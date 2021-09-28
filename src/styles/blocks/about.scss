@@ -1,7 +1,7 @@
 .about {
 
   &__top {
-    margin-bottom: 220px;
+    margin-bottom: 185px;
   }
   &__video {
     display: flex;
@@ -14,18 +14,17 @@
   }
 
   &__title {
-    @extend %h2;
-    text-transform: uppercase;
-    color: $color-white;
     margin-bottom: 32px;
-
-    &-modified {
-      @extend %quant;
-      color: $color-blue;
-    }
   }
+
   &__text {
     margin-bottom: 32px;
+  }
+
+  &__bottom-hello {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   &__hello {
@@ -46,26 +45,27 @@
       line-height: 130%;
       text-transform: uppercase;
       color: transparent;
+      text-align: center;
       -webkit-text-stroke: 1px $color-blue;
       writing-mode: vertical-rl;
 
-      // &:nth-child(2) {
-      //   transform: rotate(180deg);
-      //   opacity: 0.5;
-      // }
+      &:nth-child(2) {
+        transform: rotate(180deg);
+        opacity: 0.5;
+      }
 
-      // &:nth-child(3) {
-      //   opacity: 0.2;
-      // }
+      &:nth-child(3) {
+        opacity: 0.2;
+      }
 
-      // &:nth-child(4) {
-      //   transform: rotate(180deg);
-      //   opacity: 0.1;
-      // }
+      &:nth-child(4) {
+        transform: rotate(180deg);
+        opacity: 0.1;
+      }
 
-      // &:nth-child(n+3) {
-      //   opacity: 0;
-      // }
+      &:nth-child(n+5) {
+        opacity: 0;
+      }
     }
   }
 }
