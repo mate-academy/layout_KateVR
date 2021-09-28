@@ -1,0 +1,25 @@
+.br {
+  display: initial;
+
+  @include onTablet {
+    display: none;
+  }
+
+  &--tablet {
+    display: none;
+
+    @include onTablet {
+      display: initial;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--desktop {
+    @include onDesktop {
+      display: initial;
+    }
+  }
+}

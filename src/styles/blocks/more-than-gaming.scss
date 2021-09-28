@@ -2,35 +2,76 @@
   padding: 50px 0;
   background-color: $background-black;
 
+  @include onTablet {
+    padding: $more-than-gaming-padding-top-tablet 0
+      ($more-than-gaming-padding-top-tablet
+      - $more-than-gaming-article-padding-bottom);
+  }
+
+  @include onDesktop {
+    padding: $more-than-gaming-padding-top-desktop 0
+      ($more-than-gaming-padding-top-desktop
+      - $more-than-gaming-article-padding-bottom);
+  }
+
   &__title {
     margin-bottom: 10px;
-    text-align: center;
     font-family: "Mark-Heavy", sans-serif;
     font-size: 21px;
     line-height: 27px;
     text-transform: uppercase;
     color: $white;
+
+    @include onTablet {
+      text-align: center;
+    }
   }
 
   &__description {
-    margin-bottom: 30px;
+    margin-bottom: 42px;
     font-size: 12px;
     line-height: 15px;
     color: $contrast-color;
+
+    @include onTablet {
+      text-align: center;
+    }
   }
 
   &__article {
-    margin-bottom: 20px;
+    padding-bottom: $more-than-gaming-article-padding-bottom;
 
-    &:last-child {
-      margin-bottom: 0;
+    &--last-article {
+      padding-bottom: 0;
+
+      @include onTablet {
+        padding-bottom: $more-than-gaming-article-padding-bottom;
+      }
+    }
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
   }
 
   &__subtitle {
-    margin-bottom: 10px;
+    margin: 24px 0 10px;
     font-family: "Mark-Heavy", sans-serif;
     text-transform: uppercase;
     color: $white;
+  }
+
+  &__paragraph {
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @include onTablet {
+      -webkit-line-clamp: 6;
+      text-align: center;
+    }
   }
 }
