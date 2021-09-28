@@ -31,6 +31,24 @@
     }
   }
 
+  &__row {
+    @for $quant from 1 through 10 {
+      &-#{$quant} {
+        grid-template-rows: repeat(#{$quant}, 1fr);
+      }
+    }
+  }
+
+  &__item--row {
+    @for $start from 1 through 5 {
+      @for $end from $start through 4 {
+        &-#{$start}-#{$end} {
+          grid-row: #{$start} / #{$end};
+        }
+      }
+    }
+  }
+
   &__item {
     @for $start from 1 through 16 {
       @for $end from $start through 16 {

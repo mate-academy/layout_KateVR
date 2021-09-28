@@ -1,7 +1,11 @@
 .about {
+
+  &__top {
+    margin-bottom: 220px;
+  }
   &__video {
-  display: flex;
-  flex-direction: column;
+    display: flex;
+    flex-direction: column;
     &-frame {
       height: 100%;
       width: 100%;
@@ -11,14 +15,57 @@
 
   &__title {
     @extend %h2;
-    line-height: 46px;
     text-transform: uppercase;
     color: $color-white;
+    margin-bottom: 32px;
 
     &-modified {
       @extend %quant;
       color: $color-blue;
     }
   }
-}
+  &__text {
+    margin-bottom: 32px;
+  }
 
+  &__hello {
+    font-size: 14px;
+    line-height: 18px;
+    color: $color-blue;
+    margin-bottom: 14px;
+  }
+
+  &__us {
+    display: flex;
+    column-gap: 17px;
+
+    &-text {
+      display: block;
+      @extend %markH;
+      font-size: 64px;
+      line-height: 130%;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 1px $color-blue;
+      writing-mode: vertical-rl;
+
+      // &:nth-child(2) {
+      //   transform: rotate(180deg);
+      //   opacity: 0.5;
+      // }
+
+      // &:nth-child(3) {
+      //   opacity: 0.2;
+      // }
+
+      // &:nth-child(4) {
+      //   transform: rotate(180deg);
+      //   opacity: 0.1;
+      // }
+
+      // &:nth-child(n+3) {
+      //   opacity: 0;
+      // }
+    }
+  }
+}
