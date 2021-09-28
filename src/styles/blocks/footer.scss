@@ -2,6 +2,11 @@
   height: 240px;
   background: $black;
 
+  @include onTablet {
+    height: $tablet-footer-height;
+    line-height: $tablet-footer-height;
+  }
+
   @include onDesktop {
     height: $desktop-footer-height;
     line-height: $desktop-footer-height - 1;
@@ -13,7 +18,7 @@
     align-items: flex-end;
     justify-content: space-between;
 
-    @include onDesktop {
+    @include onTablet {
       align-items: center;
       padding: 0;
     }
@@ -23,7 +28,7 @@
     margin-bottom: 6px;
     height: 14px;
 
-    @include onDesktop {
+    @include onTablet {
       display: none;
     }
   }
@@ -31,7 +36,7 @@
   &__link-desktop {
     display: none;
 
-    @include onDesktop {
+    @include onTablet {
       display: block;
     }
   }
@@ -41,7 +46,7 @@
     padding: 0;
     list-style: none;
 
-    @include onDesktop {
+    @include onTablet {
       display: flex;
       gap: 40px;
     }
@@ -54,7 +59,7 @@
       margin-bottom: 0;
     }
 
-    @include onDesktop {
+    @include onTablet {
       margin-bottom: 0;
     }
   }
@@ -63,7 +68,7 @@
     font-size: 13px;
     color: $white;
 
-    @include onDesktop {
+    @include onTablet {
       font-size: 14px;
     }
   }
@@ -72,7 +77,7 @@
     display: flex;
     align-items: center;
 
-    @include onDesktop {
+    @include onTablet {
       display: none;
     }
   }
@@ -100,5 +105,9 @@
   &__icons {
     display: flex;
     gap: 24px;
+
+    @include onTablet {
+      gap: 18px;
+    }
   }
 }

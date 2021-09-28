@@ -15,7 +15,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 0 14px;
+    padding: 14px 0;
+
+    @include onTablet {
+      padding: 30px 0 48px;
+    }
 
     @include onDesktop {
       display: none;
@@ -30,11 +34,11 @@
 
   &__logo {
     height: 100%;
-  }
 
-  &__menu {
-    display: block;
-    background-image: url(../images/icons/menu.svg);
+    @include onTablet {
+      height: 16px;
+      width: 80px;
+    }
   }
 
   &__device-image {
@@ -45,7 +49,7 @@
     width: 320px;
     border-radius: 35%;
 
-    @include onDesktop {
+    @include onTablet {
       display: none;
     }
   }
@@ -55,7 +59,7 @@
     height: 100%;
     width: 100%;
 
-    @include onDesktop {
+    @include onTablet {
       display: block;
     }
   }
@@ -64,7 +68,7 @@
     width: 100%;
     height: 100%;
 
-    @include onDesktop {
+    @include onTablet {
       background-image: url(../images/desktop-images/katvr.png);
       background-size: 140%;
       background-position: center;
@@ -105,7 +109,7 @@
   &__paragraph {
     margin-bottom: 8px;
 
-    @include onDesktop {
+    @include onTablet {
       display: none;
     }
   }
@@ -113,23 +117,26 @@
   &__paragraph-desktop {
     display: none;
 
-    @include onDesktop {
+    @include onTablet {
       display: block;
+      font-size: 16px;
+      margin-bottom: 16px;
+    }
+
+    @include onDesktop {
       margin-bottom: 24px;
     }
   }
 
   &__cost {
-    margin-bottom: 16px;
-    font-family: "Mark-Medium", sans-serif;
     font-size: 18px;
     line-height: 23px;
     text-align: center;
     color: $white;
 
-    @include onDesktop {
+    @include onTablet {
+      margin-bottom: 16px;
       text-align: start;
-      margin-bottom: 24px;
     }
   }
 
@@ -139,11 +146,16 @@
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
-    margin-bottom: 24px;
-    width: 248px;
-    height: 64px;
+    margin-bottom: 16px;
+    width: 100%;
+    height: 76px;
 
     transition: transform 300ms;
+
+    @include onTablet {
+      height: 72px;
+      width: 244px;
+    }
 
     @include onDesktop {
       margin-bottom: 84px;

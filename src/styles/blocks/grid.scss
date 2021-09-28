@@ -3,14 +3,14 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
 
-  @include onDesktop {
+  @include onTablet {
     grid-template-columns: repeat(12, 1fr);
   }
 
   &--desktop {
     display: block;
 
-    @include onDesktop {
+    @include onTablet {
       display: grid;
     }
   }
@@ -20,6 +20,12 @@
       @for $end from $start through 12 {
         &--#{$start}-#{$end} {
           grid-column: #{$start} / #{$end + 1};
+        }
+
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
         }
 
         &--desktop-#{$start}-#{$end} {
