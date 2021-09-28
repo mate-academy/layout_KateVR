@@ -42,11 +42,18 @@
 
   &__top {
     display: block;
+    position: absolute;
+    top: -50px;
+    right: 0;
     background-image: url(../images/arrhome.svg);
     padding-bottom: 100%;
     width: 100%;
     background-repeat: no-repeat;
     background-size: contain;
+
+    &-container {
+      position: relative;
+    }
   }
 
   &__container {
@@ -60,5 +67,24 @@
     flex-direction: column;
     justify-content: space-between;
     gap: 24px;
+    margin-bottom: 50px;
+  }
+
+  &__input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $color-gray;
+    padding-bottom: 18px;
+    outline: none;
+    &:last-child {
+      padding-bottom: 67px;
+    }
+
+    &:hover {
+      border-bottom-color: $color-blue;
+      &::placeholder {
+        color: $color-blue;
+      }
+    }
   }
 }
