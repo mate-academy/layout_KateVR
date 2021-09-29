@@ -7,10 +7,30 @@
     grid-template-columns: repeat(12, 1fr);
   }
 
-  &--desktop {
+  &--tablet-desktop {
+    display: block;
+    
+    @include onTablet {
+      display: grid;
+    }
+  }
+
+  &--tablet {
     display: block;
 
     @include onTablet {
+      display: grid;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--desktop {
+    display: none;
+
+    @include onDesktop {
       display: grid;
     }
   }
