@@ -1,43 +1,51 @@
 .slider {
-  position: relative;
-  display: block;
+  display: none;
 
-  &::after {
-    position: absolute;
-    content: "";
-    border-bottom: 1px solid $slider-color;
-    left: 0;
-    right: 0;
-  }
-
-  &__list {
+  @include onDesktop {
+    position: relative;
     display: flex;
-    padding: 0;
-  }
+    width: 205.31px;
 
-  &__item {
-    list-style: none;
-    padding-right: 102px;
-
-    &:last-child {
-      padding-right: 0;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 205.31px;
+      bottom: 10px;
+      height: 1px;
+      background: $slider-color;
     }
-  }
 
-  &__link {
-    font-family: "Mark-Medium", sans-serif;
-    color: $white;
+    &__list {
+      display: flex;
+      padding: 0;
+    }
 
-    &--active {
-      color: $text-color;
+    &__item {
+      list-style: none;
+      padding-right: 102px;
 
-      &::after {
-        position: absolute;
-        content: "";
-        border-bottom: 1px solid $contrast-color;
-        left: 0;
-        right: 139.06px;
-        bottom: 0;
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    &__link {
+      font-family: "Mark-Medium", sans-serif;
+      color: $white;
+
+      &--active {
+        color: $text-color;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 66.25px;
+          bottom: 10px;
+          height: 1px;
+          background-color: $contrast-color;
+          z-index: 1;
+        }
       }
     }
   }

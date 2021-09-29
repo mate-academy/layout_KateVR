@@ -1,0 +1,74 @@
+.about {
+  padding: $section-padding-top-mobile 0;
+
+  @include onTablet {
+    padding: $section-padding-top-tablet 0;
+  }
+
+  @include onDesktop {
+    padding: $section-padding-top-desktop 0;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: "Mark-Heavy", sans-serif;
+    font-size: 21px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: $white;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      font-size: 34px;
+      line-height: 46px;
+    }
+  }
+
+  &__image {
+    height: 189px;
+    width: $about-image-width-mobile;
+    background-image: url(../images/desktop-images/VrOnTheBelt.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 230px;
+      width: $about-image-width-tablet;
+    }
+
+    @include onDesktop {
+      height: 290px;
+      width: $about-image-width-desktop;
+    }
+  }
+
+  &__slider {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 18px;
+    width: $about-image-width-mobile;
+
+    @include onTablet {
+      margin-bottom: 0;
+      width: $about-image-width-tablet;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slider-desktop {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 16px;
+  }
+}
