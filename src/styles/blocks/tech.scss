@@ -1,0 +1,88 @@
+.tech {
+  padding: $section-padding-top-mobile 0;
+  background: $background-black;
+
+  @include onTablet {
+    padding: $section-padding-top-tablet 0;
+  }
+
+  @include onDesktop {
+    padding: $section-padding-top-desktop 0;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    font-family: "Mark-Heavy", sans-serif;
+    font-size: 21px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: $white;
+
+    @include onTablet {
+      margin-bottom: 57px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 197px;
+    width: 194.7px;
+    background-image: url(../images/mobile-images/karvr-tech.png);
+
+    @include onTablet {
+      height: 358px;
+      width: 354px;
+      background-image: url(../images/tablet-images/vrkat-tech.png);
+    }
+  }
+
+  &__plus {
+    position: absolute;
+    height: 34px;
+    width: 34px;
+    background-image: url(../images/icons/tech-plus.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      height: 62px;
+      width: 62px;
+    }
+
+    &:active {
+      background-image: url(../images/icons/tech-plus-active.svg);
+    }
+
+    &--1 {
+      left: 60px;
+      top: -11px;
+      
+      @include onTablet {
+        left: 64.74px;
+        top: -27px;
+      }
+    }
+
+    &--2 {
+      left: 134px;
+      top: 80px;
+
+      @include onTablet {
+        left: 247px;
+        top: 145px;
+      }
+    }
+
+    &--3 {
+      left: -17px;
+      top: 153px;
+
+      @include onTablet {
+        left: -58px;
+        top: 273px;
+      }
+    }
+  }
+}
