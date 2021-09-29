@@ -24,6 +24,21 @@
     }
   }
 
+  &__image-container {
+    position: relative;
+
+    @include onDesktop {
+      &::before {
+        position: absolute;
+        left: -44px;
+        content: "1/5";
+        font-size: 14px;
+        line-height: 18px;
+        color: $contrast-color;
+      }
+    }
+  }
+
   &__image {
     height: 189px;
     width: $about-image-width-mobile;
@@ -70,5 +85,72 @@
 
   &__paragraph {
     margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__play-video-button {
+    margin-bottom: 80px;
+  }
+
+  &__bottom-part-desktop-container {
+    align-items: center;
+  }
+
+  &__addition-text {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    color: $contrast-color;
+
+    &::after {
+      content: ",";
+    }
+  }
+
+  &__background-text {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__background-about-us {
+    background-image: url(../images/bg-text/about-us.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &--opacity-50 {
+      opacity: 0.5;
+      transform: rotate(180deg);
+    }
+
+    &--opacity-20 {
+      opacity: 0.2;
+    }
+
+    &--opacity-10 {
+      opacity: 0.1;
+      transform: rotate(180deg);
+    }
+
+    &--opacity-5 {
+      opacity: 0.05;
+    }
+
+    @include onTablet {
+      display: block;
+      height: 249px;
+      width: 40px;
+    }
+
+    @include onDesktop {
+      height: 332px;
+      width: 54px;
+    }
   }
 }
