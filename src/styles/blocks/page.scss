@@ -1,5 +1,6 @@
 .page {
   scroll-behavior: smooth;
+  position: relative;
 
   &__section {
 
@@ -8,6 +9,10 @@
 
       @include onDesktop {
         padding: 100px 0;
+      }
+
+      @include onMobile {
+        padding: 50px 0;
       }
     }
 
@@ -23,9 +28,26 @@
       background: linear-gradient(107.56deg, #191536 0%, #000 100%);
     }
   }
+
+  &__mobile-button {
+    display: none;
+
+    @include onMobile {
+      position: sticky;
+      z-index: 1;
+      bottom: 0;
+      padding: 20px;
+      background: linear-gradient(180deg,rgba(0,0,0,0.21),
+      rgba(4,4,4,0.59) 23.44%,#050505);
+    }
+  }
 }
 
 p {
   @extend %pregular;
   color: $color-gray;
+
+  @include onMobile {
+    text-align: left;
+  }
 }

@@ -13,11 +13,21 @@
       @extend %markR;
       text-transform: none;
       top: 0;
+
+      @include onTablet {
+        top: -10px;
+      }
     }
   }
 
   &__text {
     margin-bottom: 76px;
+  }
+
+  &__section {
+    @include onMobile {
+      position: relative;
+    }
   }
   
   &__mail {
@@ -25,6 +35,14 @@
     flex-direction: column;
     justify-content: space-between;
     row-gap: 10px;
+
+    @include onMobile {
+      position: absolute;
+      top: 700px;
+      right: 0;
+      font-size: 13px;
+      text-align: right;
+    }
   }
 
   &__link {
@@ -34,7 +52,7 @@
     font-size: 16px;
     line-height: 20px;
     transition: color $tduration;
-    
+
     &:hover {
       color: $color-white;
     }
@@ -60,6 +78,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include onMobile {
+      margin-bottom: 26px;
+    }
   }
 
   &__form {
@@ -76,10 +98,14 @@
     border-bottom: 1px solid $color-gray;
     padding-bottom: 18px;
     outline: none;
+    color: $color-blue;
     &:last-child {
       padding-bottom: 67px;
     }
 
+    &:focus {
+      color: $color-blue;
+    }
     &:hover {
       border-bottom-color: $color-blue;
       &::placeholder {

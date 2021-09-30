@@ -9,27 +9,47 @@
 
   @include onTablet {
     grid-template-columns: repeat(6, 1fr);
+
+    &--tablet {
+      display: none;
+    }
   }
 
   @include onMobile {
     grid-template-columns: repeat(2, 1fr);
-  }
 
-  &--mobile {
-    display: grid;
+    &--mobile {
+      display: none;
+    }
 
-    @include onTablet {
+    &--mobile-visible {
       display: block;
     }
   }
 
-  &--desktop {
-    display: block;
+  // &--mobile {
+  //   display: block;
 
-    @include onDesktop {
-      display: grid;
-    }
-  }
+  //   @include onTablet {
+  //     display: grid;
+  //   }
+  // }
+
+  // &--tablet {
+  //   display: none;
+
+  //   @include onDesktop {
+  //     display: grid;
+  //   }
+  // }
+
+  // &--desktop {
+  //   display: block;
+
+  //   @include onDesktop {
+  //     display: grid;
+  //   }
+  // }
 
   &__row {
     @for $quant from 1 through 10 {
@@ -52,23 +72,35 @@
   &__item {
     @for $start from 1 through 16 {
       @for $end from $start through 16 {
-        &--#{$start}-#{$end} {
+        &--max-#{$start}-#{$end} {
           grid-column: #{$start} / #{$end + 1};
         }
+      }
+    }
 
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
         &--desktop-#{$start}-#{$end} {
           @include onDesktop {
             grid-column: #{$start} / #{$end + 1};
           }
         }
+      }
+    }
 
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
         &--tablet-#{$start}-#{$end} {
           @include onTablet {
             grid-column: #{$start} / #{$end + 1};
           }
         }
+      }
+    }
 
-        &--max-#{$start}-#{$end} {
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--mob-#{$start}-#{$end} {
           @include onMobile {
             grid-column: #{$start} / #{$end + 1};
           }

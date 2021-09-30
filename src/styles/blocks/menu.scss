@@ -1,0 +1,56 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #191536;
+  padding-top: 30px;
+  transform: translateY(-100%);
+  transition: transform $tduration;
+
+  @include onMobile {
+    height: 100vh;
+  }
+  
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__icon {
+    display: block;
+    background-image: url(../images/cross.png);
+    width: 17px;
+    height: 17px;
+    padding: 10px;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-white;
+    @extend %markM;
+    font-size: 21px;
+    line-height: 130%;
+    transition: color $tduration;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 130px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 34px;
+    padding-bottom: 46px;
+  }
+}

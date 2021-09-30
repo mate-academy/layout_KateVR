@@ -10,6 +10,18 @@
   &__container {
     display: flex;
     justify-content: space-between;
+
+    @include onMobile {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @include onMobile {
+    &__nav {
+      display: flex;
+      margin-top: 15px;
+    }
   }
 
   &__soc {
@@ -48,6 +60,12 @@
       width: 14px;
       background-repeat: no-repeat;
       background-size: cover;
+    }
+
+    @include onMobile {
+      display: flex;
+      justify-content: space-between;
+      align-self: flex-end;
     }
   }
 }

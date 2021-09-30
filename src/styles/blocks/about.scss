@@ -1,7 +1,21 @@
 .about {
 
+  &__slider {
+    @include onTablet {
+      display: none;
+    }
+  }
+
   &__top {
-    margin-bottom: 185px;
+    margin-bottom: 184px;
+
+    @include onTablet {
+      margin-bottom: 106px;
+    }
+
+    @include onMobile {
+      margin-bottom: 80px;
+    }
   }
   &__video {
     display: flex;
@@ -37,6 +51,7 @@
   &__us {
     display: flex;
     column-gap: 17px;
+    overflow: hidden;
 
     &-text {
       display: block;

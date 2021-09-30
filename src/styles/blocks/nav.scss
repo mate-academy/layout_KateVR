@@ -6,6 +6,12 @@
     align-items: center;
     list-style: none;
     gap: 34px;
+
+    @include onMobile {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
   }
 
   &__link {
@@ -14,6 +20,14 @@
     color: $color-white;
     padding: 10px 0;
     transition: color $tduration;
+    
+    @include onTablet {
+      font-size: 14px;
+    }
+
+    @include onMobile {
+      font-size: 13px;
+    }
 
     &:hover {
       color: $color-blue;

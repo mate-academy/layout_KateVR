@@ -1,0 +1,41 @@
+.card {
+  @include onTablet {
+    margin-bottom: 40px;
+  }
+
+  @include onMobile {
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    @include onTablet {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      height: 4.5em;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+
+    @include onMobile {
+      -webkit-line-clamp: 2;
+      height: 3em;
+      overflow: hidden;
+    }
+  }
+
+  &__img {
+    transition: transform $tduration;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include onTablet {
+      display: inline;
+    }
+
+    @include onMobile {
+      display: none;
+    }
+  }
+}
