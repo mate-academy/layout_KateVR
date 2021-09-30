@@ -187,26 +187,38 @@
   &__help-list-link {
     font-family: "`rk-Medium", sans-serif;
     color: $white;
+
+    &:hover {
+      color: $contrast-color;
+    }
   }
 
   &__more {
     display: flex;
     flex-direction: column;
     align-items: center;
+    color: $white;
 
     font-family: "Mark-Medium", sans-serif;
-    color: $contrast-color;
+
+    &:hover {
+      color: $contrast-color;
+    }
 
     &::after {
       position: absolute;
       content: "";
       height: 6px;
       width: 9px;
-      background-image: url(../images/icons/arrow.svg);
+      background-image: url(../images/icons/arrow-hover.svg);
       background-position: center;
       background-size: contain;
       background-repeat: no-repeat;
       bottom: 0;
+    }
+
+    &:hover::after {
+      background-image: url(../images/icons/arrow.svg);
     }
   }
 }
