@@ -4,6 +4,10 @@
     background-repeat: no-repeat;
     background-size: 65%;
     background-position: right center;
+
+    @include onDesktop {
+      background-image: url(../images/main1280.png);
+    }
   }
   &__content {
     height: 100vh;
@@ -12,6 +16,10 @@
     justify-content: space-between;
     padding-top: 60px;
     padding-bottom: 106px;
+
+    @include onDesktop {
+      padding-bottom: 100px;
+    }
   }
 
   &__top {
@@ -35,6 +43,11 @@
       @extend %quant;
       color: $color-blue;
     }
+
+    @include onDesktop {
+      font-size: 46px;
+      padding-left: 0;
+    }
   }
 
   &__text {
@@ -47,6 +60,10 @@
     @extend %pheader;
     color: $color-white;
     margin-bottom: 30px;
+
+    @include onDesktop {
+      margin-bottom: 20px;
+    }
   }
 
   &__bottom {
@@ -55,21 +72,20 @@
     align-items: center;
 
     &-button {
+      position: relative;
       @extend %pbig;
       text-decoration: none;
       color: $color-blue;
-      display: flex;
-      gap: 7px;
-      flex-direction: column;
-      align-items: center;
 
       &::after {
-        display: block;
+        position: absolute;
         content: "";
         background-image: url(../images/arrow-down.svg);
         background-repeat: no-repeat;
         height: 6px;
         width: 9px;
+        left: 50%;
+        top: 100%;
       }
     }
   }
