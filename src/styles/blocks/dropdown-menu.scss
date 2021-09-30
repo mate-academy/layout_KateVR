@@ -1,0 +1,60 @@
+.scroll-down {
+  animation-name: pulse;
+  animation-duration: 1s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+
+  &:hover {
+    animation: none;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+
+    50% {
+      transform: scale(1.1);
+    }
+
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $whiteAccent;
+    font-weight: 500;
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 9px;
+      height: 6px;
+      right: 50%;
+      top: 22px;
+
+      transform: translateX(50%);
+
+  
+      background-image: url(../images/arrow-white1.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &:hover {
+      color: $contrastColor;
+
+      &:after {
+        background-image: url(../images/arrow-blue.svg);
+      }
+    }
+
+    &:active {
+      color: $darkGrey;
+    }
+  }
+}

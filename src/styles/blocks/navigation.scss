@@ -1,0 +1,59 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0 14px;
+
+  @include onDesktop {
+    padding: 48px 0;
+  }
+
+  &__left-side {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: 35px;
+  }
+
+  &__list {
+    display: none;
+    transition: all 0.3s;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  }
+
+  &__item {
+    padding-right: 34px;
+
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    padding: 12px 0;
+
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 130%;
+    color: #fff;
+
+    &:hover {
+      color: $contrastColor;
+    }
+
+    &:active {
+      color: $darkGrey;
+    }
+  }
+}

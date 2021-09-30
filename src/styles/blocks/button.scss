@@ -1,0 +1,33 @@
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 200px;
+  height: 48px;
+  background-color: $contrastColor;
+  text-decoration: none;
+  color: #fff;
+  border-radius: 4px;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: $whiteAccent;
+    color: $contrastColor;
+  }
+
+  &:active {
+    background-color: $menuBackground;
+    color: $darkGrey;
+  }
+
+  &--shop-mobile {
+    height: 40px;
+    width: 280px;
+    margin: 0 auto;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}
