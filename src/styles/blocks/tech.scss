@@ -32,6 +32,11 @@
     }
 
     @include onDesktop {
+      font-size: 27px;
+      line-height: 150%;
+    }
+
+    @include onDesktop1280 {
       margin-bottom: 80px;
       font-size: 36px;
       line-height: 46px;
@@ -54,7 +59,7 @@
       background-image: url(../images/tablet-images/vrkat-tech.png);
     }
 
-    @include onDesktop {
+    @include onDesktop1280 {
       height: 297px;
       width: 294px;
       background-image: url(../images/desktop-images/tech-specs.png);
@@ -90,7 +95,7 @@
         top: -27px;
       }
 
-      @include onDesktop {
+      @include onDesktop1280 {
         left: -228px;
         top: -43px;
         background-image: url(../images/desktop-images/sensor-vector.svg);
@@ -112,7 +117,7 @@
         top: 145px;
       }
 
-      @include onDesktop {
+      @include onDesktop1280 {
         left: 152px;
         top: -45px;
         background-image: url(../images/desktop-images/batterries-vector.svg);
@@ -134,7 +139,7 @@
         top: 273px;
       }
 
-      @include onDesktop {
+      @include onDesktop1280 {
         left: -131px;
         top: 58.5px ;
         background-image: url(../images/desktop-images/connection-vector.svg);
@@ -150,7 +155,7 @@
     &--left-bracket {
       display: none;
 
-      @include onDesktop {
+      @include onDesktop1280 {
         display: block;
         position: absolute;
         top: 38px;
@@ -168,6 +173,26 @@
 
   &__sensor-container {
     height: max-content;
+
+    @include onDesktop1280 {
+      padding-left: 40px;
+    }
+
+    @include onDesktop2k {
+      padding-left: 150px;
+    }
+  }
+
+  &__batterries-container {
+    @include onDesktop2k {
+      margin-left: -120px;
+    }
+  }
+
+  &__connection-container {
+    @include onDesktop2k {
+      padding-left: 80px;
+    }
   }
 
   &__subtitle {
@@ -181,7 +206,7 @@
       }
     }
 
-    @include onDesktop {
+    @include onDesktop1280 {
       display: inherit;
       margin-bottom: 20px;
       font-size: 18px;
@@ -195,7 +220,7 @@
   &__paragraph {
     display: none;
 
-    @include onDesktop {
+    @include onDesktop1280 {
       display: inherit;
     }
   }
