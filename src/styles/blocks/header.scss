@@ -1,0 +1,332 @@
+.header {
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  color: #fff;
+  margin-bottom: -1px;
+
+  // TOP HEADER
+  &__top {
+    padding-top: 60px;
+    margin-bottom: 200px;
+
+    &-logo {
+      display: inline-block;
+      position: relative;
+      z-index: 1;
+    }
+
+    &-logo-select {
+      display: inline-block;
+      margin-left: 34px;
+      background-color: transparent;
+      color: #05c2df;
+      border: none;
+      outline: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+
+      &-option {
+
+        background-color: #191536;
+        outline: none;
+        border: 1px solid red;
+      }
+    }
+  }
+
+  //mobile
+  .header__burger {
+    display: none;
+  }
+
+  // MIDDLE HEADER
+  &__middle {
+    margin-bottom: 38px;
+
+    &-description {
+      position: relative;
+      z-index: 1;
+    }
+
+    &-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1100px;
+    }
+
+    &-title {
+      z-index: 20;
+      display: block;
+      font-size: 54px;
+      margin-bottom: 14px;
+      font-family: Mark-Heavy, sans-serif;
+      
+        // dont allow select
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      &--special {
+        color: #05c2df;
+        font-family: Quantum, sans-serif;
+      }
+    }
+
+    &-subtitle {
+      display: block;
+      color: #929292;
+      font-size: 20px;
+      line-height: 30px;
+      width: 400px;
+      margin-left: 90px;
+      margin-bottom: 30px;
+      cursor: default;
+
+        // dont allow select
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    &-amount {
+      display: inline-block;
+      margin-left: 90px;
+      margin-bottom: 35px;
+    }
+
+    &-play {
+      display: block;
+      margin-left: 90px;
+      margin-bottom: 230px;
+      position: relative;
+
+      &:hover {
+        &::after {
+          top: 25px;
+          left: 28px;
+          content: "";
+          border-top: 10px solid transparent;
+          border-left: 17px solid white;
+          border-bottom: 10px solid transparent;
+          position: absolute;
+        }
+      }
+    }
+  }
+
+  //mobile
+  .buy-header {
+    display: none;
+    color: #fff;
+    background-color: #05c2df;
+    padding: 13px 48px;
+    border-radius: 4px;
+    transition: 0.3s ease-in-out;
+    text-decoration: none;
+  }
+
+  // HEADER bottom
+  &__bottom {
+    font-family: Mark-Medium, sans-serif;
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 108px;
+
+    &-info {
+      display: inline-block;
+    }
+
+    &-info-faq {
+      color: #fff;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &-info-help {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 34px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    &-more {
+      position: relative;
+      text-decoration: none;
+      z-index: 1;
+      color: #05c2df;
+      font-size: 14px;
+      transform: translate(155%, 0);
+
+      &::before {
+        content: "";
+        top: 27px;
+        right: 38%;
+        bottom: 0;
+        position: absolute;
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        border-top: 6px solid #05c2df;
+        color: #05c2df;
+      }
+    }
+
+    &-pagination {
+      display: inline-block;
+      z-index: 1;
+      border-bottom: 1px solid #212121;
+      height: 45px;
+
+      &-prev {
+        display: inline-block;
+        height: 100%;
+        color: #fff;
+        text-decoration: none;
+        margin-right: 102px;
+        transition: all 1s ease-in-out;
+
+        &:hover {
+          border-bottom: 1px solid #05c2df;
+          color: #929292;
+        }
+        &--active {
+          border-bottom: 1px solid #05c2df;
+          color: #929292;
+          cursor: not-allowed;
+        }
+      }
+
+      &-next {
+        display: inline-block;
+        height: 100%;
+        color: #fff;
+        text-decoration: none;
+        transition: all 1s ease-in-out;
+        &:hover {
+          border-bottom: 1px solid #05c2df;
+        }
+      }
+    }
+  }
+
+  //tablet
+  @media (max-width: 1024px) {
+    .header {
+      //header top
+      &__top {
+        margin-bottom: 55px;
+        padding-top: 30px;
+
+        &-logo-select {
+          display: none;
+        }
+      }
+
+      // header middle
+      &__middle {
+        // ?
+        margin-bottom: -1px;
+        &-description {
+          padding-bottom: 61px;
+        }
+
+        &-title {
+          font-size: 26px;
+        }
+
+        &-subtitle {
+          font-size: 16px;
+          margin-left: 0;
+          width: 340px;
+          margin-bottom: 10px;
+          line-height: 24px;
+        }
+
+        &-image {
+          width: 510px;
+        }
+
+        &-amount {
+          font-size: 18px;
+          margin-left: 0;
+        }
+
+        &-play {
+          margin-left: 0;
+          margin-bottom: 0;
+        }
+      }
+
+      &__bottom {
+        display: none;
+      }
+    }
+
+    .header__burger {
+      position: relative;
+      z-index: 1;
+      display: inline-block;
+      height: 19px;
+      width: 30px;
+      float: right;
+    }
+
+    .container {
+      padding: 0 34px;
+    }
+  }
+
+  // mobile
+  @media (max-width: 767px) {
+    .header__middle {
+      position: relative;
+      overflow: hidden;
+
+      &-description {
+        padding-top: 170px;
+      }
+
+      &-amount {
+        margin-top: 8px;
+        margin-left: 125px;
+        margin-bottom: 25px;
+      }
+
+      &-image {
+        top: -60px;
+        left: -28px;
+        position: absolute;
+        width: 450px;
+      }
+
+      &-play {
+        width: 80%;
+        margin-bottom: 23px;
+      }
+    }
+
+    //mobile
+    .buy-header {
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+      position: relative;
+
+      &:hover {
+        background-color: #fff;
+        color: #05c2df;
+      }
+    }
+  }
+}
