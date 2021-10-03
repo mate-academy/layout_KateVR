@@ -4,6 +4,10 @@
   background-color: $BackgroundBlack;
   overflow: hidden;
 
+  @include onTablet {
+    height: 600px;
+  }
+
   @include onDesktop {
     height: 680px;
     position: static;
@@ -17,6 +21,10 @@
     line-height: 27px;
     font-weight: 900;
     color: $whiteAccent;
+
+    @include onTablet {
+      margin-bottom: 57px;
+    }
 
     @include onDesktop {
       font-size: 36px;
@@ -41,6 +49,11 @@
     background-position: top -1px right -3px;
     background-size: 105%;
     background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 354px;
+      width: 354px;
+    }
 
     @include onDesktop {
       height: 295px;
@@ -67,6 +80,10 @@
       display: block;
       content: url(../images/tech_description.svg);
 
+      @include onTablet {
+        content: url(../images/ipad_tech.svg);
+      }
+
       @include onDesktop {
         display: none;
       }
@@ -75,16 +92,31 @@
     &--sensor {
       top: -20px;
       left: 30px;
+
+      @include onTablet {
+        top: -20px;
+        left: 36px;
+      }
     }
 
     &--batteries {
       top: 75px;
       left: 130px;
+
+      @include onTablet {
+        top: 140px;
+        left: 235px;
+      }
     }
 
     &--conection {
       top: 150px;
       left: -25px;
+
+      @include onTablet {
+        top: 300px;
+        left: -60px;
+      }
     }
   }
 

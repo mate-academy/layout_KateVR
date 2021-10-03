@@ -11,6 +11,10 @@
     font-weight: 900;
     color: $whiteAccent;
 
+    @include onTablet {
+      margin-bottom: 24px;
+    }
+
     @include onDesktop {
       font-size: 36px;
       line-height: 46px;
@@ -21,21 +25,55 @@
       font-family: Quantum, sans-serif;
       color: $contrastColor;
     }
+
+    &--invisible-1 {
+      display: block;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &--invisible-2 {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
   }
 
   &__description {
-    margin: 0 0 14px;
+    margin: 0 0 16px;
     color: $textColor;
     font-size: 16px;
     line-height: 150%;
 
+    @include onTablet {
+      margin-bottom: 20px;
+      margin-right: 10px;
+    }
+
     @include onDesktop {
       margin-bottom: 25px;
+      margin-right: 0;
     }
   }
 
   &__video-button {
     margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 120px;
+    }
 
     @include onDesktop {
       margin-bottom: 236px;

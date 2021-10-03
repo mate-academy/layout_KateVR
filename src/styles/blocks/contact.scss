@@ -5,8 +5,25 @@
   &__contacts-block {
     display: none;
 
+    @include onTablet {
+      display: block;
+    }
+
     @include onDesktop {
       display: block;
+    }
+  }
+
+  &__grid {
+    display: block;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      display: grid;
     }
   }
 
@@ -18,6 +35,10 @@
     font-size: 21px;
     line-height: 27px;
     color: $whiteAccent;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
 
     @include onDesktop {
       font-size: 36px;
@@ -36,6 +57,10 @@
     color: $contrastColor;
     font-size: 14px;
     line-height: 18px;
+
+    @include onTablet {
+      margin-bottom: 10px;
+    }
 
     @include onDesktop {
       margin: 0;
@@ -64,6 +89,11 @@
       font-size: 16px;
       line-height: 150%;
 
+      @include onTablet {
+        display: block;
+        margin-bottom: 52px;
+      }
+
       @include onDesktop {
         display: block;
         margin-bottom: 52px;
@@ -74,6 +104,10 @@
       display: block;
       font-size: 12px;
       line-height: 150%;
+
+      @include onTablet {
+        display: none;
+      }
       
       @include onDesktop {
         display: none;

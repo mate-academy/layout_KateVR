@@ -1,5 +1,6 @@
 .main-slider-mobile {
   margin-bottom: 20px;
+
   &__img {
     display: block;
     width: 100%;
@@ -35,10 +36,14 @@
     display: block;
     object-fit: cover;
     object-position: center;
-    width: 280px;
+    width: 100%;
+
+    @include onTablet {
+      min-width: 340px;
+    }
 
     @include onDesktop {
-      width: 430px;
+      max-width: 430px;
     }
   }
 

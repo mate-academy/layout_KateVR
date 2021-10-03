@@ -1,23 +1,34 @@
 .decor {
   display: none;
-  gap: 17.5px;
+
+  @include onTablet {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
 
   @include onDesktop {
     display: flex;
+    justify-content: space-around;
+    gap: 17.25px;
   }
 
   &__element {
     cursor: default;
-    margin: 0;
     font-family: Mark, sans-serif;
     font-weight: 900;
-    font-size: 64px;
+    font-size: 48px;
+    line-height: 130%;
     color: transparent;
     text-transform: uppercase;
-    line-height: 130%;
     writing-mode: vertical-lr;
     -webkit-text-stroke: 1px #05c2df;
     animation: glow 3s ease-in-out infinite alternate;
+
+    @include  onDesktop {
+      font-size: 68px;
+      line-height: 130%;
+    }
 
     @keyframes glow {
       from {
@@ -25,6 +36,18 @@
       }
       to {
         text-shadow: 0 0 30px #34b3c1, 0 0 10px #4dbbc7;
+      }
+    }
+
+    &--invisible {
+      display: flex;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: flex;
       }
     }
 
@@ -46,6 +69,7 @@
 
     &:nth-child(2n) {
       transform: rotate(180deg);
+      padding-right: 12px;
     }
   }
 }
