@@ -695,16 +695,6 @@
     </footer>
     <script type="text/javascript">
       var slideIndex = 1;
-      showSlides(slideIndex);
-
-      function plusSlides(n) {
-        showSlides(slideIndex += n);
-      }
-
-      function currentSlide(n) {
-        showSlides(slideIndex = n);
-      }
-
       function showSlides(n) {
         var i;
         var slides = document.getElementsByClassName("carousel__slide");
@@ -720,6 +710,16 @@
         slides[slideIndex-1].style.display = "block";
         dots[slideIndex-1].className += " active";
       }
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      showSlides(slideIndex);
     </script>
   </body>
 </html>
