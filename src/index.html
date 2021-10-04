@@ -256,30 +256,69 @@
             </div>
 
             <div class="grid__item grid__item--2-6 grid__item--img">
-              <div class="about__main-slider-mobile main-slider-mobile">
-                <img
-                  class="main-slider-mobile__image"
-                  src="./images/slider.png"
-                  alt="Device Loco-S"
-                >
-                <div class="slider about__slider">
-                  <ul class="slider__list">
-                    <li class="slider__item">
-                      <a class="slider__link" href="#previous">Previous</a>
-                    </li>
-                    <li class="slider__item">
-                      <a class="slider__link" href="next">Next</a>
-                    </li>
-                  </ul>
+              <div class="carousel">
+                <div class="carousel__slide">
+                  <div class="carousel__counter">1/5</div>
+                  <img
+                    src="./images/carusel-3.png"
+                    class="carousel__photo"
+                    alt="Full body tracking"
+                  >
                 </div>
 
-                <div class="main-slider-mobile__control">
-                  <a class="main-slider-mobile__link" href="#slider-1"></a>
-                  <a class="main-slider-mobile__link" href="#slider-2"></a>
-                  <a class="main-slider-mobile__link" href="#slider-3"></a>
-                  <a class="main-slider-mobile__link" href="#slider-4"></a>
-                  <a class="main-slider-mobile__link" href="#slider-5"></a>
+                <div class="carousel__slide">
+                  <div class="carousel__counter">2/5</div>
+                  <img
+                    src="./images/carusel-1.jpg"
+                    class="carousel__photo"
+                    alt="Walk in VR"
+                  >
                 </div>
+
+                <div class="carousel__slide">
+                  <div class="carousel__counter">3/5</div>
+                  <img
+                    src="./images/carusel-4.jpg"
+                    class="carousel__photo"
+                    alt="Sensor system wearable"
+                  >
+                </div>
+
+                <div class="carousel__slide">
+                  <div class="carousel__counter">4/5</div>
+                  <img
+                    src="./images/carusel-5.jpg"
+                    class="carousel__photo"
+                    alt="Kat Loco S"
+                  >
+                </div>
+
+                <div class="carousel__slide">
+                  <div class="carousel__counter">5/5</div>
+                  <img
+                    src="./images/carusel-2.jpg"
+                    class="carousel__photo"
+                    alt="Kat Loco wearable sensors "
+                  >
+                </div>
+              </div>
+
+              <div class="slider about__slider">
+                <ul class="slider__list">
+                  <li class="slider__item">
+                    <a class="slider__link" onclick="plusSlides(-1)">Previous</a>
+                  </li>
+                  <li class="slider__item">
+                    <a class="slider__link" onclick="plusSlides(1)">Next</a>
+                  </li>
+                </ul>
+              </div>
+              <div class="carousel__control">
+                <span class="carousel__dot" onclick="currentSlide(1)"></span>
+                <span class="carousel__dot" onclick="currentSlide(2)"></span>
+                <span class="carousel__dot" onclick="currentSlide(3)"></span>
+                <span class="carousel__dot" onclick="currentSlide(4)"></span>
+                <span class="carousel__dot" onclick="currentSlide(5)"></span>
               </div>
             </div>
 
@@ -654,5 +693,33 @@
         </div>
       </div>
     </footer>
+    <script>
+      var slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function currentSlide(n) {
+        showSlides(slideIndex = n);
+      }
+
+      function showSlides(n) {
+        var i;
+        var slides = document.getElementsByClassName("carousel__slide");
+        var dots = document.getElementsByClassName("carousel__dot");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+      }
+    </script>
   </body>
 </html>
