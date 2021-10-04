@@ -30,6 +30,20 @@
     gap: 17px;
     align-items: center;
 
+    @include onMobile {
+      display: flex;
+      justify-content: space-between;
+      align-self: flex-end;
+    }
+  }
+
+  &__item {
+    transition: transform $tduration;
+
+    &:hover {
+      transform: scale(2);
+    }
+
     &-facebook {
       background-image: url(../images/facebook.svg);
       height: 12px;
@@ -60,12 +74,6 @@
       width: 14px;
       background-repeat: no-repeat;
       background-size: cover;
-    }
-
-    @include onMobile {
-      display: flex;
-      justify-content: space-between;
-      align-self: flex-end;
     }
   }
 }

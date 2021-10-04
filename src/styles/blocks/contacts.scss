@@ -38,7 +38,7 @@
 
     @include onMobile {
       position: absolute;
-      top: 700px;
+      top: 118%;
       right: 0;
       font-size: 13px;
       text-align: right;
@@ -111,6 +111,15 @@
       &::placeholder {
         color: $color-blue;
       }
+    }
+
+    &:-webkit-autofill,
+    :-webkit-autofill:hover,
+    :-webkit-autofill:focus {
+      border-bottom: 1px solid $color-gray;
+      -webkit-text-fill-color: $color-blue;
+      background-color: transparent inset;
+      transition: background-color 5000s ease-in-out $tduration;
     }
   }
 }
