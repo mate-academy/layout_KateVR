@@ -1,0 +1,232 @@
+
+.header {
+  margin: 0 auto;
+  padding: 0;
+  background: $bgGradientHeader;
+  position: relative;
+
+  @include onNotebook {
+    position: none;
+  }
+
+  &__nav {
+    grid-area: nav;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+
+    @include onNotebook {
+      position: relative;
+    }
+
+    @include onMobile {
+      margin-bottom: 12px;
+    }
+
+    @include onTablet {
+      margin-bottom: 56px;
+    }
+
+    @include onNotebook {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @include onDesign {
+      grid-template-columns: repeat(16, 1fr);
+    }
+
+    &--top,
+    &--down {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &--down {
+      display: none;
+      margin-top: 80px;
+
+      @include onNotebook {
+        display: flex;
+      }
+    }
+
+  }
+
+  &__menu {
+    display: none;
+
+    @include onNotebook {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0;
+      padding: 0;
+      flex-grow: 1;
+      list-style: none;
+      color: #fff;
+    }
+
+    &--language {
+      outline: none;
+      display: flex;
+      align-items: center;
+
+      &-selector {
+        margin: 0;
+        padding: 0;
+        height: 20px;
+        width: 38px;
+        outline: none;
+        background: none;
+        border: none;
+        @extend %linksButtonsRegular;
+        color: $contrastColor;
+        transition: transform 0.5s;
+
+        @include hover(color, $contrastColor);
+        @include hover(transform, scale(1.2));
+      }
+
+      &-option {
+        outline: none;
+        border: 0 solid #191536;
+        background-color: #191536;
+        border-radius: 4px;
+      }
+    }
+
+    &--item {
+      margin: 0 auto;
+      padding: 0;
+      list-style: none;
+
+      @include onNotebook {
+        display: flex;
+        flex-direction: row;
+        justify-content: right;
+        align-items: center;
+        flex-grow: 1;
+      }
+    }
+
+    &--list {
+      margin: 0;
+      padding: 0;
+      margin-right: 34px;
+      transition: transform 0.5s;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &--link {
+      display: block;
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      @extend %linksButtonsMedium;
+      color: $whiteColor;
+    }
+
+    &--opener {
+      display: block;
+      margin: 0;
+      padding: 0;
+      @extend %bgStyle;
+      width: 20px;
+      height: 10px;
+      background-image: url(../images/icon/menu.svg);
+
+      @include onNotebook {
+        display: none;
+      }
+    }
+  }
+
+  &__product {
+    grid-area: product;
+    height: max-content;
+    text-align: left;
+
+    &--describe {
+      @extend %textMedium;
+      color: $textColor;
+      font-size: 16px;
+      line-height: 150%;
+      margin-bottom: 8px;
+      max-width: 600px;
+
+      @include onNotebook {
+        margin: 0 auto 6px;
+        width: 336px;
+      }
+    }
+
+    &--price {
+      @extend %textMedium;
+      color: $whiteColor;
+      font-size: 18px;
+      line-height: 23px;
+      margin-bottom: 14px;
+
+      &-position {
+        text-align: center;
+
+        @include onTablet {
+          text-align: left;
+        }
+
+        @include onNotebook {
+          margin: 0 auto 18px;
+          width: 336px;
+        }
+      }
+    }
+  }
+
+  &__photo {
+    grid-area: photo;
+    margin: 0 auto;
+    padding: 0;
+    @extend %bgStyle;
+    background-size: contain;
+    width: 100%;
+    height: 172px;
+    background-image: url(../images/image.svg);
+
+    @include onTablet {
+      height: 260px;
+    }
+
+    @include onNotebook {
+      height: 350px;
+    }
+
+    @include onFullHD {
+      height: 400px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: $whiteColor;
+    margin-bottom: 14px;
+
+    &--quantum {
+      @extend %textQuantum;
+    }
+
+    @include onNotebook {
+      font-size: 46px;
+    }
+
+    @include onFullHD {
+      font-size: 54px;
+    }
+  }
+}

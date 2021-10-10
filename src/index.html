@@ -1,13 +1,1198 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>KatVR</title>
     <link rel="stylesheet" href="./styles/main.scss">
+    <script src="scripts/main.js" defer></script>
+    <link rel="icon" href="./images/icon/favicon.svg">
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
-    <script type="text/javascript" src="scripts/main.js"></script>
+  <body class="page__body">
+
+    <header class="header container container--header-size">
+
+      <div class="grid grid__header grid--size">
+
+        <nav class="header__nav">
+          <section class="header__nav--top">
+            <a class="logo" href="#">
+              <img
+                class="logo__img"
+                src="./images/logo.png"
+                alt="Logo KatVR"
+              >
+            </a>
+            <nav class="header__menu">
+              <form class="header__menu--language">
+                <select
+                  class="header__menu--language-selector"
+                  name="language"
+                  id="language"
+                >
+                  <option
+                    class="header__menu--language-option"
+                    value="En"
+                    selected
+                  >
+                    En
+                  </option>
+                  <option class="header__menu--language-option" value="Ua">Ua</option>
+                  <option class="header__menu--language-option" value="Ru">Ru</option>
+                  <option class="header__menu--language-option" value="Pl">Pl</option>
+                  <option class="header__menu--language-option" value="Ua">Ua</option>
+                  <option class="header__menu--language-option" value="Ru">Ru</option>
+                  <option class="header__menu--language-option" value="Pl">Pl</option>
+                </select>
+              </form>
+              <ul class="header__menu--item">
+                <li class="header__menu--list">
+                  <a class="header__menu--link" href="#about">
+                    About
+                  </a>
+                </li>
+                <li class="header__menu--list">
+                  <a class="header__menu--link" href="#tech">
+                    Tech
+                  </a>
+                </li>
+                <li class="header__menu--list">
+                  <a class="header__menu--link" href="#benefits">
+                    Benefits
+                  </a>
+                </li>
+                <li class="header__menu--list">
+                  <a class="header__menu--link" href="#contact-us">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+
+              <div class="button__header">
+                <a class="button buyButtonClick" href="#page__order">
+                  Buy Now
+                </a>
+              </div>
+            </nav>
+            <a class="header__menu--opener" href="#page__menu"></a>
+          </section>
+        </nav>
+
+        <div class="header__photo"></div>
+        <div class="header__product">
+          <h1 class="header__title">
+            THE NEW START OF
+            <br>
+            <span class="header__title--quantum">
+              VR LOCOMOTION
+            </span>
+          </h1>
+          <div class="header__product--about">
+            <p class="header__product--describe">
+              Discover the most comprehensive VR Locomotion system,
+              and unlock infinite motion in any games on any platforms!
+            </p>
+            <span class="header__product--price">
+              <p class="header__product--price-position">
+                1200$
+              </p>
+            </span>
+            <div class="player">
+              <a
+                class="player--icon"
+                href="https://youtu.be/3eq_Ek7UOOc"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <section class="header__nav--down">
+        <nav class="header__menu--down">
+          <ul class="header__menu--item">
+            <li class="header__menu--list">
+              <a class="header__menu--link headerFAQ--opener" href="#FAQ">
+                FAQ
+              </a>
+            </li>
+            <li class="header__menu--list">
+              <a class="header__menu--link headerHelp--opener" href="#help">
+                Help
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <div class="moreDropMenu header__more">
+          More
+          <div class="moreDropMenu-icon"></div>
+        </div>
+
+        <div class="slider">
+          <div class="slider__prev slider--isActive">
+            Previous
+          </div>
+          <div class="slider__next">
+            Next
+          </div>
+        </div>
+      </section>
+
+      <div class="button__header button-onSmall">
+        <a class="button buyButtonClick1" href="#page__order">
+          Buy Now
+        </a>
+      </div>
+
+    </header>
+
+    <!--    main menu   -->
+    <div
+      class="menuByList menuByList--move container container--dropMenu"
+      id="page__menu"
+    >
+      <div class="menuByList--closure">
+        <a class="menuByList--closer" href="#"></a>
+      </div>
+      <ul class="menuByList--item">
+        <li class="menuByList--list">
+          <a href="#interested" class="menuByList--link">
+            Interested in...
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#about" class="menuByList--link">
+            About
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#tech" class="menuByList--link">
+            Tech
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#benefits" class="menuByList--link">
+            Benefits
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#contact-us" class="menuByList--link">
+            Contact
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#page__language" class="goto-language menuByList--link">
+            Language
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#FAQ" class="menuByList--link">
+            FAQ
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#help" class="menuByList--link">
+            Help
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!--    menu language   -->
+    <div
+      class="menuByList menuLanguage menuLanguage--move container container--dropMenu"
+      id="page__language"
+    >
+      <div class="menuLanguage--closure">
+        <a class="menuLanguage--closer" href="#"></a>
+      </div>
+      <ul class="menuByList--item">
+        <li class="menuByList--list">
+          <a href="#" class="menuByList--link">
+            English
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#" class="menuByList--link">
+            Arabic
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#" class="menuByList--link">
+            Chinese (Simplified)
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#" class="menuByList--link">
+            Chinese (Traditional)
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#" class="menuByList--link">
+            French
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#" class="menuByList--link">
+            German
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#" class="menuByList--link">
+            Italian
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#" class="menuByList--link">
+            Polish
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#" class="menuByList--link">
+            Russian
+          </a>
+        </li>
+        <li class="menuByList--list">
+          <a href="#" class="menuByList--link">
+            Ukrainian
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <!--    FAQ   -->
+    <div
+      class="helpFAQ helpFAQ--move container container--main-size"
+      id="FAQ"
+    >
+      <div class="helpFAQ--closure">
+        <a class="helpFAQ--closer" href="#"></a>
+      </div>
+
+      <div class="helpFAQ__title helpFAQ__title-center">
+        <h2 class="helpFAQ__title--h2">
+          FREQUANTLY ASKED&nbsp;
+          <br>
+          <span class="helpFAQ__title--h2-quantum">
+            QUESTIONS
+          </span>
+        </h2>
+      </div>
+
+      <div class="helpFAQ-describe helpFAQ-describe--open">
+        <div class="helpFAQ-describe__tittle-icon">
+          <p class="helpFAQ-describe__tittle">
+            What makes KAT loco different from other systems?
+          </p>
+          <div class="moreDropMenu-icon helpFAQ-icon helpFAQ-icon--isActive"></div>
+        </div>
+        <p class="helpFAQ-describe__text">
+          Despite being approached from many different angles,
+          all traditional VR Locomotion systems including roomscale,
+          teleportation, and free locomotion failed to provide
+          an optimal solution capable of integrating high immersion
+          with convenience. KAT loco does all of that without repeating their flaws.
+          Our system offers a complete and versatile solution for
+          an affordable price what makes it a perfect choice for home-use.
+          It is also 100% user friendly, wireless, universally compatible,
+          and more! It even offers decoupled head and body directions!
+        </p>
+        <p class="helpFAQ-describe__update">
+          Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+        </p>
+      </div>
+      <div class="helpFAQ-describe">
+        <div class="helpFAQ-describe__tittle-icon">
+          <p class="helpFAQ-describe__tittle">
+            Will it decrease my motion sickness?
+          </p>
+          <div class="moreDropMenu-icon helpFAQ-icon"></div>
+        </div>
+      </div>
+      <div class="helpFAQ-describe">
+        <div class="helpFAQ-describe__tittle-icon">
+          <p class="helpFAQ-describe__tittle">
+            Which VR headsets is it compatible with?
+          </p>
+          <div class="moreDropMenu-icon helpFAQ-icon"></div>
+        </div>
+      </div>
+      <div class="helpFAQ-describe">
+        <div class="helpFAQ-describe__tittle-icon">
+          <p class="helpFAQ-describe__tittle">
+            Is it compatible with Oculus Quest?
+          </p>
+          <div class="moreDropMenu-icon helpFAQ-icon"></div>
+        </div>
+      </div>
+
+      <div class="moreDropMenu helpFAQ__more">
+        More
+        <div class="moreDropMenu-icon"></div>
+      </div>
+
+    </div>
+
+    <!--    Help   -->
+    <div
+      class="helpFAQ helpFAQ__help helpFAQ--move container container--main-size"
+      id="help"
+    >
+      <div class="helpFAQ--closure">
+        <a class="helpFAQ--closer helpFAQ--closer1" href="#"></a>
+      </div>
+
+      <div class="helpFAQ__title helpFAQ__title-center">
+        <h2 class="helpFAQ__title--h2">
+          HOW CAN WE&nbsp;
+          <span class="helpFAQ__title--h2-quantum">
+            HELP
+          </span>
+          YOU?
+        </h2>
+      </div>
+
+      <div class="helpFAQ-describe helpFAQ-describeHelp helpFAQ-describe--open">
+        <p class="helpFAQ-describe__text">
+          Welcome to our help center. Our goal is to make the process of
+          getting acquainted and purchase as easy and pleasant as possible.
+          Need help with your KAT VR loco product? Many product questions
+          can be resolved by reviewing our Product Support
+          <a class="helpFAQ__link" href="#FAQ">FAQs</a>
+          .
+        </p>
+        <p class="helpFAQ-describe__text">
+          Please also feel free to
+          <a class="helpFAQ__link helpFAQ__link--contacts" href="#contact-us">Contact Us</a>
+          directly
+          should you need anything further. We’re happy to help.
+        </p>
+      </div>
+
+      <div class="helpFAQ__guide">
+        <div class="helpFAQ__instruction">
+          <p class="helpFAQ-describe__tittle">
+            Instruction manual
+          </p>
+          <p class="helpFAQ-describe__tittle">
+            Where to go for a warranty
+          </p>
+          <p class="helpFAQ-describe__tittle">
+            Service Policy
+          </p>
+        </div>
+
+        <div class="helpFAQ__contacts">
+          <a
+            class="helpFAQ__contacts-link"
+            href="tel:+86-0571-86105373"
+          >
+            +86-0571-86105373
+          </a>
+          <a
+            class="helpFAQ__contacts-link"
+            href="https://www.kat-vr.com/pages/support"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            global@katvr.com
+          </a>
+          <a
+            class="helpFAQ__contacts-link"
+            href="https://www.kat-vr.com/pages/support"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            overseas@katvr.com
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <!--    menu order / pay / complete   -->
+    <div
+      class="menuOrder menuOrder--move container container--order-size"
+      id="page__order"
+    >
+      <div class="menuOrder__closure">
+        <a class="logo" href="#">
+          <img
+            class="logo__img"
+            src="./images/logo.png"
+            alt="Logo KatVR"
+          >
+        </a>
+        <div class="menuOrder__closure">
+          <a class="menuOrder__closer" href="#"></a>
+        </div>
+      </div>
+
+      <nav class="menuOrder__nav">
+        <ul class="menuOrder__item">
+          <li class="menuOrder__Order menuOrder__list">
+            <div class="menuOrder__link menuOrder__linkOrder menuOrder__link--active">
+              Place Order
+            </div>
+          </li>
+          <li class="menuOrder__Pay menuOrder__list">
+            <div class="menuOrder__link menuOrder__linkPay">
+              Pay
+            </div>
+          </li>
+          <li class="menuOrder__Complete menuOrder__list">
+            <div class="menuOrder__link menuOrder__linkComplete">
+              Complete
+            </div>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="grid grid__menuOrder--order grid--size">
+
+        <div class="menuOrder__photo"></div>
+
+        <div class="menuOrder__totally">
+          <div class="menuOrder__quantity">
+            <p class="menuOrder__quantity-title">
+              Quantity
+            </p>
+            <div class="menuOrder__quantity-count">
+              <span class="menuOrder__quantity-number">
+                1
+              </span>
+              <div class="menuOrder__quantity-icon"></div>
+            </div>
+
+            <div class="menuOrder__quantityMenu" id="quantityMenu">
+              <div class="menuOrder__quantityMenu--style">
+                <span class="menuOrder__quantity-number">2</span>
+                <span class="menuOrder__quantity-number">3</span>
+                <span class="menuOrder__quantity-number">4</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="menuOrder__sum">
+            <p class="menuOrder__sum-title">
+              Quantity
+            </p>
+            <div class="menuOrder__sum-count">
+              <span class="menuOrder__sum-number">
+                1200$
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order -->
+        <form
+          class="menuOrder__userOrder orderForm"
+          id="order"
+          action=""
+        >
+          <div class="grid grid__menuOrder--order-form grid--size">
+
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-firstName">
+              First Name *
+              <input
+                class="menuOrder__userOrder menuOrder__userOrder--input"
+                type="text"
+                name="firstname"
+                id="firstname"
+                required
+              >
+            </lable>
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-lastName">
+              Last Name *
+              <input
+                class="menuOrder__userOrder menuOrder__userOrder--input"
+                type="text"
+                name="last_name"
+                id="last_name"
+                required
+              >
+            </lable>
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-email">
+              Email *
+              <input
+                class="menuOrder__userOrderI menuOrder__userOrder--input"
+                type="email"
+                name="email"
+                id="email"
+                required
+              >
+            </lable>
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-telNumber">
+              Phone Number *
+              <input
+                class="menuOrder__userOrderI menuOrder__userOrder--input"
+                type="tel"
+                name="telnumber"
+                id="telnumber"
+                required
+              >
+            </lable>
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-country">
+              Country *
+              <select
+                class="menuOrder__userOrder menuOrder__userOrder--select"
+                name="coutry"
+                id="country"
+                required
+              >
+                <option value="USA">United State</option>
+                <option value="Ua">Ukraine</option>
+                <option value="Pl">Poland</option>
+              </select>
+            </lable>
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-city">
+              City *
+              <select
+                class="menuOrder__userOrder menuOrder__userOrder--select"
+                name="city"
+                id="city"
+                required
+              >
+                <option value="USA">Washington</option>
+                <option value="Ua">Kyiv</option>
+                <option value="Pl">Warshawa</option>
+              </select>
+            </lable>
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-shipping1">
+              Shipping Adress *
+              <textarea
+                class="menuOrder__userOrder menuOrder__userOrder--message"
+                name="adress1"
+                id="adress1"
+                required
+              >
+              </textarea>
+            </lable>
+            <lable class="menuOrder__userOrder__label menuOrder__userOrder-shipping2">
+              Shipping Adress 2
+              <textarea
+                class="menuOrder__userOrder menuOrder__userOrder--message"
+                name="adress2"
+                id="adress2"
+              >
+              </textarea>
+            </lable>
+
+          </div>
+
+          <div class="menuOrder__button orderClick">
+            <div class="button">
+              Purchase
+            </div>
+          </div>
+
+        </form>
+
+        <!-- Pay -->
+        <form
+          class="menuOrder__userPay payForm"
+          id="pay"
+          action=""
+        >
+
+          <div class="menuOrder__userPay-form">
+            <div class="menuOrder__userPay-card">
+              <lable class="menuOrder__userPay__label">
+                Card Number *
+                <div class="menuOrder__userPay__label-cardNumber">
+                  <input
+                    class="menuOrder__userPay--input menuOrder__userPay--input-cardN"
+                    type="text"
+                    name="cardNumber1"
+                    id="cardNumber1"
+                    placeholder="0000"
+                    required
+                  >
+                  <input
+                    class="menuOrder__userPay--input menuOrder__userPay--input-cardN"
+                    type="text"
+                    name="cardNumber2"
+                    id="cardNumber2"
+                    placeholder="0000"
+                    required
+                  >
+                  <input
+                    class="menuOrder__userPay--input menuOrder__userPay--input-cardN"
+                    type="text"
+                    name="cardNumber3"
+                    id="cardNumber3"
+                    placeholder="0000"
+                    required
+                  >
+                  <input
+                    class="menuOrder__userPay--input menuOrder__userPay--input-cardN"
+                    type="text"
+                    name="cardNumber4"
+                    id="cardNumber4"
+                    placeholder="0000"
+                    required
+                  >
+                </div>
+              </lable>
+              <div class="menuOrder__userPay-cardIcon"></div>
+            </div>
+            <lable class="menuOrder__userPay__label">
+              Card Holder Name *
+              <input
+                class="menuOrder__userPayI menuOrder__userPay--input"
+                type="text"
+                name="cardName"
+                id="cardName"
+                required
+              >
+            </lable>
+            <lable class="menuOrder__userPay__label">
+              Expiration Date *
+              <input
+                class="menuOrder__userPayI menuOrder__userPay--input"
+                type="text"
+                name="cardExpiration"
+                id="cardExpiration"
+                placeholder="MM / YY"
+                required
+              >
+            </lable>
+            <lable class="menuOrder__userPay__label">
+              CVN *
+              <input
+                class="menuOrder__userPay--input"
+                type="text"
+                name="cardCVN"
+                id="cardCVN"
+                placeholder="000"
+                required
+              >
+            </lable>
+          </div>
+
+          <div class="menuOrder__button payClick">
+            <div class="button">
+              Purchase
+            </div>
+          </div>
+
+        </form>
+
+      </div>
+
+      <!-- Complete order-->
+      <div class="menuOrder__complete completeForm">
+
+        <div class="menuOrder__complete-title">
+          <h2 class="menuOrder__complete-title--h2">
+            Thank you for&nbsp;
+            <span class="menuOrder__complete-title--h2-quantum">
+              your
+            </span>
+            &nbsp;order!
+          </h2>
+          <p class="menuOrder__complete-title--text">
+            Your order has been placed and is being processed.
+            You will recive an email with the order details
+          </p>
+        </div>
+
+        <div class="menuOrder__complete-button">
+          <a class="button completeButtonClick" href="">
+            Back to homepage
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!--    main content   -->
+    <main class="main">
+
+      <div class="main__interested container container--main-size" id="interested">
+        <div class="grid grid__main-interested grid--size">
+          <div class="main__title main__title-center">
+            <h2 class="main__title--h2">
+              MORE THAN
+              <span class="main__title--h2-quantum">
+                GAMING!
+              </span>
+            </h2>
+            <p class="main__title--text">
+              This also made for people who are interested in...
+            </p>
+          </div>
+          <div class="main__interested--education">
+            <div class="main__interested--education-icon"></div>
+            <h3 class="main__title--h3">
+              EDUCATION
+            </h3>
+            <p class="main__text main__interested-text">
+              Create aducational simulations,
+              trainings and much more with unlimited
+              virtual space and minimum physical space
+            </p>
+          </div>
+          <div class="main__interested--estate">
+            <div class="main__interested--estate-icon"></div>
+            <h3 class="main__title--h3">
+              REAL ESTATE
+            </h3>
+            <p class="main__text main__interested-text">
+              Desighn architectural projects
+              in a deeply realistic environment
+              allowing visitors to freely walk around,
+              and feel their vibe
+            </p>
+          </div>
+          <div class="main__interested--fitnes">
+            <div class="main__interested--fitnes-icon"></div>
+            <h3 class="main__title--h3">
+              FITNESS
+            </h3>
+            <p class="main__text main__interested-text">
+              Combine business with pleasure,
+              and discover countless ways
+              to stay fit while playing your
+              favorite VR Games!
+            </p>
+          </div>
+          <div class="main__interested--socials">
+            <div class="main__interested--socials-icon"></div>
+            <h3 class="main__title--h3">
+              SOCIAL INTERACTIONS
+            </h3>
+            <p class="main__text main__interested-text">
+              Hang out with your friends
+              in the virtual world when
+              you can’t meet space requirements
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="main__about container container--main-size" id="about">
+        <div class="grid grid__main-about grid--size">
+          <div class="main__title">
+            <h2 class="main__title--h2">
+              ABOUT&nbsp;
+              <span class="main__title--h2-quantum">
+                PRODUCT
+              </span>
+            </h2>
+          </div>
+          <div class="main__about-photo"></div>
+          <div class="main__about-photo--choser">
+            <input
+              class="main__radio"
+              type="radio" name="photo"
+              id="1"
+              checked
+            >
+            <input
+              class="main__radio"
+              type="radio" name="photo"
+              id="2"
+              checked
+            >
+            <input
+              class="main__radio"
+              type="radio" name="photo"
+              id="3"
+              checked
+            >
+            <input
+              class="main__radio"
+              type="radio" name="photo"
+              id="4"
+              checked
+            >
+            <input
+              class="main__radio"
+              type="radio" name="photo"
+              id="5"
+              checked
+            >
+          </div>
+          <div class="main__about--description">
+            <p class="main__text main__about--player-mb">
+              KAT loco is a foot-based VR locomotion system
+              that gives complete physical control over
+              lower-body actions, allowing you to freely walk,
+              run, and carry out just any other movement
+              in virtual reality.
+            </p>
+            <div class="player">
+              <a
+                class="player--icon"
+                href="https://youtu.be/3eq_Ek7UOOc"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+              </a>
+            </div>
+          </div>
+          <div class="main__about--hello">
+            <p class="main__title--text-beforeH">
+              Hello,
+            </p>
+            <h3 class="main__title--h3 main__title--h3-left">
+              NICE TO MEET
+              <span class="main__title--h3-quantum">
+                YOU!
+              </span>
+            </h3>
+            <p class="main__text">
+              KAT VR is an independent company dedicated
+              to the research, development, and sales of
+              VR Locomotion products and solutions.
+              Founded in 2013, we have quickly grown to
+              become one of the world’s leading professional
+              suppliers of VR games’ & simulations’ equipment
+            </p>
+          </div>
+          <div class="main__about--vertical">
+            <div class="main__about--vertical-icon vertical__icon-10"></div>
+            <div class="main__about--vertical-icon vertical__icon-06"></div>
+            <div class="main__about--vertical-icon vertical__icon-04"></div>
+            <div class="main__about--vertical-icon vertical__icon-02"></div>
+            <div class="main__about--vertical-icon vertical__icon-01"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="main__tech container container--main-size" id="tech">
+
+        <div class="grid grid__main-tech grid--size">
+
+          <div class="main__title main__tech--title">
+            <h2 class="main__title--h2">
+              TECH
+              <span class="main__title--h2-quantum">
+                SPECS
+              </span>
+            </h2>
+          </div>
+          <div class="main__tech--photo">
+
+            <div class="main__tech--specs-focus main__tech--specs-sensor">
+              <a class="main__tech-sensor" href="#sensor"></a>
+            </div>
+            <div class="main__tech-line">
+              <div class="main__tech-line--icon main__tech-line--sensor"></div>
+            </div>
+            <div class="main__tech-info main__tech-info--sensor" id="sensor">
+              <div class="menuOrder__closure--along menuOrder__closure--sensor">
+                <div class="menuOrder__closer"></div>
+              </div>
+              <div class="main__title">
+                <h3 class="main__title--h3 main__tech-info--title">
+                  SENSOR
+                </h3>
+                <p class="main__text">
+                  <span>Weight: 35g/1.23oz each</span>
+                  <br>
+                  <span>Dimension: 50mm/1.97in<br>24mm/0.94in</span>
+                  <br>
+                  <span>Light: LED lights</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="main__tech--specs-focus main__tech--specs-battery">
+              <a class="main__tech-batterries" href="#battery"></a>
+            </div>
+            <div class="main__tech-line">
+              <div class="main__tech-line--icon main__tech-line--battery"></div>
+            </div>
+            <div class="main__tech-info main__tech-info--battery" id="battery">
+              <div class="menuOrder__closure--along menuOrder__closure--battery">
+                <div class="menuOrder__closer"></div>
+              </div>
+              <div class="main__title">
+                <h3 class="main__title--h3 main__tech-info--title">
+                  BATTERRIES
+                </h3>
+                <p class="main__text">
+                  <span>Type: Lthium-lon polymer batteries</span>
+                  <br>
+                  <span>Capacity: 370mAh</span>
+                  <br>
+                  <span>Battery life: 10h of continuous use 150 <br> hours on stand by</span>
+                  <br>
+                  <span>Charging: Fast charging - 1 hour</span>
+                  <br>
+                  <span>Charging voltage and current: 5V = 0.5A</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="main__tech--specs-focus main__tech--specs-connection">
+              <a class="main__tech-connection" href="#connection"></a>
+            </div>
+            <div class="main__tech-line">
+              <div class="main__tech-line--icon main__tech-line--ellipse"></div>
+              <div class="main__tech-line--icon main__tech-line--connection"></div>
+            </div>
+            <div class="main__tech-info main__tech-info--connection" id="connection">
+              <div class="menuOrder__closure--along menuOrder__closure--connect">
+                <div class="menuOrder__closer"></div>
+              </div>
+              <div class="main__title">
+                <h3 class="main__title--h3 main__tech-info--title">
+                  CONNECTION
+                </h3>
+                <p class="main__text">
+                  <span>Wireless: Bluetooth 4.2</span>
+                  <br>
+                  <span>Signal range: 5m</span>
+                  <br>
+                  <span>Receiver: USB 2.0 and above</span>
+                </p>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="main__benefits container container--main-size" id="benefits">
+        <div class="grid grid__main-benefits grid--size">
+          <div class="main__title main__benefits--title">
+            <h2 class="main__title--h2">
+              WHY&nbsp;
+              <span class="main__title--h2-quantum">
+                KAT LOCO?
+              </span>
+            </h2>
+          </div>
+          <div class="main__benefits--universal">
+            <div class="main__benefits--universal-icon"></div>
+            <h3 class="main__title--h3">
+              UNIVERSALLY COMPATIBLE
+            </h3>
+            <p class="main__text main__benefits-text">
+              KAT Loco offers universal compatibility
+              across all major VR headsets and platforms...
+            </p>
+          </div>
+          <div class="main__benefits--panel">
+            <div class="main__benefits--panel-icon"></div>
+            <h3 class="main__title--h3">
+              VR/PC CONTROL PANEL
+            </h3>
+            <p class="main__text main__benefits-text">
+              Our Multifunctional Software allows for quick access
+              to KAT Loco’s control panel both from...
+            </p>
+          </div>
+          <div class="main__benefits--wireless">
+            <div class="main__benefits--wireless-icon"></div>
+            <h3 class="main__title--h3">
+              WIRELESS SENSORS
+            </h3>
+            <p class="main__text main__benefits-text">
+              What makes it even more advanced,
+              KAT Loco is entirely wireless,
+              and comes with a...
+            </p>
+          </div>
+          <a class="button button__main-benefits buyButtonClick2" href="#page__order">
+            Buy Now
+          </a>
+        </div>
+      </div>
+
+      <div class="main__contact-us container container--main-size" id="contact-us">
+        <div class="grid grid__main-contacts grid--size">
+          <div class="main__title">
+            <p class="main__title--text-beforeH">
+              Have any questions?
+            </p>
+            <h2 class="main__title--h2">
+              GET IN&nbsp;
+              <span class="main__title--h2-quantum">
+                TOUCH
+              </span>
+            </h2>
+          </div>
+          <form class="main__contact-us--form" action="">
+            <label class="main__contact-us--form__label" for="main_userName">
+              Name*
+              <input
+              class="main__contact-us--form-input"
+              id="main_userName"
+              type="text"
+              required
+            >
+            </label>
+            <label class="main__contact-us--form__label" for="main_userEmail">
+              Email*
+              <input
+              class="main__contact-us--form-input"
+              id="main_userEmail"
+              type="email"
+              autocomplete="off"
+              required
+            >
+            </label>
+            <label class="main__contact-us--form__label" for="main_userPhone">
+              Phone*
+              <input
+              class="main__contact-us--form-input"
+              id="main_userPhone"
+              type="tel"
+              autocomplete="off"
+              required
+            >
+            </label>
+            <label class="main__contact-us--form__label" for="message">
+              Message
+              <textarea
+                class="main__contact-us--form-message"
+                name="message"
+                id="message"
+              >
+              </textarea>
+            </label>
+          </form>
+          <a class="button button__main-contacts">
+            Contact Us
+          </a>
+          <div class="main__contact-us--contacts">
+            <p class="main__text main__contact-us--text">
+              Our manager will reply you within 15 minutes
+            </p>
+            <a
+              class="main__text main__contact-us--contacts-link"
+              href="tel:+86-0571-86105373"
+            >
+              +86-0571-86105373
+            </a>
+            <a
+              class="main__text main__contact-us--contacts-link"
+              href="https://www.kat-vr.com/pages/support"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              global@katvr.com
+            </a>
+            <a
+              class="main__text main__contact-us--contacts-link"
+              href="https://www.kat-vr.com/pages/support"
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              overseas@katvr.com
+            </a>
+          </div>
+          <a class="to-top" href="#"></a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__content container container--main-size">
+        <div class="footer__logo">
+          <a class="logo" href="#">
+            <img
+              class="logo__img"
+              src="./images/logo.png"
+              alt="Logo KatVR"
+            >
+          </a>
+        </div>
+        <div class="footer__nav">
+          <nav class="footer__nav--menu">
+            <ul class="footer__nav--menu-item">
+              <li class="footer__nav--menu-list">
+                <a class="footer__link" href="#about">
+                  About
+                </a>
+              </li>
+              <li class="footer__nav--menu-list">
+                <a class="footer__link" href="#tech">
+                  Tech
+                </a>
+              </li>
+              <li class="footer__nav--menu-list">
+                <a class="footer__link" href="#benefits">
+                  Benefits
+                </a>
+              </li>
+              <li class="footer__nav--menu-list">
+                <a class="footer__link" href="#contact-us">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <div class="footer__nav--connection">
+            <div class="footer__contacts">
+              <a
+                class="footer__link"
+                href="tel:+86-0571-86105373"
+              >
+                +86-0571-86105373
+              </a>
+              <a
+                class="footer__link"
+                href="https://www.kat-vr.com/pages/support"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                global@katvr.com
+              </a>
+              <a
+                class="footer__link"
+                href="https://www.kat-vr.com/pages/support"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                overseas@katvr.com
+              </a>
+            </div>
+            <div class="footer__followed">
+              <a
+                class="footer__followed--icon footer__followed--icon-fb"
+                href="https://www.facebook.com/katvr.global/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+              </a>
+              <a
+                class="footer__followed--icon footer__followed--icon-tw"
+                href="https://twitter.com/katvrwalk"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+              </a>
+              <a
+                class="footer__followed--icon footer__followed--icon-yt"
+                href="https://www.youtube.com/channel/UCDLrbvh177aZzSb-4SM9DCQ/videos?view_as=subscriber"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+              </a>
+              <a
+                class="footer__followed--icon footer__followed--icon-insta"
+                href="https://www.instagram.com/vrkat_/"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,264 @@
+
+.helpFAQ {
+  position: fixed;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 5;
+  background-color: $bgMenu;
+
+  @include onNotebook {
+    left: 200px;
+    right: 200px;
+    padding: 60px 90px 48px;
+    z-index: 1;
+    border-radius: 4px;
+
+    @media (min-height: 500px) {
+      height: 85%;
+    }
+    @media (min-height: 1000px) {
+      height: 854px;
+    }
+  }
+
+  &--closure {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 0 0 38px;
+    padding: 0;
+    @extend %bgStyle;
+  }
+
+  &--closer {
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/icon/menu-closure.svg);
+
+    @include hover(transform, scale(0.8));
+  }
+
+  &__title {
+    margin: 0;
+    padding: 0;
+
+    @include onMobile {
+      margin-bottom: 20px;
+    }
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      margin-bottom: 30px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 50px;
+    }
+
+    @include onFullHD {
+      margin-bottom: 50px;
+    }
+
+    &--h2 {
+      margin: 0;
+      padding: 0;
+      @extend %headLine2mob;
+
+      @include onTablet {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      &-quantum {
+        margin: 0;
+        padding: 0;
+        @extend %textQuantum;
+
+        @include onTablet {
+          font-size: 36px;
+          line-height: 46px;
+        }
+      }
+    }
+  }
+
+  &-describe {
+    margin: 0;
+    margin-bottom: 13px;
+    padding: 18px 12px 0;
+    @extend %textMedium;
+    border: 1px solid $contrastColor;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 20px;
+    }
+
+    @include onFullHD {
+      margin-bottom: 20px;
+    }
+
+    &--open {
+      padding: 20px 12px 12px;
+    }
+
+    &__tittle {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 18px;
+      color: $contrastColor;
+      @include hover(transform, scale(1.05));
+
+      &-icon {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    &__text {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+      color: $textColor;
+
+      &Help {
+        margin-bottom: 30px;
+      }
+    }
+
+    &__update {
+      margin: 0;
+      padding: 0;
+      color: #545454;
+    }
+
+    &Help {
+      padding: 0;
+      border: none;
+      margin-bottom: 30px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__link {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    @extend %linksButtonsRegular;
+    color: $contrastColor;
+  }
+
+  &__help {
+    @include onNotebook {
+      max-height: 550px;
+    }
+
+    @include onFullHD {
+      max-height: 516px;
+    }
+  }
+
+  &__guide {
+    @include onNotebook {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__instruction {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 20px;
+      width: 250px;
+    }
+
+    @include onFullHD {
+      margin-bottom: 0;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 15px;
+    color: $textColor;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 20px;
+    }
+
+    @include onFullHD {
+      margin-bottom: 0;
+    }
+
+    &-link {
+      margin-bottom: 8px;
+      text-decoration: none;
+      @extend %linksButtonsRegular;
+      color: $textColor;
+
+      @include onTablet {
+        margin-bottom: 18px;
+      }
+    }
+  }
+
+  &__more {
+    display: none;
+    margin-top: 50px;
+    margin-bottom: 8px;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &-icon {
+    margin: 0;
+
+    &--isActive {
+      transform: rotateX(180deg);
+    }
+  }
+
+  &--move {
+    transform: translateY(-100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateY(0);
+      @include onNotebook {
+        transform: translateY(10%);
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+
+.menuByList {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 1;
+  background-color: $bgMenu;
+
+  &--closure {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    margin: 0 0 38px;
+    padding: 0;
+    @extend %bgStyle;
+  }
+
+  &--closer {
+    width: 18px;
+    height: 18px;
+    background-image: url(../images/icon/menu-closure.svg);
+
+    @include hover(transform, scale(0.8));
+  }
+
+  &--item {
+    list-style: none;
+    margin: 0;
+    margin-bottom: 30px;
+    padding: 0;
+
+    @include onMobile {
+      width: 320px;
+      margin-left: -20px;
+    }
+
+    @include onTablet {
+      width: 768px;
+      margin-left: -34px;
+    }
+  }
+
+  &--list {
+    display: flex;
+    align-items: center;
+    height: 49px;
+  }
+
+  &--link {
+    width: 100%;
+    line-height: 49px;
+    text-decoration: none;
+    @extend %linksButtons;
+    color: $whiteColor;
+    transition: background-color 0.5s;
+
+    @include onMobile {
+      padding-left: 20px;
+    }
+
+    @include onTablet {
+      padding-left: 155px;
+    }
+
+    &:hover {
+      background-color: #110e25;
+    }
+  }
+
+  @include onNotebook {
+    display: none;
+  }
+
+  &--move {
+    transform: translateY(-100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+}

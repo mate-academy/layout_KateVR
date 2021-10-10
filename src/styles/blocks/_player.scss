@@ -1,0 +1,23 @@
+
+.player {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+
+  @include hover(transform, scale(1.03));
+
+  &--icon {
+    @extend %bgStyle;
+    height: 66px;
+    width: 212px;
+    background-image: url(../images/icon/player2.svg);
+  }
+
+  @include onNotebook {
+    margin: 0 auto;
+    width: 336px;
+  }
+}

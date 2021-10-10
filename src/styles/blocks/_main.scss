@@ -1,0 +1,807 @@
+
+.main {
+  margin: 0 auto;
+  position: relative;
+  background-color: #05040b;
+
+  &__title {
+    grid-area: title;
+    margin: 0;
+    padding: 0;
+
+    @include onMobile {
+      margin-bottom: 20px;
+    }
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      margin-bottom: 30px;
+    }
+
+    @include onNotebook {
+      margin-bottom: 80px;
+    }
+
+    @include onFullHD {
+      margin-bottom: 68px;
+    }
+
+    &-center {
+      align-items: center;
+    }
+
+    &--h2 {
+      margin: 0;
+      padding: 0;
+      @extend %headLine2mob;
+
+      @include onTablet {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      &-quantum {
+        margin: 0;
+        padding: 0;
+        @extend %textQuantum;
+
+        @include onTablet {
+          font-size: 36px;
+          line-height: 46px;
+        }
+      }
+    }
+
+    &--h3 {
+      margin: 0;
+      padding: 0;
+      margin-bottom: 10px;
+      @extend %headLine3mob;
+
+      @include onTablet {
+        font-size: 18px;
+        line-height: 23px;
+      }
+
+      &-quantum {
+        margin: 0;
+        padding: 0;
+        @extend %textQuantum;
+
+        @include onTablet {
+          font-size: 18px;
+          line-height: 23px;
+        }
+      }
+
+      &-mb {
+        margin-bottom: 20px;
+      }
+
+      @include onTablet {
+        text-align: center;
+      }
+
+      &-left {
+        text-align: left;
+      }
+    }
+
+    &--text {
+      margin: 0;
+      @extend %textStandart;
+      color: $contrastColor;
+
+      &-beforeH {
+        margin: 0 0 10px;
+        @extend %textStandart;
+        color: $contrastColor;
+      }
+    }
+  }
+
+  &__text {
+    margin: 0;
+    padding: 0;
+    @extend %textMedium;
+    color: $textColor;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+  }
+
+  &__interested {
+    position: relative;
+
+    &--education,
+    &--estate,
+    &--fitnes,
+    &--social {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 78px;
+      }
+  
+      @include onNotebook {
+        margin-bottom: 0;
+      }
+  
+      @include onFullHD {
+        margin-bottom: 0;
+      }
+    }
+
+    &--education {
+      grid-area: education;
+
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 104px;
+          background-image: url(../images/icon/education.svg);
+        }
+      }
+    }
+
+    &--estate {
+      grid-area: estate;
+
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 84px;
+          background-image: url(../images/icon/real_estate.svg);
+        }
+      }
+    }
+
+    &--fitnes {
+      grid-area: fitness;
+
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 114px;
+          background-image: url(../images/icon/fitnes.svg);
+        }
+      }
+    }
+
+    &--socials {
+      grid-area: social;
+
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 84px;
+          background-image: url(../images/icon/social.svg);
+        }
+      }
+    }
+
+    &-text {
+      height: 52px;
+      overflow: hidden;
+
+      &:hover {
+        cursor: pointer;
+        overflow-y: scroll;
+      }
+
+      @include onTablet {
+        text-align: center;
+        height: max-content;
+
+        &:hover {
+          cursor: default;
+          overflow-y: hidden;
+        }
+      }
+    }
+  }
+
+  &__about {
+    position: relative;
+    background: $bgGradientMain;
+
+    @include onMobile {
+      padding-bottom: 50px;
+    }
+
+    @include onTablet {
+      padding-bottom: 70px;
+    }
+
+    @include onNotebook {
+      padding-bottom: 100px;
+    }
+
+    @include onFullHD {
+      padding-bottom: 160px;
+    }
+
+    &-photo {
+      grid-area: photo;
+      margin: 0 auto;
+      padding: 0;
+      @extend %bgStyle;
+      width: 100%;
+      height: 189px;
+      background-image: url(../images/about.png);
+      margin-bottom: 12px;
+
+      @include onTablet {
+        height: 270px;
+        width: 100%;
+      }
+
+      @include onNotebook {
+        height: 325px;
+      }
+
+      @include onFullHD {
+        height: 290px;
+      }
+
+      &--choser {
+        grid-area: choser;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        height: 4px;
+
+        @include onMobile {
+          margin-bottom: 20px;
+        }
+
+        @include onTablet {
+          margin-bottom: 88px;
+        }
+
+        @include onNotebook {
+          margin-bottom: 190px;
+        }
+      }
+    }
+
+    &--description {
+      grid-area: description;
+      margin: 0;
+      padding: 0;
+      margin-bottom: 78px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &--player-mb {
+      margin-bottom: 14px;
+    }
+
+    &--hello {
+      grid-area: wellcome;
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+    }
+
+    &--vertical {
+      grid-area: vertical;
+      display: none;
+      margin: 0 auto;
+      padding: 0;
+
+      @include onTablet {
+        display: flex;
+      }
+
+      &-icon {
+        margin: 0;
+        padding: 0;
+        @extend %bgStyle;
+      }
+    }
+  }
+
+  &__radio {
+    height: 8px;
+    width: 8px;
+    margin: 0 4px;
+    padding: 0;
+  }
+
+  &__tech {
+    position: relative;
+    margin: 0 auto;
+
+    &--title {
+      @include onTablet {
+        margin-bottom: 56px;
+      }
+
+      @include onNotebook {
+        margin-bottom: 140px;
+      }
+    }
+
+    &--photo {
+      grid-area: photo;
+      position: relative;
+      margin: 0 auto;
+      padding: 0;
+      @extend %bgStyle;
+      background-image: url(../images/icon/tech_spec.svg);
+
+      @include onMobile {
+        height: 194px;
+        width: 194px;
+        margin-bottom: 50px;
+      }
+
+      @include onTablet {
+        height: 358px;
+        width: 358px;
+        margin-bottom: 70px;
+      }
+
+      @include onNotebook {
+        height: 296px;
+        width: 296px;
+        margin-bottom: 0;
+      }
+
+      @include onFullHD {
+        height: 296px;
+        width: 296px;
+        margin-bottom: 0;
+      }
+    }
+
+    &--specs {
+      &-focus {
+        display: block;
+        position: absolute;
+        @extend %bgStyle;
+        background-image: url(../images/icon/tech_specs_focus.svg);
+  
+        @include onMobile {
+          height: 34px;
+          width: 34px;
+        }
+  
+        @include onTablet {
+          height: 62px;
+          width: 62px;
+        }
+  
+        @include onNotebook {
+          display: none;
+        }
+  
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.05);
+        }
+      }
+  
+      &-sensor {
+        top: -6%;
+        left: 30%;
+      }
+
+      &-battery {
+        top: 40%;
+        left: 67%;
+      }
+
+      &-connection {
+        top: 80%;
+        left: -10%;
+      }
+    }
+
+    &-info {
+      display: flex;
+      font-display: row;
+      justify-content: start;
+      margin: 0;
+      padding: 15px;
+      z-index: 2;
+
+      @include onNotebook {
+        z-index: 0;
+      }
+
+      &--sensor {
+        display: none;
+        position: absolute;
+        top: 0;
+
+        @include onMobile {
+          top: -10%;
+          left: -20%;
+          width: 250px;
+          height: max-content;
+          background-color: $bgMenu;
+          opacity: 0.9;
+        }
+
+        @include onTablet {
+          top: 0;
+          left: -47%;
+          width: 250px;
+          height: max-content;
+        }
+
+        @include onNotebook {
+          width: max-content;
+          display: block;
+          top: -24%;
+          left: -118%;
+          background-color: inherit;
+        }
+      }
+
+      &--battery {
+        display: none;
+        position: absolute;
+        top: 15%;
+
+        @include onMobile {
+          top: -10%;
+          left: -20%;
+          width: 270px;
+          height: max-content;
+          background-color: $bgMenu;
+          opacity: 0.9;
+        }
+
+        @include onTablet {
+          top: 15%;
+          left: 72%;
+          width: 250px;
+          height: max-content;
+          background-color: $bgMenu;
+          opacity: 0.9;
+        }
+
+        @include onNotebook {
+          top: -24%;
+          left: 115%;
+          display: block;
+          width: max-content;
+          background-color: inherit;
+        }
+      }
+
+      &--connection {
+        display: none;
+        position: absolute;
+        top: 60%;
+
+        @include onMobile {
+          top: -10%;
+          left: -20%;
+          width: 250px;
+          height: max-content;
+          background-color: $bgMenu;
+          opacity: 0.9;
+        }
+
+        @include onTablet {
+          top: 60%;
+          left: -47%;
+          width: 250px;
+          height: max-content;
+          background-color: $bgMenu;
+          opacity: 0.9;
+        }
+
+        @include onNotebook {
+          top: 45%;
+          left: -94%;
+          width: 450px;
+          display: block;
+          background-color: inherit;
+        }
+
+        @include onFullHD {
+          left: -118%;
+          width: 450px;
+          display: block;
+        }
+      }
+
+      &--title {
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        margin-bottom: 20px;
+      }
+
+      &--text {
+        margin: 0;
+        padding: 0;
+
+      }
+    }
+
+    &-line {
+      margin: 0;
+      padding: 0;
+
+      &--icon {
+        margin: 0;
+        padding: 0;
+        @extend %bgStyle;
+      }
+
+      &--sensor {
+        display: none;
+        position: absolute;
+        background-size: contain;
+        background-image: url(../images/icon/tech/lineForSensor.svg);
+
+        @include onNotebook {
+          display: block;
+          top: -17%;
+          right: 49%;
+          width: 400px;
+          height: 70px;
+        }
+      }
+
+      &--battery {
+        display: none;
+        position: absolute;
+        background-size: contain;
+        background-image: url(../images/icon/tech/lineForBattery.svg);
+
+        @include onNotebook {
+          display: block;
+          bottom: 35%;
+          left: 50%;
+          width: 200px;
+          height: 240px;
+        }
+      }
+
+      &--ellipse {
+        display: none;
+        position: absolute;
+        background-size: contain;
+        background-image: url(../images/icon/tech/ellipseForConnection.svg);
+
+        @include onNotebook {
+          display: block;
+          top: 14%;
+          left: -6%;
+          width: 50px;
+          height: 200px;
+        }
+      }
+
+      &--connection {
+        display: none;
+        position: absolute;
+        background-size: contain;
+        background-image: url(../images/icon/tech/lineForConnection.svg);
+
+        @include onNotebook {
+          display: block;
+          top: 20%;
+          right: 100%;
+          width: 127px;
+          height: 102px;
+        }
+
+        @include onFullHD {
+          display: block;
+          background-image: url(../images/icon/tech/lineForConnection2.svg);
+          top: 20%;
+          right: 100%;
+          width: 197px;
+          height: 107px;
+        }
+      }
+    }
+  }
+
+  &__benefits {
+    position: relative;
+    background: $bgGradientMain;
+
+    &--title {
+      @include onNotebook {
+        margin: 0 auto 80px;
+      }
+    }
+
+    &--universal {
+      grid-area: universal;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+        background-size: contain;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 84px;
+          background-image: url(../images/icon/universally.svg);
+        }
+      }
+    }
+
+    &--panel {
+      grid-area: panel;
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+        background-size: contain;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 106px;
+          background-image: url(../images/icon/panel.svg);
+        }
+      }
+    }
+
+    &--wireless {
+      grid-area: wireless;
+
+      &-icon {
+        margin: 0 auto;
+        @extend %bgStyle;
+        background-size: contain;
+
+        @include onTablet {
+          margin-bottom: 30px;
+          height: 84px;
+          width: 120px;
+          background-image: url(../images/icon/wireless.svg);
+        }
+      }
+    }
+
+    &-text {
+
+      @include onTablet {
+        text-align: center;
+        height: max-content;
+  
+        &:hover {
+          cursor: default;
+        }
+      }
+    }
+  }
+
+  &__contact-us {
+    position: relative;
+
+    &--text {
+      margin: 0;
+      width: max-content;
+      font-size: 12px;
+      line-height: 18px;
+
+      @include onTablet {
+        font-size: 16px;
+        line-height: 24px;
+        margin-bottom: 52px;
+      }
+    }
+
+    &--contacts {
+      grid-area: contacts;
+
+      &-link {
+        text-decoration: none;
+
+        @include onMobile {
+          display: none;
+        }
+
+        @include onTablet {
+          display: block;
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    &--form {
+      grid-area: form;
+
+      @include onMobile {
+        margin-bottom: 27px;
+      }
+
+      &__label {
+        margin: 0;
+        padding: 0;
+        color: $textColor;
+        transition: transform 0.5s;
+
+        &:hover {
+          cursor: pointer;
+          color: $contrastColor;
+        }
+      }
+
+      &-input {
+        height: 19px;
+        margin-bottom: 24px;
+      }
+
+      &-message {
+        height: 88px;
+        resize: none;
+      }
+
+      &-input,
+      &-message {
+        box-sizing: border-box;
+        padding: 0;
+        border: none;
+        width: 100%;
+        outline: none;
+        background-color: transparent;
+        border-bottom: 1px solid #2f2f2f;
+        font-size: 14px;
+        line-height: 150%;
+        color: $textColor;
+        transition: transform 0.5s;
+
+        &:hover {
+          cursor: pointer;
+          color: $contrastColor;
+          border-bottom: 1px solid $contrastColor;
+        }
+
+        &:focus {
+          border-bottom: 1px solid $contrastColor;
+          color: $contrastColor;
+        }
+      }
+    }
+  }
+}

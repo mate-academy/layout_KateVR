@@ -1,0 +1,91 @@
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $contrastColor;
+  border-radius: 4px;
+  text-decoration: none;
+  @extend %linksButtons;
+  line-height: 130%;
+  color: $whiteColor;
+  transition: background-color 0.5s;
+
+  &:hover {
+    background-color: $whiteColor;
+    color: $contrastColor;
+    cursor: pointer;
+  }
+
+  &-onSmall {
+    @include onNotebook {
+      display: none;
+    }
+  }
+
+  &__header {
+
+    @include onMobile {
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      z-index: 1;
+      height: 40px;
+      bottom: -20px;
+    }
+
+    @include onTablet {
+      position: absolute;
+      top: 17px;
+      left: 12%;
+      height: 48px;
+      width: 200px;
+    }
+
+    @include onNotebook {
+      position: relative;
+      top: 0;
+      left: 2%;
+    }
+
+    @include onFullHD {
+      position: relative;
+      width: 200px;
+    }
+  }
+
+  &__main-contacts {
+    grid-area: button;
+    margin: 0;
+    margin-bottom: 28px;
+    height: 40px;
+    border: none;
+
+    @include onNotebook {
+      width: 200px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__main-benefits {
+    display: none;
+
+    @include onNotebook {
+      grid-area: button;
+      display: flex;
+      margin: 90px auto 0;
+      justify-content: center;
+      height: 48px;
+      width: 200px;
+    }
+
+    @include onFullHD {
+      grid-area: none;
+      display: none;
+    }
+  }
+}
