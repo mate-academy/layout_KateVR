@@ -1,0 +1,156 @@
+.more {
+  padding: $padding-mobile;
+
+  background-color: $bg-black;
+
+  &__wrapper {
+    width: 87.5vw;
+    margin: 0 auto;
+  }
+
+  &__title-block {
+    margin-bottom: 30px;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  &__subtitle {
+    @include font(12px, normal, 15px);
+    color: $contrast-color;
+  }
+
+  &__interest {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  &__image {
+    display: none;
+  }
+
+  &__interest-subtitle {
+    margin-bottom: 10px;
+  }
+
+  &__description {
+    & :last-child {
+      display: none;
+    }
+
+    &::after {
+      content: "...";
+    }
+  }
+
+  @include tablet-screen {
+    padding: $padding-tablet;
+
+    &__wrapper {
+      width: 100%;
+    }
+
+    &__title-block {
+      text-align: center;
+    }
+
+    &__subtitle {
+      height: 30px;
+    }
+
+    &__interest {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 20px;
+      text-align: center;
+    }
+
+    &__image {
+      display: block;
+      height: 83px;
+      width: 110px;
+      margin: 0 auto 33px;
+
+      &--education {
+        background: url(../images/education.svg) no-repeat center;
+      }
+
+      &--realestate {
+        background: url(../images/realestate.svg) no-repeat center;
+      }
+
+      &--fitness {
+        background: url(../images/fitnes.svg) no-repeat center;
+      }
+
+      &--interactions {
+        background: url(../images/social.svg) no-repeat center;
+      }
+    }
+
+    &__interest-subtitle {
+      margin-bottom: 17px;
+    }
+
+    &__description {
+      max-width: 340px;
+      margin: 0 auto;
+
+      & :last-child {
+        display: inline;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  @include desktop-screen {
+    padding: $padding-desktop;
+
+    &__title-block {
+      margin-bottom: 83px;
+    }
+
+    &__title {
+      margin-bottom: 14px;
+    }
+
+    &__subtitle {
+      height: 100%;
+
+      @include font(14px, normal, 18px);
+    }
+
+    &__interest {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__description {
+      max-width: 250px;
+    }
+  }
+
+  @include extra-screen {
+    padding: $padding-extra;
+
+    &__wrapper {
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+
+    &__title-block {
+      margin-bottom: 69px;
+    }
+
+    &__interest {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    &__description {
+      max-width: 348px;
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.slide-menu {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+  width: 207px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(100% + 10px);
+
+    height: 1px;
+    width: 100%;
+
+    background-color: #212121;
+  }
+
+  &__link {
+    @include font(16px, 500, 130%);
+    color: $white;
+    text-decoration: none;
+
+    transition: all 0.4s;
+  
+    &:hover {
+      color: $contrast-color;
+    }
+
+    &--active {
+      position: relative;
+
+      color: $text-color;
+
+      &::after {
+        content: "";
+        position: absolute;
+        z-index: 1;
+        top: calc(100% + 10px);
+        left: 0;
+
+        height: 1px;
+        width: 100%;
+
+        background-color: $contrast-color;
+      }
+    }
+  }
+}

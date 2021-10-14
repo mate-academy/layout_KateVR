@@ -1,0 +1,130 @@
+.benefits {
+  padding: $padding-mobile;
+
+  background: linear-gradient(108.62deg, #191536 0%, #000 77.34%);
+
+  &__title {
+    width: 87.5vw;
+    margin: 0 auto 30px;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__info {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 87.5vw;
+    margin: 0 auto;
+  }
+
+  &__subtitle {
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    & :last-child {
+      display: none;
+    }
+
+    &::after {
+      content: "...";
+    }
+  }
+
+  &__button {
+    display: none;
+  }
+
+  @include tablet-screen {
+    padding: $padding-tablet;
+
+    &__title {
+      width: auto;
+    }
+
+    &__info {
+      grid-template-columns: repeat(3, 1fr);
+      width: auto;
+
+      text-align: center;
+    }
+
+    &__image {
+      display: block;
+      height: 80px;
+      width: 110px;
+      margin: 0 auto 25px;
+
+      &--universally {
+        background: url(../images/universally.svg) no-repeat center;
+      }
+
+      &--control {
+        background: url(../images/control.svg) no-repeat center;
+      }
+
+      &--sensors {
+        background: url(../images/sensors.svg) no-repeat center;
+      }
+    }
+
+    &__subtitle {
+      margin-bottom: 15px;
+    }
+  }
+
+  @include desktop-screen {
+    padding: $padding-desktop;
+
+    &__title {
+      margin-bottom: 80px;
+    }
+
+    &__info {
+      margin-bottom: 90px;
+    }
+
+    &__info-block {
+      width: 340px;
+      margin: 0 auto;
+    }
+
+    &__text {
+      & :last-child {
+        display: inline;
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &__button {
+      @include button-style;
+
+      margin: 0 auto;
+    }
+  }
+
+  @include extra-screen {
+    padding: $padding-extra;
+
+    &__title {
+      max-width: 1500px;
+      margin-bottom: 80px;
+    }
+
+    &__info {
+      max-width: 1500px;
+      gap: 205px;
+      margin-bottom: 0;
+    }
+
+    &__button {
+      display: none;
+    }
+  }
+}

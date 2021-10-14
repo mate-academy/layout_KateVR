@@ -1,0 +1,157 @@
+.footer {
+  padding: $padding-mobile;
+
+  background: #000;
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "logo logo"
+      "nav contact"
+      "nav social";
+    gap: 15px 80px;
+    width: 87.5vw;
+    margin: 0 auto;
+  }
+
+  &__logo-link {
+    grid-area: logo;
+
+    text-decoration: none;
+  }
+
+  &__logo {
+    height: 14px;
+    width: 69px;
+  }
+
+  &__nav {
+    grid-area: nav;
+  }
+
+  &__nav-list {
+    list-style: none;
+  }
+
+  &__nav-link {
+    display: block;
+    padding: 6px 0;
+
+    @include font(13px, normal, 150%);
+    color: #f2f2f2;
+    text-decoration: none;
+
+    transition: color 0.4s;
+
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+
+  &__soc-links {
+    display: flex;
+    justify-content: space-between;
+    grid-area: social;
+    width: 130px;
+
+    & :nth-child(n) {
+      height: 19px;
+      width: 19px;
+
+      transition: transform 0.4s;
+      backface-visibility: hidden;
+    }
+  }
+
+  &__facebook {
+    background: url(../images/facebook.svg) no-repeat bottom;
+
+    &:hover {
+      transform: scale(2);
+    }
+  }
+
+  &__twitter {
+    background: url(../images/twitter.svg) no-repeat bottom;
+
+    &:hover {
+      transform: scale(2);
+    }
+  }
+
+  &__youtube {
+    background: url(../images/youtube.svg) no-repeat bottom;
+
+    &:hover {
+      transform: scale(2);
+    }
+  }
+
+  &__reddit {
+    background: url(../images/reddit.svg) no-repeat bottom;
+
+    &:hover {
+      transform: scale(2);
+    }
+  }
+
+  &__contact-links {
+    grid-area: contact;
+
+    & :nth-child(n) {
+      display: block;
+      margin-bottom: 10px;
+
+      @include font(13px, normal, 16px);
+      color: $text-color;
+      text-decoration: none;
+      transition: color 0.4s;
+
+      &:hover {
+        color: $contrast-color;
+      }
+    }
+  }
+
+  @include tablet-screen {
+    padding: 25px 34px;
+
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 0;
+      width: auto;
+    }
+
+    &__nav-list {
+      display: flex;
+    }
+
+    &__nav-link {
+      padding: 0 20px;
+
+      font-size: 14px;
+    }
+
+    &__soc-links {
+      width: 103px;
+    }
+
+    &__contact-links {
+      display: none;
+    }
+  }
+
+  @include desktop-screen {
+    padding: 40px 110px;
+  }
+
+  @include extra-screen {
+    padding: 40px 234px;
+
+    &__wrapper {
+      max-width: 1500px;
+      margin: 0 auto;
+    }
+  }
+}

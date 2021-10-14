@@ -1,0 +1,154 @@
+.content {
+  width: 87.5vw;
+
+  &__image-box {
+    width: 87.5vw;
+    max-width: 420px;
+    margin: 0 auto;
+
+    background: url(../images/product.png) no-repeat center;
+    background-size: cover;
+  }
+
+  &__image {
+    width: 100%;
+    opacity: 0;
+  }
+
+  &__title {
+    width: 280px;
+    margin: 0 auto 14px;
+
+    @include font(26px, bold, 130%);
+    color: $white;
+
+    & :last-child {
+      font-family: Quantum, sans-serif;
+      color: $contrast-color;
+    }
+  }
+
+  &__text {
+    max-width: 460px;
+    margin: 0 auto 8px;
+
+    font-weight: 500;
+  }
+
+  &__price {
+    margin-bottom: 15px;
+
+    @include font(18px, 500, 23px);
+    text-align: center;
+    color: $white;
+  }
+
+  &__button-play {
+    position: relative;
+    left: -20px;
+    @extend %button-play;
+    margin: 0 auto;
+  }
+
+  @include tablet-screen {
+    width: 44vw;
+
+    &__image-box {
+      position: absolute;
+      top: 0;
+      left: 37%;
+
+      height: 100%;
+      width: 63vw;
+      max-width: none;
+
+      background-image: url(../images/product-tablet.png);
+    }
+
+    &__title {
+      width: auto;
+    }
+
+    &__text {
+      max-width: none;
+      margin-bottom: 10px;
+    }
+
+    &__price {
+      margin-bottom: 23px;
+
+      text-align: left;
+    }
+
+    &__button-play {
+      left: 0;
+      margin: 0;
+    }
+  }
+
+  @include desktop-screen {
+    width: 37.5vw;
+    padding-left: 92px;
+
+    &__image-box {
+      height: 93vh;
+      width: 63vw;
+
+      background-image: url(../images/product-desktop.png);
+    }
+
+    &__title {
+      margin-left: -92px;
+
+      font-size: 46px;
+    }
+
+    &__text {
+      height: 87px;
+      width: 336px;
+      margin: 0 0 5px;
+    }
+
+    &__price {
+      margin-bottom: 19px;
+    }
+
+    &__button-play {
+      margin-bottom: 84px;
+    }
+  }
+
+  @include extra-screen {
+    width: 29vw;
+
+    &__image-box {
+      height: 990px;
+      width: 1150px;
+
+      background-image: url(../images/product-large.png);
+    }
+
+    &__title {
+      margin-bottom: 30px;
+
+      font-size: 54px;
+    }
+
+    &__text {
+      width: 439px;
+      margin-bottom: 30px;
+
+      font-size: 20px;
+    }
+
+    &__price {
+      margin-bottom: 35px;
+
+      font-size: 20px;
+    }
+
+    &__button-play {
+      margin-bottom: 213px;
+    }
+  }
+}

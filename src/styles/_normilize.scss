@@ -1,0 +1,35 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: Mark-Pro, sans-serif;
+  font-weight: normal;
+
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+h2 {
+  @include font(21px, bold, 27px);
+  color: $white;
+
+  & :last-child {
+    font-family: Quantum, sans-serif;
+    color: $contrast-color;
+  }
+
+  @include desktop-screen {
+    @include font(36px, bold, 46px);
+  }
+}
+
+h3 {
+  @include font(18px, bold, 23px);
+  color: $white;
+}
+
+p {
+  @include font(16px, normal, 150%);
+  color: $text-color;
+}

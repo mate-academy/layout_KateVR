@@ -1,0 +1,56 @@
+.bottom-menu {
+  display: none;
+
+  @include desktop-screen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__nav-link {
+      @include font(16px, 500, 130%);
+      color: $white;
+      text-decoration: none;
+      transition: color 0.4s;
+
+      &:hover {
+        color: $contrast-color;
+      }
+
+      &:first-child {
+        padding-right: 17px;
+      }
+
+      &:last-child {
+        padding-left: 17px;
+      }
+    }
+
+    &__more {
+      position: relative;
+      left: calc(50% - 41px / 2);
+
+      @include font(16px, 500, 130%);
+      color: $contrast-color;
+      text-decoration: none;
+      transition: color 0.4s;
+
+      &:hover {
+        color: $white;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+
+        top: calc(100% + 7px);
+        left: calc(50% - 9px / 2);
+
+        height: 6px;
+        width: 9px;
+
+        color: $contrast-color;
+        background: url(../images/polygon.svg) no-repeat;
+      }
+    }
+  }
+}
