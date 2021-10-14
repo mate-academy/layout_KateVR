@@ -1,7 +1,174 @@
-@import "utils";
 @import "fonts";
-@import "typography";
+@import "variables";
+@import "header";
+
+html {
+  font-family: Mark-Medium, serif;
+  color: white;
+}
 
 body {
+  margin: 0;
   background: $c-gray;
+}
+
+.main {
+  margin: 0 110px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+image {
+  margin: 0;
+}
+
+.main-text {
+  margin-top: 100px;
+  font-size: 46px;
+  color: white;
+  font-family: Mark, sans-serif;
+}
+
+.quantum-font {
+  color: #05c2df;
+  font-family: Quantum, sans-serif;
+}
+
+.vr-photo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+
+.middle-text {
+  font-family: Mark-Medium, serif;
+  color: #929292;
+  font-size: 16px;
+  width: 340px;
+  margin: 15px 90px;
+}
+
+.price {
+  font-family: Mark-Medium, serif;
+  font-size: 18px;
+  color: white;
+  margin: 15px 90px;
+}
+
+.video-button {
+  margin: 0 80px;
+}
+
+.news-footer {
+  font-family: Mark-Medium, serif;
+  font-size: 18px;
+  display: flex;
+  color: white;
+  justify-content: space-between;
+  margin: 90px 0;
+}
+
+.news-more {
+  &:after {
+    content: "";
+    right: 30px;
+    top: 30px;
+    position: relative;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #05c2df;
+  }
+}
+
+.news-more-text {
+  color: #05c2df;
+}
+
+.news-switch {
+  display: flex;
+  padding: 0;
+  list-style-type: none;
+  margin: 0;
+}
+
+.news-switch-list:not(:first-child) {
+  margin-left: 100px;
+}
+
+.news-info-list {
+  margin-right: 35px;
+}
+
+.news-info {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.more {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 100px;
+  width: 100%;
+  height: 622px;
+  background-color: #05040b;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__info {
+    display: flex;
+
+    > * {
+      width: 252px;
+      margin: 10px;
+    }
+  }
+
+  &-text {
+    font-family: Mark, sans-serif;
+    font-size: 36px;
+  }
+
+  &-podtext {
+    font-size: 14px;
+    color: #05c2df;
+  }
+}
+
+.info__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.info__header {
+  margin: 45px 0 20px;
+  font-size: 18px;
+}
+
+.info__text {
+  text-align: center;
+  font-size: 16px;
+}
+
+@font-face {
+  font-family: Mark;
+  src: url("../fonts/FontFont_FF.Mark.Pro.Heavy.otf");
+}
+
+@font-face {
+  font-family: Quantum;
+  src: url("../fonts/Quantum-400.otf");
 }
