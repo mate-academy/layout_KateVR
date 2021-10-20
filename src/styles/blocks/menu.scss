@@ -1,0 +1,41 @@
+.menu {
+  background-color: $menuBackground;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__content {
+    box-sizing: border-box;
+    height: 100vh;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 20px;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    display: block;
+    padding: 10px 22px;
+
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 130%;
+    color: $whiteAccent;
+    text-decoration: none;
+
+    &:hover {
+      color: $contrastColor;
+      background-color: $menuBackgroundHover;
+    }
+  }
+}

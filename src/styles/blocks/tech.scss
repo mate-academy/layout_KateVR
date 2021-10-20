@@ -1,0 +1,212 @@
+.tech {
+  box-sizing: border-box;
+  height: 365px;
+  background-color: $BackgroundBlack;
+  overflow: hidden;
+
+  @include onTablet {
+    height: 600px;
+  }
+
+  @include onDesktop {
+    height: 690px;
+    position: static;
+  }
+
+  @include fullHD {
+    height: 805px;
+  }
+
+  &__title {
+    margin: 0 0 35px;
+    text-transform: uppercase;
+
+    font-size: 21px;
+    line-height: 27px;
+    font-weight: 900;
+    color: $whiteAccent;
+
+    @include onTablet {
+      margin-bottom: 57px;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 80px;
+    }
+
+    &--strong {
+      font-family: Quantum, sans-serif;
+      color: $contrastColor;
+    }
+  }
+
+  &__image {
+    position: relative;
+    margin: 0 auto;
+    height: 195px;
+    width: 195px;
+    border: 4px solid #0e0c1e;
+    border-radius: 50%;
+    background-image: url(../images/tech-image.svg);
+    background-position: top -1px right -3px;
+    background-size: 105%;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 354px;
+      width: 354px;
+    }
+
+    @include onDesktop {
+      height: 295px;
+      width: 295px;
+      margin: 0;
+      position: absolute;
+      top: 209px;
+      left: 495px;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &__action-description {
+    position: absolute;
+    transition: all 0.3s;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+
+    &::before {
+      position: absolute;
+      display: block;
+      content: url(../images/tech_description.svg);
+
+      @include onTablet {
+        content: url(../images/ipad_tech.svg);
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--sensor {
+      top: -20px;
+      left: 30px;
+
+      @include onTablet {
+        top: -20px;
+        left: 36px;
+      }
+    }
+
+    &--batteries {
+      top: 75px;
+      left: 130px;
+
+      @include onTablet {
+        top: 140px;
+        left: 235px;
+      }
+    }
+
+    &--conection {
+      top: 150px;
+      left: -25px;
+
+      @include onTablet {
+        top: 300px;
+        left: -60px;
+      }
+    }
+  }
+
+  &__title-description {
+    margin: 0 0 20px;
+
+    display: none;
+
+    color: $whiteAccent;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 23px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $contrastColor;
+    }
+
+    &:hover::before {
+      filter: hue-rotate(250deg);
+    }
+
+    &:hover::after {
+      filter: hue-rotate(250deg);
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &--sensor {
+      &::before {
+        position: absolute;
+        left: 85px;
+        top: 9px;
+        display: block;
+        content: url(../images/tech_sensor.svg);
+        pointer-events: none;
+      }
+    }
+
+    &--batteries {
+      &::before {
+        position: absolute;
+        left: 505px;
+        top: 8px;
+        display: block;
+        content: url(../images/batterries.svg);
+        pointer-events: none;
+      }
+    }
+
+    &--connection {
+      &::before {
+        position: absolute;
+        left: 220px;
+        top: 107px;
+        display: block;
+        content: url(../images/techline__connection.svg);
+        pointer-events: none;
+      }
+    }
+
+    &--connection-special {
+      &::after {
+        position: absolute;
+        left: 328px;
+        top: 102px;
+        display: block;
+        content: url(../images/elipse.svg);
+        pointer-events: none;
+      }
+    }
+  }
+
+  &__paragraph {
+    margin: 0;
+    display: none;
+
+    color: $textColor;
+    font-size: 16px;
+    line-height: 150%;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}

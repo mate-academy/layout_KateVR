@@ -1,0 +1,117 @@
+.contact {
+  overflow: hidden;
+  background: $BackgroundBlack;
+
+  &__contacts-block {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__grid {
+    display: block;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__title {
+    margin: 0 0 10px;
+    text-transform: uppercase;
+    text-align: left;
+
+    font-size: 21px;
+    line-height: 27px;
+    color: $whiteAccent;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 24px;
+    }
+
+    &--strong {
+      font-family: Quantum, sans-serif;
+      color: $contrastColor;
+    }
+  }
+
+  &__subtitle {
+    margin: 0 0 5px;
+    color: $contrastColor;
+    font-size: 14px;
+    line-height: 18px;
+
+    @include onTablet {
+      margin-bottom: 10px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      padding: 12px 0;
+    }
+  }
+
+  &__field {
+    margin-bottom: 24px;
+
+    &:last-of-type {
+      margin-bottom: 30px;
+
+      @include onDesktop {
+        margin-bottom: 90px;
+      }
+    }
+  }
+
+  &__paragraph {
+    margin: 0;
+    color: $textColor;
+
+    &--desktop {
+      display: none;
+      font-size: 16px;
+      line-height: 150%;
+
+      @include onTablet {
+        display: block;
+        margin-bottom: 52px;
+      }
+
+      @include onDesktop {
+        display: block;
+        margin-bottom: 52px;
+      }
+    }
+
+    &--mobile {
+      display: block;
+      font-size: 12px;
+      line-height: 150%;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+}
