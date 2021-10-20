@@ -1,0 +1,165 @@
+.header {
+  box-sizing: border-box ;
+  overflow: hidden;
+
+  @include onDesktop {
+    min-height: 740px;
+  }
+
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__middle-part-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include onTablet {
+      flex-direction: row;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 0;
+  }
+
+  &__title {
+    margin: 0 0 14px;
+    font-family: Quantum, sans-serif;
+    color: $contrastColor;
+    font-size: 26px;
+    line-height: 130%;
+    text-align: start;
+
+    @include onTablet {
+      padding-top: 24px;
+    }
+
+    @include onDesktop {
+      font-size: 46px;
+      padding-top: 52px;
+    }
+
+    &::first-line {
+      font-family: Mark, sans-serif;
+      color: $whiteAccent;
+      font-weight: bold;
+    }
+  }
+
+  &__image-mobile {
+    display: block;
+    width: 100%;
+    object-fit: contain;
+    object-position: center;
+
+    @include onTablet {
+      order: 2;
+      height: 200px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__advertising {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: #929292;
+    margin: 0 0 8px;
+    padding: 0;
+
+    @include onTablet {
+      margin-bottom: 10px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
+  }
+
+  &__price {
+    margin: 0 0 15px;
+    color: #fff;
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+
+    @include onTablet {
+      text-align: start;
+      margin-bottom: 18px;
+    }
+
+    @include onDesktop {
+      text-align: start;
+      margin-bottom: 20px;
+    }
+
+    &::after {
+      content: "$";
+    }
+  }
+
+  &__image-container {
+    display: none;
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      display: block;
+      padding-bottom: 0;
+    }
+  }
+
+  &__image-desktop {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    @include onDesktop {
+      background-image: url(../images/desktop.png);
+      background-size: 140%;
+      background-position: center;
+      background-repeat: no-repeat;
+      border-radius: 50%;
+    }
+  }
+
+  &__scroll-down {
+    position: relative;
+  }
+
+  &__bottom-bar {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__video-button {
+    margin: 0 auto 24px;
+
+    @include onDesktop {
+      margin-bottom: 84px;
+    }
+  }
+}

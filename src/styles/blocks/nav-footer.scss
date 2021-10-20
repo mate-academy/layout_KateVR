@@ -1,0 +1,60 @@
+.nav-footer {
+  flex-grow: 2;
+
+  @include onDesktop {
+    flex-grow: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    margin-bottom: 12px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    font-size: 13px;
+    line-height: 150%;
+    text-decoration: none;
+    color: $whiteAccent;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $contrastColor;
+    }
+
+    @include onTablet {
+      font-size: 14px;
+      color: #f2f2f2;
+    }
+
+    @include onDesktop {
+      font-size: 16px;
+      color: #f2f2f2;
+    }
+  }
+}
