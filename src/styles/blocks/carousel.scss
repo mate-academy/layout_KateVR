@@ -1,0 +1,98 @@
+.carousel {
+  background-color: $backGroundGradient;
+  width: 280px;
+  height: 189px;
+  position: relative;
+
+  @include onTablet {
+    width: 340px;
+    height: 270px;
+  }
+
+  @include onDesktop {
+    width: 430px;
+    height: 290px;
+  }
+
+  &__counter {
+    display: none;
+    position: absolute;
+    color: $contrastColor;
+    left: -40px;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__control {
+    max-width: 56px;
+    margin: 8px auto 20px;
+    display: flex;
+    justify-content: space-between;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #484848;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &:hover {
+      background-color: #ababab;
+    }
+  }
+
+  &__slide {
+    animation-name: fade;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    transition: all 0.3s;
+  }
+
+  @-webkit-keyframes fade {
+    from {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0.5;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
+    height: 189px;
+    min-height: 189px;
+    line-height: 189px;
+
+    @include onTablet {
+      height: 270px;
+      min-height: 270px;
+      line-height: 270px;
+    }
+
+    @include onDesktop {
+      height: 290px;
+      min-height: 290px;
+      line-height: 290px;
+    }
+  }
+}
