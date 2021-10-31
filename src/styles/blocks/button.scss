@@ -1,0 +1,40 @@
+.button {
+  display: block;
+  text-decoration: none;
+  @extend %buttons-links;
+  color: $color-white;
+  background-color: $color-blue;
+  border-radius: 4px;
+  text-align: center;
+  padding: 13px;
+  width: 200px;
+  border: none;
+
+  &:hover {
+    background-color: $color-white;
+    color: $color-blue;
+  }
+
+  @include onMobile {
+    width: 100%;
+  }
+
+  &__video {
+    display: block;
+    text-decoration: none;
+    @extend %pbig;
+    color: $color-white;
+    background-image: url(../images/video-button.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: none;
+    outline: none;
+    background-position: 0 50%;
+    padding: 22px 55px 22px 105px;
+    transition: background-image $tduration;
+
+    &:hover {
+      background-image: url(../images/video-button-hover.svg);
+    }
+  }
+}

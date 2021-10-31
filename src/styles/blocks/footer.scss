@@ -1,0 +1,79 @@
+
+.footer {
+  background-color: $color-blackHole;
+  padding: 40px 0;
+
+  &__logo {
+    display: flex;
+    align-items: center;
+  }
+  &__container {
+    display: flex;
+    justify-content: space-between;
+
+    @include onMobile {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @include onMobile {
+    &__nav {
+      display: flex;
+      margin-top: 15px;
+    }
+  }
+
+  &__soc {
+    display: flex;
+    justify-content: space-between;
+    gap: 17px;
+    align-items: center;
+
+    @include onMobile {
+      display: flex;
+      justify-content: space-between;
+      align-self: flex-end;
+    }
+  }
+
+  &__item {
+    transition: transform $tduration;
+
+    &:hover {
+      transform: scale(2);
+    }
+
+    &-facebook {
+      background-image: url(../images/facebook.svg);
+      height: 12px;
+      width: 6px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &-twitter {
+      background-image: url(../images/twitter.svg);
+      height: 11px;
+      width: 15px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &-youtube {
+      background-image: url(../images/youtube.svg);
+      height: 11px;
+      width: 14px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    &-reddit {
+      background-image: url(../images/reddit.svg);
+      height: 14px;
+      width: 14px;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+}

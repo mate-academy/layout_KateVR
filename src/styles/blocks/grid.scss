@@ -1,0 +1,111 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  column-gap: 20px;
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include onTablet {
+    grid-template-columns: repeat(6, 1fr);
+
+    &--tablet {
+      display: none;
+    }
+  }
+
+  @include onMobile {
+    grid-template-columns: repeat(2, 1fr);
+
+    &--mobile {
+      display: none;
+    }
+
+    &--mobile-visible {
+      display: block;
+    }
+  }
+
+  // &--mobile {
+  //   display: block;
+
+  //   @include onTablet {
+  //     display: grid;
+  //   }
+  // }
+
+  // &--tablet {
+  //   display: none;
+
+  //   @include onDesktop {
+  //     display: grid;
+  //   }
+  // }
+
+  // &--desktop {
+  //   display: block;
+
+  //   @include onDesktop {
+  //     display: grid;
+  //   }
+  // }
+
+  &__row {
+    @for $quant from 1 through 10 {
+      &-#{$quant} {
+        grid-template-rows: repeat(#{$quant}, 1fr);
+      }
+    }
+  }
+
+  &__item--row {
+    @for $start from 1 through 5 {
+      @for $end from $start through 4 {
+        &-#{$start}-#{$end} {
+          grid-row: #{$start} / #{$end};
+        }
+      }
+    }
+  }
+
+  &__item {
+    @for $start from 1 through 16 {
+      @for $end from $start through 16 {
+        &--max-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop-#{$start}-#{$end} {
+          @include onDesktop {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 6 {
+      @for $end from $start through 6 {
+        &--tablet-#{$start}-#{$end} {
+          @include onTablet {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--mob-#{$start}-#{$end} {
+          @include onMobile {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}

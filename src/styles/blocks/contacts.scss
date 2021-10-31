@@ -1,0 +1,125 @@
+.contacts {
+
+  &__title {
+    position: relative;
+    padding-top: 30px;
+    margin-bottom: 24px;
+    &-before::before {
+      position: absolute;
+      content: "Have any questions?";
+      color: $color-blue;
+      font-size: 14px;
+      line-height: 18px;
+      @extend %markR;
+      text-transform: none;
+      top: 0;
+
+      @include onTablet {
+        top: -10px;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 76px;
+  }
+
+  &__section {
+    @include onMobile {
+      position: relative;
+    }
+  }
+  
+  &__mail {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    row-gap: 10px;
+
+    @include onMobile {
+      position: absolute;
+      top: 118%;
+      right: 0;
+      font-size: 13px;
+      text-align: right;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-gray;
+    @extend %markR;
+    font-size: 16px;
+    line-height: 20px;
+    transition: color $tduration;
+
+    &:hover {
+      color: $color-white;
+    }
+  }
+
+  &__top {
+    display: block;
+    position: absolute;
+    top: -50px;
+    right: 0;
+    background-image: url(../images/arrhome.svg);
+    height: 48px;
+    width: 48px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &-container {
+      position: relative;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include onMobile {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 50px;
+  }
+
+  &__input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $color-gray;
+    padding-bottom: 18px;
+    outline: none;
+    color: $color-blue;
+    &:last-child {
+      padding-bottom: 67px;
+    }
+
+    &:focus {
+      color: $color-blue;
+    }
+    &:hover {
+      border-bottom-color: $color-blue;
+      &::placeholder {
+        color: $color-blue;
+      }
+    }
+
+    &:-webkit-autofill,
+    :-webkit-autofill:hover,
+    :-webkit-autofill:focus {
+      border-bottom: 1px solid $color-gray;
+      -webkit-text-fill-color: $color-blue;
+      background-color: transparent inset;
+      transition: background-color 5000s ease-in-out $tduration;
+    }
+  }
+}
