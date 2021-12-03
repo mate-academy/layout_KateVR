@@ -1,6 +1,76 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin hover($_property, $_toValue, $duration) {
+  transition: #{$_property} #{$duration} ease-in-out;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin contentWidth {
+  @include onFullHd {
+    width: $fullHdScreenWidth;
+  }
+
+  @include onLargeScreen {
+    width: $laptopScreenWidth;
+  }
+
+  @include onLaptop {
+    width: $laptopScreenWidth;
+  }
+
+  @include onTablet {
+    width: $tabletScreenWidth;
+  }
+
+  @include onMobile {
+    width: $mobileScreenWidth;
+  }
+}
+
+@mixin onFullHd {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin onLargeScreen {
+  @media (min-width: 1281px) and (max-width: 1919px) {
+    @content;
+  }
+}
+
+@mixin onLaptop {
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onTablet {
+  @media (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin onMobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin onMobile-down {
+  @media (max-width: 650px) {
+    @content;
+  }
+}
+
+@mixin font($size, $weight, $lineHeight: 130%) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $lineHeight;
+}
+
+@mixin centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
