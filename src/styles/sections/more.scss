@@ -1,0 +1,110 @@
+.more {
+  margin-top: -100px;
+  padding: 100px 0;
+  background-color: #05040b;
+  color: $colorText;
+  border-top: 1px solid #05040b;
+
+  @media (min-width: 1900px) {
+    margin-top: -160px;
+    padding-bottom: 160px;
+  }
+
+  @media (max-width: 1200px) {
+    margin: 0 auto;
+    padding: 70px 0;
+  }
+
+  @media (max-width: 720px) {
+    margin: 0 auto;
+    padding: 50px 0;
+  }
+
+  @media (max-width: 720px) {
+    margin-top: 130px;
+    text-align: left;
+  }
+
+  &__heading.heading {
+    @media (min-width: 1900px) {
+      padding-top: 150px;
+    }
+
+    @media (max-width: 720px) {
+      justify-content: start;
+    }
+  }
+
+  &__description {
+    text-align: center;
+    margin-top: 14px;
+    @include text2;
+    color: $colorContrast;
+
+    @media (max-width: 1200px) {
+      margin-top: 10px;
+    }
+
+    @media (max-width: 720px) {
+      text-align: left;
+    }
+  }
+
+  &__articles {
+    padding: 80px 0 0;
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat(4, auto);
+    justify-content: space-between;
+
+    @media (min-width: 1900px) {
+      padding-bottom: 160px;
+    }
+
+    @media (max-width: 1200px) {
+      padding-top: 40px;
+      padding-bottom: 80px;
+      gap: 40px $gap;
+      grid-template-columns: repeat(2, auto);
+      grid-template-rows: repeat(2, auto);
+    }
+
+    @media (max-width: 720px) {
+      display: flex;
+      flex-direction: column;
+      gap: $gap;
+      padding-top: 20px;
+    }
+  }
+
+  &__part {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    @media (max-width: 720px) {
+      text-align: left;
+    }
+  }
+
+  &__img {
+    height: 84px;
+
+    @media (max-width: 720px) {
+      display: none;
+    }
+  }
+
+  &__text-title {
+    margin: 30px auto 17px;
+    @include textH3;
+    text-transform: uppercase;
+    color: $colorWhite;
+    font-size: 18px;
+    line-height: 23px;
+
+    @media (max-width: 720px) {
+      margin: 10px 0;
+    }
+  }
+}

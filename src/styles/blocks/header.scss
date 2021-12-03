@@ -1,0 +1,37 @@
+.header {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+
+  &__right,
+  &__left {
+    display: grid;
+    gap: $gap-nav;
+    grid-template-columns: repeat(2,auto);
+    justify-content: space-between;
+    align-items: center;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__logo {
+    @media (max-width: 1200px) {
+      height: 14px;
+      width: 67px;
+    }
+  }
+
+  &__leng {
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &.blocks__header {
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+}

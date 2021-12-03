@@ -1,0 +1,64 @@
+.contact {
+
+  &__main {
+    display: flex;
+    flex-direction: column;
+    // overflow: hidden;
+    border: none;
+    padding: 0 0 66px;
+
+    @media (max-width: 1200px) {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__label {
+    @include text2;
+    color: $colorText;
+  }
+
+  &__input {
+    @include text1;
+    line-height: 20px;
+    margin-bottom: 24px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #2f2f2f ;
+    color: white;
+  }
+
+  &__input:last-child {
+    height: 67px;
+    font-size: 16px;
+  }
+
+  &__label:hover {
+    color: $colorContrast;
+  }
+
+  &__input:hover {
+    // margin-top: -9px;
+    font-size: 16px;
+    border-bottom: 1px solid $colorContrast ;
+    outline: none;
+  }
+
+  &__input:last-child:hover {
+    margin-top: 0;
+    font-size: 16px;
+  }
+
+  &__button.button {
+    line-height: 1;
+    cursor: pointer;
+    @media (max-width: 1200px) {
+      // display: none;
+    }
+
+    @media (max-width: 720px) {
+      display: block;
+      margin: 0 auto;
+      width: 280px;
+    }
+  }
+}

@@ -1,0 +1,168 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 0 80px;
+  color: white;
+  height: 445px;
+
+  @media (min-width: 1900px) {
+    padding-bottom: 110px;
+  }
+
+  @media (max-width: 1200px) {
+    height: 445px;
+    padding: 30px 0;
+  }
+
+  @media (max-width: 720px) {
+    height: 550px;
+  }
+
+  &__image {
+    position: absolute;
+    object-fit: contain;
+    right: 0;
+    top: 10px;
+    // height: 90%;
+    width: 63%;
+    z-index: -1;
+
+    @media (max-width: 1200px) {
+      // top: 0;
+      // height: 425px;
+    }
+
+    @media (max-width: 720px) {
+      display: none;
+    }
+  }
+
+  &__image-mob {
+    display: none;
+
+    @media (max-width: 720px) {
+      position: absolute;
+      display: block;
+      object-fit: contain;
+      right: 50%;
+      transform: translate(50%, 0);
+      top: 70px;
+      width: 320px;
+      z-index: -1;
+    }
+  }
+
+  &__title {
+    @include textH1;
+    margin: 14px auto;
+
+    @media (min-width: 1900px) {
+      font-size: 54px;
+    }
+
+    @media (max-width: 1200px) {
+      font-size: 26px;
+      margin: 0;
+    }
+
+    @media (max-width: 720px) {
+      margin: 200px 0 0;
+    }
+  }
+
+  &__title-end {
+    font-family: "Quantum", sans-serif;
+    color: $colorContrast;
+  }
+
+  &__article {
+    margin-left: 78px;
+    width: 336px;
+    @include textLink;
+    line-height: 1.5;
+    color: $colorText;
+
+    @media (max-width: 1200px) {
+      font-size: 26px;
+      margin: 14px 0 0;
+    }
+
+    @media (max-width: 720px) {
+      width: 280px;
+      margin: 0;
+    }
+  }
+
+  &__description {
+    margin: 5px auto;
+
+    @media (max-width: 720px) {
+      width: 280px;
+      margin: 0;
+    }
+  }
+  &__price {
+    color: $colorWhite;
+    margin: 5px auto;
+  }
+
+  &__video {
+    margin-top: 18px;
+  }
+
+  &__video.video {
+    @media (max-width: 720px) {
+      width: 280px;
+      margin: 0;
+    }
+  }
+
+  &__bottom {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+    @include textLink;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &__bottom-left {
+    display: grid;
+    gap: $gap-nav;
+    grid-template-columns: repeat(2, auto);
+    align-items: center;
+  }
+
+  &__more-button {
+    position: relative;
+  }
+
+  &__more-link {
+    margin: 0;
+    color: $colorContrast;
+    text-align: center;
+    line-height: 36px;
+    @include hover(color, $colorWhite);
+  }
+
+  &__more-link::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0;
+    height: 0;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 9px solid $colorContrast;
+    transition: 0.3s;
+  }
+
+  &__more-link:hover::after {
+    border-top: 9px solid $colorWhite;
+  }
+}

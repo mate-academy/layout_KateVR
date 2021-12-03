@@ -1,0 +1,93 @@
+.why {
+  background: linear-gradient(108.62deg, #191536 0%, #000 77.34%);
+  color: $colorText;
+  border-top: 1px solid #05040b;
+  padding: 100px 0;
+
+  @media (min-width: 1900px) {
+    padding: 160px 0;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 70px 0;
+  }
+
+  @media (max-width: 720px) {
+    padding: 50px 0;
+  }
+
+  &__heading.heading {
+    @media (max-width: 1200px) {
+      justify-content: start;
+    }
+  }
+
+  &__articles {
+    padding: 80px 0 90px;
+    display: grid;
+    gap: $gap;
+    grid-template-columns: repeat(3, auto);
+    justify-content: space-between;
+
+    @media (min-width: 1900px) {
+      padding-bottom: 0;
+      gap: 72px*2 + 20px*3;
+    }
+
+    @media (max-width: 1200px) {
+      padding: 30px 0 0;
+    }
+
+    @media (max-width: 720px) {
+      display: flex;
+      flex-direction: column;
+      padding-top: 20px;
+    }
+  }
+
+  &__part {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    @media (max-width: 720px) {
+      text-align: left;
+    }
+  }
+
+  &__img {
+    height: 84px;
+
+    @media (max-width: 720px) {
+      display: none;
+    }
+  }
+
+  &__text-title {
+    margin: 30px auto 17px;
+    @include textH3;
+    text-transform: uppercase;
+    color: $colorWhite;
+    font-size: 18px;
+    line-height: 23px;
+
+    @media (max-width: 720px) {
+      margin: 10px 0;
+    }
+  }
+
+  &__button {
+    margin: 0 auto;
+  }
+
+  &__button.button {
+    @media (min-width: 1900px) {
+      display: none;
+    }
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+}

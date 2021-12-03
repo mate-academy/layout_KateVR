@@ -1,0 +1,25 @@
+.video {
+  display: flex;
+  align-items: center;
+  background-image: url(./../images/play.svg);
+  background-repeat: no-repeat;
+  height: 70px;
+  width: 250px;
+
+  @include hover (color, $colorContrast);
+
+  &__arrow {
+    margin-left: 25px;
+    font-size: 24px;
+    color: $colorContrast;
+    @include hover (color, $colorWhite);
+  }
+
+  &__link {
+    margin-left: 70px;
+    @include textLink;
+    color: $colorText;
+    line-height: 70px;
+    @include hover (color, $colorWhite);
+  }
+}

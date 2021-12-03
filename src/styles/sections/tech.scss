@@ -1,0 +1,351 @@
+.tech {
+  background-color: #05040b;
+  padding: 100px 0;
+
+  @media (min-width: 1900px) {
+    padding: 160px 0;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 80px 0;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 50px 0;
+  }
+
+  &__heading.heading {
+    justify-content: flex-start;
+    margin-left: 70px*8 + 20px*7;
+    padding-bottom: 80px;
+
+    @media (min-width: 1900px) {
+      margin-left: 72px*11 + 20px*10;
+    }
+
+    @media (max-width: 1200px) {
+      margin-left: 0;
+      padding: 0;
+    }
+  }
+
+  &__pictures {
+    position: relative;
+    // width: $width1280;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    padding-top: 50px;
+  }
+
+  &__line-round {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 305px;
+    width: 305px;
+    border-radius: 50%;
+    border-left: 1px solid $colorContrast;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid transparent;
+
+    @media (max-width: 1200px) {
+      border: transparent;
+    }
+
+    @media (max-width: 720px) {
+      height: 200px;
+      width: 200px;
+    }
+  }
+
+  &__img {
+    height: 294px;
+    width: 294px;
+
+    @media (max-width: 1200px) {
+      height: 357px;
+      width: 357px;
+    }
+
+    @media (max-width: 720px) {
+      height: 197px;
+      width: 197px;
+    }
+  }
+
+  &__text-title {
+    font-size: 18px;
+
+    @media (max-width: 720px) {
+      font-size: 16px;
+    }
+  }
+
+  &__text {
+    margin-top: 20px;
+    color: $colorText;
+
+    @media (max-width: 1200px) {
+      color: #ccc;
+    }
+
+    @media (max-width: 720px) {
+      margin-top: 5px;
+      font-size: 14px;
+    }
+  }
+
+  &__line--1 {
+    position: absolute;
+    top: 0;
+    right: 70px*4 + 20px*4;
+    height: 240px;
+    width: 170px;
+    border-right: 1px solid $colorContrast;
+    border-bottom: 1px solid $colorContrast;
+
+    @media (min-width: 1900px) {
+      width: 280px;
+      right: 72px*5 + 20px*4;
+    }
+
+    @media (max-width: 1200px) {
+      @include round;
+      top: 65%;
+      right: 25%;
+    }
+
+    @media (max-width: 720px) {
+      top: 40%;
+      left: 10%;
+    }
+  }
+
+  &__line--1::before {
+    position: absolute;
+    bottom: -3px;
+    content: "";
+    height: 6px;
+    width: 6px;
+    background-color: $colorContrast;
+    border-radius: 50%;
+
+    @media (max-width: 1200px) {
+      @include roundPlus;
+    }
+  }
+
+  &__line--1::after {
+    position: absolute;
+    right: -3px;
+    content: "";
+    height: 6px;
+    width: 6px;
+    background-color: $colorContrast;
+    border-radius: 50%;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &__article--1 {
+    position: absolute;
+    top: -10px;
+    right: 0;
+    width: 70px*4 + 20px*3;
+
+    @media (min-width: 1900px) {
+      right: 72px + 20px -5px;
+    }
+
+    @media (max-width: 1200px) {
+      opacity: 0;
+      width: 240px;
+      top: 0;
+      right: 0;
+    }
+
+    @media (max-width: 720px) {
+      top: 55%;
+      left: 0;
+    }
+  }
+
+  &__line--2 {
+    position: absolute;
+    top: 30%;
+    left: 70px*3 + 20px*3;
+    height: 115px;
+    width: 120px;
+    border-left: 1px solid $colorContrast;
+    border-top: 1px solid $colorContrast;
+
+    @media (min-width: 1900px) {
+      left: 72px*5 + 20px*5;
+    }
+
+    @media (max-width: 1200px) {
+      @include round;
+      top: 90%;
+      left: 35%;
+    }
+
+    @media (max-width: 720px) {
+      top: 70%;
+      left: 85%;
+    }
+  }
+
+  &__line--2::before {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    content: "";
+    height: 6px;
+    width: 6px;
+    background-color: $colorContrast;
+    border-radius: 50%;
+
+    @media (max-width: 1200px) {
+      @include roundPlus;
+    }
+  }
+
+  &__line--2-2 {
+    position: absolute;
+    top: 30%;
+    left: 70px*3 + 20px*3 - 40px;
+    height: 115px;
+    width: 40px;
+    border-bottom: 1px solid $colorContrast;
+
+    @media (min-width: 1900px) {
+      width: 120px;
+      left: 72px*5 + 20px*5 - 120px;
+    }
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+  &__line--2-2::after {
+    position: absolute;
+    bottom: -3px;
+    content: "";
+    height: 6px;
+    width: 6px;
+    background-color: $colorContrast;
+    border-radius: 50%;
+  }
+
+  &__article--2 {
+    position: absolute;
+    top: 60%;
+    left: 70px + 20px;
+    width: 70px*4 + 20*3;
+
+    @media (min-width: 1900px) {
+      left: 72px*2 + 20px*2;
+    }
+
+    @media (max-width: 1200px) {
+      opacity: 0;
+      left: 0;
+    }
+
+    @media (max-width: 720px) {
+      top: 80%;
+      left: 30%;
+      width: 200px;
+    }
+  }
+
+  &__line--3 {
+    position: absolute;
+    top: 0;
+    right: 50%;
+    height: 80px;
+    width: 430px;
+    border-right: 1px solid $colorContrast;
+    border-top: 1px solid $colorContrast;
+
+    @media (max-width: 1200px) {
+      @include round;
+      top: 5%;
+      left: 30%;
+    }
+
+    @media (max-width: 720px) {
+      top: 15%;
+      left: 30%;
+    }
+  }
+
+  &__line--3::before {
+    position: absolute;
+    top: -3px;
+    content: "";
+    height: 6px;
+    width: 6px;
+    background-color: $colorContrast;
+    border-radius: 50%;
+
+    @media (max-width: 1200px) {
+      @include roundPlus;
+    }
+  }
+
+  &__line--3::after {
+    position: absolute;
+    right: -3px;
+    bottom: -3px;
+    content: "";
+    height: 6px;
+    width: 6px;
+    background-color: $colorContrast;
+    border-radius: 50%;
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+
+  &__article--3 {
+    position: absolute;
+    top: -10px;
+    left: 0;
+    width: 70px*4 + 20*3;
+
+    @media (min-width: 1900px) {
+      left: 72px*2 + 20px*2;
+    }
+
+    @media (max-width: 1200px) {
+      opacity: 0;
+      top: 20%;
+    }
+
+    @media (max-width: 720px) {
+      top: 5%;
+      left: 45%;
+      width: 170px;
+    }
+  }
+
+  @for $i from 1 through 3 {
+    &__line--#{$i}:hover ~ &__article--#{$i} {
+      @media (max-width: 1200px) {
+        opacity: 1;
+        transition: 0.3s;
+      }
+    }
+    &__line--#{$i}:hover::before {
+      @media (max-width: 1200px) {
+        content: "-";
+        left: 20px;
+      }
+    }
+  }
+}

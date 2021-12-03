@@ -1,0 +1,105 @@
+.question {
+  position: relative;
+  background-color: #05040b;
+  padding: 100px 0;
+  z-index: 4;
+
+  @media (min-width: 1900px) {
+    padding: 160px 0 200px;
+  }
+
+  @media (max-width: 1200px) {
+    padding: 70px 0;
+  }
+
+  &__section {
+    display: grid;
+    gap: $gap;
+    grid-template-columns: 1fr 1fr;
+
+    @media (max-width: 720px) {
+      display: flex;
+      flex-direction: column;
+      height: 530px;
+    }
+  }
+
+  &__pretext {
+    @include text2;
+    color: $colorContrast;
+  }
+
+  &__heading.heading {
+    padding: 10px 0 24px;
+    justify-content: start;
+  }
+
+  &__text-main {
+    margin: 0;
+    @include text1;
+    width: 338px;
+
+    @media (max-width: 720px) {
+      position: absolute;
+      bottom: 50px;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 12px;
+      text-align: center;
+      width: 280px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    @include text1;
+    width: 338px;
+    line-height: 48px;
+
+    @media (max-width: 720px) {
+      width: 150px;
+      text-align: right;
+      font-size: 14px;
+      justify-self: flex-end;
+    }
+  }
+
+  &__contacts {
+    padding-top: 52px;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 720px) {
+      position: absolute;
+      justify-self: flex-end;
+      bottom: -200px;
+      left: 50%;
+      z-index: -1;
+    }
+  }
+
+  &__contact-form {
+    position: relative;
+  }
+
+  &__page-up {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    display: block;
+    height: 48px;
+    width: 48px;
+    line-height: 48px;
+    text-align: center;
+    border-radius: 50%;
+    border: 0.5px solid $colorContrast;
+    color: $colorContrast;
+    @include textLink;
+    @include hover (color, $colorWhite);
+    @include hover (background-color, $colorContrast);
+
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+}

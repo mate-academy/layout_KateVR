@@ -1,0 +1,21 @@
+.button {
+  display: block;
+  width: 200px;
+  height: 48px;
+  background-color: $colorContrast;
+  border-radius: 4px;
+  text-align: center;
+  line-height: 48px;
+  @include textLink;
+  color: $colorWhite;
+  @include hover (color, $colorContrast);
+  @include hover (background-color, $colorWhite);
+  @include active (color, $colorDark);
+  @include active (background-color, $colorPlus);
+
+  &.header__button {
+    @media (max-width: 1200px) {
+      display: none;
+    }
+  }
+}

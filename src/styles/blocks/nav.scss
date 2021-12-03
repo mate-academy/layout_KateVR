@@ -1,0 +1,152 @@
+.nav {
+
+  &__toggle {
+    opacity: 0;
+    position: absolute;
+    // top: 100%;
+    display: none;
+    z-index: 6;
+
+    @media (max-width: 1200px) {
+      display: block;
+    }
+  }
+
+  &__span {
+    display: none;
+    position: absolute;
+
+    width: 17px;
+    height: 1px;
+
+    background-color: #fff;
+    transition-duration: 0.3s;
+    z-index: 6;
+
+    @media (max-width: 1200px) {
+      display: block;
+    }
+  }
+
+  &__span::before,
+  &__span::after {
+    position: absolute;
+    left: 5px;
+
+    width: 24px;
+    height: 1px;
+
+    background-color: #fff;
+    transition-duration: 0.3s;
+  }
+
+  &__span::before {
+    content: "";
+    top: -6px;
+  }
+
+  &__span::after {
+    content: "";
+    top: 6px;
+  }
+
+  &__btn:hover &__span,
+  &__btn:hover &__span::before,
+  &__btn:hover &__span::after {
+    background-color: $colorContrast;
+  }
+
+  &__toggle:checked ~ &__btn > &__span {
+    width: 0;
+    transform: rotate(360deg);
+  }
+  &__toggle:checked ~ &__btn > &__span::before {
+    top: 0;
+    transform: rotate(45deg);
+  }
+  &__toggle:checked ~ &__btn > &__span::after {
+    top: 0;
+    transform: rotate(135deg);
+  }
+
+  &__list {
+    position: relative;
+    margin: 0;
+    display: flex;
+    gap: $gap-nav;
+    line-height: 98px;
+    z-index: 2;
+
+    @media (max-width: 1200px) {
+      visibility: hidden;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      padding: 98px 0;
+      background-color: #191536;
+      gap: 0;
+    }
+  }
+
+  &__toggle:checked ~ &__list {
+    visibility: visible;
+
+    .nav__list {
+      visibility: visible;
+      display: flex;
+    }
+  }
+
+  &__btn {
+    display: none;
+    position: relative;
+    margin: 12px auto 0;
+
+    width: 29px;
+    height: 13px;
+
+    cursor: pointer;
+    z-index: 6;
+
+    @media (max-width: 1200px) {
+      display: block;
+    }
+  }
+
+  &__item {
+    display: inline-block;
+    // line-height: 98px;
+
+    @media (max-width: 1200px) {
+      display: block;
+      line-height: 48px;
+      padding: 0 150px;
+      margin: 0;
+      @include hover (background-color, #110E25);
+
+    }
+  }
+
+  &__item:nth-child(n+5) {
+    display: none;
+
+    @media (max-width: 1200px) {
+      display: block;
+    }
+  }
+
+  &__link {
+    // line-height: 98px;
+    cursor: pointer;
+    @include hover (color, $colorContrast);
+
+    @media (max-width: 1200px) {
+      // line-height: 48px;
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
