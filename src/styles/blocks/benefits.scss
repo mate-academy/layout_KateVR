@@ -1,0 +1,74 @@
+.benefits {
+  padding: $section-padding-top-mobile 0 
+    ($section-padding-top-mobile - $article-padding-bottom);
+
+  @include onTablet {
+    padding: $section-padding-top-tablet 0;
+  }
+
+  @include onDesktop {
+    padding: $section-padding-top-desktop 0;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    font-family: "Mark-Heavy", sans-serif;
+    font-size: 21px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: $white;
+
+    @include onDesktop {
+      margin-bottom: 82px;
+      font-size: 36px;
+      line-height: 46px;
+      text-align: center;
+    }
+  }
+
+  &__article {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      margin-bottom: 0;
+      justify-items: center;
+      align-items: center;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 10px;
+    font-size: 15px;
+    line-height: 23px;
+    font-family: "Mark-Heavy", sans-serif;
+    text-transform: uppercase;
+    color: $white;
+
+    @include onTablet {
+      margin: 24px 0 10px;
+    }
+    
+    @include onDesktop {
+      font-size: 18px;
+      line-height: 23px;
+    }
+  }
+
+  &__paragraph {
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+      -webkit-line-clamp: 6;
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.button-desktop {
+  display: none;
+  justify-content: center;
+  align-items: center;
+
+  width: 200px;
+  height: 48px;
+  border: 0;
+  border-radius: 4px;
+  background-color: $contrast-color;
+
+  font-family: "Mark-Medium", sans-serif;
+  font-size: 16px;
+  line-height: 130%;
+  color: $white;
+
+  cursor: pointer;
+  transition: all $transition-duration;
+
+  &:hover {
+    background-color: $white;
+    color: $contrast-color;
+  }
+
+  &:active {
+    background-color: $purple;
+    color: $dark-grey;
+  }
+
+  &--tablet {
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  @include onDesktop {
+    display: flex;
+  }
+}

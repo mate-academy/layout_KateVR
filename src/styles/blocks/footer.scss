@@ -1,0 +1,122 @@
+.footer {
+  height: 240px;
+  background: $black;
+
+  @include onTablet {
+    height: $tablet-footer-height;
+    line-height: $tablet-footer-height;
+  }
+
+  @include onDesktop {
+    height: $desktop-footer-height;
+    line-height: $desktop-footer-height - 1;
+  }
+
+  &__container {
+    padding: 45px 0;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    @include onTablet {
+      align-items: center;
+      padding: 0;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 6px;
+    height: 14px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__link-desktop {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__nav-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include onTablet {
+      display: flex;
+      gap: 40px;
+    }
+  }
+
+  &__nav-item {
+    margin-bottom: 6px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav-link {
+    font-size: 13px;
+    color: $white;
+    transition: color $transition-duration;
+
+    &:hover {
+      color: $contrast-color;
+    }
+
+    &:active {
+      color: $text-color;
+    }
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__contact {
+    display: flex;
+    align-items: center;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  
+  &__contact-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__contact-item {
+    margin-bottom: 4px;
+
+    &:last-child {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__contact-link {
+    font-size: 13px;
+    color: $text-color;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 24px;
+
+    @include onTablet {
+      gap: 18px;
+    }
+  }
+}

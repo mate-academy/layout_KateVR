@@ -1,13 +1,775 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>KateVR</title>
+    <link
+      rel="shortcut icon"
+      href="images/icons/favicon-32x32.svg"
+      type="image/x-icon"
+    >
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
-    <script type="text/javascript" src="scripts/main.js"></script>
+  <body class="page__body">
+    <header class="header" id="header">
+      <div class="container">
+        <div class="header__content">
+          <div class="header__top-bar">
+            <a class="header__logo-link" href="./">
+              <img
+                src="./images/icons/logo-mobile.png"
+                alt="KateVR logo"
+                class="header__logo"
+              >
+            </a>
+
+            <a href="#menu" class="header__menu icon icon--menu"></a>
+          </div>
+
+          <div class="top-bar-desktop">
+            <a class="header__logo-link" href="./">
+              <img
+                src="./images/icons/logo-pc.png"
+                alt="katvr logo"
+                class="header__logo"
+              >
+            </a>
+
+            <div class="top-bar-desktop__middle-bar">
+              <select
+                class="select"
+                name="language"
+                id="language"
+              >
+                <option class="select__item" value="english">En</option>
+                <option class="select__item" value="russian">Ru</option>
+                <option class="select__item" value="ukrainian">Ua</option>
+                <option class="select__item" value="polish">Pl</option>
+              </select>
+
+              <nav class="header__nav">
+                <ul class="top-bar-desktop__list">
+                  <li class="top-bar-desktop__item">
+                    <a class="top-bar-desktop__link" href="#about">
+                      About
+                    </a>
+                  </li>
+                  <li class="top-bar-desktop__item">
+                    <a class="top-bar-desktop__link" href="#tech">
+                      Tech
+                    </a>
+                  </li>
+                  <li class="top-bar-desktop__item">
+                    <a class="top-bar-desktop__link" href="#benefits">
+                      Benefits
+                    </a>
+                  </li>
+                  <li class="top-bar-desktop__item">
+                    <a class="top-bar-desktop__link" href="#contact">
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <a href="#contact" class="button-desktop">Buy Now</a>
+          </div>
+
+          <div class="header__main-content">
+            <div class="header__main-content-container">
+              <div class="header__device-image"></div>
+              <div class="grid grid--tablet-desktop">
+                <div class="grid__item grid__item--1-6">
+                  <h1 class="header__title">
+                    The new start of
+                    <br>
+                    <span class="header__title--Quantum">VR locomotion</span>
+                  </h1>
+                </div>
+
+                <div class="grid__item grid__item--7-12 grid__item--row-1-3">
+                  <div class="header__desktop-device-image-container">
+                    <div class="header__desktop-device-image"></div>
+                  </div>
+                </div>
+
+                <div class="grid__item grid__item--tablet-1-6 grid__item--desktop-2-5">
+                  <p class="header__paragraph">
+                    Discover the most comprehensive
+                    VR Locomotion system, and unlock
+                    infinite motion in any games on any
+                    platforms!
+                  </p>
+
+                  <p class="header__paragraph-desktop">
+                    Discover the most comprehensive VR
+                    Locomotion system, and unlock infinite
+                    motion in any games on any platforms!
+                  </p>
+
+                  <div class="header__cost">
+                    1200$
+                  </div>
+
+                  <a
+                    href="https://www.youtube.com/watch?v=oaKfyMeRwJs"
+                    target="_blank"
+                    rel="noopener"
+                    class="header__play-video-button play-video-button">
+                  </a>
+
+                  <a href="#contact" class="button">Buy Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="header__bottom-bar">
+            <div>
+              <ul class="header__help-list">
+                <li class="header__help-list-item">
+                  <a class="header__help-list-link" href="#contact">FAQ</a>
+                </li>
+                <li class="header__help-list-item">
+                  <a class="header__help-list-link" href="#contact">Help</a>
+                </li>
+              </ul>
+            </div>
+
+            <a href="#more">
+              <div class="header__more">
+                More
+                <div class="arrow"></div>
+              </div>
+            </a>
+
+            <div class="header__slider slider">
+              <ul class="slider__list">
+                <li class="slider__item">
+                  <a class="slider__link slider__link--previus" href="#previus">Previous</a>
+                </li>
+                <li class="slider__item">
+                  <a class="slider__link slider__link--next" href="#next">Next</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="menu page__menu" id="menu">
+      <div class="menu__content">
+        <div class="menu__top">
+          <a class="icon icon--cross" href="#"></a>
+        </div>
+        <ul class="menu__list">
+          <a href="#about" class="menu__link">
+            <li class="menu__item">
+              About
+            </li>
+          </a>
+
+          <a href="#tech" class="menu__link">
+            <li class="menu__item">
+              Tech
+            </li>
+          </a>
+
+          <a href="#benefits" class="menu__link">
+            <li class="menu__item">
+              Benefits
+            </li>
+          </a>
+
+          <a href="#contact" class="menu__link">
+            <li class="menu__item">
+              Contact
+            </li>
+          </a>
+
+          <a href="#language" class="menu__link">
+            <li class="menu__item">
+              Language
+            </li>
+          </a>
+
+          <a href="#contact" class="menu__link">
+            <li class="menu__item">
+              FAQ
+            </li>
+          </a>
+
+          <a href="#contact" class="menu__link">
+            <li class="menu__item">
+              Help
+            </li>
+          </a>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="more-than-gaming" id="more">
+        <div class="container">
+          <h2 class="more-than-gaming__title">
+            More than <span class="header__title--Quantum">gaming!</span>
+          </h2>
+
+          <p class="more-than-gaming__description">
+            This also made for people who are interested in...
+          </p>
+
+          <div class="grid grid--tablet">
+            <div class="grid__item grid__item--tablet-1-6">
+              <article class="more-than-gaming__article">
+                <div class="icon icon--education"></div>
+                <h3 class="more-than-gaming__subtitle">Education</h3>
+                <p class="more-than-gaming__paragraph">
+                  Create aducational simulations, trainings and much more with unlimited virtual space and minimum physical space
+                </p>
+              </article>
+            </div>
+
+            <div class="grid__item grid__item--tablet-7-12">
+              <article class="more-than-gaming__article">
+                <div class="icon icon--real-estate"></div>
+                <h3 class="more-than-gaming__subtitle">Real estate</h3>
+                <p class="more-than-gaming__paragraph">
+                  Desighn architectural projects in a deeply realistic environment allowing visitors to freely walk around, and feel their vibe
+                </p>
+              </article>
+            </div>
+
+            <div class="grid__item grid__item--tablet-1-6">
+              <article class="more-than-gaming__article">
+                <div class="icon icon--fitness"></div>
+                <h3 class="more-than-gaming__subtitle">Fitness</h3>
+                <p class="more-than-gaming__paragraph">
+                  Combine business with pleasure, and discover countless ways to stay fit while playing your favorite VR Games!
+                </p>
+              </article>
+            </div>
+
+            <div class="grid__item grid__item--tablet-7-12">
+              <article class="more-than-gaming__article more-than-gaming__article--last-article">
+                <div class="icon icon--soc-interactions"></div>
+                <h3 class="more-than-gaming__subtitle">Social interactions</h3>
+                <p class="more-than-gaming__paragraph">
+                  Hang out with your friends in the virtual world when you can’t meet space requirements
+                </p>
+              </article>
+            </div>
+          </div>
+
+          <div class="grid grid--desktop">
+            <div class="grid__item grid__item--desktop-1-3">
+              <article class="more-than-gaming__article">
+                <div class="icon icon--education"></div>
+                <h3 class="more-than-gaming__subtitle">Education</h3>
+                <p class="more-than-gaming__paragraph">
+                  Create aducational simulations, trainings and much more with unlimited virtual space and minimum physical space
+                </p>
+              </article>
+            </div>
+
+            <div class="grid__item grid__item--desktop-4-6">
+              <article class="more-than-gaming__article">
+                <div class="icon icon--real-estate"></div>
+                <h3 class="more-than-gaming__subtitle">Real estate</h3>
+                <p class="more-than-gaming__paragraph">
+                  Desighn architectural projects in a deeply realistic environment allowing visitors to freely walk around, and feel their vibe
+                </p>
+              </article>
+            </div>
+
+            <div class="grid__item grid__item--desktop-7-9">
+              <article class="more-than-gaming__article">
+                <div class="icon icon--fitness"></div>
+                <h3 class="more-than-gaming__subtitle">Fitness</h3>
+                <p class="more-than-gaming__paragraph">
+                  Combine business with pleasure, and discover countless ways to stay fit while playing your favorite VR Games!
+                </p>
+              </article>
+            </div>
+
+            <div class="grid__item grid__item--desktop-10-12">
+              <article class="more-than-gaming__article more-than-gaming__article--last-article">
+                <div class="icon icon--soc-interactions"></div>
+                <h3 class="more-than-gaming__subtitle">Social interactions</h3>
+                <p class="more-than-gaming__paragraph">
+                  Hang out with your friends in the virtual world when you can’t meet space requirements
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="container">
+          <div class="grid grid--tablet-desktop about__top-part-desktop-container">
+            <div class="grid__item grid__item--tablet-7-10 grid__item--desktop-9-12">
+              <h2 class="about__title">
+                About <span class="header__title--Quantum">product</span>
+              </h2>
+            </div>
+            <div class="grid__item grid__item--tablet-1-6 grid__item--row-1-3 grid__item--desktop-3-7">
+              <div class="about__image-container">
+                <div class="about__image"></div>
+                <div class="about__slider slider-circle slider-circle--1">
+                  <span class="slider-circle__circle"></span>
+                  <span class="slider-circle__circle"></span>
+                  <span class="slider-circle__circle"></span>
+                  <span class="slider-circle__circle"></span>
+                </div>
+
+                <div class="slider">
+                  <ul class="slider__list">
+                    <li class="slider__item">
+                      <a class="slider__link slider__link--previus" href="#previus">Previous</a>
+                    </li>
+                    <li class="slider__item">
+                      <a class="slider__link slider__link--next" href="#next">Next</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="grid__item grid__item--tablet-7-12 grid__item--desktop-9-12">
+              <p class="about__paragraph">
+                KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.
+              </p>
+
+              <a
+                href="https://www.youtube.com/watch?v=oaKfyMeRwJs"
+                class="about__play-video-button play-video-button"
+                target="_blank"
+                rel="noopener">
+              </a>
+            </div>
+          </div>
+
+          <div class="grid grid--tablet">
+            <div class="grid__item grid__item--tablet-1-8">
+              <p class="about__addition-text">Hello</p>
+              <h2 class="about__title">
+                Nice to meet <span class="header__title--Quantum">you!</span>
+              </h2>
+
+              <p class="about__paragraph">
+                KAT VR is an independent company dedicated to the research, development, and sales of VR Locomotion products and solutions. Founded in 2013, we have quickly grown to become one of the world’s leading professional suppliers of VR games’ & simulations’ equipment
+              </p>
+            </div>
+
+            <div class="grid__item grid__item--tablet-9-12">
+              <div class="about__background-text">
+                <div class="about__background-about-us"></div>
+                <div class="about__background-about-us about__background-about-us--opacity-50"></div>
+                <div class="about__background-about-us about__background-about-us--opacity-20"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="grid grid--desktop about__bottom-part-desktop-container">
+            <div class="grid__item grid__item--desktop-1-5">
+              <p class="about__addition-text">Hello</p>
+              <h2 class="about__title">
+                Nice to meet <span class="header__title--Quantum">you!</span>
+              </h2>
+
+              <p class="about__paragraph">
+                KAT VR is an independent company dedicated to the research, development, and sales of VR Locomotion products and solutions. Founded in 2013, we have quickly grown to become one of the world’s leading professional suppliers of VR games’ & simulations’ equipment
+              </p>
+            </div>
+
+            <div class="grid__item grid__item--tablet-7-12">
+              <div class="about__background-text">
+                <div class="about__background-about-us"></div>
+                <div class="about__background-about-us about__background-about-us--opacity-50"></div>
+                <div class="about__background-about-us about__background-about-us--opacity-20"></div>
+                <div class="about__background-about-us about__background-about-us--opacity-10"></div>
+                <div class="about__background-about-us about__background-about-us--opacity-5"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="tech" id="tech">
+        <div class="container">
+          <div class="tech__container-mobile">
+            <h2 class="tech__title tech">
+              Tech <span class="header__title--Quantum">specs</span>
+            </h2>
+
+            <h3 class="tech__subtitle">Sensor</h3>
+            <p class="tech__paragraph">
+              Weight: 35g/1.23oz each
+              <br>
+              Dimension: 50mm/1.97in
+              <br>
+              24mm/0.94in
+              <br>
+              Light: LED lights
+            </p>
+
+            <h3 class="tech__subtitle">Batterries</h3>
+            <p class="tech__paragraph">
+              Type: Lthium-lon polymer batteries
+              <br>
+              Capacity: 370mAh
+              <br>
+              Battery life: 10h of continuous use 150 hours on stand by
+              <br>
+              Charging: Fast charging - 1 hour
+              <br>
+              Charging voltage and current: 5V = 0.5A
+            </p>
+
+            <h3 class="tech__subtitle">Connection</h3>
+            <p class="tech__paragraph">
+              Wireless: Bluetooth 4.2
+              <br>
+              Signal range: 5m
+              <br>
+              Receiver: USB 2.0 and above
+            </p>
+
+            <div class="tech__image">
+              <span class="tech__plus tech__plus--1"></span>
+              <span class="tech__plus tech__plus--2"></span>
+              <span class="tech__plus tech__plus--3"></span>
+              <span class="tech__plus--left-bracket"></span>
+            </div>
+          </div>
+
+          <div class="grid grid--desktop">
+            <div class="grid__item grid__item--9-11">
+              <h2 class="tech__title">
+                Tech <span class="header__title--Quantum">specs</span>
+              </h2>
+            </div>
+
+            <div class="grid__item grid__item--1-3 tech__sensor-container">
+              <h3 class="tech__subtitle">Sensor</h3>
+              <p class="tech__paragraph">
+                Weight: 35g/1.23oz each
+                <br>
+                Dimension: 50mm/1.97in
+                <br>
+                24mm/0.94in
+                <br>
+                Light: LED lights
+              </p>
+            </div>
+
+            <div class="grid__item grid__item--9-12 tech__batterries-container">
+              <h3 class="tech__subtitle">Batterries</h3>
+              <p class="tech__paragraph">
+                Type: Lthium-lon polymer batteries
+                <br>
+                Capacity: 370mAh
+                <br>
+                Battery life: 10h of continuous use 150 hours on stand by
+                <br>
+                Charging: Fast charging - 1 hour
+                <br>
+                Charging voltage and current: 5V = 0.5A
+              </p>
+            </div>
+
+            <div class="grid__item grid__item--2-4 tech__connection-container">
+              <h3 class="tech__subtitle tech__subtitle--connection">Connection</h3>
+              <p class="tech__paragraph">
+                Wireless: Bluetooth 4.2
+                <br>
+                Signal range: 5m
+                <br>
+                Receiver: USB 2.0 and above
+              </p>
+            </div>
+
+            <div class="grid__item grid__item--5-8 grid__item--row-2-4">
+              <div class="tech__image">
+                <span class="tech__plus tech__plus--1"></span>
+                <span class="tech__plus tech__plus--2"></span>
+                <span class="tech__plus tech__plus--3"></span>
+                <span class="tech__plus--left-bracket"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits" id="benefits">
+        <div class="container">
+          <h2 class="benefits__title">
+            Why <span class="header__title--Quantum">cat loco?</span>
+          </h2>
+
+          <div class="grid grid--tablet-desktop">
+            <div class="grid__item grid__item--1-4">
+              <article class="benefits__article">
+                <div class="icon icon--universally-compatible"></div>
+                <h3 class="benefits__subtitle">Universally compatible</h3>
+                <p class="benefits__paragraph">
+                  KAT Loco offers universal compatibility across all major VR headsets and platforms allowing you to play any VR game with support for Free Locomotion
+                </p>
+              </article>
+            </div>
+
+            <div class="grid__item grid__item--5-8">
+              <article class="benefits__article">
+                <div class="icon icon--control-panel"></div>
+                <h3 class="benefits__subtitle">VR/PC control panel</h3>
+                <p class="benefits__paragraph">
+                  Our Multifunctional Software allows for quick access to KAT Loco’s control panel both from a computer desktop, and directly from your VR headset.
+                </p>
+
+                <a href="#contact" class="button-desktop">
+                  Buy Now
+                </a>
+              </article>
+            </div>
+
+            <div class="grid__item grid__item--9-12">
+              <article class="benefits__article">
+                <div class="icon icon--wireless-sensors"></div>
+                <h3 class="benefits__subtitle">Wireless sensors</h3>
+                <p class="benefits__paragraph">
+                  What makes it even more advanced, KAT Loco is entirely wireless, and comes with a complete system of algorithms, super durable batteries and more!
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="grid grid--tablet-desktop">
+            <div class="grid__item grid__item--1-6">
+              <div class="contact__addition-text">
+                Have any questions?
+              </div>
+
+              <h2 class="contact__title">
+                Get in <span class="header__title--Quantum">touch</span>
+              </h2>
+
+              <div class="contact__contacts">
+                <p class="contact__paragraph-tablet">
+                  Our manager will reply you within
+                  <br>
+                  15 minutes
+                </p>
+
+                <ul class="contact__list">
+                  <li class="contact__item">
+                    <a class="contact__link" href="tel:+86-0571-86105373">
+                      +86-0571-86105373
+                    </a>
+                  </li>
+                  <li class="contact__item">
+                    <a class="contact__link" href="mailto:global@katvr.com">
+                      global@katvr.com
+                    </a>
+                  </li>
+                  <li class="contact__item">
+                    <a class="contact__link" href="mailto:overseas@katvr.com">
+                      overseas@katvr.com
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="grid__item grid__item--7-12">
+              <form class="contact__form" action="#">
+                <label for="name">
+                  Name*
+                  <input
+                    name="name"
+                    id="name"
+                    type="text"
+                    class="contact__field form-field"
+                    placeholder="Name"
+                    required
+                  >
+                </label>
+
+                <label for="email">
+                  Email*
+                  <input
+                    name="email"
+                    id="email"
+                    type="email"
+                    class="contact__field form-field"
+                    placeholder="example@adress.com"
+                    required
+                  >
+                </label>
+
+                <label for="phone">
+                  Phone*
+                  <input
+                    name="phone"
+                    id="phone"
+                    type="tel"
+                    class="contact__field form-field"
+                    pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+                    placeholder="xxx-xxx-xxxx"
+                    required
+                  >
+                </label>
+
+                <label for="message">
+                  Message
+                  <div class="contact__field contact__field--last">
+                    <textarea
+                      name="message"
+                      id="message"
+                      class="form-field form-field--textarea"
+                      placeholder="Type here..."
+                      required
+                   ></textarea>
+                  </div>
+                </label>
+
+                <button class="button contact__button">
+                  Contact Us
+                </button>
+
+                <div class="contact__buttons">
+                  <button class="button-desktop button-desktop--tablet contact__button">
+                    Contact Us
+                  </button>
+
+                  <a class="icon icon--back-scroll" href="#header"></a>
+                </div>
+
+                <p class="contact__paragraph-mobile">
+                  Our manager will reply you within 15 minutes
+                </p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="grid footer__container">
+          <a class="footer__link-desktop" href="#header">
+            <img
+              src="./images/icons/logo-pc.png"
+              alt="katvr logo"
+              class="footer__logo-desktop"
+            >
+          </a>
+
+          <div class="grid__item grid__item--1">
+            <a class="header__logo-link" href="#header">
+              <img
+                src="./images/Logo_iphone.svg"
+                alt="katvr logo"
+                class="footer__logo"
+              >
+            </a>
+
+            <nav class="footer__nav">
+              <ul class="footer__nav-list">
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="#about">
+                    About
+                  </a>
+                </li>
+
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="#tech">
+                    Tech
+                  </a>
+                </li>
+
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="#benefits">
+                    Benefits
+                  </a>
+                </li>
+
+                <li class="footer__nav-item">
+                  <a class="footer__nav-link" href="#contact">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="grid__item grid__item--2">
+            <div class="footer__communications">
+              <div class="footer__contact">
+                <ul class="footer__contact-list">
+                  <li class="footer__contact-item">
+                    <a class="footer__contact-link" href="tel:+86-0571-86105373">
+                      +86-0571-86105373
+                    </a>
+                  </li>
+                  <li class="footer__contact-item">
+                    <a class="footer__contact-link" href="mailto:global@katvr.com">
+                      global@katvr.com
+                    </a>
+                  </li>
+                  <li class="footer__contact-item">
+                    <a class="footer__contact-link" href="mailto:overseas@katvr.com">
+                      overseas@katvr.com
+                    </a>
+                  </li>
+                </ul>
+              </div>
+
+              <div class="footer__icons">
+                <a
+                  href="https://www.facebook.com/katvr.global/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <div class="icon icon--facebook"></div>
+                </a>
+
+                <a
+                  href="https://twitter.com/katvrwalk"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <div class="icon icon--twitter"></div>
+                </a>
+
+                <a
+                  href="https://www.youtube.com/channel/UCZXjmKuWnVvxCUUICg_3nrw"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <div class="icon icon--youtube"></div>
+                </a>
+
+                <a
+                  href="https://www.reddit.com/r/virtualreality/comments/m18oyv/just_received_my_omnidirectional_vr_treadmill_the/"
+                  target="_blank"
+                  rel="noopener"
+                >
+                  <div class="icon icon--reddit"></div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

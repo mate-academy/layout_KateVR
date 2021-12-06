@@ -1,0 +1,25 @@
+.slider-circle {
+  display: flex;
+    
+  &__circle {
+    height: 4px;
+    width: 4px;
+    margin-right: 6px;
+
+    background: url(../images/icons/slider-mobile/circle.svg);
+    background-repeat: no-repeat;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    .slider-circle--4 &,
+    .slider-circle--1 &:nth-child(-n+1),
+    .slider-circle--2 &:nth-child(-n+2),
+    .slider-circle--3 &:nth-child(-n+3) {
+      background-image: url(../images/icons/slider-mobile/circle-active.svg);
+      background-repeat: no-repeat;
+    }
+  }
+
+}

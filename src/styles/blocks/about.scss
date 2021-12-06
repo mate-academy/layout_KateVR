@@ -1,0 +1,170 @@
+.about {
+  padding: $section-padding-top-mobile 0;
+
+  @include onTablet {
+    padding: $section-padding-top-tablet 0;
+  }
+
+  @include onDesktop {
+    padding: $section-padding-top-desktop 0;
+  }
+
+  &__top-part-desktop-container {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+      margin-bottom: 188px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    font-family: "Mark-Heavy", sans-serif;
+    font-size: 21px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: $white;
+
+    @include onDesktop {
+      margin-bottom: 30px;
+      font-size: 34px;
+      line-height: 46px;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+
+    @include onDesktop {
+      &::before {
+        position: absolute;
+        left: -44px;
+        content: "1/5";
+        font-size: 14px;
+        line-height: 18px;
+        color: $contrast-color;
+      }
+    }
+  }
+
+  &__image {
+    height: 189px;
+    width: $about-image-width-mobile;
+    background-image: url(../images/desktop-images/VrOnTheBelt.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 230px;
+      width: $about-image-width-tablet;
+    }
+
+    @include onDesktop {
+      height: 219px;
+      width: 325px;
+    }
+
+    @include onDesktop1280 {
+      height: 290px;
+      width: $about-image-width-desktop;
+    }
+  }
+
+  &__slider {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    height: 18px;
+    width: $about-image-width-mobile;
+
+    @include onTablet {
+      margin-bottom: 0;
+      width: $about-image-width-tablet;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slider-desktop {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__play-video-button {
+    margin-bottom: 80px;
+  }
+
+  &__bottom-part-desktop-container {
+    align-items: center;
+  }
+
+  &__addition-text {
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 18px;
+    color: $contrast-color;
+
+    &::after {
+      content: ",";
+    }
+  }
+
+  &__background-text {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__background-about-us {
+    background-image: url(../images/bg-text/about-us.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &--opacity-50 {
+      opacity: 0.5;
+      transform: rotate(180deg);
+    }
+
+    &--opacity-20 {
+      opacity: 0.2;
+    }
+
+    &--opacity-10 {
+      opacity: 0.1;
+      transform: rotate(180deg);
+    }
+
+    &--opacity-5 {
+      opacity: 0.05;
+    }
+
+    @include onTablet {
+      display: block;
+      height: 249px;
+      width: 40px;
+    }
+
+    @include onDesktop {
+      height: 332px;
+      width: 54px;
+    }
+  }
+}

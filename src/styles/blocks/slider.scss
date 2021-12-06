@@ -1,0 +1,71 @@
+.slider {
+  display: none;
+
+  @include onDesktop {
+    position: relative;
+    display: flex;
+    width: 205.31px;
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 205.31px;
+      bottom: 10px;
+      height: 1px;
+      background: $slider-color;
+    }
+
+    &__list {
+      display: flex;
+      padding: 0;
+    }
+
+    &__item {
+      list-style: none;
+      padding-right: 102px;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+
+    &__link {
+      font-family: "Mark-Medium", sans-serif;
+      color: $white;
+
+      &--previus {
+        &:active::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          width: 66.25px;
+          bottom: 10px;
+          height: 1px;
+          background-color: $contrast-color;
+          z-index: 1;
+        }
+      }
+
+      &--next {
+        &:active::after {
+          content: "";
+          position: absolute;
+          right: 0;
+          width: 37.06px;
+          bottom: 10px;
+          height: 1px;
+          background-color: $contrast-color;
+          z-index: 1;
+        }
+      }
+
+      &:hover {
+        color: $contrast-color;
+      }
+
+      &:active {
+        color: $text-color;
+      }
+    }
+  }
+}

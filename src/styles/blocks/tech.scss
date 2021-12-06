@@ -1,0 +1,227 @@
+.tech {
+  padding: $section-padding-top-mobile 0;
+  background: $background-black;
+
+  @include onTablet {
+    padding: $section-padding-top-tablet 0;
+  }
+
+  @include onDesktop {
+    padding: $section-padding-top-desktop 0 $section-padding-top-desktop + 40px;
+  }
+
+  &__container-mobile {
+    display: block;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    padding: 0;
+    font-family: "Mark-Heavy", sans-serif;
+    font-size: 21px;
+    line-height: 27px;
+    text-transform: uppercase;
+    color: $white;
+
+    @include onTablet {
+      margin-bottom: 57px;
+    }
+
+    @include onDesktop {
+      font-size: 27px;
+      line-height: 150%;
+    }
+
+    @include onDesktop1280 {
+      margin-bottom: 80px;
+      font-size: 36px;
+      line-height: 46px;
+      text-align: end;
+    }
+  }
+
+  &__image {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 197px;
+    width: 194.7px;
+    background-image: url(../images/mobile-images/karvr-tech.png);
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      height: 358px;
+      width: 354px;
+      background-image: url(../images/tablet-images/vrkat-tech.png);
+    }
+
+    @include onDesktop1280 {
+      height: 297px;
+      width: 294px;
+      background-image: url(../images/desktop-images/tech-specs.png);
+      left: inherit;
+      top: 200px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &__plus {
+    position: absolute;
+    height: 34px;
+    width: 34px;
+    background-image: url(../images/icons/tech-plus.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      height: 62px;
+      width: 62px;
+    }
+
+    &:active {
+      background-image: url(../images/icons/tech-plus-active.svg);
+    }
+
+    &--1 {
+      left: 60px;
+      top: -11px;
+      
+      @include onTablet {
+        left: 64.74px;
+        top: -27px;
+      }
+
+      @include onDesktop1280 {
+        left: -228px;
+        top: -43px;
+        background-image: url(../images/desktop-images/sensor-vector.svg);
+        width: 403px;
+        height: 67px;
+
+        &:active {
+          background-image: url(../images/desktop-images/sensor-vector.svg);
+        }
+      }
+    }
+
+    &--2 {
+      left: 134px;
+      top: 80px;
+
+      @include onTablet {
+        left: 247px;
+        top: 145px;
+      }
+
+      @include onDesktop1280 {
+        left: 152px;
+        top: -45px;
+        background-image: url(../images/desktop-images/batterries-vector.svg);
+        height: 240.5px;
+        width: 185px;
+
+        &:active {
+          background-image: url(../images/desktop-images/batterries-vector.svg);
+        }
+      }
+    }
+
+    &--3 {
+      left: -17px;
+      top: 153px;
+
+      @include onTablet {
+        left: -58px;
+        top: 273px;
+      }
+
+      @include onDesktop1280 {
+        left: -131px;
+        top: 58.5px ;
+        background-image: url(../images/desktop-images/connection-vector.svg);
+        height: 107px;
+        width: 127px;
+
+        &:active {
+          background-image: url(../images/desktop-images/connection-vector.svg);
+        }
+      }
+    }
+
+    &--left-bracket {
+      display: none;
+
+      @include onDesktop1280 {
+        display: block;
+        position: absolute;
+        top: 38px;
+        left: -15px;
+        background-image: url(../images/desktop-images/left-bracket.svg);
+        height: 201px;
+        width: 40px;
+
+        &:active {
+          background-image: url(../images/desktop-images/left-bracket.svg);
+        }
+      }
+    }
+  }
+
+  &__sensor-container {
+    height: max-content;
+
+    @include onDesktop1280 {
+      padding-left: 40px;
+    }
+
+    @include onDesktop2k {
+      padding-left: 150px;
+    }
+  }
+
+  &__batterries-container {
+    @include onDesktop2k {
+      margin-left: -120px;
+    }
+  }
+
+  &__connection-container {
+    @include onDesktop2k {
+      padding-left: 80px;
+    }
+  }
+
+  &__subtitle {
+    display: none;
+
+    &--connection {
+      margin-top: 16px;
+
+      @include onDesktop2k {
+        margin-top: 40px;
+      }
+    }
+
+    @include onDesktop1280 {
+      display: inherit;
+      margin-bottom: 20px;
+      font-size: 18px;
+      line-height: 23px;
+      font-family: "Mark-Heavy", sans-serif;
+      text-transform: uppercase;
+      color: $white;
+    }
+  }
+
+  &__paragraph {
+    display: none;
+
+    @include onDesktop1280 {
+      display: inherit;
+    }
+  }
+}
