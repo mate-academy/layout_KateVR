@@ -47,6 +47,22 @@
       }
     }
   }
+
+  @include onTab {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+
+    &__item-tab {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
 }
 
 .container {
@@ -58,16 +74,24 @@
     padding: 64px 110px 110px;
   }
 
+  @include onMobile {
+    padding: 50px 20px;
+  }
+
+  @include onTab {
+    padding: 50px 30px;
+  }
+
   &-last {
     padding: 0 110px;
 
     @include onMobile {
       padding: 50px 20px;
     }
-  }
 
-  @include onMobile {
-    padding: 50px 20px;
+    @include onTab {
+      padding: 0 30px;
+    }
   }
 }
 
@@ -82,6 +106,10 @@
 
     @include onMobile {
       margin-bottom: 14px;
+    }
+
+    @include onTab {
+      margin-bottom: 50px;
     }
   }
 
@@ -124,6 +152,11 @@
       font-size: 26px;
       line-height: 34px;
     }
+
+    @include onTab {
+      font-size: 26px;
+      line-height: 34px;
+    }
   }
 
   &__title-subtitle {
@@ -134,6 +167,11 @@
     margin: 0;
 
     @include onMobile {
+      font-size: 26px;
+      line-height: 34px;
+    }
+
+    @include onTab {
       font-size: 26px;
       line-height: 34px;
     }
@@ -152,7 +190,7 @@
 
   &__image {
     background-image: url(../images/image.svg);
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     grid-row: 1 / 5;
@@ -161,6 +199,13 @@
       width: 100%;
       height: 200px;
       background-size: contain;
+    }
+
+    @include onTab {
+      width: 390px;
+      height: 210px;
+      align-self: center;
+      justify-self: center;
     }
   }
 
@@ -183,6 +228,10 @@
     margin-top: 84px;
 
     @include onMobile {
+      display: none;
+    }
+
+    @include onTab {
       display: none;
     }
 
@@ -259,6 +308,11 @@
       line-height: 19px;
     }
 
+    @include onTab {
+      font-size: 14px;
+      line-height: 21px;
+    }
+
     &:hover {
       color: $c-blue;
     }
@@ -278,6 +332,12 @@
     @include onMobile {
       margin-bottom: 0;
     }
+
+    @include onTab {
+      font-size: 12px;
+      line-height: 15px;
+      margin-bottom: 0;
+    }
   }
 
   &__sphere {
@@ -291,6 +351,10 @@
     @include onMobile {
       margin: 20px 0 10px;
     }
+
+    @include onTab {
+      margin: 30px 0 20px;
+    }
   }
 
   &__block {
@@ -303,6 +367,10 @@
     @include onMobile {
       align-items: flex-start;
       text-align: start;
+    }
+
+    @include onTab {
+      margin-top: 40px;
     }
 
   }
@@ -340,6 +408,11 @@
       line-height: 27px;
       margin-bottom: 10px;
     }
+
+    @include onTab {
+      font-size: 21px;
+      line-height: 27px;
+    }
   }
 
   &__sub {
@@ -349,6 +422,11 @@
     color: $c-blue;
 
     @include onMobile {
+      font-size: 21px;
+      line-height: 27px;
+    }
+
+    @include onTab {
       font-size: 21px;
       line-height: 27px;
     }
@@ -378,6 +456,10 @@
     @include onMobile {
       display: none;
     }
+
+    @include onTab {
+      display: none;
+    }
   }
 
   &__images {
@@ -388,6 +470,16 @@
       width: 280px;
       align-self: center;
     }
+
+    @include onTab {
+      height: 250px;
+      width: 340px;
+
+    }
+  }
+
+  &__title {
+    justify-self: end;
   }
 
   &__text {
@@ -396,6 +488,10 @@
 
     @include onMobile {
       margin: 20px 0 15px;
+    }
+
+    @include onTab {
+      margin: 30px 0 20px;
     }
   }
 }
@@ -406,6 +502,10 @@
   position: relative;
 
   @include onMobile {
+    display: none;
+  }
+
+  @include onTab {
     display: none;
   }
 
@@ -465,6 +565,10 @@
     @include onMobile {
       margin-top: 79px;
     }
+
+    @include onTab {
+      margin-top: 110px;
+    }
   }
 
   &__hello {
@@ -523,11 +627,15 @@
     @include onMobile {
       display: none;
     }
+
+    @include onTab {
+      display: none;
+    }
   }
 
   &__tools {
     position: relative;
-    top: -160px;
+    top: -130px;
     left: 50px;
     height: 300px;
     width: 300px;
@@ -535,9 +643,46 @@
     background-repeat: no-repeat;
     background-size: contain;
 
+    &::before {
+      content: "";
+      display: block;
+      height: 220px;
+      width: 50px;
+      position: absolute;
+      top: 40px;
+      left: -8px;
+
+      transform: rotate(-3deg);
+      background-image: url(../images/elipse.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
     @include onMobile {
       display: none;
     }
+
+    @include onTab {
+      display: none;
+    }
+  }
+
+  &__img {
+    width: 200px;
+    height: 200px;
+    margin: 41px 0 50px;
+    align-self: center;
+    justify-self: center;
+
+    @include onTab {
+      height: 350px;
+      width: 350px;
+      margin-top: 50px;
+    }
+  }
+
+  &__spec {
+    justify-self: start;
   }
 
   &__sensor {
@@ -549,6 +694,37 @@
     height: 69px;
     background-repeat: no-repeat;
     background-size: cover;
+  }
+
+  &__batteries {
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      right: -40px;
+      top: -40px;
+      width: 185px;
+      height: 240px;
+      background-image: url(../images/battery.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__connection {
+    &::after {
+      content: "";
+      background-image: url(../images/connection.svg);
+      display: block;
+      width: 127px;
+      height: 107px;
+
+      position: absolute;
+      top: 116px;
+      left: -150px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
   }
 
   &__title {
@@ -575,11 +751,21 @@
     text-align: center;
     margin-top: 80px;
 
+    @include onTab {
+      margin-top: 30px;
+    }
+
     @include onMobile {
       align-items: flex-start;
       justify-content: flex-start;
       text-align: start;
       margin-top: 30px;
+    }
+  }
+
+  &__title {
+    @include onTab {
+      justify-self: start;
     }
   }
 
@@ -600,6 +786,10 @@
 
     @include onMobile {
       margin: 0;
+    }
+
+    @include onTab {
+      margin-bottom: 0;
     }
   }
 }
@@ -630,6 +820,10 @@
     margin-top: 23px;
   }
 
+  @include onTab {
+    display: none;
+  }
+
   &:hover {
     background-color: $c-white;
     color: $c-blue;
@@ -637,6 +831,10 @@
 
   &__phone {
     @include onDesktop {
+      display: none;
+    }
+
+    @include onTab {
       display: none;
     }
   }
@@ -686,6 +884,10 @@
       text-align: center;
       margin: 27px 0 0;
     }
+
+    @include onTab {
+      margin: 48px 0 52px;
+    }
   }
 
   &__email {
@@ -727,6 +929,10 @@
 
   &__form {
     margin-top: 25px;
+
+    @include onTab {
+      margin: 0;
+    }
   }
 }
 
@@ -750,6 +956,10 @@
   height: 100px;
   background-color: #000;
 
+  @include onTab {
+    height: 64px;
+  }
+
   &__content {
     display: flex;
     justify-content: space-between;
@@ -764,6 +974,10 @@
     height: 100px;
     align-items: center;
     justify-content: space-between;
+
+    @include onTab {
+      height: 64px;
+    }
 
     @include onMobile {
       flex-direction: column;
@@ -850,6 +1064,10 @@
     @include onMobile {
       display: none;
     }
+
+    @include onTab {
+      display: none;
+    }
   }
 
   &__footer {
@@ -873,13 +1091,13 @@
     @include onDesktop {
       display: none;
     }
+
+    @include onTab {
+      display: none;
+    }
   }
 
   &__image {
-    width: 200px;
-    height: 200px;
-    margin: 41px 0 50px;
-    align-self: center;
     @include onDesktop {
       display: none;
     }
@@ -893,10 +1111,22 @@
         display: none;
       }
     }
+
+    @include onTab {
+      display: none;
+
+      &-manager {
+        display: none;
+      }
+    }
   }
 
   &__footer {
     @include onDesktop {
+      display: none;
+    }
+
+    @include onTab {
       display: none;
     }
   }
@@ -979,6 +1209,14 @@
     &:hover {
       color: $c-blue;
       background-color: #110e25;
+    }
+  }
+}
+
+.tab {
+  &__about-us__word {
+    @include onTab {
+      display: none;
     }
   }
 }
