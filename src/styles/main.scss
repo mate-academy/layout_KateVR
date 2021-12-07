@@ -671,8 +671,6 @@
     width: 200px;
     height: 200px;
     margin: 41px 0 50px;
-    align-self: center;
-    justify-self: center;
 
     @include onTab {
       height: 350px;
@@ -738,6 +736,55 @@
   &__image {
     margin-top: 125px;
     height: 300px;
+  }
+
+  &__plusicon {
+    position: absolute;
+    transition: transform 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.2);
+    }
+
+    @include onMobile {
+      width: 34px;
+      height: 34px;
+    }
+  }
+
+  @include onMobile {
+    &__plusicon1 {
+      top: 23px;
+      left: 40px;
+    }
+
+    &__plusicon2 {
+      top: 200px;
+      left: -30px;
+    }
+
+    &__plusicon3 {
+      top: 120px;
+      right: 30px;
+    }
+  }
+
+  @include onTab {
+    &__plusicon1 {
+      top: 23px;
+      left: 60px;
+    }
+
+    &__plusicon2 {
+      top: 330px;
+      left: -50px;
+    }
+
+    &__plusicon3 {
+      top: 184px;
+      right: 44px;
+    }
   }
 }
 
@@ -936,6 +983,7 @@
   }
 
   &__button {
+    border: none;
     cursor: pointer;
     justify-self: center;
     align-self: center;
@@ -1104,6 +1152,10 @@
   }
 
   &__image {
+    position: relative;
+    align-self: center;
+    justify-self: center;
+
     @include onDesktop {
       display: none;
     }
