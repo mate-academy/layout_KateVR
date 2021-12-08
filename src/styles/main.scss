@@ -263,7 +263,7 @@
         content: "";
         position: absolute;
         top: 100%;
-        left: 50%;
+        left: 43%;
         height: 6px;
         width: 9px;
         background-image: url(../images/polygon2.svg);
@@ -805,6 +805,7 @@
 
     @include onTab {
       margin-top: 30px;
+      margin-bottom: 50px;
     }
 
     @include onMobile {
@@ -865,15 +866,15 @@
 
   transition: 0.5s;
 
+  @include onTab {
+    justify-self: center;
+  }
+
   @include onMobile {
     width: 280px;
     height: 40px;
     align-self: center;
     margin-top: 23px;
-  }
-
-  @include onTab {
-    display: none;
   }
 
   &:hover {
@@ -1004,6 +1005,10 @@
     display: none;
   }
 
+  @include onTab {
+    display: none;
+  }
+
   &__poly {
     position: absolute;
     top: 18px;
@@ -1092,7 +1097,10 @@
 .phone {
 
   &__image {
-    transition: 0.2s;
+
+    &-scale {
+      transition: transform 0.5s;
+    }
 
     &-scale:hover {
       transform: scale(2);
