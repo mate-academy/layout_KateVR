@@ -16,12 +16,21 @@
   &__cards {
     display: flex;
     justify-content: space-around;
+    flex-wrap: wrap;
     align-items: baseline;
     gap: 20px;
   }
 
   &__card {
-    min-width: 250px;
+    max-width: 250px;
+
+    @media (max-width: 1279px) {
+      max-width: 200px;
+    }
+
+    @media (max-width: 1024px) {
+      max-width: 300px;
+    }
 
     &-photo {
       margin-bottom: 30px;
@@ -36,6 +45,10 @@
       line-height: 150%;
       font-weight: normal;
       color: $c-text;
+
+      @media (max-width: 1279px) {
+        font-size: 14px;
+      }
     }
   }
 }

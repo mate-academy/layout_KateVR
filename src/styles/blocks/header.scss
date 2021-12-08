@@ -15,6 +15,11 @@
     width: 100%;
     background: linear-gradient(180deg, #191536 0%,
     rgba(25, 21, 54, 0.83) 70.31%, rgba(25, 21, 54, 0) 100%);
+
+    @media (max-width: 1024px) {
+      background: none;
+      position: absolute;
+    }
   }
 
   &__logo {
@@ -28,6 +33,10 @@
   &__language {
     text-decoration: none;
     color: $c-contrast;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
 
     &:hover {
       color: #fff;
@@ -43,8 +52,16 @@
     align-items: center;
     gap: 34px;
 
+    @media (max-width: 1024px) {
+      display: none;
+    }
+
     &-link {
       line-height: 130%;
+    }
+
+    @media (max-width: 1279px) {
+      gap: 28px;
     }
   }
 }
