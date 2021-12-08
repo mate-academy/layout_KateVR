@@ -1,0 +1,69 @@
+.tech {
+  box-sizing: border-box;
+  height: 365px;
+  background-color: $BackgroundBlack;
+  overflow: hidden;
+
+  @include onTablet {
+    height: 600px;
+  }
+
+  @include onDesktop {
+    height: 690px;
+    position: static;
+  }
+
+  @include fullHD {
+    height: 805px;
+  }
+
+  &__title {
+    margin: 0 0 35px;
+    text-transform: uppercase;
+
+    font-size: 21px;
+    line-height: 27px;
+    font-weight: 900;
+    color: $whiteAccent;
+
+    @include onTablet {
+      margin-bottom: 57px;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 80px;
+    }
+
+    &--strong {
+      font-family: Quantum, sans-serif;
+      color: $contrastColor;
+    }
+  }
+
+  &__image {
+    position: relative;
+
+    &--mobile {
+      margin-left: 30%;
+      max-height: 200px;
+
+      @include onTablet {
+        max-height: 300px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desctop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+}

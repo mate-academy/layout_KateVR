@@ -1,0 +1,66 @@
+.decor {
+  display: none;
+
+  @include onTablet {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    display: flex;
+    justify-content: space-around;
+    gap: 17.25px;
+  }
+
+  &__element {
+    cursor: default;
+    font-family: Mark, sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 130%;
+    color: transparent;
+    text-transform: uppercase;
+    user-select: none;
+    writing-mode: vertical-lr;
+    -webkit-text-stroke: 1px #05c2df;
+
+    @include  onDesktop {
+      font-size: 68px;
+      line-height: 130%;
+    }
+
+    &--invisible {
+      display: flex;
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: flex;
+      }
+    }
+
+    &:nth-child(2) {
+      opacity: 0.5;
+    }
+
+    &:nth-child(3) {
+      opacity: 0.2;
+    }
+
+    &:nth-child(4) {
+      opacity: 0.1;
+    }
+
+    &:nth-child(5) {
+      opacity: 0.05;
+    }
+
+    &:nth-child(2n) {
+      transform: rotate(180deg);
+      padding-right: 12px;
+    }
+  }
+}
