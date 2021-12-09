@@ -3,12 +3,20 @@
   justify-content: space-between;
   align-items: center;
 
+  &__logo {
+    @media (max-width: 600px) {
+      display: block;
+      margin-bottom: 12px;
+    }
+  }
+
   &__nav-link {
     text-decoration: none;
     font-size: 14px;
     line-height: 150%;
     color: #f2f2f2;
     margin: 0 20px;
+    transition: color 0.3s;
 
     &:hover {
       color: $c-contrast;
@@ -17,14 +25,67 @@
     @media (max-width: 1279px) {
       margin: 0 15px;
     }
+    @media (max-width: 600px) {
+      margin-left: 0;
+      margin-bottom: 12px;
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__nav {
+    margin: 0 auto;
+
+    @media (max-width: 600px) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-wrap {
+      display: flex;
+      flex-grow: 1;
+
+      @media (max-width: 600px) {
+        display: block;
+        width: 50%;
+      }
+    }
   }
 
   &__soc-network {
     display: inline-block;
     margin: 0 8px;
+
+    path {
+      transition: fill 0.3s;
+    }
+
     &:hover {
       path {
         fill: $c-contrast;
+      }
+    }
+  }
+
+  &-contacts {
+    &__links {
+      display: none;
+      @media (max-width: 600px) {
+        display: block;
+      }
+    }
+
+    &__link {
+      display: block;
+      font-size: 13px;
+      line-height: 16px;
+      color: #929292;
+      text-decoration: none;
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 20px;
       }
     }
   }

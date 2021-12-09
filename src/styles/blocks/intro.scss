@@ -16,6 +16,11 @@
     padding-top: 95px;
   }
 
+  @media (max-width: 767px) {
+    height: 600px;
+    display: flex;
+  }
+
   &__product {
     position: absolute;
     right: -15%;
@@ -30,8 +35,12 @@
     }
 
     @media (max-width: 1024px) {
-      right: -5%;
       top: -40%;
+    }
+
+    @media (max-width: 767px) {
+      right: 0;
+      top: -10%;
     }
   }
 
@@ -54,6 +63,7 @@
     &-link {
       color: #fff;
       text-decoration: none;
+      transition: color 0.3s;
 
       &:hover {
         color: $c-contrast;
@@ -68,6 +78,11 @@
       position: relative;
       color: $c-contrast;
       text-decoration: none;
+      transition: color 0.3s;
+
+      path {
+        transition: color 0.3s;
+      }
 
       svg {
         position: absolute;
@@ -102,6 +117,11 @@
 
     @media (max-width: 1279px) {
       max-width: 400px;
+    }
+
+    @media (max-width: 767px) {
+      padding-top: 160px;
+      max-width: 280px;
     }
   }
 }

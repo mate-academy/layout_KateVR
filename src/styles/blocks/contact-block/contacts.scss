@@ -4,6 +4,12 @@
   align-items: flex-start;
   min-height: 380px;
 
+  @media (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__info {
     max-width: 440px;
 
@@ -25,6 +31,12 @@
       line-height: 150%;
       color: #929292;
       margin-bottom: 70px;
+    }
+
+    &-links {
+      @media (max-width: 767px) {
+        display: none;
+      }
     }
 
     &-link {
@@ -50,10 +62,22 @@
     justify-content: space-between;
     align-items: center;
 
-    &:last-child :hover {
+    &-start {
+      @media (max-width: 767px) {
+        display: none;
+      }
+
       path {
-        fill: $c-contrast;
-        stroke: #fff;
+        fill: transparent ;
+        stroke: $c-contrast;
+        transition: all 0.3s;
+      }
+
+      &:hover {
+        path {
+          fill: $c-contrast;
+          stroke: #fff;
+        }
       }
     }
   }

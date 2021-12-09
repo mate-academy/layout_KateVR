@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KAT VR</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.css">
     <link rel="stylesheet" href="./styles/main.scss">
     <link
       rel="icon"
@@ -11,7 +12,7 @@
       href="./images/head-logo.svg"
     >
   </head>
-  <body class="page">
+  <body class="page page__body">
 
     <header class="header-wrap">
       <div class="container">
@@ -23,18 +24,12 @@
             >
           </a>
 
-          <a href="#" class="header__language">
-            <span>En</span>
-            <svg
-              width="9"
-              height="5"
-              viewBox="0 0 9 5"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M4.5 5L0.602885 0.5L8.39711 0.500001L4.5 5Z" fill="#05C2DF">
-            </svg>
-          </a>
+          <select name="Language" class="header__language">
+            <option value="En">En</option>
+            <option value="Ua">Ua</option>
+            <option value="Ru">Ru</option>
+            <option value="Pl">Pl</option>
+          </select>
 
           <nav class="header__nav">
             <a href="#About" class="header__nav-link link">
@@ -49,15 +44,56 @@
             <a href="#Contact" class="header__nav-link link">
               Contact
             </a>
-            <button class="button">Buy Now</button>
+            <a href="#Contact" class="button">Buy Now</a>
           </nav>
+
+          <a href="#menu" class="header__icon"></a>
         </div>
       </div>
     </header>
 
+    <nav class="page__menu menu" id="menu">
+      <div class="container">
+        <a href="#" class="header__close"></a>
+      </div>
+      <div class="menu__content">
+
+        <ul class="menu__list">
+          <li class="menu__item">
+            <a href="#About" class="menu__link">About</a>
+          </li>
+
+          <li class="menu__item">
+            <a href="#Tech" class="menu__link">Tech</a>
+          </li>
+
+          <li class="menu__item">
+            <a href="#Benefits" class="menu__link">Benefits</a>
+          </li>
+
+          <li class="menu__item">
+            <a href="#Contact" class="menu__link">Contact</a>
+          </li>
+
+          <li class="menu__item">
+            <a href="#Language" class="menu__link">Language</a>
+          </li>
+
+          <li class="menu__item">
+            <a href="#Faq" class="menu__link">Faq</a>
+          </li>
+
+          <li class="menu__item">
+            <a href="#Help" class="menu__link">Help</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="intro section">
       <div class="intro__container container">
         <picture class="intro__product">
+          <source srcset="./images/intro320.png" media="(max-width: 767px)">
           <source srcset="./images/intro1024.png" media="(max-width: 1024px)">
           <source srcset="./images/intro1600.png" media="(max-width: 1600px)">
           <img src="./images/intro1920.png" alt="Product">
@@ -77,7 +113,12 @@
 
             <div class="info__price">1200$</div>
 
-            <a href="#" class="info__button"></a>
+            <a
+              href="https://youtu.be/vEhwLRX4m2s"
+              data-fancybox="videos"
+              class="info__button"
+            >
+            </a>
           </div>
 
         </div>
@@ -93,7 +134,7 @@
             </a>
           </div>
 
-          <a href="#More" class="intro__details-more">
+          <a href="#advanteges" class="intro__details-more">
             <span>More</span>
             <svg
               width="9"
@@ -115,7 +156,7 @@
       </div>
     </div>
 
-    <div class="advanteges-section section">
+    <div class="advanteges-section section" id="advanteges">
       <div class="container">
         <div class="advanteges">
           <h2 class="advanteges__title">MORE THAN
@@ -227,7 +268,12 @@
                 system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.
               </h3>
 
-              <a href="#" class="info__button"></a>
+              <a
+                href="https://youtu.be/qZGLT870CrY"
+                data-fancybox="videos"
+                class="info__button"
+              >
+              </a>
             </div>
           </div>
         </div>
@@ -389,7 +435,7 @@
             </div>
           </div>
 
-          <button class="button">Buy Now</button>
+          <a href="#Contact" class="button benefits__button">Buy Now</a>
         </div>
       </div>
     </div>
@@ -409,41 +455,43 @@
               Our manager will reply you within 15 minutes
             </p>
 
-            <a href="tel:+86-0571-86105373" class="contacts__info-link">
-              +86-0571-86105373
-            </a>
+            <div class="contacts__info-links">
+              <a href="tel:+86-0571-86105373" class="contacts__info-link">
+                +86-0571-86105373
+              </a>
 
-            <a href="mailto:global@katvr.com" class="contacts__info-link">
-              global@katvr.com
-            </a>
+              <a href="mailto:global@katvr.com" class="contacts__info-link">
+                global@katvr.com
+              </a>
 
-            <a href="mailto:overseas@katvr.com" class="contacts__info-link">
-              overseas@katvr.com
-            </a>
+              <a href="mailto:overseas@katvr.com" class="contacts__info-link">
+                overseas@katvr.com
+              </a>
+            </div>
           </div>
 
           <div class="contacts-us">
-            <form>
+            <form class="contacts-us__form">
               <div>
                 <input
                   type="text"
                   placeholder="Name*"
-                  class="contacts-us__form"
+                  class="contacts-us__form-input"
                   required
+                  maxlength="15"
                 >
 
                 <input
                   type="email"
                   placeholder="Email*"
-                  class="contacts-us__form"
-                  maxlength="2"
+                  class="contacts-us__form-input"
                   required
                 >
 
                 <input
                   type="tel"
                   placeholder="Phone*"
-                  class="contacts-us__form"
+                  class="contacts-us__form-input"
                   required
                 >
 
@@ -451,7 +499,7 @@
                   name="Message"
                   cols="50"
                   rows="5"
-                  class="contacts-us__form"
+                  class="contacts-us__form-input contacts-us__form-text"
                   placeholder="Message"
                ></textarea>
               </div>
@@ -466,6 +514,7 @@
                     viewBox="0 0 49 50"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
+                    class="contacts__buttons-start"
                   >
                     <path
                       d="M24.6743 49C37.6587 49 48.1846 38.2548 48.1846 25C48.1846 11.7452 37.6587 1 24.6743 1C11.69 1 1.16406 11.7452 1.16406 25C1.16406 38.2548 11.69 49 24.6743 49Z"
@@ -489,79 +538,97 @@
     <div class="footer-section">
       <div class="container">
         <footer class="footer">
-          <a href="#" class="footer__logo">
-            <img
-              src="./images/logo.svg"
-              alt="KATVR-Logo"
-            >
-          </a>
-
-          <nav class="footer__nav">
-            <a href="#About" class="footer__nav-link">
-              About
-            </a>
-            <a href="#Tech" class="footer__nav-link">
-              Tech
-            </a>
-            <a href="#Benefits" class="footer__nav-link">
-              Benefits
-            </a>
-            <a href="#Contact" class="footer__nav-link">
-              Contact
-            </a>
-          </nav>
-
-          <div class="footer__soc-networks">
-            <a href="#" class="footer__soc-network">
-              <svg
-                width="7"
-                height="12"
-                viewBox="0 0 7 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+          <div class="footer__nav-wrap">
+            <a href="#" class="footer__logo">
+              <img
+                src="./images/logo.svg"
+                alt="KATVR-Logo"
               >
-                <path d="M1.6879 6.85308V12H3.88284V6.85308H5.73635L6.10217 4.29384H3.88284V2.55924H6.10217V0H3.88284C2.67248 0 1.6879 1.14799 1.6879 2.55924V4.29384H0.224609V6.85308H1.6879Z" fill="white">
-              </svg>
             </a>
 
-            <a href="#" class="footer__soc-network">
-              <svg
-                width="16"
-                height="11"
-                viewBox="0 0 16 11"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M6.21616 11C5.58076 11 4.92674 10.9529 4.2688 10.8586C3.10998 10.6923 1.93692 10.1378 1.60498 9.97183L0.734375 9.53644L1.67695 9.25292C2.7073 8.94304 3.33407 8.75078 4.10995 8.44972C3.33306 8.10559 2.73432 7.48656 2.4461 6.68633L2.22682 6.07745L2.40663 6.10257C2.23612 5.94538 2.10149 5.78582 1.99712 5.64073C1.62594 5.12505 1.42942 4.49494 1.47124 3.95497L1.51249 3.4235L1.86035 3.54675C1.71361 3.29327 1.60756 3.02257 1.54523 2.73884C1.39332 2.0469 1.52045 1.31178 1.90329 0.668958L2.2063 0.160153L2.61156 0.605383C3.89325 2.01367 5.51663 2.84907 7.44337 3.09363C7.36467 2.59743 7.42364 2.11857 7.61881 1.68934C7.84605 1.18956 8.2503 0.765756 8.7875 0.463672C9.38412 0.128263 10.1076 -0.0342637 10.8248 0.00603471C11.5856 0.048794 12.2764 0.309554 12.825 0.760629C13.093 0.696952 13.2904 0.628967 13.5572 0.537091C13.7177 0.481822 13.8998 0.419067 14.1276 0.347289L14.967 0.0827349L14.4196 1.51276C14.4557 1.50999 14.4929 1.50764 14.5318 1.5061L15.4282 1.46898L14.8984 2.13129C14.868 2.16923 14.8603 2.17999 14.8495 2.19486C14.8068 2.25372 14.7537 2.32693 14.0265 3.21514C13.8444 3.43755 13.7535 3.72722 13.7704 4.03095C13.8349 5.18514 13.6801 6.22941 13.31 7.13464C12.96 7.99106 12.4177 8.72586 11.6982 9.31865C10.8078 10.052 9.67256 10.5542 8.32372 10.8109C7.66208 10.9368 6.95157 11 6.21616 11Z" fill="white">
-              </svg>
-            </a>
+            <nav class="footer__nav">
+              <a href="#About" class="footer__nav-link">
+                About
+              </a>
+              <a href="#Tech" class="footer__nav-link">
+                Tech
+              </a>
+              <a href="#Benefits" class="footer__nav-link">
+                Benefits
+              </a>
+              <a href="#Contact" class="footer__nav-link">
+                Contact
+              </a>
+            </nav>
+          </div>
+          <div class="footer-contacts">
+            <div class="footer-contacts__links">
+              <a href="tel:+86-0571-86105373" class="footer-contacts__link">
+                +86-0571-86105373
+              </a>
 
-            <a href="#" class="footer__soc-network">
-              <svg
-                width="14"
-                height="11"
-                viewBox="0 0 14 11"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M11.9153 0H2.09511C0.973345 0 0.0605469 0.931828 0.0605469 2.07698V8.72331C0.0605469 9.86847 0.973345 10.8003 2.09511 10.8003H11.9153C13.037 10.8003 13.9498 9.86847 13.9498 8.72331V2.07698C13.9498 0.931828 13.037 0 11.9153 0ZM4.97062 8.26411V2.61732L9.86703 5.39409L4.97062 8.26411Z" fill="white">
-              </svg>
-            </a>
+              <a href="mailto:global@katvr.com" class="footer-contacts__link">
+                global@katvr.com
+              </a>
 
-            <a href="#" class="footer__soc-network">
-              <svg
-                width="15"
-                height="14"
-                viewBox="0 0 15 14"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path d="M1.27183 8.54572C1.23646 8.75627 1.21177 8.96943 1.21177 9.1875C1.21177 11.8411 3.96881 14 7.29211 14C10.6154 14 13.3189 11.8411 13.3189 9.1875C13.3189 8.96943 13.2942 8.75627 13.2588 8.54572C13.7799 8.24995 14.1224 7.66582 14.1224 7C14.1224 6.03488 13.4016 5.25 12.5153 5.25C12.1103 5.25 11.7297 5.41532 11.4379 5.70356C10.428 4.93691 9.0881 4.44928 7.60663 4.38776L8.37546 1.14035L10.1093 1.80093C10.1347 2.74212 10.8414 3.5 11.7117 3.5C12.5981 3.5 13.3189 2.71512 13.3189 1.75C13.3189 0.78488 12.5981 0 11.7117 0C11.0938 0 10.5625 0.385775 10.2937 0.943929L7.81589 0.000455729L6.7746 4.39596C5.37338 4.49167 4.05649 4.97189 3.09273 5.70356C2.80091 5.41532 2.42037 5.25 2.01534 5.25C1.12901 5.25 0.408203 6.03488 0.408203 7C0.408203 7.66582 0.750766 8.24995 1.27183 8.54572ZM9.70281 7C10.3674 7 10.9082 7.5888 10.9082 8.3125C10.9082 9.0362 10.3674 9.625 9.70281 9.625C9.03819 9.625 8.49746 9.0362 8.49746 8.3125C8.49746 7.5888 9.03819 7 9.70281 7ZM9.53101 10.8649L9.87461 11.6553C9.12054 12.0445 8.22751 12.25 7.29211 12.25C6.3567 12.25 5.4101 12.0445 4.65602 11.6553L4.99963 10.8648C6.29455 11.5322 8.23609 11.5322 9.53101 10.8649ZM4.82783 7C5.49245 7 6.03318 7.5888 6.03318 8.3125C6.03318 9.0362 5.49245 9.625 4.82783 9.625C4.16321 9.625 3.62248 9.0362 3.62248 8.3125C3.62248 7.5888 4.16321 7 4.82783 7Z" fill="white">
-              </svg>
-            </a>
+              <a href="mailto:overseas@katvr.com" class="footer-contacts__link">
+                overseas@katvr.com
+              </a>
+            </div>
+            <div class="footer__soc-networks">
+              <a href="#" class="footer__soc-network">
+                <svg
+                  width="7"
+                  height="12"
+                  viewBox="0 0 7 12"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M1.6879 6.85308V12H3.88284V6.85308H5.73635L6.10217 4.29384H3.88284V2.55924H6.10217V0H3.88284C2.67248 0 1.6879 1.14799 1.6879 2.55924V4.29384H0.224609V6.85308H1.6879Z" fill="white">
+                </svg>
+              </a>
+
+              <a href="#" class="footer__soc-network">
+                <svg
+                  width="16"
+                  height="11"
+                  viewBox="0 0 16 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M6.21616 11C5.58076 11 4.92674 10.9529 4.2688 10.8586C3.10998 10.6923 1.93692 10.1378 1.60498 9.97183L0.734375 9.53644L1.67695 9.25292C2.7073 8.94304 3.33407 8.75078 4.10995 8.44972C3.33306 8.10559 2.73432 7.48656 2.4461 6.68633L2.22682 6.07745L2.40663 6.10257C2.23612 5.94538 2.10149 5.78582 1.99712 5.64073C1.62594 5.12505 1.42942 4.49494 1.47124 3.95497L1.51249 3.4235L1.86035 3.54675C1.71361 3.29327 1.60756 3.02257 1.54523 2.73884C1.39332 2.0469 1.52045 1.31178 1.90329 0.668958L2.2063 0.160153L2.61156 0.605383C3.89325 2.01367 5.51663 2.84907 7.44337 3.09363C7.36467 2.59743 7.42364 2.11857 7.61881 1.68934C7.84605 1.18956 8.2503 0.765756 8.7875 0.463672C9.38412 0.128263 10.1076 -0.0342637 10.8248 0.00603471C11.5856 0.048794 12.2764 0.309554 12.825 0.760629C13.093 0.696952 13.2904 0.628967 13.5572 0.537091C13.7177 0.481822 13.8998 0.419067 14.1276 0.347289L14.967 0.0827349L14.4196 1.51276C14.4557 1.50999 14.4929 1.50764 14.5318 1.5061L15.4282 1.46898L14.8984 2.13129C14.868 2.16923 14.8603 2.17999 14.8495 2.19486C14.8068 2.25372 14.7537 2.32693 14.0265 3.21514C13.8444 3.43755 13.7535 3.72722 13.7704 4.03095C13.8349 5.18514 13.6801 6.22941 13.31 7.13464C12.96 7.99106 12.4177 8.72586 11.6982 9.31865C10.8078 10.052 9.67256 10.5542 8.32372 10.8109C7.66208 10.9368 6.95157 11 6.21616 11Z" fill="white">
+                </svg>
+              </a>
+
+              <a href="#" class="footer__soc-network">
+                <svg
+                  width="14"
+                  height="11"
+                  viewBox="0 0 14 11"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M11.9153 0H2.09511C0.973345 0 0.0605469 0.931828 0.0605469 2.07698V8.72331C0.0605469 9.86847 0.973345 10.8003 2.09511 10.8003H11.9153C13.037 10.8003 13.9498 9.86847 13.9498 8.72331V2.07698C13.9498 0.931828 13.037 0 11.9153 0ZM4.97062 8.26411V2.61732L9.86703 5.39409L4.97062 8.26411Z" fill="white">
+                </svg>
+              </a>
+
+              <a href="#" class="footer__soc-network">
+                <svg
+                  width="15"
+                  height="14"
+                  viewBox="0 0 15 14"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path d="M1.27183 8.54572C1.23646 8.75627 1.21177 8.96943 1.21177 9.1875C1.21177 11.8411 3.96881 14 7.29211 14C10.6154 14 13.3189 11.8411 13.3189 9.1875C13.3189 8.96943 13.2942 8.75627 13.2588 8.54572C13.7799 8.24995 14.1224 7.66582 14.1224 7C14.1224 6.03488 13.4016 5.25 12.5153 5.25C12.1103 5.25 11.7297 5.41532 11.4379 5.70356C10.428 4.93691 9.0881 4.44928 7.60663 4.38776L8.37546 1.14035L10.1093 1.80093C10.1347 2.74212 10.8414 3.5 11.7117 3.5C12.5981 3.5 13.3189 2.71512 13.3189 1.75C13.3189 0.78488 12.5981 0 11.7117 0C11.0938 0 10.5625 0.385775 10.2937 0.943929L7.81589 0.000455729L6.7746 4.39596C5.37338 4.49167 4.05649 4.97189 3.09273 5.70356C2.80091 5.41532 2.42037 5.25 2.01534 5.25C1.12901 5.25 0.408203 6.03488 0.408203 7C0.408203 7.66582 0.750766 8.24995 1.27183 8.54572ZM9.70281 7C10.3674 7 10.9082 7.5888 10.9082 8.3125C10.9082 9.0362 10.3674 9.625 9.70281 9.625C9.03819 9.625 8.49746 9.0362 8.49746 8.3125C8.49746 7.5888 9.03819 7 9.70281 7ZM9.53101 10.8649L9.87461 11.6553C9.12054 12.0445 8.22751 12.25 7.29211 12.25C6.3567 12.25 5.4101 12.0445 4.65602 11.6553L4.99963 10.8648C6.29455 11.5322 8.23609 11.5322 9.53101 10.8649ZM4.82783 7C5.49245 7 6.03318 7.5888 6.03318 8.3125C6.03318 9.0362 5.49245 9.625 4.82783 9.625C4.16321 9.625 3.62248 9.0362 3.62248 8.3125C3.62248 7.5888 4.16321 7 4.82783 7Z" fill="white">
+                </svg>
+              </a>
+            </div>
           </div>
         </footer>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js"></script>
+    <script src="./scripts/main.js"></script>
   </body>
 </html>
