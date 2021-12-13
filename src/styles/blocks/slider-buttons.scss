@@ -1,0 +1,44 @@
+.slider-buttons {
+  display: flex;
+  position: relative;
+  width: 207px;
+  justify-content: space-between;
+  border-bottom: 1px solid $c-grey;
+  padding-bottom: 10px;
+
+  &--about-possicion {
+    margin-bottom: 226px;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    z-index: 2;
+    display: flex;
+    width: 69px;
+    justify-content: start;
+    border-bottom: 1px solid $c-contrast;
+  }
+
+  &-decoration {
+    font-family: "Mark", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $c-contrast;
+    }
+  }
+}
