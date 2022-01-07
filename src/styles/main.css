@@ -214,6 +214,7 @@ h1 {
 .menu__link {
   font-family: "Mark-Medium", sans-serif;
   font-size: 18px;
+  /* or 23px */
   text-align: center;
   color: #e4dfd3;
   text-decoration: none;
@@ -262,11 +263,12 @@ h1 {
 .menu-btn {
   cursor: pointer;
   position: absolute;
-  height: 15px;
-  width: 20px;
+  height: 25px;
+  width: 30px;
   right: 20px;
   top: 47px;
   box-sizing: border-box;
+  padding: 5px;
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .menu-btn {
@@ -1652,6 +1654,7 @@ h1 {
     grid-template-columns: 100%;
     grid-template-rows: 10% 90%;
     padding: 50px 20px;
+    height: 540px;
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -1751,6 +1754,7 @@ h1 {
     grid-column: 1/1;
     grid-row: 2/3;
     margin: 0 auto;
+    position: relative;
   }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
@@ -1758,6 +1762,7 @@ h1 {
     grid-column: 1/1;
     grid-row: 2/3;
     margin: 0 auto;
+    position: relative;
   }
 }
 @media (max-width: 1024px) {
@@ -2251,7 +2256,6 @@ h1 {
   background: #05040b;
   padding-bottom: 19px;
   padding-top: 24px;
-  max-width: 520px;
 }
 
 .input__form:nth-child(4) {
@@ -2260,6 +2264,11 @@ h1 {
 
 .input__form:first-child {
   padding-top: 0;
+}
+@media (min-width: 320px) and (max-width: 767px) {
+  .input__form {
+    width: 85vw;
+  }
 }
 @media (min-width: 1280px) and (max-width: 1920px) {
   .input__form {
@@ -2293,6 +2302,7 @@ h1 {
 @media (min-width: 320px) and (max-width: 767px) {
   .contact__button {
     margin-top: 30px;
+    width: 85vw;
   }
 }
 
@@ -2505,12 +2515,9 @@ body {
 }
 
 .button:hover {
-  transform: scale(1.05);
-  border-radius: 20px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25), 0 12px 19px rgba(0, 0, 0, 0.22);
-  background: #fff;
-  border: 1px solid #05c2df;
-  color: #05c2df;
+  border-radius: 15px;
+  border: 1px solid #069bb3;
+  background-color: #069bb3;
 }
 
 .link {
@@ -2533,6 +2540,112 @@ body {
 
 a {
   cursor: pointer;
+}
+
+.dropdown-checkbox {
+  position: relative;
+  display: inline-block;
+}
+@media (min-width: 1024px) {
+  .dropdown-checkbox {
+    display: none;
+  }
+}
+
+.dropdown-checkbox .label-title {
+  font-size: 13px;
+  color: #05c2df;
+}
+
+.dropdown-checkbox ul {
+  position: absolute;
+  background: #191536;
+  list-style: none;
+  min-width: 180px;
+  margin: 0;
+  padding: 0;
+  display: none;
+  z-index: 1;
+}
+
+.dropdown-checkbox ul li {
+  font-size: 15px;
+  padding: 10px;
+  margin: 0;
+}
+
+.dropdown-checkbox ul li input {
+  margin-right: 10px;
+}
+
+.dropdown-checkbox:hover ul {
+  display: block;
+}
+
+.dropdown__text {
+  font-family: Mark-Regular, sans-serif;
+  font-size: 12px;
+  line-height: 150%;
+  color: #929292;
+}
+
+.dropdown__text-wide {
+  position: absolute;
+  left: -100px;
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .dropdown__text-wide {
+    left: 0;
+  }
+}
+
+.form-group1 {
+  position: absolute;
+  left: 90px;
+  top: 55px;
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .form-group1 {
+    left: 125px;
+    top: 65px;
+  }
+}
+
+.form-group2 {
+  position: absolute;
+  left: 0;
+  top: 285px;
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .form-group2 {
+    left: 0;
+    top: 310px;
+  }
+}
+
+.form-group3 {
+  position: absolute;
+  left: 190px;
+  top: 175px;
+}
+@media (min-width: 640px) and (max-width: 1023px) {
+  .form-group3 {
+    left: 260px;
+    top: 200px;
+  }
+}
+
+.button__plus_container {
+  background-image: url(/images/tech/button__plus.svg);
+  content: "";
+  display: block;
+  width: 34px;
+  height: 34px;
+  transition: all 0.5s ease-in-out;
+}
+
+.button__plus_container:hover {
+  background-image: url(/images/tech/button__minus.svg);
 }
 
 /*# sourceMappingURL=main.css.map */
