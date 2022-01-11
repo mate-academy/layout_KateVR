@@ -1,6 +1,6 @@
 # KateVR landing page (HARD)
 
--[DEMO LINK]()
+[DEMO LINK](https://trtskvalerie.github.io/layout_KateVR/)
 
 **⚠️ Attention: this is a hard landing page for development. We highly recommend choosing this landing page only if you didn't have a lot of troubles with previous homework tasks and if you sent all homework in time (didn't miss deadlines).**
 
