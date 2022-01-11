@@ -1,0 +1,141 @@
+.footer__container {
+  background: #000;
+  padding: 43px 43px 39px 110px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  @include Notebook {
+    padding: 39px 235px;
+    justify-content: space-between;
+  }
+  @media (min-width: 320px) and (max-width: 767px) {
+    padding: 45px 20px 50px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: flex-start;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    padding: 21px 34px;
+  }
+  @media (min-width: 1024px) and (max-width: 1599px) {
+    padding: 43px 110px 40px;
+  }
+  @media (min-width: 1600px) and (max-width: 1919px) {
+    padding: 43px 234px 40px;
+  }
+  @media (min-width: 1920px) and (max-width: 2560px) {
+    padding: 43px 234px 40px;
+  }
+}
+
+.footer__logo_container {
+  @media (min-width: 320px) and (max-width: 767px) {
+    padding-bottom: 15px;
+  }
+  @include Notebook {
+    padding-right: 0;
+  }
+}
+
+.footer__logo {
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.footer__menu_list {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer__menu {
+  display: flex;
+  flex-direction: row;
+  @media (min-width: 320px) and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    grid-column: 1 / 2;
+  }
+  @include Notebook {
+    padding-right: 50px;
+  }
+}
+
+.footer__links_container {
+  display: none;
+  @media (min-width: 320px) and (max-width: 767px) {
+    display: block;
+  }
+}
+
+.footer__contact_phone,
+.footer__contact_mail {
+  font-family: Mark-Regular, sans-serif;
+  font-size: 13px;
+  line-height: 16px;
+  color: #929292;
+}
+
+.footer__contact {
+  padding-bottom: 16px;
+  display: flex;
+}
+
+.footer__links {
+  grid-column: 1 / 2;
+}
+
+.footer__link {
+  font-family: Mark-Regular, sans-serif;
+  font-size: 14px;
+  line-height: 150%;
+  color: #f2f2f2;
+  transition: all 0.5s ease-in-out;
+  &:hover {
+    color: #05c2df;
+  }
+}
+
+.footer__item {
+  padding-right: 40px;
+  &:last-child {
+    padding-right: 0;
+  }
+  @media (min-width: 320px) and (max-width: 767px) {
+    padding-bottom: 12px;
+    display: flex;
+  }
+  @include Notebook {
+    padding-right: 43px;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+.footer__socials_container {
+  @media (min-width: 320px) and (max-width: 767px) {
+    grid-column: 2 / 3;
+    margin-top: -28px;
+  }
+}
+
+.footer__facebook {
+  padding-right: 19px;
+}
+
+.socials__link {
+  padding-right: 19px;
+  transition: all 0.5s ease-in-out;
+  &:last-child {
+    padding-right: 0;
+  }
+  &:hover {
+    transform: scale(1.1);
+    stroke: black;
+    fill: #05c2df;
+  }
+}
