@@ -1,6 +1,6 @@
 .container {
   box-sizing: border-box;
-  padding: 0 $paddings-hor-mob;
+  padding: 0 $paddingsHorMob;
   margin: 0 auto;
   // max-width: 320px;
   max-width: 1280px;
@@ -13,5 +13,18 @@
   @include onDesktop {
     // max-width: 1280px;
     padding: 0 110px;
+  }
+
+  &--buy-mob {
+    position: sticky;
+    bottom: 0;
+
+    // var/mixin?
+    padding-bottom: 10px;
+    padding-top: 10px;
+
+    @include onDesktop {
+      display: none;
+    }
   }
 }
