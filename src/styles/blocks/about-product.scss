@@ -2,20 +2,63 @@
   background: $bgGradient;
 
   &__section {
-    &:not(:last-child) {
-      margin-bottom: 88px;
+    margin-bottom: 88px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: 108px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 228px;
     }
   }
 
   &__title {
     margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__photo-container-mob {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__photo-container-tablet {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__photo {
+    display: block;
+    width: 100%;
   }
 
   &__desc {
     margin-bottom: 24px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
   }
 
   &__greeting {
     margin-bottom: 10px;
+
+    @include onDesktop {
+      margin-bottom: 14px;
+    }
   }
 }

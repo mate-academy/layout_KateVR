@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   background: $bgGradient;
   padding: 0;
 
@@ -8,10 +9,12 @@
     padding-bottom: 56px;
 
     @include onTablet {
+      min-height: 0;
       padding-bottom: 70px;
     }
 
     @include onDesktop {
+      min-height: 100vh;
       padding-bottom: 88px;
     }
   }
@@ -29,12 +32,33 @@
     width: 100%;
   }
 
+  &__product-img-lg {
+    display: none;
+
+    position: absolute;
+    right: 0;
+    height: 100%;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
   &__title {
     margin-bottom: 14px;
   }
 
   &__desc {
+    font-family: Mark-Medium, sans-serif;
     margin-bottom: 8px;
+
+    @include onTablet {
+      margin-bottom: 10px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 20px;
+    }
   }
 
   &__price {
@@ -44,5 +68,14 @@
     font-size: 18px;
     line-height: 23px;
     text-align: center;
+
+    @include onTablet {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 30px;
+    }
   }
 }

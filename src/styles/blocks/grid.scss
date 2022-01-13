@@ -47,5 +47,23 @@
         }
       }
     }
+
+    @for $span from 1 to 12 {
+      &--span-#{$span} {
+        grid-column: span $span;
+      }
+
+      &--tablet-span-#{$span} {
+        @include onTablet {
+          grid-column: span $span;
+        }
+      }
+
+      &--desktop-span-#{$span} {
+        @include onDesktop {
+          grid-column: span $span;
+        }
+      }
+    }
   }
 }

@@ -2,26 +2,29 @@
   box-sizing: border-box;
   padding: 0 $paddingsHorMob;
   margin: 0 auto;
-  // max-width: 320px;
   max-width: 1280px;
 
   @include onTablet {
-    // max-width: 768px;
     padding: 0 34px;
   }
 
   @include onDesktop {
-    // max-width: 1280px;
     padding: 0 110px;
   }
 
   &--buy-mob {
     position: sticky;
     bottom: 0;
-
     // var/mixin?
     padding-bottom: 10px;
     padding-top: 10px;
+
+    @include onTablet {
+      padding-top: 32px;
+      padding-bottom: 32px;
+    }
+
+    background: $shadowGradient;
 
     @include onDesktop {
       display: none;
