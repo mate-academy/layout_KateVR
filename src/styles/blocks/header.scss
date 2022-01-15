@@ -1,13 +1,12 @@
 .header {
-  position: relative;
   background: $bgGradient;
   padding: 0;
 
-  &__nav {
-    @include onTablet {
-      position: relative;
-      z-index: 1;
-    }
+  @include onTablet {
+    background: url("../images/product-pic-lg.png"), $bgGradient;
+    background-repeat: no-repeat, repeat;
+    background-size: contain, auto;
+    background-position: center right, top left;
   }
 
   &__content {
@@ -37,18 +36,6 @@
   &__product-img {
     display: block;
     width: 100%;
-  }
-
-  &__product-img-lg {
-    display: none;
-
-    position: absolute;
-    right: 0;
-    height: 100%;
-
-    @include onTablet {
-      display: block;
-    }
   }
 
   &__title {
