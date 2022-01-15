@@ -1,9 +1,130 @@
+.header {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-image: url(../images/header.svg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+
+    &-title1 {
+      display: block;
+      font-size: 26px;
+      line-height: 130%;
+      margin-bottom: 14px;
+      width: 100%;
+      color: #fff;
+      // height: min-content;
+    }
+
+    &-title2 {
+      display: block;
+      font-family: Quantum, sans-serif;
+      width: 100%;
+      color: #05c2df;
+      // height: min-content;
+    }
+
+    &-description {
+      display: flex;
+      flex-wrap: wrap;
+      // margin-left: 92px;
+      margin-bottom: 14px;
+      width: 280px;
+    }
+
+    &-price {
+      font-size: 18px;
+      line-height: 23px;
+      margin-left: 111px;
+      margin-bottom: 14px;
+      color: #fff;
+    }
+
+    &-button {
+      position: relative;
+      // margin-left: 86px;
+
+      &--play {
+        position: absolute;
+        top: 46%;
+        left: 25px;
+        background-image: url(../images/play.svg);
+        background-size: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 20px;
+        height: 22px;
+        transform: translateY(-50%);
+      }
+
+      &--text {
+        position: absolute;
+        top: 46%;
+        left: 105px;
+        line-height: 130%;
+        color: #fff;
+        transform: translateY(-50%);
+      }
+
+      &:hover &--play {
+        background-image: url(../images/play-hover.svg);
+      }
+    }
+  }
+
+  &__vr {
+    position: relative;
+    left: -20px;
+    // top: 44px;
+    width: 320px;
+    // padding-bottom: 100%;
+    height: 172px;
+    pointer-events: none;
+  }
+
+  &__bottom {
+    display: none;
+  }
+
+  &__buy {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    height: 40px;
+  }
+}
+
+.logo-menu {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  &__logo {
+    &-img {
+      width: 58px;
+      height: 12px;
+    }
+  }
+}
+
+.logo-lang-nav-buy {
+  display: none;
+}
+
 @include onDesctop-1280 {
   .header {
     display: flex;
     justify-content: center;
     padding: 0 20px;
     height: 100vh;
+    // width: 100vh;
     background-image: url(../images/header.svg);
     background-size: cover;
     background-position: center;
@@ -15,7 +136,7 @@
       justify-content: flex-start;
       margin-bottom: 84px;
       width: 479px;
-      height: 254px;
+      // height: 254px;
 
       &-title1 {
         display: block;
@@ -86,8 +207,9 @@
       position: absolute;
       top: 50%;
       left: 360px;
+      width: 810px;
+      height: 688px;
       transform: translateY(-50%);
-      pointer-events: none;
     }
 
     &__bottom {
@@ -120,6 +242,14 @@
         }
       }
     }
+
+    &__buy {
+      display: none;
+    }
+  }
+
+  .logo-menu {
+    display: none;
   }
 
   .lang-nav {
@@ -151,16 +281,13 @@
     }
 
     &__buy {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      line-height: 130%;
       width: 200px;
       height: 48px;
-      text-decoration: none;
-      background-color: #05c2df;
-      color: #fff;
-      border-radius: 4px;
     }
   }
+}
+
+.main {
+  height: 300px;
+  background-color: green;
 }
