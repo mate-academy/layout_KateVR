@@ -3,12 +3,20 @@
   grid-template-columns: repeat(2, 1fr);
   column-gap: 20px;
 
+  @include onDesctop-768 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
   @include onDesctop-1280 {
     grid-template-columns: repeat(12, 1fr);
   }
 
   &--desctop {
     display: block;
+
+    @include onDesctop-768 {
+      display: grid;
+    }
 
     @include onDesctop-1280 {
       display: grid;
