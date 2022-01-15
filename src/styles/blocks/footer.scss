@@ -1,6 +1,14 @@
 .footer {
   background-color: $black;
 
+  &--mob {
+    display: block;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
   &__logo {
     margin-bottom: 16px;
   }
@@ -16,8 +24,10 @@
   }
 
   &__item {
-    &:not(:last-child) {
-      margin-bottom: 12px;
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
     }
   }
 
