@@ -23,15 +23,33 @@
     }
   }
 
-  &__item {
-    @for $start from 1 to 12 {
-      @for $end from $start to 12 {
-        &--#{$start}-#{$end} {
-          grid-column: #{$start} / #{$end + 1};
-        }
+  @include onDesctop-768 {
+    &__item-768 {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
 
-        &--desctop-#{$start}-#{$end} {
-          grid-column: #{$start} / #{$end + 1};
+          &--desctop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+
+  @include onDesctop-1280 {
+    &__item-1280 {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+
+          &--desctop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
         }
       }
     }

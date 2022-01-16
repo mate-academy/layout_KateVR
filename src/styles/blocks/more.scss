@@ -1,4 +1,6 @@
 .more {
+  background: #05040b;
+
   &__title {
     margin-bottom: 30px;
 
@@ -52,9 +54,36 @@
 
 @include onDesctop-768 {
   .more {
+    &__title {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &-description {
+        margin-bottom: 30px;
+      }
+    }
+
     &__part {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &:nth-child(-n + 2) {
+        margin-bottom: 40px;
+      }
+
       &-img {
         display: flex;
+        margin-bottom: 30px;
+      }
+
+      &-title {
+        margin-bottom: 20px;
+      }
+
+      &-description {
+        text-align: center;
       }
     }
   }
@@ -95,6 +124,11 @@
 
       &-img {
         display: flex;
+        margin-bottom: 30px;
+      }
+
+      &-title {
+        margin-bottom: 20px;
       }
 
       &-description {
