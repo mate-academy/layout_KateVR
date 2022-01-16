@@ -13,4 +13,52 @@
     height: 144px;
     margin-bottom: 52px;
   }
+
+  &__logo {
+    display: flex;
+    gap: 36px;
+  }
+
+  &__lang {
+    position: relative;
+
+    color: $contrastBlue;
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      padding-bottom: 100%;
+
+      background-image: url("../images/arrow-down-blue.svg");
+      background-repeat: no-repeat;
+      background-position: center right;
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+      }
+    }
+  }
 }

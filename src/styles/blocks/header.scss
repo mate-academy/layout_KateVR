@@ -22,6 +22,16 @@
     @include onDesktop {
       min-height: 100vh;
       padding-bottom: 88px;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  }
+
+  &__icon--mob {
+    @include onDesktop {
+      display: none;
     }
   }
 
@@ -70,6 +80,54 @@
 
     @include onDesktop {
       margin-bottom: 30px;
+    }
+  }
+
+  &__button-play {
+    @include onDesktop {
+      margin-bottom: 52px;
+    }
+  }
+
+  &__bottom-nav {
+    display: none;
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__bottom-nav-list {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    &--more {
+      margin: 0 auto;
+    }
+  }
+
+  &__bottom-nav-link {
+    &--more {
+      position: relative;
+      color: $contrastBlue;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        height: 16px;
+
+        background-image: url("../images/arrow-down-blue.svg");
+        background-repeat: no-repeat;
+        background-position: bottom center;
+      }
     }
   }
 }

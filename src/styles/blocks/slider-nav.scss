@@ -1,0 +1,35 @@
+.slider-nav {
+  display: flex;
+  gap: 100px;
+
+  width: max-content;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-bottom: 1px solid $borderGrey;
+
+  &--right {
+    margin-left: auto;
+  }
+
+  &__link {
+    position: relative;
+    padding: 10px 0;
+    transition: color $transitionDefault;
+
+    &--active {
+      color: $textGrey;
+
+      &::after {
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 1px;
+        top: 100%;
+        left: 0;
+
+        background-color: $contrastBlue;
+      }
+    }
+  }
+}
