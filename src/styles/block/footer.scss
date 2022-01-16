@@ -1,36 +1,43 @@
 .footer {
-  display: flex;
-  flex-direction: column;
   background-color: $main-color;
 
   &__container {
-    padding: 45px 20px 50px;
+    padding: 0 20px;
 
     @include onIPad {
-      padding: 21px 34px;
+      padding: 0 34px;
     }
 
     @include onDesktop {
-      padding: 39px 110px ;
+      padding: 0 110px ;
     }
   }
 
   &__nav {
     display: grid;
     justify-content: start;
-    align-items: center;
+    //align-items: center;
+    padding: 45px 0 50px;
 
     @include onIPad {
       display: flex;
       justify-content: space-between;
+      padding: 21px 0;
+      align-items: center;
+    }
+
+    @include onDesktop {
+      padding: 39px 0;
     }
   }
 
-  &__nav-logo {
-    margin-bottom: 15px;
+  &--logo {
+    justify-content: center;
+    align-items: center;
 
+    padding-bottom: 15px;
     @include onIPad {
-      margin: 0;
+      padding-bottom: 0;
     }
   }
 }

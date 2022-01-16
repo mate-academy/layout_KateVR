@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  gap: 12px;
 
   @include onIPad {
     align-items: center;
@@ -10,9 +12,9 @@
   &__container {
     width: 100%;
     display: flex;
-    column-gap: 22px;
-    align-items: center;
-    padding-bottom: 4px;
+    column-gap: 20px;
+    align-items: flex-end;
+    list-style: none;
 
     @include onIPad {
       gap: 22px;
@@ -21,11 +23,11 @@
   }
 
   &__contacts {
+    list-style: none;
     display: flex;
     flex-direction: column;
     width: 100%;
     gap: 12px;
-    margin-bottom: 25px;
 
     @include onIPad {
       display: none;
@@ -38,5 +40,14 @@
     font-family: Mark, sans-serif ;
     font-size: 13px;
     line-height: 16px;
+  }
+
+  &__link {
+    display: block;
+    padding: 4px 0;
+
+    @include onIPad {
+      padding: 10px 0;
+    }
   }
 }
