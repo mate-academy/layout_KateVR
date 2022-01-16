@@ -5,14 +5,90 @@
 
   &__title {
     margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 24px;
+    }
   }
 
   &__form {
+    position: relative;
     margin-bottom: 28px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
   }
 
-  &__manager-info {
+  &__button {
+    @include onTablet {
+      width: 200px;
+      margin: 0;
+    }
+  }
+
+  &__manager-info-mob {
     color: $textGrey;
     text-align: center;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__manager-info-tablet {
+    display: none;
+    margin-bottom: 52px;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__contacts-item {
+    margin-bottom: 10px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__contact {
+    color: $textGrey;
+  }
+
+  &__to-top {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    box-sizing: border-box;
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+    border: 1px solid $contrastBlue;
+
+    background-image: url("../images/arrow-up-blue.svg");
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }

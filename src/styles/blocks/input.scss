@@ -1,0 +1,52 @@
+.input {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 24px;
+  padding: 0;
+  padding-bottom: 18px;
+
+  background: none;
+  border: none;
+  border-bottom: 1px solid $borderInput;
+
+  color: $white;
+  transition: border-bottom $transitionDefault;
+
+  &--last {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 48px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &--textarea {
+    height: 88px;
+    padding-bottom: 68px;
+
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  &::placeholder {
+    font-family: Mark-Regular, sans-serif;
+    font-size: 14px;
+    line-height: 20px;
+    color: $textGrey;
+  }
+
+  &:focus {
+    outline: none;
+    border-bottom: 1px solid $contrastBlue;
+  }
+}
