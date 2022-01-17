@@ -10,4 +10,66 @@
       margin-bottom: 80px;
     }
   }
+
+  &__container {
+    padding: 0 40px;
+    margin: 0 auto;
+    max-width: max-content;
+  }
+
+  &__info-container {
+    position: relative;
+  }
+
+  &__img {
+    display: block;
+    box-sizing: border-box;
+    max-width: 100%;
+    border-radius: 50%;
+    border: 4px solid $imgBorder;
+  }
+
+  &__show {
+    position: absolute;
+    box-sizing: border-box;
+    width: 20%;
+    height: 20%;
+
+    border-radius: 50%;
+    background-color: $contrastBlue;
+    border: 2px solid $techButtonBorder;
+
+    background-image: url("../images/plus.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+
+    transition: background-color $transitionDefault;
+
+    &:hover {
+      background-color: $techButtonActive;
+    }
+
+    &--active {
+      background-color: $techButtonActive;
+      background-image: url("../images/minus.svg");
+    }
+
+    &--1 {
+      bottom: 0;
+      transform: translateX(-50%);
+    }
+
+    &--2 {
+      top: 0;
+      right: 60%;
+      transform: translateY(-30%);
+    }
+
+    &--3 {
+      top: 50%;
+      right: 10%;
+      transform: translateY(-50%);
+    }
+  }
 }
