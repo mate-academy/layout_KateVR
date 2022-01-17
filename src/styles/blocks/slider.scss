@@ -1,12 +1,25 @@
-.slider-nav {
-  display: flex;
+.slider {
+  display: none;
   gap: 100px;
 
   width: max-content;
   border-bottom: 1px solid $borderGrey;
 
+  @include onDesktop {
+    display: flex;
+  }
+
   &--right {
     margin-left: auto;
+  }
+
+  &__item-count {
+    display: none;
+    text-align: right;
+
+    @include onDesktop {
+      display: block;
+    }
   }
 
   &__link {

@@ -1,0 +1,25 @@
+.window {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding-bottom: 30px;
+  background-color: $darkBlue;
+
+  @include onTablet {
+    max-height: 568px;
+  }
+
+  &__link {
+    padding: 10px $paddingsHorMob;
+    transition: background-color $transitionDefault,
+      color $transitionDefault;
+
+    @include onTablet {
+      padding: 10px 160px;
+    }
+
+    &:hover {
+      background-color: $darkBlueHover;
+      color: $contrastBlue;
+    }
+  }
+}

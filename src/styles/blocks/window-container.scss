@@ -1,0 +1,17 @@
+.window-container {
+  height: 100vh;
+  background: $bgWindowContainer;
+  overflow-y: auto;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-100%);
+  transition: transform $transitionDefault;
+
+  &:target {
+    transform: translateY(0);
+    z-index: 1;
+  }
+}
