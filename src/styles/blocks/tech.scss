@@ -1,0 +1,268 @@
+.tech {
+  background-color: #05040b;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__title1 {
+    font-family: Mark-Heavy, sans-serif;
+    font-size: 21px;
+    line-height: 27px;
+    color: #fff;
+    margin-bottom: 40px;
+  }
+
+  &__title2 {
+    font-family: Quantum, sans-serif;
+    color: $color-blue;
+  }
+
+  &__vr {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    &-img {
+      width: 197px;
+    }
+
+    &-text {
+      position: absolute;
+      left: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Mark-Regular, sans-serif;
+      font-size: 12px;
+      background-color: #191536;
+      border-radius: 4px;
+      width: 168px;
+      height: 112px;
+      z-index: 1;
+
+      &--text {
+        width: 147px;
+      }
+
+      &--1 {
+        display: none;
+        left: 20px;
+        top: 23px;
+      }
+
+      &--2 {
+        display: none;
+        left: 0;
+        height: 220px;
+      }
+
+      &--3 {
+        display: none;
+        left: 0;
+        top: 40px;
+      }
+    }
+
+    &-info {
+      position: absolute;
+      left: 0;
+      width: 34px;
+      height: 34px;
+      background-color: $color-blue;
+      background-image: url(../images/tech/plus.svg);
+      background-size: 12px;
+      background-position: center;
+      background-repeat: no-repeat;
+      border: 2px solid rgba(255, 255, 255, 0.14);
+      border-radius: 50%;
+      box-sizing: border-box;
+
+      &--1 {
+        left: 95px;
+        top: -11px;
+
+        &:hover ~ .tech__vr-text--1 {
+          display: flex;
+        }
+      }
+
+      &--2 {
+        left: 170px;
+        top: 80px;
+
+        &:hover ~ .tech__vr-text--2 {
+          display: flex;
+        }
+      }
+
+      &--3 {
+        left: 30px;
+        top: 153px;
+
+        &:hover ~ .tech__vr-text--3 {
+          display: flex;
+        }
+      }
+
+      &:hover {
+        background-color: #07798b;
+        border: 2px solid rgba(255, 255, 255, 0.14);
+      }
+    }
+
+    &-info1280 {
+      display: none;
+    }
+  }
+}
+
+@include onDesctop-768 {
+  .tech {
+    &__container {
+      display: flex;
+      width: 100%;
+    }
+
+    &__title1 {
+      margin-bottom: 57px;
+    }
+
+    &__vr {
+      &-img {
+        width: 358px;
+      }
+
+      &-info {
+        width: 62px;
+        height: 62px;
+        background-size: 22px;
+
+        &--1 {
+          left: 240px;
+          top: -27px;
+        }
+
+        &--2 {
+          left: 420px;
+          top: 145px;
+        }
+
+        &--3 {
+          left: 110px;
+          top: 290px;
+        }
+      }
+
+      &-text {
+        &--1 {
+          left: 150px;
+          top: 35px;
+        }
+
+        &--2 {
+          left: 250px;
+          top: 70px;
+        }
+
+        &--3 {
+          left: 60px;
+          top: 175px;
+        }
+      }
+
+      &-info1280 {
+        display: none;
+      }
+    }
+  }
+}
+
+@include onDesctop-1280 {
+  .tech {
+    &__container {
+      // align-items: flex-end;
+    }
+
+    &__title1 {
+      font-size: 36px;
+      line-height: 46px;
+      text-align: right;
+      margin-right: 90px;
+      margin-bottom: 141px;
+    }
+
+    &__vr {
+
+      &-img {
+        width: 298px;
+        height: 294px;
+      }
+
+      &-info {
+        display: none;
+      }
+
+      &-text {
+        display: none;
+      }
+
+      &-info1280 {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 0;
+
+        &-title {
+          font-family: Mark-Heavy, sans-serif;
+          font-size: 18px;
+          line-height: 23px;
+          color: #fff;
+          margin-bottom: 20px;
+        }
+
+        &-description {
+          font-family: Mark-Regular, sans-serif;
+        }
+
+        &--1 {
+          left: 24px;
+          top: -60px;
+
+          &::before {
+            content: url(../images/tech/line/line-1.svg);
+            position: absolute;
+            top: 9px;
+            left: 101px;
+          }
+        }
+
+        &--2 {
+          left: 740px;
+          top: -60px;
+
+          &::before {
+            content: url(../images/tech/line/line-2.svg);
+            position: absolute;
+            left: -210px;
+            top: 10px;
+          }
+        }
+
+        &--3 {
+          top: 162px;
+          left: 110px;
+
+          &::before {
+            content: url(../images/tech/line/line-3.svg);
+            position: absolute;
+            left: 140px;
+            top: -120px;
+          }
+        }
+      }
+    }
+  }
+}
