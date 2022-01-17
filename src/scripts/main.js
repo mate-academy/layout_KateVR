@@ -11,23 +11,11 @@ toggler1.addEventListener('click', () => {
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--with-menu');
-  } else {
-    document.body.classList.remove('page__body--with-menu');
-  }
-
-  if (window.location.hash === '#menu-language') {
+  } else if (window.location.hash === '#menu-language') {
     document.body.classList.add('page__body--with-menu');
-  } else {
-    document.body.classList.remove('page__body--with-menu');
-  }
-
-  if (window.location.hash === '#menu-help') {
+  } else if (window.location.hash === '#menu-help') {
     document.body.classList.add('page__body--with-menu');
-  } else {
-    document.body.classList.remove('page__body--with-menu');
-  }
-
-  if (window.location.hash === '#menu-faq') {
+  } else if (window.location.hash === '#menu-faq') {
     document.body.classList.add('page__body--with-menu');
   } else {
     document.body.classList.remove('page__body--with-menu');

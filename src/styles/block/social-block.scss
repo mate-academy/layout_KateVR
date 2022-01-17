@@ -1,4 +1,4 @@
-.footer-social {
+.social-block {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -29,8 +29,19 @@
     width: 100%;
     gap: 12px;
 
-    @include onIPad {
+    &--footer {
+      @include onIPad {
+        display: none;
+      }
+    }
+
+    &--main-contact-us {
       display: none;
+
+      @include onIPad {
+        display: flex;
+        gap: 10px;
+      }
     }
   }
 
