@@ -57,18 +57,6 @@
     }
   }
 
-  &__contacts-item {
-    margin-bottom: 10px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-
-  &__contact {
-    color: $textGrey;
-  }
-
   &__to-top {
     display: none;
 
@@ -91,11 +79,13 @@
     background-repeat: no-repeat;
     background-position: center;
 
-    transition: background-color $transitionDefault;
+    transition: background-color $transitionDefault,
+      transform $transitionDefault;
 
     &:hover {
       background-image: url("../images/arrow-up.svg");
       background-color: $contrastBlue;
+      transform: scale(1.2);
     }
   }
 }
