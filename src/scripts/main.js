@@ -6,6 +6,7 @@ const togglersNum = togglers.length;
 
 for (let i = 0; i < togglersNum; i++) {
   togglers[i].addEventListener('click', () => {
+    togglers[i].classList.toggle('tech-specs__show--active');
     techDescs[i].classList.toggle('tech-specs__desc--hidden');
   });
 }
