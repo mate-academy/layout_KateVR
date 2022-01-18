@@ -12,6 +12,34 @@
     height: 144px;
   }
 
+  &--no-desktop {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--window-desktop {
+    display: none;
+    height: auto;
+    padding: 0 18px;
+    margin-bottom: 24px;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &--desktop-video {
+    @include onDesktop {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      top: 18px;
+      padding: 0;
+      z-index: 1;
+    }
+  }
+
   &__logo {
     display: flex;
     gap: 36px;
