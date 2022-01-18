@@ -1,5 +1,15 @@
 'use strict';
 
+const togglers = document.querySelectorAll('.tech-specs__show');
+const techDescs = document.querySelectorAll('.tech-specs__desc');
+const togglersNum = togglers.length;
+
+for (let i = 0; i < togglersNum; i++) {
+  togglers[i].addEventListener('click', () => {
+    techDescs[i].classList.toggle('tech-specs__desc--hidden');
+  });
+}
+
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu'
     || window.location.hash === '#lang'
