@@ -1,0 +1,173 @@
+.button-play {
+  position: relative;
+  width: 200px;
+  background-color: transparent;
+  color: $white;
+
+  &:hover {
+    background-color: transparent;
+    color: $white;
+  }
+
+  &:active {
+    background-color: transparent;
+  }
+
+  &__circ {
+    position: absolute;
+    height: 64px;
+    width: 64px;
+    right: 90%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  &__circ-outer {
+    box-sizing: border-box;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid $contrastBlue;
+    border-right: 2px solid transparent;
+    opacity: 0.45;
+  }
+
+  &__circ-inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    box-sizing: border-box;
+    height: 48px;
+    width: 48px;
+    border-radius: 50%;
+    border: 1px solid $contrastBlue;
+  }
+
+  &__play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    box-sizing: border-box;
+    width: 0;
+    margin-left: 2px;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-left: 18px solid $contrastBlue;
+
+    transition: border-color $transitionDefault;
+  }
+
+  &:hover &__play-icon {
+    border-left: 18px solid $white;
+  }
+
+  &__border {
+    position: absolute;
+    left: 100%;
+    top: 0;
+    bottom: 0;
+
+    background-position: bottom left, top left;
+    background-repeat: repeat-x;
+
+    &--opacity {
+      opacity: 0.45;
+    }
+
+    &--1 {
+      left: 7%;
+      top: 3px;
+      bottom: 3px;
+      width: 30px;
+
+      background-image: linear-gradient(to right,
+      $contrastBlue 100%,
+      rgba(255,255,255,0) 0%),
+        linear-gradient(to right,
+      $contrastBlue 100%,
+      rgba(255,255,255,0) 0%);
+      background-size: 100% 2px;
+    }
+
+    &--2 {
+      transform: translateX(1px);
+      width: 11px;
+
+      background-image: linear-gradient(to right,
+      $contrastBlue 66%,
+      rgba(255,255,255,0) 0%),
+        linear-gradient(to right,
+      $contrastBlue 66%,
+      rgba(255,255,255,0) 0%);
+      background-size: 3px 2px;
+    }
+
+    &--3 {
+      transform: translateX(1px);
+      width: 10px;
+
+      background-image: linear-gradient(to right,
+      $contrastBlue 50%,
+      rgba(255,255,255,0) 0%),
+        linear-gradient(to right,
+      $contrastBlue 50%,
+      rgba(255,255,255,0) 0%);
+      background-size: 4px 2px;
+    }
+
+    &--4 {
+      transform: translateX(2px);
+      width: 27px;
+
+      background-image: linear-gradient(to right,
+      $contrastBlue 40%,
+      rgba(255,255,255,0) 0%),
+        linear-gradient(to right,
+      $contrastBlue 40%,
+      rgba(255,255,255,0) 0%);
+      background-size: 5px 2px;
+    }
+
+    &--5 {
+      transform: translateX(3px);
+      width: 20px;
+
+      background-image: linear-gradient(to right,
+      $contrastBlue 33%,
+      rgba(255,255,255,0) 0%),
+        linear-gradient(to right,
+      $contrastBlue 33%,
+      rgba(255,255,255,0) 0%);
+      background-size: 6px 2px;
+    }
+
+    &--6 {
+      transform: translateX(4px);
+      width: 42px;
+
+      background-image: linear-gradient(to right,
+      $contrastBlue 25%,
+      rgba(255,255,255,0) 0%),
+        linear-gradient(to right,
+      $contrastBlue 25%,
+      rgba(255,255,255,0) 0%);
+      background-size: 8px 2px;
+    }
+
+    &--7 {
+      transform: translateX(6px);
+      width: 30px;
+
+      background-image: linear-gradient(to right,
+      $contrastBlue 15%,
+      rgba(255,255,255,0) 0%),
+        linear-gradient(to right,
+      $contrastBlue 15%,
+      rgba(255,255,255,0) 0%);
+      background-size: 14px 2px;
+    }
+  }
+}
