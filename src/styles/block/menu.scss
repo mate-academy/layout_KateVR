@@ -9,8 +9,19 @@
     flex-direction: column;
     height: 100vh;
 
-    @include onIPad {
-      height: 596px;
+    @include onDesktop {
+      height: 100%;
+    }
+
+    &--Ipad {
+
+      @include onIPad {
+        height: 600px;
+      }
+
+      //@include onDesktop {
+      //
+      //}
     }
   }
 
@@ -40,9 +51,17 @@
 
   &__help {
     background-color: $button-color-background;
+
+    @include onDesktop {
+      margin: 134px 180px auto;
+    }
   }
 
   &__faq {
     background-color: $button-color-background;
+
+    @include onDesktop {
+      margin: 134px 180px auto;
+    }
   }
 }

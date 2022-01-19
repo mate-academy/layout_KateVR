@@ -15,7 +15,7 @@
   @include onDesktop {
     display: grid;
     padding-top: 100px;
-    padding-bottom: 100px;
+    padding-bottom: 80px;
   }
 
   &__title {
@@ -102,6 +102,7 @@
     &--link {
       text-decoration: none;
       color: $header-text-color;
+      transition: all 0.3s;
 
       &:hover {
         color: $color-blue;
@@ -118,43 +119,5 @@
 
     //&--help {
     //}
-  }
-
-  &__button {
-    position: relative;
-
-    &--symbol {
-      position: relative;
-      color: $color-blue;
-      text-decoration: none;
-      transition: color 0.3s;
-      top: 10px;
-      width: 60px;
-      height: 30px;
-      background-image: url("../images/logo/triangle.svg");
-      background-size: auto;
-      background-position: center;
-      background-repeat: no-repeat;
-      display: block;
-
-      &:hover {
-        color: $header-text-color;
-        background-color: $header-text-color;
-      }
-
-      &:active {
-        color: $header-text-color;
-      }
-
-      &:after {
-        content: " More ";
-        position: absolute;
-        text-align: center;
-        top: -10px;
-        left: 0;
-        width: 100%;
-        height: 16px;
-      }
-    }
   }
 }

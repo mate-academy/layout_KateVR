@@ -8,6 +8,14 @@ toggler1.addEventListener('click', () => {
   answer.classList.toggle('question-answer-block__answer--hidden-1');
 });
 
+const more = document.querySelector('#button-more');
+
+const unHidde = document.querySelector('.button-block--un-hidden');
+
+more.addEventListener('click', () => {
+  unHidde.classList.toggle('button-block--hidden');
+});
+
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     document.body.classList.add('page__body--with-menu');
@@ -21,3 +29,14 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
   }
 });
+
+document.querySelector('#consult').addEventListener('submit',
+  function(event) {
+    event.preventDefault();
+
+    document.getElementById('name').value = '';
+    document.getElementById('email').value = '';
+    document.getElementById('phone').value = '';
+    document.getElementById('message').value = '';
+  }
+);
