@@ -1,0 +1,96 @@
+.tech-specs {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: $manu-black;
+
+  @include onIPad {
+    display: grid;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &__title {
+    margin-bottom: 41px;
+
+    @include onIPad {
+      margin: 0 auto 57px 0;
+    }
+
+    @include onDesktop {
+      margin: 0 73px 83px auto;
+    }
+
+    & > h2 {
+      font-family: Mark-Heavy, sans-serif;
+      color: $header-text-color;
+
+      @include onDesktop {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      & > span {
+        color: $color-blue;
+        font-family: Quantum, sans-serif;
+      }
+    }
+  }
+
+  //&__container {
+  //
+  //}
+
+  &__img {
+    position: relative;
+    height: 197px;
+    width: 197px;
+    margin: 0 auto;
+    box-sizing: content-box;
+
+    @include onIPad {
+      height: 357px;
+      width: 357px;
+    }
+
+    @include onDesktop {
+      height: 297px;
+      width: 297px;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    cursor: pointer;
+
+    width: 34px;
+    height: 34px;
+
+    @include onIPad {
+      width: 62px;
+      height: 62px;
+    }
+
+    &--1 {
+      top: -6%;
+      left: 17%;
+    }
+
+    &--2 {
+      left: 70%;
+      top: 41%;
+    }
+
+    &--3 {
+      top: 80%;
+      left: -15%;
+    }
+  }
+}

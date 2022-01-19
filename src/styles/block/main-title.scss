@@ -1,0 +1,160 @@
+.main-title {
+  font-family: Mark-Medium, sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  display: grid;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include onIPad {
+    display: grid;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    & > h1 {
+      font-family: Mark-Heavy, sans-serif;
+      color: $header-text-color;
+      line-height: 130%;
+      font-size: 26px;
+      text-align: left;
+
+      @include onDesktop {
+        font-size: 54px;
+      }
+
+      & > span {
+        color: $color-blue;
+        font-family: Quantum, sans-serif;
+      }
+    }
+
+    @include onIPad {
+      margin: 0 auto 30px 0;
+    }
+
+    @include onDesktop {
+      margin: 0 auto 83px;
+    }
+  }
+
+  &__container {
+    margin-bottom: 20px;
+
+    &--title {
+      grid-row: 2 / 2;
+
+      @include onIPad {
+        grid-row: 1 / 1;
+      }
+    }
+
+    &--text {
+      grid-row: 3 / 3;
+
+      @include onIPad {
+        grid-row: 2 / 2;
+      }
+
+      & > p {
+        margin-bottom: 10px;
+      }
+
+      & > p:last-of-type {
+        color: $header-text-color;
+
+        @include onIPad {
+          text-align: left;
+        }
+      }
+    }
+
+    &--scroller {
+      grid-row: 1 / 1;
+
+      @include onIPad {
+        grid-row: 2 / 2;
+      }
+    }
+
+    &--footer {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__nav {
+    display: block;
+
+    &--link {
+      text-decoration: none;
+      color: $header-text-color;
+
+      &:hover {
+        color: $color-blue;
+      }
+
+      &:active {
+        color: $color-blue;
+      }
+    }
+
+    &--faq {
+      margin-right: 34px;
+    }
+
+    //&--help {
+    //}
+  }
+
+  &__button {
+    position: relative;
+
+    &--symbol {
+      position: relative;
+      color: $color-blue;
+      text-decoration: none;
+      transition: color 0.3s;
+      top: 10px;
+      width: 60px;
+      height: 30px;
+      background-image: url("../images/logo/triangle.svg");
+      background-size: auto;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: block;
+
+      &:hover {
+        color: $header-text-color;
+        background-color: $header-text-color;
+      }
+
+      &:active {
+        color: $header-text-color;
+      }
+
+      &:after {
+        content: " More ";
+        position: absolute;
+        text-align: center;
+        top: -10px;
+        left: 0;
+        width: 100%;
+        height: 16px;
+      }
+    }
+  }
+}
