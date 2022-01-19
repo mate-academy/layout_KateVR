@@ -28,9 +28,18 @@ document.querySelector('#contact').addEventListener('submit',
   function(event) {
     event.preventDefault();
 
-    document.getElementById('name').value = '';
-    document.getElementById('email').value = '';
-    document.getElementById('tel').value = '';
-    document.getElementById('message').value = '';
+    const tel = document.getElementById('tel');
+
+    if (tel.value.match(/\d{7,15}/) === null) {
+      tel.classList.add('input--invalid');
+      tel.placeholder = 'Enter valid phone number (digits only)';
+      tel.value = '';
+    } else {
+      document.getElementById('name').value = '';
+      document.getElementById('email').value = '';
+      tel.classList.remove('input--invalid');
+      tel.value = '';
+      document.getElementById('message').value = '';
+    }
   }
 );

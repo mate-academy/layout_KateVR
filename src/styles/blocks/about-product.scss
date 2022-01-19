@@ -67,37 +67,56 @@
     position: relative;
   }
 
-  // &__graphics {
-  //   display: none;
-  //   flex-direction: column;
-  //   gap: 20px;
-  //   // width: max-content;
-  //   // margin: 0;
+  &__graphics {
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    width: max-content;
 
-  //   position: absolute;
-  //   left: 0;
-  //   top: 50%;
-  //   transform: translateY(50%) rotate(-90deg);
-  //   transform-origin: top left;
+    position: absolute;
+    bottom: 50%;
+    left: 80%;
+    transform: rotate(90deg);
+    transform-origin: bottom center;
 
-  //   font-family: Mark-Heavy, sans-serif;
-  //   font-size: 48px;
-  //   line-height: 60px;
-  //   color: $contrastBlue;
-  //   text-transform: uppercase;
-  //   text-align: center;
+    font-family: Mark-Heavy, sans-serif;
+    font-size: 48px;
+    line-height: 60px;
+    color: $contrastBlue;
+    text-transform: uppercase;
+    
+    /* Will override color (regardless of order) */
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: $contrastBlue;
+    -moz-text-fill-color: transparent;
+    -moz-text-stroke-width: 1px;
+    -moz-text-stroke-color: $contrastBlue;
 
-  //   @include onTablet {
-  //     display: flex;
-  //   }
+    @include onTablet {
+      display: flex;
+    }
 
-  //   @include onDesktop {
-  //     font-size: 64px;
-  //     line-height: 80px;
-  //   }
-  // }
+    @include onDesktop {
+      font-size: 64px;
+      line-height: 80px;
+      left: 90%;
+    }
+  }
 
-  // &__graphics-item {
+  &__graphics-item {
+    &--desktop {
+      display: none;
 
-  // }
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    @for $i from 1 through 5 {
+      &:nth-last-child(#{$i}) {
+        opacity: #{1 * 1 / (pow(2, $i - 1))};
+      }
+    }
+  }
 }
