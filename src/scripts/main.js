@@ -30,10 +30,8 @@ document.querySelector('#contact').addEventListener('submit',
 
     const tel = document.getElementById('tel');
 
-    if (tel.value.match(/\d{7,15}/) === null) {
+    if (!tel.value.match(/^\d{7,15}$/)) {
       tel.classList.add('input--invalid');
-      tel.placeholder = 'Enter valid phone number (digits only)';
-      tel.value = '';
     } else {
       document.getElementById('name').value = '';
       document.getElementById('email').value = '';
