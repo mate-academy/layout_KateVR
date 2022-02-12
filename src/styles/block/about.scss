@@ -1,0 +1,204 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include onIPad {
+    display: grid;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    & > p {
+      font-size: 14px;
+      line-height: 18px;
+      color: $color-blue;
+      padding-bottom: 10px;
+    }
+
+    & > h2 {
+      font-family: Mark-Heavy, sans-serif;
+      color: $header-text-color;
+
+      @include onDesktop {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      & > span {
+        color: $color-blue;
+        font-family: Quantum, sans-serif;
+      }
+    }
+  }
+
+  &__container {
+    &--scroller-info {
+      display: none;
+
+      & > p {
+        text-align: end;
+        font-size: 14px;
+        line-height: 18px;
+        color: $color-blue;
+      }
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &--scroller {
+      @include onIPad {
+        margin-bottom: 88px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 188px;
+      }
+    }
+
+    &--about-product {
+      margin-bottom: 80px;
+
+      @include onIPad {
+        margin-bottom: 0;
+      }
+    }
+
+    &--nice {
+      @include onIPad {
+        margin: auto 0;
+      }
+    }
+
+    &--style {
+      display: none;
+
+      @include onIPad {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__scroller {
+    max-width: 490px;
+
+    &--IPad {
+      display: none;
+
+      @include onIPad {
+        display: block;
+      }
+    }
+
+    &--phone {
+      display: block;
+      margin: 0 auto 20px;
+
+      @include onIPad {
+        display: none;
+      }
+    }
+
+    &--img {
+      padding: 34% 30%;
+
+      margin-bottom: 14px;
+    }
+
+    &--bar-phone {
+      padding: 2px 22px;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--control-desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &--control-buttons {
+      display: flex;
+      margin-bottom: 10px;
+    }
+
+    &--control-button {
+
+      &:last-child {
+        color: $header-text-color;
+        margin-left: 102px;
+      }
+
+      &:hover {
+        color: $color-blue;
+      }
+
+      &:active {
+        color: $color-blue;
+      }
+    }
+
+    &--lines {
+      position: relative;
+    }
+
+    &--line-active {
+      position: absolute;
+      height: 2px;
+      width: 69px;
+    }
+
+    &--line {
+      position: absolute;
+      height: 2px;
+      width: 207px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 14px;
+  }
+
+  &__style {
+    width: 62px;
+    height: 249px;
+
+    transition: all 0.3s linear;
+
+    &:hover {
+      transform: scale(1.02);
+    }
+
+    @include onDesktop {
+      width: 83px;
+      height: 331px;
+    }
+
+    &--onIPad {
+      @include onIPad {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+}

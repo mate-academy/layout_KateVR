@@ -1,0 +1,18 @@
+.button-block {
+
+  &--un-hidden {
+    box-sizing: content-box;
+    max-height: 100%;
+
+    overflow: hidden;
+    transition: max-height 0.5s;
+    transition-timing-function: ease-in;
+  }
+
+  &--hidden {
+    @include onDesktop {
+      max-height: 0;
+      transition-timing-function: ease-out;
+    }
+  }
+}

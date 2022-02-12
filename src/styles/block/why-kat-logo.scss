@@ -1,0 +1,113 @@
+.why-kat-logo {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include onIPad {
+    display: grid;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include onIPad {
+      margin: 0 auto 30px 0;
+    }
+
+    @include onDesktop {
+      margin: 0 auto 83px;
+    }
+
+    & > p {
+      font-size: 14px;
+      line-height: 18px;
+      color: $color-blue;
+      padding-bottom: 10px;
+    }
+
+    & > h2 {
+      font-family: Mark-Heavy, sans-serif;
+      color: $header-text-color;
+
+      @include onDesktop {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      & > span {
+        color: $color-blue;
+        font-family: Quantum, sans-serif;
+      }
+    }
+  }
+
+  &__container {
+    margin-bottom: 20px;
+
+    &--last {
+      margin-bottom: 0;
+    }
+
+    @include onIPad {
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+
+    &--picture {
+      display: none;
+      transition: all 0.3s linear;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      @include onIPad {
+        margin-bottom: 23px;
+        display: block;
+      }
+
+      @include onDesktop {
+        margin-bottom: 30px;
+      }
+    }
+
+    &--text {
+
+      & > p {
+        display: block;
+      }
+
+      & > p:first-child {
+        font-family: Mark-Heavy, sans-serif;
+        font-size: 18px;
+        line-height: 23px;
+        padding-bottom: 12px;
+
+        color: $header-text-color;
+      }
+    }
+  }
+
+  &__button {
+    display: none;
+    width: 200px;
+    margin: 0 auto;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}

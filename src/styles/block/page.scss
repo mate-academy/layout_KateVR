@@ -1,0 +1,51 @@
+.page {
+  margin: 0;
+  padding: 0;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+
+    min-width: 320px;
+    margin: 0;
+    padding: 0;
+
+    background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  @include onDesktop {
+    display: grid;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-200%);
+    transition: transform 0.4s linear;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__item {
+    padding: 0 20px;
+
+    @include onIPad {
+      padding: 0 34px;
+    }
+
+    @include onDesktop {
+      padding: 0 110px ;
+    }
+  }
+}

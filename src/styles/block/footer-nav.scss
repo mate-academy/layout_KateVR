@@ -1,0 +1,47 @@
+.footer-nav {
+  //display: flex;
+  //width: 100%;
+  //align-items: flex-end;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+    gap: 12px;
+
+    @include onIPad {
+      justify-content: center;
+      gap: 35px;
+      flex-direction: row;
+    }
+  }
+
+  &__item {
+    display: block;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: $header-text-color;
+
+    font-family: Mark, sans-serif ;
+
+    font-size: 13px;
+    line-height: 150%;
+
+    @include onIPad {
+      font-size: 14px;
+    }
+
+    transition: all 0.4s;
+  }
+
+  &__link:hover {
+    color: $color-blue;
+  }
+
+  &__link:active {
+    color: $color-blue;
+  }
+}

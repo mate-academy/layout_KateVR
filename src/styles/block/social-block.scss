@@ -1,0 +1,70 @@
+.social-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+
+  @include onIPad {
+    align-items: center;
+  }
+
+  &__container {
+    width: 100%;
+    display: flex;
+    column-gap: 20px;
+    align-items: flex-end;
+    list-style: none;
+
+    @include onIPad {
+      gap: 22px;
+      justify-content: center;
+    }
+  }
+
+  &__contacts {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+
+    &--footer {
+      @include onIPad {
+        display: none;
+      }
+    }
+
+    &--main-contact-us {
+      display: none;
+
+      @include onIPad {
+        display: flex;
+        gap: 8px;
+      }
+    }
+  }
+
+  &__info-link {
+    color: $text-color;
+    text-decoration: none;
+    font-family: Mark, sans-serif ;
+    font-size: 13px;
+    line-height: 16px;
+
+    transition: all 0.3s;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 4px 0;
+
+    @include onIPad {
+      padding: 10px 0;
+    }
+  }
+}

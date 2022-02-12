@@ -1,0 +1,52 @@
+.menu-item {
+  &__title {
+    margin-bottom: 30px;
+
+    & > p {
+      color: $header-text-color;
+      font-family: Mark-Heavy, sans-serif;
+      font-size: 21px;
+      line-height: 130%;
+    }
+
+    & > p > span {
+      text-decoration: none;
+      color: $color-blue;
+      font-family: Quantum, sans-serif;
+      font-size: 21px;
+      line-height: 130%;
+    }
+  }
+
+  &__text {
+
+    color: $text-color;
+    margin-bottom: 30px;
+
+    & > p:first-child {
+      margin-bottom: 30px;
+    }
+
+    & > p > a {
+      color: $color-blue;
+      text-decoration: none;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+
+    @include onIPad {
+      display: grid;
+    }
+
+    @include onDesktop {
+      display: grid;
+    }
+  }
+
+  &__items {
+    margin-bottom: 30px;
+  }
+}

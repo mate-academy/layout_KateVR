@@ -1,0 +1,240 @@
+.tech-specs {
+  display: flex;
+  flex-direction: column;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: $manu-black;
+
+  @include onIPad {
+    display: grid;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &__title {
+    margin-bottom: 41px;
+
+    @include onIPad {
+      margin: 0 auto 57px 0;
+    }
+
+    @include onDesktop {
+      margin: 0 73px 141px auto;
+    }
+
+    & > h2 {
+      font-family: Mark-Heavy, sans-serif;
+      color: $header-text-color;
+
+      @include onDesktop {
+        font-size: 36px;
+        line-height: 46px;
+      }
+
+      & > span {
+        color: $color-blue;
+        font-family: Quantum, sans-serif;
+      }
+    }
+  }
+
+  &__container {
+    margin: 0 auto;
+    position: relative;
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        position: absolute;
+      }
+    }
+  }
+
+  &__icon {
+    display: block;
+    height: 197px;
+    width: 197px;
+
+    @include onIPad {
+      height: 357px;
+      width: 357px;
+    }
+
+    @include onDesktop {
+      height: 297px;
+      width: 297px;
+    }
+  }
+
+  &__img {
+    &--1 {
+      left: -11px;
+      top: 43px;
+    }
+
+    &--2 {
+      left: 150px;
+      top: -52px;
+    }
+
+    &--3 {
+      left: -116px;
+      top: 59px;
+    }
+
+    &--4 {
+      left: -249px;
+      top: -52px;
+    }
+  }
+
+  &__text {
+    position: absolute;
+    display: block;
+
+    & > p:first-child {
+      font-family: Mark-Heavy, sans-serif;
+      font-size: 18px;
+      line-height: 23px;
+      padding-bottom: 12px;
+
+      color: $header-text-color;
+
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    & > :last-child {
+      font-size: 12px;
+      line-height: 150%;
+      background-color: $button-color-background;
+      padding: 17px 11px;
+      border-radius: 4px;
+
+      @include onDesktop {
+        font-size: 16px;
+        line-height: 150%;
+        background-color: inherit;
+        padding: 0;
+        border-radius: none;
+      }
+    }
+
+    &--1 {
+      top: -5%;
+      left: -58%;
+
+      @include onDesktop {
+        top: -58px;
+        left: -332px;
+      }
+    }
+
+    &--2 {
+      top: 64%;
+      left: 20%;
+      width: 256px;
+
+      @include onDesktop {
+        top: -58px;
+        left: 349px;
+        width: 298px;
+      }
+    }
+
+    &--3 {
+      top: 31%;
+      left: -28%;
+
+      @include onDesktop {
+        top: 153px;
+        left: -249px;
+      }
+    }
+
+    &--hidden1 {
+      display: block;
+    }
+
+    &--un-hidden1 {
+      display: block;
+    }
+
+    &--hidden2 {
+      display: block;
+    }
+
+    &--un-hidden2 {
+      display: none;
+    }
+
+    &--hidden3 {
+      display: none;
+    }
+
+    &--un-hidden3 {
+      display: block;
+    }
+  }
+
+  &__circle-button {
+    cursor: pointer;
+    position: absolute;
+    background-color: inherit;
+    border: none;
+    display: block;
+    height: 34px;
+    width: 34px;
+
+    @include onIPad {
+      height: 62px;
+      width: 62px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--1 {
+      top: -5%;
+      left: 29%;
+    }
+
+    &--2 {
+      top: 41%;
+      left: 68%;
+    }
+
+    &--3 {
+      top: 78%;
+      left: -10%;
+    }
+  }
+}
+
+// .tech-specs__info--1:active~.tech-specs__text--1 {
+//   display: block;
+// }
+
+// .tech-specs__info--1:hover~.tech-specs__text--1 {
+//   display: block;
+// }
+
+// .tech-specs__info--2:target~.tech-specs__text--2 {
+//   transform: scale(2);
+// }
+
+// .tech-specs__info--3:active~.tech-specs__text--3 {
+//   transform: scale(2);
+// }

@@ -1,0 +1,67 @@
+.header-nav {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+  text-align: center;
+
+  &--button {
+    width: 200px;
+    display: none;
+
+    @include onIPad {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__list {
+    display: none;
+    gap: 35px;
+    list-style: none;
+
+    @include onIPad {
+      display: none;
+    }
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__item {
+    display: block;
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: $header-text-color;
+
+    font-family: Mark-Medium, sans-serif ;
+    font-size: 16px;
+    line-height: 130%;
+
+    transition: all 0.4s;
+  }
+
+  &__link:hover {
+    color: $color-blue;
+  }
+
+  &__link:active {
+    color: $color-blue;
+  }
+
+  &__menu {
+    @include onDesktop {
+      display: none;
+    }
+
+    &--icon {
+      padding: 20px 0;
+    }
+  }
+}
