@@ -11,6 +11,7 @@
   border-radius: 4px;
   transition: all 0.3s;
   z-index: 1;
+  overflow: scroll;
 
   &:target {
     left: 50%;
@@ -57,6 +58,7 @@
     font-family: Mark-Regular, sans-serif;
     font-size: 16px;
     line-height: 150%;
+    margin-bottom: 30px;
 
     &-link {
       font-family: Mark-Regular, sans-serif;
@@ -66,12 +68,101 @@
       text-decoration: none;
     }
   }
+
+  &__container-grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__questions {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+
+    &-link {
+      font-family: Mark-Regular, sans-serif;
+      color: $color-blue;
+      text-decoration: none;
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    grid-row: 1;
+    margin-bottom: 30px;
+
+    &-phone {
+      font-family: Mark-Regular, sans-serif;
+      font-size: 16px;
+      line-height: 20px;
+      color: #929292;
+      text-decoration: none;
+      margin-bottom: 10px;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+
+    &-email1 {
+      font-family: Mark-Regular, sans-serif;
+      font-size: 16px;
+      line-height: 20px;
+      color: #929292;
+      text-decoration: none;
+      margin-bottom: 7px;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+
+    &-email2 {
+      font-family: Mark-Regular, sans-serif;
+      font-size: 16px;
+      line-height: 20px;
+      color: #929292;
+      text-decoration: none;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+  }
+}
+
+@include onDesctop-768 {
+  .help {
+    &__container-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+    }
+
+    &__questions {
+      grid-column: 1 / 3;
+    }
+
+    &__contacts {
+      grid-column: 4 / 6;
+    }
+  }
 }
 
 @include onDesctop-1280 {
   .help {
     width: 880px;
     height: min-content;
+    overflow: auto;
 
     &__container {
       width: 700px;

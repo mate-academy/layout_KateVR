@@ -51,6 +51,7 @@
     width: 100%;
     // height: 172px;
     pointer-events: none;
+    overflow: hidden;
   }
 
   &__bottom {
@@ -91,11 +92,14 @@
 @include onDesctop-768 {
   .header {
     &__title {
+      margin: 50px 0 60px;
+
       &-title1 {
         display: block;
         font-size: 26px;
         line-height: 130%;
-        margin-bottom: 14px;
+        // margin-top: 0;
+        // margin-bottom: 14px;
         width: 100%;
         color: #fff;
       }
@@ -116,17 +120,19 @@
       }
     }
 
-    &__buy {
-      display: none;
-    }
-
     &__vr {
       position: absolute;
       top: 50%;
       right: -34px;
+      left: 35%;
       width: 486px;
       height: 439px;
       transform: translateY(-50%);
+      // overflow: none;
+    }
+
+    &__buy {
+      display: none;
     }
   }
 
@@ -177,6 +183,7 @@
       position: absolute;
       top: 50%;
       right: -110px;
+      left: 34%;
       width: 810px;
       height: 688px;
       transform: translateY(-50%);
@@ -214,6 +221,39 @@
 
         &:hover {
           background-image: url(../images/more-hover.svg);
+        }
+      }
+
+      &-slider {
+        position: relative;
+        width: 207px;
+
+        &-text {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+
+          &--content {
+            transition: color 0.3s;
+          }
+
+          &--content:hover {
+            color: #fff;
+            cursor: pointer;
+          }
+        }
+
+        &-line {
+          border: 1px solid #212121;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          width: 69px;
+          border: 1px solid $color-blue;
+          left: 0;
+          bottom: 0;
         }
       }
     }
