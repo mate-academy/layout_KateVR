@@ -1,0 +1,108 @@
+.faq-menu {
+  display: none;
+
+  @include notebook {
+    display: unset;
+  }
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+
+  height: 100vh;
+
+  background: transparent;
+
+  transform: translateX(-100%);
+  transition: transform 0.2s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__container {
+    margin: 0 auto;
+    padding: 34px 33px 30px;
+    max-width: 777px;
+    background-color: #191536;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 51px;
+  }
+
+  &__title {
+    margin: 0 0 30px;
+    font-size: 21px;
+    line-height: 130%;
+
+    text-transform: uppercase;
+
+    color: #fff;
+  }
+
+  &__title span {
+    font-family: "Quantum", sans-serif;
+    color: #05c2df;
+  }
+
+  &__item {
+    margin-bottom: 18px;
+    padding: 20px 30px 15px;
+    border: 1px solid #05c2df;
+    border-radius: 4px;
+
+    &:last-child {
+      margin-bottom: 50px;
+    }
+
+    &--title {
+      margin: 0;
+      font-size: 16px;
+      line-height: 150%;
+
+      color: #05c2df;
+    }
+
+    &--content {
+      margin: 18px 0 0;
+      font-size: 16px;
+      line-height: 150%;
+
+      color: #929292;
+    }
+
+    &--update {
+      margin: 15px 0 0;
+      font-size: 12px;
+      line-height: 150%;
+
+      color: #545454;
+    }
+  }
+
+  &__more {
+    display: flex;
+    justify-content: center;
+
+    &--link {
+      position: relative;
+      font-size: 16px;
+      line-height: 150%;
+  
+      text-decoration: none;
+  
+      color: #05c2df;
+    }
+
+    &--arrow {
+      position: absolute;
+      right: 12px;
+      bottom: -7px;
+    }
+  }
+}

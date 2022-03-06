@@ -1,0 +1,117 @@
+.header {
+  position: relative;
+
+  &__container {
+    position: relative;
+    padding: 18px 20px 0;
+
+    @include tablet {
+      padding: 30px 34px 0;
+      margin: 0 auto;
+    }
+
+    @include notebook {
+      padding: 64px 110px 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    &--image {
+      width: 78px;
+    }
+  }
+
+  &__language {
+    display: none;
+
+    @include notebook {
+      display: unset;
+      margin-right: auto;
+      margin-left: 35px;
+      font-size: 16px;
+      line-height: 130%;
+      border: 1px solid transparent;
+  
+      color: #05c2df;
+      background-color: #191536;
+      cursor: pointer;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include notebook {
+      display: unset;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+
+    list-style: none;
+  }
+
+  &__item {
+    margin-right: 34px;
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: 130%;
+
+    text-decoration: none;
+
+    color: #fff;
+
+    &:hover {
+      color: #05c2df;
+    }
+  }
+
+  &__open {
+    @include notebook {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include notebook {
+      width: 200px;
+      height: 48px;
+  
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  
+      font-size: 16px;
+      line-height: 130%;
+      text-align: center;
+      text-decoration: none;
+  
+      color: #fff;
+      background: #05c2df;
+      border-radius: 4px;
+    }
+
+    &:hover {
+      background-color: #fff;
+      color: #05c2df;
+    }
+  }
+}

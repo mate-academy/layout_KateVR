@@ -1,0 +1,126 @@
+.tech-specs {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  padding: 50px 20px;
+
+  @include tablet {
+    padding: 80px 32px;
+  }
+
+  @include notebook {
+    padding: 100px 113px;
+  }
+
+  &__container {
+    position: relative;
+    margin: 0 auto;
+
+    @include tablet {
+      max-width: 777px;
+    }
+
+    @include notebook {
+      max-width: 1220px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 21px;
+    line-height: 27px;
+
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #fff;
+
+    @include tablet {
+      position: absolute;
+      left: -100px;
+    }
+
+    @include notebook {
+      left: unset;
+      right: -200px;
+      top: -60px;
+      font-size: 36px;
+      line-height: 46px;
+    }
+  }
+
+  &__title span {
+    color: #05c2df;
+    font-family: "Quantum", sans-serif;
+  }
+
+  &__image {
+    margin: 30px auto 0;
+    object-fit: contain;
+    object-position: 50%;
+
+    @include tablet {
+      width: 358px;
+    }
+
+    @include notebook {
+      display: none;
+    }
+  }
+
+  &__image-notebook {
+    display: none;
+
+    @include notebook {
+      display: unset;
+      position: relative;
+      bottom: -30px;
+      transform: translateX(-85px);
+    }
+  }
+
+  &__item {
+    display: none;
+
+    @include notebook {
+      display: unset;
+    }
+
+    &--title {
+      margin: 0;
+      font-size: 18px;
+      line-height: 23px;
+      text-transform: uppercase;
+      color: #fff;
+    }
+
+    &--subtitle {
+      margin: 20px 0 0;
+      font-size: 16px;
+      line-height: 150%;
+
+      width: 250px;
+
+      color: #929292;
+    }
+  }
+
+  &__sensor {
+    position: absolute;
+    top: 22px;
+    left: -180px;
+  }
+
+  &__connection {
+    position: absolute;
+    bottom: -4px;
+    left: -110px;
+  }
+
+  &__batterries {
+    position: absolute;
+    top: 25px;
+    right: -190px;
+  }
+}
