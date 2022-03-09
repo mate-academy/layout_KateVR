@@ -55,6 +55,10 @@
     font-family: "Quantum", sans-serif;
   }
 
+  &__photo-container {
+    position: relative;
+  }
+
   &__image {
     margin: 30px auto 0;
     object-fit: contain;
@@ -66,6 +70,50 @@
 
     @include notebook {
       display: none;
+    }
+  }
+
+  &__ellipse {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+
+    border-radius: 50%;
+
+    background-image: url(../images/cross.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: 40%;
+
+    background-color: #05c2df;
+
+    @include tablet {
+      width: 62px;
+      height: 62px;
+    }
+
+    @include notebook {
+      display: none;
+    }
+
+    &-1 {
+      left: 65px;
+      top: 25px;
+    }
+
+    &-2 {
+      right: 20px;
+      top: 110px;
+
+      @include tablet {
+        right: 40px;
+        top: 170px;
+      }
+    }
+
+    &-3 {
+      left: 0;
+      bottom: 0;
     }
   }
 

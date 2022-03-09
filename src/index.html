@@ -201,7 +201,7 @@
           <div class="introduction__image">
             <img
             class="introduction__image--photo"
-            src="./images/header_image.png"
+            src="./images/header image.png"
             alt="Image"
             >
           </div>
@@ -389,11 +389,16 @@
       <section class="page__section page__section--tech-specs tech-specs" id="tech">
         <div class="tech-specs__container">
           <h1 class="tech-specs__title">Tech <span>Specs</span></h1>
-          <img
-            src="./images/tech-mobile.png"
-            alt="Tech"
-            class="tech-specs__image"
-          >
+          <div class="tech-specs__photo-container">
+            <img
+              src="./images/tech-specs image mobile.png"
+              alt="Tech"
+              class="tech-specs__image"
+            >
+            <a href="#" class="tech-specs__ellipse tech-specs__ellipse-1"></a>
+            <a href="#" class="tech-specs__ellipse tech-specs__ellipse-2"></a>
+            <a href="#" class="tech-specs__ellipse tech-specs__ellipse-3"></a>
+          </div>
           <img
             src="./images/tech__image-notebook.png"
             alt="Tech"
@@ -514,6 +519,7 @@
             </label>
             <label for="tel">
               <input type="tel"
+              oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"
               name="telephone"
               placeholder="Phone*"
               required
