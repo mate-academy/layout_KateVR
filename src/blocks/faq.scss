@@ -1,0 +1,243 @@
+.faq {
+  position: fixed;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 60;
+  width: 100%;
+  height: 100vh;
+
+  &::before {
+    content: "";
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  @include iPad {
+    left: 0;
+    right: 0;
+    margin-top: 0;
+  }
+
+  @include iPhone {
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    position: fixed;
+  }
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__cross {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+
+    &--link {
+      display: flex;
+      background-image: url(../images/cross.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 18px;
+      height: 18px;
+      margin-top: 28px;
+      margin-right: 28px;
+
+      @include desctop {
+        margin-top: 18px;
+        margin-right: 18px;
+      }
+
+      @include iPad {
+        margin-top: 34px;
+        margin-right: 34px;
+      }
+
+      @include iPhone {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 36px;
+    line-height: 46px;
+    font-family: "Mark-heavy", sans-serif;
+    color: #fff;
+    padding-top: 25px;
+    padding-left: 93px;
+
+    @include desctop {
+      padding-top: 15px;
+      padding-left: 90px;
+    }
+
+    @include iPad {
+      font-size: 21px;
+      line-height: 27px;
+      padding-top: 50px;
+      width: 280px;
+      padding-left: 34px;
+    }
+
+    @include iPhone {
+      font-size: 21px;
+      line-height: 27px;
+      padding-top: 30px;
+      padding-left: 20px;
+    }
+  
+    &--quantum {
+      font-family: "Quantum", sans-serif;
+      line-height: 35px;
+      text-transform: uppercase;
+      font-size: 36px;
+      color: #05c2df;
+
+      @include iPad {
+        font-size: 21px;
+        line-height: 24px;
+      }
+
+      @include iPhone {
+        font-size: 21px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__item {
+    display: block;
+    border: 1px solid #05c2df;
+    border-radius: 4px;
+    margin: 14px 93px;
+    width: 894px;
+
+    @include desctop {
+      width: 698px;
+    }
+
+    @include iPad {
+      width: calc(100% - 68px);
+      margin: 14px 34px;
+    }
+
+    @include iPhone {
+      width: calc(100% - 40px);
+      margin: 14px 20px;
+    }
+
+    &--1 {
+      background-image: url(../images/faq_arrow.svg);
+      background-repeat: no-repeat;
+      width: 19px;
+      height: 19px;
+      margin-left: 10px;
+    }
+
+    &--quest {
+      font-size: 16px;
+      line-height: 24px;
+      color: #05c2df;
+      margin: 18px 27px 0;
+
+      @include iPhone {
+        margin: 18px 12px 0;
+      }
+    }
+
+    &--arrow {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      margin: -15px 27px 18px;
+
+      &-img {
+        display: block;
+        background-image: url(../images/faq_arrow_b.svg);
+        background-repeat: no-repeat;
+        width: 9px;
+        height: 9px;
+
+        @include iPhone {
+          display: none;
+        }
+
+        &:hover {
+          transform: rotate(90deg);
+        }
+      }
+    }
+
+    &--text {
+      font-size: 16px;
+      line-height: 24px;
+      color: #929292;
+      margin-top: 17px;
+    }
+
+    &--data {
+      font-size: 16px;
+      line-height: 24px;
+      color: #545454;
+      margin-top: 18px;
+    }
+  }
+
+  &__reply {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__more {
+    font-family: "Mark-medium", sans-serif;
+    font-size: 16px;
+    line-height: 24px;
+    display: block;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    color: #05c2df;
+    margin-top: 50px;
+
+    &::after {
+      content: "";
+      display: flex;
+      justify-self: center;
+      background-image: url(../images/faq_arrow.svg);
+      background-repeat: no-repeat;
+      width: 9px;
+      height: 9px;
+      margin-top: 7px;
+      margin-left: 16px;
+    }
+  }
+}
+
+#faq-reply {
+  @include iPhone {
+    display: block;
+  }
+}
+
+#faq-reply,
+input[type="checkbox"] {
+  display: none;
+}
+
+input[type="checkbox"]:checked ~ #faq-reply {
+  display: flex;
+}
