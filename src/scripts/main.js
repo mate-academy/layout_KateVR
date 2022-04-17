@@ -6,6 +6,8 @@ const item2 = document.getElementById('item2');
 const item3 = document.getElementById('item3');
 const item4 = document.getElementById('item4');
 const item5 = document.getElementById('item5');
+const item6 = document.getElementById('item6');
+const item7 = document.getElementById('item7');
 
 icon.addEventListener('click', () => {
   document.getElementById('menu-container').classList.toggle('menu-opened');
@@ -28,6 +30,14 @@ item4.addEventListener('click', () => {
 });
 
 item5.addEventListener('click', () => {
+  document.getElementById('menu-container').classList.toggle('menu-opened');
+});
+
+item6.addEventListener('click', () => {
+  document.getElementById('menu-container').classList.toggle('menu-opened');
+});
+
+item7.addEventListener('click', () => {
   document.getElementById('menu-container').classList.toggle('menu-opened');
 });
 
