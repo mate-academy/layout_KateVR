@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KateVR</title>
+    <link
+      type="image/png"
+      sizes="16x16"
+      rel="icon"
+      href="../src/images/favicon.png">
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body class="page__body">
@@ -70,14 +75,14 @@
             </div>
           </div>
           <div class="help__list">
-            <div class="help__item">Instruction manual</div>
-            <div class="help__item">Where to go for a warranty</div>
-            <div class="help__item">Service Policy</div>
+            <a href="#" class="help__item">Instruction manual</a>
+            <a href="#" class="help__item">Where to go for a warranty</a>
+            <a href="#" class="help__item">Service Policy</a>
           </div>
           <div class="help__list help__list--2">
-            <div class="help__item2">+86-0571-86105373</div>
-            <div class="help__item2">global@katvr.com</div>
-            <div class="help__item2">overseas@katvr.com</div>
+            <a href="tel:+86057186105373" class="help__item2">+86-0571-86105373</a>
+            <a href="mailto:global@katvr.com" class="help__item2">global@katvr.com</a>
+            <a href="mailto:overseas@katvr.com" class="help__item2">overseas@katvr.com</a>
           </div>
         </div>
       </nav>
@@ -155,72 +160,85 @@
               <div class="buy__price--2"></div>
             </div>
             <div class="buy__input">
-              <form action="#pay" method="get" class="buy__form">
-                <label for="name1"></label>
-                <input
-                  id="name1"
-                  type="text"
-                  placeholder="First Name*"
-                  class="buy__item"
-                  required>
-                <label for="name2"></label>
-                <input
-                  id="name2"
-                  type="text"
-                  placeholder="Last Name*"
-                  class="buy__item--2"
-                  required>
-                <label for="mail"></label>
-                <input
-                  id="mail"
-                  type="email"
-                  placeholder="Email*"
-                  class="buy__item"
-                  required>
-                <label for="phone"></label>
-                <input
-                  id="phone"
-                  type="tel"
-                  placeholder="Phone Number*"
-                  class="buy__item--2"
-                  required>
-                <label for="country" class="buy__item--3">Country*</label>
-                <select name="country" class="buy__country--select">
-                  <option value="ua" class="buy__country--select-item">Ukraine</option>
-                  <option value="sp" class="buy__country--select-item">Spain</option>
-                  <option value="chs" class="buy__country--select-item">China</option>
-                  <option value="fr" class="buy__country--select-item">France</option>
-                  <option value="us" class="buy__country--select-item">United States</option>
-                  <option value="it" class="buy__country--select-item">Italia</option>
-                  <option value="pl" class="buy__country--select-item">Poland</option>
-                  <option value="ru" class="buy__country--select-item">Russia</option>
-                  <option value="en" class="buy__country--select-item">England</option>
-                </select>
-                <label for="country" class="buy__item--4 buy__item--4-city">City*</label>
-                <select name="country" id="lang" class="buy__country--select-city">
-                  <option value="ua" class="buy__country--select-item">Lviv</option>
-                  <option value="ua" class="buy__country--select-item">Kyiv</option>
-                  <option value="ua" class="buy__country--select-item">Zaporizhia</option>
-                  <option value="ua" class="buy__country--select-item">Kharkiv</option>
-                  <option value="ua" class="buy__country--select-item">Odessa</option>
-                  <option value="ua" class="buy__country--select-item">Dnipro</option>
-                  <option value="ua" class="buy__country--select-item">Donetsk</option>
-                  <option value="ua" class="buy__country--select-item">Mykolaiv</option>
-                </select>
-                <label for="adress1"></label>
-                <input
-                  id="adress1"
-                  type="text"
-                  placeholder="Shipping Adress*"
-                  class="buy__item"
-                  required>
-                <label for="adress2"></label>
-                <input
-                  id="adress2"
-                  type="text"
-                  placeholder="Shipping Adress 2"
-                  class="buy__item--2"
-                  required>
+              <form action="#pay" class="buy__form">
+                <div class="buy__form--1">
+                  <input
+                    id="name1"
+                    type="text"
+                    class="buy__item"
+                    required>
+                  <label for="name1" class="buy__label">First Name*</label>
+                </div>
+                <div class="buy__form--2">
+                  <input
+                    id="name2"
+                    type="text"
+                    class="buy__item--2"
+                    required>
+                  <label for="name2" class="buy__label">Last Name*</label>
+                </div>
+                <div class="buy__form--1">
+                  <label for="mail" class="buy__label">Email*</label>
+                  <input
+                    id="mail"
+                    type="email"
+                    class="buy__item"
+                    required>
+                </div>
+                <div class="buy__form--2">
+                  <label for="phone" class="buy__label">Phone Number*</label>
+                  <input
+                    id="phone"
+                    type="tel"
+                    class="buy__item--2"
+                    required>
+                </div>
+                <div class="buy__form--1">
+                  <label for="country" class="buy__item--3">Country*</label>
+                  <select name="country" class="buy__country--select">
+                    <option value="ua" class="buy__country--select-item">Ukraine</option>
+                    <option value="sp" class="buy__country--select-item">Spain</option>
+                    <option value="chs" class="buy__country--select-item">China</option>
+                    <option value="fr" class="buy__country--select-item">France</option>
+                    <option value="us" class="buy__country--select-item">United States</option>
+                    <option value="it" class="buy__country--select-item">Italia</option>
+                    <option value="pl" class="buy__country--select-item">Poland</option>
+                    <option value="ru" class="buy__country--select-item">Russia</option>
+                    <option value="en" class="buy__country--select-item">England</option>
+                  </select>
+                </div>
+                <div class="buy__form--2">
+                  <label for="country" class="buy__item--4 buy__item--4-city">City*</label>
+                  <select
+                    name="country"
+                    id="lang"
+                    class="buy__country--select-city">
+                    <option value="ua" class="buy__country--select-item">Lviv</option>
+                    <option value="ua" class="buy__country--select-item">Kyiv</option>
+                    <option value="ua" class="buy__country--select-item">Zaporizhia</option>
+                    <option value="ua" class="buy__country--select-item">Kharkiv</option>
+                    <option value="ua" class="buy__country--select-item">Odessa</option>
+                    <option value="ua" class="buy__country--select-item">Dnipro</option>
+                    <option value="ua" class="buy__country--select-item">Donetsk</option>
+                    <option value="ua" class="buy__country--select-item">Mykolaiv</option>
+                  </select>
+                </div>
+                <div class="buy__form--1">
+                  <label for="adress1" class="buy__label">Shipping Adress*</label>
+                  <input
+                    id="adress1"
+                    type="text"
+                    class="buy__item"
+                    required>
+                </div>
+                <div class="buy__form--2">
+                  <label for="adress2" class="buy__label">Shipping Adress 2</label>
+                  <input
+                    id="adress2"
+                    type="text"
+                    class="buy__item--2"
+                    required>
+                </div>
                 <button type="submit" class="buy__button">Purchase</button>
               </form>
             </div>
@@ -588,39 +606,41 @@
           <div class="contact__text1">Have any questions?</div>
           <div class="contact__title">get in <span class="contact__title--quantum">touch</span></div>
           <div class="contact__text2">Our manager will reply you within 15 minutes</div>
-          <div class="contact__tel">+86-0571-86105373</div>
-          <div class="contact__email">global@katvr.com</div>
-          <div class="contact__email2">overseas@katvr.com</div>
+          <a href="tel:+86057186105373" class="contact__tel">+86-0571-86105373</a>
+          <a
+            href="mailto:global@katvr.com"
+            class="contact__email"
+            target="_blank">global@katvr.com</a>
+          <a
+            href="mailto:overseas@katvr.com"
+            class="contact__email2"
+            target="_blank">overseas@katvr.com</a>
         </div>
         <div class="contact__input">
           <form action="#" class="contact__form">
-            <label for="name"></label>
             <input
               id="name"
               type="text"
-              placeholder="Name*"
               class="contact__name"
               required>
-            <label for="mail2"></label>
+            <label for="name" class="contact__label">Name*</label>
             <input
               id="mail2"
               type="email"
-              placeholder="Email*"
               class="contact__mail"
               required>
-            <label for="phone2"></label>
+            <label for="mail2" class="contact__label">Email*</label>
             <input
               id="phone2"
               type="tel"
-              placeholder="Phone*"
               class="contact__phone"
               required>
-            <label for="message"></label>
+            <label for="phone2" class="contact__label">Phone*</label>
             <textarea
               id="message"
               type="textarea"
-              placeholder="Message"
               class="contact__textarea"></textarea>
+            <label for="message" class="contact__label contact__label--textarea">Message</label>
             <button type="submit" class="contact__button">Contact Us</button>
           </form>
           <a href="#" class="contact__arrowTop"></a>
