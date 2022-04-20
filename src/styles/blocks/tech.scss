@@ -125,10 +125,13 @@
     background: #191536;
     padding: 32px 33px;
     transition: all 0.5s ease-in;
+    opacity: 0;
+    visibility: hidden;
 
     &--1 {
       top: 0;
-      left: -100%;
+      // left: -100%;
+      left: 0;
 
       @include mobile {
         left: -150%;
@@ -138,7 +141,8 @@
 
     &--2 {
       bottom: 0;
-      left: -100%;
+      // left: -100%;
+      left: 0;
 
       @include mobile {
         left: -150%;
@@ -148,7 +152,8 @@
 
     &--3 {
       top: 0;
-      right: -100%;
+      // right: -100%;
+      right: 0;
 
       @include mobile {
         right: -150%;
@@ -156,12 +161,14 @@
     }
 
     &--active {
-      left: 0;
+      // left: 0;
+      visibility: visible;
+      opacity: 1;
     }
 
-    &--active.tech__pop-up--3 {
-      right: 0;
-    }
+    // &--active.tech__pop-up--3 {
+    //   right: 0;
+    // }
 
     @include mobile {
       width: 100%;
