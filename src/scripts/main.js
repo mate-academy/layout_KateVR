@@ -1,5 +1,7 @@
 'use strict';
 
+/* BURGER MENU */
+
 const icon = document.getElementById('header-burger');
 const item1 = document.getElementById('item1');
 const item2 = document.getElementById('item2');
@@ -40,6 +42,8 @@ item6.addEventListener('click', () => {
 item7.addEventListener('click', () => {
   document.getElementById('menu-container').classList.toggle('menu-opened');
 });
+
+/* HEADER TOGGLE */
 
 const prev = document.getElementById('headerLink1');
 const next = document.getElementById('headerLink2');
@@ -95,7 +99,8 @@ next1.addEventListener('click', (event) => {
   document.getElementById('count').textContent = '2/2';
 });
 
-// const plus1 = document.getElementById('svg1');
+/* TECH */
+
 const plus1 = document.querySelector('.tech__svg--1');
 const cross1 = document.querySelector('.cross1');
 
@@ -128,6 +133,8 @@ plus3.addEventListener('click', (e) => {
     document.getElementById('popUp3').classList.remove('tech__pop-up--active');
   });
 });
+
+/* FORMS */
 
 document.getElementById('message').value = '';
 
@@ -210,4 +217,50 @@ input3.addEventListener('blur', (e) => {
     input3.classList.remove('contact__input--valid');
     text3.classList.add('contact__invalid--active');
   }
+});
+
+/* FAQ */
+
+const arrow1 = document.querySelector('.faq__arrow--1');
+
+arrow1.addEventListener('click', () => {
+  arrow1.parentElement.classList.toggle('faq__question--active');
+});
+
+const arrow2 = document.querySelector('.faq__arrow--2');
+
+arrow2.addEventListener('click', () => {
+  arrow2.parentElement.classList.toggle('faq__question--active');
+});
+
+const arrow3 = document.querySelector('.faq__arrow--3');
+
+arrow3.addEventListener('click', () => {
+  arrow3.parentElement.classList.toggle('faq__question--active');
+});
+
+const arrow4 = document.querySelector('.faq__arrow--4');
+
+arrow4.addEventListener('click', () => {
+  arrow4.parentElement.classList.toggle('faq__question--active');
+});
+
+const faq = document.querySelector('.header__link--faq');
+
+faq.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  document.querySelector('.faq').classList.add('faq--active');
+});
+
+item6.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  document.querySelector('.faq').classList.add('faq--active');
+});
+
+const faqCross = document.querySelector('.faq__cross');
+
+faqCross.addEventListener('click', () => {
+  document.querySelector('.faq').classList.remove('faq--active');
 });

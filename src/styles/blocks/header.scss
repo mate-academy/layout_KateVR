@@ -25,6 +25,10 @@
     background-position: top;
   }
 
+  &__wrapper {
+    position: relative;
+  }
+
   &__top {
     display: flex;
     justify-content: space-between;
@@ -285,30 +289,12 @@
     width: 18%;
   }
 
-}
+  &__faq {
+    position: absolute;
+    background: #191536;
+    height: 70vh;
+  }
 
-::-webkit-scrollbar {
-  width: 1px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #014954;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: $blue;
-}
-
-/* Handle on hover */
-
-::-webkit-scrollbar-track-piece {
-  display: none;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: $white;
 }
 
 .ul {
@@ -360,5 +346,106 @@
         }
       }
     }
+  }
+}
+
+.faq {
+
+  padding: 70px 90px 50px;
+  background: #191536;
+  width: 70%;
+  height: fit-content;
+  max-height: 80%;
+  overflow: scroll;
+  transform: translateX(-50%);
+  z-index: 3;
+  opacity: 0;
+  left: -100%;
+  transition: all 0.5s linear;
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+    left: 50%;
+
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    cursor: pointer;
+    padding: 10px;
+    padding-top: 0;
+    padding-bottom: 0;
+    transition: $transition;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    font-size: 16px;
+    transition: $transition;
+  }
+
+  &__info {
+    color: $lightGray;
+    margin-top: 18px;
+    margin-bottom: 20px;
+    display: none;
+    transition: $transition;
+  }
+
+  &__update {
+    color: $darkGray;
+    display: none;
+    transition: $transition;
+
+  }
+
+  &__question {
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid $blue;
+    padding: 18px 30px;
+    position: relative;
+    transition: $transition;
+
+    &--active {
+
+      .faq__info {
+        display: block;
+      }
+
+      .faq__update {
+        display: block;
+      }
+
+      .faq__arrow {
+        transform: rotateZ(90deg);
+      }
+    }
+  }
+
+  &__path {
+    transition: $transition;
+  }
+
+  &__svg {
+
+    cursor: pointer;
+    position: absolute;
+
+    &:hover .tech__path {
+      fill: $white;
+      stroke: $blue;
+    }
+  }
+
+  &__cross {
+    top: 32px;
+    right: 33px;
   }
 }
