@@ -95,7 +95,8 @@ next1.addEventListener('click', (event) => {
   document.getElementById('count').textContent = '2/2';
 });
 
-const plus1 = document.getElementById('svg1');
+// const plus1 = document.getElementById('svg1');
+const plus1 = document.querySelector('.tech__svg--1');
 const cross1 = document.getElementById('cross1');
 
 plus1.addEventListener('click', (e) => {
