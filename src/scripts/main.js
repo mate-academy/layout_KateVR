@@ -97,7 +97,7 @@ next1.addEventListener('click', (event) => {
 
 // const plus1 = document.getElementById('svg1');
 const plus1 = document.querySelector('.tech__svg--1');
-const cross1 = document.getElementById('cross1');
+const cross1 = document.querySelector('.cross1');
 
 plus1.addEventListener('click', (e) => {
   document.getElementById('popUp1').classList.add('tech__pop-up--active');
@@ -107,8 +107,8 @@ plus1.addEventListener('click', (e) => {
   });
 });
 
-const plus2 = document.getElementById('svg2');
-const cross2 = document.getElementById('cross2');
+const plus2 = document.querySelector('.tech__svg--2');
+const cross2 = document.querySelector('.cross2');
 
 plus2.addEventListener('click', (e) => {
   document.getElementById('popUp2').classList.add('tech__pop-up--active');
@@ -118,8 +118,8 @@ plus2.addEventListener('click', (e) => {
   });
 });
 
-const plus3 = document.getElementById('svg3');
-const cross3 = document.getElementById('cross3');
+const plus3 = document.querySelector('.tech__svg--3');
+const cross3 = document.querySelector('.cross3');
 
 plus3.addEventListener('click', (e) => {
   document.getElementById('popUp3').classList.add('tech__pop-up--active');
