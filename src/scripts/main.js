@@ -128,3 +128,86 @@ plus3.addEventListener('click', (e) => {
     document.getElementById('popUp3').classList.remove('tech__pop-up--active');
   });
 });
+
+document.getElementById('message').value = '';
+
+function nameInput() {
+  if (!document.getElementById('name').value.match(/[0-9]/)) {
+    return true;
+  }
+}
+
+function phoneInput() {
+  if (!document.getElementById('phone').value.match(/[a-zA-Z]/)) {
+    return true;
+  }
+}
+
+const input1 = document.getElementById('name');
+const text1 = document.getElementById('invalid1');
+
+input1.addEventListener('blur', (e) => {
+  e.preventDefault();
+
+  if (nameInput(input1)) {
+    input1.classList.remove('contact__input--invalid');
+    input1.classList.add('contact__input--valid');
+    text1.classList.remove('contact__invalid--active');
+  }
+});
+
+input1.addEventListener('blur', (e) => {
+  e.preventDefault();
+
+  if (!nameInput(input1)) {
+    input1.classList.remove('contact__input--valid');
+    input1.classList.add('contact__input--invalid');
+    text1.classList.add('contact__invalid--active');
+  }
+});
+
+const input2 = document.getElementById('email');
+const text2 = document.getElementById('invalid2');
+
+input2.addEventListener('blur', (e) => {
+  e.preventDefault();
+
+  if (nameInput(input2)) {
+    input2.classList.remove('contact__input--invalid');
+    input2.classList.add('contact__input--valid');
+    text2.classList.remove('contact__invalid--active');
+  }
+});
+
+input2.addEventListener('blur', (e) => {
+  e.preventDefault();
+
+  if (!nameInput(input2)) {
+    input2.classList.remove('contact__input--valid');
+    input2.classList.add('contact__input--invalid');
+    text2.classList.add('contact__invalid--active');
+  }
+});
+
+const input3 = document.getElementById('phone');
+const text3 = document.getElementById('invalid3');
+
+input3.addEventListener('blur', (e) => {
+  e.preventDefault();
+
+  if (nameInput(input3)) {
+    input3.classList.remove('contact__input--invalid');
+    input3.classList.add('contact__input--valid');
+    text3.classList.remove('contact__invalid--active');
+  }
+});
+
+input3.addEventListener('blur', (e) => {
+  e.preventDefault();
+
+  if (!phoneInput(input3)) {
+    input3.classList.add('contact__input--invalid');
+    input3.classList.remove('contact__input--valid');
+    text3.classList.add('contact__invalid--active');
+  }
+});
