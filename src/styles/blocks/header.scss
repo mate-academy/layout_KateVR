@@ -358,10 +358,20 @@
   max-height: 80%;
   overflow: scroll;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: 12;
   opacity: 0;
   left: -100%;
   transition: all 0.5s linear;
+
+  @include tablet {
+    padding: 102px 33px 50px;
+    width: 90%;
+  }
+
+  @include mobile {
+    padding: 68px 20px 20px;
+    width: 95%;
+  }
 
   &--active {
     opacity: 1;
@@ -379,10 +389,27 @@
     padding-top: 0;
     padding-bottom: 0;
     transition: $transition;
+
+    @include tablet {
+      right: 15px;
+
+    }
+  
+    @include mobile {
+      right: 10px;
+    }
   }
 
   &__title {
     margin-bottom: 40px;
+
+    @include tablet {
+      font-size: 21px;
+    }
+
+    @include mobile {
+      font-size: 21px;
+    }
   }
 
   &__text {
