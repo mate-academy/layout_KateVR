@@ -292,7 +292,11 @@
   &__faq {
     position: absolute;
     background: #191536;
-    height: 70vh;
+  }
+
+  &__help {
+    position: absolute;
+    background: #191536;
   }
 
 }
@@ -365,7 +369,7 @@
 
   @include tablet {
     padding: 102px 33px 50px;
-    width: 90%;
+    width: 100%;
   }
 
   @include mobile {
@@ -465,8 +469,7 @@
     cursor: pointer;
     position: absolute;
 
-    &:hover .tech__path {
-      fill: $white;
+    &:hover .faq__path {
       stroke: $blue;
     }
   }
@@ -475,4 +478,113 @@
     top: 32px;
     right: 33px;
   }
+}
+
+.help {
+  padding: 70px 90px 50px;
+  background: #191536;
+  width: 70%;
+  height: fit-content;
+  max-height: 80%;
+  overflow: scroll;
+  transform: translateX(-50%);
+  z-index: 12;
+  opacity: 0;
+  left: -100%;
+  transition: all 0.5s linear;
+
+  @include tablet {
+    padding: 102px 33px 50px;
+    width: 100%;
+  }
+
+  @include mobile {
+    padding: 68px 20px 20px;
+    width: 95%;
+  }
+
+  &--active {
+    opacity: 1;
+    visibility: visible;
+    left: 50%;
+
+  }
+
+  &__title {
+    margin-bottom: 50px;
+
+    @include tablet {
+      font-size: 21px;
+      margin-bottom: 30px;
+    }
+
+    @include mobile {
+      font-size: 21px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__path {
+    transition: $transition;
+  }
+
+  &__svg {
+
+    cursor: pointer;
+    position: absolute;
+
+    &:hover .help__path {
+      stroke: $blue;
+    }
+  }
+
+  &__cross {
+    top: 32px;
+    right: 33px;
+  }
+
+  &__text {
+    color: $lightGray;
+    margin-bottom: 20px;
+  }
+
+  &__link {
+    font-size: inherit;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include mobile {
+      gap: 11px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+
+    @include mobile {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    & .help__link {
+      color: $lightGray;
+      transition: $transition;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+
 }

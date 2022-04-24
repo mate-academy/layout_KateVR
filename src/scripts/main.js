@@ -246,8 +246,15 @@ arrow4.addEventListener('click', () => {
 });
 
 const faq = document.querySelector('.header__link--faq');
+const faq2 = document.querySelector('.help__faq');
 
 faq.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  document.querySelector('.faq').classList.add('faq--active');
+});
+
+faq2.addEventListener('click', (e) => {
   e.preventDefault();
 
   document.querySelector('.faq').classList.add('faq--active');
@@ -263,4 +270,31 @@ const faqCross = document.querySelector('.faq__cross');
 
 faqCross.addEventListener('click', () => {
   document.querySelector('.faq').classList.remove('faq--active');
+});
+
+/* HELP */
+
+const help = document.querySelector('.header__link--help');
+
+help.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  document.querySelector('.help').classList.add('help--active');
+});
+
+item7.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  document.querySelector('.help').classList.add('help--active');
+});
+
+const helpCross = document.querySelector('.help__cross');
+const helpFaq = document.querySelector('.help__faq');
+
+helpCross.addEventListener('click', () => {
+  document.querySelector('.help').classList.remove('help--active');
+});
+
+helpFaq.addEventListener('click', () => {
+  document.querySelector('.help').classList.remove('help--active');
 });
