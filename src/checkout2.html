@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap" rel="stylesheet">
-    <script src="./scripts/checkout.js" defer></script>
+    <script src="./scripts/checkout2.js" defer></script>
   </head>
 
   <body class="checkout">
@@ -52,10 +52,104 @@
         class="checkout__img grid__item grid__item--1-8"
       >
       
+      <div class="checkout__card grid__item grid__item--9-16">
+
+        <label for="cardNo" class="checkout__cardno">
+          <input
+            type="tel"
+            class="checkout__input"
+            required
+            maxlength="4"
+            minlength="4"
+            placeholder="0000"
+            id="card1"
+          >
+
+          <input
+            type="tel"
+            class="checkout__input"
+            required
+            maxlength="4"
+            minlength="4"
+            placeholder="0000"
+            id="card2"
+          >
+
+          <input
+            type="tel"
+            class="checkout__input"
+            required
+            maxlength="4"
+            minlength="4"
+            placeholder="0000"
+            id="card3"
+          >
+
+          <input
+            type="tel"
+            class="checkout__input"
+            required
+            maxlength="4"
+            minlength="4"
+            placeholder="0000"
+            id="card4"
+          >
+
+          <img
+            src="./images/visa.svg"
+            alt="card"
+            class="checkout__card-img"
+          >
+        </label>
+
+        <label for="holder" class="checkout__cardholder">
+          <input
+            type="text"
+            class="checkout__input"
+            required
+            placeholder="Card Holder Name*"
+            id="card5"
+          >
+        </label>
+
+        <label for="info" class="checkout__cardinfo">
+
+          <div class="checkout__cardinfo-wrapper">
+            <p class="checkout__cardinfo-text text2">Expiration Date*</p>
+
+            <input
+              type="tel"
+              class="checkout__input"
+              placeholder="MM / YY"
+              required
+              minlength="5"
+              maxlength="5"
+              id="card6"
+            >
+          </div>
+
+          <div class="checkout__cardinfo-wrapper">
+            <p class="checkout__cardinfo-text text2">CVV*</p>
+
+            <input
+              type="tel"
+              class="checkout__input"
+              placeholder="0 0 0"
+              required
+              minlength="3"
+              maxlength="3"
+              id="card7"
+            >
+          </div>
+        </label>
+      </div>
+
+      <p id="invalid2" class="checkout__invalid text2 grid__item grid__item--9-14">Please, fill all the required fields*</p>
 
       <button
         class="checkout__button button grid__item grid__item--9-10"
-        form="form"
+        id="submit2"
+        href="#"
       >
         Purchase
       </button>
