@@ -60,29 +60,29 @@
 
 // window.location.href = './checkout2.html';
 
-function allInput() {
-  for (let i = 1; i <= 5; i++) {
-    if (document.getElementById(`input${i}`).value === '') {
-      return false;
-    }
-  }
+// function allInput() {
+//   for (let i = 1; i <= 5; i++) {
+//     if (document.getElementById(`input${i}`).value === '') {
+//       return false;
+//     }
+//   }
 
-  return true;
-}
+//   return true;
+// }
 
-const submit1 = document.getElementById('submit1');
-const invaliText = document.getElementById('invalid');
+// const submit1 = document.getElementById('submit1');
+// const invaliText = document.getElementById('invalid');
 
-submit1.addEventListener('click', (e) => {
-  e.preventDefault();
+// submit1.addEventListener('click', (e) => {
+//   e.preventDefault();
 
-  if (allInput()) {
-    invaliText.classList.remove('checkout__invalid--active');
-    // window.location.href = '../checkout2.html';
-    window.open('../../checkout2.html');
-    // location = '../checkout2.html';
-    // window.location.replace = '../checkout2.html';
-  } else {
-    invaliText.classList.add('checkout__invalid--active');
-  }
-});
+//   if (allInput()) {
+//     invaliText.classList.remove('checkout__invalid--active');
+//     // window.location.href = '../checkout2.html';
+//     window.open('../../checkout2.html');
+//     // location = '../checkout2.html';
+//     // window.location.replace = '../checkout2.html';
+//   } else {
+//     invaliText.classList.add('checkout__invalid--active');
+//   }
+// });
