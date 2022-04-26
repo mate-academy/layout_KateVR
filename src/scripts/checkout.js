@@ -78,7 +78,7 @@ submit1.addEventListener('click', (e) => {
 
   if (allInput()) {
     invaliText.classList.remove('checkout__invalid--active');
-    window.location.href = './checkout2.html';
+    window.location.href = 'checkout2.html';
   } else {
     invaliText.classList.add('checkout__invalid--active');
   }
