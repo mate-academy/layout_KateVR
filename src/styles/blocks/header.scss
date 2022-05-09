@@ -1,0 +1,197 @@
+.header {
+
+  &__content {
+    padding: 20px 0 30px;
+
+    @include On768 {
+      padding: 30px 0 60px;
+    }
+    @include On1280 {
+      padding: 50px 0 100px;
+    }
+    @include On1920 {
+      padding: 65px 0 120px;
+    }
+  }
+
+  &__top-actions {
+    margin-bottom: 14px;
+
+    @include On768 {
+      margin-bottom: 55px;
+    }
+    @include On1280 {
+      margin-bottom: 100px;
+    }
+    @include On1920 {
+      margin-bottom: 232px;
+    }
+  }
+
+  &__picture {
+    position: relative;
+    height: 172px;
+    width: 100%;
+    overflow: hidden;
+
+    @include On768 {
+      height: 230px;
+      margin-top: -50px;
+    }
+
+    @include On1280 {
+      height: 360px;
+      margin-top: -150px;
+      margin-bottom: 100px;
+    }
+
+    @include On1920 {
+      height: 560px;
+      margin-top: -250px;
+      margin-bottom: 100px;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    display: block;
+    height: 100%;
+    max-width: 320px;
+    margin: 0 auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 0.2s transform;
+
+    @include On768 {
+      min-width: 100%;
+    }
+
+    &:hover {
+      transform: scale(1.1) translate(-45%, -40%);
+    }
+  }
+
+  &__title {
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    line-height: 130%;
+    margin-bottom: 17px;
+
+    @include On768 {
+      text-align: left;
+    }
+
+    @include On1280 {
+      margin-bottom: 20px;
+      font-size: 46px;
+    }
+    @include On1920 {
+      margin-bottom: 35px;
+      font-size: 54px;
+    }
+
+    &-first-word {
+      color: #fff;
+    }
+
+    &-second-word {
+      color: $secondary-col;
+      font-weight: 400;
+    }
+  }
+
+  &__text {
+    display: block;
+    font-size: 16px;
+    text-align: center;
+    max-width: 600px;
+    line-height: 150%;
+    margin: 0 auto 14px;
+
+    @include On768 {
+      margin-bottom: 18px;
+      text-align: left;
+      max-width: 100%;
+    }
+    @include On1280 {
+      margin-bottom: 16px;
+    }
+    @include On1920 {
+      font-size: 20px;
+    }
+  }
+
+  &__price {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 16px;
+
+    @include On768 {
+      text-align: left;
+      margin-bottom: 24px;
+
+      @include On1280 {
+        margin-bottom: 20px;
+      }
+      @include On1920 {
+        margin-bottom: 35px;
+      }
+    }
+  }
+
+  &__buttom-bar {
+    display: none;
+
+    @include On1280 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-left {
+      display: flex;
+      justify-content: space-between;
+      width: 90px;
+
+      & a {
+        color: #fff;
+        transition: 0.2s color;
+
+        &:hover {
+          color: $secondary-col;
+        }
+      }
+    }
+
+    &-link {
+      position: relative;
+      color: #fff;
+      transition: 0.2s color;
+
+      &--active {
+        color: $text-color;
+
+        &::after {
+          position: absolute;
+          left: 0;
+          z-index: 1;
+          content: "";
+          width: 100%;
+          height: 3px;
+          bottom: -15px;
+          transform: translateY(50%);
+          background-color: $secondary-col;
+        }
+      }
+
+      &:hover {
+        color: $secondary-col;
+      }
+    }
+  }
+}

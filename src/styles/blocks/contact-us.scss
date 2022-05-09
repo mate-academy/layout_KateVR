@@ -1,0 +1,53 @@
+.contact-us {
+
+  &--hidden-On-768 {
+    
+    @include On768 {
+      display: none;
+    }
+  }
+
+  &-list {
+    margin: 0;
+    padding: 0;
+  }
+
+  &-item {
+    margin-bottom: 20px;
+
+    &--contacts {
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &-link {
+    display: block;
+    width: 100%;
+    color: $text-color;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &--contacts {
+      color: inherit;
+    }
+
+    &__footer {
+      font-size: 13px;
+    }
+  }
+
+  &--hidden {
+    display: none;
+
+    @include On768 {
+      display: block;
+    }
+  }
+}

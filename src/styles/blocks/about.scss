@@ -1,0 +1,68 @@
+.about {
+  position: relative;
+
+  &__video {
+    display: block;
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    border: 0;
+
+    &-container {
+      position: relative;
+      height: 220px;
+      width: 100%;
+      margin-bottom: 15px;
+
+      @media (min-width: 400px) {
+        height: 272px;
+      }
+      @include On768 {
+        height: 270px;
+      }
+      @include On1280 {
+        height: 290px;
+      }
+
+      &__number {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: -50px;
+        color: $secondary-col;
+
+        @include On1280 {
+          display: block;
+        }
+      }
+    }
+
+    &-slider {
+      display: flex;
+      justify-content: space-evenly;
+      width: 50px;
+      margin: 0 auto;
+
+      @include On1280 {
+        display: none;
+      }
+      
+      &-item {
+        display: block;
+        width: 4px;
+        height: 4px;
+        background-color: $text-color;
+        opacity: 0.5;
+        border-radius: 50%;
+
+        &--active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 50px;
+  }
+}

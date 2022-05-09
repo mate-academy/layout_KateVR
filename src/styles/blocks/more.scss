@@ -1,0 +1,39 @@
+.more {
+  position: relative;
+  color: $secondary-col;
+  transition: 0.2s color;
+
+  &--questions {
+    display: none;
+
+    @include On768 {
+      display: block;
+      text-align: center;
+      opacity: 0.4;
+      margin-top: 50px;
+      transition: opacity 0.2s;
+    }
+  }
+
+  &:hover {
+    color: #fff;
+    opacity: 1;
+  }
+
+  &::after {
+    position: absolute;
+    content: "";
+    @extend .bg-img;
+    width: 9px;
+    height: 6px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    background-image: url(../images/vectors/down-blue.svg);
+    transition: 0.2s background-image;
+  }
+
+  &:hover::after {
+    background-image: url(../images/vectors/down-white.svg);
+  }
+}

@@ -1,0 +1,97 @@
+.btn {
+  display: none;
+  transition: 0.2s color, 0.2s background-color;
+
+  @include On1280 {
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    height: 48px;
+    width: 200px;
+    color: #fff;
+    background-color: $secondary-col;
+  }
+
+  &:hover {
+    background-color: #fff;
+    color: $secondary-col;
+  }
+
+  &--form {
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    height: 48px;
+    width: 100%;
+    max-width: 458px;
+    color: #fff;
+    background-color: $secondary-col;
+    margin: 0 auto;
+    border: none;
+
+    @include On1280 {
+      max-width: 200px;
+      margin: 0;
+    }
+  }
+
+  &--purchase {
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    height: 48px;
+    width: 100%;
+    max-width: 218px;
+    color: #fff;
+    background-color: $secondary-col;
+    margin: 0 auto;
+    border: none;
+  }
+
+  &--positioned {
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    border-radius: 4px;
+    height: 48px;
+    width: 100%;
+    max-width: 280px;
+    color: #fff;
+    background-color: rgba(4, 216, 249, 0.72);
+    margin: 0 auto;
+    border: none;
+  }
+
+  &-container {
+    width: 100%;
+    max-width: 1800px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 25px;
+    transform: translateX(-50%);
+    background-color: rgba(20, 14, 33, 0.3);
+    padding: 20px;
+    box-shadow: 20px 0 30px rgb(2, 15, 26);
+
+    @include On768 {
+      bottom: 60px;
+    }
+
+    @include On1280 {
+      display: none;
+    }
+  }
+
+  &--contact {
+    max-width: 200px;
+
+    @include On768 {
+      margin: 0;
+    }
+
+  }
+}

@@ -1,0 +1,253 @@
+.section {
+  padding: 50px 0;
+
+  @include On768 {
+    padding: 70px 0;
+  }
+
+  @include On1280 {
+    padding: 100px 0;
+  }
+  @include On1920 {
+    padding: 158px 0;
+  }
+
+  &--black {
+    background-color: #05040b;
+  }
+
+  &--blue {
+    background: linear-gradient(to bottom, #191536, #000);
+  }
+
+  &__title {
+    display: block;
+    text-align: center;
+    font-size: 21px;
+    color: #fff;
+    margin-bottom: 14px;
+
+    @include On1280 {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+    @include On1920 {
+      font-size: 54px;
+    }
+
+    &-second-word {
+      color: $secondary-col;
+      font-weight: 400;
+    }
+
+    &--welkoming {
+      text-align: left;
+    }
+
+    &--tech {
+      margin-bottom: 40px;
+
+      @include On768 {
+        text-align: left;
+        margin-bottom: 60px;
+      }
+      @include On1280 {
+        margin-bottom: 40px;
+      }
+      @include On1920 {
+        margin-bottom: 60px;
+      }
+    }
+
+    &--benefits {
+      margin-bottom: 30px;
+
+      @include On1280 {
+        margin-bottom: 90px;
+      }
+    }
+
+    &--button-gap {
+      margin-bottom: 20px;
+
+      @include On1280 {
+        margin-bottom: 30px;
+      }
+      @include On1920 {
+        margin-bottom: 40px;
+      }
+
+      &--hidden-on768 {
+        display: block;
+
+        @include On768 {
+          display: none;
+        }
+      }
+
+      &--shown-on768 {
+        display: none;
+
+        @include On768 {
+          display: block;
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  &__sub-title {
+    display: block;
+    text-align: center;
+    font-weight: 400;
+    color: $secondary-col;
+    margin-bottom: 40px;
+    @include On768 {
+      font-size: 18px;
+      margin-bottom: 50px;
+    }
+    @include On1280 {
+      margin-bottom: 80px;
+    }
+    @include On1920 {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__sup-title {
+    display: block;
+    font-weight: 400;
+    color: $secondary-col;
+    margin-bottom: 10px;
+    @include On768 {
+      font-size: 18px;
+    }
+    @include On1280 {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__article {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    @include On768 {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &--hidden {
+      display: none;
+
+      &--transformed {
+        margin-top: -155px;
+      }
+
+      @include On1280 {
+        display: block;
+      }
+    }
+
+    &-pict {
+      display: none;
+
+      @include On768 {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+    }
+
+    &-img {
+      display: block;
+      width: 100px;
+      height: 80px;
+    }
+
+    &-item {
+      padding: 10px;
+      margin-bottom: 20px;
+      width: 100%;
+
+      @include On768 {
+        width: 50%;
+      }
+
+      @include On1280 {
+        width: 25%;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &--tech {
+
+        @include On768 {
+          width: 33%;
+        }
+        @include On1280 {
+          width: 25%;
+        }
+      }
+    }
+
+    &-title {
+      text-align: center;
+      display: block;
+      color: #fff;
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 19px;
+      margin-bottom: 12px;
+
+      @include On768 {
+        margin-bottom: 20px;
+      }
+
+      @include On1280 {
+        font-size: 18px;
+        line-height: 22px;
+      }
+      @include On1920 {
+        font-size: 16px;
+        line-height: 19px;
+      }
+
+      &--tech {
+        text-align: left;
+      }
+    }
+
+    &-text {
+      text-align: center;
+      font-weight: 400;
+      line-height: 24px;
+
+      &--tech {
+        text-align: left;
+      }
+    }
+
+    &--benefits {
+      text-align: left;
+
+      @include On1280 {
+        text-align: center;
+      }
+    }
+  }
+
+  &--last {
+    padding-bottom: 120px;
+
+    @include On768 {
+      padding-bottom: 180px;
+    }
+    @include On1280 {
+      padding-bottom: 100px;
+    }
+  }
+}
