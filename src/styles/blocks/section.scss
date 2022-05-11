@@ -166,10 +166,25 @@
       height: 80px;
     }
 
+    &-text {
+      text-align: center;
+      font-weight: 400;
+      line-height: 24px;
+
+      &--tech {
+        text-align: left;
+      }
+    }
+
     &-item {
       padding: 10px;
       margin-bottom: 20px;
       width: 100%;
+      transition: 0.2s color;
+
+      &:hover .section__article-text {
+        color: $secondary-col;
+      }
 
       @include On768 {
         width: 50%;
@@ -215,16 +230,6 @@
         font-size: 16px;
         line-height: 19px;
       }
-
-      &--tech {
-        text-align: left;
-      }
-    }
-
-    &-text {
-      text-align: center;
-      font-weight: 400;
-      line-height: 24px;
 
       &--tech {
         text-align: left;
