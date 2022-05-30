@@ -1,0 +1,72 @@
+.footer {
+  background: $colorBgDark;
+  height: 240px;
+
+  @include onTablet {
+    display: flex;
+    height: 64px;
+  }
+
+  @include onNotebook {
+    height: 100px;
+  }
+
+  &__content {
+    padding-top: 45px;
+
+    @include onTablet {
+      display: flex;
+      justify-content:space-between;
+      align-items: center;
+      height: 100%;
+      padding-top: 0;
+    }
+  }
+
+  &__logo {
+    margin-bottom: 15px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    @include onTablet
+  }
+
+  &__contacts {
+    justify-self: start;
+  }
+
+  &__contact {
+    display: block;
+    @extend %font__mob-text;
+    width: 130px;
+    margin-bottom: 12px;
+    color: $colorText;
+    text-decoration: none;
+
+    &--last {
+      margin-bottom: 22px;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: space-between;
+
+    @include onTablet {
+      gap: 18px;
+    }
+  }
+
+  &__img {
+    display: block;
+    height: 16px;
+  }
+}
