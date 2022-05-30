@@ -1,7 +1,38 @@
 @import "utils";
-@import "fonts";
-@import "typography";
+@import "./reset.scss";
+@import "./utils/extends.scss";
 
-body {
-  background: $c-gray;
+@import "./blocks/button.scss";
+@import "./blocks/grid.scss";
+@import "./blocks/header.scss";
+@import "./blocks/hero.scss";
+@import "./blocks/nav.scss";
+@import "./blocks/nav-mob.scss";
+@import "./blocks/logo.scss";
+@import "./blocks/icon.scss";
+@import "./blocks/benefits.scss";
+@import "./blocks/slider.scss";
+@import "./blocks/about.scss";
+@import "./blocks/track.scss";
+@import "./blocks/video-button.scss";
+
+.page {
+  font-family: Inter, Arial, sans-serif;
+  @extend %text1;
+
+  color: $colorText;
+
+  &__nav-mob {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translate(0);
+    }
+  }
 }

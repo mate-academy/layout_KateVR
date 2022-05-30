@@ -1,0 +1,58 @@
+.about {
+  padding: 50px 20px;
+
+  background: $colorGradient;
+
+  @include onTablet {
+    padding: 70px 35px 50px;
+  }
+
+  @include onDesktop {
+    padding: 100px 110px 50px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: #fff;
+    text-transform: uppercase;
+
+    &--blue {
+      font-weight: 400;
+      color: $colorContrast;
+
+      &-small {
+        @extend .about__title--blue;
+        font-size: 14px;
+        line-height: 17px;
+        text-transform: none;
+      }
+    }
+  }
+
+  &__img {
+    display: none;
+
+    width: 220px;
+    height: 255px;
+
+    background-image: url(../images/about-3.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      display: block;
+
+    }
+
+    @include onDesktop {
+      width: 100%;
+      background-image: url(../images/Group.png);
+    }
+
+  }
+}

@@ -1,0 +1,38 @@
+.button {
+  width: 200px;
+  height: 48px;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  color: #fff;
+
+  border-radius: 4px;
+  border: 1px solid $colorContrast;
+  background-color: $colorContrast;
+
+  &:hover {
+    color: $colorContrast;
+    background-color: #fff;
+    border-color: #fff;
+  }
+
+  &:active {
+    color: $colorGrey;
+    background-color: #191536;
+    border-color: #191536;
+  }
+
+  &--fixed {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 280px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}

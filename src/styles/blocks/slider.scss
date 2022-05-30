@@ -1,0 +1,55 @@
+.slider {
+  &__img {
+    position: relative;
+
+    display: block;
+    margin-bottom: 20px;
+
+    width: 280px;
+    height: 190px;
+
+    background-image: url(../images/img-slider.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    @include onTablet {
+      width: 340px;
+      height: 270px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 105%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+
+      width: 44px;
+      height: 4px;
+
+      background-image: url(../images/icon-slider-dots.svg);
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 50px;
+  }
+
+  &__button-video {
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 100px;
+    }
+  }
+}
