@@ -1,6 +1,7 @@
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: max-content;
   column-gap: 20px;
 
   @include onTablet {
@@ -17,10 +18,11 @@
 
   &__item {
     grid-column: 1 / 3;
+    height: max-content;
 
     @include onTablet {
       @for $start from 1 through 6 {
-        @for $end from $start to 6 {
+        @for $end from $start to 7 {
           &--#{$start}-#{$end} {
             grid-column: #{$start} / #{$end + 1};
           }
@@ -28,18 +30,22 @@
       }
     }
 
-    @for $start from 1 through 12 {
-      @for $end from $start to 12 {
-        &--n-#{$start}-#{$end} {
-          grid-column: #{$start} / #{$end + 1};
+    @include onNotebook {
+      @for $start from 1 through 12 {
+        @for $end from $start to 13 {
+          &--n-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
         }
       }
     }
 
-    @for $start from 1 through 16 {
-      @for $end from $start to 16 {
-        &--d-#{$start}-#{$end} {
-          grid-column: #{$start} / #{$end + 1};
+    @include onDesctopFHD {
+      @for $start from 1 through 16 {
+        @for $end from $start to 17 {
+          &--d-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
         }
       }
     }
