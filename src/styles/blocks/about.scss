@@ -8,7 +8,7 @@
   }
 
   @include onDesktop {
-    padding: 100px 110px 50px;
+    padding: 100px 110px;
   }
 
   &__title {
@@ -19,6 +19,11 @@
     line-height: 25px;
     color: #fff;
     text-transform: uppercase;
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+    }
 
     &--blue {
       font-weight: 400;
@@ -33,25 +38,42 @@
     }
   }
 
-  &__img {
+  &__img-container {
     display: none;
 
-    width: 220px;
-    height: 255px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-height: 343px;
 
-    background-image: url(../images/about-3.svg);
-    background-position: center;
+    @include onTablet {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../images/about-3.png);
+    background-position: top left;
     background-repeat: no-repeat;
     background-size: contain;
 
     @include onTablet {
       display: block;
-
     }
 
     @include onDesktop {
-      width: 100%;
-      background-image: url(../images/Group.png);
+      background-image: url(../images/about-6.png);
     }
 
   }
