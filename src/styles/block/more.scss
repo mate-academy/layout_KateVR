@@ -1,30 +1,13 @@
 .more {
   justify-content: center;
-  height: max-content;
-  padding: 50px 0;
-  width: 100%;
-  background: $colorBgDark;
-
-  @include onTablet {
-    padding: 70px 0;
-  }
-
-  @include onNotebook {
-    padding: 100px 0;
-  }
-
-  @include onDesctopFHD {
-    padding: 160px 0;
-  }
+  // width: 100%;
 
   &__title {
-    @extend %font__mob-h2;
-    line-height: 100%;
+    @extend %font__blocks-title;
     margin-bottom: 12px;
-    color: #fff;
 
-    &--colored {
-      font-weight: 400;
+    &-quantum {
+      font-family: "Quantum", sans-serif;
       color: $colorBlue;
     }
 
@@ -33,15 +16,12 @@
     }
 
     @include onNotebook {
-      font-weight: 900;
-      font-size: 36px;
       margin-bottom: 16px;
     }
   }
 
   &__subtitle {
-    @extend %font__mob-text;
-    color: $colorBlue;
+    @extend %font__blocks-subtitle;
     margin-bottom: 30px;
 
     @include onTablet {
@@ -49,7 +29,6 @@
     }
 
     @include onNotebook {
-      font-size: 14px;
       margin-bottom: 70px;
     }
   }
@@ -60,34 +39,18 @@
     }
   }
 
-  &__imgs {
+  &__img {
     display: none;
 
     @include onTablet {
       display: block;
-      margin-bottom: 25px;
-    }
-  }
-
-  &__img {
-    height: 100%;
-
-  }
-
-  &__article {
-    margin-bottom: 20px;
-
-    &-title {
-      color: #fff;
-      @extend %font__desc-h3;
-      margin-bottom: 11px;
-      text-transform: uppercase;
+      justify-self: center;
+      margin-bottom: 20px;
     }
   }
 
   &__content {
-    @extend %font__desc-text1;
-    color: $colorText;
+    @extend %font__blocks-text;
 
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -96,10 +59,19 @@
     text-overflow: ellipsis;
   }
 
-  &__compatible {
-    direction: ltr;
-    max-width: 800px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+  &__article {
+    margin-bottom: 20px;
+
+    &:active {
+      .more__content {
+        display: block;
+      }
+    }
+
+    &-title {
+      @extend %font__article-title;
+      margin-bottom: 11px;
+      text-transform: uppercase;
+    }
   }
 }

@@ -1,19 +1,4 @@
-.contacts {
-  padding: 50px 0;
-  background: $colorBgDark;
-
-  @include onTablet {
-    padding: 70px 0;
-  }
-
-  @include onNotebook {
-    padding: 100px 0;
-  }
-
-  @include onDesctopFHD {
-    padding: 160px 0;
-  }
-
+.contact-us {
   &__titles {
     justify-self: left;
   }
@@ -49,17 +34,14 @@
     }
   }
 
-  &__comment {
+  &__contacts--tablets {
+    display: none;
+
     @include onTablet {
-      position: relative;
-      bottom: 299px;
-      height: 0;
+      display: block;
     }
 
     @include onNotebook {
-      position: relative;
-      bottom: 280px;
-      height: 0;
     }
 
     &-text {
@@ -93,8 +75,14 @@
   }
 
   &__contact {
+    display: block;
     color: $colorText;
     text-decoration: none;
+    margin-bottom: 11px;
+
+    &--last {
+      margin-bottom: 0;
+    }
   }
 
   &__group {

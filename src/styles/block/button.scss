@@ -36,4 +36,32 @@
       background-image: url(../images/icons/to-header--active.svg);
     }
   }
+
+  &__video {
+    display: block;
+    background-color: transparent;
+    background-image: url(../images/icons/play-default.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center left;
+    padding: 22px 55px 22px 105px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    @extend %font__button;
+    color: #fff;
+
+    transition: background-image 0.3s, transform 0.3s, color 0.3s;
+
+    &:hover,
+    &:active {
+      color: $colorBlue;
+      background-image: url(../images/icons/play-active.svg);
+    }
+
+    &:active {
+      transform: scale(1.1);
+    }
+  }
 }

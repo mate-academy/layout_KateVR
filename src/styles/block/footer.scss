@@ -1,45 +1,44 @@
 .footer {
-  background: #000;
-  height: 240px;
-
-  @include onTablet {
-    display: flex;
-    height: 64px;
-  }
-
-  @include onNotebook {
-    height: 100px;
-  }
+  background-color: #000;
 
   &__content {
-    padding-top: 45px;
+    padding: 50px 0;
+    row-gap: 15px;
 
     @include onTablet {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 100%;
-      padding-top: 0;
+      height: 64px;
+      padding: 0;
+    }
+
+    @include onNotebook {
+      height: 100px;
     }
   }
 
   &__logo {
-    margin-bottom: 15px;
-
     @include onTablet {
       margin-bottom: 0;
     }
   }
 
   &__contacts {
-    justify-self: start;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    justify-content: space-between;
+    gap: 12px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
   }
 
   &__contact {
-    display: block;
     @extend %font__mob-text;
     width: 130px;
-    margin-bottom: 12px;
     color: $colorText;
     text-decoration: none;
 
@@ -54,11 +53,9 @@
 
   &__socials {
     display: flex;
+    align-self: center;
     justify-content: space-between;
-
-    @include onTablet {
-      gap: 18px;
-    }
+    gap: 18px;
   }
 
   &__img {

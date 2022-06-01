@@ -1,31 +1,11 @@
 .benefits {
-  justify-content: center;
-  height: max-content;
-  padding: 50px 0;
-  width: 100%;
-  background: $colorBgGradient;
-
-  @include onTablet {
-    padding: 50px 0 70px;
-  }
-
-  @include onNotebook {
-    padding: 100px 0 110px;
-  }
-
-  @include onDesctopFHD {
-    padding: 160px 0;
-  }
-
   &__title {
-    @extend %font__mob-h2;
-    line-height: 100%;
+    @extend %font__blocks-title;
     margin-bottom: 32px;
-    color: #fff;
+    text-transform: uppercase;
 
-    &--colored {
-      font-weight: 400;
-      color: $colorBlue;
+    &--quantum {
+      @extend %font__blocks-title--quantum;
     }
 
     @include onTablet {
@@ -50,7 +30,7 @@
 
     @include onTablet {
       display: block;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
   }
 
@@ -59,9 +39,10 @@
   }
 
   &__subtitle {
-    color: #fff;
-    @extend %font__desc-h3;
+    @extend %font__article-title;
+    font-size: 14px;
     margin-bottom: 11px;
+    text-transform: uppercase;
   }
 
   &__content {
