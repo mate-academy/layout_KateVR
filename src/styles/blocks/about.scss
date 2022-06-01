@@ -1,6 +1,5 @@
 .about {
   padding: 50px 20px;
-
   background: $colorGradient;
 
   @include onTablet {
@@ -9,6 +8,16 @@
 
   @include onDesktop {
     padding: 100px 110px;
+  }
+
+  &__container {
+
+    max-width: 320px;
+    margin: 0 auto;
+
+    @include onTablet {
+      max-width: 1450px;
+    }
   }
 
   &__title {
@@ -25,16 +34,17 @@
       line-height: 44px;
     }
 
-    &--blue {
+    &-quantum {
+      font-family: Quantum, sans-serif;
+      color: $colorContrast;
+    }
+
+    &--blue-small {
       font-weight: 400;
       color: $colorContrast;
-
-      &-small {
-        @extend .about__title--blue;
-        font-size: 14px;
-        line-height: 17px;
-        text-transform: none;
-      }
+      font-size: 14px;
+      line-height: 17px;
+      text-transform: none;
     }
   }
 

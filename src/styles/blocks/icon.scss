@@ -4,6 +4,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  transition: transform 0.2s;
 
   &--menu {
     width: 20px;
@@ -18,20 +19,37 @@
     @include onDesktop {
       display: none;
     }
+
+    &:hover {
+      background-image: url(../images/icon-menu-hover.svg);
+    }
   }
 
   &--menu-cross {
     width: 17px;
     height: 17px;
     background-image: url(../images/icon-cross.svg);
+
+    &:hover {
+      background-image: url(../images/icon-cross-hover.svg);
+    }
+
+    &:active {
+      transform: rotate(-360deg);
+    }
   }
 
   &--more {
     width: 40px;
     height: 37px;
     background-image: url(../images/icon-more.svg);
+    transition: transform 0.3s;
 
     &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
       background-image: url(../images/icon-more-hover.svg);
     }
   }

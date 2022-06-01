@@ -1,20 +1,78 @@
-.form-field {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 25px;
-  padding-bottom: 20px;
-
+.form {
+  position: relative;
   width: 280px;
 
-  border: none;
-  border-bottom: 1px solid $colorGrey;
-  font-family: inherit;
-
-  background-color: $colorBlack;
-
-  &--textarea {
-    padding-bottom: 70px;
-    resize: none;
+  @include onTablet {
+    width: 340px;
   }
 
+  @include onDesktop {
+    width: 520px;
+  }
+
+  &__form-field {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 25px;
+    padding: 3px 0 20px;
+    width: 100%;
+
+    font-family: inherit;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid $colorGrey;
+    background-color: $colorBlack;
+
+    &--textarea {
+      padding-bottom: 70px;
+      resize: none;
+    }
+  }
+
+  &__textarea {
+    margin-bottom: 30px;
+  }
+
+  &__button {
+    position: relative;
+    margin-bottom: 30px;
+    width: 280px;
+
+    @include onTablet {
+      width: 200px;
+    }
+  }
+
+  &__button-up {
+    position: absolute;
+    display: none;
+
+    width: 48px;
+    height: 48px;
+
+    background-image: url(../images/icon-up.svg);
+    background-position: center;
+    background-size: contain;
+
+    transition: transform 0.3s;
+
+    @include onTablet {
+      display: block;
+      left: 87%;
+      top: 81%;
+    }
+
+    @include onDesktop {
+      left: 91%;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      background-image: url(../images/icon-up-hover.svg);
+    }
+  }
 }

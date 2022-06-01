@@ -13,8 +13,12 @@
   }
 
   &__container {
-    max-width: 1450px;
+    max-width: 320px;
     margin: 0 auto;
+
+    @include onTablet {
+      max-width: 1450px;
+    }
   }
 
   &__title {
@@ -37,10 +41,14 @@
       }
     }
 
-    &--blue {
-      font-weight: 400;
-      font-size: 21px;
+    &-quantum {
+      font-family: Quantum, sans-serif;
       color: $colorContrast;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
     }
   }
 

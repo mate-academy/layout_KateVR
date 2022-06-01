@@ -7,12 +7,28 @@
     padding: 70px 35px;
   }
 
+  @include onDesktop {
+    padding: 100px 110px;
+  }
+
+  &__container {
+    margin: 0 auto;
+    max-width: 1450px;
+  }
+
+  &__subcontainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+  }
+
   &__title {
     margin-bottom: 32px;
     @extend %headline1--mobile;
 
-    &--blue {
-      font-weight: 400;
+    &-quantum {
+      font-family: Quantum, sans-serif;
       color: $colorContrast;
     }
 
@@ -26,6 +42,7 @@
 
   &__subtitle {
     margin-bottom: 11px;
+    max-width: 340px;
     @extend %headline3;
 
     @include onTablet {
@@ -34,11 +51,11 @@
   }
 
   &__text {
-    margin: 0 auto 20px;
+    margin-bottom: 20px;
     max-width: 340px;
 
     @include onDesktop {
-      margin-bottom: 240px;
+      margin-bottom: 90px;
     }
     &--last {
       margin-bottom: 0;
@@ -46,8 +63,11 @@
   }
 
   &__img {
+    margin: 0 auto;
     display: none;
-    margin: 0 auto 25px;
+    margin-bottom: 25px;
+    justify-self: start;
+    align-self: start;
 
     background-size: contain;
     background-repeat: no-repeat;

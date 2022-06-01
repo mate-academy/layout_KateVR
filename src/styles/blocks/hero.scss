@@ -1,4 +1,5 @@
 .hero {
+  padding: 0 20px;
   background: $colorGradient;
 
   @include onTablet {
@@ -10,8 +11,12 @@
   }
 
   &__container {
-    max-width: 1450px;
+    max-width: 320px;
     margin: 0 auto;
+
+    @include onTablet {
+      max-width: 1450px;
+    }
   }
 
   &__grid {
@@ -22,18 +27,6 @@
     }
   }
 
-  &__content {
-    padding: 0 20px;
-
-    @include onTablet {
-      padding: 0;
-    }
-
-    @include onDesktop {
-      padding: 0;
-    }
-  }
-
   &__subcontent {
     display: flex;
     flex-direction: column;
@@ -41,7 +34,7 @@
 
   &__image {
     position: relative;
-    top: 10%;
+    top: 15%;
 
     width: 100%;
   }
@@ -51,8 +44,8 @@
     width: max-content;
     @extend %headline1--mobile;
 
-    &--blue {
-      font-weight: 400;
+    &-quantum {
+      font-family: Quantum, sans-serif;
       color: $colorContrast;
     }
 
@@ -92,7 +85,6 @@
 
   &__button-video {
     align-self: center;
-    transform: translateX(-13%);
     margin-bottom: 62px;
 
     @include onTablet {
@@ -119,6 +111,14 @@
 
       &:last-child {
         margin-left: 40px;
+      }
+
+      &:hover {
+        color: $colorContrast;
+      }
+
+      &:active {
+        color: #191536;
       }
     }
   }

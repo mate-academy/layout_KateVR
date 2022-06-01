@@ -1,4 +1,10 @@
 .contact-info {
+  display: none;
+
+  @include onTablet {
+    display: inline-block;
+  }
+
   &__text {
     display: none;
     width: max-content;
@@ -16,6 +22,14 @@
 
     &:first-child {
       margin-bottom: 11px;
+    }
+
+    &--footer {
+      font-size: 13px;
+    }
+
+    &:hover {
+      color: $colorContrast;
     }
   }
 }
