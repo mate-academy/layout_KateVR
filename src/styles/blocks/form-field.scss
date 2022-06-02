@@ -23,10 +23,26 @@
     border: none;
     border-bottom: 1px solid $colorGrey;
     background-color: $colorBlack;
+    outline: none;
+    caret-color: $colorContrast;
+
+    transition: border-color 0.3s;
 
     &--textarea {
       padding-bottom: 70px;
       resize: none;
+    }
+
+    &::placeholder {
+      transition: color 0.3s;
+    }
+
+    &:focus {
+      &::placeholder {
+        color: $colorContrast;
+      }
+
+      border-color: $colorContrast;
     }
   }
 
@@ -55,7 +71,7 @@
     background-position: center;
     background-size: contain;
 
-    transition: transform 0.3s;
+    transition: background-image 0.3s;
 
     @include onTablet {
       display: block;
@@ -68,10 +84,6 @@
     }
 
     &:hover {
-      transform: scale(1.2);
-    }
-
-    &:active {
       background-image: url(../images/icon-up-hover.svg);
     }
   }
