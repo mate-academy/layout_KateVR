@@ -46,8 +46,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 7px;
     @extend %font__header-text;
+    height: 35px;
+    gap: 5px;
     color: $colorBlue;
 
     transition: color 0.3s;
@@ -59,11 +60,12 @@
       content: "";
       background: url("../images/icons/more.svg") no-repeat;
 
-      transition: background-image 0.3s;
+      transition: background-image, transform 0.3s;
     }
 
     &:hover {
       color: #fff;
+      transform: scale(1.3);
       &::after {
         background: url("../images/icons/more--active.svg") no-repeat;
       }

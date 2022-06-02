@@ -3,29 +3,27 @@
     justify-self: left;
   }
 
-  &__title {
-    @extend %font__mob-h2;
-    line-height: 100%;
-    color: #fff;
-    margin-bottom: 32px;
+  &__item {
+    grid-row: 1/4;
+  }
 
-    &--colored {
-      font-weight: 400;
-      color: $colorBlue;
+  &__title {
+    @extend %font__blocks-title;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+
+    &--quantum {
+      @extend %font__blocks-title--quantum;
     }
 
     @include onNotebook {
-      font-weight: 900;
-      font-size: 36px;
       line-height: 150%;
-      text-transform: uppercase;
       margin-bottom: 0;
     }
   }
 
   &__subtitle {
-    @extend %font__mob-text;
-    color: $colorBlue;
+    @extend %font__blocks-subtitle;
     margin-bottom: 11px;
 
     @include onNotebook {
@@ -34,24 +32,11 @@
     }
   }
 
-  &__contacts--tablets {
+  &__contacts {
     display: none;
 
     @include onTablet {
       display: block;
-    }
-
-    @include onNotebook {
-    }
-
-    &-text {
-      color: $colorText;
-      @extend %font__mob-text;
-
-      @include onTablet {
-        font-size: 16px;
-        line-height: 150%;
-      }
     }
   }
 
@@ -74,11 +59,27 @@
     }
   }
 
+  &__comment {
+    color: $colorText;
+    @extend %font__blocks-subtitle;
+
+    @include onTablet {
+      margin-bottom: 70px;
+    }
+  }
+
   &__contact {
     display: block;
     color: $colorText;
     text-decoration: none;
     margin-bottom: 11px;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      color: $colorBlue;
+      transform: scale(1.05);
+    }
 
     &--last {
       margin-bottom: 0;
