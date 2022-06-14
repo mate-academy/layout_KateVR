@@ -1,3 +1,31 @@
 h1 {
-  @extend %h1;
+  @extend %h1-mob;
+
+  @include onDesktop {
+    font-size: 46px;
+    font-weight: 900;
+    line-height: 130%;
+  }
+}
+
+h2 {
+  @extend %h2-mob;
+
+  @include onDesktop {
+    font-size: 36px;
+    font-weight: 900;
+  }
+}
+
+h3 {
+  @extend %h3;
+}
+
+p {
+  @extend %text-1;
+}
+
+.blue-text {
+  color: $blue;
+  font-weight: 400;
 }

@@ -1,0 +1,52 @@
+.top {
+  &__sections {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    margin-right: 35px;
+  }
+
+  &__language {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__select {
+    color: $blue;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 36px;
+  }
+
+  &__link {
+    display: block;
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+
+    @include hover(color, $blue);
+  }
+
+}
