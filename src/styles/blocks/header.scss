@@ -2,7 +2,7 @@
   background: $background-gradient;
   box-sizing: border-box;
 
-  padding: 18px 20px ;
+  padding: 18px 20px;
 
   @include onTablet {
     padding: 30px 34px;
@@ -52,7 +52,10 @@
   }
 
   &__sections {
-    margin-bottom: 95px;
+
+    @include onDesktop {
+      margin-bottom: 95px;
+    }
 
     @include onFullHd {
       margin-bottom: 220px;
@@ -72,8 +75,7 @@
     text-align: center;
     margin-bottom: 25px;
 
-    font-size: 18px;
-    line-height: 22px;
+    font-weight: 500;
   }
 
   &__indent {
