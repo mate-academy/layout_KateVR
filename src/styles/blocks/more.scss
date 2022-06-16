@@ -42,8 +42,18 @@
   }
 
   &__info {
+    @media (max-width: 767px) {
+      width: 280px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+    }
+
     @include onTablet {
       max-width: 340px;
+      text-align: center;
     }
 
     @include onDesktop {

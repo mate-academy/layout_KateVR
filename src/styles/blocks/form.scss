@@ -1,0 +1,48 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  &__label {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $grey;
+    &:active {
+      color: $blue;
+    }
+  }
+
+  &__field {
+    border-bottom: 1px solid #2f2f2f;
+    width: 100%;
+    color: #fff;
+
+    &--textarea {
+      height: 60px;
+      resize: none;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $blue;
+    }
+
+    &:focus + .form__placeholder {
+      color: $blue;
+    }
+  }
+
+  &__button {
+    margin-bottom: 27px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+}

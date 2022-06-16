@@ -1,5 +1,82 @@
 .contact {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  &__item {
+    @include onTablet {
+      width: 50%;
+    }
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    line-height: 17px;
+    color: $blue;
+    margin-bottom: 11px;
+
+    @include onDesktop {
+      margin-bottom: 13px;
+    }
+  }
+
   &__title {
     text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__contacts-link {
+    display: inline-block;
+    margin-bottom: 12px;
+    width: 120px;
+
+    color: $grey;
+    font-size: 13px;
+    line-height: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include hover(color, #fff);
+  }
+
+  &__feedback {
+    &--desktop {
+      display: none;
+      margin-bottom: 76px;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &--mob {
+      display: block;
+
+      @include onTablet {
+        display: none;
+      }
+    }
   }
 }
