@@ -1,6 +1,10 @@
 .menu {
-  background: $back-nav-mob;
-  padding: 20px 18px;
+  z-index: 3;
+
+  @media (max-width: 767px) {
+    background: $back-nav-mob;
+    padding: 20px 18px;
+  }
 
   @include onTablet {
     padding: 30px 34px;
@@ -8,10 +12,22 @@
 
   &__content {
     box-sizing: border-box;
+
+    background: $back-nav-mob;
     height: 100vh;
+    z-index: 3;
 
     @include onTablet {
+      padding: 30px 34px;
       height: auto;
+      background: $back-nav-mob;
+    }
+    @include onDesktop {
+      padding: 45px 110px 85px;
+    }
+
+    @include onFullHd {
+      padding: 45px 230px 110px;
     }
   }
 
@@ -32,11 +48,8 @@
   &__item {
     padding-left: 20px;
     margin: 0;
-    transition: background 0.3s;
 
-    &:hover {
-      background: $back-nav-mob-hover;
-    }
+    @include hover(background, $back-nav-mob-hover);
   }
 
   &__link {

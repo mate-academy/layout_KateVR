@@ -16,10 +16,10 @@
     grid-template-columns: repeat(16, 1fr);
   }
 
-  &--tablet {
+  &--desktop {
     display: block;
 
-    @include onTablet {
+    @include onDesktop {
       display: grid;
     }
   }
@@ -29,12 +29,6 @@
       @for $end from 1 through 16 {
         &--#{$start}-#{$end} {
           grid-column: #{$start} / #{$end + 1};
-        }
-
-        @include onTablet {
-          &--tablet-#{$start}-#{$end} {
-            grid-column: #{$start} / #{$end + 1};
-          }
         }
 
         @include onDesktop {

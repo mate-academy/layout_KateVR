@@ -1,5 +1,167 @@
 .tech {
   &__title {
     text-transform: uppercase;
+    margin-bottom: 30px;
+
+    @include onDesktop {
+      margin-bottom: 80px;
+      margin-right: 200px;
+      text-align: right;
+    }
+
+    @include onFullHd {
+      margin-right: 400px;
+    }
+  }
+
+  &__content {
+    position: relative;
+
+    background-repeat: no-repeat;
+    background-position: center;
+    min-height: 400px;
+
+    @media (max-width: 767px) {
+      background-image: url("../images/tech/product-mob.png");
+    }
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      background-image: url("../images/tech/product-tablet.png");
+    }
+
+    @media (min-width: 1280px) and (max-width: 1919px) {
+      background-image: url("../images/tech/product-desktop.png");
+    }
+
+    @include onFullHd {
+      background-image: url("../images/tech/product-full.png");
+    }
+  }
+
+  &__position {
+    display: none;
+    @media(max-width: 1279px) {
+      display: block;
+      position: relative;
+    }
+  }
+
+  &__circle {
+    display: flex;
+    align-self: end;
+    justify-content: center;
+    align-items: center;
+
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    background: $blue;
+
+    cursor: pointer;
+
+    @media (max-width: 1279px) {
+      position: absolute;
+
+      &--first {
+        top: 80px;
+        left: 40%;
+
+        @include onTablet {
+          top: 20px;
+          left: 38%;
+        }
+      }
+
+      &--second {
+        left: 30%;
+        top: 250px;
+
+        @include onTablet {
+          top: 300px;
+          left: 25%;
+        }
+      }
+
+      &--third {
+        left: 55%;
+        top: 165px;
+      }
+    }
+
+    @include hover(transform, scale(0.9));
+
+    @include onTablet {
+      width: 62px;
+      height: 62px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__spec {
+    display: none;
+
+    @media (max-width: 767px) {
+      width: 150px;
+    }
+
+    @media (max-width: 1279px) {
+      &:target {
+        position: absolute;
+        z-index: 2;
+        display: block;
+        background-color: $back-nav-mob;
+        width: 200px;
+        border-radius: 10px;
+        padding: 20px;
+      }
+    }
+
+    @include onDesktop {
+      display: block;
+
+      &--first {
+        padding-top: 20px;
+      }
+
+      &--second {
+        padding-top: 50px;
+      }
+    }
+  }
+
+  &__spec-top {
+
+    margin-bottom: 20px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__spec-title {
+    margin-bottom: 20px;
+  }
+
+  &__info {
+    max-width: 280px;
+  }
+
+  &__plus {
+    font-weight: 100;
+    font-family: serif;
+    font-size: 22px;
+    color: #fff;
+
+    @include onTablet {
+      font-size: 36px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
   }
 }

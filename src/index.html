@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KatVR</title>
     <link rel="stylesheet" href="./styles/main.scss">
+    <script src="scripts/main.js"></script>
   </head>
   <body class="page__body">
     <header class="page__header header" id="home">
@@ -39,25 +40,25 @@
             <nav class="top__nav">
               <ul class="top__list">
                 <li class="top__item">
-                  <a href="#" class="top__link">
+                  <a href="#about" class="top__link">
                     About
                   </a>
                 </li>
 
                 <li class="top__item">
-                  <a href="#" class="top__link">
+                  <a href="#tech" class="top__link">
                     Tech
                   </a>
                 </li>
 
                 <li class="top__item">
-                  <a href="#" class="top__link">
+                  <a href="#benefits" class="top__link">
                     Benefits
                   </a>
                 </li>
 
                 <li class="top__item">
-                  <a href="#" class="top__link">
+                  <a href="#contact" class="top__link">
                     Contact
                   </a>
                 </li>
@@ -130,17 +131,17 @@
           </div>
           <div class="header__bottom">
             <div class="header__helper">
-              <a href="#" class="header__helper-link">FAQ</a>
-              <a href="#" class="header__helper-link">Help</a>
+              <a href="#faq" class="header__helper-link">FAQ</a>
+              <a href="#help" class="header__helper-link">Help</a>
             </div>
 
             <div class="header__more">
               <a href="#more" class="header__more-link">More</a>
             </div>
 
-            <div class="header__range">
-              <a href="#" class="header__range-link">Previous</a>
-              <a href="#" class="header__range-link">Next</a>
+            <div class="range">
+              <a href="#" class="range__link">Previous</a>
+              <a href="#" class="range__link">Next</a>
             </div>
           </div>
         </div>
@@ -159,13 +160,7 @@
       <div class="container">
         <div class="menu__content">
           <div class="menu__top top-actions">
-            <a href="#home" class="logo hidden">
-              <img
-                src="images/logo.svg"
-                alt="logo"
-                class="logo__image"
-              >
-            </a>
+            <div class="plug"></div>
 
             <a href="#home" class="icon icon--cross"></a>
           </div>
@@ -215,6 +210,7 @@
           </ul>
         </div>
       </div>
+      <div class="transparent"></div>
     </nav>
 
     <div class="page__language menu" id="language">
@@ -223,13 +219,7 @@
           <div class="menu__top top-actions">
             <a href="#menu" class="icon icon--point"></a>
 
-            <a href="#home" class="logo hidden">
-              <img
-                src="images/logo.svg"
-                alt="logo"
-                class="logo__image"
-              >
-            </a>
+            <div class="plug"></div>
           </div>
 
           <ul class="menu__list">
@@ -289,18 +279,14 @@
           </ul>
         </div>
       </div>
+      <div class="transparent"></div>
     </div>
 
     <div class="page__help-mobile menu" id="help">
       <div class="container">
         <div class="menu__content">
           <div class="menu__top top-actions">
-            <a href="#home" class="logo hidden">
-              <img
-                src="images/logo.svg"
-                alt="logo"
-                class="logo__image"
-              >
+            <div class="plug"></div>
             </a>
 
             <a href="#home" class="icon icon--cross"></a>
@@ -364,9 +350,10 @@
           </div>
         </div>
       </div>
+      <div class="transparent"></div>
     </div>
 
-    <section class="page__section page__section--black more" id="#more">
+    <section class="page__section page__section--black more" id="more">
       <h2 class="more__title">
         More than
         <span class="blue-text">gaming!</span>
@@ -438,7 +425,7 @@
       </div>
     </section>
 
-    <section class="page__section page__section--gradient about" id="#about">
+    <section class="page__section page__section--gradient about" id="about">
       <h2 class="about__title about__title--mob">
         About
         <span class="blue-text">product</span>
@@ -447,17 +434,25 @@
 
         <div class="about__content">
           <div class="about__photos about__item">
-            <img
-              src="images/about/photo.png"
-              alt="Photo product"
-              class="about__photos-product"
-            >
+            <p class="about__photos-number">1/5</p>
+            <div class="about__photos-container">
+              <img
+                src="images/about/photo.png"
+                alt="Photo product"
+                class="about__photos-product"
+              >
 
-            <img
-              src="images/about/scroll.png"
-              alt="scroll"
-              class="about__photos-scroll"
-            >
+              <img
+                src="images/about/scroll.png"
+                alt="scroll"
+                class="about__photos-scroll"
+              >
+
+              <div class="about__range range">
+                <a href="#" class="range__link">Previous</a>
+                <a href="#" class="range__link">Next</a>
+              </div>
+            </div>
           </div>
 
           <div class="about__content-info about__item">
@@ -525,7 +520,91 @@
     </section>
 
     <section class="page__section page__section--black tech" id="tech">
+      <h2 class="tech__title">
+        Tech
+        <span class="blue-text">specs</span>
+      </h2>
+      <div class="tech__content">
+        <div class="grid grid--desktop">
+          <div class="tech__position">
+            <div class="tech__circle tech__circle--first">
+              <a href="#sensor" class="tech__plus">+</a>
+            </div>
+          </div>
 
+          <div class="grid__item grid__item--desktop-1-3 grid__item--fullHd-2-4">
+            <div class="tech__spec tech__spec--first" id="sensor">
+              <div class="tech__spec-top top-actions">
+                <div class="plug"></div>
+                <a href="#tech" class="icon icon--cross"></a>
+              </div>
+
+              <h3 class="tech__spec-title">
+                Sensor
+              </h3>
+
+              <p class="tech__info">
+                Weight: 35g/1.23oz each
+                Dimension: 50mm/1.97in
+                24mm/0.94in
+                Light: LED lights
+              </p>
+            </div>
+          </div>
+
+          <div class="tech__position">
+            <div class="tech__circle tech__circle--second" >
+              <a href="#connection" class="tech__plus">+</a>
+            </div>
+          </div>
+
+          <div class="grid__item grid__item--desktop-2-4">
+            <div class="tech__spec tech__spec--second" id="connection">
+              <div class="tech__spec-top top-actions">
+                <div class="plug"></div>
+                <a href="#tech" class="icon icon--cross"></a>
+              </div>
+
+              <h3 class="tech__spec-title">
+                Connection
+              </h3>
+
+              <p class="tech__info">
+                Wireless: Bluetooth 4.2
+                Signal range: 5m
+                Receiver: USB 2.0 and above
+              </p>
+            </div>
+          </div>
+
+          <div class="tech__position">
+            <div class="tech__circle tech__circle--third">
+              <a href="#batterries" class="tech__plus">+</a>
+            </div>
+          </div>
+
+          <div class="grid__item grid__item--desktop-9-12 grid__item--fullHd-12-16">
+            <div class="tech__spec tech__spec--third" id="batterries">
+              <div class="tech__spec-top top-actions">
+                <div class="plug"></div>
+                <a href="#tech" class="icon icon--cross"></a>
+              </div>
+
+              <h3 class="tech__spec-title">
+                Batterries
+              </h3>
+
+              <p class="tech__info">
+                Type: Lthium-lon polymer batteries
+                Capacity: 370mAh
+                Battery life: 10h of continuous use 150 hours on stand by
+                Charging: Fast charging - 1 hour
+                Charging voltage and current: 5V = 0.5A
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section class="page__section page__section--gradient benefits" id="benefits">
