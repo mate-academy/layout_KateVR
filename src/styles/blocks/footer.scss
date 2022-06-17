@@ -85,7 +85,16 @@
   }
 
   &__social-logo {
-    @include hover(transform, scale(1.2));
+    transition: transform 0.3s;
 
+    &:hover {
+      transform: scale(1.2);
+      filter: invert(54%)
+        sepia(85%)
+        saturate(1444%)
+        hue-rotate(146deg)
+        brightness(99%)
+        contrast(96%);
+    }
   }
 }
