@@ -1,6 +1,9 @@
 .menu {
   z-index: 3;
 
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+
   @media (max-width: 767px) {
     background: $back-nav-mob;
     padding: 20px 18px;
@@ -37,6 +40,18 @@
     @media (max-width: 350px) {
       margin-bottom: 20px;
     }
+
+    @media (max-width: 700px) and (orientation: landscape) {
+      margin-bottom: 10px;
+    }
+
+    @media (max-height: 450px) and (orientation: landscape) {
+      margin-bottom: 10px;
+    }
+
+    @media (max-height: 300px) and (orientation: landscape) {
+      margin-bottom: 0;
+    }
   }
 
   &__list {
@@ -68,6 +83,14 @@
 
     &:hover {
       color: $blue;
+    }
+
+    @media (max-height: 450px) and (orientation: landscape) {
+      padding: 4px 0;
+    }
+
+    @media (max-height: 300px) and (orientation: landscape) {
+      padding: 0;
     }
   }
 }
