@@ -9,9 +9,7 @@
     padding: 20px 18px;
   }
 
-  @include onTablet {
-    padding: 30px 34px;
-  }
+  @include padding;
 
   &__content {
     box-sizing: border-box;
@@ -20,17 +18,17 @@
     height: 100vh;
     z-index: 3;
 
+    @include padding;
+
     @include onTablet {
       padding: 30px 34px;
       height: auto;
       background: $back-nav-mob;
     }
-    @include onDesktop {
-      padding: 45px 110px 85px;
-    }
 
-    @include onFullHd {
-      padding: 45px 230px 110px;
+    &--transparent {
+      z-index: 4;
+      background: rgba(0, 0, 0, 0.5);
     }
   }
 
