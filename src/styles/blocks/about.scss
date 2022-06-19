@@ -76,20 +76,40 @@
     align-items: center;
   }
 
-  &__photos-product {
+  &__slide {
+    display: flex;
     width: 280px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    transition: 0.3s;
+    overflow: hidden;
 
-    &:hover {
-      transform: scale(1.05);
-      box-shadow: 2px 2px 4px rgba(146, 146, 146, 0.5);
-    }
+    margin-bottom: 15px;
 
     @include onTablet {
       width: 340px;
       height: 270px;
+    }
+  }
+
+  &__photos-product {
+    width: 280px;
+    cursor: pointer;
+
+    @include onTablet {
+      width: 340px;
+      height: 270px;
+    }
+
+    &--first {
+      &:target {
+        z-index: 2;
+      }
+    }
+
+    &--second {
+      transform: translateX(-100%);
+
+      &:target {
+        z-index: 2;
+      }
     }
   }
 
