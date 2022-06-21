@@ -1,14 +1,26 @@
 .header {
-  padding-top: 47px;
-
   &__logo-language {
     display: flex;
     gap: 34px;
+  }
+
+  &__language {
+    display: none;
+
+    @include OnDesktop {
+      display: block;
+    }
   }
 
   &__content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__menu {
+    @include OnDesktop {
+      display: none;
+    }
   }
 }
