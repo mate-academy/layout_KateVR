@@ -1,0 +1,121 @@
+.techspecs {
+  background-color: rgba(5, 4, 11, 1);
+  padding: 30px 0;
+  position: relative;
+
+  &__title {
+    margin-bottom: 40px;
+
+    @include desktop1224 {
+      text-align: end;
+      margin-bottom: 90px;
+    }
+  }
+
+  &__content {
+    max-width: 360px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+
+    @include desktop768 {
+      padding: 0;
+    }
+
+    @include desktop1224 {
+      max-width: 300px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: rgba(5, 194, 223, 1);
+    font-size: 20px;
+    color: #fff;
+    font-weight: 100;
+    transform: rotate(45deg);
+
+    @include desktop1224 {
+      display: none;
+    }
+
+    &--sensor {
+      top: -5%;
+      left: 35%;
+    }
+
+    &--connection {
+      bottom: 0%;
+      left: 5%;
+    }
+
+    &--batterries {
+      left: 65%;
+    }
+  }
+
+  &__description {
+    display: none;
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 270px;
+    background-color: rgba(25, 21, 54, 0.9);
+
+    &:target {
+      display: flex;
+    }
+
+    @include desktop1224 {
+      display: flex;
+      background-color: rgba(25, 21, 54, 0);
+    }
+  }
+
+  &--close {
+    margin: 0;
+    align-self: flex-start;
+
+    @include desktop1224 {
+      display: none;
+    }
+  }
+
+  &__description-name {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 22px;
+    color: #fff;
+    margin-bottom: 10px;
+
+    @include desktop1224 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__description-text {
+    color: rgba(146, 146, 146, 1);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    @include desktop1224 {
+      font-size: 16px;
+    }
+  }
+}

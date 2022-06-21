@@ -1,0 +1,263 @@
+@import "../../utils/mixins";
+@import "../../utils/vars";
+
+.header {
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  height: fit-content;
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    @include desktop1024 {
+      margin-bottom: 110px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 16px;
+    margin-right: 36px;
+  }
+
+  &__logo-img {
+    height: 100%;
+  }
+
+  &__language {
+    border: none;
+    // background-color: rgba(0, 0, 0, 0);
+    color: rgba(5, 194, 223, 1);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 100%;
+    appearance: none;
+    position: relative;
+    cursor: pointer;
+    padding: 0 10px;
+    background: url("../images/arrow.svg") no-repeat;
+    background-position: right bottom;
+
+    &--width1024 {
+      display: none;
+
+      @include desktop1024 {
+        display: block;
+      }
+    }
+  }
+
+  &__select {
+    background-color: rgba(25, 21, 54, 1);
+    border-radius: 4px;
+    border: none;
+  }
+
+  &__menu {
+    display: flex;
+  }
+
+  &__menu-open {
+    width: 50px;
+    height: 50px;
+  }
+
+  &__icon-open {
+    display: inline;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__wrapper-video {
+    height: 70px;
+    margin-bottom: 20px;
+
+    @include desktop1024 {
+      margin-left: 80px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include desktop1024 {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: contain;
+
+    @include desktop1024 {
+      width: 47%;
+    }
+  }
+
+  &__content-text {
+    height: fit-content;
+
+    @include desktop1024 {
+      width: 53%;
+    }
+  }
+
+  &__content-title {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 24px;
+    line-height: 130%;
+    color: #fff;
+    margin-bottom: 15px;
+
+    & span {
+      color: rgba(5, 194, 223, 1);
+      font-weight: 400;
+    }
+
+    @include desktop1024 {
+      font-size: 32px;
+    }
+    @include desktop1024 {
+      font-size: 46px;
+    }
+  }
+
+  &__content-subtext {
+
+    @include desktop1024 {
+      margin-left: 80px;
+      margin-bottom: 15px;
+    }
+  }
+
+  &__content-description {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+
+    @include desktop1024 {
+      margin-bottom: 15px;
+      width: 80%;
+    }
+  }
+
+  &__content-price {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+
+    @include desktop1024 {
+      text-align: start;
+    }
+  }
+
+  &__button-wrapper {
+    width: 100%;
+    height: 48px;
+  }
+
+  &__button {
+    width: 100%;
+
+    @include desktop768 {
+      width: 60%;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include desktop1024 {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+
+    &--width1024 {
+
+      @include desktop1024 {
+        display: flex;
+      }
+    }
+  }
+
+  &__bottom-button {
+    padding: 5px 0;
+    background: none;
+    border: none;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  &__bottom-wrapper {
+    display: flex;
+    gap: 40px;
+    padding-bottom: 10px;
+
+    &:nth-child(2) {
+      position: relative;
+
+      .header__bottom-button {
+        color: rgba(5, 194, 223, 1);
+      }
+
+      &::after {
+        content: "";
+        background: url("../images/arrow.svg") no-repeat;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 9px;
+        height: 6px;
+      }
+    }
+
+    &:last-child {
+      border-bottom: 1px solid #212121;
+
+      .header__bottom-button:hover {
+        color: rgba(146, 146, 146, 1);
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          border-bottom: 1px solid rgba(5, 194, 223, 1);
+          bottom: -11px;
+          left: 0;
+        }
+      }
+    }
+
+    &:first-child {
+      .header__bottom-button:hover {
+        color: rgba(146, 146, 146, 1);
+      }
+    }
+  }
+}
