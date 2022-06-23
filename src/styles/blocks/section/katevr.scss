@@ -1,6 +1,7 @@
 .katevr {
   font-family: Inter, Arial, Helvetica, sans-serif;
   scroll-behavior: smooth;
+
   &__menu {
     background-color: #191536;
     position: fixed;
@@ -16,5 +17,21 @@
     @include desktop768 {
       padding-top: 30px;
     }
+  }
+  &__help {
+    z-index: 1000;
+    max-width: 400px;
+    background-color: #191536;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: transform ease-out 0.3s;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+
+    padding: 20px 0 20px 20px;
   }
 }

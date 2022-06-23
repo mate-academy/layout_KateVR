@@ -1,3 +1,16 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgba(255, 255, 255, 1);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .getintouch {
   background: rgba(5, 4, 11, 1);
 
@@ -46,15 +59,20 @@
 
   &__form-fieldset {
     border: none;
+    margin-bottom: 10px;
+
+    &:focus-within > legend {
+      color: rgb(5, 194, 223);
+    }
+  }
+
+  &__form-legend {
     color: rgba(146, 146, 146, 1);
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 150%;
-    margin-bottom: 10px;
   }
-
-  // .getintouch__form-input
 
   &__form-input {
     width: 100%;
@@ -65,7 +83,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 150%;
-    color: rgba(5, 194, 223, 1);
+    color: rgba(255, 255, 255, 1);
   }
 
   &__form-textarea {
