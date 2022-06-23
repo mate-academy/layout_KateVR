@@ -1,4 +1,7 @@
 .header {
+  position: relative;
+  height: 100vh;
+
   &__logo-language {
     display: flex;
     gap: 34px;
@@ -22,5 +25,93 @@
     @include OnDesktop {
       display: none;
     }
+  }
+
+  &__image {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    width: 810px;
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 130%;
+    color: $c-white;
+    padding-bottom: 35px;
+  }
+
+  &__color {
+    font-weight: 400;
+    font-size: 54px;
+    line-height: 130%;
+    color: $c-contrast;
+  }
+
+  &__p {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 150%;
+    color: $c-text;
+    margin-bottom: 30px;
+  }
+
+  &__price {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: $c-white;
+    margin-bottom: 35px;
+  }
+
+  &__grid {
+    margin-bottom: 200px;
+  }
+
+  &__faq-help {
+    display: flex;
+    gap: 40px;
+  }
+  &__faq {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-white;
+  }
+
+  &__more {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-contrast;
+  }
+
+  &__img-buttons {
+    display: flex;
+    gap: 110px;
+    margin-right: 100px;
+    border-bottom: 1px solid #212121;
+  }
+
+  &__img-button {
+    box-sizing: border-box;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-white;
+    padding-bottom: 10px;
+    border-bottom: 1px solid transparent;
+    transition: border-color $transition;
+
+    &:hover {
+      border-color: $c-contrast;
+    }
+  }
+
+  &__footer {
+    padding-bottom: 144px;
+    display: flex;
+    justify-content: space-between;
   }
 }
