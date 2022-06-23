@@ -1,5 +1,6 @@
 .play {
   height: 70px;
+  margin-bottom: 20px;
   &__video {
     height: 100%;
     position: relative;
@@ -12,6 +13,25 @@
       width: 100%;
       height: 70px;
       background: url("../images/button.svg") no-repeat;
+    }
+  }
+
+  &:hover {
+    animation-name: pulse;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+    50% {
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+      transform: scale3d(1, 1, 1);
     }
   }
 }

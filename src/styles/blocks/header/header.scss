@@ -5,13 +5,40 @@
   background: linear-gradient(107.56deg, #191536 0%, #000 100%);
   height: fit-content;
 
+  @include desktop1024 {
+    height: 100vh;
+  }
+
+  &__container {
+    height: 100%;
+  }
+
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include desktop768 {
+      justify-content: start;
+    }
+
+    @include desktop1024 {
+      justify-content: space-between;
+    }
+  }
+
   &__nav {
     display: flex;
     justify-content: space-between;
-    margin-bottom: 15px;
+    margin-bottom: 30px;
+
+    @include desktop768 {
+      margin-bottom: 15vh;
+    }
 
     @include desktop1024 {
-      margin-bottom: 110px;
+      margin-bottom: 0;
     }
   }
 
@@ -78,6 +105,7 @@
   &__wrapper-video {
     height: 70px;
     margin-bottom: 20px;
+    width: fit-content;
 
     @include desktop1024 {
       margin-left: 80px;
@@ -88,24 +116,51 @@
     display: flex;
     flex-direction: column-reverse;
 
-    @include desktop1024 {
+    @include desktop768 {
       flex-direction: row;
       justify-content: space-between;
-      margin-bottom: 80px;
     }
   }
 
   &__img {
     width: 100%;
     object-fit: contain;
+    animation-name: fadeInLeft;
+    animation-duration: 1s;
+    animation-fill-mode: both;
 
-    @include desktop1024 {
+    @keyframes fadeInLeft {
+      0% {
+        opacity: 0;
+        transform: translate3d(-100%, 0, 0);
+      }
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @include desktop768 {
       width: 47%;
     }
   }
 
   &__content-text {
     height: fit-content;
+    animation-name: fadeInRight;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+
+    @keyframes fadeInRight {
+      0% {
+        opacity: 0;
+        transform: translate3d(100%, 0, 0);
+      }
+      100% {
+        opacity: 1;
+        transform: none;
+      }
+    }
 
     @include desktop1024 {
       width: 53%;
@@ -113,12 +168,14 @@
   }
 
   &__content-title {
+    font-family: Arial, Helvetica, sans-serif;
     font-style: normal;
     font-weight: 900;
     font-size: 24px;
     line-height: 130%;
     color: #fff;
     margin-bottom: 15px;
+    width: fit-content;
 
     & span {
       color: rgba(5, 194, 223, 1);
@@ -147,6 +204,7 @@
     font-size: 16px;
     line-height: 150%;
     color: #929292;
+    margin-bottom: 10px;
 
     @include desktop1024 {
       margin-bottom: 15px;
@@ -163,7 +221,7 @@
     text-align: center;
     margin-bottom: 10px;
 
-    @include desktop1024 {
+    @include desktop768 {
       text-align: start;
     }
   }
@@ -174,16 +232,9 @@
   }
 
   &__button {
-    width: 100%;
+    margin: 0 auto;
 
     @include desktop768 {
-      width: 60%;
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
-    }
-
-    @include desktop1024 {
       display: none;
     }
   }
@@ -218,22 +269,13 @@
     gap: 40px;
     padding-bottom: 10px;
 
-    &:nth-child(2) {
-      position: relative;
+    .header__bottom-button {
+      color: rgba(5, 194, 223, 1);
+    }
 
-      .header__bottom-button {
-        color: rgba(5, 194, 223, 1);
-      }
-
-      &::after {
-        content: "";
-        background: url("../images/arrow.svg") no-repeat;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 0;
-        width: 9px;
-        height: 6px;
+    &:first-child {
+      .header__bottom-button:hover {
+        color: rgba(146, 146, 146, 1);
       }
     }
 
@@ -254,9 +296,23 @@
       }
     }
 
-    &:first-child {
-      .header__bottom-button:hover {
-        color: rgba(146, 146, 146, 1);
+    &:nth-child(2) {
+      position: relative;
+      transition: all 0.5s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+      &::after {
+        content: "";
+        background: url("../images/arrow.svg") no-repeat;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 0;
+        width: 9px;
+        height: 6px;
       }
     }
   }
