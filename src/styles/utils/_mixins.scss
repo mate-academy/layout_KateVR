@@ -1,6 +1,10 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $transition_time;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin gradient {
+  background: linear-gradient(100.83deg, $violet_color 0.67%, #000 100%);
 }

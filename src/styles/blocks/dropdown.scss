@@ -1,0 +1,53 @@
+.dropdown {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  width: 50px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  color: $contrast_color;
+  text-align: center;
+
+  &__toggler {
+    display: none;
+  }
+
+  &__current {
+    display: block;
+    width: 100%;
+
+    cursor: pointer;
+  }
+
+  &__list {
+    position: absolute;
+    top: 45px;
+
+    display: none;
+    width: 100%;
+    height: 50px;
+    padding: 12px 0;
+
+    background-color: $violet_color;
+    border-radius: 4px;
+
+    overflow-y: scroll;
+  }
+
+  &__toggler:checked ~ &__list {
+    display: block;
+  }
+
+  &__item {
+    cursor: pointer;
+
+    &:not(:last-of-type) {
+      margin-bottom: 12px;
+    }
+
+    @include hover(color, #fff);
+  }
+}
