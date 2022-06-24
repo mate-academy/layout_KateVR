@@ -1,4 +1,6 @@
 .page {
+  scroll-behavior: smooth;
+
   &__body {
     font-family: "Inter", sans-serif;
     background-image: linear-gradient(100.83deg, #191536 0.67%, #000 100%);
@@ -14,6 +16,7 @@
 
     @include OnDesktop {
       padding-top: 47px;
+      margin-bottom: 110px;
     }
   }
 
@@ -31,6 +34,62 @@
 
     &:target {
       transform: translateX(0%);
+    }
+  }
+
+  &__section {
+    &-title {
+      font-weight: 900;
+      font-size: 36px;
+      line-height: 44px;
+      color: $c-white;
+
+      &-colored {
+        font-weight: 400;
+        color: $c-contrast;
+      }
+    }
+
+    &-subtitle {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: $c-contrast;
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: $c-text;
+    }
+  }
+
+  &__buy {
+    position: sticky;
+    bottom: 0;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0.21) 0%,
+    rgba(4, 4, 4, 0.59) 23.44%, $c-background 100%);
+
+    &--mobile {
+      display: block;
+      max-width: 458px;
+      margin: 0 auto;
+      text-align: center;
+      height: 40px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 40px;
+      border-radius: 4px;
+      color: $c-white;
+      background-color: $c-contrast;
+
+      @include OnDesktop {
+        display: none;
+      }
     }
   }
 }

@@ -4,7 +4,7 @@
   column-gap: 20px;
 
   @include OnDesktop {
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(16, 1fr);
     column-gap: 24px;
   }
 
@@ -23,9 +23,13 @@
     }
   }
 
+  &__using {
+    gap: 20px;
+  }
+
   &__item {
-    @for $start from 1 through 12 {
-      @for $end from $start through 12 {
+    @for $start from 1 through 16 {
+      @for $end from $start through 16 {
         &--#{$start}-#{$end} {
           grid-column: #{$start} / #{$end + 1};
         }

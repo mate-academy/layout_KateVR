@@ -1,6 +1,12 @@
 .header {
   position: relative;
-  height: 100vh;
+
+  @include OnTablet {
+    background-image: url(../images/KATvr_main.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 60%;
+  }
 
   &__logo-language {
     display: flex;
@@ -27,46 +33,103 @@
     }
   }
 
-  &__image {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    width: 810px;
-  }
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
 
+    &-container {
+      height: 190px;
+      overflow: hidden;
+
+      @include OnTablet {
+        display: none;
+      }
+    }
+  }
   &__title {
     font-weight: 900;
-    font-size: 54px;
+    font-size: 26px;
     line-height: 130%;
     color: $c-white;
-    padding-bottom: 35px;
+    padding-bottom: 17px;
+
+    @include OnDesktop {
+      font-size: 54px;
+      padding-bottom: 35px;
+    }
   }
 
   &__color {
     font-weight: 400;
-    font-size: 54px;
+    font-size: 26px;
     line-height: 130%;
     color: $c-contrast;
+
+    @include OnDesktop {
+      font-size: 54px;
+    }
   }
 
   &__p {
     font-weight: 500;
-    font-size: 20px;
+    font-size: 16px;
     line-height: 150%;
     color: $c-text;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+
+    @include OnDesktop {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
   }
 
   &__price {
+    text-align: center;
     font-weight: 500;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 24px;
     color: $c-white;
     margin-bottom: 35px;
+
+    @include OnTablet {
+      text-align: start;
+      font-size: 20px;
+    }
+  }
+
+  &__play {
+    position: relative;
+    transition: transform $transition;
+
+    &-button {
+      opacity: 0%;
+      position: absolute;
+      left: 27px;
+      top: 24px;
+      transition: opacity $transition;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+
+      .header__play-button {
+        opacity: 100%;
+      }
+    }
   }
 
   &__grid {
-    margin-bottom: 200px;
+    margin-bottom: 50px;
+
+    @include OnTablet {
+      margin-bottom: 70px;
+    }
+
+    @include OnDesktop {
+      margin-bottom: 200px;
+    }
   }
 
   &__faq-help {
@@ -110,8 +173,11 @@
   }
 
   &__footer {
-    padding-bottom: 144px;
-    display: flex;
-    justify-content: space-between;
+    display: none;
+
+    @include OnDesktop {
+      display: flex;
+      justify-content: space-between;
+    }
   }
 }
