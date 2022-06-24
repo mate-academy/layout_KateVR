@@ -1,0 +1,130 @@
+.about {
+  &--desktop {
+    display: none;
+
+    @include OnDesktop {
+      display: block;
+      text-align: end;
+    }
+  }
+
+  &__grid {
+    row-gap: 85px;
+
+    @include OnTablet {
+      row-gap: 100px;
+    }
+
+    @include OnDesktop {
+      row-gap: 220px;
+    }
+  }
+
+  &__img-counter {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-contrast;
+  }
+
+  &__container {
+    margin-top: 50px;
+    padding-bottom: 50px;
+
+    @include OnTablet {
+      margin-top: 70px;
+    }
+
+    @include OnDesktop {
+      margin-top: 164px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left bottom;
+
+    &-container {
+      max-height: 290px;
+      overflow: hidden;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    &--tablet {
+      display: none;
+
+      @include OnTablet {
+        display: block;
+        margin-bottom: 32px;
+      }
+    }
+
+    &--phone {
+      @include OnTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    @include OnDesktop {
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 225px;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-contrast;
+    margin-bottom: 11px;
+    margin-top: 80px;
+
+    @include OnDesktop {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__vertical {
+    display: none;
+
+    @include OnTablet {
+      display: flex;
+      width: max-content;
+    }
+
+    &-text {
+      writing-mode: tb-rl;
+      width: max-content;
+      font-family: sans-serif;
+      white-space: nowrap;
+      color: transparent;
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 130%;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px $c-contrast;
+
+      @for $i from 0 through 7 {
+        &:nth-child(#{$i}) {
+          opacity: calc(100% - #{20% * $i});
+        }
+      }
+
+      &:nth-child(2n) {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

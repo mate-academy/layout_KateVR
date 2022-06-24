@@ -40,9 +40,14 @@
   &__section {
     &-title {
       font-weight: 900;
-      font-size: 36px;
-      line-height: 44px;
+      font-size: 21px;
+      line-height: 25px;
       color: $c-white;
+
+      @include OnDesktop {
+        font-size: 36px;
+        line-height: 44px;
+      }
 
       &-colored {
         font-weight: 400;
@@ -74,6 +79,10 @@
     rgba(0, 0, 0, 0.21) 0%,
     rgba(4, 4, 4, 0.59) 23.44%, $c-background 100%);
 
+    @include OnDesktop {
+      display: none;
+    }
+
     &--mobile {
       display: block;
       max-width: 458px;
@@ -86,10 +95,6 @@
       border-radius: 4px;
       color: $c-white;
       background-color: $c-contrast;
-
-      @include OnDesktop {
-        display: none;
-      }
     }
   }
 }
