@@ -39,6 +39,20 @@ function magic() {
 btn.onclick = function() {
   window.scrollTo(0, 0);
 };
-
-// When scrolling, we run the function
 window.onscroll = magic;
+
+const overflow = document.querySelectorAll('.overflow');
+const katevr = document.querySelector('.katevr');
+const closes = document.querySelectorAll('.close');
+
+overflow.forEach(element => {
+  element.addEventListener('click', () => {
+    katevr.classList.add('katevr__overflow');
+  });
+});
+
+closes.forEach(element => {
+  element.addEventListener('click', () => {
+    katevr.classList.remove('katevr__overflow');
+  });
+});
