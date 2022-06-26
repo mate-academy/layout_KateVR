@@ -29,7 +29,7 @@ const swiper = new Swiper('.swiper', {
 const btn = document.getElementById('button');
 
 function magic() {
-  if (window.pageYOffset > 800) {
+  if (window.pageYOffset > 600) {
     btn.style.opacity = '1';
   } else {
     btn.style.opacity = '0';
@@ -44,6 +44,7 @@ window.onscroll = magic;
 const overflow = document.querySelectorAll('.overflow');
 const katevr = document.querySelector('.katevr');
 const closes = document.querySelectorAll('.close');
+const menuLink = document.querySelectorAll('.menu__link');
 
 overflow.forEach(element => {
   element.addEventListener('click', () => {
@@ -52,6 +53,12 @@ overflow.forEach(element => {
 });
 
 closes.forEach(element => {
+  element.addEventListener('click', () => {
+    katevr.classList.remove('katevr__overflow');
+  });
+});
+
+menuLink.forEach(element => {
   element.addEventListener('click', () => {
     katevr.classList.remove('katevr__overflow');
   });

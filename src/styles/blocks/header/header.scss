@@ -112,19 +112,26 @@
   &__content {
     display: flex;
     flex-direction: column-reverse;
+    padding-top: 50%;
 
     @include desktop768 {
       flex-direction: row;
       justify-content: space-between;
+      padding-top: 0;
     }
   }
 
   &__img {
     width: 100%;
-    object-fit: contain;
-    animation-name: fadeInLeft;
-    animation-duration: 1s;
-    animation-fill-mode: both;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    padding-bottom: 50%;
+    background-image: url("../images/1.1.png");
+    background-repeat: no-repeat;
+    background-size: 130%;
+    background-position: 30% center;
+    animation: fadeInLeft 0.8s linear;
 
     @keyframes fadeInLeft {
       0% {
@@ -138,7 +145,24 @@
     }
 
     @include desktop768 {
-      width: 47%;
+      background-size: 120%;
+      width: 60%;
+      left: 40%;
+      background-position: 5% top;
+      padding-bottom: 28%;
+      top: 20%;
+    }
+
+    @include desktop1024 {
+      top: 30%;
+    }
+    @include desktop1224 {
+      background-position: 20% top;
+    }
+
+    @media (min-width: 1440px) {
+      width: 750px;
+      left: 50%;
     }
   }
 
@@ -159,8 +183,11 @@
       }
     }
 
+    @include desktop768 {
+      width: 50%;
+    }
     @include desktop1024 {
-      width: 53%;
+      width: 55%;
     }
   }
 
