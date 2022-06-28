@@ -1,0 +1,45 @@
+.contact {
+  background-color: #05040b;
+
+  &__link {
+    display: block;
+    margin-bottom: 11px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 13px;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+  }
+
+  &__text {
+    display: none;
+
+    @include OnTablet {
+      display: block;
+      margin-bottom: 76px;
+    }
+  }
+
+  &--tablet {
+    display: none;
+
+    @include OnTablet {
+      display: block;
+    }
+  }
+
+  &--phone {
+    display: block;
+
+    @include OnTablet {
+      display: none;
+    }
+  }
+}
