@@ -1,0 +1,39 @@
+input,
+textarea {
+  width: 100%;
+  padding: 20px 0;
+
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid $dark_color;
+
+  transition: border-color $transition_time;
+
+  outline: none;
+  resize: none;
+
+  &::placeholder {
+    font-weight: 400;
+    font-size: 14px;
+    color: $text_color;
+
+    transition: color $transition_time;
+  }
+
+  &:valid,
+  &:focus {
+    border-color: $contrast_color;
+  }
+
+  &:invalid:not(:placeholder-shown):not(:focus) {
+    border-color: #860404;
+  }
+
+  &:focus::placeholder {
+    color: $contrast_color;
+  }
+}

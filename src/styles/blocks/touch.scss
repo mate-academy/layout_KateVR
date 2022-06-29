@@ -1,0 +1,82 @@
+.touch {
+  display: flex;
+  justify-content: space-between;
+  padding: 160px 235px;
+
+  background: $background_color;
+
+  @media (max-width: 1919px) {
+    padding: 100px 110px;
+  }
+
+  @media (max-width: 1279px) {
+    padding: 70px 35px;
+  }
+
+  @media (max-width: 767px) {
+    flex-direction: column;
+    padding: 50px 20px;
+  }
+
+  &__subtitle {
+    margin-bottom: 13px;
+  }
+
+  &__title {
+    margin-bottom: 26px;
+  }
+
+  &__description {
+    margin-bottom: 76px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+
+    @media (max-width: 767px) {
+      display: none;
+    }
+  }
+
+  &__link {
+    color: $text_color;
+
+    @include hover(color, #fff);
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    @media (max-width: 767px) {
+      width: 100%;
+      margin-bottom: 27px;
+    }
+  }
+
+  &__input {
+    margin-bottom: 5px;
+  }
+
+  &__textarea {
+    margin-bottom: 50px;
+  }
+
+  &__small-description {
+    display: none;
+
+    font-size: 12px;
+
+    @media (max-width: 767px) {
+      display: block;
+    }
+  }
+}
