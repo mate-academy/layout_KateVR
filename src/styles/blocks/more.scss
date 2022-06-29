@@ -22,6 +22,8 @@
   &__title {
     margin-bottom: 16px;
 
+    animation: up $appearence_time;
+
     @media (max-width: 767px) {
       margin-bottom: 12px;
     }
@@ -29,6 +31,8 @@
 
   &__subtitle {
     margin-bottom: 70px;
+
+    animation: up $appearence_time;
 
     @media (max-width: 767px) {
       margin-bottom: 30px;
@@ -39,6 +43,14 @@
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 40px 20px;
+
+    animation: up $appearence_time;
+
+    @media (min-width: 1920px) {
+      margin: auto;
+
+      width: 1450px;
+    }
 
     @media (max-width: 1279px) {
       grid-template-columns: 1fr 1fr;
@@ -55,6 +67,10 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+
+    cursor: zoom-in;
+
+    @include hover(transform, scale(1.1));
 
     @media (max-width: 767px) {
       gap: 10px;

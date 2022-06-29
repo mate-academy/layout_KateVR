@@ -2,6 +2,12 @@
   display: flex;
   width: 90%;
 
+  @media (min-width: 1920px) {
+    align-self: center;
+
+    width: 1358px;
+  }
+
   @media (max-width: 1279px) {
     width: 100%;
   }
@@ -33,6 +39,10 @@
 
   &__image {
     margin-bottom: 12px;
+
+    cursor: zoom-in;
+
+    @include hover(transform, scale(1.1));
 
     @media (max-width: 1919px) {
       width: 430px;
