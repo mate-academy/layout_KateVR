@@ -28,6 +28,10 @@
     justify-content: space-between;
     height: 354px;
 
+    @media (max-width: 1279px) {
+      height: 294px;
+    }
+
     @media (max-width: 767px) {
       height: 190px;
     }
@@ -50,10 +54,6 @@
 
       @media (max-width: 1919px) {
         left: calc(50% + 225px);
-      }
-
-      @media (max-width: 1279px) {
-        bottom: 0;
       }
     }
 
@@ -157,6 +157,8 @@
     background: url(../images/tech-toggler.svg) no-repeat center;
     border-radius: 50%;
 
+    cursor: pointer;
+
     @media (min-width: 1280px) {
       display: none;
     }
@@ -200,22 +202,87 @@
   &__select-input {
     display: none;
   }
+
+  &__small-section {
+    position: absolute;
+    z-index: 1;
+
+    display: none;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 150px;
+    max-height: 150px;
+    padding: 10px;
+
+    background: $purple_color;
+    border-radius: 15px 0 0 15px;
+
+    overflow-y: scroll;
+
+    @media (min-width: 768px) {
+      max-width: 300px;
+      max-height: 300px;
+    }
+
+    &--1 {
+      top: -25%;
+      left: 50%;
+      transform: translateX(-50%);
+
+      @media (min-width: 768px) {
+        top: -10%;
+      }
+    }
+
+    &--2 {
+      top: 50%;
+      left: 50%;
+      transform: translateX(-100%);
+
+      @media (min-width: 768px) {
+        top: 60%;
+        transform: translateX(-110%);
+      }
+    }
+
+    &--3 {
+      top: 50%;
+      left: 50%;
+      transform: translate(-10%, -40%);
+
+      @media (min-width: 768px) {
+        transform: translate(20%, -40%);
+      }
+    }
+  }
 }
 
-#tech-1:checked ~ .tech__section--1 {
-  @media (min-width: 768px) {
+#tech-1:checked ~ .tech__small-section--1 {
+  @media (max-width: 1279px) {
     display: flex;
   }
 }
 
-#tech-2:checked ~ .tech__section--2 {
-  @media (min-width: 768px) {
+#tech-1:checked ~ .tech__label--1 {
+  display: none;
+}
+
+#tech-2:checked ~ .tech__small-section--2 {
+  @media (max-width: 1279px) {
     display: flex;
   }
 }
 
-#tech-3:checked ~ .tech__section--3 {
-  @media (min-width: 768px) {
+#tech-2:checked ~ .tech__label--2 {
+  display: none;
+}
+
+#tech-3:checked ~ .tech__small-section--3 {
+  @media (max-width: 1279px) {
     display: flex;
   }
+}
+
+#tech-3:checked ~ .tech__label--3 {
+  display: none;
 }
