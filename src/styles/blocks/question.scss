@@ -12,6 +12,7 @@
   }
 
   &__action {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
@@ -29,6 +30,10 @@
 
     @include OnDesktop {
       display: block;
+    }
+
+    &--active {
+      transform: rotateZ(0deg);
     }
   }
 
@@ -68,16 +73,12 @@
   }
 
   &__text {
-    display: none;
-  }
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height $transition;
 
-  &:target {
-    .question__text {
-      display: block;
-    }
-
-    .question__arrow {
-      transform: rotateZ(0deg);
+    &--active {
+      max-height: 300px;
     }
   }
 }

@@ -41,7 +41,9 @@
     @for $start from 1 through 16 {
       @for $end from $start through 16 {
         &--#{$start}-#{$end} {
-          grid-column: #{$start} / #{$end + 1};
+          @media (max-width: 743px) {
+            grid-column: #{$start} / #{$end + 1};
+          }
         }
 
         &--desktop-#{$start}-#{$end} {
