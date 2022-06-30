@@ -17,6 +17,7 @@ const mobileMenu = document.getElementById('mobile__nav');
 const mobileMenuCross = document.getElementById('mobile__cross');
 const mobileLinks = document.querySelectorAll('.mobile__menu-item');
 const form = document.querySelector('.form');
+const body = document.querySelector('.page__body');
 
 const slider1 = document.getElementById('slider1');
 
@@ -107,10 +108,12 @@ playerCrossBtn.addEventListener('click', () => {
 
 mobileMenuBtn.addEventListener('click', () => {
   mobileMenu.classList.add('mobile__nav--active');
+  body.classList.add('page__stop-scroll');
 });
 
 mobileMenuCross.addEventListener('click', () => {
   mobileMenu.classList.remove('mobile__nav--active');
+  body.classList.remove('page__stop-scroll');
 });
 
 form.addEventListener('submit', (event) => {
@@ -121,5 +124,6 @@ form.addEventListener('submit', (event) => {
 for (const link of mobileLinks) {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('mobile__nav--active');
+    body.classList.remove('page__stop-scroll');
   });
 }
