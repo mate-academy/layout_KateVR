@@ -18,8 +18,9 @@ const mobileMenuCross = document.getElementById('mobile__cross');
 const mobileLinks = document.querySelectorAll('.mobile__menu-item');
 const form = document.querySelector('.form');
 const body = document.querySelector('.page__body');
-
+const mobileBuyButton = document.getElementById('mobile__button-buy');
 const slider1 = document.getElementById('slider1');
+const specsDot = document.querySelectorAll('.specs__link');
 
 let zIndex = 1;
 
@@ -109,11 +110,13 @@ playerCrossBtn.addEventListener('click', () => {
 mobileMenuBtn.addEventListener('click', () => {
   mobileMenu.classList.add('mobile__nav--active');
   body.classList.add('page__stop-scroll');
+  mobileBuyButton.style.display = 'none';
 });
 
 mobileMenuCross.addEventListener('click', () => {
   mobileMenu.classList.remove('mobile__nav--active');
   body.classList.remove('page__stop-scroll');
+  mobileBuyButton.style.display = 'block';
 });
 
 form.addEventListener('submit', (event) => {
@@ -125,5 +128,26 @@ for (const link of mobileLinks) {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('mobile__nav--active');
     body.classList.remove('page__stop-scroll');
+    mobileBuyButton.style.display = 'block';
+  });
+}
+
+for (let dot = 0; dot < specsDot.length; dot++) {
+  specsDot[dot].addEventListener('click', (event) => {
+    let spec = document.querySelectorAll('.spec--mobile');
+
+    for (const i of spec) {
+      i.style.display = 'none';
+    }
+
+    for (const dotElement of specsDot) {
+      dotElement.innerHTML = '+';
+    }
+
+    specsDot[dot].innerHTML = '-';
+    spec = document.getElementById(`spec${dot + 1}`);
+
+    spec.classList.add(`specs__${dot + 1}--active`);
+    spec.style.display = 'block';
   });
 }

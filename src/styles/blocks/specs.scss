@@ -48,7 +48,7 @@
     color: $c-text;
   }
 
-  &__first {
+  &__1 {
     display: none;
 
     @include OnDesktop {
@@ -58,7 +58,7 @@
       margin-left: 40px;
     }
 
-    &:target {
+    &--active {
       display: block;
       position: absolute;
       left: 25%;
@@ -70,7 +70,7 @@
     }
   }
 
-  &__second {
+  &__2 {
     display: none;
 
     @include OnDesktop {
@@ -79,7 +79,7 @@
       margin-top: 90px;
     }
 
-    &:target {
+    &--active {
       display: block;
       position: absolute;
       left: 20%;
@@ -91,7 +91,7 @@
     }
   }
 
-  &__third {
+  &__3 {
     display: none;
     @include OnDesktop {
       display: flex;
@@ -100,7 +100,7 @@
       margin-top: 100px;
     }
 
-    &:target {
+    &--active {
       display: block;
       position: absolute;
       left: 25%;
@@ -121,6 +121,9 @@
     color: $c-white;
     background-color: $c-contrast;
     border-radius: 50%;
+    border: none;
+    padding: 0;
+
 
     @include OnDesktop {
       display: none;
@@ -129,28 +132,16 @@
     &-first {
       left: 25%;
       top: 5%;
-
-      &::before {
-        content: "+";
-      }
     }
 
     &-second {
       left: 10%;
       top: 80%;
-
-      &::before {
-        content: "+";
-      }
     }
 
     &-third {
       right: 10%;
       top: 40%;
-
-      &::before {
-        content: "+";
-      }
     }
   }
 }
