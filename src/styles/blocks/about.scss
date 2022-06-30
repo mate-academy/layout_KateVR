@@ -1,11 +1,12 @@
 .about {
   display: flex;
+  flex-shrink: 0;
   width: 90%;
 
   @media (min-width: 1920px) {
     align-self: center;
 
-    width: 1358px;
+    width: 1225px;
   }
 
   @media (max-width: 1279px) {
@@ -25,35 +26,70 @@
   }
 
   &__slider {
-    position: relative;
-    margin-right: 120px;
+    margin-right: 40px;
+    width: 622px;
 
-    @media (max-width: 1279px) {
-      margin-right: 20px;
-    }
-
-    @media (max-width: 767px) {
-      margin: 0 0 40px;
-    }
-  }
-
-  &__image {
-    margin-bottom: 12px;
-
-    cursor: zoom-in;
-
-    @include hover(transform, scale(1.1));
+    overflow: hidden;
 
     @media (max-width: 1919px) {
       width: 430px;
     }
 
     @media (max-width: 1279px) {
+      margin-right: 20px;
       width: 340px;
     }
 
     @media (max-width: 767px) {
+      margin: 0 0 40px;
       width: 100%;
+    }
+
+    &-wrapper {
+      position: relative;
+    }
+  }
+
+  &__slideshow {
+    position: relative;
+    left: 0;
+
+    display: flex;
+    width: 500%;
+    height: 290px;
+    margin-bottom: 12px;
+
+    transition: left $transition_time;
+
+    overflow: hidden;
+  }
+
+  &__image {
+    width: 20%;
+    height: 100%;
+
+    cursor: zoom-in;
+
+    @include hover(transform, scale(1.1));
+
+    &--1 {
+      background: url(../images/photo-1.jpg) no-repeat center/cover;
+    }
+
+    &--2 {
+      background: url(../images/photo-2.png) no-repeat center/cover;
+    }
+
+    &--3 {
+      background: url(../images/photo-3.jpg) no-repeat center/cover;
+    }
+
+    &--4 {
+      background: url(../images/photo-4.jpg) no-repeat center/cover;
+    }
+
+    &--5 {
+      background: url(../images/photo-5.jpg) no-repeat center/cover;
     }
   }
 
@@ -66,6 +102,7 @@
   }
 
   &__description {
+    max-width: 435px;
     margin-bottom: 40px;
 
     @media (max-width: 1279px) {

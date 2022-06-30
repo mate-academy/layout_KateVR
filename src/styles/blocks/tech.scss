@@ -3,6 +3,8 @@
 
   background: $background_color;
 
+  overflow-x: hidden;
+
   @media (max-width: 1919px) {
     padding: 100px 110px;
   }
@@ -240,6 +242,17 @@
       left: 50%;
       transform: translateX(-50%);
 
+      @keyframes small-1 {
+        from {
+          transform: translateX(-100vw);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      animation: small-1 $appearence_time;
+
       @media (min-width: 768px) {
         top: -10%;
       }
@@ -250,9 +263,31 @@
       left: 50%;
       transform: translateX(-100%);
 
+      @keyframes small-2 {
+        from {
+          transform: translateX(-100vw);
+        }
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      animation: small-2 $appearence_time;
+
       @media (min-width: 768px) {
         top: 60%;
         transform: translateX(-110%);
+
+        @keyframes smaller-2 {
+          from {
+            transform: translateX(-100vw);
+          }
+          to {
+            transform: translateX(-110%);
+          }
+        }
+
+        animation: smaller-2 $appearence_time;
       }
     }
 
@@ -261,8 +296,30 @@
       left: 50%;
       transform: translate(-10%, -40%);
 
+      @keyframes small-3 {
+        from {
+          transform: translate(100vw, -40%);
+        }
+        to {
+          transform: translate(-10%, -40%);
+        }
+      }
+
+      animation: small-3 $appearence_time;
+
       @media (min-width: 768px) {
         transform: translate(20%, -40%);
+
+        @keyframes smaller-3 {
+          from {
+            transform: translate(100vw, -40%);
+          }
+          to {
+            transform: translate(20%, -40%);
+          }
+        }
+
+        animation: smaller-3 $appearence_time;
       }
     }
   }

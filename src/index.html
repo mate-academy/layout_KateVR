@@ -33,11 +33,13 @@
             <img src="images/logo.svg" alt="logo">
           </a>
 
-          <p class="header__language">
-            En
-
-            <img src="images/bottom-arrow.svg" alt="arrow">
-          </p>
+          <div class="header__language-wrapper">
+            <select class="header__language">
+              <option value="en">En</option>
+              <option value="ua">Ua</option>
+              <option value="ru">Ru</option>
+            </select>
+          </div>
         </div>
 
         <nav class="header__nav">
@@ -86,22 +88,22 @@
             <nav class="header__menu">
               <ul class="header__menu-list">
                 <li class="header__menu-item">
-                  <a href="#" class="header__menu-link">
+                  <a href="#about" class="header__menu-link">
                     About
                   </a>
                 </li>
                 <li class="header__menu-item">
-                  <a href="#" class="header__menu-link">
+                  <a href="#tech" class="header__menu-link">
                     Tech
                   </a>
                 </li>
                 <li class="header__menu-item">
-                  <a href="#" class="header__menu-link">
+                  <a href="#benefits" class="header__menu-link">
                     Benefits
                   </a>
                 </li>
                 <li class="header__menu-item">
-                  <a href="#" class="header__menu-link">
+                  <a href="#contact" class="header__menu-link">
                     Contact
                   </a>
                 </li>
@@ -111,12 +113,16 @@
                   </a>
                 </li>
                 <li class="header__menu-item">
-                  <a href="#" class="header__menu-link">
+                  <a
+                    href="https://www.kat-vr.com/pages/support-detail"
+                    class="header__menu-link"
+                    target="_blank"
+                  >
                     FAQ
                   </a>
                 </li>
                 <li class="header__menu-item">
-                  <a href="#" class="header__menu-link">
+                  <a href="#contact" class="header__menu-link">
                     Help
                   </a>
                 </li>
@@ -160,8 +166,8 @@
               <iframe
                 width="876"
                 height="486"
-                src="https://www.youtube.com/embed/CUwg_JoNHpo?controls=0"
-                title="YouTube video player"
+                src="https://www.youtube.com/embed/8z6QjTrTkGY"
+                title="KatVR"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen
                 class="header__video"
@@ -178,6 +184,11 @@
             </div>
           </div>
         </div>
+        <a
+          href="https://www.kat-vr.com/products/kat-walk-mini-s"
+          target="_blank"
+          class="header__content-link"
+        ></a>
       </div>
 
       <div class="header__bottom">
@@ -200,16 +211,6 @@
 
           <img src="images/bottom-arrow.svg" alt="arrow">
         </a>
-
-        <div class="prev-next">
-          <a href="#" class="prev-next__link prev-next__prev">
-            Previous
-          </a>
-
-          <a href="#" class="prev-next__link">
-            Next
-          </a>
-        </div>
       </div>
     </header>
 
@@ -308,27 +309,23 @@
           </h4>
 
           <div class="about__slider">
-            <img
-              src="images/photo.jpg"
-              alt="photo"
-              class="about__image"
-            >
-
-            <div class="prev-next about__prev-next">
-              <a href="#" class="prev-next__link prev-next__prev">
-                Previous
-              </a>
-
-              <a href="#" class="prev-next__link">
-                Next
-              </a>
+            <div class="about__slideshow">
+              <div class="about__image about__image--1"></div>
+              <div class="about__image about__image--2"></div>
+              <div class="about__image about__image--3"></div>
+              <div class="about__image about__image--4"></div>
+              <div class="about__image about__image--5"></div>
             </div>
 
-            <img
-              src="images/slider.svg"
-              alt="progress"
-              class="about__progress"
-            >
+            <div class="prev-next about__prev-next">
+              <p class="prev-next__link about__prev">
+                Previous
+              </p>
+
+              <p class="prev-next__link about__next">
+                Next
+              </p>
+            </div>
           </div>
 
           <div class="about__content">
@@ -570,12 +567,14 @@
             action="/"
             method="post"
             class="touch__form"
+            autocomplete="off"
           >
             <input
               type="text"
               name="name"
               placeholder="Name*"
               class="touch__input"
+              autocomplete="off"
               required
             >
 
@@ -584,6 +583,7 @@
               name="email"
               placeholder="Email*"
               class="touch__input"
+              autocomplete="off"
               required
             >
 
@@ -592,6 +592,7 @@
               name="phone"
               placeholder="Phone*"
               class="touch__input"
+              autocomplete="off"
               required
             >
 
@@ -602,6 +603,7 @@
               placeholder="Message*"
               class="touch__textarea"
               maxlength="450"
+              autocomplete="nope"
               required
             ></textarea>
 

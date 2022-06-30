@@ -7,17 +7,17 @@
   border-bottom: 1px solid #212121;
 
   &__link {
+    position: relative;
+
     display: block;
 
     font-weight: 500;
     font-size: 16px;
     color: #fff;
 
-    @include hover(color, $contrast_color);
-  }
+    cursor: pointer;
 
-  &__prev {
-    position: relative;
+    @include hover(color, $contrast_color);
 
     &::after {
       content: " ";
@@ -29,6 +29,12 @@
 
       height: 1px;
 
+      background-color: #212121;
+
+      transition: background-color $transition_time;
+    }
+
+    &:hover::after {
       background-color: $contrast_color;
     }
   }
