@@ -32,11 +32,6 @@
     height: 100%;
     object-fit: cover;
     object-position: left bottom;
-
-    &-container {
-      max-height: 290px;
-      overflow: hidden;
-    }
   }
 
   &__title {
@@ -108,8 +103,8 @@
       -webkit-text-stroke: 1px $c-contrast;
 
       @for $i from 0 through 7 {
-        &:nth-child(#{$i}) {
-          opacity: calc(100% - #{20% * $i});
+        &:nth-child(n + #{$i}) {
+          opacity: calc(1 - #{0.2 * $i});
         }
       }
 

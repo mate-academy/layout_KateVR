@@ -34,6 +34,19 @@
 }
 
 .place {
+  cursor: pointer;
+
+  &__photo {
+    width: 100%;
+    grid-column: 2 / 4;
+    transition: transform $transition;
+  }
+
+  &:hover {
+    & .place__photo {
+      transform: scale(1.1);
+    }
+  }
   &__photo--container {
     display: none;
 
@@ -43,11 +56,6 @@
       column-gap: 24px;
       margin-bottom: 28px;
     }
-  }
-
-  &__photo {
-    width: 100%;
-    grid-column: 2 / 4;
   }
 
   &__title {

@@ -15,8 +15,46 @@ const playerCrossBtn = document.getElementById('player__cross');
 const mobileMenuBtn = document.getElementById('mobile__menu');
 const mobileMenu = document.getElementById('mobile__nav');
 const mobileMenuCross = document.getElementById('mobile__cross');
+const mobileLinks = document.querySelectorAll('.mobile__menu-item');
+const form = document.querySelector('.form');
+
+const slider1 = document.getElementById('slider1');
 
 let zIndex = 1;
+
+function newSlider(slider) {
+  const sliderPhotos = slider.querySelector('.slider__wrapper');
+  const sliderPrev = slider.querySelector('.slider__button-prev');
+  const sliderNext = slider.querySelector('.slider__button-next');
+  const photosAmount = sliderPhotos.childElementCount - 1;
+  let counter = 0;
+
+  sliderNext.addEventListener('click', () => {
+    if (counter > photosAmount - 1) {
+      counter = -1;
+    }
+    counter++;
+    sliderPhotos.style.transform = `translateX(-${100 * counter}%)`;
+    changeImgCounter(counter);
+  });
+
+  sliderPrev.addEventListener('click', () => {
+    if (counter < 1) {
+      counter = photosAmount + 1;
+    }
+    counter--;
+    sliderPhotos.style.transform = `translateX(-${100 * counter}%)`;
+    changeImgCounter(counter);
+  });
+
+  function changeImgCounter(value) {
+    const imgCounter = document.querySelector('.about__img-counter');
+
+    imgCounter.textContent = (value + 1) + '/5';
+  }
+}
+
+newSlider(slider1);
 
 for (const faqBtn of faqBtns) {
   faqBtn.addEventListener('click', () => {
@@ -58,7 +96,7 @@ for (const button of playerBtn) {
     if (window.matchMedia('(min-width: 1280px )').matches) {
       playerBlock.classList.add('player__active');
     } else {
-      window.location.href = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ';
+      window.location.href = 'https://youtu.be/zHINMzzwOkM';
     }
   });
 }
@@ -74,3 +112,14 @@ mobileMenuBtn.addEventListener('click', () => {
 mobileMenuCross.addEventListener('click', () => {
   mobileMenu.classList.remove('mobile__nav--active');
 });
+
+form.addEventListener('submit', (event) => {
+  event.preventDefault();
+  form.reset();
+});
+
+for (const link of mobileLinks) {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('mobile__nav--active');
+  });
+}
