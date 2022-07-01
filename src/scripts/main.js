@@ -98,7 +98,7 @@ for (const button of playerBtn) {
     if (window.matchMedia('(min-width: 1280px )').matches) {
       playerBlock.classList.add('player__active');
     } else {
-      window.location.href = 'https://youtu.be/zHINMzzwOkM';
+      window.open('https://youtu.be/zHINMzzwOkM', '_blank');
     }
   });
 }
@@ -122,6 +122,10 @@ mobileMenuCross.addEventListener('click', () => {
 form.addEventListener('submit', (event) => {
   event.preventDefault();
   form.reset();
+
+  window.scrollTo({
+    top: 0, behavior: 'smooth',
+  });
 });
 
 for (const link of mobileLinks) {
