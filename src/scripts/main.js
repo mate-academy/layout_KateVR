@@ -110,13 +110,13 @@ playerCrossBtn.addEventListener('click', () => {
 mobileMenuBtn.addEventListener('click', () => {
   mobileMenu.classList.add('mobile__nav--active');
   body.classList.add('page__stop-scroll');
-  mobileBuyButton.style.display = 'none';
+  mobileBuyButton.classList.remove('page__buy--visible');
 });
 
 mobileMenuCross.addEventListener('click', () => {
   mobileMenu.classList.remove('mobile__nav--active');
   body.classList.remove('page__stop-scroll');
-  mobileBuyButton.style.display = 'block';
+  mobileBuyButton.classList.add('page__buy--visible');
 });
 
 form.addEventListener('submit', (event) => {
@@ -132,7 +132,7 @@ for (const link of mobileLinks) {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('mobile__nav--active');
     body.classList.remove('page__stop-scroll');
-    mobileBuyButton.style.display = 'block';
+    mobileBuyButton.classList.add('page__buy--visible');
   });
 }
 
