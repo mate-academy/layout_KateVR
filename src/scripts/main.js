@@ -33,26 +33,33 @@ menuList.addEventListener('click', () => {
   menuToggler.checked = false;
 });
 
-aboutPrev.addEventListener('click', () => {
-  --counter;
-
+function updateSlider() {
   if (counter < 1) {
-    counter += 5;
+    counter = 5;
+  }
+
+  if (counter > 5) {
+    counter = 1;
   }
 
   aboutSlideshow.style.left = `${(counter - 1)
   * -1 * aboutSlideshow.offsetWidth / 5}px`;
   aboutCounter.textContent = `${counter}/5`;
+}
+
+aboutPrev.addEventListener('click', () => {
+  --counter;
+  updateSlider();
 });
 
 aboutNext.addEventListener('click', () => {
   ++counter;
-
-  if (counter > 5) {
-    counter -= 5;
-  }
-
-  aboutSlideshow.style.left = `${(counter - 1)
-    * -1 * aboutSlideshow.offsetWidth / 5}px`;
-  aboutCounter.textContent = `${counter}/5`;
+  updateSlider();
 });
+
+if (window.innerWidth < 1280) {
+  setInterval(() => {
+    ++counter;
+    updateSlider();
+  }, 2000);
+}
