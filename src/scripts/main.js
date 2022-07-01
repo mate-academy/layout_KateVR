@@ -155,3 +155,11 @@ for (let dot = 0; dot < specsDot.length; dot++) {
     spec.style.display = 'block';
   });
 }
+
+document.addEventListener('scroll', () => {
+  if (document.documentElement.scrollTop > 500) {
+    mobileBuyButton.classList.remove('page__buy--visible');
+  } else {
+    mobileBuyButton.classList.add('page__buy--visible');
+  }
+});
