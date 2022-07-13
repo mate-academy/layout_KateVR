@@ -1,0 +1,88 @@
+.menu {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 230px;
+  background-color: $c-blue;
+  z-index: 100;
+
+  padding-left: 80px;
+  padding-top: 140px;
+  padding-right: 30px;
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 90px;
+  }
+
+  &__link {
+    text-decoration: none;
+    @extend %manrope-400;
+    font-size: 16px;
+    line-height: 150%;
+    display: flex;
+    align-items: flex-end;
+    color: #f8f8f8;
+    width: fit-content;
+    transition: all 0.3s;
+
+    &:hover {
+      text-decoration-line: underline;
+      transition: all 0.3s;
+    }
+  }
+
+  &__decorative {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    align-items: center;
+    width: 18px;
+    gap: 18px;
+    transform: rotate(180deg);
+
+    &-cross {
+      display: block;
+      content: "";
+      width: 12px;
+      height: 12px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      background-image: url(../images/icon/cross.svg);
+      transition: transform 0.3s;
+    }
+
+    &:hover > &-cross {
+      transform: rotate(90deg);
+      transition: transform 0.3s;
+    }
+
+    &-text {
+      text-decoration: none;
+      writing-mode: vertical-rl;
+      @extend %manrope-400;
+      font-size: 12px;
+      line-height: 150%;
+      display: flex;
+      align-items: flex-end;
+      text-transform: uppercase;
+      color: #f8f8f8;
+      gap: 5px;
+
+      &::before {
+        display: block;
+        content: "";
+        background-color: #fff;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 1px;
+        height: 44px;
+      }
+    }
+  }
+}

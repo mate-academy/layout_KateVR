@@ -1,0 +1,147 @@
+.about {
+  background-image: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+
+  padding: 50px 0;
+
+  @include onTablet {
+    padding: 70px 0;
+  }
+
+  @include onDesktop {
+    padding: 100px 0;
+  }
+
+  @include onLargeScreen {
+    padding: 164px 0;
+  }
+
+  &__container-video {
+
+    &-title {
+      display: none;
+      @include onTablet {
+        display: flex;
+      }
+      @extend %inter-900;
+      flex-direction: row;
+      font-size: 21px;
+      line-height: 25px;
+      gap: 5px;
+      color: #fff;
+
+      &--span {
+        @extend %inter-400;
+        font-weight: 400;
+        font-size: 21px;
+        line-height: 25px;
+        color: $c-blue;
+      }
+
+      &--mobile {
+        display: flex;
+        margin-bottom: 20px;
+        @include onTablet {
+          display: none;
+        }
+      }
+    }
+
+    &-frame {
+      width: 280px;
+      height: 189px;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+
+    &-nav {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+
+      &-dot {
+        border: none;
+        outline: none;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: #484848;
+
+        &--active {
+          background-color: #ababab;
+        }
+
+        margin-bottom: 20px;
+      }
+    }
+
+    &-text {
+      @extend %inter-400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #929292;
+      margin-bottom: 40px;
+    }
+
+    &-playbutton {
+      display: block;
+      content: "";
+      background-color: transparent;
+      border: none;
+      outline: none;
+      background-image: url(../images/Icons/play-button-b.svg);
+      background-repeat: no-repeat;
+      background-position: left center;
+      background-size: contain;
+      width: 100%;
+      height: 66px;
+      margin-bottom: 79px;
+
+      &:hover {
+        background-image: url(../images/Icons/play-button-w.svg);
+      }
+    }
+
+  }
+
+  &__container-info {
+    position: relative;
+
+    &-title-span {
+      @extend %inter-400;
+      font-size: 14px;
+      line-height: 17px;
+      color: #05c2df;
+      margin-bottom: 10px;
+    }
+
+    &-title {
+      display: block;
+      content: "";
+      width: 205px;
+      height: 25px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      background-image: url(../images/Icons/meet.svg);
+      margin-bottom: 20px;
+    }
+
+    &-text {
+      @extend %inter-400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #929292;
+    }
+
+    &-image {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+  }
+}

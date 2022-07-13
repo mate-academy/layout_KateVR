@@ -1,0 +1,109 @@
+.bottom-actions {
+  display: none;
+  z-index: 1;
+  margin-bottom: 84px;
+
+  @include onLargeScreen {
+    margin-bottom: 107px;
+  }
+
+  @include onDesktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    width: 207px;
+
+    &-link {
+      @extend %inter-500;
+      font-size: 16px;
+      line-height: 150%;
+      color: #fff;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $c-blue;
+        transition: all 0.3s;
+      }
+    }
+
+  }
+
+  &__more {
+    @extend %inter-500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-blue;
+    transition: all 0.3s;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    outline: none;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 9px;
+      height: 6px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      background-image: url(../images/Icons/Polygon.svg);
+    }
+
+    &:hover {
+      color: #fff;
+      transition: all 0.3s;
+
+      &::after {
+        background-image: url(../images/Icons/Polygon-w.svg);
+      }
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: row;
+    gap: 100px;
+    padding-bottom: 10px;
+    position: relative;
+
+    border-bottom: 1px solid #212121;
+
+    &::before {
+      position: absolute;
+      background: $c-blue;
+      height: 1px;
+      content: "";
+      width: 70px;
+      bottom: 0;
+      left: 0;
+    }
+
+    &-link {
+      text-decoration: none;
+      @extend %inter-500;
+      font-size: 16px;
+      line-height: 150%;
+      color: #fff;
+      transition: all 0.3s;
+
+      &:first-child {
+        color: #929292;
+      }
+
+      &:hover {
+        color: $c-blue;
+        transition: all 0.3s;
+      }
+    }
+  }
+}

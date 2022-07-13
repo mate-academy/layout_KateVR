@@ -1,0 +1,151 @@
+.top-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  z-index: 1;
+
+  @include onTablet {
+    padding-bottom: 55px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 116px;
+  }
+
+  @include onLargeScreen {
+    padding-bottom: 246px;
+  }
+
+  &__logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__logo {
+    display: block;
+    content: "";
+    background-image: url(../images/Icons/logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 51px;
+    height: 12px;
+
+    @include onTablet {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include onDesktop {
+      height: 16px;
+      width: 78px;
+    }
+  }
+
+  &__lang {
+    display: none;
+    @extend %inter-500;
+
+    @include onDesktop {
+      display: grid;
+      flex-direction: row;
+      border: none;
+      background: transparent;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      cursor: pointer;
+      color: $c-blue;
+      font-size: 16px;
+      line-height: 130%;
+      outline: none;
+      grid-template-areas: "select";
+      align-items: center;
+      position: relative;
+      width: 40px;
+
+      background-image: url(../images/Icons/Polygon.svg);
+      background-repeat: no-repeat;
+      background-size: 9px;
+      background-position: 30px 10px;
+
+      &:hover {
+        color: #fff;
+        background-image: url(../images/Icons/Polygon-w.svg);
+      }
+    }
+
+    &-option {
+      background-color: $c-background;
+      color: #fff;
+    }
+  }
+
+  &__nav-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 37px;
+  }
+
+  &__nav {
+
+    &-list {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: row;
+        gap: 36px;
+      }
+
+    }
+
+    &-link {
+      text-decoration: none;
+      @extend %inter-500;
+      font-size: 16px;
+      line-height: 130%;
+      color: #fff;
+
+      &:hover {
+        color: $c-blue;
+      }
+    }
+
+    &-button {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+        width: 200px;
+        height: 48px;
+        border-radius: 4px;
+      }
+    }
+
+    &-menu {
+      display: block;
+      content: "";
+      background-image: url(../images/Icons/menu-w.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 20px;
+      height: 10px;
+
+      @include onTablet {
+        width: 32px;
+        height: 14px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+}
