@@ -1,0 +1,28 @@
+.home-arrow {
+  position: fixed;
+  right: 30px;
+  bottom: 180px;
+  opacity: 0;
+  z-index: 4;
+  pointer-events: none;
+  transition: opacity 1s;
+
+  @include onTablet {
+    right: 50px;
+    bottom: 100px;
+  }
+
+  @include onDesktop {
+    right: 100px;
+    bottom: 80px;
+  }
+
+  &__img {
+    border-radius: 50%;
+    @include hover(transform, scale(0.9));
+
+    &:hover {
+      box-shadow: -2px -2px 4px $blue;
+    }
+  }
+}

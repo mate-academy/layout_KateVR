@@ -1,0 +1,85 @@
+.help {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (max-width: 322px) {
+    gap: 18px;
+  }
+
+  @media (max-height: 300px) and (orientation: landscape) {
+    gap: 5px;
+  }
+
+  &__title {
+    text-transform: uppercase;
+  }
+
+  &__info-text:first-child {
+    margin-bottom: 24px;
+
+    @media (max-width: 322px) {
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 700px) and (orientation: landscape) {
+      margin-bottom: 5px;
+    }
+
+    @media (max-height: 450px) and (orientation: landscape) {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @media (max-width: 322px) {
+      gap: 18px;
+    }
+
+    @media (max-height: 450px) and (orientation: landscape) {
+      flex-direction: row;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @media (max-width: 320px) {
+      gap: 10px;
+    }
+
+    @media (max-width: 700px) and (orientation: landscape) {
+      gap: 5px;
+    }
+
+    @media (max-height: 450px) and (orientation: landscape) {
+      gap: 5px;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    @media (max-width: 320px) {
+      gap: 6px;
+    }
+
+    @media (max-width: 700px) and (orientation: landscape) {
+      gap: 5px;
+    }
+  }
+
+  &__link {
+    color: $grey;
+
+    @include hover(color, #fff);
+  }
+}

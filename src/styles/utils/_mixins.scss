@@ -4,3 +4,49 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onFullHd {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin menu($side) {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  transform: translateX($side);
+  transition: transform 0.5s;
+
+  &:target {
+    transform: translateX(0);
+  }
+}
+
+@mixin padding {
+  @include onTablet {
+    padding: 30px 34px;
+  }
+
+  @include onDesktop {
+    padding: 45px 110px 85px;
+  }
+
+  @include onFullHd {
+    padding: 45px 230px 110px;
+  }
+}

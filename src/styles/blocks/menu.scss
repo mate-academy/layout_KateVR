@@ -1,0 +1,94 @@
+.menu {
+  z-index: 3;
+
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+
+  @media (max-width: 767px) {
+    background: $back-nav-mob;
+    padding: 20px 18px;
+  }
+
+  @include padding;
+
+  &__content {
+    box-sizing: border-box;
+
+    background: $back-nav-mob;
+    height: 100vh;
+    z-index: 3;
+
+    @include padding;
+
+    @include onTablet {
+      padding: 30px 34px;
+      height: auto;
+      background: $back-nav-mob;
+    }
+
+    &--transparent {
+      z-index: 4;
+      background: rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  &__top {
+    margin-bottom: 38px;
+
+    @media (max-width: 350px) {
+      margin-bottom: 20px;
+    }
+
+    @media (max-width: 700px) and (orientation: landscape) {
+      margin-bottom: 10px;
+    }
+
+    @media (max-height: 450px) and (orientation: landscape) {
+      margin-bottom: 10px;
+    }
+
+    @media (max-height: 300px) and (orientation: landscape) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__item {
+    padding-left: 20px;
+    margin: 0;
+
+    @include hover(background, $back-nav-mob-hover);
+  }
+
+  &__link {
+    display: inline-block;
+    margin: 0;
+    padding: 11px 0;
+    width: 100%;
+
+    font-family: inherit;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 130%;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $blue;
+    }
+
+    @media (max-height: 450px) and (orientation: landscape) {
+      padding: 4px 0;
+    }
+
+    @media (max-height: 300px) and (orientation: landscape) {
+      padding: 0;
+    }
+  }
+}

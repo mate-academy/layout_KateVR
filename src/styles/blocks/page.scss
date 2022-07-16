@@ -1,0 +1,67 @@
+.page {
+  font-family: "Inter", sans-serif;
+  color: #fff;
+  scroll-behavior: smooth;
+
+  &__body {
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu {
+    @include menu(100%);
+  }
+
+  &__language {
+    @include menu(-100%);
+  }
+
+  &__help {
+    @include menu(-100%);
+  }
+
+  &__video {
+    @include menu(-100%);
+  }
+
+  &__section {
+    padding: 50px 20px;
+
+    @include onTablet {
+      padding: 70px 34px;
+    }
+
+    @include onDesktop {
+      padding: 100px 110px;
+    }
+
+    @include onFullHd {
+      padding: 160px 230px;
+    }
+
+    &--black {
+      background-color: $black;
+    }
+
+    &--gradient {
+      background: $background-gradient;
+    }
+  }
+
+  &__footer {
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 34px;
+    }
+
+    @include onDesktop {
+      padding: 0 110px;
+    }
+
+    @include onFullHd {
+      padding: 0 230px;
+    }
+  }
+}

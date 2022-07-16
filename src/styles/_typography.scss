@@ -1,3 +1,40 @@
 h1 {
-  @extend %h1;
+  @extend %h1-mob;
+
+  @include onDesktop {
+    font-size: 46px;
+    font-weight: 900;
+    line-height: 130%;
+  }
+}
+
+h2 {
+  @extend %h2-mob;
+
+  @include onDesktop {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 900;
+  }
+}
+
+h3 {
+  @extend %h3;
+}
+
+h4 {
+  @extend %h4;
+}
+
+p {
+  @extend %text-1;
+}
+
+.blue-text {
+  color: $blue;
+  font-weight: 400;
+
+  &--link {
+    @include hover(color, #fff);
+  }
 }
