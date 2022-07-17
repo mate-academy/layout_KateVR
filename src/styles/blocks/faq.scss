@@ -1,0 +1,103 @@
+.faq {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateY(-200%);
+  background-color: #191536;
+  transition: transform 1s;
+  overflow-y: scroll;
+
+  @include OnDesktop {
+    max-width: 1100px;
+    height: auto;
+    margin: 0 auto ;
+  }
+
+  &__active {
+    transform: translateY(0%);
+
+    @include OnDesktop {
+      transform: translateY(10%);
+    }
+  }
+
+  &__container {
+    margin: 0 20px;
+
+    @include OnTablet {
+      margin: 0 34px;
+    }
+
+    @include OnDesktop {
+      margin: 0 93px;
+    }
+  }
+
+  &__action {
+    display: flex;
+    justify-content: end;
+    padding-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+
+    @include OnTablet {
+      padding-top: 34px;
+      margin-bottom: 50px;
+      margin-right: 34px;
+    }
+
+    @include OnDesktop {
+      padding-top: 28px;
+      margin-bottom: 25px;
+      margin-right: 28px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    color: $c-white;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 130%;
+
+    @include OnDesktop {
+      margin-bottom: 37px;
+    }
+
+    &--color-part {
+      color: $c-contrast;
+      font-weight: 400;
+    }
+
+    &--br {
+      @include OnDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__questions {
+    margin-bottom: 15px;
+
+    &:last-child {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__help {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 50px;
+
+    &-text {
+      padding: 10px;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      color: $c-contrast;
+    }
+  }
+}

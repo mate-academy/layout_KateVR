@@ -1,0 +1,116 @@
+.about {
+  &--desktop {
+    display: none;
+
+    @include OnDesktop {
+      display: block;
+      text-align: end;
+    }
+  }
+
+  &__grid {
+    row-gap: 85px;
+
+    @include OnTablet {
+      row-gap: 100px;
+    }
+
+    @include OnDesktop {
+      row-gap: 220px;
+    }
+  }
+
+  &__img-counter {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-contrast;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left bottom;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    &--tablet {
+      display: none;
+
+      @include OnTablet {
+        display: block;
+        margin-bottom: 32px;
+      }
+    }
+
+    &--phone {
+      @include OnTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+
+    @include OnDesktop {
+      margin-bottom: 30px;
+
+      &:last-child {
+        margin-bottom: 225px;
+      }
+    }
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-contrast;
+    margin-bottom: 11px;
+    margin-top: 80px;
+
+    @include OnDesktop {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__vertical {
+    overflow: hidden;
+
+    &-wrap {
+      display: none;
+
+      @include OnTablet {
+        display: flex;
+        width: max-content;
+      }
+    }
+
+    &-text {
+      writing-mode: tb-rl;
+      width: max-content;
+      font-family: sans-serif;
+      white-space: nowrap;
+      color: transparent;
+      font-weight: 900;
+      font-size: 64px;
+      line-height: 130%;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px $c-contrast;
+
+      @for $i from 0 through 7 {
+        &:nth-child(n + #{$i}) {
+          opacity: calc(1 - #{0.2 * $i});
+        }
+      }
+
+      &:nth-child(2n) {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.nav {
+  display: none;
+  $gap: 32px;
+
+  @include OnDesktop {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    padding-right: -($gap / 2);
+  }
+
+  &__item {
+    &:last-child {
+      position: relative;
+      margin-left: ($gap / 2);
+      width: 200px;
+      height: 48px;
+    }
+  }
+
+  &__link {
+    padding: 0 ($gap / 2);
+
+    display: block;
+    line-height: 48px;
+
+    &--buy {
+      position: absolute;
+      display: flex;
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      justify-content: center;
+      align-items: center;
+      background-color: $c-contrast;
+      border-radius: 4px;
+    }
+  }
+}

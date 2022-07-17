@@ -1,0 +1,83 @@
+.using {
+  background-color: $c-background;
+
+  &__grid {
+    align-items: baseline;
+    gap: 20px;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+
+    @include OnTablet {
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    @include OnDesktop {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 30px;
+
+    @include OnTablet {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    @include OnDesktop {
+      margin-bottom: 70px;
+    }
+  }
+}
+
+.place {
+  cursor: pointer;
+
+  &__photo {
+    width: 100%;
+    grid-column: 2 / 4;
+    transition: transform $transition;
+  }
+
+  &:hover {
+    & .place__photo {
+      transform: scale(1.1);
+    }
+  }
+  &__photo--container {
+    display: none;
+
+    @include OnTablet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 24px;
+      margin-bottom: 28px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 11px;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+    color: $c-white;
+
+    @include OnTablet {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+
+  &__description {
+    margin-bottom: 20px;
+
+    @include OnTablet {
+      margin-bottom: 40px;
+      text-align: center;
+    }
+  }
+}

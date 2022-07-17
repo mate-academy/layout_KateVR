@@ -1,0 +1,146 @@
+.specs {
+  background-color: $c-background;
+
+  &__header {
+    margin-bottom: 50px;
+
+    @include OnDesktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    position: relative;
+    height: 600px;
+    background-image: url(../images/specs/side.png);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-size: contain;
+
+    @include OnDesktop {
+      background-image: url(../images/specs/side_short.png);
+      background-size: auto;
+    }
+
+    @include OnDesign {
+      background-image: url(../images/specs/side_wide.png);
+    }
+  }
+
+  &__name {
+    display: none;
+
+    @include OnDesktop {
+      display: block;
+      padding-bottom: 21px;
+      text-transform: uppercase;
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 22px;
+      color: $c-white;
+    }
+  }
+
+  &__list {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-text;
+  }
+
+  &__1 {
+    display: none;
+
+    @include OnDesktop {
+      display: flex;
+      justify-content: center;
+      margin-top: 110px;
+      margin-left: 40px;
+    }
+
+    &--active {
+      display: block;
+      position: absolute;
+      left: 25%;
+      top: 15%;
+      background-color: #191536;
+      padding: 10px;
+      border-radius: 4px;
+      z-index: 1;
+    }
+  }
+
+  &__2 {
+    display: none;
+
+    @include OnDesktop {
+      display: flex;
+      justify-content: center;
+      margin-top: 90px;
+    }
+
+    &--active {
+      display: block;
+      position: absolute;
+      left: 20%;
+      top: 80%;
+      background-color: #191536;
+      padding: 10px;
+      border-radius: 4px;
+      z-index: 1;
+    }
+  }
+
+  &__3 {
+    display: none;
+    @include OnDesktop {
+      display: flex;
+      justify-content: center;
+      white-space: nowrap;
+      margin-top: 100px;
+    }
+
+    &--active {
+      display: block;
+      position: absolute;
+      left: 25%;
+      top: 60%;
+      background-color: #191536;
+      padding: 10px;
+      border-radius: 4px;
+      z-index: 1;
+    }
+  }
+
+  &__link {
+    position: absolute;
+    display: inline-block;
+    width: 62px;
+    text-align: center;
+    line-height: 62px;
+    color: $c-white;
+    background-color: $c-contrast;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+
+    @include OnDesktop {
+      display: none;
+    }
+
+    &-first {
+      left: 25%;
+      top: 5%;
+    }
+
+    &-second {
+      left: 10%;
+      top: 80%;
+    }
+
+    &-third {
+      right: 10%;
+      top: 40%;
+    }
+  }
+}

@@ -1,0 +1,128 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    font-family: "Inter", sans-serif;
+    background-image: linear-gradient(100.83deg, #191536 0.67%, #000 100%);
+    margin: 0;
+  }
+
+  &__header {
+    margin-top: 20px;
+
+    @include OnTablet {
+      margin-top: 30px;
+    }
+
+    @include OnDesktop {
+      margin-top: 47px;
+      margin-bottom: 110px;
+    }
+  }
+
+  &__mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(-100%);
+    transition: transform $transition;
+
+    @include OnDesktop {
+      display: none;
+    }
+
+    &:target {
+      transform: translateX(0%);
+    }
+  }
+
+  &__section {
+    padding: 50px 0;
+
+    @include OnTablet {
+      padding: 70px 0;
+    }
+
+    @include OnDesktop {
+      padding: 100px 0;
+    }
+
+    @include OnFullHd {
+      padding: 160px 0;
+    }
+
+    &-title {
+      font-weight: 900;
+      font-size: 21px;
+      line-height: 25px;
+      color: $c-white;
+
+      @include OnDesktop {
+        font-size: 36px;
+        line-height: 44px;
+      }
+
+      &-colored {
+        font-weight: 400;
+        color: $c-contrast;
+      }
+    }
+
+    &-subtitle {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: $c-contrast;
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: $c-text;
+    }
+  }
+
+  &__buy {
+    display: none;
+    position: sticky;
+    bottom: 0;
+    padding: 30px 20px;
+    background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0.21) 0%,
+    rgba(4, 4, 4, 0.59) 23.44%, $c-background 100%);
+
+    &--visible {
+      display: block;
+
+      @include OnDesktop {
+        display: none;
+      }
+    }
+
+    &--mobile {
+      display: block;
+      max-width: 458px;
+      margin: 0 auto;
+      text-align: center;
+      height: 40px;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 40px;
+      border-radius: 4px;
+      color: $c-white;
+      background-color: $c-contrast;
+    }
+  }
+
+  &__footer {
+    padding-top: 43px;
+    padding-bottom: 43px;
+  }
+
+  &__stop-scroll {
+    height: 100%;
+    overflow: hidden;
+  }
+}

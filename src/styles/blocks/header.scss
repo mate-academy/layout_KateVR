@@ -1,0 +1,184 @@
+.header {
+  position: relative;
+
+  @include OnTablet {
+    background-image: url(../images/KATvr_main.png);
+    background-position: right top;
+    background-repeat: no-repeat;
+    background-size: 60%;
+  }
+
+  &__logo-language {
+    display: flex;
+    gap: 34px;
+  }
+
+  &__language {
+    display: none;
+
+    @include OnDesktop {
+      display: block;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__menu {
+    @include OnDesktop {
+      display: none;
+    }
+  }
+
+  &__img {
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
+
+    &-container {
+      height: 190px;
+      overflow: hidden;
+
+      @include OnTablet {
+        display: none;
+      }
+    }
+  }
+  &__title {
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 130%;
+    color: $c-white;
+    padding-bottom: 17px;
+
+    @include OnDesktop {
+      font-size: 54px;
+      padding-bottom: 35px;
+    }
+  }
+
+  &__color {
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 130%;
+    color: $c-contrast;
+
+    @include OnDesktop {
+      font-size: 54px;
+    }
+  }
+
+  &__p {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-text;
+    margin-bottom: 10px;
+
+    @include OnDesktop {
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__price {
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    color: $c-white;
+    margin-bottom: 35px;
+
+    @include OnTablet {
+      text-align: start;
+      font-size: 20px;
+    }
+  }
+
+  &__play {
+    position: relative;
+    transition: transform $transition;
+    transform-origin: left;
+    width: max-content;
+
+    &-button {
+      opacity: 0;
+      position: absolute;
+      left: 27px;
+      top: 24px;
+      transition: opacity $transition;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+
+      & .header__play-button {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__grid {
+    margin-bottom: 50px;
+
+    @include OnTablet {
+      margin-bottom: 70px;
+    }
+
+    @include OnDesktop {
+      margin-bottom: 200px;
+    }
+  }
+
+  &__faq-help {
+    display: flex;
+    gap: 40px;
+  }
+  &__faq {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-white;
+  }
+
+  &__more {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-contrast;
+  }
+
+  &__img-buttons {
+    display: flex;
+    gap: 110px;
+    border-bottom: 1px solid #212121;
+  }
+
+  &__img-button {
+    box-sizing: border-box;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-white;
+    padding-bottom: 10px;
+    border-bottom: 1px solid transparent;
+    transition: border-color $transition;
+
+    &:hover {
+      border-color: $c-contrast;
+    }
+  }
+
+  &__footer {
+    display: none;
+
+    @include OnDesktop {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
