@@ -5,6 +5,7 @@
   justify-content: space-between;
   padding-bottom: 14px;
   z-index: 1;
+  overflow-y: visible;
 
   @include onTablet {
     padding-bottom: 55px;
@@ -23,6 +24,10 @@
     flex-direction: row;
     align-items: center;
     gap: 35px;
+  }
+
+  &__langs {
+    position: relative;
   }
 
   &__logo {
@@ -51,41 +56,72 @@
     @extend %inter-500;
 
     @include onDesktop {
-      display: grid;
-      flex-direction: row;
-      border: none;
+      display: flex;
+      position: relative;
+      width: 16px;
+      height: 16px;
       background: transparent;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
       cursor: pointer;
       color: $c-blue;
       font-size: 16px;
       line-height: 130%;
-      outline: none;
-      grid-template-areas: "select";
-      align-items: center;
-      position: relative;
-      width: 40px;
 
-      background-image: url(../images/Icons/Polygon.svg);
-      background-repeat: no-repeat;
-      background-size: 9px;
-      background-position: 30px 10px;
+      &::after {
+        display: block;
+        position: absolute;
+        right: -15px;
+        bottom: 0;
+        content: "";
+        width: 9px;
+        height: 6px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom;
+        background-image: url(../images/Icons/Polygon.svg);
+      }
 
       &:hover {
         color: #fff;
-        background-image: url(../images/Icons/Polygon-w.svg);
+
+        &::after {
+          background-image: url(../images/Icons/Polygon-w.svg);
+        }
       }
+
     }
 
-    &-option {
-      background-color: $c-background;
-      color: #fff;
+    &-container {
+      display: none;
+      gap: 10px;
+      flex-direction: column;
+      width: 35px;
+      height: 90px;
+      overflow: scroll;
+      position: absolute;
+      top: 25px;
+      background-color: #191536;
+      border-radius: 4px;
+
+      &:hover {
+        color: #fff;
+      }
+
+      &-langs {
+        @extend %inter-500;
+        cursor: pointer;
+        color: $c-blue;
+        font-size: 16px;
+        line-height: 130%;
+
+        &:hover {
+          color: #fff;
+        }
+      }
     }
   }
 
   &__nav-container {
+    bottom: -14px;
     display: flex;
     flex-direction: row;
     align-items: center;

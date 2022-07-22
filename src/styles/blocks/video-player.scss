@@ -1,9 +1,67 @@
 .video-player {
-  width: 280px;
-  height: 198px;
+  display: none;
+
+  @include onDesktop {
+    display: block;
+    width: 430px;
+    height: 290px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  @include onLargeScreen {
+    width: 622px;
+    height: 290px;
+  }
+
+  &--mobile {
+    width: 100%;
+    min-width: 280px;
+    height: 198px;
+    overflow: hidden;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      width: 100%;
+      height: 270px;
+      min-width: 340px;
+      max-width: 44vw;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
 
   &__frame {
-    width: 280px;
+    width: 100%;
     height: 198px;
+    border: none;
+    outline: none;
+
+    @include onDesktop {
+      width: 430px;
+      height: 290px;
+    }
+
+    @include onLargeScreen {
+      width: 622px;
+      height: 290px;
+    }
+
+    &--mob {
+      width: 100%;
+      height: 198px;
+      min-width: 280px;
+      border: none;
+      outline: none;
+      object-fit: cover;
+
+      @include onTablet {
+        width: 100%;
+        min-width: 340px;
+        height: 270px;
+      }
+    }
   }
 }

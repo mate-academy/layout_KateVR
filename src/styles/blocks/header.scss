@@ -10,6 +10,15 @@
     flex-direction: column-reverse;
     position: relative;
 
+    &--2 {
+      display: none;
+
+      @include onDesktop {
+        display: none;
+      }
+
+    }
+
     @include onTablet {
       flex-direction: row;
     }
@@ -135,9 +144,40 @@
       }
 
       &-button {
+        width: 280px;
+        transition: all 0.3s ease;
+
         @include onTablet {
           display: none;
         }
+
+        &--sticky {
+          position: fixed;
+          bottom: 10px;
+          left: 50%;
+          transform: translate(-50%);
+          z-index: 50;
+          transition: all 0.3s ease;
+
+          @include onTablet {
+            display: flex;
+            width: 458px;
+          }
+
+          @include onDesktop {
+            display: none;
+          }
+
+          &-2 {
+            bottom: 220px;
+            transition: all 0.3s ease;
+
+            @include onTablet {
+              bottom: 70px;
+            }
+          }
+        }
+
       }
     }
 
@@ -171,6 +211,13 @@
         height: 688px;
         bottom: -42px;
         right: -80px;
+
+        &--2 {
+          background-image: url(../images/pic/image3.svg);
+
+          width: 400px;
+          right: 100px;
+        }
       }
 
       @include onLargeScreen {
@@ -178,6 +225,12 @@
         height: 988px;
         bottom: -42px;
         right: -80px;
+
+        &--2 {
+          background-image: url(../images/pic/image3.svg);
+          width: 600px;
+          right: 100px;
+        }
       }
     }
   }

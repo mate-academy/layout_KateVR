@@ -31,7 +31,6 @@
         transition: all 0.3s;
       }
     }
-
   }
 
   &__more {
@@ -75,18 +74,9 @@
     gap: 100px;
     padding-bottom: 10px;
     position: relative;
+    width: fit-content;
 
     border-bottom: 1px solid #212121;
-
-    &::before {
-      position: absolute;
-      background: $c-blue;
-      height: 1px;
-      content: "";
-      width: 70px;
-      bottom: 0;
-      left: 0;
-    }
 
     &-link {
       text-decoration: none;
@@ -96,13 +86,36 @@
       color: #fff;
       transition: all 0.3s;
 
-      &:first-child {
-        color: #929292;
-      }
-
       &:hover {
         color: $c-blue;
         transition: all 0.3s;
+
+        &::after {
+          position: absolute;
+          background: $c-blue;
+          height: 1px;
+          content: "";
+          width: 40px;
+          bottom: -1px;
+          left: unset;
+          right: 0;
+        }
+      }
+
+      &:first-child {
+        color: #929292;
+
+        &:hover {
+          &::after {
+            position: absolute;
+            background: $c-blue;
+            height: 1px;
+            content: "";
+            width: 75px;
+            bottom: -1px;
+            left: 0;
+          }
+        }
       }
     }
   }
