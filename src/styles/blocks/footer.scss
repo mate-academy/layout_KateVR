@@ -1,0 +1,125 @@
+.footer {
+  padding: 45px 20px 50px;
+
+  @include tablet {
+    padding: 25px 34px;
+  }
+
+  @include notebook {
+    padding: 43px 110px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__nav {
+    @include tablet {
+      display: flex;
+      flex-grow: 1;
+    }
+  }
+
+  &__logo {
+    &--image {
+      width: 69px;
+
+      @include notebook {
+        width: 72px;
+      }
+    }
+  }
+
+  &__menu {
+    margin-top: 15px;
+
+    @include tablet {
+      margin: 0 auto;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__item {
+    margin-bottom: 12px;
+
+    @include tablet {
+      margin: 0 42px 0 0;
+    }
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__link {
+    font-size: 13px;
+    line-height: 150%;
+
+    text-decoration: none;
+
+    color: #f2f2f2;
+
+    transition: 0.7s;
+
+    @include tablet {
+      font-size: 14px;
+    }
+
+    &:hover {
+      color: #05c2df;
+    }
+  }
+
+  &__contact-info {
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__contact-link {
+    margin-bottom: 12px;
+    font-size: 13px;
+    line-height: 16px;
+
+    text-decoration: none;
+
+    color: #929292;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+
+  &__social {
+    margin-top: 22px;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__social-media {
+    margin-right: 23px;
+    object-position: 50%;
+    object-fit: cover;
+    display: inline-block;
+
+    &:last-child {
+      margin: 0;
+    }
+  }
+}

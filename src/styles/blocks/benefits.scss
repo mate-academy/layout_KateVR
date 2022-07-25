@@ -1,0 +1,157 @@
+.benefits {
+  padding: 50px 20px;
+
+  @include tablet {
+    padding: 70px 34px;
+  }
+
+  @include notebook {
+    padding: 100px 110px;
+  }
+
+  &__container {
+    @include tablet {
+      max-width: 777px;
+      margin: 0 auto;
+    }
+
+    @include notebook {
+      max-width: 1220px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include tablet {
+      text-align: center;
+    }
+
+    @include notebook {
+      margin-bottom: 82px;
+    }
+
+    &--title {
+      margin: 0;
+      font-size: 21px;
+      line-height: 27px;
+      text-transform: uppercase;
+
+      color: #fff;
+
+      @include notebook {
+        font-size: 36px;
+        line-height: 46px;
+      }
+    }
+
+    &--title span {
+      color: #05c2df;
+      font-family: "Quantum", sans-serif;
+    }
+
+    &--content {
+      margin: 10px 0 0;
+      font-size: 12px;
+      line-height: 15px;
+
+      color: #05c2df;
+
+      @include notebook {
+        font-size: 14px;
+        line-height: 18px;
+      }
+    }
+  }
+}
+
+.benefit {
+  @include tablet {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: baseline;
+  }
+
+  @include notebook {
+    justify-content: space-between;
+    flex-wrap: unset;
+  }
+
+  &__item {
+    margin-bottom: 20px;
+
+    @include tablet {
+      max-width: 300px;
+      text-align: center;
+    }
+
+    @include notebook {
+      margin-bottom: 0;
+    }
+
+    &:nth-child(3) {
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--image {
+      display: none;
+      transition: 0.7s;
+
+      @include tablet {
+        display: unset;
+      }
+
+      &:hover {
+        transform: scale(1.3);
+      }
+    }
+
+    &--title {
+      margin: 0;
+      font-size: 16px;
+      line-height: 20px;
+      text-transform: uppercase;
+
+      color: #fff;
+
+      @include tablet {
+        margin: 22px 0 0;
+      }
+
+      @include notebook {
+        margin: 32px 0 0;
+      }
+    }
+
+    &--content {
+      margin: 10px 0 0;
+      font-size: 16px;
+      line-height: 150%;
+
+      color: #929292;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &--content-add {
+      margin: 10px 0 0;
+      font-size: 16px;
+      line-height: 150%;
+
+      color: #929292;
+
+      @include notebook {
+        width: 250px;
+        margin: 20px 0 0;
+      }
+    }
+  }
+}

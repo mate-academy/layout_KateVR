@@ -1,0 +1,274 @@
+.introduction {
+  display: flex;
+  flex-direction: column;
+
+  padding: 14px 20px 100px;
+
+  position: relative;
+
+  @include tablet {
+    display: block;
+    padding: 55px 34px 100px;
+  }
+
+  @include notebook {
+    padding: 114px 110px 84px;
+  }
+
+  &__container {
+    margin: 0 auto;
+    position: relative;
+
+    @include tablet {
+      max-width: 777px;
+    }
+
+    @include notebook {
+      max-width: 1220px;
+    }
+  }
+
+  &__image {
+    right: 30px;
+
+    @include tablet {
+      position: absolute;
+      right: -10px;
+    }
+
+    @include notebook {
+      top: -60px;
+      right: -130px;
+    }
+
+    &--photo {
+      width: 320px;
+      object-fit: contain;
+      object-position: center;
+
+      @include tablet {
+        width: 486px;
+      }
+
+      @include notebook {
+        width: 811px;
+      }
+    }
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    @include tablet {
+      display: unset;
+      text-align: unset;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 26px;
+    line-height: 130%;
+    color: #fff;
+
+    @include notebook {
+      font-size: 46px;
+    }
+  }
+
+  &__title span {
+    color: #05c2df;
+    font-family: "Quantum", sans-serif;
+  }
+
+  &__info {
+    @include notebook {
+      padding-left: 100px;
+    }
+  }
+
+  &__subtitle {
+    margin: 14px 0 0;
+    width: 280px;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: #929292;
+
+    @include tablet {
+      margin: 14px 0 0;
+    }
+
+    @include notebook {
+      width: 336px;
+    }
+  }
+
+  &__price {
+    margin: 8px 0 0;
+    font-size: 18px;
+    line-height: 23px;
+    color: #fff;
+
+    @include tablet {
+      margin: 8px 0 0;
+    }
+  }
+
+  &__button-play {
+    margin: 15px 0 0;
+    position: relative;
+    display: flex;
+
+    @include notebook {
+      margin: 19px 0 0;
+    }
+  
+    &--video {
+      background-image: url(../images/button.png);
+      width: 190px;
+      height: 66px;
+    }
+  
+    &--dash-top {
+      background-image: url(../images/dash.png);
+      width: 135px;
+      height: 2px;
+      position: absolute;
+      top: 12px;
+      left: 90px;
+    }
+  
+    &--dash-bottom {
+      background-image: url(../images/dash.png);
+      width: 135px;
+      height: 2px;
+      position: absolute;
+      bottom: 8px;
+      left: 90px;
+    }
+  }
+
+  &__button {
+    width: 280px;
+    height: 40px;
+
+    position: fixed;
+    top: 87%;
+    left: 50%;
+    z-index: 1;
+    transform: translateX(-50%);
+
+    margin: 23px auto 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #05c2df;
+    border-radius: 4px;
+
+    font-size: 14px;
+    line-height: 130%;
+    
+    text-decoration: none;
+
+    color: #fff;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include notebook {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 84px;
+    }
+  }
+
+  &__help {
+    &--link {
+      margin-right: 34px;
+      font-size: 16px;
+      line-height: 150%;
+
+      text-decoration: none;
+
+      color: #fff;
+
+      transition: 0.7s;
+
+      &:first-child {
+        text-transform: uppercase;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        color: #05c2df;
+      }
+    }
+  }
+
+  &__more {
+    position: relative;
+    font-size: 16px;
+    line-height: 150%;
+
+    text-decoration: none;
+
+    color: #05c2df;
+
+    &--arrow {
+      position: absolute;
+      right: 12px;
+      bottom: -7px;
+    }
+  }
+
+  &__buttons {
+    position: relative;
+    border-bottom: 1px solid #212121;
+    padding-bottom: 10px;
+
+    &--button {
+      padding: 0;
+      margin-right: 102px;
+
+      font-size: 16px;
+      line-height: 150%;
+      cursor: pointer;
+
+      border: none;
+      background-color: transparent;
+
+      color: #fff;
+
+      &:first-child {
+        &::after {
+          content: "";
+          display: block;
+          width: 69px;
+          position: absolute;
+          bottom: 1px;
+          border-bottom: 1px solid #05c2df;
+        }
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
