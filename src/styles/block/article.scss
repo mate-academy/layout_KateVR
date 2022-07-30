@@ -1,0 +1,56 @@
+.article {
+  &__title {
+    @extend %font__blocks-subtitle;
+    font-weight: 900;
+    line-height: 150%;
+    color: #fff;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    &--left {
+      text-align: left;
+    }
+  }
+
+  &__text {
+    color: $colorText;
+    @extend %font__blocks-text;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 160%;
+    overflow: hidden;
+
+    @for $index from 1 through 12 {
+      &--maxlines-#{$index} {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        height: 1.5em * $index;
+        -webkit-line-clamp: $index;
+
+        @include onTablet {
+          display: block;
+          height: fit-content;
+          text-align: center;
+        }
+      }
+
+      &--maxlines-tablet-#{$index} {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        height: 1.5em * $index;
+        -webkit-line-clamp: $index;
+
+        @include onNotebook {
+          display: block;
+          height: fit-content;
+          text-align: center;
+        }
+      }
+    }
+  }
+}

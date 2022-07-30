@@ -1,0 +1,65 @@
+.menu {
+  min-height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+
+  &__content {
+    padding-bottom: 128px;
+    height: 100vh;
+    padding-top: 15px;
+    background-color: #191536;
+    @include onTablet {
+      padding-top: 30px;
+      height: 50%;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    margin-bottom: 15px;
+
+  }
+
+  &__list {
+    width: 100vw;
+
+    @media (orientation: landscape) and (max-width: 1023px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 10px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 11px 22px;
+    color: #fff;
+
+    transition: 0.3s;
+
+    &:active {
+      background: #110e25;
+      color: $colorBlue;
+    }
+
+    @include onTablet {
+      padding-left: 152px;
+    }
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 130%;
+    color: inherit;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      color: $colorBlue;
+      transform: scale(1.3);
+    }
+  }
+}

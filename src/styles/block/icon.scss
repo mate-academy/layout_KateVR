@@ -1,0 +1,30 @@
+.icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  transition: transform 0.3s;
+
+  &:hover {
+    transform: scale(1.3);
+  }
+
+  @include onTablet {
+    width: 24px;
+    height: 24px;
+  }
+
+  &--menu {
+    background-image: url(../images/menu.svg);
+  }
+
+  &--cross {
+    @include onTablet {
+      height: 17px;
+    }
+    background-image: url(../images/close.svg);
+  }
+}

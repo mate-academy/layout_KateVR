@@ -1,0 +1,77 @@
+.more {
+  justify-content: center;
+  // width: 100%;
+
+  &__title {
+    @extend %font__blocks-title;
+    margin-bottom: 12px;
+
+    &-quantum {
+      font-family: "Quantum", sans-serif;
+      color: $colorBlue;
+    }
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onNotebook {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__subtitle {
+    @extend %font__blocks-subtitle;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onNotebook {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__item {
+    @include onTablet {
+      text-align: center;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      justify-self: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__content {
+    @extend %font__blocks-text;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__article {
+    margin-bottom: 20px;
+
+    &:active {
+      .more__content {
+        display: block;
+      }
+    }
+
+    &-title {
+      @extend %font__article-title;
+      margin-bottom: 11px;
+      text-transform: uppercase;
+    }
+  }
+}

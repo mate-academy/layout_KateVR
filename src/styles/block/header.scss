@@ -1,0 +1,157 @@
+.header {
+  padding: 15px 0 50px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  @include onTablet {
+    padding: 30px 0 60px;
+    min-height: 445px;
+  }
+
+  @include onNotebook {
+    padding: 47px 0 85px;
+    min-height: 100vh;
+  }
+
+  @include onDesctopFHD {
+    padding-bottom: 107px;
+  }
+
+  &__container {
+    @include onTablet {
+      background-size: 70%;
+      background-image: url("../images/product.png");
+      background-position: 115% center;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__top-menu {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__top-left {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+  }
+
+  &__more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @extend %font__header-text;
+    height: 35px;
+    gap: 5px;
+    color: $colorBlue;
+
+    transition: color 0.3s;
+
+    &::after {
+      display: block;
+      height: 6px;
+      width: 9px;
+      content: "";
+      background: url("../images/icons/more.svg") no-repeat;
+
+      transition: background-image, transform 0.3s;
+    }
+
+    &:hover {
+      color: #fff;
+      transform: scale(1.3);
+      &::after {
+        background: url("../images/icons/more--active.svg") no-repeat;
+      }
+    }
+  }
+
+  &__menu {
+    @include onNotebook {
+      display: none;
+    }
+  }
+
+  &__title {
+    @extend %font__header-title;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+
+    @include onNotebook {
+      font-size: 46px;
+    }
+
+    @include onDesctopFHD {
+      font-size: 54px;
+      margin-bottom: 30px;
+    }
+
+    &-quantum {
+      font-family: "Quantum", sans-serif;
+      color: $colorBlue;
+    }
+  }
+
+  &__paragraph {
+    display: block;
+    @extend %font__header-text;
+    margin-bottom: 10px;
+
+    @include onDesctopFHD {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__price {
+    @extend %font__header-price;
+    text-align: center;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      text-align: left;
+      margin-bottom: 20px;
+    }
+
+    @include onDesctopFHD {
+      line-height: 25px;
+      font-size: 20px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onNotebook {
+      display: block;
+    }
+  }
+
+  &__img-mobile {
+    min-width: 100vw;
+    object-fit: contain;
+    object-position: center;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    display: none;
+    width: 100%;
+
+    @include onNotebook {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 500;
+    }
+  }
+}

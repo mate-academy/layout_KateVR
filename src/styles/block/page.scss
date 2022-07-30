@@ -1,0 +1,88 @@
+.page {
+
+  &--with-menu {
+    overflow: hidden;
+  }
+
+  &--gradient {
+    background: $colorBgGradient;
+  }
+
+  &--dark {
+    background-color: $colorBgDark;
+  }
+
+  &__header {
+    margin-bottom: -2px;
+  }
+
+  &__section {
+    padding: 50px 0;
+    margin-bottom: -2px;
+
+    @include onTablet {
+      padding: 70px 0;
+    }
+
+    @include onNotebook {
+      padding: 100px 0;
+    }
+
+    @include onDesctopFHD {
+      padding: 160px 0;
+    }
+  }
+
+  &__benefits {
+    padding-bottom: 100px;
+    margin-bottom: -100px;
+
+    @include onTablet {
+      padding-bottom: 120px;
+      margin-bottom: -120px;
+    }
+
+    @include onNotebook {
+      margin-bottom: -2px;
+    }
+  }
+
+  &__button-container {
+    position: sticky;
+    display: flex;
+    z-index: 1;
+    bottom: 0;
+    padding: 10px 20px;
+    background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0.21) 0%,
+    rgba(4, 4, 4, 0.59) 23.44%,
+    #050505 100%);
+
+    @include onTablet {
+      justify-content: center;
+      padding: 30px 155px;
+    }
+
+    @include onNotebook {
+      display: none;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateY(-100%);
+    transition: transform 0.6s;
+
+    &:target {
+      transform: translateY(0);
+    }
+
+    @include onNotebook {
+      display: none;
+    }
+  }
+}

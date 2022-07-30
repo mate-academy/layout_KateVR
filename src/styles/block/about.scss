@@ -1,0 +1,151 @@
+.about {
+  &__video {
+    height: 189px;
+    width: 280px;
+
+    @include onTablet {
+      height: 270px;
+      width: 320px;
+    }
+
+    @include onNotebook {
+      height: 290px;
+      width: 430px;
+    }
+
+    @include onDesctopFHD {
+      width: 622px;
+    }
+  }
+
+  &__main {
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onTablet {
+      margin-bottom: 190px;
+    }
+  }
+
+  &__title {
+    @extend %font__blocks-title;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title-quantum {
+    @extend %font__blocks-title--quantum;
+  }
+
+  &__slider {
+    grid-row: 1 / 4;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__text {
+    line-height: 2em;
+    margin-bottom: 20px;
+    color: $colorText;
+  }
+
+  &__hello {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__comment {
+    @extend %font__blocks-subtitle;
+    color: $colorBlue;
+    margin-bottom: 10px;
+
+    @include onNotebook {
+      margin-bottom: 14px;
+    }
+  }
+
+  &__video-button {
+    margin-top: 15px;
+
+    @include onTablet {
+      margin-top: 20px;
+    }
+  }
+
+  &__fade {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__fade-item {
+    display: none;
+    @extend %font__fade;
+    padding-right: 4px;
+    color: transparent;
+    -webkit-text-stroke: 1px $colorBlue;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: center;
+    cursor: default;
+    text-transform: uppercase;
+
+    &:nth-child(2n) {
+      transform: rotate(180deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0.5;
+    }
+
+    &:nth-child(3) {
+      opacity: 0.2;
+    }
+
+    &:nth-child(4) {
+      opacity: 0.1;
+    }
+
+    &:nth-child(5) {
+      opacity: 0.05;
+    }
+
+    &:nth-child(6) {
+      opacity: 0.03;
+    }
+
+    &:nth-child(7) {
+      opacity: 0.02;
+    }
+
+    @include onTablet {
+      &:nth-child(-n + 3) {
+        display: block;
+      }
+    }
+
+    @include onNotebook {
+      font-size: 64px;
+      &:nth-child(-n + 5) {
+        display: block;
+      }
+    }
+
+    @include onDesctopFHD {
+      &:nth-child(n) {
+        display: block;
+      }
+    }
+  }
+}

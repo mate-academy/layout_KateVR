@@ -1,0 +1,54 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  @include onTablet {
+    flex-direction: row;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 34px;
+
+    &--footer {
+      flex-direction: column;
+      gap: 12px;
+
+      @include onTablet {
+        flex-direction: row;
+        gap: 41px;
+      }
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+
+    transition: color 0.3s, transform 0.3s;
+
+    &:hover {
+      color: $colorBlue;
+    }
+
+    &:active {
+      transform: scale(1.05);
+    }
+  }
+
+  &__link {
+    display: block;
+    color: #fff;
+    @extend %font__button;
+    text-decoration: none;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      color: $colorBlue;
+      transform: scale(1.3);
+    }
+  }
+}

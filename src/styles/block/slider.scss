@@ -1,0 +1,95 @@
+.slider {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  &__item {
+    max-width: 100%;
+    min-height: 189px;
+    margin-bottom: 14px;
+    object-position: left center;
+    object-fit: cover;
+    cursor: pointer;
+
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include onTablet {
+      height: 270px;
+    }
+
+    @include onNotebook {
+      height: 290px;
+    }
+  }
+
+  &__controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    align-items: center;
+
+    @include onNotebook {
+      margin-right: auto;
+      border-bottom: 1px solid #212121;
+      width: 207px;
+      justify-content: flex-start;
+    }
+  }
+
+  &__control-item {
+
+    transition: transform 0.3s, color 0.3s;
+
+    &--mobile {
+      padding: 0;
+      height: 8px;
+      width: 8px;
+      border: none;
+      border-radius: 50%;
+      background-color: #484848;
+
+      @include onNotebook {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onNotebook {
+        display: block;
+        background-color: transparent;
+        padding-bottom: 10px;
+        color: #fff;
+
+        &-middle {
+          height: 100%;
+          width: 102px;
+        }
+      }
+    }
+
+    &--active {
+      background-color: #ababab;
+
+      @include onNotebook {
+        background-color: transparent;
+        color: $colorText;
+        border-bottom: 1px solid $colorBlue;
+      }
+    }
+
+    &:not(.slider__control-item--active) {
+      cursor: pointer;
+    }
+
+    &:hover:not(.slider__control-item--active) {
+      transform: scale(1.05);
+      color: $colorBlue;
+    }
+  }
+}

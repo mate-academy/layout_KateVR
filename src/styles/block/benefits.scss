@@ -1,0 +1,64 @@
+.benefits {
+  &__title {
+    @extend %font__blocks-title;
+    margin-bottom: 32px;
+    text-transform: uppercase;
+
+    &--quantum {
+      @extend %font__blocks-title--quantum;
+    }
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onNotebook {
+      font-weight: 900;
+      font-size: 36px;
+      line-height: 100%;
+    }
+  }
+
+  &__item {
+    @include onTablet {
+      text-align: center;
+    }
+  }
+
+  &__imgs {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__article {
+    margin-bottom: 20px;
+  }
+
+  &__subtitle {
+    @extend %font__article-title;
+    font-size: 14px;
+    margin-bottom: 11px;
+    text-transform: uppercase;
+  }
+
+  &__content {
+    @extend %font__blocks-text;
+
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__compatible {
+    direction: ltr;
+    max-width: 800px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
