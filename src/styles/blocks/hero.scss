@@ -1,0 +1,149 @@
+.hero {
+  &__container {
+    padding-bottom: 71px;
+    @include on1280 {
+      padding-bottom: 84px;
+    }
+    @include on1920 {
+      padding-bottom: 107px;
+    }
+  }
+  &__title {
+    display: block;
+    margin-bottom: 17px;
+    @include on1280 {
+      margin-bottom: 20px;
+    }
+    @include on1920 {
+      margin-bottom: 35px;
+    }
+  }
+  &__light {
+    display: inline;
+  }
+  &__img {
+    position: relative;
+    // left: 50%;
+    right: 10%;
+    max-width: 100%;
+    max-height: 595px;
+    @include on768 {
+      left: 15%;
+    }
+    &--fit {
+      object-fit: cover;
+    }
+  }
+  &__discripton {
+    margin-bottom: 8px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-gl;
+    @include on768 {
+      margin-bottom: 10px;
+    }
+    @include on1280 {
+      margin-bottom: 5px;
+    }
+    @include on1920 {
+      margin-bottom: 30px;
+    }
+  }
+  &__cost {
+    margin-bottom: 25px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: $c-w;
+    @include on768 {
+      margin-bottom: 33px;
+    }
+    @include on1280 {
+      margin-bottom: 30px;
+    }
+    @include on1920 {
+      margin-bottom: 45px;
+    }
+  }
+  &__button-play {
+    @include on1280 {
+      margin-bottom: 84px;
+    }
+    @include on1920 {
+      margin-bottom: 212px;
+    }
+  }
+  &__button-container {
+    padding: 0 20px;
+    width: 100vw;
+    height: 112px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: $gradient-4;
+    position: fixed;
+    bottom: 30%;
+    left: 0;
+    right: 0;
+    @include on1280 {
+      display: none;
+    }
+  }
+  &__button {
+    opacity: 1;
+    padding: 0;
+    min-width: 280px;
+    @include on768 {
+      max-width: 458px;
+      height: 48px;
+    }
+    @include on1280 {
+      display: none;
+    }
+  }
+
+  &__nav-bottom {
+    display: none;
+    width: 100%;
+    height: 40px;
+    justify-content: space-between;
+    align-items: flex-start;
+    @include on1280 {
+      display: flex;
+    }
+  }
+  &__help {
+    width: 106px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__slider {
+    width: 207px;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__choices {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      left: 44%;
+      bottom: -20px;
+      max-width: 5px;
+      max-height: 5px;
+      border: 5px solid transparent;
+      border-top: 5px solid $c-b;
+      transition: all 0.4s ease-in-out;
+    }
+    &:hover::after {
+      border-top: 5px solid $c-w;
+    }
+  }
+  &__link {
+    &:hover,
+    &:focus {
+      border-bottom: 1px solid $c-b;
+    }
+  }
+}

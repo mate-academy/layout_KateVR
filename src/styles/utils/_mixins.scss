@@ -1,6 +1,73 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} 0.4s;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+@mixin transition {
+  transition: all 0.4s ease-in-out;
+}
+
+@mixin square($icon) {
+  width: $icon;
+  height: $icon;
+}
+@mixin on640 {
+  @media (min-width: 640px) {
+    @content;
+  }
+}
+@mixin on768 {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on1280 {
+  @media (min-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin on1920 {
+  @media (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin grid-min {
+  @for $start from 1 through 6 {
+    @for $end from $start through 6 {
+      &--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}
+@mixin grid {
+  @for $start from 1 through 12 {
+    @for $end from $start through 12 {
+      &--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}
+@mixin grid-max {
+  @for $start from 1 through 16 {
+    @for $end from $start through 16 {
+      &--#{$start}-#{$end} {
+        grid-column: #{$start} / #{$end + 1};
+      }
+    }
+  }
+}
+@mixin gridRow {
+  @for $start from 1 through 5 {
+    @for $end from $start through 5 {
+      &--#{$start}-#{$end} {
+        grid-row: #{$start} / #{$end + 1};
+      }
+    }
   }
 }

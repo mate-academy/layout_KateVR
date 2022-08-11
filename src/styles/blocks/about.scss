@@ -1,0 +1,162 @@
+.about {
+  // height: 100vh;
+  background: $gradient-2;
+  &__container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    @include on768 {
+      padding-top: 70px;
+    }
+    @include on1280 {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    @include on1920 {
+      padding-top: 150px;
+      padding-bottom: 150px;
+    }
+  }
+  &__card {
+    display: flex;
+    margin-bottom: 20px;
+    @include on768 {
+      margin-bottom: 84px;
+    }
+    @include on1280 {
+      margin-bottom: 183px;
+    }
+    @include on1920 {
+      margin-bottom: 175px;
+    }
+  }
+  &__counter-box {
+    display: none;
+    min-width: 70px;
+    margin-right: 23px;
+    padding-left: 40px;
+    @include on1280 {
+      display: inline-block;
+    }
+  }
+  &__counter {
+    display: inline-block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-b;
+  }
+  &__button {
+    margin-bottom: 80px;
+    @include on768 {
+      margin-bottom: 0;
+    }
+  }
+  &__slider {
+    display: none;
+    @include on1280 {
+      display: flex;
+    }
+  }
+  &__slider-dots {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 44px;
+    height: 4px;
+    @include on1280 {
+      display: none;
+    }
+  }
+  &__slider-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: $c-gd;
+  }
+  &__slider-dot--active {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: $c-w;
+  }
+  &__title {
+    &--text {
+      @include on1920 {
+        display: none;
+      }
+    }
+    &--img {
+      margin-bottom: 30px;
+      display: none;
+      width: 100%;
+      height: 25px;
+      background-image: url(../images/icons/nice.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left;
+      @include on1920 {
+        display: block;
+      }
+    }
+    &--up {
+      display: block;
+      margin-bottom: 20px;
+      @include on768 {
+        display: none;
+      }
+    }
+    &--down {
+      display: none;
+      @include on768 {
+        display: block;
+      }
+    }
+  }
+  &__video {
+    margin-bottom: 15px;
+    width: 100%;
+    min-height: 190px;
+    @include on768 {
+      min-height: 270px;
+    }
+    @include on1280 {
+      min-height: 290px;
+    }
+    &--fit {
+      object-fit: cover;
+    }
+  }
+  &__discription {
+    margin-bottom: 45px;
+    @include on768 {
+      margin-bottom: 30px;
+    }
+  }
+  &__subtitle {
+    margin-bottom: 11px;
+    @include on768 {
+      margin-top: 22px;
+      margin-bottom: 15px;
+    }
+    @include on1280 {
+      margin-top: 42px;
+    }
+  }
+  &__greeting-img {
+    @include on768 {
+      width: auto;
+      min-height: 260px;
+      background-image: url(../images/icons/about.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left center;
+    }
+    @include on1280 {
+      min-height: 340px;
+    }
+    @include on1280 {
+      min-height: 350px;
+    }
+  }
+}
