@@ -1,0 +1,204 @@
+.tech {
+  padding: 120px 20px 50px;
+  background-color: $colorBlack;
+
+  @include onTablet {
+    padding: 165px 32px 80px;
+  }
+
+  @include onDesktop {
+    padding: 285px 112px 100px;
+  }
+
+  &__title-container {
+    position: relative;
+    top: -35%;
+    left: -20%;
+
+    @include onTablet {
+      top: -20%;
+      left: -49%;
+    }
+
+    @include onDesktop {
+      top: -50%;
+      left: 120%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 40px;
+    @extend %headline2-mobile;
+
+    @include onTablet {
+      margin-bottom: 57px;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+    }
+
+    &-quantum {
+      font-family: Quantum, sans-serif;
+      color: $colorContrast;
+    }
+  }
+
+  &__img {
+    position: relative;
+
+    display: block;
+    margin: 0 auto;
+
+    width: 197px;
+    height: 197px;
+    background-image: url(../images/img-tech.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      width: 357px;
+      height: 357px;
+    }
+
+    @include onDesktop {
+      width: 297px;
+      height: 297px;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: -5%;
+
+      display: none;
+      width: 40px;
+      height: 201px;
+
+      background-image: url(../images/img-tech-decor.svg);
+
+      transform: rotate(4deg);
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+
+      display: block;
+      width: 34px;
+      height: 34px;
+
+      background-image: url(../images/icon-plus.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      @include onTablet {
+        width: 62px;
+        height: 62px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+
+      &--1 {
+        top: -5%;
+        left: 30%;
+      }
+
+      &--2 {
+        top: 40%;
+        left: 67%;
+      }
+
+      &--3 {
+        top: 75%;
+        left: -10%;
+      }
+    }
+
+    &-line {
+      position: absolute;
+
+      display: none;
+
+      background-image: url(../images/icon-plus.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      @include onDesktop {
+        display: block;
+      }
+
+      &--1 {
+        top: -18%;
+        left: -86%;
+        width: 403px;
+        height: 72px;
+
+        background-image: url(../images/line-1.svg);
+      }
+
+      &--2 {
+        top: -18%;
+        left: 51%;
+
+        width: 192px;
+        height: 245px;
+
+        background-image: url(../images/line-2.svg);
+      }
+
+      &--3 {
+        top: 20%;
+        left: -50%;
+
+        width: 134px;
+        height: 113px;
+        background-image: url(../images/line-3.svg);
+      }
+    }
+  }
+
+  &__text-container {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &--1 {
+      position: absolute;
+      top: -21%;
+      left: -115%;
+    }
+
+    &--2 {
+      position: absolute;
+      width: 344px;
+      top: -21%;
+      left: 122%;
+    }
+
+    &--3 {
+      position: absolute;
+      top: 54%;
+      left: -97%;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 20px;
+
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+  }
+}

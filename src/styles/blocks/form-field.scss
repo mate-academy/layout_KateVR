@@ -1,0 +1,90 @@
+.form {
+  position: relative;
+  width: 280px;
+
+  @include onTablet {
+    width: 340px;
+  }
+
+  @include onDesktop {
+    width: 520px;
+  }
+
+  &__form-field {
+    display: flex;
+    justify-content: center;
+
+    margin-bottom: 25px;
+    padding: 3px 0 20px;
+    width: 100%;
+
+    font-family: inherit;
+    color: #fff;
+    border: none;
+    border-bottom: 1px solid $colorGrey;
+    background-color: $colorBlack;
+    outline: none;
+    caret-color: $colorContrast;
+
+    transition: border-color 0.3s;
+
+    &--textarea {
+      padding-bottom: 70px;
+      resize: none;
+    }
+
+    &::placeholder {
+      transition: color 0.3s;
+    }
+
+    &:focus {
+      &::placeholder {
+        color: $colorContrast;
+      }
+
+      border-color: $colorContrast;
+    }
+  }
+
+  &__textarea {
+    margin-bottom: 30px;
+  }
+
+  &__button {
+    position: relative;
+    margin-bottom: 30px;
+    width: 280px;
+
+    @include onTablet {
+      width: 200px;
+    }
+  }
+
+  &__button-up {
+    position: absolute;
+    display: none;
+
+    width: 48px;
+    height: 48px;
+
+    background-image: url(../images/icon-up.svg);
+    background-position: center;
+    background-size: contain;
+
+    transition: background-image 0.3s;
+
+    @include onTablet {
+      display: block;
+      left: 87%;
+      top: 81%;
+    }
+
+    @include onDesktop {
+      left: 91%;
+    }
+
+    &:hover {
+      background-image: url(../images/icon-up-hover.svg);
+    }
+  }
+}

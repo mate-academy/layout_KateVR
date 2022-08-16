@@ -1,0 +1,120 @@
+.benefits {
+  background-color: $colorBlack;
+  padding: 50px 20px 30px;
+
+  @include onTablet {
+    padding: 70px 35px 30px;
+    text-align: center;
+  }
+
+  @include onDesktop {
+    padding: 100px 110px;
+    text-align: center;
+  }
+
+  &__container {
+    max-width: 320px;
+    margin: 0 auto;
+
+    @include onTablet {
+      max-width: 1450px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 12px;
+
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: #fff;
+
+    &-text {
+      margin-bottom: 30px;
+
+      font-size: 12px;
+      line-height: 15px;
+      color: $colorContrast;
+
+      @include onDesktop {
+        margin-bottom: 83px;
+      }
+    }
+
+    &-quantum {
+      font-family: Quantum, sans-serif;
+      color: $colorContrast;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+    }
+  }
+
+  &__subtitle {
+    margin: 0 auto 10px;
+    width: max-content;
+
+    @extend %headline3;
+    text-transform: uppercase;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 20px;
+    }
+
+    &-text {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 40px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__img {
+    display: none;
+
+    margin-bottom: 22px;
+
+    width: 98px;
+    height: 81px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      display: inline-block;
+    }
+
+    @include onDesktop {
+      margin-bottom: 32px;
+
+    }
+
+    &--education {
+      background-image: url(../images/img-education.svg);
+    }
+
+    &--real-estate {
+      background-image: url(../images/img-real-estate.svg);
+    }
+
+    &--fitness {
+      background-image: url(../images/img-fitness.svg);
+    }
+
+    &--social {
+      background-image: url(../images/img-social.svg);
+    }
+  }
+}

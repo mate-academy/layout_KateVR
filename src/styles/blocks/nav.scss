@@ -1,0 +1,54 @@
+.nav {
+  display: none;
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+
+    &--footer {
+      flex-direction: column;
+      gap: 12px;
+      align-items: flex-start;
+
+      @include onTablet {
+        flex-direction: row;
+        gap: 45px;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    color: #fff;
+    text-decoration: none;
+
+    transition: color 0.3s;
+
+    &--footer {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 20px;
+    }
+
+    &:hover {
+      color: $colorContrast;
+    }
+
+    &:active {
+      color: #191536;
+    }
+  }
+
+  &__button {
+    margin-left: 35px;
+  }
+
+  @include onDesktop {
+    display: flex;
+  }
+}

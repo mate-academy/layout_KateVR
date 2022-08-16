@@ -1,0 +1,37 @@
+.contact-info {
+  display: none;
+
+  @include onTablet {
+    display: inline-block;
+  }
+
+  &__text {
+    display: none;
+    width: max-content;
+    margin-bottom: 75px;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__link {
+    margin-bottom: 8px;
+    text-decoration: none;
+    @extend %text1;
+
+    transition: color 0.3s;
+
+    &:first-child {
+      margin-bottom: 11px;
+    }
+
+    &--footer {
+      font-size: 13px;
+    }
+
+    &:hover {
+      color: $colorContrast;
+    }
+  }
+}

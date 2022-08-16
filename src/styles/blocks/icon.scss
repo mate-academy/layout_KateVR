@@ -1,0 +1,89 @@
+.icon {
+  display: block;
+  width: 18px;
+  height: 18px;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  transition: transform 0.2s, background-image 0.3s;
+
+  &--menu {
+    width: 20px;
+    height: 20px;
+    background-image: url(../images/icon-menu.svg);
+
+    @include onTablet {
+      width: 29px;
+      height: 13px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:hover {
+      background-image: url(../images/icon-menu-hover.svg);
+    }
+  }
+
+  &--menu-cross {
+    background-image: url(../images/icon-cross.svg);
+
+    &:hover {
+      background-image: url(../images/icon-cross-hover.svg);
+    }
+
+    &:active {
+      transform: rotate(-360deg);
+    }
+  }
+
+  &--more {
+    width: 40px;
+    height: 37px;
+    background-image: url(../images/icon-more.svg);
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &:active {
+      background-image: url(../images/icon-more-hover.svg);
+    }
+  }
+
+  &--facebook {
+    background-image: url(../images/icon-facebook.svg);
+
+    &:hover {
+      background-image: url(../images/icon-facebook-hover.svg);
+    }
+  }
+
+  &--twitter {
+    background-image: url(../images/icon-twitter.svg);
+
+    &:hover {
+      background-image: url(../images/icon-twitter-hover.svg);
+    }
+  }
+
+  &--youtube {
+    background-image: url(../images/icon-youtube.svg);
+
+    &:hover {
+      background-image: url(../images/icon-youtube-hover.svg);
+    }
+  }
+
+  &--reddit {
+    background-image: url(../images/icon-reddit.svg);
+
+    &:hover {
+      background-image: url(../images/icon-reddit-hover.svg);
+    }
+  }
+}

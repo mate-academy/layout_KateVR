@@ -1,0 +1,127 @@
+.hero {
+  padding: 0 20px;
+  background: $colorGradient;
+
+  @include onTablet {
+    padding: 25px 30px 0;
+  }
+
+  @include onDesktop {
+    padding: 53px 110px 0;
+  }
+
+  &__container {
+    max-width: 320px;
+    margin: 0 auto;
+
+    @include onTablet {
+      max-width: 1450px;
+    }
+  }
+
+  &__grid {
+    @include onDesktop {
+      display: grid;
+      column-gap: 20px;
+      grid-template-columns: repeat(6, 70px);
+    }
+  }
+
+  &__subcontent {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__image {
+    position: relative;
+    top: 15%;
+
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: 17px;
+    width: max-content;
+    @extend %headline1--mobile;
+
+    &-quantum {
+      font-family: Quantum, sans-serif;
+      color: $colorContrast;
+    }
+
+    @include onDesktop {
+      font-weight: 900;
+      font-size: 46px;
+      line-height: 130%;
+    }
+  }
+
+  &__text {
+    margin-bottom: 10px;
+
+    font-weight: 500;
+  }
+
+  &__price {
+    margin-bottom: 16px;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-align: center;
+    color: #fff;
+
+    @include onTablet {
+      text-align: left;
+      margin-bottom: 24px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 20px;
+      text-align: left;
+    }
+  }
+
+  &__button-video {
+    align-self: center;
+    margin-bottom: 62px;
+
+    @include onTablet {
+      align-self: start;
+      transform: translateX(0);
+    }
+  }
+
+  &__submenu {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-bottom: 84px;
+    }
+
+    &-link {
+      @extend %buttons-links;
+      text-decoration: none;
+      color: #fff;
+
+      transition: color 0.3s;
+
+      &:last-child {
+        margin-left: 40px;
+      }
+
+      &:hover {
+        color: $colorContrast;
+      }
+
+      &:active {
+        color: #191536;
+      }
+    }
+  }
+}

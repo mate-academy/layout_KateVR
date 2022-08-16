@@ -1,0 +1,83 @@
+.slider {
+  &__img {
+    position: relative;
+
+    display: block;
+    margin: 0 auto 20px;
+
+    width: 280px;
+    height: 190px;
+
+    background-image: url(../images/img-slider.jpg);
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      margin: 0 0 20px;
+      width: 340px;
+      height: 230px;
+      max-height: 290px;
+    }
+
+    @include onDesktop {
+      width: 430px;
+      height: 290px;
+      max-height: none;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 105%;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+
+      width: 44px;
+      height: 4px;
+
+      background-image: url(../images/icon-slider-dots.svg);
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__text {
+    max-width: 435px;
+    margin-bottom: 50px;
+  }
+
+  &__button-video {
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 100px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 230px;
+    }
+  }
+
+  &__track {
+    position: absolute;
+    top: 105%;
+    left: 0;
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+}

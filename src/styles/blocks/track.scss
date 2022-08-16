@@ -1,0 +1,29 @@
+.track {
+  display: flex;
+
+  &__item {
+    width: 68px;
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #212121;
+
+    @extend %buttons-links;
+    color: #fff;
+
+    transition: color 0.3s;
+    cursor: pointer;
+
+    &--active {
+      color: #929292;
+      border-color: $colorContrast;
+    }
+
+    &:hover {
+      color: $colorContrast;
+    }
+
+    &:last-child {
+      text-align: right;
+    }
+  }
+}

@@ -1,0 +1,125 @@
+.features {
+  padding: 50px 20px;
+  text-align: center;
+  background: $colorGradient;
+
+  @include onTablet {
+    padding: 70px 35px;
+  }
+
+  @include onDesktop {
+    padding: 100px 110px;
+  }
+
+  &__container {
+    margin: 0 auto;
+    max-width: 1450px;
+  }
+
+  &__subcontainer {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    @extend %headline1--mobile;
+
+    &-quantum {
+      font-family: Quantum, sans-serif;
+      color: $colorContrast;
+    }
+
+    @include onDesktop {
+      font-weight: 900;
+      font-size: 36px;
+      line-height: 44px;
+      margin-bottom: 85px;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 11px;
+    max-width: 340px;
+    @extend %headline3;
+
+    @include onTablet {
+      margin-bottom: 37px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    max-width: 340px;
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+    &--last {
+      margin-bottom: 0;
+    }
+  }
+
+  &__img {
+    margin: 0 auto;
+    display: none;
+    margin-bottom: 25px;
+    justify-self: start;
+    align-self: start;
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onTablet {
+      margin-bottom: 35px;
+    }
+
+    &--1 {
+      width: 80px;
+      height: 80px;
+      background-image: url(../images/icon-features-1.svg);
+
+      @include onDesktop {
+        width: 91px;
+        height: 81px;
+      }
+    }
+
+    &--2 {
+      width: 89px;
+      height: 81px;
+      background-image: url(../images/icon-features-2.svg);
+
+      @include onDesktop {
+        width: 106px;
+        height: 80px;
+      }
+    }
+
+    &--3 {
+      width: 105px;
+      height: 75px;
+      background-image: url(../images/icon-features-3.svg);
+
+      @include onDesktop {
+        width: 110px;
+        height: 80px;
+      }
+    }
+  }
+
+  &__button {
+    display: none;
+    margin: 0 auto;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,45 @@
+.nav-mob {
+  height: 100vh;
+  background-color: #191536;
+  z-index: 2;
+
+  &__header {
+    display: flex;
+    justify-content: end;
+
+    padding: 20px;
+
+    @include onTablet {
+      padding: 35px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__link {
+    display: block;
+    padding: 20px;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 27px;
+    text-decoration: none;
+    color: #fff;
+
+    transition: background-color 0.3s, color 0.3s;
+
+    &:hover {
+      color: $colorContrast;
+      background-color: #110e25;
+    }
+
+    &:active {
+      color: #191536;
+    }
+
+    @include onTablet {
+      padding-left: 150px;
+    }
+  }
+}

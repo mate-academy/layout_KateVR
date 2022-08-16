@@ -1,0 +1,90 @@
+.about {
+  padding: 50px 20px;
+  background: $colorGradient;
+
+  @include onTablet {
+    padding: 70px 35px 50px;
+  }
+
+  @include onDesktop {
+    padding: 100px 110px;
+  }
+
+  &__container {
+
+    max-width: 320px;
+    margin: 0 auto;
+
+    @include onTablet {
+      max-width: 1450px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: #fff;
+    text-transform: uppercase;
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    &-quantum {
+      font-family: Quantum, sans-serif;
+      color: $colorContrast;
+    }
+
+    &--blue-small {
+      font-weight: 400;
+      color: $colorContrast;
+      font-size: 14px;
+      line-height: 17px;
+      text-transform: none;
+    }
+  }
+
+  &__img-container {
+    display: none;
+
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-height: 343px;
+
+    @include onTablet {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    display: none;
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../images/about-3.png);
+    background-position: top left;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      background-image: url(../images/about-6.png);
+    }
+
+  }
+}

@@ -1,0 +1,33 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+
+  display: flex;
+  justify-content: center;
+
+  background: $colorGradient;
+
+  &__container {
+    display: flex;
+
+    width: 100%;
+    max-width: 1450px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 17px 20px 15px;
+
+    @include onTablet {
+      padding: 30px 34px;
+    }
+  }
+
+  &__button {
+    display: none;
+    margin-left: 40px;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+}
