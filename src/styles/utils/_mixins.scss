@@ -1,6 +1,56 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@mixin mobile-reverse {
+  @media (max-height: 567px) {
+    @content;
+  }
+}
+
+@mixin tablet-screen {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop-screen {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin extra-screen {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin font($size, $weight, $line-height) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-height;
+}
+
+@mixin button-style {
+  display: block;
+  height: 48px;
+  width: 200px;
+
+  font-family: Mark-Pro, sans-serif;
+  @include font(14px, 500, 18px);
+  color: $white;
+  background-color: $contrast-color;
+  border: none;
+  border-radius: 4px;
+
+  cursor: pointer;
+
+  transition: all 0.4s;
+
   &:hover {
-    #{$_property}: $_toValue;
+    color: $contrast-color;
+    background-color: $white;
+  }
+
+  &:active {
+    color: $dark-grey;
+    background-color: #191536;
   }
 }

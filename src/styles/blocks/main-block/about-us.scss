@@ -1,0 +1,105 @@
+.about-us {
+  &__title {
+    margin-bottom: 20px;
+
+    & :first-child {
+      @include font(14px, normal, 18px);
+      color: $contrast-color;
+    }
+  }
+
+  &__decoration {
+    display: none;
+  }
+
+  @include tablet-screen {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__description {
+      width: 58vw;
+    }
+
+    &__title {
+      margin-bottom: 30px;
+    }
+
+    &__decoration {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+
+      @include font(48px, bold, 130%);
+      text-align: center;
+      -webkit-text-fill-color: transparent;
+      -webkit-text-stroke: 1px $contrast-color;
+
+      transform: rotate(-90deg);
+
+      & :nth-child(odd) {
+        transform: rotate(180deg);
+      }
+
+      & :nth-child(2) {
+        opacity: 0.5;
+      }
+
+      & :nth-child(3) {
+        opacity: 0.2;
+      }
+
+      & :nth-child(n+4) {
+        display: none;
+      }
+    }
+  }
+
+  @include desktop-screen {
+    max-height: 332px;
+
+    &__description {
+      width: 33vw;
+    }
+
+    &__decoration {
+      position: relative;
+      right: 83px;
+
+      font-size: 64px;
+
+      & :nth-child(4) {
+        display: block;
+
+        opacity: 0.1;
+      }
+
+      & :nth-child(5) {
+        display: block;
+
+        opacity: 0.05;
+      }
+    }
+  }
+
+  @include extra-screen {
+    &__description {
+      width: 530px;
+    }
+
+    &__decoration {
+
+      & :nth-child(6) {
+        display: block;
+
+        opacity: 0.03;
+      }
+
+      & :nth-child(7) {
+        display: block;
+
+        opacity: 0.02;
+      }
+    }
+  }
+}

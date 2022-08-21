@@ -1,0 +1,49 @@
+.nav-mobile {
+  height: 100vh;
+  width: 100vw;
+  padding-top: 75px;
+
+  background-color: #191536;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: all 0.4s;
+
+  &--active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    height: 49px;
+  }
+
+  &__link {
+    display: block;
+    padding: 11px 22px;
+
+    @include font(21px, 500, 130%);
+    color: $white;
+    text-decoration: none;
+
+    transition: all 0.4s;
+
+    &:hover {
+      color: $contrast-color;
+      background-color: #110e25;
+    }
+  }
+
+  @include mobile-reverse {
+    height: 180vh;
+  }
+
+  @include tablet-screen {
+    height: 445px;
+  }
+}

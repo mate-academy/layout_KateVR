@@ -1,0 +1,27 @@
+.nav-tablet {
+  display: none;
+
+  @include desktop-screen {
+    display: block;
+
+    &__list {
+      display: flex;
+
+      list-style: none;
+    }
+
+    &__link {
+      padding: 0 17px;
+
+      @include font(16px, 500, 130%);
+      color: $white;
+      text-decoration: none;
+
+      transition: all 0.4s;
+
+      &:hover {
+        color: $contrast-color;
+      }
+    }
+  }
+}
