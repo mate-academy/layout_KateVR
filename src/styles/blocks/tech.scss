@@ -133,63 +133,11 @@
       }
     }
   }
-  &__descripton-card--one {
-    opacity: 0;
-    z-index: -1;
-    top: 18%;
-    left: 39%;
-    transition: all 0.4s ease-in-out;
-    @include on768 {
-      left: 32%;
-    }
-    @include on1280 {
-      opacity: 1;
-      top: 0;
-      left: 0;
-    }
-  }
-  &__descripton-card--two {
-    opacity: 0;
-    z-index: -2;
-    bottom: 0;
-    left: 14%;
-    transition: all 0.4s ease-in-out;
-    @include on768 {
-      left: 32%;
-    }
-    @include on1280 {
-      opacity: 1;
-      top: 0;
-      left: calc(100% - 338px);
-    }
-  }
-  &__descripton-card--three {
-    opacity: 0;
-    z-index: -3;
-    top: 45%;
-    left: 14%;
-    transition: all 0.4s ease-in-out;
-    @include on768 {
-      left: 32%;
-    }
-    @include on1280 {
-      opacity: 1;
-      top: 52%;
-      left: 3%;
-    }
-  }
   &__button--one {
     top: 0;
     left: 37%;
     @include on768 {
       left: 42%;
-    }
-    &:active ~ .tech__descripton-card--one {
-      display: flex;
-      width: max-content;
-      height: max-content;
-      opacity: 1;
-      z-index: 10;
     }
   }
   &__button--two {
@@ -198,13 +146,6 @@
     @include on768 {
       left: 57%;
     }
-    &:active ~ .tech__descripton-card--two {
-      display: flex;
-      max-width: max-160px;
-      height: max-content;
-      opacity: 1;
-      z-index: 10;
-    }
   }
   &__button--three {
     top: 80%;
@@ -212,23 +153,59 @@
     @include on768 {
       left: 30%;
     }
-    &:active ~ .tech__descripton-card--three {
-      max-width: 260px;
-      opacity: 1;
-      z-index: 10;
-    }
   }
   &__descripton-card {
+    opacity: 0;
     padding: 22px;
     display: flex;
     flex-direction: column;
     position: absolute;
     border-radius: 4px;
     background-color: $c-dis;
-
+    transition: all 0.9s ease-in-out;
     @include on1280 {
+      opacity: 1;
       padding: 0;
       background-color: transparent;
+    }
+    &--one {
+      z-index: -1;
+      top: 18%;
+      left: 39%;
+      transition: all 0.4s ease-in-out;
+      @include on768 {
+        left: 32%;
+      }
+      @include on1280 {
+        top: 0;
+        left: 0;
+      }
+    }
+    &--two {
+      z-index: -2;
+      bottom: 0;
+      left: 14%;
+      transition: all 0.4s ease-in-out;
+      @include on768 {
+        left: 32%;
+      }
+      @include on1280 {
+        top: 0;
+        left: calc(100% - 338px);
+      }
+    }
+    &--three {
+      z-index: -3;
+      top: 45%;
+      left: 14%;
+      transition: all 0.4s ease-in-out;
+      @include on768 {
+        left: 32%;
+      }
+      @include on1280 {
+        top: 52%;
+        left: 3%;
+      }
     }
   }
   &__descripton-title {
@@ -237,4 +214,9 @@
       display: block;
     }
   }
+}
+
+.is-active {
+  opacity: 1;
+  z-index: 10;
 }

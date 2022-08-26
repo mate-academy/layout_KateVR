@@ -75,3 +75,58 @@ myPlay.addEventListener('click', () => {
     myVideo.pause();
   }
 });
+
+// document.querySelectorAll('.tech__button').forEach(function(techButton) {
+//   techButton.addEventListener('click', (event) => {
+//     const path = event.currentTarget.dataset.path;
+
+//     document.querySelectorAll('.tech__button').forEach(function(content) {
+//       content.classList.remove('tech__button-active');
+//     });
+
+//     document.querySelector('.tech__button')
+//       .classList.add('tech__button-active');
+//   });
+// });
+
+document.querySelectorAll('.tech__button').forEach(function(techBtn) {
+  techBtn.addEventListener('click', function(event) {
+    document.querySelectorAll('.tech__descripton-card')
+      .forEach(function(techContent) {
+        techContent.classList.remove('is-active');
+      });
+
+    document.querySelector('#button-one').addEventListener('click', function() {
+      document.querySelector('#card-one').classList.toggle('is-active');
+    });
+
+    document.querySelector('#button-two').addEventListener('click', function() {
+      document.querySelector('#card-two').classList.toggle('is-active');
+    });
+
+    // eslint-disable-next-line max-len
+    document.querySelector('#button-three').addEventListener('click', function() {
+      document.querySelector('#card-three').classList.toggle('is-active');
+    });
+  });
+});
+
+// document.querySelectorAll('.tabs__btn').forEach(function(tabsBtn){
+//   tabsBtn.addEventListener('click', function(event){
+//     const path = event.currentTarget.dataset.path;
+//     document.querySelectorAll('.how__tab').forEach(function(tabContent){
+//       tabContent.classList.remove('how__tab-active')
+//     });
+//   event.currentTarget.classList.add('how__tab-active');
+// document.querySelectorAll('.how__tab').forEach(function(tabsBtn){
+//   tabsBtn.classList.remove('how__tab-active')});
+
+//  document.querySelector(`[data-target="${path}"]`)
+// .classList.add('how__tab-active')
+//   })
+// })
+
+// document.querySelector('.tabs__btn').addEventListener('click', function() {
+// document.querySelector('.how__item')
+// .classList.toggle('how__item_color-orange')
+// })
