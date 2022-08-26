@@ -76,19 +76,6 @@ myPlay.addEventListener('click', () => {
   }
 });
 
-// document.querySelectorAll('.tech__button').forEach(function(techButton) {
-//   techButton.addEventListener('click', (event) => {
-//     const path = event.currentTarget.dataset.path;
-
-//     document.querySelectorAll('.tech__button').forEach(function(content) {
-//       content.classList.remove('tech__button-active');
-//     });
-
-//     document.querySelector('.tech__button')
-//       .classList.add('tech__button-active');
-//   });
-// });
-
 document.querySelectorAll('.tech__button').forEach(function(techBtn) {
   techBtn.addEventListener('click', function(event) {
     document.querySelectorAll('.tech__descripton-card')
@@ -110,23 +97,3 @@ document.querySelectorAll('.tech__button').forEach(function(techBtn) {
     });
   });
 });
-
-// document.querySelectorAll('.tabs__btn').forEach(function(tabsBtn){
-//   tabsBtn.addEventListener('click', function(event){
-//     const path = event.currentTarget.dataset.path;
-//     document.querySelectorAll('.how__tab').forEach(function(tabContent){
-//       tabContent.classList.remove('how__tab-active')
-//     });
-//   event.currentTarget.classList.add('how__tab-active');
-// document.querySelectorAll('.how__tab').forEach(function(tabsBtn){
-//   tabsBtn.classList.remove('how__tab-active')});
-
-//  document.querySelector(`[data-target="${path}"]`)
-// .classList.add('how__tab-active')
-//   })
-// })
-
-// document.querySelector('.tabs__btn').addEventListener('click', function() {
-// document.querySelector('.how__item')
-// .classList.toggle('how__item_color-orange')
-// })
