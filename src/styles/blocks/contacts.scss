@@ -1,0 +1,315 @@
+.contacts {
+  background-color: #05040b;
+
+  &__grid {
+    grid-template-rows: repeat(1, 1fr);
+  }
+
+  &__question {
+    font-family: Mark-Regular, sans-serif;
+    font-size: 14px;
+    line-height: 18px;
+    color: $color-blue;
+    text-decoration: none;
+    margin-bottom: 20px;
+  }
+
+  &__title1 {
+    font-family: Mark-Heavy, sans-serif;
+    font-size: 21px;
+    line-height: 27px;
+    color: #fff;
+    margin-bottom: 30px;
+  }
+
+  &__title2 {
+    font-family: Quantum, sans-serif;
+    color: $color-blue;
+  }
+
+  &__form {
+    &-name {
+      font-family: Mark-Regular, sans-serif;
+      color: #fff;
+      border: 1px solid transparent;
+      border-bottom: 1px solid #2f2f2f;
+      background-color: transparent;
+      outline: none;
+      width: 100%;
+      margin-bottom: 24px;
+      padding-bottom: 19px;
+
+      &::placeholder {
+        font-family: Mark-Regular, sans-serif;
+        font-size: 14px;
+      }
+    }
+
+    &-email {
+      font-family: Mark-Regular, sans-serif;
+      color: #fff;
+      border: 1px solid transparent;
+      border-bottom: 1px solid #2f2f2f;
+      background-color: transparent;
+      outline: none;
+      width: 100%;
+      margin-bottom: 24px;
+      padding-bottom: 19px;
+
+      &::placeholder {
+        font-family: Mark-Regular, sans-serif;
+        font-size: 14px;
+      }
+    }
+
+    &-phone {
+      font-family: Mark-Regular, sans-serif;
+      color: #fff;
+      border: 1px solid transparent;
+      border-bottom: 1px solid #2f2f2f;
+      background-color: transparent;
+      outline: none;
+      width: 100%;
+      margin-bottom: 24px;
+      padding-bottom: 19px;
+
+      &::placeholder {
+        font-family: Mark-Regular, sans-serif;
+        font-size: 14px;
+      }
+    }
+
+    &-message {
+      font-family: Mark-Regular, sans-serif;
+      color: #fff;
+      border: 1px solid transparent;
+      border-bottom: 1px solid #2f2f2f;
+      background-color: transparent;
+      outline: none;
+      resize: none;
+      width: 100%;
+      height: 88px;
+      margin-bottom: 30px;
+
+      &::placeholder {
+        font-family: Mark-Regular, sans-serif;
+        font-size: 14px;
+        line-height: 150%;
+      }
+    }
+
+    &-bottom {
+      display: flex;
+      justify-content: space-between;
+
+      &-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 40px;
+        margin-bottom: 27px;
+        border: none;
+        cursor: pointer;
+      }
+
+      &-up {
+        display: none;
+      }
+    }
+
+  }
+
+  &__text {
+    font-family: Mark-Regular, sans-serif;
+    font-size: 12px;
+  }
+
+  &__feedback {
+    display: none;
+  }
+}
+
+@include onDesctop-768 {
+  .contacts {
+    &__question {
+      grid-row: 1;
+    }
+
+    &__title1 {
+      margin-bottom: 48px;
+      height: 27px;
+      margin-top: 28px;
+      grid-row: 1;
+    }
+
+    &__text {
+      font-size: 16px;
+      margin-bottom: 52px;
+      margin-top: 103px;
+      grid-row: 1;
+    }
+
+    &__form {
+      &-bottom {
+        &-button {
+          width: 200px;
+        }
+
+        &-up {
+          display: flex;
+          box-sizing: border-box;
+          width: 48px;
+          height: 48px;
+          background-color: transparent;
+          border: 1px solid $color-blue;
+          border-radius: 50%;
+          background-image: url(../images/contacts/up.svg);
+          background-size: 15px;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
+
+    &__feedback {
+      display: flex;
+      flex-direction: column;
+      grid-row: 1;
+      margin-top: 203px;
+
+      &-phone {
+        font-family: Mark-Regular, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        color: #929292;
+        text-decoration: none;
+        margin-bottom: 10px;
+      }
+
+      &-email1 {
+        font-family: Mark-Regular, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        color: #929292;
+        text-decoration: none;
+        margin-bottom: 7px;
+      }
+
+      &-email2 {
+        font-family: Mark-Regular, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        color: #929292;
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@include onDesctop-1280 {
+  .contacts {
+    &__question {
+      grid-row: 1;
+    }
+
+    &__title1 {
+      font-size: 36px;
+      line-height: 46px;
+      margin-bottom: 48px;
+      height: 27px;
+      margin-top: 30px;
+      grid-row: 1;
+    }
+
+    &__text {
+      font-size: 16px;
+      margin-bottom: 52px;
+      margin-top: 100px;
+      grid-row: 1;
+    }
+
+    &__form {
+      &-bottom {
+        &-button {
+          font-family: Mark-Medium, sans-serif;
+          font-size: 16px;
+          line-height: 130%;
+          width: 200px;
+          height: 48px;
+        }
+
+        &-up {
+          display: flex;
+          box-sizing: border-box;
+          width: 48px;
+          height: 48px;
+          background-color: transparent;
+          border: 1px solid $color-blue;
+          border-radius: 50%;
+          background-image: url(../images/contacts/up.svg);
+          background-size: 15px;
+          background-position: center;
+          background-repeat: no-repeat;
+          transition: all 0.3s;
+
+          &:hover {
+            background: $color-blue;
+            background-image: url(../images/contacts/up-hover.svg);
+            background-size: 15px;
+            background-position: center;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+    }
+
+    &__feedback {
+      display: flex;
+      flex-direction: column;
+      grid-row: 1;
+      margin-top: 200px;
+
+      &-phone {
+        font-family: Mark-Regular, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        color: #929292;
+        text-decoration: none;
+        margin-bottom: 10px;
+        transition: all 0.3s;
+
+        &:hover {
+          color: $color-blue;
+        }
+      }
+
+      &-email1 {
+        font-family: Mark-Regular, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        color: #929292;
+        text-decoration: none;
+        margin-bottom: 7px;
+        transition: all 0.3s;
+
+        &:hover {
+          color: $color-blue;
+        }
+      }
+
+      &-email2 {
+        font-family: Mark-Regular, sans-serif;
+        font-size: 16px;
+        line-height: 20px;
+        color: #929292;
+        text-decoration: none;
+        transition: all 0.3s;
+
+        &:hover {
+          color: $color-blue;
+        }
+      }
+    }
+  }
+}

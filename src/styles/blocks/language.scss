@@ -1,0 +1,54 @@
+.language {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  background-color: #191536;
+  width: 100%;
+  height: 100vh;
+  padding: 20px 0;
+  z-index: 1;
+  transform: translateX(-100%);
+  transition: all 0.3s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__back {
+    display: flex;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+
+    &-link {
+      display: flex;
+      background-image: url(../images/nav-page/lang-back.svg);
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__item {
+    margin-bottom: 22px;
+  }
+
+  &__link {
+    font-size: 21px;
+    line-height: 130%;
+    text-decoration: none;
+    color: #fff;
+
+    &:hover {
+      transition: color 0.3s;
+      color: $color-blue;
+    }
+  }
+}
