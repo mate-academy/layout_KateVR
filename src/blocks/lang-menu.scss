@@ -1,0 +1,80 @@
+.lang-menu {
+  position: fixed;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 60;
+  width: 100%;
+  height: 100vh;
+
+  &::before {
+    content: "";
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  @include iPad {
+    left: 0;
+    right: 0;
+    margin-top: 0;
+  }
+
+  @include iPhone {
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    position: fixed;
+  }
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__arrow {
+    display: flex;
+    width: 100%;
+
+    &--link {
+      display: block;
+      background-image: url(../images/arrow_lang.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 0 100%;
+      width: 9px;
+      height: 17px;
+      padding-top: 33px;
+      margin-left: 33px;
+
+      @include iPhone {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__item {
+    font-family: "Mark-medium", sans-serif;
+    font-size: 21px;
+    line-height: 27px;
+    height: 49px;
+    color: #fff;
+    padding-left: 153px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: #05c2df;
+      background-color: #110e25;
+    }
+
+    @include iPhone {
+      padding-left: 20px;
+    }
+  }
+}

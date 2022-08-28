@@ -1,0 +1,124 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  column-gap: 20px;
+  margin: 0 auto;
+  max-width: 1450px;
+  height: 100%;
+
+  @include desctop {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+    padding: 0 110px;
+    max-width: 1699px;
+  }
+
+  @include iPad {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+    padding: 0 34px;
+  }
+
+  @include iPhone {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    padding: 0 20px;
+  }
+
+  &__tech {
+    position: relative;
+  }
+
+  &__faq {
+    width: 1083px;
+    height: 793px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #191536;
+    margin-top: 134px;
+    margin-left: calc((100% - 1083px) / 2);
+
+    @include desctop {
+      width: 880px;
+      height: 854px;
+      margin-left: calc((100% - 880px) / 2);
+    }
+
+    @include iPad {
+      width: 100%;
+      height: 100vh;
+      margin: 0;
+    }
+
+    @include iPhone {
+      width: 100%;
+      height: 100vh;
+      overflow: auto;
+      margin: 0;
+    }
+  }
+
+  &__help {
+    width: 1083px;
+    height: 518px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    background-color: #191536;
+    margin-top: 287px;
+    margin-left: calc((100% - 1083px) / 2);
+
+    @include desctop {
+      width: 880px;
+      height: 550px;
+      margin-left: calc((100% - 880px) / 2);
+    }
+
+    @include iPad {
+      width: 100%;
+      height: 596px;
+      margin: 0;
+    }
+
+    @include iPhone {
+      width: 100%;
+      height: 100vh;
+      overflow: auto;
+      margin: 0;
+    }
+  }
+
+  &__navMenu {
+    width: 100%;
+    height: 568px;
+    box-sizing: border-box;
+    background-color: #191536;
+
+    @include iPhone {
+      width: 100%;
+      height: 100vh;
+      overflow: auto;
+      margin: 0;
+    }
+  }
+
+  &__lang-menu {
+    width: 100%;
+    height: 596px;
+    box-sizing: border-box;
+    background-color: #191536;
+
+    @include iPhone {
+      width: 100%;
+      height: 100vh;
+      overflow: auto;
+      margin: 0;
+    }
+  }
+
+  &__buy {
+    height: min-content;
+  }
+}

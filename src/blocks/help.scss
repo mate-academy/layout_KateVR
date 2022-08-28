@@ -1,0 +1,185 @@
+.help {
+  position: fixed;
+  top: 0;
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 60;
+  width: 100%;
+  height: 100vh;
+
+  &::before {
+    content: "";
+    background-color: #000;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    opacity: 0.7;
+  }
+
+  @include iPad {
+    left: 0;
+    right: 0;
+    margin-top: 0;
+  }
+
+  @include iPhone {
+    left: 0;
+    right: 0;
+    margin-top: 0;
+    position: fixed;
+  }
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  &__cross {
+    display: flex;
+    justify-content: end;
+    width: 100%;
+
+    &--link {
+      display: flex;
+      background-image: url(../images/cross.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 18px;
+      height: 18px;
+      margin-top: 26px;
+      margin-right: 26px;
+
+      @include desctop {
+        margin-top: 18px;
+        margin-right: 18px;
+      }
+
+      @include iPad {
+        margin-top: 34px;
+        margin-right: 34px;
+      }
+
+      @include iPhone {
+        margin-top: 20px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 36px;
+    line-height: 46px;
+    font-family: "Mark-heavy", sans-serif;
+    color: #fff;
+    padding-top: 25px;
+    padding-left: 93px;
+
+    @include desctop {
+      padding-top: 15px;
+      padding-left: 90px;
+    }
+
+    @include iPad {
+      font-size: 21px;
+      line-height: 27px;
+      padding-top: 50px;
+      width: 280px;
+      padding-left: 34px;
+    }
+
+    @include iPhone {
+      font-size: 21px;
+      line-height: 27px;
+      padding-top: 30px;
+      padding-left: 20px;
+    }
+  
+    &--quantum {
+      font-family: "Quantum", sans-serif;
+      line-height: 35px;
+      text-transform: uppercase;
+      font-size: 36px;
+      color: #05c2df;
+
+      @include iPad {
+        font-size: 21px;
+        line-height: 24px;
+      }
+
+      @include iPhone {
+        font-size: 21px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__content {
+    display: block;
+    margin-left: 90px;
+    margin-top: 50px;
+    margin-right: 90px;
+
+    @include iPad {
+      margin-left: 34px;
+      margin-right: 34px;
+    }
+
+    @include iPhone {
+      margin-left: 20px;
+      margin-right: 20px;
+    }
+
+    &--text {
+      font-size: 16px;
+      line-height: 24px;
+      color: #929292;
+
+      &-link {
+        text-decoration: none;
+        color: #05c2df;
+      }
+    }
+  }
+  
+  &__list {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 90px;
+    margin-top: 20px;
+
+    &:last-child {
+      margin-left: 60px;
+
+      @include iPhone {
+        margin-left: 20px;
+      }
+    }
+
+    @include iPad {
+      margin-left: 34px;
+    }
+
+    @include iPhone {
+      display: flex;
+      margin-left: 20px;
+    }
+  }
+
+  &__item {
+    font-size: 16px;
+    line-height: 24px;
+    color: #05c2df;
+    margin-top: 20px;
+    text-decoration: none;
+  }
+
+  &__item2 {
+    font-size: 16px;
+    line-height: 21px;
+    color: #929292;
+    margin-top: 24px;
+    text-decoration: none;
+  }
+}

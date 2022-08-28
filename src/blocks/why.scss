@@ -1,0 +1,231 @@
+.why {
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+
+  &__title {
+    text-transform: uppercase;
+    font-size: 36px;
+    line-height: 46px;
+    font-family: "Mark-heavy", sans-serif;
+    color: #fff;
+    grid-column: 1 / 17;
+    margin-top: 160px;
+    justify-self: center;
+    margin-bottom: 80px;
+
+    @include desctop {
+      grid-column: 1 / 13;
+      margin-top: 100px;
+    }
+  
+    @include iPad {
+      font-size: 21px;
+      line-height: 27px;
+      grid-column: 1 / 3;
+      margin-top: 70px;
+      margin-bottom: 30px;
+      justify-self: start;
+    }
+
+    @include iPhone {
+      font-size: 21px;
+      line-height: 27px;
+      margin-top: 50px;
+      grid-column: 1 / 3;
+      margin-bottom: 0;
+    }
+  
+    &--quantum {
+      font-family: "Quantum", sans-serif;
+      line-height: 35px;
+      text-transform: uppercase;
+      font-size: 36px;
+      color: #05c2df;
+
+      @include iPad {
+        font-size: 24px;
+        line-height: 24px;
+      }
+
+      @include iPhone {
+        font-size: 24px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    column-gap: 20px;
+    max-width: 1450px;
+    grid-column: 1 / 17;
+
+    @include desctop {
+      grid-column: 1 / 13;
+      grid-template-columns: repeat(12, 1fr);
+      max-width: 100%;
+    }
+
+    @include iPad {
+      grid-column: 1 / 7;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include iPhone {
+      grid-column: 1 / 3;
+      grid-template-columns: repeat(2, 1fr);
+      margin-top: 30px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 175px;
+
+    @include desctop {
+      margin-bottom: 90px;
+    }
+
+    @include iPad {
+      margin-bottom: 70px;
+    }
+
+    @include iPhone {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 50px;
+      }
+    }
+
+    &--1 {
+      grid-column: 1 / 5;
+
+      @include desctop {
+        grid-column: 1 / 5;
+      }
+
+      @include iPad {
+        grid-column: 1 / 3;
+      }
+
+      @include iPhone {
+        grid-column: 1 / 3;
+      }
+    }
+
+    &--2 {
+      grid-column: 7 / 11;
+
+      @include desctop {
+        grid-column: 5 / 9;
+      }
+
+      @include iPad {
+        grid-column: 3 / 5;
+      }
+
+      @include iPhone {
+        grid-column: 1 / 3;
+      }
+    }
+
+    &--3 {
+      grid-column: 13 / 17;
+
+      @include desctop {
+        grid-column: 9 / 13;
+      }
+
+      @include iPad {
+        grid-column: 5 / 7;
+      }
+
+      @include iPhone {
+        grid-column: 1 / 3;
+      }
+    }
+
+    &--image {
+      display: block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 80px;
+      height: 80px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        transform: scale(1.2) rotate(30deg);
+      }
+
+      @include iPhone {
+        display: none;
+      }
+
+      &-1 {
+        background-image: url(../images/why_1.svg);
+      }
+
+      &-2 {
+        background-image: url(../images/why_2.svg);
+      }
+
+      &-3 {
+        background-image: url(../images/why_3.svg);
+      }
+    }
+
+    &--title {
+      font-family: "Mark-heavy", sans-serif;
+      font-size: 16px;
+      line-height: 21px;
+      text-transform: uppercase;
+      color: #fff;
+      margin-top: 30px;
+
+      @include iPad {
+        margin-top: 20px;
+      }
+
+      @include iPhone {
+        margin-top: 0;
+      }
+    }
+
+    &--text {
+      font-size: 16px;
+      line-height: 24px;
+      color: #929292;
+      margin-top: 17px;
+      text-align: center;
+
+      @include iPad {
+        margin-top: 26px;
+      }
+
+      @include iPhone {
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include desctop {
+      grid-column: 1 / 13;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      background-color: #05c2df;
+      border-radius: 4px;
+      width: 200px;
+      height: 48px;
+      justify-self: center;
+      margin-bottom: 102px;
+    }
+  }
+}
