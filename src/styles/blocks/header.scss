@@ -1,0 +1,151 @@
+.header {
+  background: url(../images/image.svg), linear-gradient(107.56deg, #191536 0%, #000 100%);
+  background-size: contain, cover;
+  background-position: 0 44px, center;
+  background-repeat: no-repeat, no-repeat;
+
+  @include onTablet {
+    background: url(../images/image2.svg), linear-gradient(107.56deg, #191536 0%, #000 100%);
+    background-size: unset, cover;
+    background-position: top right, center;
+    background-repeat: no-repeat, no-repeat;
+  }
+
+  @include onDesktop {
+    background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  &__content {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    height: 100vh;
+
+    @include onTablet {
+      height: 445px;
+    }
+
+    @include onDesktop {
+      height: auto;
+    }
+  }
+
+  &__title {
+    margin: 187px 0 17px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 130%;
+    color: #fff;
+
+    @include onTablet {
+      margin: 55px 0 17px;
+    }
+
+    @include onDesktop {
+      margin: 101px 0 19px;
+      width: 479px;
+
+      font-size: 46px;
+    }
+
+    @include onFullHD {
+      margin: 218px 0 35px;
+      width: 552px;
+
+      font-size: 54px;
+    }
+
+    &--2 {
+      font-weight: 400;
+      color: #05c2df;
+    }
+  }
+
+  &__text {
+    margin-bottom: 8px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+
+    @include onTablet {
+      margin-bottom: 10px;
+    }
+
+    @include onDesktop {
+      padding-left: 92px;
+    }
+
+    @include onFullHD {
+      margin-bottom: 30px;
+
+      font-size: 20px;
+    }
+  }
+
+  &__price {
+    margin: 0 auto 15px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+
+    @include onTablet {
+      margin: 0 0 23px;
+    }
+
+    @include onDesktop {
+      padding-left: 92px;
+      margin: 0 0 20px;
+    }
+
+    @include onFullHD {
+      margin: 0 0 35px;
+
+      font-size: 20px;
+    }
+  }
+
+  &__play {
+    display: block;
+    width: 246px;
+    height: 67px;
+    
+    background-image: url(../images/play.svg);
+    background-size: 246px 67px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-image 0.5s;
+
+    &:hover {
+      background-image: url(../images/play2.svg);
+    }
+
+    @include onDesktop {
+      margin-left: 86px;
+    }
+
+    &--2 {
+      @include onDesktop {
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__br {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+}
