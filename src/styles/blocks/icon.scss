@@ -1,0 +1,26 @@
+.icon {
+  display: block;
+  @include square($icon);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: all 0.4s ease-in-out;
+  &:hover {
+    transform: scale(1.2);
+  }
+  &--big {
+    @include square($icon-b);
+  }
+  &--min {
+    @include square($icon-l);
+  }
+  &--menu {
+    background-image: url(../images/icons/menu.svg);
+    @include on1280 {
+      display: none;
+    }
+  }
+  &--cross {
+    background-image: url(../images/icons/cross.svg);
+  }
+}

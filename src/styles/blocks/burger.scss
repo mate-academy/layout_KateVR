@@ -1,0 +1,126 @@
+.burger {
+  position: relative;
+  min-width: 30px;
+  min-height: 13px;
+  display: block;
+  cursor: pointer;
+  transition: all 0.4s ease-in-out;
+  @include on1280 {
+    display: none;
+  }
+  &__line {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 1px;
+    background-color: $c-w;
+    &--one {
+      width: 23px;
+      transition: all 0.4s ease-in-out;
+    }
+    &--two {
+      width: 17px;
+      top: 6px;
+      right: 13px;
+      transition: all 0.4s ease-in-out;
+    }
+    &--three {
+      width: 23px;
+      top: 12px;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+  &:hover .burger__line--one {
+    width: 10px;
+    top: 10px;
+    bottom: 0;
+    left: 8px;
+    transform: rotate(45deg);
+  }
+  &:hover .burger__line--two {
+    width: 18px;
+    top: 0;
+    left: 7px;
+    // right: 50%;
+    transform: rotate(90deg);
+  }
+  &:hover .burger__line--three {
+    width: 10px;
+    top: 10px;
+    bottom: 0;
+    right: 6px;
+    transform: rotate(-45deg);
+  }
+}
+
+.cross {
+  width: 18px;
+  height: 18px;
+  margin-left: auto;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: $c-w;
+    transform: rotate(-45deg);
+    transition: all 0.4s ease-in-out;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 1px;
+    background-color: $c-w;
+    transform: rotate(45deg);
+    transition: all 0.4s ease-in-out;
+  }
+  &:hover {
+    &::before {
+      transform: rotate(90deg);
+    }
+    &::after {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.arrow {
+  width: 18px;
+  height: 18px;
+  margin-right: auto;
+  position: relative;
+  display: block;
+  cursor: pointer;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    width: 50%;
+    height: 1px;
+    background-color: $c-w;
+    transform: rotate(-45deg);
+    transition: all 0.4s ease-in-out;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 50%;
+    height: 1px;
+    background-color: $c-w;
+    transform: rotate(45deg);
+    transition: all 0.4s ease-in-out;
+  }
+  &:hover {
+    &::before,
+    &::after {
+      background-color: $c-b;
+    }
+  }
+}

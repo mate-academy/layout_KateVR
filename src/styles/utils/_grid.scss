@@ -1,0 +1,61 @@
+.grid {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  // grid-template-rows: repeat(auto, 80px);
+  grid-template-rows: auto;
+  column-gap: 20px;
+  &--disable {
+    display: block;
+    @include on768 {
+      display: grid;
+    }
+  }
+
+  &--up {
+    align-items: flex-start;
+  }
+
+  &__item {
+    @include grid-min;
+  }
+  @include on768 {
+    grid-template-columns: repeat(6, 1fr);
+    &__item-on768 {
+      @include grid-min;
+    }
+  }
+  @include on1280 {
+    grid-template-columns: repeat(12, 1fr);
+
+    &__item-on1280 {
+      @include grid;
+    }
+  }
+  @include on1920 {
+    grid-template-columns: repeat(16, 1fr);
+    &__item-on1920 {
+      @include grid-max;
+    }
+  }
+  &__row {
+    @include gridRow;
+    // @include on768 {
+    //   grid-template-rows: repeat(5, 20%);
+    //   &-on768 {
+    //     @include gridRow;
+    //   }
+    // }
+    // @include on1280 {
+    //   &-on1280 {
+    //     @include gridRow;
+    //   }
+    // }
+    // @include on1920 {
+    //   &-on1920 {
+    //     @include gridRow;
+    //   }
+    // }
+  }
+}

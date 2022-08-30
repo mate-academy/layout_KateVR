@@ -1,0 +1,34 @@
+.page {
+  scroll-behavior: smooth;
+  &__body {
+    font-family: "Inter", sans-serif;
+    background-color: $c-black;
+    color: $c-gl;
+    @extend %text;
+  }
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    visibility: hidden;
+    transform: translateX(-100%);
+    transition: all 0.4s ease-in-out;
+    &:target {
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+  &__section {
+    margin-bottom: 50px;
+    @include on768 {
+      margin-bottom: 80px;
+    }
+    @include on1280 {
+      margin-bottom: 100px;
+    }
+    @include on1920 {
+      margin-bottom: 160px;
+    }
+  }
+}

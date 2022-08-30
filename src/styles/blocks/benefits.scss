@@ -1,0 +1,58 @@
+.benefits {
+  background: $gradient-3;
+  &__container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    @include on768 {
+      padding-top: 70px;
+      padding-bottom: 70px;
+    }
+    @include on1280 {
+      padding-top: 100px;
+      padding-bottom: 100px;
+    }
+    @include on1920 {
+      padding-top: 160px;
+      padding-bottom: 160px;
+    }
+  }
+  &__title {
+    margin-bottom: 30px;
+    @include on1280 {
+      margin-bottom: 80px;
+      text-align: center;
+    }
+  }
+  &__icon--net {
+    width: 99px;
+    height: 80px;
+    -webkit-mask-image: url(../images/icons/net.svg);
+    mask-image: url(../images/icons/net.svg);
+    background-size: contain;
+  }
+  &__icon--vr {
+    width: 107px;
+    height: 80px;
+    -webkit-mask-image: url(../images/icons/vr.svg);
+    mask-image: url(../images/icons/vr.svg);
+    background-size: cover;
+  }
+  &__icon--wifi {
+    width: 107px;
+    height: 78px;
+    -webkit-mask-image: url(../images/icons/wifi.svg);
+    mask-image: url(../images/icons/wifi.svg);
+    background-size: contain;
+  }
+  &__button {
+    display: none;
+    margin: 0 auto;
+    width: 200px;
+    @include on1280 {
+      display: flex;
+    }
+    @include on1920 {
+      display: none;
+    }
+  }
+}

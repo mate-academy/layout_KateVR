@@ -1,0 +1,47 @@
+.header {
+  background: $gradient-1;
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 18px;
+    margin-bottom: 10px;
+    @include on768 {
+      margin-bottom: 54px;
+      padding-top: 30px;
+    }
+    @include on1280 {
+      padding-top: 47px;
+      margin-bottom: 100px;
+    }
+    @include on1920 {
+      margin-bottom: 132px;
+    }
+  }
+  &__logo {
+    display: block;
+    margin-right: 35px;
+    &--disable {
+      display: none;
+    }
+  }
+  &__nav-up {
+    margin-left: auto;
+    margin-right: 37px;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    width: 315px;
+    @include on1280 {
+      display: flex;
+    }
+  }
+  &__button,
+  &__choices {
+    display: none;
+    @include on1280 {
+      display: flex;
+    }
+  }
+}

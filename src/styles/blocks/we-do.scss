@@ -1,0 +1,100 @@
+.we-do {
+  &__grid {
+    row-gap: 40px;
+  }
+  &__title {
+    margin-bottom: 12px;
+    @include on768 {
+      text-align: center;
+    }
+    @include on1280 {
+      margin-bottom: 16px;
+    }
+  }
+  &__subtitle {
+    margin-bottom: 30px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-b;
+    @include on768 {
+      text-align: center;
+      margin-bottom: 46px;
+    }
+    @include on1280 {
+      margin-bottom: 83px;
+    }
+    @include on1920 {
+      margin-bottom: 70px;
+    }
+  }
+  &__icon {
+    margin-bottom: 30px;
+    height: 84px;
+    display: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: $c-b;
+    @include transition;
+    @include on768 {
+      display: block;
+    }
+    &--education {
+      width: 98px;
+      -webkit-mask-image: url(../images/icons/learn.svg);
+      mask-image: url(../images/icons/learn.svg);
+    }
+    &--estate {
+      width: 84px;
+      -webkit-mask-image: url(../images/icons/city.svg);
+      mask-image: url(../images/icons/city.svg);
+    }
+    &--power {
+      width: 110px;
+      -webkit-mask-image: url(../images/icons/power.svg);
+      mask-image: url(../images/icons/power.svg);
+    }
+    &--net {
+      width: 83px;
+      -webkit-mask-image: url(../images/icons/network.svg);
+      mask-image: url(../images/icons/network.svg);
+    }
+  }
+  &__card {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    @include on768 {
+      margin-bottom: 0;
+      min-height: 227px;
+      align-items: center;
+    }
+    @include on1280 {
+      min-height: 262px;
+    }
+    @include on1920 {
+      min-height: 238px;
+    }
+    &:hover .we-do__icon,
+    &:focus .we-do__icon {
+      background-color: $c-w;
+      transform: scale(1.2);
+    }
+
+  }
+  &__card-title {
+    margin-bottom: 11px;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: left;
+    @include on768 {
+      text-align: center;
+    }
+  }
+  &__discription {
+    @include on768 {
+      text-align: center;
+    }
+  }
+}

@@ -1,0 +1,137 @@
+.contact {
+
+  // .contact__undertitle
+
+  &__undertitle {
+    margin-bottom: 11px;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    @include on1280 {
+      margin-bottom: 13px;
+    }
+  }
+
+  // .contact__title
+
+  &__title {
+    margin-bottom: 32px;
+    @include on768 {
+      margin-bottom: 50px;
+    }
+    @include on1280 {
+      margin-bottom: 26px;
+    }
+  }
+
+  // .contact__subtitle
+
+  &__subtitle,
+  &__link {
+    display: none;
+    margin-bottom: 76px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-gl;
+    @include on768 {
+      display: block;
+    }
+  }
+
+  // .contact__link
+
+  &__link {
+    margin-bottom: 8px;
+    transition: all 0.4s ease-in-out;
+    &:hover,
+    &:focus {
+      color: $c-b;
+    }
+  }
+
+  // .contact__form
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+  }
+  &__fild {
+    margin-bottom: 24px;
+    padding: 19px 9;
+    width: 100%;
+    height: 40px;
+    color: $c-w;
+    border-bottom: 1px solid $c-g;
+    background: transparent;
+    &::placeholder {
+      color: $c-gl;
+    }
+  }
+  &__fild--textarea {
+    margin-bottom: 30px;
+    height: 88px;
+    @include on768 {
+      margin-bottom: 48px;
+    }
+    @include on1280 {
+      margin-bottom: 90px;
+    }
+    @include on1920 {
+      margin-bottom: 50px;
+    }
+  }
+  &__button {
+    height: 48px;
+    margin-bottom: 30px;
+    @include on768 {
+      margin: 0;
+    }
+  }
+  &__button-container {
+    @include on768 {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  &__button-up {
+    display: none;
+    position: relative;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid $c-b;
+    transition: all 0.4s ease-in-out;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 45%;
+      left: 38%;
+      transform: rotate(45deg);
+      width: 12px;
+      height: 12px;
+      border-left: 1px solid $c-b;
+      border-top: 1px solid $c-b;
+      transition: all 0.4s ease-in-out;
+    }
+    &:hover,
+    &:focus {
+      background-color: $c-b;
+      &::after {
+        border-color: $c-w;
+      }
+    }
+    @include on768 {
+      display: block;
+    }
+  }
+  &__subtitle--down {
+    display: block;
+    @include on768 {
+      display: none;
+    }
+  }
+}

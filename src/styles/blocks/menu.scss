@@ -1,0 +1,77 @@
+$c-hover: #110e25;
+$c-background-color: #191536;
+
+.menu {
+  overflow: none;
+  height: 100vh;
+  font-weight: 500;
+  font-size: 21px;
+  line-height: 130%;
+  background-color: $c-background-color;
+  color: $c-w;
+  &__content {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @include on768 {
+      padding-top: 28px;
+      padding-bottom: 28px;
+    }
+
+    .top-actions {
+      margin-bottom: 37px;
+      padding-left: 22px;
+      padding-right: 22px;
+      @include on768 {
+        margin-bottom: 100px;
+      }
+    }
+  }
+  &__nav-icons {
+    margin-bottom: 0;
+  }
+
+  &__nav {
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    @include on768 {
+      margin-bottom: 50px;
+    }
+    @include on1280 {
+      margin-bottom: 60px;
+    }
+  }
+  &__icons {
+    width: 14px;
+    height: 14px;
+    transition: all 0.4s ease-in-out;
+    &:hover,
+    &:focus {
+      transform: scale(1.4);
+    }
+  }
+  &__item {
+    padding: 11px 22px;
+    @include on768 {
+      padding: 11px 153px;
+    }
+    &:hover {
+      color: $c-b;
+      background-color: $c-hover;
+    }
+  }
+  &__link {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 30px;
+    @include on768 {
+      margin-bottom: 50px;
+    }
+  }
+}
+
+.page__body--with-menu {
+  overflow: hidden;
+}
