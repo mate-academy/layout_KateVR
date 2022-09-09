@@ -1,0 +1,41 @@
+.bottom-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 90px 110px;
+
+  &__link {
+    text-decoration: none;
+    color: $white;
+    padding: 10px 0;
+  }
+
+  &__info {
+    display: flex;
+    gap: 40px;
+  }
+  &__more {
+    transform: translateY(7px);
+  }
+  &__controler {
+    box-sizing: border-box;
+    display: flex;
+    gap: 100px;
+    border-bottom: 1px solid #212121;
+
+    & > * {
+      border-bottom: 2px solid transparent;
+      &:hover {
+        border-bottom: 2px solid $custom;
+      }
+    }
+  }
+
+  @media (max-width: 1279px) {
+    display: none;
+  }
+
+  @media (min-width: $laptop) {
+    padding: 110px 235px;
+  }
+}

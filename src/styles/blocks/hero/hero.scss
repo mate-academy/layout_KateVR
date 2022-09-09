@@ -1,0 +1,150 @@
+.hero {
+  background: linear-gradient($bgGradientBlue, $black);
+  display: flex;
+  flex-direction: column;
+
+  &__topbar {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__language {
+    display: none;
+  }
+
+  &__contents {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__contents-text {
+    padding: 20px;
+  }
+
+  &__locomotion {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  &__discover {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+    margin-bottom: 20px;
+  }
+
+  &__price {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__vr-img {
+    min-width: 320px;
+  }
+
+  &__buy {
+    margin: 0 auto;
+    width: 270px;
+  }
+
+  @media (min-width: 768px) {
+    &__topbar {
+      padding: 35px;
+    }
+
+    &__contents {
+      flex-direction: row;
+    }
+
+    &__contents-text {
+      z-index: 2;
+      padding: 55px 0 35px 35px;
+      min-width: 340px;
+    }
+
+    &__price {
+      text-align: left;
+    }
+
+    &__vr-img {
+      min-width: 465px;
+      transform: translateX(-8%);
+    }
+
+    &__buy {
+      margin-left: 35px;
+      width: 280px;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    &__topbar {
+      padding: 65px 110px;
+      display: flex;
+      align-items: center;
+    }
+
+    &__icons {
+      display: flex;
+      gap: 35px;
+    }
+
+    &__language {
+      display: inline;
+    }
+
+    &__menu {
+      display: none;
+    }
+
+    &__contents {
+      flex-direction: row;
+    }
+
+    &__contents-text {
+      z-index: 2;
+      padding: 110px;
+      padding-right: 10px;
+      min-width: 340px;
+    }
+
+    &__discover,
+    &__price,
+    &__video {
+      padding-left: 75px;
+    }
+
+    &__vr-img {
+      min-width: 810px;
+    }
+
+    &__buy {
+      display: none;
+    }
+  }
+
+  @media (min-width: 1922px) {
+    &__topbar {
+      padding: 65px 235px;
+    }
+
+    &__contents-text {
+      z-index: 2;
+      padding-left: 235px;
+      padding-right: 10px;
+      min-width: 550px;
+    }
+
+    &__discover,
+    &__price,
+    &__video {
+      padding-left: 110px;
+    }
+
+    &__vr-img {
+      min-width: 1150px;
+    }
+  }
+}

@@ -1,6 +1,18 @@
+// $break-points: ('on-tablet' 744px,
+//   'on-desktop' 1280px,
+//   'on-laptop' 1960px);
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
 }
+
+// @each $name, $value in $break-points {
+//   @mixin #{$name} {
+//     @media (min-width: #{$value}) {
+//       @content
+//     }
+//   }
+// }
