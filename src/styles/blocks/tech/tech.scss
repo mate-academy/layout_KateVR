@@ -1,0 +1,202 @@
+.tech {
+  background: #05040b;
+  padding: 50px 20px;
+
+  &__title {
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: #fff;
+
+    & > span {
+      font-weight: 100;
+      color: #05c2df;
+    }
+  }
+
+  &__wrapper {
+    min-width: 200px;
+    position: relative;
+  }
+
+  &__img {
+    width: 100%;
+    padding: 40px;
+    padding-bottom: 0;
+  }
+
+  &__btn-1 {
+    position: absolute;
+    top: 13%;
+    left: 35%;
+  }
+
+  &__btn-2 {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+  }
+
+  &__btn-3 {
+    position: absolute;
+    top: 85%;
+    left: 13%;
+  }
+
+  &__vr-details {
+    display: none;
+  }
+
+  @media (min-width: $tab) {
+    padding: 80px 35px;
+
+    &__img {
+      content: url("../.././src/images/photos/vr_single_large.png");
+    }
+
+    &__btn-1,
+    &__btn-2,
+    &__btn-3 {
+      transform: scale(180%);
+    }
+  }
+
+  @media (min-width: $desktop) {
+    padding: 100px 110px;
+
+    &__title {
+      font-weight: 900;
+      font-size: 36px;
+      line-height: 44px;
+      text-align: right;
+    }
+
+    &__wrapper {
+      margin: 0 auto;
+      margin-top: 120px;
+      max-width: 1060px;
+      text-align: center;
+    }
+
+    &__img {
+      padding: 0;
+      width: 300px;
+      height: 300px;
+    }
+
+    &__btn-1,
+    &__btn-2,
+    &__btn-3 {
+      display: none;
+    }
+
+    &__vr-details {
+      display: inline-block;
+    }
+
+    &__sensor {
+      width: 400px;
+      height: 70px;
+      border-top: 1px solid #05c2df;
+      border-right: 1px solid #05c2df;
+
+      position: absolute;
+      top: -15%;
+      left: 11.5%;
+
+      & > * {
+        margin-top: -10px;
+        text-align: left;
+        transform: translateX(-30%);
+      }
+    }
+
+    &__batterries {
+      width: 235px;
+      height: 235px;
+      border-bottom: 1px solid #05c2df;
+      border-right: 1px solid #05c2df;
+
+      position: absolute;
+      top: -15%;
+      left: 50%;
+
+      & > * {
+        min-width: 285px;
+        text-align: left;
+        transform: translateX(90%);
+      }
+    }
+
+    &__details {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #929292;
+    }
+
+    &__heading {
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 22px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    &__connection {
+      width: 60px;
+      height: 110px;
+      border-bottom: 1px solid #05c2df;
+      border-right: 1px solid #05c2df;
+
+      position: absolute;
+      top: 25%;
+      left: 20%;
+
+      & > .a {
+        height: 110px;
+        width: 110px;
+        border-top: 1px solid #05c2df;
+
+        position: absolute;
+        left: 100%;
+      }
+
+      & > .half-circle {
+        width: 250px;
+        height: 300px;
+        border-radius: 50%;
+        border-left: 1px solid #05c2df;
+
+        position: absolute;
+        top: -70%;
+        left: 275%;
+      }
+
+      & > .tech__heading,
+      .tech__details {
+        min-width: 240px;
+        text-align: left;
+        position: relative;
+        top: 90%;
+        left: -270%;
+      }
+    }
+  }
+
+  @media (min-width: $laptop) {
+    &__connection {
+      width: 110px;
+      left: 15%;
+
+      & > .half-circle {
+        left: 195%;
+      }
+
+      & > .tech__heading,
+      .tech__details {
+        left: -145%;
+      }
+    }
+  }
+}
