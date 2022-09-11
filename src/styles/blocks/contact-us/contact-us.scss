@@ -1,0 +1,73 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
+.contact-us {
+  background: $bgBlack;
+  padding: 50px 20px;
+
+  &__text {
+    @include typography($weight-4, $size-14, $size-18);
+    color: $primary;
+    margin-bottom: 10px;
+  }
+
+  &__heading {
+    @include typography($weight-9, $size-22, $size-26);
+    margin-bottom: 30px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 30px;
+  }
+
+  &__name,
+  &__email,
+  &__phone,
+  &__message {
+    @include typography($weight-4, $size-14, $size-22);
+
+    color: $white;
+    padding: 10px 0;
+    resize: none;
+
+    border: none;
+    background: transparent;
+    border-bottom: 1px solid $darkGray;
+
+    &:focus {
+      outline: none;
+      @include typography($weight-9, $size-16, $size-22);
+    }
+  }
+
+  &__btn-wrapper {
+    display: flex;
+  }
+
+  &__btn {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom: 30px;
+  }
+
+  &__top-btn {
+    display: none;
+  }
+
+  &__note {
+    @include typography($weight-4, $size-12, $size-18);
+    color: $gray;
+  }
+
+  &__contacts {
+    display: none;
+  }
+
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
+}
