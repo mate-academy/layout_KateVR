@@ -1,0 +1,47 @@
+@mixin on-desktop($break-point) {
+  @media (min-width: $break-point) {
+    &__info {
+      padding: 110px;
+    }
+
+    &__info-heading {
+      @include typography($weight-9, $size-36, $size-44);
+    }
+
+    &__info-text {
+      @include typography($weight-4, $size-14, $size-18);
+    }
+
+    &__info-articles {
+      flex-wrap: unset;
+    }
+
+    &__product {
+      padding: 110px 120px;
+    }
+
+    &__product-img {
+      margin-bottom: 0;
+    }
+
+    &__controler {
+      display: flex;
+      max-width: 200px;
+    }
+
+    &__product-detail {
+      padding-left: 140px;
+      column-gap: 110px;
+    }
+
+    &__aboutus-text {
+      align-items: center;
+    }
+
+    &__aboutus {
+      margin-left: 110px;
+      min-height: 340px;
+      content: url("../.././src/images/photos/aboutus_max.png");
+    }
+  }
+}

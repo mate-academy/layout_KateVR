@@ -1,5 +1,8 @@
 @import "./nav.scss";
 @import "./bottom_nav.scss";
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
 
 .hero {
   background: linear-gradient($bgGradientBlue, $black);
@@ -31,10 +34,8 @@
   }
 
   &__discover {
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 150%;
-    color: #929292;
+    @include typography($weight-5, $size-16, $size-24);
+    color: $gray;
     margin-bottom: 20px;
   }
 
@@ -52,102 +53,7 @@
     width: 270px;
   }
 
-  @media (min-width: $tab) {
-    &__topbar {
-      padding: 35px;
-    }
-
-    &__contents {
-      flex-direction: row;
-    }
-
-    &__contents-text {
-      z-index: 2;
-      padding: 55px 0 35px 35px;
-      min-width: 340px;
-    }
-
-    &__price {
-      text-align: left;
-    }
-
-    &__vr-img {
-      min-width: 465px;
-      transform: translateX(-8%);
-    }
-
-    &__buy {
-      margin-left: 35px;
-      width: 280px;
-    }
-  }
-
-  @media (min-width: $desktop) {
-    &__topbar {
-      padding: 65px 110px;
-      display: flex;
-      align-items: center;
-    }
-
-    &__icons {
-      display: flex;
-      gap: 35px;
-    }
-
-    &__language {
-      display: inline;
-    }
-
-    &__menu {
-      display: none;
-    }
-
-    &__contents {
-      flex-direction: row;
-    }
-
-    &__contents-text {
-      z-index: 2;
-      padding: 110px;
-      padding-right: 10px;
-      min-width: 340px;
-    }
-
-    &__discover,
-    &__price,
-    &__video {
-      padding-left: 75px;
-    }
-
-    &__vr-img {
-      min-width: 810px;
-    }
-
-    &__buy {
-      display: none;
-    }
-  }
-
-  @media (min-width: $laptop) {
-    &__topbar {
-      padding: 65px 235px;
-    }
-
-    &__contents-text {
-      z-index: 2;
-      padding-left: 235px;
-      padding-right: 10px;
-      min-width: 550px;
-    }
-
-    &__discover,
-    &__price,
-    &__video {
-      padding-left: 110px;
-    }
-
-    &__vr-img {
-      min-width: 1150px;
-    }
-  }
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
 }

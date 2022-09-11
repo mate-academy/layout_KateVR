@@ -1,5 +1,10 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
 .about {
-  background-color: #05040b;
+  background-color: $bgBlack;
+  color: $white;
 
   &__info {
     display: flex;
@@ -9,15 +14,7 @@
   }
 
   &__info-heading {
-    font-weight: 900;
-    font-size: 21px;
-    line-height: 25px;
-    color: #fff;
-
-    & > span {
-      font-weight: 100;
-      color: #05c2df;
-    }
+    @include typography($weight-9, $size-22, $size-26);
   }
 
   &__info-articles {
@@ -26,10 +23,8 @@
   }
 
   &__info-text {
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
-    color: #05c2df;
+    @include typography($weight-4, $size-12, $size-16);
+    color: $primary;
     margin-bottom: 10px;
   }
 
@@ -43,18 +38,13 @@
   }
 
   &__article-heading {
-    font-weight: 900;
-    font-size: 16px;
-    line-height: 19px;
-    color: #fff;
+    @include typography($weight-9, $size-16, $size-20);
     margin-bottom: 10px;
   }
 
   &__article-text {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    color: #929292;
+    @include typography($weight-4, $size-16, $size-24);
+    color: $gray;
 
     white-space: nowrap;
     overflow: hidden;
@@ -62,20 +52,12 @@
   }
 
   &__product {
-    background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+    background: linear-gradient(147deg, $bgGradientBlue -0.5%, $black 99.5%);
     padding: 50px 20px;
   }
 
   &__heading {
-    font-weight: 900;
-    font-size: 21px;
-    line-height: 25px;
-    color: #fff;
-
-    & > span {
-      font-weight: 100;
-      color: #05c2df;
-    }
+    @include typography($weight-9, $size-22, $size-26);
   }
 
   &__product-img {
@@ -88,10 +70,8 @@
   }
 
   &__product-text {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    color: #929292;
+    @include typography($weight-4, $size-16, $size-24);
+    color: $gray;
     margin-bottom: 15px;
   }
 
@@ -100,31 +80,19 @@
   }
 
   &__hello {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    color: #05c2df;
+    @include typography($weight-4, $size-14, $size-18);
+    color: $primary;
     margin-bottom: 10px;
   }
 
   &__product-meet {
-    font-weight: 900;
-    font-size: 21px;
-    line-height: 25px;
-    color: #fff;
+    @include typography($weight-9, $size-22, $size-26);
     margin-bottom: 20px;
-
-    & > span {
-      font-weight: 100;
-      color: #05c2df;
-    }
   }
 
   &__message {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    color: #929292;
+    @include typography($weight-4, $size-16, $size-24);
+    color: $gray;
     margin-bottom: 50px;
   }
 
@@ -132,157 +100,7 @@
     display: none;
   }
 
-  @media (min-width: $tab) {
-    &__info {
-      padding: 70px 35px;
-    }
-
-    &__info-heading,
-    &__info-text {
-      align-self: center;
-    }
-
-    &__info-articles {
-      margin-top: 30px;
-      flex-direction: row;
-      flex-wrap: wrap;
-      justify-content: center;
-      row-gap: 40px;
-      column-gap: 20px;
-    }
-
-    &__article {
-      align-items: center;
-      max-width: 45%;
-    }
-
-    &__info-icon {
-      display: inline;
-      margin-bottom: 30px;
-    }
-
-    &__article-heading {
-      margin-bottom: 20px;
-    }
-
-    &__article-text {
-      white-space: unset;
-      overflow: unset;
-      text-overflow: unset;
-      text-align: center;
-    }
-
-    &__product {
-      padding: 70px 35px;
-    }
-
-    &__product-detail {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      column-gap: 20px;
-      align-items: center;
-
-      grid-template-areas: "gallery-img heading"
-        "gallery-img details"
-        "gallery-img play-video";
-    }
-
-    &__heading {
-      grid-area: heading;
-      margin: 0;
-    }
-
-    &__img-wrapper {
-      grid-area: gallery-img;
-      height: 90%;
-    }
-
-    &__product-text {
-      grid-area: details;
-      margin: 0;
-    }
-
-    &__play-video {
-      grid-area: play-video;
-      margin: 0;
-    }
-
-    &__aboutus-text {
-      display: flex;
-      margin-top: 100px;
-    }
-
-    &__aboutus {
-      display: inline;
-      max-height: 250px;
-    }
-  }
-
-  @media (min-width: $desktop) {
-    &__info {
-      padding: 110px;
-    }
-
-    &__info-heading {
-      font-weight: 900;
-      font-size: 36px;
-      line-height: 44px;
-    }
-
-    &__info-text {
-      font-weight: 400;
-      font-size: 14px;
-      line-height: 17px;
-    }
-
-    &__info-articles {
-      flex-wrap: unset;
-    }
-
-    &__product {
-      padding: 110px 120px;
-    }
-
-    &__product-img {
-      margin-bottom: 0;
-    }
-
-    &__controler {
-      display: flex;
-      max-width: 200px;
-    }
-
-    &__product-detail {
-      padding-left: 140px;
-      column-gap: 110px;
-    }
-
-    &__aboutus-text {
-      align-items: center;
-    }
-
-    &__aboutus {
-      margin-left: 110px;
-      min-height: 340px;
-      content: url("../.././src/images/photos/aboutus_max.png");
-    }
-  }
-
-  @media (min-width: $laptop) {
-    &__info {
-      padding: 160px;
-    }
-
-    &__info-articles {
-      padding: 0 75px;
-    }
-
-    &__product {
-      padding: 150px 260px 160px 330px;
-    }
-
-    &__aboutus {
-      content: url("../.././src/images/photos/aboutus_xl.png");
-    }
-  }
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
 }
