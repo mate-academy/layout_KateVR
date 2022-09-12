@@ -1,5 +1,5 @@
 .nav {
-  display: flex;
+  display: none;
   column-gap: 35px;
 
   &__link {
@@ -9,5 +9,52 @@
     font-size: 16px;
     line-height: 130%;
     color: $white;
+  }
+
+  &--is-open {
+    display: flex;
+  }
+
+  &--menu {
+    z-index: 3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    background-color: $bgGradientBlue;
+    padding: 90px 0 160px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .nav__link {
+      padding: 10px 20px;
+      @include typography($weight-5, $size-22, $size-28);
+
+      &:hover {
+        background-color: $bgMenuHover;
+        color: $primary;
+      }
+    }
+
+    & > :last-child {
+      display: none;
+    }
+
+    @media (min-width: $tab) {
+      padding: 75px 0;
+
+      .nav__link {
+        padding: 10px 150px;
+      }
+    }
+  }
+
+  @media (min-width: $desktop) {
+    &__link:nth-of-type(n + 5) {
+      display: none;
+    }
   }
 }
