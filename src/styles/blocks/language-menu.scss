@@ -1,16 +1,15 @@
 .language-menu {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-
   display: none;
   z-index: 5;
   flex-direction: column;
   gap: 10px;
-  padding: 20px 0 20px;
+  padding: 20px 0;
 
   background-color: $bgGradientBlue;
+
+  &--is-open {
+    display: flex;
+  }
 
   &__back-btn {
     padding-left: 20px;
@@ -32,9 +31,5 @@
     @media (min-width: $tab) {
       padding: 10px 150px;
     }
-  }
-
-  &--is-open {
-    display: flex;
   }
 }
