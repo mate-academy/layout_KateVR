@@ -1,0 +1,53 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
+.help {
+  display: none;
+  z-index: 5;
+  flex-direction: column;
+  padding: 20px 20px 50px;
+  gap: 30px;
+
+  background: $bgGradientBlue;
+  color: $white;
+
+  &--is-open {
+    display: flex;
+
+    & ~ .hero__contents {
+      opacity: 0.2;
+    }
+  }
+
+  &__cross-btn {
+    align-self: flex-end;
+    margin-bottom: 20px;
+  }
+
+  &__title {
+    @include typography($weight-9, $size-20, $size-26);
+  }
+
+  &__wrapper,
+  &__wrapper-links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  &__instructions,
+  &__link {
+    @include typography($weight-4, $size-16, $size-24);
+    color: $gray;
+    text-decoration: none;
+  }
+
+  &__link {
+    color: $primary;
+  }
+
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
+}

@@ -9,8 +9,13 @@ const languageMenu = document.querySelector('.language-menu');
 
 const faqsLink = document.querySelector('.nav__link--faq');
 const bottomFaqsLink = document.querySelector('.bottom-nav__link--faq');
-const faqsBackBtn = document.querySelector('.faq__back-btn');
+const faqsBackBtn = document.querySelector('.faq__cross-btn');
 const faqs = document.querySelector('.faq');
+
+const helpLink = document.querySelector('.nav__link--help');
+const helpBottomNavLink = document.querySelector('.bottom-nav__link--help');
+const helpCrossBtn = document.querySelector('.help__cross-btn');
+const help = document.querySelector('.help');
 
 heroMenu.addEventListener('click', () => {
   heroMenu.classList.toggle('hero__menu--cros-icon');
@@ -37,4 +42,16 @@ bottomFaqsLink.addEventListener('click', () => {
 
 faqsBackBtn.addEventListener('click', () => {
   faqs.classList.remove('faq--is-open');
+});
+
+helpLink.addEventListener('click', () => {
+  help.classList.add('help--is-open');
+});
+
+helpBottomNavLink.addEventListener('click', () => {
+  help.classList.add('help--is-open');
+});
+
+helpCrossBtn.addEventListener('click', () => {
+  help.classList.remove('help--is-open');
 });
