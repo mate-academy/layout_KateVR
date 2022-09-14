@@ -1,0 +1,95 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
+.place-order {
+  padding: 0 20px;
+
+  &__qty-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  &__qty,
+  &__amt {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @include typography($weight-4, $size-16, $size-20)
+    color: $gray;
+    row-gap: 10px;
+  }
+
+  &__qty-select,
+  &__select {
+    background: $bgGradientBlue;
+    color: $white;
+    font-family: inherit;
+    outline: none;
+    border: none;
+
+    & > option {
+      background-color: $bgMenuHover;
+      padding: 10px 0;
+    }
+  }
+
+  &__qty-select {
+    width: 90px;
+    height: 40px;
+    text-align: center;
+  }
+
+  &__amt {
+    & > :last-child {
+      color: $primary;
+      @include typography($weight-5, $size-26, $size-28)
+    }
+  }
+
+  &__user-details {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__select,
+  &__input,
+  &__label {
+    @include typography($weight-4, $size-14, $size-18);
+  }
+
+  &__input {
+    outline: none;
+    padding: 2px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid $darkGray;
+    background: transparent;
+    color: $gray;
+    color: $white;
+    margin-bottom: 5px;
+  }
+
+  &__label {
+    padding: 10px 0;
+    color: $gray;
+  }
+
+  &__select {
+    height: 35px;
+    padding: 5px 25px;
+
+    &:last-of-type {
+      margin-bottom: 10px;
+    }
+  }
+
+  &__btn {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 320px;
+    align-self: center;
+  }
+}

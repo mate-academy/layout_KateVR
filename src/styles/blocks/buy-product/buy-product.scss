@@ -1,0 +1,50 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+@import "./place-order/place-order.scss";
+
+.buy-product {
+  background: linear-gradient(107deg, $bgGradientBlue 0%, $black 100%);
+  color: $white;
+  z-index: 5;
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  &__top-bar {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__link {
+    text-decoration: none;
+    text-align: center;
+    color: inherit;
+    padding: 10px 0;
+    @include typography($weight-5, $size-12, $size-16);
+    flex-grow: 1;
+    border-bottom: 1px solid #2F2F2F;
+
+    &:first-child {
+      text-align: left;
+      padding-left: 20px;
+    }
+
+    &:last-child {
+      text-align: right;
+      padding-right: 20px;
+    }
+
+    &:hover {
+      border-color: $primary;
+    }
+  }
+}
