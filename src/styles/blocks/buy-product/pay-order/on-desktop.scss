@@ -1,8 +1,13 @@
 @mixin on-desktop($break-point) {
   @media (min-width: $break-point) {
-    display: flex;
     padding: 100px;
+    display: none;
+    flex-direction: row;
     justify-content: center;
+
+    &--is-active {
+      display: flex;
+    }
 
     &__vr-img {
       margin-bottom: 170px;

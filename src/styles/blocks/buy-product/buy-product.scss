@@ -1,5 +1,6 @@
 @import "./place-order/place-order.scss";
 @import "./pay-order/pay-order.scss";
+@import "./complete-order/complete-order.scss";
 @import "./on-tab.scss";
 @import "./on-desktop.scss";
 @import "./on-laptop.scss";
@@ -10,8 +11,12 @@
   z-index: 5;
   height: 100vh;
 
-  display: flex;
+  display: none;
   flex-direction: column;
+
+  &--is-active {
+    display: flex;
+  }
 
   &__top-bar {
     padding: 20px;
@@ -32,7 +37,7 @@
     padding: 10px 0;
     @include typography($weight-5, $size-12, $size-16);
     flex-grow: 1;
-    border-bottom: 1px solid #2F2F2F;
+    border-bottom: 1px solid $darkGray;
 
     &:first-child {
       text-align: left;

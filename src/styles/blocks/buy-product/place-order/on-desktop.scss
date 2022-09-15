@@ -1,8 +1,18 @@
 @mixin on-desktop($break-point) {
   @media (min-width: $break-point) {
-    display: flex;
+    display: none;
     padding: 100px;
     justify-content: center;
+    flex-direction: row;
+
+    &--is-active {
+      display: flex;
+    }
+
+    &__vr-img {
+      display: block;
+      margin-left: 10px;
+    }
 
     &__qty-details {
       margin-top: 175px;
@@ -19,7 +29,5 @@
       height: 60px;
       gap: 20px;
     }
-
-    display: none;
   }
 }

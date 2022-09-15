@@ -5,6 +5,11 @@
 .place-order {
   display: none;
   padding: 0 20px;
+  flex-direction: column;
+
+  &--is-active {
+    display: flex;
+  }
 
   &__vr-img {
     display: none;
@@ -46,11 +51,9 @@
     text-align: center;
   }
 
-  &__amt {
-    & > :last-child {
-      color: $primary;
-      @include typography($weight-5, $size-26, $size-28)
-    }
+  &__amt > :last-child {
+    color: $primary;
+    @include typography($weight-5, $size-26, $size-28);
   }
 
   &__user-details {
@@ -61,7 +64,7 @@
 
   &__select-group {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
   }
 
   &__select,
@@ -78,7 +81,6 @@
     border-bottom: 1px solid $darkGray;
     background: transparent;
     color: $gray;
-    color: $white;
     margin-bottom: 5px;
   }
 

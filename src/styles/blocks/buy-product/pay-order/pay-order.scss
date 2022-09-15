@@ -3,7 +3,13 @@
 @import "./on-laptop.scss";
 
 .pay-order {
+  display: none;
+  flex-direction: column;
   padding: 0 20px;
+
+  &--is-active {
+    display: flex;
+  }
 
   &__vr-img {
     display: none;
@@ -45,11 +51,9 @@
     text-align: center;
   }
 
-  &__amt {
-    & > :last-child {
-      color: $primary;
-      @include typography($weight-5, $size-26, $size-28)
-    }
+  &__amt > :last-child {
+    color: $primary;
+    @include typography($weight-5, $size-26, $size-28);
   }
 
   &__card-details {
@@ -60,7 +64,7 @@
   }
 
   &__card-icon {
-    display: none
+    display: none;
   }
 
   &__label {
@@ -80,7 +84,6 @@
     border-bottom: 1px solid $darkGray;
     background: transparent;
     color: $gray;
-    color: $white;
     margin-bottom: 5px;
 
     &--w-65 {
@@ -97,7 +100,6 @@
   &__cc-number-wrapper {
     display: flex;
     justify-content: space-between;
-
 
     & .pay-order__input {
       max-width: 55px;
