@@ -2,8 +2,7 @@
 @import "./on-desktop.scss";
 @import "./on-laptop.scss";
 
-.place-order {
-  display: none;
+.pay-order {
   padding: 0 20px;
 
   &__vr-img {
@@ -53,21 +52,24 @@
     }
   }
 
-  &__user-details {
-    padding-top: 10px;
+  &__card-details {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
+    gap: 20px;
   }
 
-  &__select-group {
-    display: flex;
-    flex-direction: column
+  &__card-icon {
+    display: none
   }
 
-  &__select,
-  &__input,
   &__label {
-    @include typography($weight-4, $size-14, $size-18);
+    @include typography($weight-4, $size-14, $size-20);
+    color: $gray;
+
+    &:first-of-type {
+      color: $primary;
+    }
   }
 
   &__input {
@@ -80,19 +82,27 @@
     color: $gray;
     color: $white;
     margin-bottom: 5px;
+
+    &--w-65 {
+      width: 70px;
+      letter-spacing: 0.2em;
+    }
+
+    &--w-40 {
+      width: 40px;
+      letter-spacing: 0.2em;
+    }
   }
 
-  &__label {
-    padding: 10px 0;
-    color: $gray;
-  }
+  &__cc-number-wrapper {
+    display: flex;
+    justify-content: space-between;
 
-  &__select {
-    height: 35px;
-    padding: 5px 25px;
 
-    &:last-of-type {
-      margin-bottom: 10px;
+    & .pay-order__input {
+      max-width: 55px;
+      @include typography($weight-5, $size-18, $size-24);
+      letter-spacing: 0.2em;
     }
   }
 

@@ -1,7 +1,8 @@
+@import "./place-order/place-order.scss";
+@import "./pay-order/pay-order.scss";
 @import "./on-tab.scss";
 @import "./on-desktop.scss";
 @import "./on-laptop.scss";
-@import "./place-order/place-order.scss";
 
 .buy-product {
   background: linear-gradient(107deg, $bgGradientBlue 0%, $black 100%);
@@ -47,4 +48,8 @@
       border-color: $primary;
     }
   }
+
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
 }

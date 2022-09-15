@@ -642,25 +642,35 @@
     </div>
 
     <section class="buy-product page__section hero__inner-menus">
-     <div class="buy-product__top-bar">
-      <a href="#" class="buy-product__logo">
-        <img
-          src="./images/icons/icon_logo.svg"
-          alt="KATVR Logo"
-        >
-      </a>
+      <div class="buy-product__top-bar-wrapper">
+        <div class="buy-product__top-bar">
+        <a href="#" class="buy-product__logo">
+          <img
+            src="./images/icons/icon_logo.svg"
+            alt="KATVR Logo"
+          >
+        </a>
 
-      <a href="#" class="buy-product__cross-btn">
-        <img src="./images/icons/icon_cross.svg" alt="Back Arrow Icon">
-      </a>
-     </div>
-      <nav class="buy-product__nav">
-        <a href="#place-order" class="buy-product__link">Place Order</a>
-        <a href="#pay-order" class="buy-product__link">Pay</a>
-        <a href="#complete-order" class="buy-product__link">Complete</a>
-      </nav>
+        <a href="#" class="buy-product__cross-btn">
+          <img src="./images/icons/icon_cross.svg" alt="Back Arrow Icon">
+        </a>
+        </div>
+
+        <nav class="buy-product__nav">
+          <a href="#place-order" class="buy-product__link">Place Order</a>
+          <a href="#pay-order" class="buy-product__link">Pay</a>
+          <a href="#complete-order" class="buy-product__link">Complete</a>
+        </nav>
+      </div>
 
       <article id="place-order" class="place-order">
+        <div class="place-order__img-qty-wrapper">
+          <img
+          src="./images/photos/vr_img_tab.png"
+          alt="VR"
+          class="place-order__vr-img"
+        >
+
         <div class="place-order__qty-details">
           <div class="place-order__qty">
             <label for="quantity">Quantity</label>
@@ -677,6 +687,7 @@
             <p>Price</p>
             <p>$1200</p>
           </div>
+        </div>
         </div>
 
         <form action="/" method="post" class="place-order__user-details">
@@ -712,31 +723,39 @@
             class="place-order__input"
           >
 
-          <label class="place-order__label" for="country">Country*</label>
-          <select
-            class="place-order__select"
-            name="country"
-            id="country"
-          >
-            <option value="turkey">Turkey</option>
-            <option value="ukraine">Ukraine</option>
-            <option value="poland">Poland</option>
-            <option value="india">India</option>
-            <option value="south-africa">South Africa</option>
-          </select>
+          <div class="place-order__select-group">
+            <label class="place-order__label" for="country">
+              Country*
+            </label>
+            <select
+              class="place-order__select"
+              name="country"
+              id="country"
+            >
+              <option value="turkey">Turkey</option>
+              <option value="ukraine">Ukraine</option>
+              <option value="poland">Poland</option>
+              <option value="india">India</option>
+              <option value="south-africa">South Africa</option>
+            </select>
+          </div>
 
-          <label class="place-order__label" for="city">City*</label>
-          <select
-            class="place-order__select"
-            name="city"
-            id="city"
-          >
-            <option value="istanbul">Istanbul</option>
-            <option value="adana">Adana</option>
-            <option value="waan">Waan</option>
-            <option value="Ankara">Ankara</option>
-            <option value="Bursa">Bursa</option>
-          </select>
+          <div class="place-order__select-group">
+            <label class="place-order__label" for="city">
+              City*
+            </label>
+            <select
+              class="place-order__select"
+              name="city"
+              id="city"
+            >
+              <option value="istanbul">Istanbul</option>
+              <option value="adana">Adana</option>
+              <option value="waan">Waan</option>
+              <option value="Ankara">Ankara</option>
+              <option value="Bursa">Bursa</option>
+            </select>
+          </div>
 
           <input
             type="text"
@@ -758,7 +777,116 @@
       </article>
 
       <article id="pay-order" class="pay-order">
+        <div class="pay-order__img-qty-wrapper">
+          <img
+            src="./images/photos/vr_img_tab.png"
+            alt="VR"
+            class="pay-order__vr-img"
+          >
 
+          <div class="pay-order__qty-details">
+            <div class="pay-order__qty">
+              <label for="quantity">Quantity</label>
+              <select name="quantity" id="quantity" autofocus required size="1" class="pay-order__qty-select">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+
+            <div class="pay-order__amt">
+              <p>Price</p>
+              <p>$1200</p>
+            </div>
+          </div>
+        </div>
+
+        <form action="" class="pay-order__card-details">
+          <label for="card-number" class="pay-order__label">
+            Card Number*
+          </label>
+
+          <div class="pay-order__cc-number-wrapper">
+            <input
+              type="number"
+              id="card-number"
+              placeholder="1234"
+              required
+              minlength="4"
+              maxlength="4"
+              class="pay-order__input"
+            >
+            <input
+              type="number"
+              placeholder="0000"
+              required
+              minlength="4"
+              maxlength="4"
+              class="pay-order__input"
+            >
+            <input
+              type="number"
+              placeholder="0000"
+              required
+              minlength="4"
+              maxlength="4"
+              class="pay-order__input"
+            >
+            <input
+              type="number"
+              placeholder="0000"
+              required
+              minlength="4"
+              maxlength="4"
+              class="pay-order__input"
+            >
+
+            <img
+              src="./images/icons/icon_visa.svg"
+              alt="Visa Card Icon"
+              class="pay-order__card-icon"
+            >
+          </div>
+
+          <input
+            type="text"
+            id="card-holder-name"
+            required
+            placeholder="Card Holder Name*"
+            class="pay-order__input"
+          >
+
+          <label for="expiry-date" class="pay-order__label">
+            Expiration Date*
+          </label>
+
+          <input
+            type="text"
+            id="expiry-date"
+            required
+            placeholder="MM/YY"
+            onfocus="(this.type='date')"
+            class="pay-order__input pay-order__input--w-65"
+          >
+
+          <label for="cvv" class="pay-order__label">
+            CVV*
+          </label>
+
+          <input
+            type="number"
+            id="cvv"
+            required
+            minlength="3"
+            maxlength="3"
+            placeholder="000"
+            class="pay-order__input pay-order__input--w-40"
+          >
+
+          <a href="#pay-order" class="btn place-order__btn">Purchase</a>
+        </form>
       </article>
 
       <article id="complete-order" class="complete-order">
