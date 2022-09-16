@@ -83,11 +83,11 @@ navBuyBtn.addEventListener('click', () => {
   placeOrderScreen.classList.add('place-order--is-active');
 });
 
-// featuresBuyBtn.addEventListener('click', () => {
-//   buyProductScreen.classList.add('buy-product--is-active');
-//   // placeOrderScreen.scrollTop = 0;
-//   placeOrderScreen.classList.add('place-order--is-active');
-// });
+featuresBuyBtn.addEventListener('click', () => {
+  buyProductScreen.classList.add('buy-product--is-active');
+  window.scrollTo(0, 0);
+  placeOrderScreen.classList.add('place-order--is-active');
+});
 
 heroBuyBtn.addEventListener('click', () => {
   buyProductScreen.classList.add('buy-product--is-active');

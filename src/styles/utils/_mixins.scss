@@ -4,3 +4,23 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-device($breakpoint) {
+  @if $breakpoint == $tab {
+    @media (max-width: $tab) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == $desktop {
+    @media (max-width: $desktop) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == $laptop {
+    @media (max-width: $laptop) {
+      @content;
+    }
+  }
+}
