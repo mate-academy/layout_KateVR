@@ -1,15 +1,20 @@
 'use strict';
 
 // Code Block for Menu opening handling
-const heroMenu = document.querySelector('.hero__menu');
+const heroMenuIcon = document.querySelector('.hero__menu-icon');
 const heroNav = document.querySelector('.nav');
 
-heroMenu.addEventListener('click', () => {
-  heroMenu.classList.toggle('hero__menu--cros-icon');
+heroMenuIcon.addEventListener('click', () => {
+  heroMenuIcon.classList.toggle('hero__menu-icon--cros-icon');
   heroNav.classList.toggle('hero__nav');
   heroNav.classList.toggle('nav--is-open');
   heroNav.classList.toggle('nav--menu');
 });
+
+// Code Block for closing Menu on focusout
+// heroNav.addEventListener('focusout', () => {
+//   heroMenuIcon.click();
+// });
 
 // Code Block for opening Language Menu
 const languageLink = document.querySelector('.nav__link--lang');
@@ -71,11 +76,18 @@ const completeOrderScreen = document.querySelector('.complete-order');
 const placeOrderBtn = document.querySelector('.place-order__btn');
 const payOrderBtn = document.querySelector('.pay-order__btn');
 const completeOrderBtn = document.querySelector('.complete-order__btn');
+const featuresBuyBtn = document.querySelector('.features__btn-buy');
 
 navBuyBtn.addEventListener('click', () => {
   buyProductScreen.classList.add('buy-product--is-active');
   placeOrderScreen.classList.add('place-order--is-active');
 });
+
+// featuresBuyBtn.addEventListener('click', () => {
+//   buyProductScreen.classList.add('buy-product--is-active');
+//   // placeOrderScreen.scrollTop = 0;
+//   placeOrderScreen.classList.add('place-order--is-active');
+// });
 
 heroBuyBtn.addEventListener('click', () => {
   buyProductScreen.classList.add('buy-product--is-active');
