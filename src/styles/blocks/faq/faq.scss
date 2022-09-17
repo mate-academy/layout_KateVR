@@ -1,0 +1,73 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
+.faq {
+  display: none;
+  z-index: 5;
+  flex-direction: column;
+  padding: 20px 20px 30px;
+  gap: 15px;
+  background: $bgGradientBlue;
+
+  &--is-open {
+    display: flex;
+
+    & ~ .hero__contents {
+      opacity: 0.2;
+    }
+  }
+
+  &__back-btn {
+    align-self: flex-end;
+  }
+  &__title {
+    @include typography($weight-9, $size-22, $size-28);
+    margin: 50px 0 30px;
+  }
+
+  &__article {
+    border: 1px solid $primary;
+    border-radius: 4px;
+    padding: 18px 12px;
+  }
+
+  &__heading {
+    @include typography($weight-4, $size-16, $size-24);
+    color: $primary;
+    margin-bottom: 20px;
+    cursor: pointer;
+  }
+
+  &__checkbox {
+    display: none;
+  }
+
+  @for $index from 1 through 4 {
+    #article-#{$index}:checked ~ &__content {
+      display: unset;
+    }
+  }
+
+  &__content {
+    display: none;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+    text-align: justify;
+    color: $gray;
+  }
+
+  &__time-stamp {
+    color: $mediumGray;
+  }
+
+  &__more-icon {
+    display: none;
+  }
+
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
+}

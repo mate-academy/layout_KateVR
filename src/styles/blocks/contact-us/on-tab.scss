@@ -1,0 +1,37 @@
+@mixin on-tab($break-point) {
+  @media (min-width: $break-point) {
+    padding: 70px 35px;
+    display: grid;
+
+    grid-template-areas: "text form"
+      "heading form"
+      ". form"
+      "note form"
+      "contacts form"
+      ". btn";
+
+    &__form {
+      grid-area: form;
+    }
+
+    &__btn-wrapper {
+      grid-area: btn;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__btn {
+      margin: 0;
+      max-width: 200px;
+    }
+
+    &__top-btn {
+      display: inline;
+    }
+
+    &__contacts {
+      grid-area: contacts;
+      display: flex;
+    }
+  }
+}

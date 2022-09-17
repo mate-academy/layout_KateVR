@@ -1,0 +1,51 @@
+@mixin on-desktop($break-point) {
+  @media (min-width: $break-point) {
+    &__topbar {
+      padding: 65px 110px;
+      display: flex;
+      align-items: center;
+    }
+
+    &__nav {
+      display: flex;
+    }
+
+    &__icons {
+      display: flex;
+      gap: 35px;
+    }
+
+    &__language {
+      display: inline;
+    }
+
+    &__menu-icon {
+      display: none;
+    }
+
+    &__contents {
+      flex-direction: row;
+    }
+
+    &__contents-text {
+      z-index: 2;
+      padding: 110px;
+      padding-right: 10px;
+      width: 580px;
+    }
+
+    &__discover,
+    &__price,
+    &__video {
+      padding-left: 75px;
+    }
+
+    &__vr-img {
+      min-width: 810px;
+    }
+
+    &__buy {
+      display: none;
+    }
+  }
+}

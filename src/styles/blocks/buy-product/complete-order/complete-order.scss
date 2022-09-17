@@ -1,0 +1,56 @@
+.complete-order {
+  display: none;
+  flex-direction: column;
+  padding: 90px 20px;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+
+  &--is-active {
+    display: flex;
+  }
+
+  &__thanks {
+    @include typography($weight-9, $size-26, $size-36);
+    text-transform: uppercase;
+    margin-bottom: 25px;
+  }
+
+  &__msg {
+    @include typography($weight-4, $size-16, $size-22);
+    margin-bottom: 30px;
+  }
+
+  &__btn {
+    width: 100%;
+  }
+
+  @media (min-width: $tab) {
+    padding: 180px 75px;
+
+    &__thanks {
+      @include typography($weight-9, $size-46, $size-60);
+      max-width: 650px;
+      margin-bottom: 40px;
+    }
+
+    &__msg {
+      @include typography($weight-4, $size-18, $size-24);
+      margin-bottom: 60px;
+    }
+
+    &__btn {
+      width: 450px;
+    }
+  }
+
+  @media (min-width: $desktop) {
+    &__thanks {
+      max-width: 100%;
+    }
+
+    &__btn {
+      width: 225px;
+    }
+  }
+}

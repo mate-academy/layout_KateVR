@@ -1,0 +1,40 @@
+@mixin on-desktop($break-point) {
+  @media (min-width: $break-point) {
+    padding: 0;
+
+    &__top-bar-wrapper {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 65px 260px 0 110px;
+    }
+
+    &__cross-btn {
+      display: none;
+    }
+
+    &__nav {
+      min-width: 850px;
+      display: flex;
+    }
+
+    &__link {
+      border: none;
+      flex-grow: 0;
+      @include typography($weight-5, $size-14, $size-20);
+      color: $gray;
+
+      &:visited {
+        color: $primary;
+      }
+
+      &:first-child {
+        padding-left: 0;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}

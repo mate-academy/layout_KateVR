@@ -1,0 +1,34 @@
+@mixin on-desktop($break-point) {
+  @media (min-width: $break-point) {
+    display: none;
+    padding: 100px;
+    justify-content: center;
+    flex-direction: row;
+
+    &--is-active {
+      display: flex;
+    }
+
+    &__vr-img {
+      display: block;
+      margin-left: 10px;
+    }
+
+    &__qty-details {
+      margin-top: 175px;
+    }
+
+    &__user-details {
+      max-width: 600px;
+      justify-content: center;
+    }
+
+    &__select,
+    &__input,
+    &__label {
+      min-width: 240px;
+      height: 60px;
+      gap: 20px;
+    }
+  }
+}

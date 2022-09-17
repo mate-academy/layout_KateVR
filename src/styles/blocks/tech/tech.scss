@@ -1,0 +1,50 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
+.tech {
+  background: $bgBlack;
+  padding: 50px 20px;
+  color: $white;
+
+  &__title {
+    @include typography($weight-9, $size-22, $size-26);
+  }
+
+  &__wrapper {
+    min-width: 200px;
+    position: relative;
+  }
+
+  &__img {
+    width: 100%;
+    padding: 40px;
+    padding-bottom: 0;
+  }
+
+  &__btn-1 {
+    position: absolute;
+    top: 13%;
+    left: 35%;
+  }
+
+  &__btn-2 {
+    position: absolute;
+    top: 50%;
+    left: 70%;
+  }
+
+  &__btn-3 {
+    position: absolute;
+    top: 85%;
+    left: 13%;
+  }
+
+  &__vr-details {
+    display: none;
+  }
+
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
+}

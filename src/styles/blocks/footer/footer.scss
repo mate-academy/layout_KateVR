@@ -1,0 +1,40 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
+.footer {
+  background-color: $black;
+  padding: 40px 20px;
+
+  display: flex;
+  justify-content: space-between;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 5;
+
+    & > * {
+      padding: 7px 0;
+    }
+
+    @include typography($weight-4, $size-14, $size-20);
+  }
+
+  &__logo {
+    display: inline-block;
+    padding: 10px 0;
+    margin-bottom: 20px;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    gap: 15px;
+  }
+
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
+}

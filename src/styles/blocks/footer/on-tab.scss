@@ -1,0 +1,29 @@
+@mixin on-tab($break-point) {
+  @media (min-width: $break-point) {
+    padding: 35px;
+    justify-content: center;
+    align-items: center;
+
+    &__nav {
+      flex-direction: row;
+      gap: 40px;
+      align-items: center;
+    }
+
+    &__logo {
+      margin: 0;
+      position: absolute;
+      left: 35px;
+    }
+
+    &__contacts {
+      align-self: center;
+      position: absolute;
+      right: 35px;
+
+      & > :first-child {
+        display: none;
+      }
+    }
+  }
+}
