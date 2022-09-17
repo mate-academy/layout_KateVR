@@ -5,7 +5,8 @@ const heroMenuIcon = document.querySelector('.hero__menu-icon');
 const heroNav = document.querySelector('.nav');
 
 heroMenuIcon.addEventListener('click', () => {
-  heroMenuIcon.classList.toggle('hero__menu-icon--cros-icon');
+  heroMenuIcon.classList.toggle('hero__menu-icon--normal');
+  heroMenuIcon.classList.toggle('hero__menu-icon--cross');
   heroNav.classList.toggle('hero__nav');
   heroNav.classList.toggle('nav--is-open');
   heroNav.classList.toggle('nav--menu');
