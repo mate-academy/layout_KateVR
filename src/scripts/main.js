@@ -21,8 +21,13 @@ heroMenuIcon.addEventListener('click', () => {
 const languageLink = document.querySelector('.nav__link--lang');
 const langBackBtn = document.querySelector('.language-menu__back-btn');
 const languageMenu = document.querySelector('.language-menu');
+const languageLinkEnglish = document.querySelector('.hero__language-en');
 
 languageLink.addEventListener('click', () => {
+  languageMenu.classList.add('language-menu--is-open');
+});
+
+languageLinkEnglish.addEventListener('click', () => {
   languageMenu.classList.add('language-menu--is-open');
 });
 
@@ -119,4 +124,22 @@ completeOrderBtn.addEventListener('click', () => {
   placeOrderScreen.classList.remove('place-order--is-active');
   payOrderScreen.classList.remove('pay-order--is-active');
   completeOrderScreen.classList.remove('complete-order--is-active');
+});
+
+const formSubmitContact = document.querySelector('.contact-us__btn');
+const contactName = document.querySelector('#contact-name');
+const contactEmail = document.querySelector('#contact-email');
+const contactPhone = document.querySelector('#contact-phone');
+
+formSubmitContact.addEventListener('click', (event) => {
+  // event.preventDefault();
+  window.alert(`{
+    Name: ${contactName.value},
+    Email: ${contactEmail.value},
+    Phone: ${contactPhone.value},
+  }`);
+
+  contactName.value = '';
+  contactEmail.value = '';
+  contactPhone.value = '';
 });

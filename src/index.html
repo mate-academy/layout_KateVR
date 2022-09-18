@@ -41,7 +41,7 @@
             >
           </a>
 
-          <a href="#language" class="link hero__language">
+          <a href="#language" class="link hero__language-en">
             <img
               src="images/icons/icon_language_menu.svg"
               alt="Language Menue Icon"
@@ -659,9 +659,10 @@
       </h2>
 
       <form
-        action="/"
+        action="https://naveed-shoukat.github.io/layout_KateVR/"
         method="post"
         class="contact-us__form"
+        id="contact-us__form"
       >
         <label for="contact-name"></label>
         <input
@@ -684,7 +685,11 @@
         <label for="contact-phone"></label>
         <input
           required
-          type="number"
+          type="text"
+          inputmode="numeric"
+          pattern="\d*"
+          minlength="11"
+          maxlength="13"
           id="contact-phone"
           placeholder="Phone*"
           class="contact-us__phone"
@@ -702,9 +707,14 @@
       </form>
 
       <div class="contact-us__btn-wrapper">
-        <a href="#" class="btn contact-us__btn">
+        <button
+          type="submit"
+          form="contact-us__form"
+          value="Contact Us"
+          class="btn contact-us__btn"
+        >
           Contact Us
-        </a>
+        </button>
 
         <a href="#" class="btn-top contact-us__top-btn">
           <img
@@ -796,6 +806,7 @@
           action="/"
           method="post"
           class="place-order__user-details"
+          id="place-order__user-details"
         >
           <label for="first-name"></label>
           <input
@@ -829,8 +840,12 @@
 
           <label for="phone-number"></label>
           <input
-            type="number"
+            type="text"
+            inputmode="numeric"
+            pattern="\d*"
             id="phone-number"
+            minlength="11"
+            maxlength="13"
             name="phone"
             placeholder="Phone Number*"
             required
@@ -890,9 +905,16 @@
             class="place-order__input"
           >
 
-          <a href="#" class="btn place-order__btn">
+          <button
+            type="submit"
+            form="place-order__user-details"
+            class="btn btn place-order__btn"
+          >
             Proceed to Payment
-          </a>
+          </button>
+          <!-- <a href="#" class="btn place-order__btn">
+            Proceed to Payment
+          </a> -->
         </form>
       </article>
       <!-- #endregion -->
@@ -932,14 +954,20 @@
           </div>
         </div>
 
-        <form action="/" class="pay-order__card-details">
+        <form
+          action="/"
+          class="pay-order__card-details"
+          id="pay-order__credit-card-details"
+        >
           <label for="card-number" class="pay-order__label">
             Card Number*
           </label>
 
           <div class="pay-order__cc-number-wrapper">
             <input
-              type="number"
+              type="text"
+              inputmode="numeric"
+              pattern="\d*"
               id="card-number"
               placeholder="1234"
               required
@@ -950,7 +978,9 @@
 
             <label for="card-num-2"></label>
             <input
-              type="number"
+              type="text"
+              inputmode="numeric"
+              pattern="\d*"
               id="card-num-2"
               placeholder="0000"
               required
@@ -961,7 +991,9 @@
 
             <label for="card-num-3"></label>
             <input
-              type="number"
+              type="text"
+              inputmode="numeric"
+              pattern="\d*"
               id="card-num-3"
               placeholder="0000"
               required
@@ -972,7 +1004,9 @@
 
             <label for="card-num-4"></label>
             <input
-              type="number"
+              type="text"
+              inputmode="numeric"
+              pattern="\d*"
               id="card-num-4"
               placeholder="0000"
               required
@@ -1015,7 +1049,9 @@
           </label>
 
           <input
-            type="number"
+            type="text"
+            inputmode="numeric"
+            pattern="\d*"
             id="cvv"
             required
             minlength="3"
@@ -1024,7 +1060,14 @@
             class="pay-order__input pay-order__input--w-40"
           >
 
-          <a href="#pay-order" class="btn pay-order__btn">Pay Now</a>
+          <button
+            type="submit"
+            form="pay-order__credit-card-details"
+            class="btn pay-order__btn"
+          >
+          Pay Now
+          </button>
+          <!-- <a href="#pay-order" class="btn pay-order__btn">Pay Now</a> -->
         </form>
       </article>
       <!--#endregion  -->
@@ -1083,7 +1126,11 @@
         </div>
 
         <div class="social-icons">
-          <a href="#" class="social-icons__link">
+          <a
+            href="https://www.facebook.com/"
+            target="_blank"
+            class="social-icons__link"
+          >
             <img
               src="images/icons/icon_facebook.svg"
               alt="Link facebook"
@@ -1091,7 +1138,11 @@
             >
           </a>
 
-          <a href="#" class="social-icons__link">
+          <a
+            href="https://twitter.com/?lang=en"
+            target="_blank"
+            class="social-icons__link"
+          >
             <img
               src="images/icons/icon_twitter.svg"
               alt="Link Twitter"
@@ -1099,7 +1150,11 @@
             >
           </a>
 
-          <a href="#" class="social-icons__link">
+          <a
+            href="https://www.youtube.com/"
+            target="_blank"
+            class="social-icons__link"
+          >
             <img
               src="images/icons/icon_youtube.svg"
               alt="Link Youtube"
@@ -1107,7 +1162,11 @@
             >
           </a>
 
-          <a href="#" class="social-icons__link">
+          <a
+            href="https://www.reddit.com/"
+            target="_blank"
+            class="social-icons__link"
+          >
             <img
               src="images/icons/icon_radit.svg"
               alt="Link Redit"

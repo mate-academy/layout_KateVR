@@ -24,10 +24,14 @@
     margin-bottom: 30px;
   }
 
+  &__message,
   &__name,
   &__email,
   &__phone,
-  &__message {
+  &__name:-webkit-autofill,
+  &__email:-webkit-autofill,
+  &__message:-webkit-autofill,
+  &__phone:-webkit-autofill {
     @include typography($weight-4, $size-14, $size-22);
 
     color: $white;
@@ -37,6 +41,9 @@
     border: none;
     background: transparent;
     border-bottom: 1px solid $darkGray;
+
+    -webkit-text-fill-color: $white;
+    transition: background-color 5000s ease-in-out 0s;
 
     &:focus {
       outline: none;
