@@ -335,6 +335,19 @@
               class="play-video-btn"
             >
           </a>
+
+          <div class="hero__video-iframe">
+            <iframe
+            width="100%"
+            height="100%"
+              src="https://www.youtube.com/embed/8z6QjTrTkGY"
+              frameborder=\'0\' allowfullscreen
+            >
+            </iframe>
+            <button class="btn hero__video-close-btn">
+              Close Video
+            </button>
+          </div>
         </div>
 
         <img
@@ -364,11 +377,17 @@
         </a>
 
         <div class="controler">
-          <a href="#previous" class="controler__link">
+          <a
+            href="#previous"
+            class="controler__link controler__link--previous"
+          >
             Previous
           </a>
 
-          <a href="#next" class="controler__link">
+          <a
+            href="#next"
+            class="controler__link controler__link--next"
+          >
             Next
           </a>
         </div>
@@ -659,10 +678,11 @@
       </h2>
 
       <form
-        action="https://naveed-shoukat.github.io/layout_KateVR/"
+        action="https://backend-server:port\some-api:"
         method="post"
         class="contact-us__form"
         id="contact-us__form"
+        target="_blank"
       >
         <label for="contact-name"></label>
         <input
@@ -670,6 +690,7 @@
           type="text"
           id="contact-name"
           placeholder="Name*"
+
           class="contact-us__name"
         >
 
@@ -697,11 +718,11 @@
 
         <textarea
           name="message"
-          id="message"
+          id="contact-us__message"
           cols="30"
           rows="6"
           placeholder="Message"
-          class="contact-us__message"
+          class="contact-us__message-text"
         >
         </textarea>
       </form>
@@ -797,7 +818,7 @@
 
             <div class="place-order__amt">
               <p>Price</p>
-              <p>$1200</p>
+              <p class="place-order__price">$1200</p>
             </div>
           </div>
         </div>

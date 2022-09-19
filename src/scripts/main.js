@@ -22,6 +22,7 @@ const languageLink = document.querySelector('.nav__link--lang');
 const langBackBtn = document.querySelector('.language-menu__back-btn');
 const languageMenu = document.querySelector('.language-menu');
 const languageLinkEnglish = document.querySelector('.hero__language-en');
+const languageMenuLinks = document.querySelectorAll('.language-menu__link');
 
 languageLink.addEventListener('click', () => {
   languageMenu.classList.add('language-menu--is-open');
@@ -34,6 +35,12 @@ languageLinkEnglish.addEventListener('click', () => {
 langBackBtn.addEventListener('click', () => {
   languageMenu.classList.remove('language-menu--is-open');
 });
+
+for (let i = 0; i < languageMenuLinks.length; i++) {
+  languageMenuLinks[i].addEventListener('click', () => {
+    languageMenu.classList.remove('language-menu--is-open');
+  });
+};
 
 // Code Block for opening faqs Screen
 const faqsLink = document.querySelector('.nav__link--faq');
@@ -126,13 +133,14 @@ completeOrderBtn.addEventListener('click', () => {
   completeOrderScreen.classList.remove('complete-order--is-active');
 });
 
-const formSubmitContact = document.querySelector('.contact-us__btn');
+const contactForm = document.getElementById('contact-us__form');
 const contactName = document.querySelector('#contact-name');
 const contactEmail = document.querySelector('#contact-email');
 const contactPhone = document.querySelector('#contact-phone');
 
-formSubmitContact.addEventListener('click', (event) => {
-  // event.preventDefault();
+contactForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
   window.alert(`{
     Name: ${contactName.value},
     Email: ${contactEmail.value},
@@ -142,4 +150,37 @@ formSubmitContact.addEventListener('click', (event) => {
   contactName.value = '';
   contactEmail.value = '';
   contactPhone.value = '';
+});
+
+const qty = document.querySelector('.place-order__qty-select');
+const price = document.querySelector('.place-order__price');
+
+qty.addEventListener('click', () => {
+  price.innerHTML = '$' + `${+qty.value * 1200}`;
+});
+
+const heroPlayVideoBtn = document.querySelector('.hero__video');
+const videoIframe = document.querySelector('.hero__video-iframe');
+const heroCloseVideoBtn = document.querySelector('.hero__video-close-btn');
+
+heroPlayVideoBtn.addEventListener('click', () => {
+  videoIframe.classList.add('hero__video-iframe--is-active');
+});
+
+heroCloseVideoBtn.addEventListener('click', () => {
+  videoIframe.classList.remove('hero__video-iframe--is-active');
+});
+
+const previousBtn = document.querySelector('.controler__link--previous');
+const nextBtn = document.querySelector('.controler__link--next');
+const heroVRImage = document.querySelector('.hero__vr-img');
+
+previousBtn.addEventListener('click', () => {
+  heroVRImage.classList.add('hero__vr-img');
+  heroVRImage.classList.remove('hero__vr-img-1');
+});
+
+nextBtn.addEventListener('click', () => {
+  heroVRImage.classList.remove('hero__vr-img');
+  heroVRImage.classList.add('hero__vr-img-1');
 });
