@@ -1,0 +1,181 @@
+.touch {
+  background: #05040b;
+
+  &__content {
+    padding: 50px 0;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 50px 0 100px;
+    }
+
+    @include onDesktop {
+      padding: 100px 0;
+    }
+  }
+
+  &__have {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $colorBlue;
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: $colorWhite;
+    padding-bottom: 32px;
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+      padding: 0;
+    }
+
+    &-span {
+      font-weight: 400;
+      color: $colorBlue;
+    }
+  }
+
+  &__text {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #929292;
+      margin-bottom: 70px;
+    }
+
+    &-bottom {
+      display: flex;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 150%;
+      color: #929292;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__mail {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #929292;
+      text-decoration: none;
+      margin-bottom: 11px;
+      border-bottom: 1px solid transparent;
+      transition: 0.5s;
+      width: max-content;
+
+      &:hover {
+        border-bottom: 1px solid $colorBlue;
+        color: $colorBlue;
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__input {
+    border: none;
+    resize: none;
+    border-bottom: 1px solid #2f2f2f;
+    background-color: #05040b;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #929292;
+    padding-bottom: 20px;
+
+    @include onTablet {
+      width: 320px;
+    }
+
+    @include onDesktop {
+      width: 520px;
+    }
+
+    &:hover {
+      border-bottom: 1px solid $colorBlue;
+
+    }
+
+    &:focus {
+      border-bottom: 1px solid $colorBlue;
+      outline: none;
+      font-family: "Inter", sans-serif;
+      color: $colorWhite;
+    }
+
+    &:nth-of-type(4) {
+      padding-bottom: 45px;
+      margin-bottom: 45px;
+    }
+
+    &:invalid:not(:placeholder-shown) {
+      color: #860404;
+      border-color: #860404;
+      -webkit-text-fill-color: #860404;
+    }
+
+  }
+
+  &__textarea {
+    padding-bottom: 65px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__btn {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: $colorWhite;
+    background: $colorBlue;
+    border-radius: 4px;
+    padding: 12px 0;
+    cursor: pointer;
+    transition: 0.5s;
+
+    @include onTablet {
+      width: 200px;
+    }
+
+    &:hover {
+      color: $colorBlue;
+      background: $colorWhite;
+    }
+  }
+}

@@ -1,0 +1,102 @@
+.loco {
+  background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+
+  &__content {
+    padding: 50px 0;
+
+    @include onTablet {
+      padding: 70px 0 50px;
+    }
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: $colorWhite;
+    margin-bottom: 32px;
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+      text-align: center;
+      margin-bottom: 80px;
+    }
+
+    &-span {
+      font-weight: 400;
+      color: $colorBlue;
+    }
+  }
+
+  &__about {
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__block {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      width: 222px;
+      text-align: center;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      margin: 0 auto;
+      margin-bottom: 20px;
+      transition: 0.5s;
+      cursor: pointer;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+
+    }
+  }
+
+  &__subtitle {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 19px;
+    color: $colorWhite;
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+  }
+
+  &__btn {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      text-decoration: none;
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+      text-align: center;
+      color: $colorWhite;
+      background: $colorBlue;
+      padding: 14px 65px;
+      margin: 50px auto;
+      border-radius: 4px;
+      width: 200px;
+    }
+  }
+}

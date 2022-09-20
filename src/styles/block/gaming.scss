@@ -1,0 +1,157 @@
+.gaming {
+  background-color: #05040b;
+
+  &__content {
+    padding-bottom: 30px;
+
+    @include onTablet {
+      padding-bottom: 60px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 80px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: $colorWhite;
+    margin: 0 0 12px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      margin-top: 70px;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+      margin-top: 100px;
+    }
+
+    &-gaming {
+      font-weight: 400;
+      color: $colorBlue;
+    }
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: $colorBlue;
+    margin: 0 0 30px;
+    width: 280px;
+
+    @include onTablet {
+      margin: 0 auto 30px;
+    }
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      margin-top: 30px;
+    }
+
+    @include onDesktop {
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    &-left {
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      @include onDesktop {
+        gap: 20px;
+      }
+    }
+
+    &-right {
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      @include onDesktop {
+        gap: 20px;
+      }
+    }
+  }
+
+  &__block {
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesktop {
+      width: 248px;
+    }
+    &-img {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+        margin: 0 auto 15px;
+        transition: 0.5s;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.2 );
+        }
+      }
+    }
+
+    &-subtitle {
+      font-family: "Inter", sans-serif;
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 19px;
+      color: $colorWhite;
+      margin: 0 0 11px;
+
+      @include onTablet {
+        text-align: center;
+      }
+    }
+
+    &-text {
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #929292;
+      margin: 0 0 20px;
+
+      @include onTablet {
+        display: none;
+        text-align: center;
+      }
+
+      &-tablet {
+        display: none;
+
+        @include onTablet {
+          display: flex;
+        }
+      }
+    }
+  }
+}

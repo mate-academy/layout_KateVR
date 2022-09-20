@@ -1,0 +1,251 @@
+.start {
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      padding-top: 40px;
+    }
+  }
+
+  &__img {
+    @include onTablet {
+      margin-top: 50px;
+    }
+
+    &-mobile {
+      display: block;
+      width: 100%;
+
+      @include onDesktop {
+        width: 570px;
+      }
+    }
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 33px;
+
+    @include onTablet {
+      width: 340px;
+      margin: 0;
+    }
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 130%;
+    color: $colorWhite;
+    margin: 0 0 17px;
+
+    @include onDesktop {
+      width: 480px;
+      font-size: 46px;
+      line-height: 130%;
+    }
+
+    &-second {
+      font-weight: 400;
+      color: $colorBlue;
+    }
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+    margin: 0 0 8px;
+
+    @include onDesktop {
+      margin-left: 90px;
+      width: 333px;
+    }
+  }
+
+  &__price {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: $colorWhite;
+    text-align: center;
+    margin-bottom: 25px;
+
+    @include onTablet {
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    @include onDesktop {
+      margin-left: 90px;
+    }
+  }
+
+  &__video {
+    margin-bottom: 32px;
+    cursor: pointer;
+    transition: 0.5s;
+
+    @include onTablet {
+      margin-bottom: 70px;
+    }
+
+    @include onDesktop {
+      margin-left: 90px;
+    }
+
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: $colorWhite;
+    background: $colorBlue;
+    border-radius: 4px;
+    padding: 11px 105px;
+    transition: 0.5s;
+    max-width: 280px;
+    margin: 0 auto;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &:hover {
+      color: $colorBlue;
+      background: $colorWhite;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      padding-bottom: 90px;
+      margin-top: 50px;
+    }
+
+    &--left {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+      height: 25px;
+
+      &-FAQ {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: $colorWhite;
+        cursor: pointer;
+        border-bottom: 1px solid transparent;
+        transition: 0.5s;
+        width: max-content;
+        text-decoration: none;
+
+        &:hover {
+          border-bottom: 1px solid $colorBlue;
+          color: $colorBlue;
+        }
+      }
+    }
+
+    &--centure {
+      &-More {
+        position: relative;
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: $colorBlue;
+        transition: 0.5s;
+        width: max-content;
+        text-decoration: none;
+
+        &:after {
+          content: "";
+          position: absolute;
+          display: block;
+          width: 9px;
+          height: 6px;
+          right: 50%;
+          top: 22px;
+          transition: 0.5s;
+          transform: translateX(50%);
+          background-image: url(../images/arrow-blue.png);
+          background-position: center;
+          background-size: contain;
+          background-repeat: no-repeat;
+        }
+
+        &:hover {
+          color: #e2f1f4;
+          transform: scale(1.2);
+
+          &:after {
+            background-image: url(../images/arrow-white.png);
+          }
+        }
+      }
+    }
+
+    &--right {
+      display: flex;
+      flex-direction: row;
+      gap: 100px;
+
+      &-previous {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: #929292;
+        border-bottom: 1px solid $colorBlue;
+        cursor: pointer;
+        transition: 0.5s;
+        width: max-content;
+
+        &:hover {
+          border-bottom: 1px solid transparent;
+          color: $colorBlue;
+        }
+      }
+
+      &-next {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: $colorWhite;
+        cursor: pointer;
+        border-bottom: 1px solid transparent;
+        transition: 0.5s;
+        width: max-content;
+
+        &:hover {
+          border-bottom: 1px solid $colorBlue;
+          color: $colorBlue;
+        }
+      }
+    }
+  }
+}
