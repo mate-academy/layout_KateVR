@@ -1,0 +1,64 @@
+.menu {
+  padding-bottom: 130px;
+
+  &__close {
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    height: 15px;
+    width: 15px;
+    background: url(../images/close-white.svg) no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    cursor: pointer;
+
+    @include iPad {
+      top: 30px;
+    }
+
+    @include mobile {
+      top: 20px;
+      right: 20px;
+    }
+
+    &--faq,
+    &--help-page {
+      @media (min-width: 1024px) {
+        right: 18px;
+        top: 18px;
+      }
+    }
+  }
+
+  &__list {
+    @include flex-column;
+    width: 100%;
+  }
+
+  &__item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    @include mobile {
+      padding-left: 22px;
+    }
+
+    &:hover {
+      background: #110e25;
+      transition-duration: 0.3s;
+    }
+  }
+
+  &__link {
+    display: inline-block;
+    @include buttons-link;
+    @include link;
+    font-size: 21px;
+    width: 100%;
+
+    &:hover {
+      color: $blue-color;
+      transition-duration: 0.3s;
+    }
+  }
+}

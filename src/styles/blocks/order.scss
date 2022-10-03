@@ -1,0 +1,370 @@
+.order {
+  display: none;
+
+  &--active {
+    position: relative;
+    top: -$headerHeight;
+    @include flex-column;
+    justify-content: space-between;
+    background: $background-gradient;
+    z-index: 10;
+    padding: 65px 0;
+
+    @include tablet {
+      top: -$headerHeight-tablet;
+    }
+
+    @include iPad {
+      top: -$headerHeight-iPad;
+      justify-content: start;
+      padding-top: 30px;
+      padding-bottom: 44px;
+    }
+
+    @include mobile {
+      top: -$headerHeight-mobile;
+      padding-top: 20px;
+      padding-bottom: 40px;
+    }
+  }
+
+  &__conteiner {
+    @include widthConteiner;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  //header//
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    @include iPad {
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      flex-direction: column;
+      gap: 32px;
+    }
+  }
+
+  &__header-icon {
+    display: flex;
+    height: max-content;
+  }
+
+  &__logo {
+    @include logo;
+  }
+
+  &__phases {
+    display: flex;
+    width: 740px;
+    justify-content: space-around;
+
+    @media (min-width: 320px) and (max-width: 1024px) {
+      padding-right: 0;
+      gap: 1px;
+      width: 100%;
+    }
+  }
+
+  &__phase {
+    font-size: 14px;
+
+    @media (min-width: 320px) and (max-width: 1024px) {
+      width: 33%;
+      border-bottom: 1px solid $blue-color;
+      padding-bottom: 10px;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    @media (min-width: 320px) and (max-width: 594px) {
+      font-size: 12px;
+    }
+  }
+
+  // content //
+  &__content {
+    padding-top: 110px;
+    display: flex;
+    justify-content: space-between;
+
+    @include iPad {
+      padding-top: 40px;
+      flex-direction: column;
+    }
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      padding-top: 30px;
+      flex-direction: column;
+    }
+  }
+
+  &__product {
+    @include flex-column;
+    width: 40%;
+    position: relative;
+    background: url("../images/home-page-background.png") no-repeat center top;
+    background-size: contain;
+    padding-right: 20px;
+
+    @media (max-width: 768px) {
+      background: none;
+    }
+
+    @include full {
+      width: 50%;
+    }
+
+    @include iPad {
+      width: 100%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__sum {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: auto;
+
+    @media (max-width: 1024px) {
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      width: 244px;
+      margin: 0 auto;
+      justify-content: space-between;
+    }
+  }
+
+  &__quantity {
+    width: 90px;
+    margin-right: 86px;
+
+    @include mobile {
+      margin-right: 0;
+    }
+  }
+
+  &__price {
+    position: relative;
+    @include flex-column;
+    justify-content: space-between;
+    width: 60px;
+  }
+
+  &__price-title {
+    @include text1;
+    color: $text-color;
+  }
+
+  &__price-sum {
+    position: absolute;
+    bottom: 0;
+    @include h2;
+    font-weight: 400;
+    color: $blue-color;
+  }
+
+  // form place //
+  &__form-place {
+    display: none;
+
+    &--activity {
+      display: flex;
+      width: 520px;
+      column-gap: 20px;
+      row-gap: 40px;
+      flex-wrap: wrap;
+      position: relative;
+
+      @include iPad {
+        padding-top: 48px;
+        width: 100%;
+      }
+  
+      @include mobile {
+        width: 100%;
+        padding-top: 30px;
+        row-gap: 20px;
+      }
+    }
+  }
+
+  &__input-label {
+    display: flex;
+    flex-direction: column-reverse;
+    box-sizing: border-box;
+
+    &--place {
+      width: 250px;
+
+      @media (min-width: 796px) and (max-width: 1024px) {
+        width: 340px;
+      }
+  
+      @media (max-width: 594px) {
+        width: 100%;
+      }
+    }
+
+    &--pay {
+      width: 100%;
+    }
+
+    &--date {
+      width: 103px;
+    }
+
+    &--cvv {
+      width: 49px;
+    }
+  }
+
+  &__input-name {
+    @include input;
+
+    &--pay,
+    &--date,
+    &--cvv {
+      padding-bottom: 16px;
+    }
+
+    &--date {
+      width: max-content;
+    }
+  }
+
+  &__place-input {
+    position: relative;
+    height: 20px;
+    border: none;
+    border-bottom: 1px solid $dark-grey;
+    background-color: transparent;
+    @include text2;
+    color: $white;
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $blue-color;
+    }
+
+    &--invalid {
+      border-bottom: 1px solid #860404;
+    }
+  }
+
+  &__select {
+    width: 250px;
+
+    @media (min-width: 796px) and (max-width: 1024px) {
+      width: 340px;
+    }
+
+    @media (max-width: 594px) {
+      width: 100%;
+    }
+  }
+
+  &__button {
+    margin-top: 68px;
+
+    @include iPad {
+      margin: 60px auto 0;
+    }
+
+    @media (max-width: 768px) {
+      margin: 30px auto 0;
+    }
+  }
+
+  // form-pay //
+  &__form-pay {
+    display: none;
+
+    &--activity {
+      @include flex-column;
+      gap: 40px;
+      width: 520px;
+      position: relative;
+
+      @media (max-width: 768px) {
+        width: 100%;
+        padding-top: 52px;
+        gap: 30px;
+      }
+    }
+  }
+
+  &__pay-input {
+    position: relative;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $dark-grey;
+    background-color: transparent;
+    font-size: 20px;
+    line-height: 26px;
+    color: $white;
+
+    &::placeholder {
+      color: $dark-grey;
+      font-size: 20px;
+
+      @include mobile {
+        font-size: 18px;
+      }
+    }
+
+    &:focus {
+      outline: none;
+      border-bottom: 1px solid $blue-color;
+    }
+
+    &--invalid {
+      border-bottom: 1px solid #860404;
+    }
+
+    &--cardNumber {
+      background: url(../images/visa.svg) center right no-repeat;
+      letter-spacing: 0.2em;
+
+      @include mobile {
+        background: none;
+      }
+    }
+
+    @include mobile {
+      font-size: 18px;
+    }
+  }
+
+  &__input-labels {
+    display: flex;
+    gap: 80px;
+  }
+
+  // order complete //
+  &__complete {
+    display: none;
+
+    &--activity {
+      @include flex-column;
+      justify-content: center;
+    }
+  }
+
+  &__complete-title {
+    @include h1;
+  }
+}

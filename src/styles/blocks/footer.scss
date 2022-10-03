@@ -1,0 +1,103 @@
+.footer {
+  background-color: #000;
+  width: 100%;
+
+  @include mobile {
+    position: relative;
+  }
+
+  &__conteiner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    @include widthConteiner;
+    margin: 0 auto;
+
+    @include mobile {
+      flex-direction: column;
+      padding: 48px 20px 50px;
+      height: 240px;
+      align-items: flex-start;
+      box-sizing: border-box;
+    }
+  }
+
+  &__logo {
+    @include logo;
+  }
+
+  &__nav {
+    @include mobile {
+      flex-direction: column;
+      gap: 11px;
+    }
+  }
+
+  &__nav-item {
+    @include mobile {
+      font-size: 13px;
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include mobile {
+      position: absolute;
+      right: 20px;
+      top: 74px;
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+  }
+
+  &__socialLinks {
+    display: flex;
+    gap: 28px;
+
+    @include mobile {
+      position: absolute;
+      right: 20px;
+      bottom: 50px;
+      gap: 22px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    align-items: flex-end;
+    width: 23px;
+    height: 23px;
+    @include link;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+
+    @include mobile {
+      width: 18px;
+      height: 18px;
+    }
+
+    &--facebook {
+      background-image: url("../images/socailLinks/facebook.svg");
+    }
+
+    &--twitter {
+      background-image: url("../images/socailLinks/twitter.svg");
+    }
+
+    &--youtube {
+      background-image: url("../images/socailLinks/youtobe.svg");
+    }
+
+    &--reddit {
+      background-image: url("../images/socailLinks/social.svg");
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

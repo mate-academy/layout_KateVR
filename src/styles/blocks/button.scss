@@ -1,0 +1,57 @@
+.button {
+  @include flex-center;
+  height: 48px;
+  border-radius: 4px;
+  background-color: $blue-color;
+  @include buttons-link;
+  outline: none;
+  cursor: pointer;
+  border: none;
+
+  &:hover {
+    background-color: $white;
+    color: $blue-color;
+  }
+
+  &:disabled {
+    background-color: #191536;
+    color: $dark-grey;
+  }
+
+  &--buy {
+    width: 200px;
+  }
+
+  &--backToHome {
+    width: 218px;
+  }
+
+  &__more {
+    position: relative;
+    @include text1;
+    color: $blue-color;
+    @include link;
+    border: none;
+    background: transparent;
+
+    &::after {
+      content: url("../images/Polygon.png");
+      position: absolute;
+      bottom: -15px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:disabled {
+      color: #545454;
+
+      &::after {
+        display: none;
+      }
+
+      @media (min-width: 320px) and (max-width: 1024px) {
+        border-bottom: 1px solid #545454;
+      }
+    }
+  }
+}

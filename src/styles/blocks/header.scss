@@ -1,0 +1,60 @@
+.header {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $headerHeight;
+  @include widthConteiner;
+
+  @include tablet {
+    height: $headerHeight-tablet;
+  }
+
+  @include iPad {
+    height: $headerHeight-iPad;
+  }
+
+  @include mobile {
+    height: $headerHeight-mobile;
+  }
+
+  &__info {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+  }
+
+  &__logo {
+    @include logo;
+  }
+
+  &__select {
+    width: 45px;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__main-block {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__menu-icon {
+    display: none;
+
+    @media (max-width: 1024px) {
+      display: block;
+      width: 20px;
+      height: 20px;
+      background: url(../images/menu.png) center no-repeat;
+      background-size: contain;
+    }
+  }
+}

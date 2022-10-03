@@ -1,0 +1,118 @@
+.benefits {
+  display: flex;
+  flex-direction: column;
+
+  &__title {
+    align-self: center;
+
+    @include tablet {
+      align-self: flex-start;
+    }
+  }
+
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 260px;
+    margin-top: 82px;
+
+    @include tablet {
+      margin-top: 32px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      margin-top: 32px;
+      height: max-content;
+    }
+  }
+
+  &__advantageBlock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    height: 100%;
+    overflow: hidden;
+    justify-content: space-between;
+
+    @include tablet {
+      width: 280px;
+    }
+
+    @include iPad {
+      width: 220px;
+    }
+
+    @include mobile {
+      align-items: flex-start;
+      width: 100%;
+    }
+  }
+
+  &__preview {
+    width: 98px;
+    height: 80px;
+    object-fit: contain;
+    transform: scale(0);
+    transition: all 0.8s ease 0.3s;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__name {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 120%;
+    color: $white;
+    padding-top: 14px;
+    text-align: center;
+
+    @include iPad {
+      font-size: 16px;
+      padding-top: 0;
+    }
+  }
+
+  &__info {
+    display: inline-block;
+    @include text1;
+    color: $text-color;
+    text-align: center;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      height: 74px;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+
+    @include mobile {
+      height: 77px;
+      padding-top: 11px;
+      text-align: left;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+    }
+  }
+
+  &__button {
+    margin-top: 90px;
+    width: 200px;
+    align-self: center;
+
+    @media (max-width: 1279px) {
+      display: none;
+    }
+  }
+}
+
+._active {
+  transform: scale(1);
+}

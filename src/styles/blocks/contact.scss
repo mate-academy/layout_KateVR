@@ -1,0 +1,136 @@
+.contact {
+  background-color: $background-black;
+  @include padding-block;
+
+  @include mobile {
+    padding-bottom: 0;
+  }
+
+  &__conteiner {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &__infoBlock {
+    @include flex-column;
+    width: 338px;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    @include text1;
+    color: $text-color;
+    padding-top: 32px;
+
+    @include mobile {
+      position: absolute;
+      bottom: 0;
+      font-size: 12px;
+      padding-top: 0;
+    }
+  }
+
+  &__form {
+    width: 520px;
+
+    @include iPad {
+      width: 339px;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__input {
+    padding-top: 24px;
+    padding-bottom: 30px;
+    width: 100%;
+
+    @include mobile {
+      padding-bottom: 0;
+    }
+  }
+
+  &__message {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $dark-grey;
+    outline: none;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    margin-top: 76px;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__info {
+    @include link;
+    @include text1;
+    color: $text-color;
+
+    @include mobile {
+      font-size: 13px;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 90px;
+
+    @include mobile {
+      margin: 30px 0;
+    }
+  }
+
+  &__scrollToTop {
+    position: fixed;
+    right: 70px;
+    bottom: 70px;
+    display: flex;
+    height: 48px;
+    width: 48px;
+    box-sizing: border-box;
+    border: 1px solid $blue-color;
+    border-radius: 50%;
+    background: url(../images/arrow-back.png) no-repeat center;
+    transform: rotate(90deg);
+    z-index: 1000;
+    transition: opacity 1000ms;
+    opacity: 0;
+
+    &--active {
+      opacity: 1;
+    }
+
+    &:hover {
+      box-shadow: -2px -2px 2px $blue-color;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__button {
+    @include mobile {
+      width: 280px;
+      margin: 0 auto;
+    }
+  }
+}

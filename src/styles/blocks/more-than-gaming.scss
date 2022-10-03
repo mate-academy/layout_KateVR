@@ -1,0 +1,117 @@
+.more-than-gaming {
+  background-color: $background-black;
+  @include padding-block;
+
+  &__conteiner {
+    @include flex-column;
+    align-items: center;
+    margin: 0 auto;
+
+    @include mobile {
+      align-items: flex-start;
+    }
+  }
+
+  &__title {
+    @include h2;
+    @include scroll-appearance;
+    padding-bottom: 16px;
+
+    &--2 {
+      font-weight: 400;
+      color: $blue-color;
+      @include scroll-appearance;
+    }
+  }
+
+  &__preview {
+    @include text2;
+    color: $blue-color;
+    padding-bottom: 82px;
+
+    @include mobile {
+      padding-bottom: 30px;
+      font-size: 12px;
+    }
+  }
+
+  &__for-whom-block {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      flex-wrap: wrap;
+      column-gap: 20px;
+      row-gap: 40px;
+      justify-content: center;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      gap: 20px;
+      justify-content: flex-start;
+    }
+  }
+
+  &__for-whom-article {
+    width: 250px;
+    @include flex-column;
+    align-items: center;
+
+    @include full {
+      width: 348px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      width: 340px;
+    }
+
+    @include mobile {
+      width: 100%;
+      align-items: flex-start;
+    }
+  }
+
+  &__block-logo {
+    height: 81px;
+    width: auto;
+    padding-bottom: 32px;
+    transform: scale(0);
+    transition: all 0.8s ease 0.3s;
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__block-title {
+    @include h3;
+    padding-bottom: 22px;
+    text-align: center;
+
+    @include mobile {
+      padding-bottom: 11px;
+    }
+  }
+
+  &__block-description {
+    @include text1;
+    color: $text-color;
+    text-align: center;
+
+    @include mobile {
+      height: 52px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      text-align: start;
+    }
+  }
+}
+
+._active {
+  transform: scale(1);
+}

@@ -1,0 +1,46 @@
+.language {
+  box-sizing: border-box;
+  padding-bottom: 30px;
+
+  &--back {
+    position: absolute;
+    top: 47px;
+    height: 17px;
+    width: 9px;
+    background: url(../images/arrow-back.png) no-repeat;
+
+    @include iPad {
+      left: 100px;
+    }
+
+    @include mobile {
+      left: 20px;
+      top: 20px;
+    }
+  }
+
+  &--items {
+    box-sizing: border-box;
+    height: 90%;
+    @include flex-column;
+    justify-content: space-between;
+  }
+
+  &--item {
+    @include buttons-link;
+    @include link;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 21px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+      padding-left: 22px;
+    }
+
+    &:hover {
+      background: #110e25;
+      color: $blue-color;
+      transition-duration: 0.3s;
+    }
+  }
+}

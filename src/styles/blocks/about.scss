@@ -1,0 +1,331 @@
+.about {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  &__aboutProduct {
+    height: 354px;
+    width: 916px;
+    align-self: flex-end;
+
+    @include full {
+      width: 1220px;
+    }
+
+    @include tablet {
+      width: 820px;
+    }
+
+    @include iPad {
+      width: 100%;
+    }
+
+    @include mobile {
+      width: 100%;
+      height: max-content;
+    }
+  }
+
+  &__aboutUs {
+    margin-top: 176px;
+    box-sizing: border-box;
+    height: 350px;
+    width: 100%;
+    align-self: center;
+
+    @include full {
+      width: 1338px;
+      height: 350px;
+    }
+
+    @include mobile {
+      margin-top: 0;
+      height: max-content;
+    }
+  }
+}
+
+.aboutProduct {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+
+  @include mobile {
+    flex-direction: column;
+  }
+
+  &__slider {
+    display: flex;
+    flex-direction: column;
+    margin-top: 17px;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      margin-top: 0;
+    }
+  }
+
+  &__sliderImages {
+    display: flex;
+    height: 290px;
+    overflow: hidden;
+
+    @include mobile {
+      height: 190px;
+      width: 280px;
+    }
+  }
+
+  &__sliderConteiner {
+    display: flex;
+    width: 430px;
+    height: 100%;
+    transition-duration: 0.3s;
+
+    @include full {
+      width: 622px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      width: 340px;
+    }
+
+    @include mobile {
+      width: 280px;
+    }
+  }
+
+  &__sliderImg {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
+  }
+
+  &__previous,
+  &__next {
+    background-color: transparent;
+    border: none;
+    outline: none;
+    @include link;
+    @include buttons-link;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: 1px solid $blue-color;
+    }
+
+    &:disabled {
+      color: $text-color;
+    }
+
+    @include mobile {
+      display: none;
+    }
+  }
+
+  &__paginator {
+    display: flex;
+    gap: 102px;
+    margin-top: 12px;
+
+    @include mobile {
+      width: 280px;
+      justify-content: center;
+    }
+  }
+
+  &__dots {
+    display: none;
+
+    @include mobile {
+      display: flex;
+      gap: 6px;
+    }
+  }
+
+  &__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #484848;
+
+    &--active {
+      background-color: #ababab;
+    }
+  }
+
+  &__sliderCounter {
+    position: absolute;
+    left: -42px;
+    top: 12px;
+    @include text2;
+    color: $blue-color;
+
+    @include iPad {
+      display: none;
+    }
+  }
+
+  &__conteiner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 435px;
+    height: 100%;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      width: 340px;
+      gap: 30px;
+      justify-content: flex-start;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__content {
+    @include text1;
+    color: $text-color;
+
+    @include mobile {
+      padding-top: 18px;
+    }
+  }
+
+  &__title {
+    @include mobile {
+      position: absolute;
+      top: -20px;
+    }
+  }
+
+  &__video {
+    margin-bottom: 0;
+
+    @include mobile {
+      margin-top: 15px;
+    }
+  }
+}
+
+.aboutUs {
+  display: flex;
+  justify-content: space-between;
+
+  @media (min-width: 768px) and (max-width: 1279px) {
+    margin-top: 70px;
+    height: 250px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: 430px;
+
+    @include full {
+      width: 532px;
+    }
+
+    @include mobile {
+      padding-top: 80px;
+      width: 100%;
+    }
+  }
+
+  &__hello {
+    @include text2;
+    color: $blue-color;
+  }
+
+  &__title {
+    @include h2;
+    @include scroll-appearance;
+    padding-top: 15px;
+
+    &--2 {
+      font-weight: 400;
+      color: $blue-color;
+      @include scroll-appearance;
+    }
+
+    @include mobile {
+      padding-top: 11px;
+    }
+  }
+
+  &__content {
+    @include text1;
+    color: $text-color;
+    padding-top: 32px;
+
+    @include mobile {
+      padding-top: 22px;
+    }
+  }
+
+  &__decor {
+    display: flex;
+    gap: 17px;
+  }
+
+  &__decorText {
+    width: 83px;
+    height: 337px;
+    object-fit: contain;
+    object-position: center;
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      height: 100%;
+    }
+
+    @include mobile {
+      display: none;
+    }
+
+    &:nth-child(2) {
+      transform: rotate(180deg);
+      opacity: 0.5;
+    }
+
+    &:nth-child(3) {
+      opacity: 0.3;
+    }
+
+    &:nth-child(4) {
+      transform: rotate(180deg);
+      opacity: 0.1;
+
+      @include iPad {
+        display: none;
+      }
+    }
+
+    &:nth-child(5) {
+      opacity: 0.05;
+
+      @media (min-width: 768px) and (max-width: 1279px) {
+        display: none;
+      }
+    }
+
+    &:nth-child(6) {
+      display: none;
+
+      @include full {
+        display: block;
+        transform: rotate(180deg);
+        opacity: 0.03;
+      }
+    }
+
+    &:nth-child(7) {
+      display: none;
+      
+      @include full {
+        display: block;
+        opacity: 0.02;
+      }
+    }
+  }
+}

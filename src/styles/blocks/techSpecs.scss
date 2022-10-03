@@ -1,0 +1,273 @@
+.techSpecs {
+  background-color: $background-black;
+  @include padding-block;
+
+  &__conteiner {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  &__title {
+    align-self: flex-end;
+
+    @include iPad {
+      align-self: flex-start;
+    }
+
+    @include mobile {
+      align-self: flex-start;
+    }
+  }
+
+  &__block {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    box-sizing: content-box;
+    height: 355px;
+    width: 1055px;
+    padding-top: 80px;
+    background: url("../images/techKat.png") no-repeat center bottom;
+
+    @include full {
+      width: 1175px;
+      height: 480px;
+    }
+
+    @media (min-width: 768px) and (max-width: 1279px) {
+      width: 100%;
+      padding-top: 52px;
+      background-position: center center;
+    }
+
+    @include mobile {
+      width: 280px;
+      background-size: 200px 200px;
+      background-position: center center;
+      padding-top: 40px;
+      height: 280px;
+    }
+  }
+
+  &__characteristic {
+    display: flex;
+    flex-direction: column;
+
+    &:nth-child(1) {
+      width: 250px;
+
+      @media (min-width: 768px) and (max-width: 1279px) {
+        width: 220px;
+      }
+
+      @include mobile {
+        position: absolute;
+        top: 80px;
+        left: -10px;
+        width: 160px;
+      }
+    }
+
+    &:nth-child(2) {
+      width: 338px;
+
+      @include tablet {
+        width: 244px;
+        position: absolute;
+        right: 0;
+      }
+
+      @include iPad {
+        width: 228px;
+        position: absolute;
+        right: 0;
+      }
+
+      @include mobile {
+        width: 140px;
+        position: absolute;
+        right: -10px;
+        top: 172px;
+      }
+    }
+
+    &:nth-child(3) {
+      position: absolute;
+      bottom: 0;
+      left: 86px;
+      width: 240px;
+
+      @media (min-width: 768px) and (max-width: 1279px) {
+        left: 0;
+        width: 220px;
+      }
+
+      @include mobile {
+        left: -10px;
+        bottom: -32px;
+        width: 160px;
+      }
+    }
+  }
+
+  &__name {
+    @include h3;
+    font-size: 18px;
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
+  }
+
+  &__info {
+    padding-top: 21px;
+    @include text1;
+    color: $text-color;
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
+
+    &--active {
+      display: block;
+      background-color: $dark-blue;
+      padding: 10px 18px;
+
+      @include mobile {
+        font-size: 12px;
+        padding: 8px;
+      }
+    }
+  }
+
+  &__decor {
+    position: absolute;
+
+    @media (max-width: 1023px) {
+      display: none;
+    }
+
+    &--1 {
+      bottom: 6%;
+      right: 350px;
+
+      @include full {
+        right: 378px;
+      }
+
+      @include tablet {
+        bottom: 20%;
+        right: 266px;
+      }
+    }
+
+    &--2 {
+      bottom: 100px;
+      left: 250px;
+
+      @include full {
+        left: 292px;
+      }
+
+      @include tablet {
+        left: 170px;
+      }
+    }
+
+    &--3 {
+      top: 28%;
+      left: 372px;
+
+      @include full {
+        top: 47%;
+        left: 436px;
+      }
+
+      @include tablet {
+        top: 24%;
+        left: 320px;
+      }
+    }
+
+    &--4 {
+      top: 88px;
+      left: 122px;
+
+      @include full {
+        left: 180px;
+      }
+
+      @include tablet {
+        width: 348px;
+        top: 60px;
+        left: 96px;
+      }
+    }
+  }
+
+  &__more {
+    display: none;
+
+    @media (max-width: 1023px) {
+      display: block;
+    }
+  }
+
+  &__openChar {
+    display: none;
+
+    @media (max-width: 1023px) {
+      position: absolute;
+      @include flex-center;
+      height: 62px;
+      width: 62px;
+      border: 2px solid rgba(255, 255, 255, 0.14);
+      outline: none;
+      border-radius: 50%;
+      background: url("../images/plus.svg") no-repeat center;
+      background-color: $blue-color;
+      cursor: pointer;
+
+      @include mobile {
+        height: 34px;
+        width: 34px;
+      }
+  
+      &:first-child {
+        left: 240px;
+
+        @include mobile {
+          left: 100px;
+          top: 50px;
+        }
+      }
+  
+      &:nth-child(2) {
+        left: 220px;
+        bottom: 30px;
+
+        @include mobile {
+          left: 38px;
+          top: 73%;
+        }
+      }
+  
+      &:nth-child(3) {
+        right: 258px;
+        top: 50%;
+
+        @include mobile {
+          right: 76px;
+          top: 44%;
+        }
+      }
+    }
+
+    &--active {
+      background: url("../images/minus.svg") no-repeat center;
+      background-color: #07798b;
+    }
+  }
+}

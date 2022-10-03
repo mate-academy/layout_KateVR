@@ -1,0 +1,79 @@
+.faq {
+  @include optionsOpenPage;
+  padding-bottom: 40px;
+
+  &__title {
+    @include flex-column;
+    @include h2;
+    padding-bottom: 30px;
+
+    &--2 {
+      color: $blue-color;
+      font-weight: 400;
+    }
+
+    @media (min-width: 1024px) {
+      padding-bottom: 50px;
+    }
+
+    @include iPad {
+      font-style: 21px;
+    }
+  }
+
+  &__questions-block {
+    width: 100%;
+    height: max-content;
+    border: 1px solid $blue-color;
+    box-sizing: border-box;
+    padding: 14px 30px;
+    margin-bottom: 18px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+      padding: 12px 20px;
+      margin-bottom: 13px;
+    }
+  }
+
+  &__question {
+    @include text1;
+    @include link;
+    color: $blue-color;
+  }
+
+  &__answer {
+    display: none;
+
+    &--active {
+      display: block;
+      @include text1;
+      padding-top: 18px;
+    }
+  }
+
+  &__last-updated {
+    display: none;
+  
+    &--active {
+      display: block;
+      @include text1;
+      font-size: 12px;
+      color: #545454;
+      padding-top: 15px;
+    }
+  }
+
+  &__other-questions {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    padding-top: 32px;
+    text-align: center;
+  }
+}

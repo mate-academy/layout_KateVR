@@ -1,0 +1,170 @@
+.home-page {
+  position: relative;
+  @include flex-column;
+
+  @include full {
+    padding-top: 60px;
+  }
+
+  @include mobile {
+    padding-top: 10px;
+    padding-bottom: 0;
+    margin: 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    background: url(../images/home-page-background.png) right no-repeat;
+    background-size: 50% auto;
+
+    @include mobile {
+      flex-direction: column-reverse;
+      padding-top: 172px;
+      background-position: top center;
+      background-size: auto 156px;
+    }
+  }
+
+  &__main-block {
+    @include flex-column;
+    width: 480px;
+
+    @include iPad {
+      width: 320px;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__title {
+    @include h1;
+    padding-bottom: 14px;
+    @include scroll-appearance;
+
+    &--2 {
+      color: $blue-color;
+      font-weight: 400;
+      @include scroll-appearance;
+    }
+
+    @media (max-width: 1024px) {
+      font-size: 26px;
+    }
+  }
+
+  &__infoBlock {
+    @include flex-column;
+    padding-left: 92px;
+
+    @media (max-width: 1279px) {
+      padding-left: 0;
+    }
+  }
+
+  &__about {
+    @include text1;
+    color: $text-color;
+    width: 336px;
+    padding-bottom: 10px;
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &__price {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    color: $white;
+    padding-bottom: 30px;
+
+    @include mobile {
+      text-align: center;
+    }
+  }
+
+  &__video {
+    margin-bottom: 90px;
+
+    @include tablet {
+      margin-bottom: 50px;
+    }
+
+    @include iPad {
+      margin-bottom: 0;
+    }
+
+    @include mobile {
+      margin-bottom: 0;
+    }
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
+
+  &__info {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 100px;
+  }
+
+  &__previous {
+    color: $text-color;
+  }
+
+  &__faq,
+  &__help,
+  &__previous,
+  &__next {
+    @include link;
+    @include buttons-link;
+    border-bottom: 1px solid transparent;
+
+    &:hover {
+      border-bottom: 1px solid $blue-color;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include iPad {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      display: flex;
+      width: 280px;
+      align-self: center;
+      text-align: center;
+    }
+
+    @include mobile {
+      display: flex;
+      width: 280px;
+      align-self: center;
+      text-align: center;
+      margin-top: 32px;
+    }
+  }
+
+  &__more {
+    &:hover {
+      border-bottom: 1px solid $blue-color;
+    }
+  }
+}

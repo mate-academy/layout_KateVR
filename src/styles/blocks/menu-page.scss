@@ -1,0 +1,31 @@
+.menu-page {
+  display: none;
+
+  &--active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    height: max-content;
+    background-color: $dark-blue;
+    overflow: hidden;
+    z-index: 20;
+
+    @include tablet {
+      top: -$headerHeight-tablet;
+    }
+
+    @include iPad {
+      top: -$headerHeight-iPad;
+      padding: 108px;
+    }
+
+    @media (max-width: 769px) {
+      top: -$headerHeight-mobile;
+      padding: 60px 20px;
+    }
+  }
+}

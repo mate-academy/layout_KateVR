@@ -1,0 +1,61 @@
+.help-page {
+  @include optionsOpenPage;
+  padding-bottom: 80px;
+
+  &__title {
+    display: flex;
+    @include h2;
+    padding-bottom: 50px;
+
+    &--2 {
+      color: $blue-color;
+      font-weight: 400;
+    }
+  }
+
+  &__preview {
+    @include text1;
+    color: $text-color;
+    padding-bottom: 20px;
+
+    &--main {
+      color: $blue-color;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  }
+
+  &__contacts-block {
+    display: flex;
+    gap: 65px;
+
+    @media (min-width: 320px) and (max-width: 767px) {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__questions,
+  &__contacts-info {
+    @include flex-column;
+    width: max-content;
+    gap: 20px;
+  }
+
+  &__contacts-info {
+    @media (min-width: 320px) and (max-width: 767px) {
+      gap: 10px;
+    }
+  }
+
+  &__question {
+    @include text1;
+    color: $blue-color;
+  }
+
+  &__contact {
+    @include link;
+    @include text1;
+    color: $text-color;
+  }
+}

@@ -1,6 +1,143 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+// media //
+@mixin mobile {
+  @media (min-width: 320px) and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin iPad {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 1024px) and (max-width: 1279px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) and (max-width: 1919px) {
+    @content;
+  }
+}
+
+@mixin full {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+// прочее //
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin link {
+  text-decoration: none;
+  scroll-behavior: smooth;
+  cursor: pointer;
+}
+
+@mixin logo {
+  width: 78px;
+  height: 16px;
+  background: url(../images/logo.png) no-repeat;
+  background-size: cover;
+  @include link;
+  transition: transform 500ms;
+
   &:hover {
-    #{$_property}: $_toValue;
+    transform: scale(1.1);
+  }
+}
+
+@mixin input {
+  @include text2;
+  color: $text-color;
+  width: max-content;
+
+  &--focus {
+    color: $blue-color;
+  }
+
+  &--invalid {
+    color: #860404;
+  }
+}
+
+@mixin optionsOpenPage {
+  box-sizing: border-box;
+
+  @media (min-width: 1025px) {
+    width: 880px;
+    height: max-content;
+    top: 0;
+    left: 50%;
+    transform: translatex(-50%);
+    padding: 60px 90px;
+  }
+}
+
+// анимация
+@mixin scroll-appearance {
+  transition: all 1s ease-in-out 0.2s;
+  transform: translate(0, -100%);
+  opacity: 0;
+
+  &._active {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+// padding block
+@mixin padding-block {
+  padding: 100px 0;
+
+  @include full {
+    padding: 160px 0;
+  }
+
+  @include tablet {
+    padding: 70px 0;
+  }
+
+  @include iPad {
+    padding: 70px 0;
+  }
+
+  @include mobile {
+    padding: 50px 0;
+  }
+}
+
+// width Conteiner {
+@mixin widthConteiner {
+  width: $widthConteiner;
+
+  @include full {
+    width: $widthConteiner-full;
+  }
+
+  @include tablet {
+    width: $widthConteiner-tablet;
+  }
+
+  @include iPad {
+    width: $widthConteiner-iPad;
+  }
+
+  @include mobile {
+    width: 100%;
+    padding: 0 20px;
   }
 }
