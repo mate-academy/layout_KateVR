@@ -1,0 +1,165 @@
+.footer {
+  padding: 50px 0;
+  background-color: #000;
+
+  @include onTablet {
+    padding: 25px 0;
+  }
+
+  @include onDesktop {
+    padding: 43px 0;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &-logo {
+      width: 69px;
+      height: 14px;
+      display: block;
+      content: "";
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left;
+      background-image: url(../images/Icons/logo.svg);
+      margin-bottom: 15px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+
+      @include onDesktop {
+        width: 72px;
+        height: 14px;
+      }
+    }
+
+    &-list {
+      list-style: none;
+
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        gap: 45px;
+      }
+    }
+
+    &-item {
+      margin-bottom: 12px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &-link {
+      @extend %inter-400;
+      font-size: 13px;
+      line-height: 150%;
+      color: #fff;
+
+      @include onTablet {
+        font-size: 14px;
+      }
+    }
+
+    &-social {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        gap: 18px;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 27px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &-link {
+      @extend %inter-400;
+      font-size: 13px;
+      line-height: 16px;
+      color: #929292;
+      margin-bottom: 12px;
+
+      &:last-of-type {
+        margin-bottom: 22px;
+      }
+
+      &:hover {
+        color: $c-blue;
+      }
+    }
+
+    &-social {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &-icon {
+      width: 18px;
+      height: 18px;
+      content: "";
+      display: block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: bottom;
+
+      @include onTablet {
+        width: 14px;
+        height: 14px;
+      }
+
+      &--fb {
+        background-image: url(../images/Icons/fb.svg);
+
+        &:hover {
+          background-image: url(../images/Icons/fb-hover.svg);
+        }
+      }
+
+      &--tw {
+        background-image: url(../images/Icons/tw.svg);
+
+        &:hover {
+          background-image: url(../images/Icons/tw-hover.svg);
+        }
+      }
+
+      &--yt {
+        background-image: url(../images/Icons/yout.svg);
+
+        &:hover {
+          background-image: url(../images/Icons/yout-hover.svg);
+        }
+      }
+
+      &--rd {
+        background-image: url(../images/Icons/head.svg);
+
+        &:hover {
+          background-image: url(../images/Icons/head-hover.svg);
+        }
+      }
+    }
+  }
+}

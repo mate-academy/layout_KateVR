@@ -1,0 +1,414 @@
+.tech {
+  padding: 50px 0;
+  background-color: $c-background;
+  background-repeat: no-repeat;
+  background-size: 197px 195px;
+  background-position: center 120px;
+  background-image: url(../images/pic/vr1.png);
+  position: relative;
+  overflow: hidden;
+
+  @include onTablet {
+    padding: 80px 0;
+    background-size: 358px 354px;
+    background-position: center 166px;
+  }
+
+  @include onDesktop {
+    padding: 100px 0;
+    background-image: none;
+  }
+
+  @include onLargeScreen {
+    padding: 160px 0;
+    background-image: none;
+  }
+
+  &__content {
+    position: relative;
+
+    @include onDesktop {
+      width: 100%;
+      height: 480px;
+    }
+
+    &-image {
+      @include onDesktop {
+        display: block;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        width: 297px;
+        height: 294px;
+        background-position: center;
+        background-image: url(../images/pic/vr1.png);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -35%);
+      }
+    }
+  }
+
+  &__title {
+    @extend %inter-900;
+    font-size: 21px;
+    line-height: 25px;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 236px;
+
+    &--span {
+      @extend %inter-400;
+      font-size: 21px;
+      line-height: 25px;
+      color: $c-blue;
+
+      @include onDesktop {
+        font-size: 36px;
+        line-height: 44px;
+      }
+    }
+
+    @include onTablet {
+      margin-bottom: 480px;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__buttons {
+    position: relative;
+    left: calc((100vw - 320px) / 2);
+    right: 0;
+    bottom: 50px;
+    display: flex;
+
+    @include onTablet {
+      left: calc((100vw - 768px) / 2);
+      bottom: 0;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background-color: $c-blue;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    outline: none;
+    background-image: url(../images/Icons/plus.svg);
+    background-size: 12px 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+    z-index: 0;
+
+    @include onTablet {
+      width: 62px;
+      height: 62px;
+      background-size: 22px 22px;
+    }
+
+    &::before {
+      display: none;
+      transition: all 0.3s;
+    }
+
+    &::after {
+      display: none;
+      transition: all 0.3s;
+    }
+
+    &-1 {
+      top: -145px;
+      left: 100px;
+      transition: all 0.3s;
+
+      &::before {
+        position: absolute;
+        top: 15px;
+        left: -103px;
+        width: 214px;
+        height: 110px;
+        z-index: 10;
+        display: none;
+        text-align: left;
+        content: "SENSOR""\A"
+          "Weight: 35g/1.23oz each""\A"
+          "Dimension: 50mm/1.97in""\A"
+          "24mm/0.94in""\A"
+          "Light: LED lights";
+        @extend %inter-400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #fff;
+        padding: 35px;
+        background-color: rgba(25, 21, 54, 0.8);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        transition: all 0.3s;
+        white-space: pre;
+      }
+
+      @include onTablet {
+        bottom: unset;
+        top: -421px;
+        left: 232px;
+
+        &::before {
+          top: -60px;
+          left: 90px;
+        }
+      }
+    }
+
+    &-2 {
+      bottom: -40px;
+      left: 25px;
+      transition: all 0.3s;
+
+      &::before {
+        position: absolute;
+        top: -135px;
+        left: -30px;
+        width: 214px;
+        height: 90px;
+        z-index: 10;
+        display: none;
+        text-align: left;
+        content: "CONNECTION""\A"
+          "Wireless: Bluetooth 4.2""\A"
+          "Signal range: 5m""\A"
+          "Receiver: USB 2.0 and above";
+        @extend %inter-400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #fff;
+        padding: 35px;
+        background-color: rgba(25, 21, 54, 0.8);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        transition: all 0.3s;
+        white-space: pre;
+      }
+
+      @include onTablet {
+        bottom: 80px;
+        left: 90px;
+
+        &::before {
+          top: -190px;
+          left: -90px;
+        }
+      }
+    }
+
+    &-3 {
+      top: -60px;
+      left: 180px;
+      transition: all 0.3s;
+
+      &::before {
+        position: absolute;
+        top: -120px;
+        left: -195px;
+        width: 234px;
+        height: 204px;
+        z-index: 10;
+        display: none;
+        text-align: left;
+        content: "BATTERIES""\A"
+          "Type: Lithium-ion""\A""polymer batteries""\A"
+          "Capacity: 370mAh""\A"
+          "Battery life: 10h of continuous""\A""use 150 hours on stand by""\A"
+          "Charging: Fast charging - 1 hour""\A"
+          "Charging voltage""\A""and current: 5V = 0.5A";
+        @extend %inter-400;
+        font-size: 16px;
+        line-height: 150%;
+        color: #fff;
+        padding: 35px;
+        background-color: rgba(25, 21, 54, 0.8);
+        backdrop-filter: blur(40px);
+        -webkit-backdrop-filter: blur(40px);
+        transition: all 0.3s;
+        white-space: pre;
+      }
+
+      @include onTablet {
+        top: -255px;
+        left: 430px;
+        bottom: unset;
+
+        &::before {
+          top: 63px;
+          left: -80px;
+        }
+      }
+    }
+
+    &--active {
+      background-image: url(../images/Icons/minus.svg);
+      background-color: $c-blue;
+      opacity: 0.65;
+      transition: all 0.3s;
+      z-index: 100;
+
+      &::before,
+      ::after {
+        display: block;
+        transition: all 0.3s;
+        z-index: 100;
+      }
+    }
+  }
+
+  &__text {
+    display: none;
+    position: relative;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+
+      &--sensor {
+        position: absolute;
+        left: calc(50% - 489px);
+        top: calc(50% - 155px);
+
+        &::after {
+          display: block;
+          content: "";
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          background-image: url(../images/Icons/sensor-line.svg);
+          width: 398px;
+          height: 69px;
+          position: absolute;
+          top: 7px;
+          left: 95px;
+
+          @include onLargeScreen {
+            background-image: url(../images/Icons/sen-lineL.svg);
+            width: 370px;
+            height: 69px;
+            left: 118px;
+          }
+        }
+      }
+
+      &--batteries {
+        position: absolute;
+        left: calc(50% + 232px);
+        top: calc(50% - 160px);
+
+        @include onLargeScreen {
+          left: calc(50% + 290px);
+          top: calc(50% - 160px);
+        }
+
+        &::after {
+          display: block;
+          content: "";
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          background-image: url(../images/Icons/batteries-line.svg);
+          width: 185px;
+          height: 240px;
+          position: absolute;
+          top: 7px;
+          left: -230px;
+
+          @include onLargeScreen {
+            background-image: url(../images/Icons/bat-lineL.svg);
+            width: 276px;
+            height: 236px;
+            left: calc(50% + -507px);
+            top: calc(50% - 75px);
+          }
+        }
+      }
+
+      &--connection {
+        margin-bottom: 75px;
+        position: absolute;
+        left: calc(50% + -400px);
+        top: calc(50% - -33px);
+
+        @include onLargeScreen {
+          left: calc(50% + -490px);
+          top: calc(50% - -33px);
+        }
+
+        &::before {
+          display: block;
+          content: "";
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          background-image: url(../images/Icons/round-line.svg);
+          width: 48px;
+          height: 340px;
+          position: absolute;
+          top: -164px;
+          left: 246px;
+
+          @include onLargeScreen {
+            left: calc(50% + 229px);
+            top: calc(50% - 221px);
+          }
+        }
+
+        &::after {
+          display: block;
+          content: "";
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: center;
+          background-image: url(../images/Icons/connection-line.svg);
+          width: 127px;
+          height: 107px;
+          position: absolute;
+          top: -95px;
+          left: 145px;
+
+          @include onLargeScreen {
+            background-image: url(../images/Icons/con-linL.svg);
+            width: 236px;
+            height: 107px;
+            left: calc(50% + 24px);
+            top: calc(50% - 150px);
+          }
+        }
+      }
+    }
+
+    &-title {
+      @extend %inter-900;
+      font-size: 18px;
+      line-height: 22px;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    &-text {
+      @extend %inter-400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #929292;
+    }
+  }
+}
