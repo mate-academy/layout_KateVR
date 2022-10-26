@@ -525,7 +525,7 @@
                 <input
                 class="cart__content-main-form-input"
                 id="ffi3"
-                type="mail"
+                type="email"
                 name="eMail"
                 required
                 placeholder="Email*">
@@ -581,12 +581,12 @@
                 id="ffi6"
                 type="text"
                 name="adress2"
-                required
                 placeholder="Shipping Adress 2">
               </label>
               <button type="submit" class="cart__content-main-form-button button"
               id="toPay">Purchase</button>
             </form>
+
 
             <form class="cart__content-main-form-card" id="form3">
               <div class="cart__content-main-form-card-field-number" >
@@ -641,7 +641,7 @@
               <div class="cart__content-main-form-card-field-name">
                 <span class="cart__content-main-form-card-span cart__content-main-form-card-span-cardName">Card Holder Name*</span>
 
-                <input class="credit-card-input__field-name">
+                <input class="credit-card-input__field-name" required>
               </div>
 
               <div class="cart__content-main-form-card-wrap">
@@ -649,12 +649,15 @@
                   <span class="cart__content-main-form-card-span cart__content-main-form-card-span-cardDate">Expiration Date*</span>
 
                   <div class="cart__content-main-form-card-field-date-wrap">
-                    <input class="cart__content-main-form-card-field-date-input" maxlength="2"
+                    <input class="cart__content-main-form-card-field-date-input"
+                    required
+                    maxlength="2"
                     type="text"
                     placeholder="MM"
                     oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');">
                     <span class="cart__content-main-form-card-field-date-line">/</span>
                     <input class="cart__content-main-form-card-field-date-input"
+                    required
                     maxlength="2"
                     type="text"
                     placeholder="YY"
@@ -666,6 +669,7 @@
                   <span class="cart__content-main-form-card-span cart__content-main-form-card-field-cvv-cardCvv">CVV*</span>
 
                   <input class="cart__content-main-form-card-field-cvv-input"
+                  required
                   maxlength="3"
                   type="text"
                   placeholder="000"

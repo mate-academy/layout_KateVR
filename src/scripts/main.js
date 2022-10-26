@@ -655,22 +655,18 @@ for (const pin of otp.children) {
 
 document.getElementById('toPay').disabled = true;
 
-document.getElementById('form2').addEventListener('keyup', e => {
-  if (e.target.value === '') {
-    document.getElementById('toPay').disabled = true;
-  } else {
-    document.getElementById('toPay').disabled = false;
-  }
+const checking1 = document.getElementById('form2');
+
+checking1.addEventListener('change', () => {
+  document.getElementById('toPay').disabled = !checking1.checkValidity();
 });
 
 document.getElementById('toComplete').disabled = true;
 
-document.getElementById('form3').addEventListener('keyup', e => {
-  if (e.target.value === '') {
-    document.getElementById('toComplete').disabled = true;
-  } else {
-    document.getElementById('toComplete').disabled = false;
-  }
+const checking2 = document.getElementById('form3');
+
+checking2.addEventListener('change', () => {
+  document.getElementById('toComplete').disabled = !checking2.checkValidity();
 });
 
 const fq1 = document.getElementById('fq1');
