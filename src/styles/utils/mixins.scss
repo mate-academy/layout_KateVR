@@ -1,0 +1,31 @@
+@mixin grid-basic {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include tablet-size {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
+
+  @include desktop-size {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+@mixin tablet-size {
+  @media (min-width:768px) {
+    @content;
+  }
+}
+
+@mixin desktop-size {
+  @media (min-width:1280px) {
+    @content;
+  }
+}
+
+@mixin transition-basic ($styles) {
+  transition-property: $styles;
+  transition-duration: 0.3s;
+}
