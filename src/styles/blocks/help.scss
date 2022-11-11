@@ -1,0 +1,51 @@
+.help {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -100%;
+  width: 100vw;
+  padding-bottom: 30px;
+  background-color: $color-menu;
+  overflow: auto;
+
+  @include transition-basic(left);
+
+  &:target {
+    left: 0;
+  }
+
+  &__top-actions {
+    margin-bottom: 30px;
+  }
+
+  &__article {
+    margin-bottom: 30px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $color-grey-2;
+  }
+
+  &__useful-links {
+    margin-bottom: 30px;
+  }
+
+  &__useful-links-item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__contact {
+    &:not(:last-child) {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__contact-link {
+    color: $color-grey-2;
+    line-height: 19px;
+  }
+}
