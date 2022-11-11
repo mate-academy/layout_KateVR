@@ -4,17 +4,29 @@
   padding-bottom: 45px;
   background: $Background-Gradient;
 
+  @include tablet-size {
+    min-height: 43vh;
+  }
+
   &__grid {
     @include grid-basic;
   }
 
   &__top-actions {
     margin-bottom: 14px;
+
+    @include tablet-size {
+      margin-bottom: 55px;
+    }
   }
 
   &__picture {
     grid-column: span 2;
 
+    @include tablet-size {
+      grid-column: 4 / 7;
+      order: 2;
+    }
   }
 
   &__product-photo {
@@ -23,6 +35,11 @@
 
   &__article {
     grid-column: span 2;
+
+    @include tablet-size {
+      grid-column: 1 / 4;
+      order: 1;
+    }
   }
 
   &__title {
