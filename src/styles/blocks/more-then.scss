@@ -1,16 +1,39 @@
 .more-then {
+
+  &__grid {
+    @include grid-basic;
+  }
+
   &__title {
     margin-bottom: 12px;
+
+    @include tablet-size {
+      text-align: center;
+    }
   }
 
   &__subtitle {
     display: block;
     margin-bottom: 30px;
+
+    @include tablet-size {
+      text-align: center;
+    }
   }
 
   &__article {
+    grid-column: span 2;
+
     &:not(:last-child) {
       margin-bottom: 20px;
+    }
+
+    @include tablet-size {
+      grid-column: span 3;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
     }
   }
 }

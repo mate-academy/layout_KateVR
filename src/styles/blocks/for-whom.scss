@@ -1,10 +1,33 @@
 .for-whom {
+  display: grid;
+
+  @include tablet-size {
+    grid-template: 120px 20px 130px / 1fr;
+    align-items: center;
+  }
+
+  &__img {
+    display: none;
+
+    @include tablet-size {
+      width: 80px;
+      height: 80px;
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
   &__title {
     margin-bottom: 10px;
 
     font-weight: 900;
     font-size: 16px;
     line-height: 19px;
+
+    @include tablet-size {
+      margin-bottom: 0px;
+      text-align: center;
+    }
   }
 
   &__article {
@@ -13,5 +36,17 @@
     text-overflow: ellipsis;
     overflow: hidden;
     color: $color-grey-2;
+
+    @include tablet-size {
+      white-space: normal;
+      overflow: visible;
+      text-align: center;
+    }
+  }
+
+  &--item--M {
+    @include tablet-size {
+      display: none;
+    }
   }
 }
