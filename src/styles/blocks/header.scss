@@ -13,10 +13,14 @@
   }
 
   &__top-actions {
-    margin-bottom: 14px;
+    // margin-bottom: 14px;
 
     @include tablet-size {
       margin-bottom: 55px;
+    }
+
+    @include desktop-size {
+      margin-bottom: 100px;
     }
   }
 
@@ -26,6 +30,10 @@
     @include tablet-size {
       grid-column: 4 / 7;
       order: 2;
+    }
+
+    @include desktop-size {
+      grid-column: 7 / 13;
     }
   }
 
@@ -40,6 +48,15 @@
       grid-column: 1 / 4;
       order: 1;
     }
+
+    @include desktop-size {
+      grid-column: 1 / 7;
+      margin-top: -50px;
+
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 24px;
+    }
   }
 
   &__title {
@@ -51,6 +68,11 @@
     &--blue {
       font-weight: 400;
     }
+
+    @include desktop-size {
+      grid-column: span 6;
+      font-size: 46px;
+    }
   }
 
   &__description {
@@ -60,6 +82,10 @@
     font-size: 16px;
     line-height: 150%;
     color: $color-grey-2;
+
+    @include desktop-size {
+      grid-column: 2 / 6;
+    }
   }
 
   &__price {
@@ -73,6 +99,10 @@
     @include tablet-size {
       text-align: left;
     }
+
+    @include desktop-size {
+      grid-column: 2 / 7;
+    }
   }
 
   &__video-button {
@@ -80,6 +110,10 @@
 
     @include tablet-size {
       margin: 0;
+    }
+
+    @include desktop-size {
+      grid-column: 2 / 7;
     }
   }
 }
