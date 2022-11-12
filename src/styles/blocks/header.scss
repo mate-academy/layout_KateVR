@@ -8,6 +8,10 @@
     min-height: 43vh;
   }
 
+  &__item--D {
+    display: none;
+  }
+
   &__grid {
     @include grid-basic;
   }
@@ -52,6 +56,7 @@
     @include desktop-size {
       grid-column: 1 / 7;
       margin-top: -50px;
+      margin-bottom: 80px;
 
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -118,5 +123,62 @@
     @include desktop-size {
       grid-column: 2 / 7;
     }
+  }
+
+  &__menu-below {
+    grid-column: span 12;
+    order: 3;
+
+    align-items: center;
+    justify-content: space-between;
+
+    @include desktop-size {
+      display: flex;
+    }
+  }
+
+  &__additional-list {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__additional-link {
+    @extend %header-links-behavior;
+  }
+
+  &__more-link {
+    position: relative;
+    &::after {
+      content: "▼";
+      position: absolute;
+      left: 50%;
+      bottom: -100%;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__pages-list {
+    display: flex;
+    gap: 100px;
+  }
+
+  &__page-link {
+    // @extend %header-links-behavior;
+
+  }
+
+  // &__pages-label {
+  // }
+
+  &__checkbox {
+    display: none;
+
+    &--after::after {
+      content: "asgfhjrtjhjmjhmmgghjmghmhjmhjmggjmhjm";
+    }
+  }
+
+  &__checkbox:checked + &__pages-label {
+    color: red;
   }
 }
