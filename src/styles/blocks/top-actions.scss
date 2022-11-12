@@ -7,7 +7,28 @@
     padding-top: 34px;
   }
 
+  @include desktop-size {
+    justify-content: start;
+    align-items: center;
+    padding-top: 48px;
+  }
+
   &__item--D {
     display: none;
+
+    @include desktop-size {
+      display: block;
+    }
+  }
+
+  &__item--M {
+    display: block;
+    @include desktop-size {
+      display: none;
+    }
+  }
+
+  &__nav-desktop {
+    margin: 0 0 0 auto;
   }
 }
