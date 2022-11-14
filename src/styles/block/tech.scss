@@ -1,0 +1,173 @@
+.tech {
+  background-color: #05040b;
+  padding: 50px 0;
+  
+  &__top {
+    display: flex;
+    justify-content: flex-start;
+  
+    @include desktop() {
+      justify-content: flex-end;
+    }
+  }
+  
+  &__content {
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    margin-top: 80px;
+  
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+  
+  &__line {
+    position: absolute;
+    display: none;
+  
+  
+    @media (min-width:1400px) {
+      display: block;
+    }
+  
+    &--1 {
+      top: -15%;
+      left: 18.5%;
+      position: absolute;
+    }
+  
+    &--2 {
+      top: 80px;
+      left: 360px;
+    }
+  
+    &--3 {
+      top: 42px;
+      left: 480px;
+    }
+  
+    &--4 {
+      left: 650px;
+      top: -50px;
+    }
+  }
+  
+  &__img {
+    @media (min-width:200px) and (max-width:300px) {
+      width: 200px;
+      height: 200px;
+    }
+  
+    @include tablet() {
+      width: initial;
+      height: initial;
+    }
+  }
+  
+  &__about {
+    width: max-content;
+    text-align: left;
+    position: absolute;
+    display: none;
+  
+    @media (min-width:1400px) {
+      display: block;
+    }
+  
+    &--1 {
+      top: -55px;
+      left: 150px;
+  
+      &:target {
+        display: block;
+  
+        background: #191536;
+        opacity: 0.7;
+        padding: 5px;
+        border-radius: 10px;
+      }
+    }
+  
+    &--2 {
+      top: 175px;
+      left: 225px;
+  
+      &:target {
+        display: block;
+  
+        background: #191536;
+        opacity: 0.7;
+        padding: 5px;
+        border-radius: 10px;
+      }
+    }
+  
+    &--3 {
+      top: -60px;
+      right: 0;
+  
+      &:target {
+        display: block;
+  
+        background: #191536;
+        opacity: 0.7;
+        padding: 5px;
+        border-radius: 10px;
+      }
+    }
+  }
+  
+  &__title {
+    color: #fff;
+    font-weight: 700;
+  }
+  
+  &__text {
+    color: $color--grey;
+    margin-top: 20px;
+  }
+  
+  &__circle {
+    font-size: 35px;
+    font-weight: 200;
+    display: inline-block;
+    text-decoration: none;
+    position: absolute;
+  
+    @media (min-width:1400px) {
+      display: none;
+    }
+  
+    background-image: url(../images/tech--circle.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 40px;
+    height: 40px;
+    color: #fff;
+    text-align: center;
+    line-height: 35px;
+  
+    &:hover {
+      transform: rotate(45deg);
+    }
+  
+    &--1 {
+      left: 40%;
+    }
+  
+    &--2 {
+      left: 60%;
+      top: 130px;
+    }
+  
+    &--3 {
+      left: 30%;
+      top: 55%;
+    }
+  }
+  
+  &__wrapper {
+    position: relative;
+  }
+}

@@ -1,0 +1,141 @@
+.header {
+  height: 100vh;
+  
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  &__left {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+  }
+  
+  &__img {
+    width: 100%;
+  
+    object-fit: contain;
+  
+    &--pay {
+      display: none;
+  
+      @include tablet() {
+        display: block;
+        height: 300px;
+      }
+    }
+  }
+  
+  &__title {
+    @extend %h2;
+    color: #fff;
+    margin-top: 40px;
+    font-size: 32px;
+  
+    @include tablet() {
+      margin-top: 120px;
+  
+      &:last-child {
+        margin-top: 10px;
+      }
+    }
+  
+    &:last-child {
+      margin-top: 0;
+    }
+  
+    &--blue {
+      color: $color--blue;
+      font-weight: 500;
+    }
+  }
+  
+  &__text {
+    color: $color--grey;
+    margin-top: 30px;
+    font-size: 18px;
+  
+    @include tablet() {
+      margin-top: 35px;
+    }
+  
+    @media (min-width:770px) and (max-width:1280px) {
+      margin-top: 60px;
+      width: 330px;
+    }
+  }
+  
+  &__subtitle {
+    color: $color--blue;
+  }
+  
+  &__price {
+    text-align: center;
+    font-weight: 500;
+    color: #fff;
+    font-size: 18px;
+    margin-top: 20px;
+  
+    @media (min-width:770px) and (max-width:1280px) {
+      margin-top: 55px;
+    }
+  
+    @include tablet() {
+      text-align: left;
+    }
+  }
+  
+  &__content {
+    @include tablet() {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      gap: 15px;
+    }
+  }
+  
+  &__bottom {
+    display: none;
+    margin-top: 50px;
+  
+    @include desktop() {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+  
+  &-slider {
+    width: 200px;
+    height: max-content;
+  
+    &__content {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+  
+      padding-bottom: 10px;
+  
+      border-bottom: 1px solid #212121;
+    }
+  
+    &__line {
+      height: 1px;
+      background-color: $color--blue;
+      width: 80px;
+      position: absolute;
+      margin-top: -1px;
+    }
+  
+    &__item {
+      color: $color--grey;
+      cursor: pointer;
+  
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+}

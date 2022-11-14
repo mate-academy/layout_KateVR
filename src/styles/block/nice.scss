@@ -1,0 +1,41 @@
+.nice {
+  &__text {
+    color: $color--grey;
+    margin-top: 20px;
+  
+    @include desktop() {
+      width: 550px;
+    }
+  
+    &--blue {
+      color: $color--blue;
+    }
+  }
+  
+  &__container {
+    @include tablet() {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+  
+  &--img {
+    display: none;
+  
+    @include tablet() {
+      display: block;
+      width: 300px;
+      margin-top: 60px;
+    }
+  
+    @media (min-width:700px) and (max-width:1280px) {
+      width: 400px;
+    }
+  
+    @include desktop() {
+      width: 550px;
+    }
+  }
+}

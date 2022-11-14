@@ -1,0 +1,29 @@
+.order {
+  height: 100vh;
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  
+  transform: translate(100%);
+  
+  &:target {
+    transform: translate(0%);
+  }
+  
+  &__content {
+    @include desktop() {
+      display: flex;
+      margin-top: 90px;
+    }
+  }
+  
+  &__img {
+    @include desktop() {
+      width: 100%;
+    }
+  }
+}

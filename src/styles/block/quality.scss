@@ -1,0 +1,75 @@
+.quality {
+  &__title {
+    color: #929292;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  &__wrapper {
+    @include tablet() {
+      display: flex;
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+  
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 230px;
+  
+    @include tablet() {
+      margin: initial;
+    }
+  
+    &--pay {
+      @include tablet() {
+        margin: 0 auto;
+      }
+    }
+  }
+  
+  &__shell {
+    width: 100%;
+  }
+  
+  &__item {
+    margin-top: 30px;
+  }
+  
+  &__select {
+    background-color: #211b48;
+    border: 0;
+    width: 100px;
+    height: 40px;
+    font-size: 20px;
+    color: #fff;
+    padding: 5px;
+    text-align: center;
+    margin-top: 10px;
+  
+    outline: none;
+  
+    &:focus {
+      border: 1px solid $color--blue;
+    }
+  }
+  
+  &__button {
+    text-align: center;
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  
+  &__price {
+    color: $color--blue;
+    font-size: 21px;
+    margin-top: 20px;
+  
+    &:hover {
+      color: #fff;
+    }
+  }
+}
