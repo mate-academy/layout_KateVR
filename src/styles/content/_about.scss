@@ -49,6 +49,11 @@
     &__container {
         display: flex;
         justify-content: flex-end;
+        margin-left: 10%;
+
+        @include Desktop {
+            margin-left: 0;
+        }
 
         @include Mobile {
             flex-direction: column;
@@ -156,7 +161,7 @@
 
     &__dots {
         display: none;
-       
+
         @include Tablet {
             display: flex;
             width: 20%;
@@ -268,18 +273,18 @@
         }
     }
 
-    &__ntmy{
+    &__ntmy {
         display: grid;
-        grid-template-columns: repeat(2 , 1fr);
+        grid-template-columns: repeat(2, 1fr);
         margin-top: 175px;
 
-        @include Mobile{
+        @include Mobile {
             display: flex;
             margin-top: 80px;
         }
     }
 
-    &__hello{
+    &__hello {
         font-family: $font-family;
         font-weight: 400;
         font-size: 14px;
@@ -287,7 +292,7 @@
         margin-bottom: 15px;
     }
 
-    &__nice-description{
+    &__nice-description {
         margin-top: 30px;
         font-family: $font-family;
         font-weight: 400;
@@ -295,26 +300,26 @@
         color: $text-color;
     }
 
-    &__nice-img{
+    &__nice-img {
         width: 100%;
 
-        @include Tablet{
+        @include Tablet {
             display: none;
         }
 
-        @include Mobile{
+        @include Mobile {
             display: none;
         }
 
-        &--tab{
+        &--tab {
             display: none;
 
-            @include Tablet{
+            @include Tablet {
                 display: flex;
                 width: 100%;
             }
 
-            @include Mobile{
+            @include Mobile {
                 display: none;
             }
         }
