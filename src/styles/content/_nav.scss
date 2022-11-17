@@ -1,8 +1,117 @@
 @import "../utils";
 
 
-.Navigation {
+.Navbar {
     display: flex;
-    margin: 65px 234px 65px 234px;
-    
+    align-items: center;
+    margin: 65px 12%;
+    justify-content: space-between;
+
+    @include BigScreen {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    @include Desktop {
+        margin: 30px 4%;
+    }
+
+    @include Tablet {
+        margin: 30px 4%;
+    }
+
+    @include Mobile {
+        margin: 18px 6%;
+    }
+
+    &__bar1 {
+        display: flex;
+        column-gap: 20px;
+    }
+
+
+    &__lan {
+        display: flex;
+        align-items: center;
+        column-gap: 5px;
+        font-family: $font-family;
+        color: $secondary-color;
+        font-weight: 500;
+
+        @include Tablet {
+            display: none;
+        }
+
+        @include Mobile {
+            display: none;
+        }
+    }
+
+    &__arrow {
+        @include Tablet {
+            display: none;
+        }
+
+        @include Mobile {
+            display: none;
+        }
+    }
+
+    &__bar2 {
+        display: flex;
+        align-items: center;
+        column-gap: 36px;
+
+        @include Tablet {
+            display: none;
+        }
+
+
+        @include Mobile {
+            display: none;
+        }
+    }
+
+    &__links {
+        color: $primary-color;
+        font-family: $font-family;
+        font-size: 16px;
+        font-weight: 500;
+
+        &:hover {
+            color: $secondary-color;
+            transform: scale(1.1);
+        }
+    }
+
+    &__buy {
+        cursor: pointer;
+        width: 200px;
+        background: $secondary-color;
+        font-family: $font-family;
+        color: $primary-color;
+        font-size: 16px;
+        font-weight: 500;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        border-radius: 4px;
+
+        &:hover {
+            background: $primary-color;
+            color: $secondary-color;
+            transform: scale(1.1);
+        }
+    }
+
+    &__burger {
+        display: none;
+
+        @include Tablet {
+            display: flex;
+        }
+
+        @include Mobile {
+            display: flex;
+        }
+    }
 }
