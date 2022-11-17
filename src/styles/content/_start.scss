@@ -1,0 +1,232 @@
+@import "../utils";
+
+
+.Start {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 12% 12%;
+
+
+    @include BigScreen {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    @include Desktop {
+        margin: 9% 4%;
+    }
+
+    @include Tablet {
+        margin: 7% 4%;
+    }
+
+    @include Mobile {
+        margin: 3% 6%;
+    }
+
+
+    &__container {
+        display: grid;
+        position: relative;
+        grid-template-columns: repeat(2, 1fr);
+
+        @include Mobile {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+
+    }
+
+    &__block1 {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__title {
+        display: block;
+        width: 100%;
+
+        @include Mobile {
+            width: 80%;
+        }
+    }
+
+    &__txt {
+        display: flex;
+        width: fit-content;
+        align-self: flex-end;
+        margin-right: 16%;
+        flex-direction: column;
+        font-family: $font-family;
+        margin-top: 35px;
+        font-weight: 500;
+        font-size: 16px;
+        color: $text-color;
+
+        @include Tablet {
+            margin-right: 0;
+            align-self: flex-start;
+        }
+
+        @include Mobile {
+            margin-right: 0;
+            align-self: flex-start;
+            width: 100%;
+        }
+
+
+        &--price {
+            color: $primary-color;
+            align-self: flex-start;
+            display: flex;
+
+            @include Mobile {
+
+                align-items: center;
+            }
+        }
+    }
+
+    &__play-con {
+        display: flex;
+        width: fit-content;
+        margin-left: 30%;
+        margin-top: 45px;
+        position: relative;
+        align-items: center;
+
+        @include Tablet {
+            margin-left: 0;
+        }
+
+        @include Mobile {
+            width: 100%;
+            margin-left: 0;
+
+        }
+    }
+
+    &__play-img {
+        display: flex;
+        position: relative;
+        height: 48px;
+    }
+
+    &__play-txt {
+        display: flex;
+        position: absolute;
+        right: 0;
+        font-family: $font-family;
+        font-weight: 500;
+        font-size: 16px;
+        color: $primary-color;
+
+        &:hover {
+            cursor: pointer;
+            color: $secondary-color;
+        }
+
+        @include Mobile {
+            left: 30%;
+        }
+    }
+
+    &__vr-img {
+        display: flex;
+        position: absolute;
+        right: 0;
+        width: 70%;
+
+        @include Mobile {
+            display: none;
+            position: relative;
+            width: 100%;
+        }
+
+        &--mobile {
+            display: none;
+
+            @include Mobile {
+                display: flex;
+            }
+        }
+
+    }
+
+    &__tab {
+        margin-top: 10%;
+        display: flex;
+        justify-content: space-between;
+
+        width: 100%;
+
+        @include Tablet {
+            display: none;
+        }
+
+        @include Mobile {
+            display: none;
+        }
+    }
+
+    &__nav {
+        display: flex;
+        column-gap: 39px;
+    }
+
+    &__links {
+        font-family: $font-family;
+        font-weight: 500;
+        font-size: 16px;
+        color: $primary-color;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+            color: $secondary-color;
+        }
+    }
+
+    &__more {
+        font-family: $font-family;
+        display: flex;
+        margin-left: 5%;
+        flex-direction: column;
+        align-items: center;
+        row-gap: 7px;
+        font-weight: 500;
+        font-size: 16px;
+        position: relative;
+        color: $secondary-color;
+    }
+
+    &__arrow {
+        display: flex;
+        width: 40%;
+    }
+
+    &__next {
+        display: flex;
+        position: relative;
+        column-gap: 103px;
+        border-bottom: 1px solid #212121;
+        &::after {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            height: 15px;
+            width: 35%;
+            border-bottom: 3px solid $secondary-color;
+
+        }
+    }
+
+    &__n {
+        font-family: $font-family;
+        color: $primary-color;
+        font-weight: 500;
+        font-size: 16px;
+    }
+}
