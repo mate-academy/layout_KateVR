@@ -1,0 +1,31 @@
+.icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: all 0.5s;
+
+  &:hover {
+    transform: scale(1.5);
+  }
+
+  @include desktop1024 {
+    display: none;
+  }
+
+  &--open {
+    background-image: url("../images/icons/menu.svg");
+  }
+
+  &--close {
+    background-image: url("../images/icons/cross.svg");
+    align-self: flex-end;
+    margin-right: 20px;
+
+    @include desktop768 {
+      margin-right: 30px;
+    }
+  }
+}
