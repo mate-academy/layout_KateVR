@@ -1,0 +1,46 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 20px;
+
+  @include desktop768 {
+    grid-template-columns: repeat(6, 1fr);
+
+  }
+
+  @include desktop1224 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  &__item {
+
+    @for $start from 1 through 13 {
+      @for $end from $start through 13 {
+        &--s-#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end};
+        }
+
+        &--m-#{$start}-#{$end} {
+          @include desktop768 {
+            grid-column: #{$start} / #{$end};
+            height: max-content;
+          }
+        }
+
+        &--l-#{$start}-#{$end} {
+          @include desktop1224 {
+            grid-column: #{$start} / #{$end};
+          }
+        }
+      }
+    }
+  }
+
+  &--decktop {
+    display: block;
+
+    @include desktop768 {
+      display: grid;
+    }
+  }
+}

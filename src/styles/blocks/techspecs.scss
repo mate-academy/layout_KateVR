@@ -1,0 +1,214 @@
+.techspecs {
+  background-color: rgba(5, 4, 11, 1);
+  padding: 30px 0;
+  position: relative;
+
+  @include desktop1224 {
+    padding: 70px 0;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+
+    @include desktop1224 {
+      text-align: end;
+      margin-bottom: 120px;
+    }
+  }
+
+  &__content {
+    max-width: 360px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+
+    @include desktop768 {
+      padding: 0;
+    }
+
+    @include desktop1224 {
+      max-width: 300px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: rgba(5, 194, 223, 1);
+    font-size: 20px;
+    color: #fff;
+    font-weight: 100;
+    transform: rotate(45deg);
+
+    @include desktop1224 {
+      display: none;
+    }
+
+    &--sensor {
+      top: -5%;
+      left: 35%;
+    }
+
+    &--connection {
+      bottom: 0%;
+      left: 5%;
+    }
+
+    &--batterries {
+      left: 65%;
+    }
+  }
+
+  &__vectore {
+    display: none;
+    position: absolute;
+
+    @include desktop1224 {
+      &--1 {
+        top: -15%;
+        right: 34%;
+        display: block;
+        background: url("../images/sens.svg") no-repeat;
+        background-position: center center;
+        width: 500px;
+        height: 80px;
+      }
+
+      &--2 {
+        top: 20%;
+        left: -50%;
+        display: block;
+        background: url("../images/conn.svg") no-repeat;
+        background-position: center center;
+        width: 150px;
+        height: 150px;
+      }
+
+      &--3 {
+        top: -20%;
+        left: 50%;
+        display: block;
+        background: url("../images/batt.svg") no-repeat;
+        background-position: center center;
+        width: 200px;
+        height: 250px;
+      }
+
+      &--4 {
+        top: 7%;
+        left: -29%;
+        display: block;
+        background: url("../images/elips.svg") no-repeat;
+        background-position: center center;
+        width: 200px;
+        height: 250px;
+      }
+    }
+  }
+
+  &__description {
+    display: none;
+    position: absolute;
+    top: -10%;
+    left: 0%;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+    max-width: 270px;
+    background-color: rgba(25, 21, 54, 0.9);
+
+    @include desktop768 {
+      width: 300px;
+    }
+
+    &--sensor {
+      @include desktop768 {
+        top: -10%;
+        left: -30%;
+      }
+
+      @include desktop1224 {
+        top: -24%;
+        left: -120%;
+      }
+    }
+
+    &--connection {
+      @include desktop768 {
+        top: 70%;
+        left: -55%;
+      }
+
+      @include desktop1224 {
+        top: 53%;
+        left: -100%;
+      }
+
+    }
+
+    &--batterries {
+      @include desktop768 {
+        top: 30%;
+        left: 60%;
+      }
+
+      @include desktop1224 {
+        top: -27%;
+        left: 115%;
+      }
+    }
+
+    &:target {
+      display: flex;
+    }
+
+    @include desktop1224 {
+      display: flex;
+      background-color: rgba(25, 21, 54, 0);
+    }
+  }
+
+  &--close {
+    margin: 0;
+    align-self: flex-start;
+    width: 15px;
+    height: 15px;
+    @include desktop1224 {
+      display: none;
+    }
+  }
+
+  &__description-name {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 15px;
+    line-height: 22px;
+    color: #fff;
+    margin-bottom: 10px;
+
+    @include desktop1224 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__description-text {
+    color: rgba(146, 146, 146, 1);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    @include desktop1224 {
+      font-size: 16px;
+    }
+  }
+}

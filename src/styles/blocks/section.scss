@@ -1,0 +1,83 @@
+.sections {
+  font-family: "Inter", sans-serif;
+
+  &--padding {
+
+    @include desktop768 {
+      padding: 40px 0;
+    }
+
+    @include desktop1224 {
+      padding: 70px 0;
+    }
+  }
+
+  &__title {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 24px;
+    color: #fff;
+
+    @include desktop1224 {
+      font-size: 36px;
+    }
+
+    & span {
+      font-weight: 400;
+      color: #05c2df;
+    }
+  }
+
+  &__sub-title {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #05c2df;
+  }
+
+  &__text {
+    font-style: normal;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+
+  }
+
+  &__description {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+  }
+
+  &__home {
+    display: none;
+    z-index: 10;
+    cursor: pointer;
+
+    @include desktop1024 {
+      display: block;
+      background-image: url("../images/arrow2.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+      border: 1px solid rgba(5, 194, 223, 1);
+      background-color: rgba(0, 0, 0, 0);
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      font-size: 38px;
+      position: fixed;
+      right: 5%;
+      bottom: 20%;
+      opacity: 0;
+    }
+
+    &:hover {
+      box-shadow: 0 0 20px -4px #fff;
+    }
+  }
+}
