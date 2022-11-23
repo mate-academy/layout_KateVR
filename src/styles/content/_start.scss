@@ -45,11 +45,40 @@
     }
 
     &__title {
-        display: block;
-        width: 100%;
+        
+        font-family: $font-family;
+        font-weight: 900;
+        font-size: 54px;
+        color: $primary-color;
+
+        &--blue {
+            font-weight: 400;
+            font-size: 54px;
+            color: $secondary-color;
+
+            @include Desktop{
+                font-size: 46px;
+            }
+
+            @include Tablet {
+                font-size: 26px;
+            }
+    
+            @include Mobile {
+                font-size: 26px;
+            }
+        }
+
+        @include Desktop{
+            font-size: 46px;
+        }
+
+        @include Tablet {
+            font-size: 26px;
+        }
 
         @include Mobile {
-            width: 80%;
+            font-size: 26px;
         }
     }
 
