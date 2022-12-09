@@ -1,7 +1,7 @@
 'use strict';
 
 // eslint-disable-next-line no-undef
-swiper = new Swiper('.swiper', {
+let swiper = new Swiper('.swiper', {
   // Optional parameters
   direction: 'horizontal',
   loop: true,
@@ -26,6 +26,10 @@ swiper = new Swiper('.swiper', {
 });
 
 const btn = document.getElementById('button');
+
+if (swiper === btn) {
+  swiper = btn;
+}
 
 function magic() {
   if (window.pageYOffset > 600) {
