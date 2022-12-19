@@ -73,11 +73,12 @@ for (let i = 0; i < inputs.length; i++) {
   });
 };
 
-const purchaseButton = document.getElementById('purchase');
+const purchaseButton1 = document.getElementById('purchase-1');
+const purchaseButton2 = document.getElementById('purchase-2');
 const slides = document.getElementsByClassName('place-order__slide');
 const steps = document.getElementsByClassName('place-order__step');
 
-purchaseButton.addEventListener('click', function(e) {
+purchaseButton1.addEventListener('click', function(e) {
   e.preventDefault();
   slides[1].classList.add('place-order__slide--swiped');
   steps[0].classList.remove('place-order__step--active');
@@ -85,10 +86,20 @@ purchaseButton.addEventListener('click', function(e) {
 
   setTimeout(() => {
     slides[1].style.display = 'none';
+    slides[2].classList.add('place-order__slide--appeared');
   }, 300);
+});
+
+purchaseButton2.addEventListener('click', function(e) {
+  e.preventDefault();
+  slides[0].classList.add('place-order__slide--swiped');
+  slides[2].classList.add('place-order__slide--swiped');
+  steps[1].classList.remove('place-order__step--active');
+  steps[2].classList.add('place-order__step--active');
 
   setTimeout(() => {
-    slides[2].classList.add('place-order__slide--appeared');
+    slides[0].style.display = 'none';
+    slides[2].style.display = 'none';
   }, 300);
 });
 
