@@ -60,7 +60,7 @@ const inputs = document.getElementsByClassName('input');
 
 for (let i = 0; i < inputs.length; i++) {
   const inputName = inputs[i].childNodes[1];
-  const inputField = inputs[i].childNodes[3].childNodes[1];
+  const inputField = inputs[i].childNodes[3];
 
   inputField.addEventListener('focus', function() {
     inputName.classList.add('input__name--focused');
@@ -193,6 +193,7 @@ for (let i = 0; i < dropdowns.length; i++) {
   const dropdownButton = dropdowns[i].childNodes[3];
   const dropdownContent = dropdowns[i].childNodes[5];
   const contentItems = dropdownContent.childNodes[1].children;
+  const dropdownLabel = dropdowns[i].previousElementSibling;
 
   dropdownInput.value = contentItems[0].innerText;
 
@@ -233,6 +234,18 @@ for (let i = 0; i < dropdowns.length; i++) {
 
   dropdownInput.addEventListener('click', function() {
     dropdownContent.classList.add('dropdown__content--visible');
+  });
+
+  dropdownInput.addEventListener('focus', function() {
+    if (!dropdownLabel.classList.contains('label')) {
+      dropdownLabel.classList.add('input__name--focused');
+    }
+
+    dropdownInput.addEventListener('focusout', function() {
+      if (dropdownInput.value === '') {
+        dropdownLabel.classList.remove('input__name--focused');
+      }
+    });
   });
 
   window.addEventListener('click', function(e) {
