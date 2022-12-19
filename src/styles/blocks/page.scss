@@ -1,0 +1,31 @@
+.page {
+  font-family: "Inter", sans-serif;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    background: $c-background-gradient;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__menu,
+  &__language,
+  &__faq,
+  &__help,
+  &__place-order {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translateX(100%);
+    transition: transform $transition-time;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}

@@ -1,0 +1,82 @@
+.form {
+  &__place-order-top {
+    padding: 0 38px;
+  }
+
+  &__place-order-top-content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__quantity,
+  &__price {
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+
+    text-align: center;
+  }
+
+  &__quantity {
+    width: 90px;
+    padding-right: 15px;
+  }
+
+  &__inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__input {
+    margin-bottom: 14px;
+
+    &:nth-of-type(4) {
+      margin-bottom: 30px;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &--card {
+      padding-top: 40px;
+    }
+    
+    &--cardholder {
+      margin-bottom: 44px;
+    }
+  }
+
+  &__price-total {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    color: $c-contrast-blue;
+
+    word-wrap: break-word;
+  }
+
+  &__card-back {
+    display: flex;
+    justify-content: start;
+  }
+
+  &__card-expiration {
+    display: inline-block;
+    height: 34px;
+    width: 90px;
+
+    border-bottom: 1px solid $c-dark-gray;
+
+    &-slash {
+      color: $c-dark-gray;
+
+      transition: all $transition-time;
+
+      &--active {
+        color: $c-contrast-blue;
+      }
+    }
+  }
+}

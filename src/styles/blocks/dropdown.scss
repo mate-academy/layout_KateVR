@@ -1,0 +1,110 @@
+.dropdown {
+  position: relative;
+
+  height: 100%;
+
+  background-color: $c-background-menu;
+  border-radius: 4px;
+
+  &--number {
+    height: 41px;
+  }
+
+  &--text {
+    height: 47px;
+  }
+
+  &__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: calc(100% - 20px);
+    padding: 8px 0 8px 12px;
+    box-sizing: border-box;
+
+    font-family: inherit;
+    font-weight: 400;
+    line-height: 130%;
+    color: $c-white;
+    text-align: center;
+
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: transparent;
+    outline: none;
+    caret-color: $c-contrast-blue;
+
+    &--number {
+      font-size: 20px;
+
+      @extend %remove-spin-buttons;
+    }
+
+    &--text {
+      padding: 12px 0 12px 24px;
+
+      font-size: 16px;
+      text-align: left;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 20px;
+    height: 100%;
+    padding: 0;
+    box-sizing: border-box;
+    
+    border: 1px solid transparent;
+    border-radius: 4px;
+    background-color: transparent;
+    background-image: url(../images/dropdown_arrow.png);
+    background-repeat: no-repeat;
+    background-position: 0 18px;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    
+    display: none;
+    width: 100%;
+    margin-top: 3px;
+    overflow: auto;
+
+    background-color: $c-background-menu;
+    border-radius: 4px;
+
+    &--visible {
+      display: block;
+    }
+
+    &::-webkit-scrollbar {
+      width: 2px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $c-scrollbar;
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $c-contrast-blue;
+    }
+
+    &-quantity {
+      max-height: 110px;
+    }
+
+    &-text {
+      max-height: 235px;
+    }
+  }
+}

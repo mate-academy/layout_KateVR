@@ -1,0 +1,68 @@
+.header {
+  background: center 45px url(../images/header_mobile.png) no-repeat;
+
+  &__content {
+    @extend %block-content;
+
+    height: auto;
+    padding-bottom: 0;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 186px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+
+    font-size: 26px;
+
+    &--text-blue {
+      @extend %text--blue;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 44px;
+
+    font-weight: 500;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 44px;
+  }
+
+  &__play-button {
+    display: block;
+    height: 69px;
+    width: 220px;
+    margin-left: -50px;
+
+    text-decoration: none;
+
+    background: url(../images/play_button.png) no-repeat;
+
+    &:active {
+      background: url(../images/play_button_active.png) no-repeat;
+    }
+
+    &::before {
+      display: block;
+      content: "1200$";
+      margin: 0 112px;
+
+      font-size: 18px;
+      line-height: 22px;
+      color: $c-white;
+      text-align: center;
+      
+      transform: translateY(-30px);
+      pointer-events: none;
+    }
+  }
+}

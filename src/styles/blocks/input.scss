@@ -1,0 +1,131 @@
+.input {
+  &__name {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 130%;
+    color: $c-text-gray;
+
+    transform: translateY(14px);
+    transition: all $transition-time;
+
+    &--focused {
+      color: $c-contrast-blue;
+
+      transform: translateY(0);
+    }
+
+    &--card {
+      transform: translateY(0);
+      
+      &--focused {
+        color: $c-contrast-blue;
+
+        transform: translateY(-17px);
+      }
+    }
+
+    &--card-back {
+      transform: translateY(0);
+
+      &--focused {
+        color: $c-contrast-blue;
+
+        transform: translateY(-14px);
+      }
+    }
+  }
+
+  &__field {
+    width: 100%;
+    padding: 4px 0 6px;
+
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-white;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $c-dark-gray;
+    caret-color: $c-contrast-blue;
+
+    &::placeholder {
+      font-size: 14px;
+    }
+
+    &:focus {
+      border-color: $c-contrast-blue;
+    }
+
+    &--number {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 130%;
+      letter-spacing: 0.2em;
+      color: $c-white;
+      text-align: center;
+
+      @extend %remove-spin-buttons;
+
+      &-last {
+        margin-right: 0;
+      }
+
+      &::placeholder {
+        text-align: center;
+        color: $c-dark-gray;
+      }
+
+      &-card {
+        width: 54px;
+      }
+
+      &-expiration {
+        margin: 0;
+        width: 35px;
+
+        letter-spacing: normal;
+        
+        border: none;
+
+        &:first-of-type {
+          &::placeholder {
+            text-align: right;
+          }
+        }
+
+        &:last-of-type {
+          &::placeholder {
+            text-align: left;
+          }
+        }
+      }
+
+      &-cvv {
+        width: 44px;
+      }
+    }
+  }
+
+  &--card-back {
+    &:first-of-type {
+      margin-right: 60px;
+    }
+  }
+
+  &__label {
+    display: inline-block;
+
+    &--card {
+      width: 54px;
+      margin-right: 15px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+    }
+  }
+}
