@@ -73,34 +73,31 @@ for (let i = 0; i < inputs.length; i++) {
   });
 };
 
-// const form1 = document.getElementById('form-1');
+const form1 = document.getElementById('form-1');
 const form2 = document.getElementById('form-2');
-const form3 = document.getElementById('form-3');
 const slides = document.getElementsByClassName('place-order__slide');
 const steps = document.getElementsByClassName('place-order__step');
 
 form2.addEventListener('submit', function(e) {
   e.preventDefault();
-  slides[1].classList.add('place-order__slide--swiped');
+  slides[2].classList.add('place-order__slide--swiped');
   steps[0].classList.remove('place-order__step--active');
   steps[1].classList.add('place-order__step--active');
 
   setTimeout(() => {
-    slides[1].style.display = 'none';
-    slides[2].classList.add('place-order__slide--appeared');
+    slides[2].style.display = 'none';
+    slides[1].classList.add('place-order__slide--appeared');
   }, 300);
 });
 
-form3.addEventListener('submit', function(e) {
+form1.addEventListener('submit', function(e) {
   e.preventDefault();
   slides[0].classList.add('place-order__slide--swiped');
-  slides[2].classList.add('place-order__slide--swiped');
   steps[1].classList.remove('place-order__step--active');
   steps[2].classList.add('place-order__step--active');
 
   setTimeout(() => {
     slides[0].style.display = 'none';
-    slides[2].style.display = 'none';
     slides[3].classList.add('place-order__slide--appeared');
   }, 300);
 });
