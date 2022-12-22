@@ -4,14 +4,6 @@ window.addEventListener('hashchange', () => {
   const hash = window.location.hash;
   const buyNowButton = document.getElementById('buy-now');
 
-  if (hash === '#place-order') {
-    buyNowButton.style.zIndex = '0';
-  } else {
-    setTimeout(() => {
-      buyNowButton.style.zIndex = '1';
-    }, 300);
-  }
-
   if (
     hash === '#menu'
     || hash === '#language'
@@ -20,8 +12,13 @@ window.addEventListener('hashchange', () => {
     || hash === '#place-order'
   ) {
     document.body.classList.add('page__body--with-menu');
+    buyNowButton.style.zIndex = '0';
   } else {
     document.body.classList.remove('page__body--with-menu');
+
+    setTimeout(() => {
+      buyNowButton.style.zIndex = '1';
+    }, 300);
   }
 });
 
@@ -87,6 +84,7 @@ form2.addEventListener('submit', function(e) {
   setTimeout(() => {
     slides[2].style.display = 'none';
     slides[1].classList.add('place-order__slide--appeared');
+    document.getElementById('place-order').scrollTop = 0;
   }, 300);
 });
 
@@ -99,6 +97,7 @@ form1.addEventListener('submit', function(e) {
   setTimeout(() => {
     slides[0].style.display = 'none';
     slides[3].classList.add('place-order__slide--appeared');
+    document.getElementById('place-order').scrollTop = 0;
   }, 300);
 });
 
@@ -206,6 +205,7 @@ for (let i = 0; i < dropdowns.length; i++) {
   const dropdownLabel = dropdowns[i].previousElementSibling;
 
   dropdownInput.value = contentItems[0].innerText;
+  dropdowns[2].childNodes[1].value = '';
 
   dropdownInput.oninput = function() {
     totalPrice.innerText = quantityInput.value * 1200 + '$';
