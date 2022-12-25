@@ -109,12 +109,12 @@
       font-weight: 900;
       font-size: 24px;
       line-height: 130%;
-      color: #fff;
+      color: $white;
       margin-bottom: 15px;
       width: fit-content;
 
       & span {
-        color: rgba(5, 194, 223, 1);
+        color: $contrastColor;
         font-weight: 400;
       }
 
@@ -152,7 +152,7 @@
       font-weight: 500;
       font-size: 18px;
       line-height: 22px;
-      color: #fff;
+      color: $white;
       text-align: center;
       margin-bottom: 10px;
 
@@ -184,23 +184,17 @@
       gap: 40px;
       padding-bottom: 10px;
 
-      &:first-child {
-        .header__bottom-button:hover {
-          color: rgba(146, 146, 146, 1);
-        }
-      }
-
       &:last-child {
         border-bottom: 1px solid #212121;
 
-        .header__bottom-button:hover {
+        :hover {
           color: rgba(146, 146, 146, 1);
           position: relative;
           &::after {
             content: "";
             position: absolute;
             width: 100%;
-            border-bottom: 1px solid rgba(5, 194, 223, 1);
+            border-bottom: 1px solid $contrastColor;
             bottom: -11px;
             left: 0;
           }
@@ -216,9 +210,13 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 150%;
-      color: #fff;
+      color: $white;
       cursor: pointer;
       text-decoration: none;
+
+      &:hover {
+        color: $textColor;
+      }
 
       &-more {
         color: $contrastColor;
@@ -226,6 +224,7 @@
         transition: all 0.5s;
 
         &:hover {
+          color: $contrastColor;
           transform: scale(1.2);
         }
 

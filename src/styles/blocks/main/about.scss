@@ -1,0 +1,138 @@
+.about {
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+
+  &__product {
+    padding: 50px 0 80px;
+
+    @include desktop768 {
+      padding: 100px 0 220px;
+    }
+
+    &-title {
+      font-weight: 900;
+      font-size: 36px;
+      line-height: 44px;
+      color: $white;
+      margin: 0;
+
+      &-m {
+        font-weight: 400;
+        color: $contrastColor;
+      }
+    }
+
+    &-des {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      max-width: 332px;
+      color: $textColor;
+    }
+  }
+
+  &__vrCv {
+
+    @include desktop768 {
+      padding-bottom: 150px;
+    }
+
+    &__subtitle {
+      margin-bottom: 0;
+      font-style: normal;
+      font-size: 14px;
+      line-height: 150%;
+      font-weight: 400;
+      color: $contrastColor;
+    }
+
+    &__title {
+      margin: 0;
+      font-style: normal;
+      font-weight: 900;
+      font-size: 21px;
+      line-height: 25px;
+      color: $white;
+
+      @include desktop768 {
+        font-size: 21px;
+        line-height: 25px;
+      }
+
+      @include desktop1224 {
+        font-size: 36px;
+        line-height: 44px;
+      }
+
+      &-des {
+        font-weight: 400;
+        color: $contrastColor;
+      }
+
+      &-sub {
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: $textColor;
+        margin-bottom: 22px;
+
+        @include desktop768 {
+          margin-bottom: 32px;
+        }
+      }
+    }
+
+    &-us {
+      display: flex;
+      transform: rotate(89.52deg);
+      flex-direction: column-reverse;
+
+      &-item {
+        display: none;
+        font-weight: 900;
+        font-size: 64px;
+        line-height: 130%;
+        text-align: center;
+        width: max-content;
+        margin: 0;
+        -webkit-text-fill-color: transparent;
+
+        @include desktop1024 {
+          display: block;
+        }
+
+        &:nth-child(1) {
+          -webkit-text-stroke: 1px $contrastColor;
+        }
+
+        &:nth-child(2) {
+          -webkit-text-stroke: 1px rgba(5, 194, 223, 0.5);
+          transform: rotate(180deg);
+        }
+
+        &:nth-child(3) {
+          -webkit-text-stroke: 1px rgba(5, 194, 223, 0.2);
+        }
+
+        &:nth-child(4) {
+          -webkit-text-stroke: 1px rgba(5, 194, 223, 0.1);
+          transform: rotate(180deg);
+          display: none;
+
+          @include desktop1224 {
+            display: block;
+          }
+        }
+
+        &:nth-child(5) {
+          -webkit-text-stroke: 1px rgba(5, 194, 223, 0.05);
+          display: none;
+
+          @include desktop1224 {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+}
