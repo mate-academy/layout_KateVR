@@ -2,6 +2,12 @@
   display: flex;
   gap: 37px;
 
+  &__off {
+    @include onTablet {
+      display: none;
+    }
+  }
+
   &__list {
     display: flex;
     align-items: center;
@@ -23,7 +29,7 @@
     transition: color 0.25s ease;
 
     &:hover {
-      color: $main-text-color;
+      color: $primary-text-color;
     }
   }
 }

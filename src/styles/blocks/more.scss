@@ -1,56 +1,41 @@
 .more {
-  background-color: $more-section-color;
+  background-color: $secondary-section-color;
 
   &__header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 137px;
+    text-align: center;
 
-    &-text {
-      font-weight: 400;
-      font-size: 18px;
-      line-height: 17px;
-      color: $main-text-color;
+    margin-bottom: 130px;
+
+    @include onMobile {
+      margin-bottom: 50px;
     }
   }
 
   &__content {
     display: flex;
     align-items: center;
+    justify-content: center;
 
     gap: 20px;
+
+    @include onDesktop-max-1240 {
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+
+    @include onMobile {
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-start;
+      gap: 15px;
+    }
   }
 
   &__card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    @extend .page__card;
 
-    &-image {
-      height: 110px;
-      object-fit: contain;
-
-      margin-bottom: 32px;
-    }
-
-
-    &-title {
-      text-transform: uppercase;
-      font-weight: 900;
-      font-size: 16px;
-      line-height: 19px;
-      color: #fff;
-
-      margin-bottom: 21px;
-    }
-
-    &-text {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 150%;
-      text-align: center;
-      color: $secondary-text-color;
+    @include onDesktop-max-1240 {
+      flex-basis: 40%;
     }
   }
 }

@@ -1,7 +1,11 @@
 .header {
   height: 100vh;
-  background: linear-gradient(107.56deg, #191536 0%, #000000 100%);
+  background: $primary-section-color;
   box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.25);
+
+  @include onTablet {
+    height: fit-content;
+  }
 
   &__wrapper {
     height: 100%;
@@ -10,15 +14,35 @@
     justify-content: space-between;
   }
 
-  &__left {
-    display: flex;
-    align-items: center;
-  }
-
   &__nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 80px 1fr $header-icon-size;
+      margin-bottom: 55px;
+    }
+
+    @include onMobile {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__left {
+    display: flex;
+  }
+
+  &__right {
+    @include onTablet {
+      grid-column: 3;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
 
   &__logo {
@@ -32,7 +56,7 @@
 
     width: 30px;
     border: none;
-    color: $main-text-color;
+    color: $primary-text-color;
 
     background-image: url(../images/Polygon.svg);
     background-repeat: no-repeat;
@@ -40,6 +64,10 @@
 
     &:focus {
       outline: none;
+    }
+
+    @include onTablet {
+      display: none;
     }
   }
 
@@ -49,6 +77,10 @@
 
   &__content {
     position: relative;
+
+    @include onMobile {
+      padding-top: 50%;
+    }
   }
 
   &__about {
@@ -56,6 +88,14 @@
     width: 300px;
     margin-left: 80px;
     flex-direction: column;
+
+    @include onTablet {
+      margin-left: 0;
+    }
+
+    @include onMobile {
+      width: fit-content;
+    }
 
     &-paragraph {
       line-height: 150%;
@@ -67,9 +107,13 @@
     &-price {
       font-size: 18px;
       line-height: 22px;
-      color: #FFFFFF;
+      color: #fff;
 
       margin-bottom: 19px;
+
+      @include onMobile {
+        text-align: center;
+      }
     }
   }
 
@@ -78,12 +122,26 @@
     bottom: 0;
     top: 0;
     right: 0;
-    left: 45%;
+    left: 50%;
 
-    background-image: url(../images/pictures/image.svg);
+    background-image: url(../images/pictures/image-b.png);
     background-repeat: no-repeat;
-    background-size: auto;
+    background-size: 130%;
     background-position: center;
+
+    @include onMobile {
+      width: 100%;
+      position: absolute;
+      bottom: 100%;
+      top: 0;
+      left: -5%;
+      right: 20px;
+      background-image: url(../images/pictures/image-b.png);
+      background-repeat: no-repeat;
+      background-size: 131%;
+      background-position: center;
+      padding-bottom: 50%;
+    }
   }
 
   &__bottom {
@@ -91,7 +149,12 @@
     justify-content: space-between;
     line-height: 150%;
 
+    @include onTablet {
+      display: none;
+    }
+
     &-wrapper {
+      position: relative;
       display: flex;
 
       &--left {
@@ -99,14 +162,10 @@
       }
 
       &--center {
-        background-image: url(../images/Polygon.svg);
-        background-repeat: no-repeat;
-        background-position: center bottom;
-
         transition: transform 0.3s;
 
         &:hover {
-          transform: scale(1.2);
+          transform: scale(1.1);
         }
       }
 
@@ -116,7 +175,7 @@
         gap: 50px;
 
         &:hover {
-          border-color: $main-text-color;
+          border-color: $primary-text-color;
         }
       }
     }
@@ -132,7 +191,18 @@
     }
 
     &-advanced {
-      color: $main-text-color;
+      position: relative;
+      color: $primary-text-color;
+
+      &:hover {
+        color: #fff;
+      }
+
+      &--icon {
+        position: absolute;
+        bottom: 0;
+        left: 40%;
+      }
     }
   }
 }
