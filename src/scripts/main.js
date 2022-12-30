@@ -8,12 +8,12 @@ const swiper = new Swiper('.swiper', {
   loop: true,
 
   breakpoints: {
-    320: {
+    640: {
       pagination: {
         el: '.swiper-pagination',
       },
     },
-    1224: {
+    1240: {
       pagination: {
         el: '.swiper-pagination',
         type: 'fraction',
