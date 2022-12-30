@@ -1,4 +1,16 @@
 .form {
+  &--desktop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    &-quantity {
+      grid-column: 1 / 5;
+      grid-row: 2 / 3;
+      align-self: end;
+    }
+  }
+
   &__place-order-top {
     padding: 0 38px;
     margin-bottom: 30px;
@@ -7,6 +19,10 @@
   &__place-order-top-content {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__quantity-desktop {
+    display: flex;
   }
 
   &__quantity,
@@ -20,7 +36,10 @@
 
   &__quantity {
     width: 90px;
-    padding-right: 15px;
+  }
+
+  &__price--desktop {
+    margin-left: 86px;
   }
 
   &__inputs {
@@ -29,12 +48,28 @@
     justify-content: center;
   }
 
+  &__inputs-card-container {
+    display: flex;
+  }
+
   &__label {
     margin-bottom: 10px;
+
+    &--desktop {
+      margin-bottom: 20px;
+    }
   }
 
   &__input {
     margin-bottom: 14px;
+
+    &--desktop {
+      margin-bottom: 26px;
+
+      &:last-of-type {
+        margin-bottom: 48px;
+      }
+    }
 
     &--address-2 {
       margin-bottom: 40px;
@@ -42,9 +77,14 @@
 
     &--card {
       padding-top: 40px;
+
+      @include onDesktop {
+        padding-top: 0;
+      }
     }
     
     &--cardholder {
+      max-width: 280px;
       margin-bottom: 30px;
     }
 
@@ -60,6 +100,11 @@
     color: $c-contrast-blue;
 
     word-wrap: break-word;
+
+    &--desktop {
+      font-size: 36px;
+      line-height: 44px;
+    }
   }
 
   &__card-back {
@@ -88,5 +133,9 @@
 
   &__dropdown {
     margin-bottom: 16px;
+
+    &-desktop {
+      margin-bottom: 26px;
+    }
   }
 }

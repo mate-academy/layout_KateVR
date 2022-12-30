@@ -8,10 +8,45 @@
 
   &--number {
     height: 41px;
+
+    &-desktop {
+      height: 47px;
+    }
   }
 
   &--text {
     height: 47px;
+  }
+
+  &--language {
+    display: none;
+
+    width: 45px;
+    height: 21px;
+    margin-left: 34px;
+
+    background-color: transparent;
+    
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__lang {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: calc(100% - 21px);
+    padding-left: 6px;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    color: $c-contrast-blue;
+
+    cursor: pointer;
   }
 
   &__input {
@@ -66,7 +101,15 @@
     background-color: transparent;
     background-image: url(../images/dropdown_arrow.png);
     background-repeat: no-repeat;
-    background-position: 0 18px;
+    background-position: 0 center;
+
+    &--lang {
+      width: 15px;
+
+      background-position: bottom left;
+
+      cursor: pointer;
+    }
   }
 
   &__content {
@@ -105,6 +148,11 @@
 
     &-text {
       max-height: 235px;
+    }
+
+    &-lang {
+      max-height: 111px;
+      margin-top: 14px;
     }
   }
 }

@@ -101,34 +101,52 @@ form1.addEventListener('submit', function(e) {
   }, 300);
 });
 
-const inputsCard = document.getElementsByClassName('input__field--number-card');
-const labelCard = document.getElementsByClassName('input__name--card');
+const cardInputs = document.getElementsByClassName('form__input--card');
+const cardLogo = document.getElementsByClassName('input__card-logo');
 
-for (let i = 0; i < inputsCard.length; i++) {
-  inputsCard[i].addEventListener('focus', function() {
-    labelCard[0].classList.add('input__name--card--focused');
-  });
+for (let i = 0; i < cardInputs.length; i++) {
+  const labelCard = cardInputs[i].childNodes[1];
+  const fieldsCard = cardInputs[i].childNodes[3].childNodes;
 
-  inputsCard[i].oninput = function() {
-    if (this.value.length > 4) {
-      this.value = this.value.slice(0, 4);
-    }
+  for (let j = 3; j < fieldsCard.length; j = j + 4) {
+    fieldsCard[j].addEventListener('focus', function() {
+      labelCard.classList.add('input__name--card--focused');
+    });
 
-    if (this.value.length === 4 && i !== 3) {
-      inputsCard[i + 1].focus();
-    }
+    fieldsCard[j].oninput = function() {
+      if (fieldsCard[3].value.startsWith(4)) {
+        cardLogo[0].classList.remove('input__card-logo--mastercard');
+        cardLogo[0].classList.add('input__card-logo--visa');
+      } else if (
+        fieldsCard[3].value.startsWith(2) || fieldsCard[3].value.startsWith(5)
+      ) {
+        cardLogo[0].classList.remove('input__card-logo--visa');
+        cardLogo[0].classList.add('input__card-logo--mastercard');
+      } else {
+        cardLogo[0].classList.remove('input__card-logo--mastercard');
+        cardLogo[0].classList.remove('input__card-logo--visa');
+      }
+
+      if (this.value.length > 4) {
+        this.value = this.value.slice(0, 4);
+      }
+
+      if (this.value.length === 4 && j !== 15) {
+        fieldsCard[j + 4].focus();
+      }
+    };
+
+    fieldsCard[j].addEventListener('focusout', function() {
+      if (
+        !fieldsCard[3].value
+        && !fieldsCard[7].value
+        && !fieldsCard[11].value
+        && !fieldsCard[15].value
+      ) {
+        labelCard.classList.remove('input__name--card--focused');
+      }
+    });
   };
-
-  inputsCard[i].addEventListener('focusout', function() {
-    if (
-      inputsCard[0].value === ''
-      && inputsCard[1].value === ''
-      && inputsCard[2].value === ''
-      && inputsCard[3].value === ''
-    ) {
-      labelCard[0].classList.remove('input__name--card--focused');
-    }
-  });
 };
 
 const inputCvv = document.getElementById('input-cvv');
@@ -187,7 +205,9 @@ for (let i = 0; i < inputsExpireDate.length; i++) {
 
 const dropdowns = document.getElementsByClassName('dropdown');
 const totalPrice = document.getElementById('price-total');
-const quantityInput = dropdowns[0].childNodes[1];
+const totalPrice2 = document.getElementById('price-total-2');
+const quantityInput = dropdowns[1].childNodes[1];
+const quantityInput2 = dropdowns[6].childNodes[1];
 
 function filterItems(txtValue, filter) {
   if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -205,13 +225,19 @@ for (let i = 0; i < dropdowns.length; i++) {
   const dropdownLabel = dropdowns[i].previousElementSibling;
 
   dropdownInput.value = contentItems[0].innerText;
-  dropdowns[2].childNodes[1].value = '';
+  dropdowns[3].childNodes[1].value = '';
+  dropdowns[5].childNodes[1].value = '';
 
   dropdownInput.oninput = function() {
     totalPrice.innerText = quantityInput.value * 1200 + '$';
+    totalPrice2.innerText = quantityInput2.value * 1200 + '$';
 
     if (quantityInput.value.length > 5) {
       quantityInput.value = quantityInput.value.slice(0, 5);
+    }
+
+    if (quantityInput2.value.length > 5) {
+      quantityInput2.value = quantityInput2.value.slice(0, 5);
     }
 
     const filter = dropdownInput.value.toUpperCase();
@@ -227,6 +253,7 @@ for (let i = 0; i < dropdowns.length; i++) {
     contentItems[j].addEventListener('click', function() {
       dropdownInput.value = this.textContent || this.innerText;
       totalPrice.innerText = quantityInput.value * 1200 + '$';
+      totalPrice2.innerText = quantityInput2.value * 1200 + '$';
 
       dropdownContent.style.display = 'none';
     });
@@ -244,6 +271,10 @@ for (let i = 0; i < dropdowns.length; i++) {
 
   dropdownInput.addEventListener('click', function() {
     dropdownContent.classList.add('dropdown__content--visible');
+
+    if (dropdownContent.style.display === 'none') {
+      dropdownContent.style.display = 'block';
+    }
   });
 
   dropdownInput.addEventListener('focus', function() {
@@ -252,15 +283,69 @@ for (let i = 0; i < dropdowns.length; i++) {
     }
 
     dropdownInput.addEventListener('focusout', function() {
-      if (dropdownInput.value === '') {
-        dropdownLabel.classList.remove('input__name--focused');
-      }
+      setTimeout(() => {
+        if (dropdownInput.value === '') {
+          dropdownLabel.classList.remove('input__name--focused');
+        }
+      }, 100);
     });
   });
 
   window.addEventListener('click', function(e) {
     if (e.target !== dropdownButton && e.target !== dropdownInput) {
       dropdownContent.classList.remove('dropdown__content--visible');
+
+      if (dropdownContent.style.display === 'block') {
+        dropdownContent.style.display = 'none';
+      }
     };
   });
 };
+
+const sliders = document.getElementsByClassName('header__bottom-slider');
+let slideIndex = 1;
+
+showSlides(slideIndex);
+
+sliders[0].addEventListener('click', function() {
+  showSlides(slideIndex += -1);
+});
+
+sliders[2].addEventListener('click', function() {
+  showSlides(slideIndex += 1);
+});
+
+function showSlides(n) {
+  let i;
+
+  if (n > sliders.length) {
+    slideIndex = 1;
+  }
+
+  if (n < 1) {
+    slideIndex = sliders.length;
+  }
+
+  for (i = 0; i < sliders.length; i++) {
+    sliders[i].classList.remove('header__bottom-slider--active');
+  }
+
+  sliders[slideIndex - 1].classList.add('header__bottom-slider--active');
+}
+
+const stepsDesktop
+= document.getElementsByClassName('place-order__step-desktop');
+const slidesDesktop
+= document.getElementsByClassName('place-order__slide-desktop');
+const formDesktop = document.getElementById('form-desktop');
+
+formDesktop.addEventListener('submit', function(e) {
+  e.preventDefault();
+  stepsDesktop[0].classList.remove('place-order__step-desktop--active');
+  stepsDesktop[1].classList.add('place-order__step-desktop--active');
+  slidesDesktop[0].classList.add('place-order__slide-desktop--swiped');
+  // setTimeout(() => {
+  //   slidesDesktop[0].style.display = 'none';
+  // }, 400);
+  slidesDesktop[1].classList.add('place-order__slide-desktop--appeared');
+});

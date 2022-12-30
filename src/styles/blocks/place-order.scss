@@ -24,11 +24,29 @@
     text-align: center;
   }
 
-  &__content {
+  &__content-mobile {
     @extend %block-content;
 
     height: auto;
     padding: 20px 0 0;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__content-desktop {
+    display: none;
+    height: 100vh;
+
+    padding: 64px 0 96px;
+    box-sizing: border-box;
+
+    background: center left url(../images/place-order-image.png) no-repeat;
+
+    @include onDesktop {
+      display: block;
+    }
   }
 
   &__top {
@@ -37,6 +55,13 @@
     align-items: center;
     margin-bottom: 30px;
     padding: 0 20px;
+
+    &-desktop {
+      display: flex;
+      justify-content: space-between;
+      grid-column: 1 / 13;
+      margin-bottom: 112px;
+    }
   }
 
   &__steps {
@@ -63,8 +88,34 @@
     }
   }
 
+  &__step-desktop {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: $c-text-gray-dark;
+
+    transition: all $transition-time;
+
+    &--active {
+      color: $c-contrast-blue;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 4px;
+        margin-top: 6px;
+
+        background: center url(../images/place-order-circle.png) no-repeat;
+      }
+    }
+  }
+
   &__slides-container {
     margin-bottom: 37px;
+
+    &-desktop {
+      grid-column: 7 / 13;
+    }
   }
   
   &__slide {
@@ -91,6 +142,23 @@
 
     &--appeared {
       display: block;
+    }
+
+    &-desktop {
+      transition: all $transition-time;
+
+      &-2 {
+        display: none;
+      }
+
+      &--swiped {
+        transform: translateX(-100%);
+        opacity: 0;
+      }
+
+      &--appeared {
+        display: block;
+      }
     }
   }
 }

@@ -4,6 +4,31 @@
   text-decoration: none;
   color: $c-white;
 
+  @include hover(color, $c-contrast-blue);
+
+  &--more {
+    color: $c-contrast-blue;
+    
+    @include hover(color, $c-white);
+
+    &::after {
+      content: "";
+      display: block;
+      height: 6px;
+      margin-top: 6px;
+      
+      background: center url(../images/more_arrow.png) no-repeat;
+      
+      transition: all $transition-time;
+    }
+
+    &:hover {
+      &::after {
+        background-image: url(../images/more_arrow_hovered.png);
+      }
+    }
+  }
+
   &--button {
     display: block;
     padding: 11px 0;
@@ -14,11 +39,29 @@
     background-color: $c-contrast-blue;
     border-radius: 4px;
 
+    @extend %button-states;
+
+    &-nav {
+      display: none;
+      width: 200px;
+      padding: 13px 0;
+
+      font-size: 16px;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
     &-fixed {
       position: fixed;
       bottom: 10px;
       left: 20px;
       right: 20px;
+
+      @include onDesktop {
+        display: none;
+      }
     }
   }
 
