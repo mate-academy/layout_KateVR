@@ -79,6 +79,7 @@ form2.addEventListener('submit', function(e) {
   e.preventDefault();
   slides[2].classList.add('place-order__slide--swiped');
   steps[0].classList.remove('place-order__step--active');
+  steps[0].classList.add('place-order__step--complete');
   steps[1].classList.add('place-order__step--active');
 
   setTimeout(() => {
@@ -92,6 +93,7 @@ form1.addEventListener('submit', function(e) {
   e.preventDefault();
   slides[0].classList.add('place-order__slide--swiped');
   steps[1].classList.remove('place-order__step--active');
+  steps[0].classList.remove('place-order__step--complete');
   steps[2].classList.add('place-order__step--active');
 
   setTimeout(() => {
@@ -180,7 +182,7 @@ for (let i = 0; i < inputsExpireDate.length; i++) {
   });
 
   inputsExpireDate[i].oninput = function() {
-    inputSlash.classList.add('form__card-expiration-slash--active');
+    inputSlash.classList.add('input__card-expiration-slash--active');
 
     if (this.value.length > 2) {
       this.value = this.value.slice(0, 2);
@@ -198,7 +200,67 @@ for (let i = 0; i < inputsExpireDate.length; i++) {
   inputsExpireDate[i].addEventListener('focusout', function() {
     if (inputsExpireDate[0].value === '' && inputsExpireDate[1].value === '') {
       labelExpireDate.classList.remove('input__name--card-back--focused');
-      inputSlash.classList.remove('form__card-expiration-slash--active');
+      inputSlash.classList.remove('input__card-expiration-slash--active');
+    }
+  });
+};
+
+const inputCvvDesktop = document.getElementById('input-cvv-desktop');
+const labelCvvDesktop = document.getElementById('cvv-label-desktop');
+
+inputCvvDesktop.addEventListener('focus', function() {
+  labelCvvDesktop.classList.add('input__name--card-back--focused');
+
+  inputCvvDesktop.oninput = function() {
+    if (this.value.length > 3) {
+      this.value = this.value.slice(0, 3);
+    }
+  };
+});
+
+inputCvvDesktop.addEventListener('focusout', function() {
+  if (inputCvvDesktop.value === '') {
+    labelCvvDesktop.classList.remove('input__name--card-back--focused');
+  }
+});
+
+const inputsExpireDateDesktop
+= document.getElementsByClassName('input__field--number-expiration-desktop');
+const labelExpireDateDesktop
+= document.getElementsByClassName('input__name--card-back')[2];
+const inputSlashDesktop = document.getElementById('input-slash-desktop');
+
+for (let i = 0; i < inputsExpireDateDesktop.length; i++) {
+  inputsExpireDateDesktop[i].addEventListener('focus', function() {
+    labelExpireDateDesktop.classList.add('input__name--card-back--focused');
+  });
+
+  inputsExpireDateDesktop[i].oninput = function() {
+    inputSlashDesktop.classList.add('input__card-expiration-slash--active');
+
+    if (this.value.length > 2) {
+      this.value = this.value.slice(0, 2);
+    }
+
+    if (this.value.length === 2 && i !== 1) {
+      inputsExpireDateDesktop[i + 1].focus();
+    }
+
+    if (this.value.length === 2 && i === 1) {
+      inputCvvDesktop.focus();
+    }
+  };
+
+  inputsExpireDateDesktop[i].addEventListener('focusout', function() {
+    if (
+      inputsExpireDateDesktop[0].value === ''
+      && inputsExpireDateDesktop[1].value === ''
+    ) {
+      labelExpireDateDesktop
+        .classList.remove('input__name--card-back--focused');
+
+      inputSlashDesktop
+        .classList.remove('input__card-expiration-slash--active');
     }
   });
 };
@@ -337,15 +399,44 @@ const stepsDesktop
 = document.getElementsByClassName('place-order__step-desktop');
 const slidesDesktop
 = document.getElementsByClassName('place-order__slide-desktop');
+const slidesDesktopFinal
+= document.getElementsByClassName('place-order__slide-desktop-final');
+const slidesDesktopComplete
+= document.getElementsByClassName('place-order__slide-desktop-complete');
+const placeOrderContent = document
+  .getElementsByClassName('place-order__content-desktop');
 const formDesktop = document.getElementById('form-desktop');
+const formDesktop2 = document.getElementById('form-desktop-2');
 
 formDesktop.addEventListener('submit', function(e) {
   e.preventDefault();
   stepsDesktop[0].classList.remove('place-order__step-desktop--active');
+  stepsDesktop[0].classList.add('place-order__step-desktop--complete');
   stepsDesktop[1].classList.add('place-order__step-desktop--active');
   slidesDesktop[0].classList.add('place-order__slide-desktop--swiped');
-  // setTimeout(() => {
-  //   slidesDesktop[0].style.display = 'none';
-  // }, 400);
-  slidesDesktop[1].classList.add('place-order__slide-desktop--appeared');
+
+  setTimeout(() => {
+    slidesDesktop[0].style.display = 'none';
+    slidesDesktop[1].classList.add('place-order__slide-desktop--appeared');
+    document.getElementById('place-order').scrollTop = 0;
+  }, 300);
+});
+
+formDesktop2.addEventListener('submit', function(e) {
+  e.preventDefault();
+  stepsDesktop[1].classList.remove('place-order__step-desktop--active');
+  stepsDesktop[2].classList.add('place-order__step-desktop--active');
+  stepsDesktop[0].classList.remove('place-order__step-desktop--complete');
+
+  slidesDesktopFinal[0]
+    .classList.add('place-order__slide-desktop-final--swiped');
+
+  setTimeout(() => {
+    slidesDesktopFinal[0].style.display = 'none';
+
+    slidesDesktopComplete[0]
+      .classList.add('place-order__slide-desktop-complete--appeared');
+    document.getElementById('place-order').scrollTop = 0;
+    placeOrderContent[0].classList.add('place-order__content-desktop-complete');
+  }, 300);
 });

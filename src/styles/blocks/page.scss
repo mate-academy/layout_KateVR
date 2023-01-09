@@ -11,6 +11,36 @@
     }
   }
 
+  &__place-order {
+    @include onDesktop {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+  
+      display: none;
+  
+      transition: all $transition-time;
+  
+      &:target {
+        display: block;
+  
+        opacity: 0;
+
+        animation: appeared $transition-time forwards;
+        
+        @keyframes appeared {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
   &__menu,
   &__language,
   &__faq,

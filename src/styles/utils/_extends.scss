@@ -34,8 +34,8 @@
 }
 
 %button-states {
-  transition: all, $transition-time;
-
+  transition: all $transition-time;
+  
   &:hover {
     background-color: $c-white;
     color: $c-contrast-blue;
@@ -44,5 +44,20 @@
   &:active {
     background-color: $c-background-menu;
     color: $c-dark-gray;
+  }
+}
+
+%animation-appeared {
+  opacity: 0;
+
+  animation: appeared $transition-time forwards;
+  
+  @keyframes appeared {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 }

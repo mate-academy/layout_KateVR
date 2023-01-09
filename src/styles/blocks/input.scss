@@ -43,7 +43,7 @@
     font-family: inherit;
     font-weight: 400;
     font-size: 16px;
-    line-height: 150%;
+    line-height: 130%;
     color: $c-white;
 
     background-color: transparent;
@@ -61,9 +61,7 @@
     }
 
     &--number {
-      font-weight: 400;
       font-size: 18px;
-      line-height: 130%;
       letter-spacing: 0.2em;
       color: $c-white;
       text-align: center;
@@ -90,20 +88,24 @@
       &-card {
         width: 54px;
         margin-right: 20px;
+        padding-bottom: 9px;
 
         &:last-of-type {
-          margin-right: 30px;
+          margin-right: 0;
         }
 
         @include onDesktop {
           width: 70px;
-          margin-right: 20px;
+
+          &:last-of-type {
+            margin-right: 30px;
+          }
         }
       }
 
       &-expiration {
         margin: 0;
-        width: 35px;
+        width: 37px;
 
         letter-spacing: normal;
         
@@ -124,6 +126,10 @@
 
       &-cvv {
         width: 44px;
+
+        @include onDesktop {
+          width: 50px;
+        }
       }
     }
   }
@@ -131,6 +137,27 @@
   &--card-back {
     &:first-of-type {
       margin-right: 60px;
+
+      @include onDesktop {
+        margin-right: 90px;
+      }
+    }
+  }
+
+  &__card-expiration {
+    display: inline-block;
+    width: 90px;
+
+    border-bottom: 1px solid $c-dark-gray;
+
+    &-slash {
+      color: $c-dark-gray;
+
+      transition: all $transition-time;
+
+      &--active {
+        color: $c-contrast-blue;
+      }
     }
   }
 
