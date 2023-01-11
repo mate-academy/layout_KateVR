@@ -23,6 +23,7 @@ window.addEventListener('hashchange', () => {
 });
 
 const collapsibles = document.getElementsByClassName('collapsible__button');
+const faqDesktop = document.getElementById('faq-desktop');
 
 for (let i = 0; i < collapsibles.length; i++) {
   collapsibles[i].addEventListener('click', function() {
@@ -36,6 +37,7 @@ for (let i = 0; i < collapsibles.length; i++) {
         collapsibles[i].style.borderBottom = '1px solid #05c2df';
         collapsibles[i].style.borderBottomLeftRadius = '4px';
         collapsibles[i].style.borderBottomRightRadius = '4px';
+        faqDesktop.style.height = 623 + 'px';
         content.style.borderBottom = 0;
         content.style.borderBottomLeftRadius = 0;
         content.style.borderBottomRightRadius = 0;
@@ -45,6 +47,7 @@ for (let i = 0; i < collapsibles.length; i++) {
       collapsibles[i].style.borderBottomLeftRadius = 0;
       collapsibles[i].style.borderBottomRightRadius = 0;
       content.style.maxHeight = content.scrollHeight + 100 + 'px';
+      faqDesktop.style.height = 623 + content.scrollHeight + 'px';
       content.style.paddingBottom = '12px';
       content.style.borderBottom = '1px solid #05c2df';
       content.style.borderBottomLeftRadius = '4px';
@@ -438,5 +441,51 @@ formDesktop2.addEventListener('submit', function(e) {
       .classList.add('place-order__slide-desktop-complete--appeared');
     document.getElementById('place-order').scrollTop = 0;
     placeOrderContent[0].classList.add('place-order__content-desktop-complete');
+  }, 300);
+});
+
+const linkHelp = document.getElementById('link-help');
+const linkFaq = document.getElementById('link-faq');
+const popupDesktopIcon = document.getElementsByClassName('popup-desktop__icon');
+const helpDesktop = document.getElementById('help-desktop');
+const linkMoreFaq = document.getElementById('link-more-faq');
+
+linkHelp.addEventListener('click', function() {
+  document.body.classList.add('page__body--shadowed');
+  helpDesktop.classList.add('popup-desktop--open');
+});
+
+linkFaq.addEventListener('click', function() {
+  document.body.classList.add('page__body--shadowed');
+  faqDesktop.classList.add('popup-desktop--open');
+});
+
+linkMoreFaq.addEventListener('click', function() {
+  document.body.classList.remove('page__body--shadowed');
+  faqDesktop.classList.add('popup-desktop--closed');
+
+  setTimeout(() => {
+    helpDesktop.classList.remove('popup-desktop--open');
+    helpDesktop.classList.remove('popup-desktop--closed');
+  }, 300);
+});
+
+popupDesktopIcon[1].addEventListener('click', function() {
+  document.body.classList.remove('page__body--shadowed');
+  helpDesktop.classList.add('popup-desktop--closed');
+
+  setTimeout(() => {
+    helpDesktop.classList.remove('popup-desktop--open');
+    helpDesktop.classList.remove('popup-desktop--closed');
+  }, 300);
+});
+
+popupDesktopIcon[0].addEventListener('click', function() {
+  document.body.classList.remove('page__body--shadowed');
+  faqDesktop.classList.add('popup-desktop--closed');
+
+  setTimeout(() => {
+    faqDesktop.classList.remove('popup-desktop--open');
+    faqDesktop.classList.remove('popup-desktop--closed');
   }, 300);
 });

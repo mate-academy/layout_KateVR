@@ -1,0 +1,80 @@
+.popup-desktop {
+  position: absolute;
+  top: calc((100vh - #{$popup-desktop-height}) / 2);
+  left: calc((100vw - #{$popup-desktop-width}) / 2);
+
+  display: none;
+  width: $popup-desktop-width;
+  height: $popup-desktop-height;
+  padding: 20px 90px 74px;
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  z-index: 3;
+
+  background-color: $c-background-menu;
+
+  transition: all $transition-time;
+
+  &--faq {
+    height: auto;
+    padding: 20px 90px 50px;
+  }
+
+  &--open {
+    display: block;
+
+    @extend %animation-appeared;
+  }
+
+  &--closed {
+    @extend %animation-disappear;
+  }
+
+  &__top-actions {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 15px;
+  }
+
+  &__icon {
+    margin-right: -75px;
+
+    cursor: pointer;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+
+    @extend %h1;
+
+    font-size: 36px;
+    line-height: 130%;
+  }
+
+  &__text {
+    margin-bottom: 20px;
+  }
+
+  &__bottom-links {
+    display: flex;
+
+    &--faq {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+
+    &:first-of-type {
+      margin-right: 65px;
+    }
+  }
+
+  &__collapsibles {
+    margin-bottom: 50px;
+  }
+}

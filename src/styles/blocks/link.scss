@@ -4,6 +4,10 @@
   text-decoration: none;
   color: $c-white;
 
+  &--blue {
+    @include hover(color, $c-contrast-blue);
+  }
+
   &--more {
     color: $c-contrast-blue;
     
@@ -64,6 +68,15 @@
       left: 20px;
       right: 20px;
 
+      @include onTablet {
+        left: 150px;
+        right: 150px;
+
+        padding: 13px 0;
+
+        font-size: 16px;
+      }
+
       @include onDesktop {
         display: none;
       }
@@ -87,5 +100,32 @@
 
   &--help {
     color: $c-contrast-blue;
+  }
+
+  &--desktop {
+    margin-bottom: 20px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-contrast-blue;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &-help {
+      margin-bottom: 25px;
+
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+
+      color: $c-text-gray;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
   }
 }

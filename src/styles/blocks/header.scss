@@ -1,6 +1,10 @@
 .header {
   background: center 45px url(../images/header_mobile.png) no-repeat;
 
+  @include onTablet {
+    background: right top url(../images/header_tablet.png) no-repeat;
+  }
+
   @include onDesktop {
     background: right top url(../images/header_1280.png) no-repeat;
   }
@@ -9,6 +13,10 @@
     @extend %block-content;
 
     padding-bottom: 0;
+
+    @include onTablet {
+      height: auto;
+    }
 
     @include onDesktop {
       height: auto;
@@ -26,6 +34,11 @@
     &-right-actions {
       display: flex;
       align-items: center;
+    }
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      margin-bottom: 35px;
     }
 
     @include onDesktop {
@@ -47,8 +60,13 @@
 
     font-size: 26px;
 
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
     @include onDesktop {
       grid-column: 1 / 7;
+      margin-bottom: 0;
 
       font-size: 46px;
       line-height: 130%;
@@ -56,12 +74,17 @@
   }
 
   &__paragraph {
-    margin-bottom: 44px;
+    margin-bottom: 16px;
 
     font-weight: 500;
 
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
     @include onDesktop {
       grid-column: 2 / 6;
+      margin-bottom: 0;
     }
 
     &::after {
@@ -74,6 +97,10 @@
       color: $c-white;
       text-align: center;
 
+      @include onTablet {
+        text-align: left;
+      }
+
       @include onDesktop {
         text-align: left;
       }
@@ -81,13 +108,16 @@
   }
 
   &__button-container {
-    display: flex;
-    justify-content: center;
-    padding-bottom: 44px;
+    margin-bottom: 44px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin-bottom: 60px;
+    }
 
     @include onDesktop {
       grid-column: 2 / 5;
-      padding-bottom: 84px;
+      margin-bottom: 64px;
     }
   }
 
@@ -95,7 +125,6 @@
     display: block;
     height: 69px;
     width: 220px;
-    margin-left: -50px;
 
     text-decoration: none;
 
@@ -103,9 +132,12 @@
 
     transition: all $transition-time;
 
+    @include onTablet {
+      width: 240px;
+    }
+
     @include onDesktop {
       width: 240px;
-      margin-left: -30px;
     }
 
     &:hover {
@@ -118,7 +150,7 @@
 
     justify-content: space-between;
     grid-column: 1 / 13;
-    margin-bottom: 96px;
+    padding-bottom: 86px;
 
     @include onDesktop {
       display: flex;

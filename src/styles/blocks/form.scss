@@ -14,11 +14,19 @@
   &__place-order-top {
     padding: 0 38px;
     margin-bottom: 30px;
+
+    @include onTablet {
+      padding: 0 35px;
+    }
   }
 
   &__place-order-top-content {
     display: flex;
     justify-content: space-between;
+
+    @include onTablet {
+      justify-content: start;
+    }
   }
 
   &__quantity-desktop {
@@ -36,6 +44,10 @@
 
   &__quantity {
     width: 90px;
+
+    @include onTablet {
+      margin-right: 148px;
+    }
   }
 
   &__price--desktop {
@@ -104,6 +116,11 @@
     color: $c-contrast-blue;
 
     word-wrap: break-word;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 44px;
+    }
 
     &--desktop {
       font-size: 36px;
