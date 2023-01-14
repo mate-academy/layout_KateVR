@@ -66,7 +66,7 @@ for (let i = 0; i < inputs.length; i++) {
     inputName.classList.add('input__name--focused');
 
     inputField.addEventListener('focusout', function() {
-      if (inputField.value === '') {
+      if (!inputField.value) {
         inputName.classList.remove('input__name--focused');
       }
     });
@@ -77,6 +77,7 @@ const form1 = document.getElementById('form-1');
 const form2 = document.getElementById('form-2');
 const slides = document.getElementsByClassName('place-order__slide');
 const steps = document.getElementsByClassName('place-order__step');
+const placeOrderTop = document.getElementsByClassName('form__place-order-top');
 
 form2.addEventListener('submit', function(e) {
   e.preventDefault();
@@ -88,6 +89,7 @@ form2.addEventListener('submit', function(e) {
   setTimeout(() => {
     slides[2].style.display = 'none';
     slides[1].classList.add('place-order__slide--appeared');
+    placeOrderTop[0].classList.add('form__place-order-top--grid');
     document.getElementById('place-order').scrollTop = 0;
   }, 300);
 });
@@ -154,6 +156,20 @@ for (let i = 0; i < cardInputs.length; i++) {
   };
 };
 
+const inputCardholder = document.getElementById('card-holder-name');
+const labelCardholder
+  = document.getElementsByClassName('input__name--cardholder')[0];
+
+inputCardholder.addEventListener('focus', function() {
+  labelCardholder.classList.add('input__name--cardholder--focused');
+});
+
+inputCardholder.addEventListener('focusout', function() {
+  if (!inputCardholder.value) {
+    labelCardholder.classList.remove('input__name--cardholder--focused');
+  }
+});
+
 const inputCvv = document.getElementById('input-cvv');
 const labelCvv = document.getElementById('cvv-label');
 
@@ -168,7 +184,7 @@ inputCvv.addEventListener('focus', function() {
 });
 
 inputCvv.addEventListener('focusout', function() {
-  if (inputCvv.value === '') {
+  if (!inputCvv.value) {
     labelCvv.classList.remove('input__name--card-back--focused');
   }
 });
@@ -201,7 +217,7 @@ for (let i = 0; i < inputsExpireDate.length; i++) {
   };
 
   inputsExpireDate[i].addEventListener('focusout', function() {
-    if (inputsExpireDate[0].value === '' && inputsExpireDate[1].value === '') {
+    if (!inputsExpireDate[0].value && !inputsExpireDate[1].value) {
       labelExpireDate.classList.remove('input__name--card-back--focused');
       inputSlash.classList.remove('input__card-expiration-slash--active');
     }
@@ -222,7 +238,7 @@ inputCvvDesktop.addEventListener('focus', function() {
 });
 
 inputCvvDesktop.addEventListener('focusout', function() {
-  if (inputCvvDesktop.value === '') {
+  if (!inputCvvDesktop.value) {
     labelCvvDesktop.classList.remove('input__name--card-back--focused');
   }
 });
@@ -256,8 +272,8 @@ for (let i = 0; i < inputsExpireDateDesktop.length; i++) {
 
   inputsExpireDateDesktop[i].addEventListener('focusout', function() {
     if (
-      inputsExpireDateDesktop[0].value === ''
-      && inputsExpireDateDesktop[1].value === ''
+      !inputsExpireDateDesktop[0].value
+      && !inputsExpireDateDesktop[1].value
     ) {
       labelExpireDateDesktop
         .classList.remove('input__name--card-back--focused');
@@ -349,7 +365,7 @@ for (let i = 0; i < dropdowns.length; i++) {
 
     dropdownInput.addEventListener('focusout', function() {
       setTimeout(() => {
-        if (dropdownInput.value === '') {
+        if (!dropdownInput.value) {
           dropdownLabel.classList.remove('input__name--focused');
         }
       }, 100);
@@ -465,8 +481,8 @@ linkMoreFaq.addEventListener('click', function() {
   faqDesktop.classList.add('popup-desktop--closed');
 
   setTimeout(() => {
-    helpDesktop.classList.remove('popup-desktop--open');
-    helpDesktop.classList.remove('popup-desktop--closed');
+    faqDesktop.classList.remove('popup-desktop--open');
+    faqDesktop.classList.remove('popup-desktop--closed');
   }, 300);
 });
 
@@ -488,4 +504,15 @@ popupDesktopIcon[0].addEventListener('click', function() {
     faqDesktop.classList.remove('popup-desktop--open');
     faqDesktop.classList.remove('popup-desktop--closed');
   }, 300);
+});
+
+const iconMenu = document.getElementById('icon-menu');
+const iconMenuCross = document.getElementById('menu-cross-icon');
+
+iconMenu.addEventListener('click', function() {
+  document.body.classList.add('page__body--shadowed');
+});
+
+iconMenuCross.addEventListener('click', function() {
+  document.body.classList.remove('page__body--shadowed');
 });

@@ -25,13 +25,25 @@
       }
     }
 
+    &--cardholder {
+      @include onTablet {
+        transform: translateY(8px);
+
+        &--focused {
+          color: $c-contrast-blue;
+  
+          transform: translateY(-10px);
+        }
+      }
+    }
+
     &--card-back {
-      transform: translateY(0);
+      transform: translateY(-10px);
 
       &--focused {
         color: $c-contrast-blue;
 
-        transform: translateY(-14px);
+        transform: translateY(-22px);
       }
     }
   }
@@ -52,6 +64,10 @@
     border-bottom: 1px solid $c-dark-gray;
     caret-color: $c-contrast-blue;
 
+    @include onTablet {
+      font-size: 18px;
+    }
+
     &::placeholder {
       font-size: 14px;
     }
@@ -60,13 +76,19 @@
       border-color: $c-contrast-blue;
     }
 
+    &--cardholder {
+      @include onTablet {
+        max-width: 460px;
+      }
+    }
+
     &--number {
       font-size: 18px;
       letter-spacing: 0.2em;
       color: $c-white;
       text-align: center;
 
-      @include onDesktop {
+      @include onTablet {
         font-size: 20px;
       }
 
@@ -80,7 +102,7 @@
         text-align: center;
         color: $c-dark-gray;
 
-        @include onDesktop {
+        @include onTablet {
           font-size: 20px;
         }
       }
@@ -93,13 +115,18 @@
         &:last-of-type {
           margin-right: 0;
         }
-
-        @include onDesktop {
+        
+        @include onTablet {
           width: 70px;
+          margin-right: 30px;
 
           &:last-of-type {
             margin-right: 30px;
           }
+        }
+
+        @include onDesktop {
+          margin-right: 20px;
         }
       }
 
@@ -127,19 +154,23 @@
       &-cvv {
         width: 44px;
 
-        @include onDesktop {
+        @include onTablet {
           width: 50px;
         }
       }
     }
   }
 
-  &--card-back {
+  &__card-back {
     &:first-of-type {
       margin-right: 60px;
 
+      @include onTablet {
+        margin-right: 150px;
+      }
+
       @include onDesktop {
-        margin-right: 90px;
+        margin-right: 70px;
       }
     }
   }
@@ -171,13 +202,17 @@
     height: 34px;
 
     &--visa {
-      display: block;
+      @include onTablet {
+        display: block;
+      }
       
       background: center / cover url(../images/visa-logo.png) no-repeat;
     }
 
     &--mastercard {
-      display: block;
+      @include onTablet {
+        display: block;
+      }
       
       background: center / cover url(../images/mastercard-logo.png) no-repeat;
     }

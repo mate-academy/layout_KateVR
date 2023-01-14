@@ -3,16 +3,33 @@
 
   overflow-y: auto;
 
+  @include onTablet {
+    z-index: 3;
+  }
+
   &__content {
     @extend %block-content;
 
     padding: 20px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: min-content;
+      column-gap: 20px;
+      padding: 34px;
+    }
   }
 
   &__top {
     display: flex;
     justify-content: end;
     margin-bottom: 30px;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      margin-bottom: 50px;
+    }
   }
 
   &__title {
@@ -22,6 +39,10 @@
 
     font-size: 21px;
 
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
     &--text-blue {
       @extend %text--blue;
     }
@@ -29,5 +50,21 @@
 
   &__collapsibles {
     padding-bottom: 13px;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      padding-bottom: 0;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__link-more {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      grid-column: 3 / 5;
+      padding-bottom: 50px;
+    }
   }
 }
