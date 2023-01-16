@@ -1,0 +1,94 @@
+.contact-us {
+  background-color: $c-black;
+  @include padding-section;
+
+  @include large-desktop {
+    padding-bottom: 185px;
+  }
+
+  &__content {
+    @include tablet {
+      @include grid;
+    }
+  }
+
+  &__text {
+    @include tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include desktop {
+      grid-column: 1 / 5;
+    }
+
+    @include large-desktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__question {
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-blue;
+    margin-bottom: 10px;
+
+    @include desktop {
+      margin-bottom: 14px;
+    }
+  }
+
+  &__description {
+    font-size: 12px;
+    line-height: 150%;
+
+    @include tablet {
+      font-size: 16px;
+      margin: 50px 0 76px;
+    }
+
+    @include desktop {
+      margin-top: 26px;
+    }
+  }
+
+  &__link {
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__form {
+    margin: 15px 0 30px;
+
+    @include tablet {
+      margin: 0;
+      grid-column: 4 / -1;
+    }
+
+    @include desktop {
+      grid-column: 7 / -1;
+    }
+
+    @include large-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__button {
+    margin-top: 20px;
+
+    @include tablet {
+      margin-top: 50px;
+    }
+
+    @include desktop {
+      margin-top: 80px;
+    }
+
+    @include large-desktop {
+      margin-top: 40px;
+    }
+  }
+}

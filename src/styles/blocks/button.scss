@@ -1,0 +1,78 @@
+.button {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 200px;
+  height: 48px;
+  background-color: $c-blue;
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  color: $c-white;
+
+  cursor: pointer;
+  transition: color $animation-time;
+
+  @include tablet {
+    font-size: 16px;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    background-color: $c-white;
+    border-radius: 4px;
+    transition: width $animation-time;
+  }
+
+  &:hover {
+    color: $c-blue;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &--play {
+    display: block;
+    height: 69px;
+    position: relative;
+
+    &::after {
+      content: "Play Video";
+      position: absolute;
+      left: 94px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: 500;
+      line-height: 130%;
+      color: $c-white;
+      transition: all $animation-time;
+    }
+
+    &__arrow {
+      transition: all $animation-time;
+    }
+
+    &:hover &__arrow {
+      fill: $c-white;
+      filter: drop-shadow(0 0 5px $c-blue);
+    }
+
+    &:hover::after {
+      color: $c-blue;
+      text-shadow: 0 0 5px $c-blue;
+    }
+  }
+}

@@ -1,0 +1,120 @@
+.tech-card {
+  display: none;
+  cursor: pointer;
+  transition: all $animation-time;
+
+  @include desktop {
+    display: block;
+    position: relative;
+  }
+
+  &::after {
+    position: absolute;
+    transition: all $animation-time;
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: $c-white;
+    margin-bottom: 20px;
+  }
+
+  &--sensor {
+    @include desktop {
+      grid-column: 1 / 4;
+
+      &::after {
+        content: url(../images/tech/sensor-desktop.svg);
+        top: 5px;
+        left: 102px;
+        z-index: 1;
+      }
+
+      @include large-desktop {
+        grid-column: 3 / 6;
+
+        &::after {
+          content: url(../images/tech/sensor-large-desktop.svg);
+          z-index: 0;
+        }
+      }
+
+      &:hover::after {
+        left: 92px;
+      }
+    }
+  }
+
+  &--batterries {
+    @include desktop {
+      grid-column: 9 / -1;
+
+      &::after {
+        content: url(../images/tech/batterries-desktop.svg);
+        top: 5px;
+        left: -210px;
+        z-index: 1;
+      }
+
+      &:hover::after {
+        left: -200px;
+      }
+    }
+
+    @include large-desktop {
+      grid-column: 12 / 16;
+
+      &::after {
+        content: url(../images/tech/batterries-large-desktop.svg);
+        left: -304px;
+        z-index: 0;
+      }
+
+      &:hover::after {
+        left: -294px;
+      }
+    }
+  }
+
+  &--connection {
+    @include desktop {
+      grid-column: 2 / 5;
+
+      &::after {
+        content: url(../images/tech/connection-desktop.svg);
+        top: -104px;
+        left: 140px;
+      }
+    }
+
+    @include large-desktop {
+      grid-column: 3 / 6;
+
+      &::after {
+        content: url(../images/tech/connection-large-desktop.svg);
+      }
+    }
+
+    &:hover::after {
+      left: 150px;
+    }
+  }
+
+  &:hover {
+    transform: scale(1.03);
+
+    @include desktop {
+      z-index: 1;
+    }
+
+    @include large-desktop {
+      z-index: 0;
+    }
+
+    &::after {
+      filter: drop-shadow(0 0 5px $c-blue);
+    }
+  }
+}

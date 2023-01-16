@@ -1,0 +1,83 @@
+.footer {
+  background-color: #000;
+  padding: 45px 0 50px;
+
+  @include tablet {
+    padding: 25px 0;
+  }
+
+  @include desktop {
+    padding: 44px 0;
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+
+    & :nth-child(1),
+    & :nth-child(2) {
+      grid-column: 1 / 2;
+    }
+
+    & :nth-child(3),
+    & :nth-child(4) {
+      grid-column: 2 / -1;
+    }
+
+    @include tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 130px;
+
+    @include tablet {
+      width: 104px;
+    }
+
+    @include large-desktop {
+      width: 160px;
+
+    }
+  }
+
+  &__icon {
+    display: block;
+    height: 18px;
+    transition: all $animation-time;
+
+    @include tablet {
+      height: 14px;
+    }
+
+    @include large-desktop {
+      height: 22px;
+    }
+
+    &:hover {
+      filter: drop-shadow(0 0 5px $c-blue);
+      transform: scale(1.2);
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  &__logo {
+    margin-bottom: 15px;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+}

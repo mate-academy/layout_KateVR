@@ -1,0 +1,52 @@
+.help {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px 0;
+
+    @include tablet {
+      margin: 30px 34px 0;
+    }
+  }
+
+  &__content {
+    margin: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include tablet {
+      margin: 24px 34px;
+      gap: 50px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include tablet {
+      @include grid;
+
+      & :nth-child(1) {
+        grid-column: 1 / 3;
+      }
+
+      & :nth-child(2) {
+        grid-column: 4 / 6;
+      }
+    }
+  }
+
+  &__link {
+    color: $c-blue;
+    @include hover-text;
+  }
+
+  &__support {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+}

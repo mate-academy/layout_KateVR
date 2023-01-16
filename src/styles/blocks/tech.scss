@@ -1,0 +1,164 @@
+.tech {
+  background-color: $c-black;
+  @include padding-section;
+
+  &__title {
+    @include desktop {
+      margin-left: 720px;
+    }
+
+    @include large-desktop {
+      margin-left: 998px;
+    }
+  }
+
+  &__content {
+    height: 206px;
+    margin-top: 30px;
+    position: relative;
+
+    @include tablet {
+      height: 380px;
+    }
+
+    @include desktop {
+      @include grid;
+      height: 354px;
+      margin-top: 80px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%);
+
+    @include desktop {
+      left: 358px;
+      transform: translate(0);
+
+      &::after {
+        content: url(../images/tech/Ellipse.svg);
+        position: absolute;
+        left: -5px;
+        bottom: 50px;
+        animation: blink 1.5s infinite;
+      }
+    }
+
+    @include large-desktop {
+      left: 568px;
+    }
+  }
+
+  &__text {
+    width: max-content;
+    background-color: $c-dark-blue;
+    border-radius: 4px;
+    padding: 10px 6px;
+
+    font-size: 12px;
+    line-height: 150%;
+    color: $c-gray;
+    text-align: start;
+
+    position: absolute;
+    opacity: 0;
+    transition: opacity $animation-time;
+
+    &--sensor {
+      top: 50px;
+      right: -20px;
+
+      @include tablet {
+        top: 80px;
+        left: -100px;
+      }
+    }
+
+    &--batterries {
+      top: -50px;
+      right: 44px;
+
+      @include tablet {
+        top: -180px;
+        left: -40px;
+      }
+    }
+
+    &--connection {
+      top: -90px;
+      left: -30px;
+
+      @include tablet {
+        top: -130px;
+        left: -100px;
+      }
+    }
+
+    @include tablet {
+      padding: 20px 10px;
+      font-size: 16px;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    background-image: url(../images/tech/open-card.svg);
+    background-size: cover;
+    background-color: transparent;
+    width: 34px;
+    height: 34px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    &--sensor {
+      top: -10px;
+      left: 60px;
+
+      @include tablet {
+        top: -27px;
+        left: 65px;
+      }
+    }
+
+    &--connection {
+      left: -16px;
+      bottom: 8px;
+
+      @include tablet {
+        bottom: 20px;
+        left: -56px;
+      }
+    }
+
+    &--batterries {
+      right: 30px;
+      bottom: 80px;
+
+      @include tablet {
+        right: 48px;
+        bottom: 148px;
+      }
+    }
+
+    @include tablet {
+      width: 62px;
+      height: 62px;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    &--active {
+      background-image: url(../images/tech/close-card.svg);
+
+      & .tech__text {
+        opacity: 1;
+      }
+    }
+  }
+}

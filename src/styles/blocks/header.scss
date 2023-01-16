@@ -1,0 +1,293 @@
+.header {
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  padding-top: 20px;
+
+  @include tablet {
+    padding: 30px 0 60px;
+  }
+
+  @include desktop {
+    height: 100vh;
+    padding: 47px 0 0;
+  }
+
+  &__top-container {
+    display: flex;
+    gap: 34px;
+    align-items: center;
+
+    &--hidden {
+      display: none;
+
+      @include desktop {
+        display: flex;
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+
+  &__lang {
+    position: relative;
+    display: flex;
+    width: 33px;
+    height: 21px;
+
+    &::after {
+      content: url(../images/icon/arrow-down.svg);
+      display: none;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      transition: all $animation-time;
+      pointer-events: none;
+
+      @include desktop {
+        display: block;
+      }
+    }
+
+    &:hover::after {
+      transform: scale(1.3);
+      filter: drop-shadow(0 0 3px $c-blue);
+    }
+  }
+
+  &__select {
+    display: none;
+    appearance: none;
+    outline: 0;
+    border: 0;
+
+    flex: 1;
+    font-weight: 500;
+    font-size: 16px;
+    color: $c-blue;
+    background-color: #15122e;
+    background-image: none;
+    cursor: pointer;
+    transition: text-shadow $animation-time;
+
+    @include desktop {
+      display: block;
+    }
+
+    &:hover {
+      text-shadow: 0 0 5px $c-blue;
+    }
+  }
+
+  &__menu {
+    display: block;
+    width: 20px;
+    height: 10px;
+    background-image: url(../images/icon/menu.svg);
+    background-repeat: no-repeat;
+    transition: all $animation-time;
+
+    &:hover {
+      background-image: url(../images/icon/menu-hover.svg);
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__content {
+    @include grid;
+    margin-top: 15px;
+    position: relative;
+
+    @include tablet {
+      margin-top: 55px;
+    }
+
+    @include desktop {
+      margin-top: 100px;
+    }
+
+    @include large-desktop {
+      margin-top: 232px;
+
+      &:nth-child(n) {
+        margin-left: 20px;
+      }
+    }
+
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 130%;
+    color: $c-white;
+    margin-left: 20px;
+
+    & span {
+      color: $c-blue;
+      font-weight: 400;
+    }
+
+    @include tablet {
+      margin: 0;
+      grid-column: 1 / 4;
+    }
+
+    @include desktop {
+      font-size: 46px;
+      grid-column: 1 / 7;
+    }
+
+    @include large-desktop {
+      grid-column: 1 / 8;
+      font-size: 54px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+
+    @include tablet {
+      position: absolute;
+      right: -34px;
+      top: 0;
+      width: 494px;
+    }
+
+    @include desktop {
+      width: 810px;
+      right: 0;
+    }
+
+    @include large-desktop {
+      top: -16px;
+      width: 1104px;
+    }
+  }
+
+  &__description {
+    font-weight: 500;
+    font-size: 16px;
+    margin: 16px 20px 8px;
+
+    @include tablet {
+      grid-column: 1 / 4;
+      margin: 0 0 10px;
+    }
+
+    @include desktop {
+      margin: 20px 0;
+      grid-column: 2 / 6;
+    }
+
+    @include large-desktop {
+      grid-column: 2 / 7;
+      font-size: 20px;
+      margin: 35px 0 30px;
+    }
+  }
+
+  &__price {
+    width: max-content;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: $c-white;
+    margin: 0 auto;
+
+    @include tablet {
+      grid-column: 1 / 2;
+      margin: 0;
+    }
+
+    @include desktop {
+      grid-column: 2 / 3;
+    }
+
+    @include large-desktop {
+      font-size: 20px;
+    }
+  }
+
+  &__button-play {
+    margin: 16px 0 0 20px;
+
+    @include tablet {
+      margin: 24px 0 0;
+      grid-column: 1 / 4;
+    }
+
+    @include desktop {
+      grid-column: 2 / 5;
+      margin-top: 20px;
+    }
+
+    @include large-desktop {
+      margin-top: 36px;
+    }
+  }
+
+  &__button-buy {
+    margin: 0 auto;
+    position: relative;
+    top: 24px;
+
+    @include tablet {
+      display: none !important;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include desktop {
+      display: block;
+      position: relative;
+      gap: 40px;
+      margin-top: 212px;
+    }
+  }
+
+  &__help {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__bottom-link {
+    font-weight: 500;
+    color: $c-white;
+    @include hover-text;
+
+    &--blue {
+      color: $c-blue;
+      position: absolute;
+      left: 50%;
+      top: 0;
+
+      &::after {
+        content: url(../images/icon/arrow-down.svg);
+        position: relative;
+        bottom: -14px;
+        right: 50%;
+        transition: all $animation-time;
+        pointer-events: none;
+      }
+
+      &:hover::after {
+        filter: drop-shadow(0 0 3px $c-blue);
+        bottom: -20px ;
+      }
+    }
+  }
+}
