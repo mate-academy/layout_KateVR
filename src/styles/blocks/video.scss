@@ -1,0 +1,21 @@
+.video {
+  &__link {
+    display: block;
+    height: 70px;
+    background-image: url(../images/play_button.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 0 24px;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(110%);
+      background-image: url(../images/play_button-hover.svg);
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+      background-position: left;
+    }
+  }
+}
