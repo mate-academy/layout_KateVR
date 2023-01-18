@@ -1,6 +1,6 @@
 'use strict';
 
-const form = document.querySelector('form');
+const forms = document.querySelectorAll('form');
 const toTop = document.querySelector('.page__to-top');
 
 window.addEventListener('hashchange', () => {
@@ -11,9 +11,11 @@ window.addEventListener('hashchange', () => {
     : document.body.classList.remove('page__body--with-menu');
 });
 
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  e.target.reset();
+forms.forEach((form) => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    e.target.reset();
+  });
 });
 
 window.addEventListener('scroll', () => {
