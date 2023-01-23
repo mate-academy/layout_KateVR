@@ -1,0 +1,115 @@
+.slideshow {
+  position: relative;
+
+  &__container {
+    position: relative;
+  }
+
+  &__counter {
+    position: absolute;
+    right: calc(100% + 23px);
+    bottom: calc(100% - 13px);
+
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+
+    &-text {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: $c-contrast-blue;
+    }
+  }
+
+  &__slider {
+    position: absolute;
+    top: calc(100% + 12px);
+
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__image {
+    display: none;
+    width: 100%;
+    object-fit: cover;
+
+    @include onTablet {
+      min-height: 270px;
+    }
+
+    @include onDesktop {
+      min-height: 290px;
+    }
+
+    @extend %animation-fade;
+  }
+
+  &__dots {
+    position: absolute;
+    left: 50%;
+
+    margin-top: 3px;
+
+    text-align: center;
+
+    transform: translate(-50%);
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    display: inline-block;
+    width: 4px;
+    height: 4px;
+    margin-right: 6px;
+
+    background-color: $c-dot;
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    transition: all $transition-time;
+
+    &:hover {
+      background-color: $c-dot-active;
+    }
+
+    &:last-of-type {
+      margin-right: 0;
+    }
+
+    &-active {
+      background-color: $c-dot-active;
+    }
+  }
+
+  &__control-mob {
+    position: absolute;
+    top: 0;
+  
+    display: inline-block;
+    height: 100%;
+    width: 30%;
+
+    cursor: pointer;
+    user-select: none;
+
+    &:nth-of-type(2) {
+      right: 0;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+}

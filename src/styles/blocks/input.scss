@@ -15,6 +15,10 @@
       transform: translateY(0);
     }
 
+    &--invalid {
+      color: $c-red;
+    }
+
     &--card {
       transform: translateY(0);
       
@@ -22,6 +26,10 @@
         color: $c-contrast-blue;
 
         transform: translateY(-17px);
+      }
+
+      &--invalid {
+        color: $c-red;
       }
     }
 
@@ -34,6 +42,10 @@
   
           transform: translateY(-10px);
         }
+
+        &--invalid {
+          color: $c-red;
+        }
       }
     }
 
@@ -44,6 +56,10 @@
         color: $c-contrast-blue;
 
         transform: translateY(-22px);
+      }
+
+      &--invalid {
+        color: $c-red;
       }
     }
   }
@@ -63,6 +79,8 @@
     outline: none;
     border-bottom: 1px solid $c-dark-gray;
     caret-color: $c-contrast-blue;
+    
+    transition: all $transition-time;
 
     @include onTablet {
       font-size: 18px;
@@ -72,8 +90,12 @@
       font-size: 14px;
     }
 
-    &:focus {
+    &--focused {
       border-color: $c-contrast-blue;
+    }
+
+    &--invalid {
+      border-color: $c-red;
     }
 
     &--cardholder {
@@ -128,6 +150,14 @@
         @include onDesktop {
           margin-right: 20px;
         }
+
+        @include onLargeDesktop {
+          margin-right: 50px;
+
+          &:last-of-type {
+            margin-right: 50px;
+          }
+        }
       }
 
       &-expiration {
@@ -159,6 +189,11 @@
         }
       }
     }
+
+    &-textarea {
+      height: 67px;
+      resize: none;
+    }
   }
 
   &__card-back {
@@ -180,6 +215,16 @@
     width: 90px;
 
     border-bottom: 1px solid $c-dark-gray;
+
+    transition: all $transition-time;
+
+    &--focused {
+      border-color: $c-contrast-blue;
+    }
+
+    &--invalid {
+      border-color: $c-red;
+    }
 
     &-slash {
       color: $c-dark-gray;

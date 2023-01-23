@@ -1,4 +1,6 @@
 .header {
+  position: relative;
+
   background: center 45px url(../images/header_mobile.png) no-repeat;
 
   @include onTablet {
@@ -9,22 +11,27 @@
     background: right top url(../images/header_1280.png) no-repeat;
   }
 
+  @include onLargeDesktop {
+    background: right top url(../images/header_1920.png) no-repeat;
+  }
+
   &__content {
     @extend %block-content;
 
     height: auto;
 
-    padding-bottom: 0;
+    padding: 20px 0 50px;
 
     @include onTablet {
-      height: auto;
-
-      padding-top: 30px;
+      padding: 30px 0 60px;
     }
 
     @include onDesktop {
-      height: auto;
-      padding-top: 46px;
+      padding: 46px 0 84px;
+    }
+
+    @include onLargeDesktop {
+      padding: 46px 0 106px;
     }
   }
 
@@ -34,11 +41,9 @@
     align-items: center;
     margin: 0 0 186px;
 
-    &-left-actions,
-    &-right-actions {
-      display: flex;
-      align-items: center;
-    }
+    transition: all $transition-time;
+
+    z-index: 2;
 
     @include onTablet {
       grid-column: 1 / 7;
@@ -46,8 +51,43 @@
     }
 
     @include onDesktop {
+      display: block;
       grid-column: 1 / 13;
       margin-bottom: 80px;
+    }
+
+    @include onLargeDesktop {
+      grid-column: 1 / 17;
+      margin-bottom: 210px;
+    }
+
+    &-container {
+      @include onDesktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    &-fixed {
+      @include onDesktop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        max-width: inherit;
+
+        padding: 15px 110px 34px;
+  
+        background: $c-background-gradient-header;
+      }
+    }
+  
+    &-left-actions,
+    &-right-actions {
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -75,6 +115,23 @@
       font-size: 46px;
       line-height: 130%;
     }
+
+    @include onLargeDesktop {
+      grid-column: 1 / 8;
+      margin: 0 0 12px 20px;
+
+      font-size: 54px;
+    }
+
+    &-top-margin {
+      @include onDesktop {
+        margin-top: 145px;
+      }
+
+      @include onLargeDesktop {
+        margin-top: 275px;
+      }
+    }
   }
 
   &__paragraph {
@@ -89,6 +146,13 @@
     @include onDesktop {
       grid-column: 2 / 6;
       margin-bottom: 0;
+    }
+
+    @include onLargeDesktop {
+      grid-column: 2 / 7;
+      margin: 0 0 15px 20px;
+
+      font-size: 20px;
     }
 
     &::after {
@@ -108,44 +172,76 @@
       @include onDesktop {
         text-align: left;
       }
+
+      @include onLargeDesktop {
+        margin-top: 30px;
+
+        font-size: 20px;
+        line-height: 24px;
+      }
     }
   }
 
-  &__button-container {
-    margin-bottom: 44px;
-
+  &__play-button-container {
     @include onTablet {
       grid-column: 1 / 4;
-      margin-bottom: 60px;
     }
 
     @include onDesktop {
       grid-column: 2 / 5;
       margin-bottom: 64px;
     }
+
+    @include onLargeDesktop {
+      margin: 0 0 192px 15px;
+    }
   }
 
-  &__play-button {
-    display: block;
-    height: 69px;
-    width: 220px;
+  &__video-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
 
-    text-decoration: none;
+    display: none;
 
-    background: url(../images/play_button.png) no-repeat;
+    background: $c-background-menu;
 
-    transition: all $transition-time;
+    transform: translate(-50%, -50%);
 
-    @include onTablet {
-      width: 240px;
+    z-index: 3;
+
+    &-active {
+      @extend %animation-appeared;
+
+      display: block;
     }
+
+    &-closed {
+      display: none;
+    }
+  }
+
+  &__video-cross {
+    position: inherit;
+    top: 15px;
+    right: 15px;
+
+    cursor: pointer;
+  }
+
+  &__iframe {
+    width: calc(100vw - 100px);
+    height: calc(100vw / 2);
+
+    max-width: 876px;
+    max-height: 486px;
+
+    min-width: 200px;
+    min-height: 200px;
 
     @include onDesktop {
-      width: 240px;
-    }
-
-    &:hover {
-      background: url(../images/play_button_active.png) no-repeat;
+      width: 876px;
+      height: 486px;
     }
   }
 
@@ -154,10 +250,13 @@
 
     justify-content: space-between;
     grid-column: 1 / 13;
-    padding-bottom: 86px;
 
     @include onDesktop {
       display: flex;
+    }
+
+    @include onLargeDesktop {
+      grid-column: 1 / 17;
     }
   }
 
@@ -166,42 +265,6 @@
       &:first-of-type {
         margin-right: 40px;
       }
-    }
-  }
-
-  &__bottom-slider {
-    display: inline-block;
-    width: 69px;
-    padding-bottom: 10px;
-
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 150%;
-    color: $c-white;
-
-    border-bottom: 1px solid $c-border-gray;
-
-    cursor: pointer;
-    user-select: none;
-    
-    transition: all $transition-time;
-
-    &:nth-of-type(2) {
-      color: transparent;
-      pointer-events: none;
-    }
-
-    &:nth-of-type(3) {
-      text-align: right;
-    }
-
-    &-container {
-      display: flex;
-    }
-
-    &--active {
-      color: $c-text-gray;
-      border-bottom: 1px solid $c-contrast-blue;
     }
   }
 }

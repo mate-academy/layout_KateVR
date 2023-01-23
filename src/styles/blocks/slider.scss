@@ -1,0 +1,45 @@
+.slider {
+  &-step {
+    display: inline-block;
+    width: 69px;
+    padding-bottom: 10px;
+  
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-white;
+  
+    border-bottom: 1px solid $c-border-gray;
+  
+    cursor: pointer;
+    user-select: none;
+    
+    transition: all $transition-time;
+  
+    &:nth-of-type(2) {
+      color: transparent;
+      pointer-events: none;
+    }
+
+    &:last-of-type {
+      text-align: right;
+    }
+
+    &--about {
+      &:nth-of-type(2),
+      &:nth-of-type(3),
+      &:nth-of-type(4) {
+        width: 23px;
+      }
+    }
+
+    &--active {
+      color: $c-text-gray;
+      border-bottom: 1px solid $c-contrast-blue;
+    }
+  }
+
+  &-container {
+    display: flex;
+  }
+}

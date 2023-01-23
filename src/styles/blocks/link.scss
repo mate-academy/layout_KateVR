@@ -6,6 +6,12 @@
 
   &--blue {
     @include hover(color, $c-contrast-blue);
+
+    &-large {
+      line-height: 150%;
+
+      cursor: pointer;
+    }
   }
 
   &--more {
@@ -84,6 +90,8 @@
       left: 20px;
       right: 20px;
 
+      z-index: 3;
+
       @include onTablet {
         left: 50%;
         bottom: 30px;
@@ -150,6 +158,45 @@
       &:last-of-type {
         margin-bottom: 0;
       }
+    }
+  }
+
+  &--circle {
+    width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+
+    background: center url(../images/link-circle-center.png) no-repeat;
+
+    border-radius: 50%;
+    border: 1px solid $c-contrast-blue;
+
+    transition: all $transition-time;
+
+    &:hover,
+    &:active {
+      background-color: $c-contrast-blue;
+
+      background-image: url(../images/link-circle-center-active.png);
+    }
+  }
+
+  &--footer {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    color: $c-white;
+
+    transition: all $transition-time;
+
+    @include onTablet {
+      font-size: 14px;
+      color: $c-link-footer;
+    }
+
+    &:hover,
+    &:active {
+      color: $c-contrast-blue;
     }
   }
 }

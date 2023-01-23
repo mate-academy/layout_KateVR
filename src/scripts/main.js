@@ -37,7 +37,6 @@ for (let i = 0; i < collapsibles.length; i++) {
         collapsibles[i].style.borderBottom = '1px solid #05c2df';
         collapsibles[i].style.borderBottomLeftRadius = '4px';
         collapsibles[i].style.borderBottomRightRadius = '4px';
-        faqDesktop.style.height = 623 + 'px';
         content.style.borderBottom = 0;
         content.style.borderBottomLeftRadius = 0;
         content.style.borderBottomRightRadius = 0;
@@ -47,7 +46,6 @@ for (let i = 0; i < collapsibles.length; i++) {
       collapsibles[i].style.borderBottomLeftRadius = 0;
       collapsibles[i].style.borderBottomRightRadius = 0;
       content.style.maxHeight = content.scrollHeight + 100 + 'px';
-      faqDesktop.style.height = 623 + content.scrollHeight + 'px';
       content.style.paddingBottom = '12px';
       content.style.borderBottom = '1px solid #05c2df';
       content.style.borderBottomLeftRadius = '4px';
@@ -58,19 +56,74 @@ for (let i = 0; i < collapsibles.length; i++) {
 
 const inputs = document.getElementsByClassName('input');
 
+function getMissingName(inputName) {
+  const trimmedName = inputName.innerHTML.toLowerCase().trim();
+  const invalidValue = `Please, fill your ${trimmedName}`;
+
+  return invalidValue;
+};
+
+function typeMismatch(inputName) {
+  const mismathName = inputName.innerHTML.toLowerCase().trim().slice(0, -1);
+
+  return `Incorrect ${mismathName} format*`;
+};
+
+function returnInitialName(initialName) {
+  return initialName;
+};
+
 for (let i = 0; i < inputs.length; i++) {
   const inputName = inputs[i].childNodes[1];
   const inputField = inputs[i].childNodes[3];
+  const initialName = inputName.innerHTML;
 
   inputField.addEventListener('focus', function() {
     inputName.classList.add('input__name--focused');
-
-    inputField.addEventListener('focusout', function() {
-      if (!inputField.value) {
-        inputName.classList.remove('input__name--focused');
-      }
-    });
+    inputField.classList.add('input__field--focused');
   });
+
+  inputField.addEventListener('focusout', function() {
+    inputField.classList.remove('input__field--focused');
+
+    if (!inputField.value) {
+      inputName.classList.remove('input__name--focused');
+    }
+
+    inputField.classList.remove('input__field--invalid');
+    inputName.classList.remove('input__name--invalid');
+  });
+
+  inputField.addEventListener('invalid', function(e) {
+    if (e.target.validity.valueMissing) {
+      inputField.classList.add('input__field--invalid');
+      inputName.classList.add('input__name--invalid');
+
+      if (inputName.innerHTML.includes(`Please, fill your`)) {
+        return null;
+      } else {
+        inputName.innerHTML = getMissingName(inputName);
+      }
+    }
+
+    if (e.target.validity.typeMismatch) {
+      inputField.classList.add('input__field--invalid');
+      inputName.classList.add('input__name--invalid');
+
+      if (inputName.innerHTML.includes(`Incorrect`)) {
+        return null;
+      } else {
+        inputName.innerHTML = typeMismatch(inputName);
+      }
+    }
+  });
+
+  inputField.oninput = function() {
+    inputName.innerHTML = returnInitialName(initialName);
+
+    inputField.classList.remove('input__field--invalid');
+    inputName.classList.remove('input__name--invalid');
+  };
 };
 
 const form1 = document.getElementById('form-1');
@@ -109,7 +162,6 @@ form1.addEventListener('submit', function(e) {
 });
 
 const cardInputs = document.getElementsByClassName('form__input--card');
-const cardLogo = document.getElementsByClassName('input__card-logo');
 
 for (let i = 0; i < cardInputs.length; i++) {
   const labelCard = cardInputs[i].childNodes[1];
@@ -118,20 +170,24 @@ for (let i = 0; i < cardInputs.length; i++) {
   for (let j = 3; j < fieldsCard.length; j = j + 4) {
     fieldsCard[j].addEventListener('focus', function() {
       labelCard.classList.add('input__name--card--focused');
+      fieldsCard[j].classList.add('input__field--focused');
     });
 
     fieldsCard[j].oninput = function() {
+      labelCard.classList.remove('input__name--card--invalid');
+      fieldsCard[j].classList.remove('input__field--invalid');
+
       if (fieldsCard[3].value.startsWith(4)) {
-        cardLogo[0].classList.remove('input__card-logo--mastercard');
-        cardLogo[0].classList.add('input__card-logo--visa');
+        fieldsCard[17].classList.remove('input__card-logo--mastercard');
+        fieldsCard[17].classList.add('input__card-logo--visa');
       } else if (
         fieldsCard[3].value.startsWith(2) || fieldsCard[3].value.startsWith(5)
       ) {
-        cardLogo[0].classList.remove('input__card-logo--visa');
-        cardLogo[0].classList.add('input__card-logo--mastercard');
+        fieldsCard[17].classList.remove('input__card-logo--visa');
+        fieldsCard[17].classList.add('input__card-logo--mastercard');
       } else {
-        cardLogo[0].classList.remove('input__card-logo--mastercard');
-        cardLogo[0].classList.remove('input__card-logo--visa');
+        fieldsCard[17].classList.remove('input__card-logo--mastercard');
+        fieldsCard[17].classList.remove('input__card-logo--visa');
       }
 
       if (this.value.length > 4) {
@@ -144,6 +200,8 @@ for (let i = 0; i < cardInputs.length; i++) {
     };
 
     fieldsCard[j].addEventListener('focusout', function() {
+      fieldsCard[j].classList.remove('input__field--focused');
+
       if (
         !fieldsCard[3].value
         && !fieldsCard[7].value
@@ -153,21 +211,85 @@ for (let i = 0; i < cardInputs.length; i++) {
         labelCard.classList.remove('input__name--card--focused');
       }
     });
+
+    fieldsCard[j].addEventListener('invalid', function(e) {
+      if (e.target.validity.valueMissing) {
+        labelCard.classList.add('input__name--card--invalid');
+        fieldsCard[j].classList.add('input__field--invalid');
+
+        if (labelCard.innerHTML.includes(`Please, fill your`)) {
+          return null;
+        } else {
+          labelCard.innerHTML = getMissingName(labelCard);
+        }
+      }
+    });
   };
 };
 
-const inputCardholder = document.getElementById('card-holder-name');
-const labelCardholder
-  = document.getElementsByClassName('input__name--cardholder')[0];
+const cardHolder
+  = document.getElementsByClassName('form__input--desktop-cardholder')[0];
+const cardHolderLabel = cardHolder.childNodes[1];
+const cardHolderInput = cardHolder.childNodes[3];
 
-inputCardholder.addEventListener('focus', function() {
-  labelCardholder.classList.add('input__name--cardholder--focused');
+cardHolderInput.addEventListener('focus', function() {
+  cardHolderLabel.classList.add('input__name--cardholder--focused');
 });
 
-inputCardholder.addEventListener('focusout', function() {
-  if (!inputCardholder.value) {
-    labelCardholder.classList.remove('input__name--cardholder--focused');
+cardHolderInput.addEventListener('focusout', function() {
+  if (!cardHolderInput.value) {
+    cardHolderLabel.classList.remove('input__name--cardholder--focused');
   }
+});
+
+cardHolderInput.addEventListener('invalid', function(e) {
+  if (e.target.validity.valueMissing) {
+    cardHolderInput.classList.add('input__field--invalid');
+    cardHolderLabel.classList.add('input__name--cardholder--invalid');
+
+    if (cardHolderLabel.innerHTML.includes(`Please, fill your`)) {
+      return null;
+    } else {
+      cardHolderLabel.innerHTML = getMissingName(cardHolderLabel);
+    }
+  }
+});
+
+cardHolderInput.addEventListener('input', function() {
+  cardHolderInput.classList.remove('input__field--invalid');
+  cardHolderLabel.classList.remove('input__name--cardholder--invalid');
+});
+
+const inputCardholderMobile = document.getElementById('card-holder-name');
+const labelCardholderMobile
+  = document.getElementsByClassName('input__name--cardholder')[0];
+
+inputCardholderMobile.addEventListener('focus', function() {
+  labelCardholderMobile.classList.add('input__name--cardholder--focused');
+});
+
+inputCardholderMobile.addEventListener('focusout', function() {
+  if (!inputCardholderMobile.value) {
+    labelCardholderMobile.classList.remove('input__name--cardholder--focused');
+  }
+});
+
+inputCardholderMobile.addEventListener('invalid', function(e) {
+  if (e.target.validity.valueMissing) {
+    inputCardholderMobile.classList.add('input__field--invalid');
+    labelCardholderMobile.classList.add('input__name--cardholder--invalid');
+
+    if (labelCardholderMobile.innerHTML.includes(`Please, fill your`)) {
+      return null;
+    } else {
+      labelCardholderMobile.innerHTML = getMissingName(labelCardholderMobile);
+    }
+  }
+});
+
+inputCardholderMobile.addEventListener('input', function() {
+  inputCardholderMobile.classList.remove('input__field--invalid');
+  labelCardholderMobile.classList.remove('input__name--cardholder--invalid');
 });
 
 const inputCvv = document.getElementById('input-cvv');
@@ -175,6 +297,7 @@ const labelCvv = document.getElementById('cvv-label');
 
 inputCvv.addEventListener('focus', function() {
   labelCvv.classList.add('input__name--card-back--focused');
+  inputCvv.classList.add('input__field--focused');
 
   inputCvv.oninput = function() {
     if (this.value.length > 3) {
@@ -184,24 +307,49 @@ inputCvv.addEventListener('focus', function() {
 });
 
 inputCvv.addEventListener('focusout', function() {
+  inputCvv.classList.remove('input__field--focused');
+
   if (!inputCvv.value) {
     labelCvv.classList.remove('input__name--card-back--focused');
   }
 });
 
+inputCvv.addEventListener('invalid', function(e) {
+  if (e.target.validity.valueMissing) {
+    labelCvv.classList.add('input__name--card-back--invalid');
+    inputCvv.classList.add('input__field--invalid');
+
+    if (labelCvv.innerHTML.includes(`Please, fill your`)) {
+      return null;
+    } else {
+      labelCvv.innerHTML = getMissingName(labelCvv);
+    }
+  }
+});
+
+inputCvv.addEventListener('input', function() {
+  inputCvv.classList.remove('input__field--invalid');
+  labelCvv.classList.remove('input__name--card-back--invalid');
+});
+
 const inputsExpireDate
 = document.getElementsByClassName('input__field--number-expiration');
 const labelExpireDate
-= document.getElementsByClassName('input__name--card-back')[0];
+= document.getElementsByClassName('input__name--card-back');
 const inputSlash = document.getElementById('input-slash');
+const expirationSpan
+= document.getElementsByClassName('input__card-expiration');
 
 for (let i = 0; i < inputsExpireDate.length; i++) {
   inputsExpireDate[i].addEventListener('focus', function() {
-    labelExpireDate.classList.add('input__name--card-back--focused');
+    labelExpireDate[0].classList.add('input__name--card-back--focused');
+    expirationSpan[0].classList.add('input__card-expiration--focused');
   });
 
-  inputsExpireDate[i].oninput = function() {
+  inputsExpireDate[i].addEventListener('input', function() {
     inputSlash.classList.add('input__card-expiration-slash--active');
+    labelExpireDate[0].classList.remove('input__name--card-back--invalid');
+    expirationSpan[0].classList.remove('input__card-expiration--invalid');
 
     if (this.value.length > 2) {
       this.value = this.value.slice(0, 2);
@@ -214,12 +362,27 @@ for (let i = 0; i < inputsExpireDate.length; i++) {
     if (this.value.length === 2 && i === 1) {
       inputCvv.focus();
     }
-  };
+  });
 
   inputsExpireDate[i].addEventListener('focusout', function() {
+    expirationSpan[0].classList.remove('input__card-expiration--focused');
+
     if (!inputsExpireDate[0].value && !inputsExpireDate[1].value) {
-      labelExpireDate.classList.remove('input__name--card-back--focused');
+      labelExpireDate[0].classList.remove('input__name--card-back--focused');
       inputSlash.classList.remove('input__card-expiration-slash--active');
+    }
+  });
+
+  inputsExpireDate[i].addEventListener('invalid', function(e) {
+    if (e.target.validity.valueMissing) {
+      labelExpireDate[0].classList.add('input__name--card-back--invalid');
+      expirationSpan[0].classList.add('input__card-expiration--invalid');
+
+      if (labelExpireDate[0].innerHTML.includes(`Please, fill your`)) {
+        return null;
+      } else {
+        labelExpireDate[0].innerHTML = getMissingName(labelExpireDate[0]);
+      }
     }
   });
 };
@@ -229,6 +392,7 @@ const labelCvvDesktop = document.getElementById('cvv-label-desktop');
 
 inputCvvDesktop.addEventListener('focus', function() {
   labelCvvDesktop.classList.add('input__name--card-back--focused');
+  inputCvvDesktop.classList.add('input__field--focused');
 
   inputCvvDesktop.oninput = function() {
     if (this.value.length > 3) {
@@ -238,9 +402,29 @@ inputCvvDesktop.addEventListener('focus', function() {
 });
 
 inputCvvDesktop.addEventListener('focusout', function() {
+  inputCvvDesktop.classList.remove('input__field--focused');
+
   if (!inputCvvDesktop.value) {
     labelCvvDesktop.classList.remove('input__name--card-back--focused');
   }
+});
+
+inputCvvDesktop.addEventListener('invalid', function(e) {
+  if (e.target.validity.valueMissing) {
+    inputCvvDesktop.classList.add('input__field--invalid');
+    labelCvvDesktop.classList.add('input__name--card-back--invalid');
+
+    if (labelCvvDesktop.innerHTML.includes(`Please, fill your`)) {
+      return null;
+    } else {
+      labelCvvDesktop.innerHTML = getMissingName(labelCvvDesktop);
+    }
+  }
+});
+
+inputCvvDesktop.addEventListener('input', function() {
+  inputCvvDesktop.classList.remove('input__field--invalid');
+  labelCvvDesktop.classList.remove('input__name--card-back--invalid');
 });
 
 const inputsExpireDateDesktop
@@ -248,10 +432,13 @@ const inputsExpireDateDesktop
 const labelExpireDateDesktop
 = document.getElementsByClassName('input__name--card-back')[2];
 const inputSlashDesktop = document.getElementById('input-slash-desktop');
+const expirationSpanDesktop
+= document.getElementsByClassName('input__card-expiration')[1];
 
 for (let i = 0; i < inputsExpireDateDesktop.length; i++) {
   inputsExpireDateDesktop[i].addEventListener('focus', function() {
     labelExpireDateDesktop.classList.add('input__name--card-back--focused');
+    expirationSpanDesktop.classList.add('input__card-expiration--focused');
   });
 
   inputsExpireDateDesktop[i].oninput = function() {
@@ -271,6 +458,8 @@ for (let i = 0; i < inputsExpireDateDesktop.length; i++) {
   };
 
   inputsExpireDateDesktop[i].addEventListener('focusout', function() {
+    expirationSpanDesktop.classList.remove('input__card-expiration--focused');
+
     if (
       !inputsExpireDateDesktop[0].value
       && !inputsExpireDateDesktop[1].value
@@ -281,6 +470,25 @@ for (let i = 0; i < inputsExpireDateDesktop.length; i++) {
       inputSlashDesktop
         .classList.remove('input__card-expiration-slash--active');
     }
+  });
+
+  inputsExpireDateDesktop[i].addEventListener('invalid', function(e) {
+    if (e.target.validity.valueMissing) {
+      expirationSpanDesktop.classList.add('input__card-expiration--invalid');
+      labelExpireDateDesktop.classList.add('input__name--card-back--invalid');
+
+      if (labelExpireDateDesktop.innerHTML.includes(`Please, fill your`)) {
+        return null;
+      } else {
+        labelExpireDateDesktop.innerHTML
+          = getMissingName(labelExpireDateDesktop);
+      }
+    }
+  });
+
+  inputsExpireDateDesktop[i].addEventListener('input', function() {
+    expirationSpanDesktop.classList.remove('input__card-expiration--invalid');
+    labelExpireDateDesktop.classList.remove('input__name--card-back--invalid');
   });
 };
 
@@ -304,12 +512,17 @@ for (let i = 0; i < dropdowns.length; i++) {
   const dropdownContent = dropdowns[i].childNodes[5];
   const contentItems = dropdownContent.childNodes[1].children;
   const dropdownLabel = dropdowns[i].previousElementSibling;
+  const initialNameDropdown = dropdownLabel.innerHTML;
 
   dropdownInput.value = contentItems[0].innerText;
   dropdowns[3].childNodes[1].value = '';
   dropdowns[5].childNodes[1].value = '';
 
   dropdownInput.oninput = function() {
+    dropdownLabel.innerHTML
+      = returnInitialName(initialNameDropdown);
+    dropdownLabel.classList.remove('input__name--invalid');
+
     totalPrice.innerText = quantityInput.value * 1200 + '$';
     totalPrice2.innerText = quantityInput2.value * 1200 + '$';
 
@@ -362,14 +575,26 @@ for (let i = 0; i < dropdowns.length; i++) {
     if (!dropdownLabel.classList.contains('label')) {
       dropdownLabel.classList.add('input__name--focused');
     }
+  });
 
-    dropdownInput.addEventListener('focusout', function() {
-      setTimeout(() => {
-        if (!dropdownInput.value) {
-          dropdownLabel.classList.remove('input__name--focused');
-        }
-      }, 100);
-    });
+  dropdownInput.addEventListener('focusout', function() {
+    setTimeout(() => {
+      if (!dropdownInput.value) {
+        dropdownLabel.classList.remove('input__name--focused');
+      }
+    }, 100);
+  });
+
+  dropdownInput.addEventListener('invalid', function(e) {
+    if (e.target.validity.valueMissing) {
+      dropdownLabel.classList.add('input__name--invalid');
+
+      if (dropdownLabel.innerHTML.includes(`Please, fill your`)) {
+        return null;
+      } else {
+        dropdownLabel.innerHTML = getMissingName(dropdownLabel);
+      }
+    }
   });
 
   window.addEventListener('click', function(e) {
@@ -383,35 +608,72 @@ for (let i = 0; i < dropdowns.length; i++) {
   });
 };
 
-const sliders = document.getElementsByClassName('header__bottom-slider');
-let slideIndex = 1;
+const slidersHeader = document.getElementsByClassName('slider-step--header');
+const slidersAbout = document.getElementsByClassName('slider-step--about');
+const counterNumber
+  = document.getElementsByClassName('slideshow__counter-text')[0];
 
-showSlides(slideIndex);
+let sliderIndex = 1;
+let sliderAboutIndex = 1;
 
-sliders[0].addEventListener('click', function() {
-  showSlides(slideIndex += -1);
+showSlider(sliderIndex);
+showSliderAbout(sliderAboutIndex);
+
+function changeNumber(number) {
+  return number;
+};
+
+slidersHeader[0].addEventListener('click', function() {
+  showSlider(sliderIndex += -1);
 });
 
-sliders[2].addEventListener('click', function() {
-  showSlides(slideIndex += 1);
+slidersHeader[2].addEventListener('click', function() {
+  showSlider(sliderIndex += 1);
 });
 
-function showSlides(n) {
+slidersAbout[0].addEventListener('click', function() {
+  showSliderAbout(sliderAboutIndex += -1);
+});
+
+slidersAbout[4].addEventListener('click', function() {
+  showSliderAbout(sliderAboutIndex += 1);
+});
+
+function showSlider(n) {
   let i;
 
-  if (n > sliders.length) {
-    slideIndex = 1;
+  if (n > slidersHeader.length) {
+    sliderIndex = 1;
   }
 
   if (n < 1) {
-    slideIndex = sliders.length;
+    sliderIndex = slidersHeader.length;
   }
 
-  for (i = 0; i < sliders.length; i++) {
-    sliders[i].classList.remove('header__bottom-slider--active');
+  for (i = 0; i < slidersHeader.length; i++) {
+    slidersHeader[i].classList.remove('slider-step--active');
   }
 
-  sliders[slideIndex - 1].classList.add('header__bottom-slider--active');
+  slidersHeader[sliderIndex - 1].classList.add('slider-step--active');
+}
+
+function showSliderAbout(n) {
+  let i;
+
+  if (n > slidersAbout.length) {
+    sliderAboutIndex = 1;
+  }
+
+  if (n < 1) {
+    sliderAboutIndex = slidersAbout.length;
+  }
+
+  for (i = 0; i < slidersAbout.length; i++) {
+    slidersAbout[i].classList.remove('slider-step--active');
+  }
+
+  slidersAbout[sliderAboutIndex - 1].classList.add('slider-step--active');
+  counterNumber.innerHTML = changeNumber(sliderAboutIndex);
 }
 
 const stepsDesktop
@@ -474,6 +736,7 @@ linkHelp.addEventListener('click', function() {
 linkFaq.addEventListener('click', function() {
   document.body.classList.add('page__body--shadowed');
   faqDesktop.classList.add('popup-desktop--open');
+  faqDesktop.style.top = window.pageYOffset + 10 + 'px';
 });
 
 linkMoreFaq.addEventListener('click', function() {
@@ -515,4 +778,142 @@ iconMenu.addEventListener('click', function() {
 
 iconMenuCross.addEventListener('click', function() {
   document.body.classList.remove('page__body--shadowed');
+});
+
+window.onscroll = function() {
+  getFixed();
+};
+
+const headerTop = document.getElementsByClassName('header__top')[0];
+const headerTitle = document.getElementsByClassName('header__title')[0];
+
+const sticky = headerTop.offsetTop;
+
+function getFixed() {
+  if (window.pageYOffset > sticky) {
+    headerTop.classList.add('header__top-fixed');
+    headerTitle.classList.add('header__title-top-margin');
+  } else {
+    headerTop.classList.remove('header__top-fixed');
+    headerTitle.classList.remove('header__title-top-margin');
+  }
+}
+
+const playButtons = document.getElementsByClassName('play-button');
+const videoContainer = document.getElementById('video');
+const videoCross = document.getElementsByClassName('header__video-cross')[0];
+const iframe = document.getElementsByClassName('header__iframe')[0];
+
+for (let i = 0; i < playButtons.length; i++) {
+  playButtons[i].addEventListener('click', function() {
+    videoContainer.classList.add('header__video-container-active');
+  });
+}
+
+videoCross.addEventListener('click', function() {
+  videoContainer.classList.replace(
+    'header__video-container-active', 'header__video-container-closed'
+  );
+
+  iframe.contentWindow.postMessage(JSON.stringify({
+    event: 'command',
+    func: 'stopVideo',
+  }), '*');
+
+  setTimeout(() => {
+    videoContainer.classList.remove('header__video-container-closed');
+  }, 300);
+});
+
+const slidesImages = document.getElementsByClassName('slideshow__image');
+const slideDots = document.getElementsByClassName('slideshow__dot');
+const slideControl = document.getElementsByClassName('slideshow__control-mob');
+let slideIndex = 1;
+
+showSlides(slideIndex);
+
+slideControl[0].addEventListener('click', function() {
+  showSlides(slideIndex += -1);
+});
+
+slideControl[1].addEventListener('click', function() {
+  showSlides(slideIndex += 1);
+});
+
+slidersAbout[0].addEventListener('click', function() {
+  showSlides(slideIndex += -1);
+});
+
+slidersAbout[4].addEventListener('click', function() {
+  showSlides(slideIndex += 1);
+});
+
+for (let i = 0; i < slideDots.length; i++) {
+  slideDots[i].addEventListener('click', function(e) {
+    showSlides(slideIndex = e.target.dataset.number);
+  });
+}
+
+function showSlides(n) {
+  let i;
+
+  if (n > slidesImages.length) {
+    slideIndex = 1;
+  }
+
+  if (n < 1) {
+    slideIndex = slidesImages.length;
+  }
+
+  for (i = 0; i < slidesImages.length; i++) {
+    slidesImages[i].style.display = 'none';
+  }
+
+  for (i = 0; i < slideDots.length; i++) {
+    slideDots[i].classList.remove('slideshow__dot-active');
+  }
+
+  slidesImages[slideIndex - 1].style.display = 'block';
+  slideDots[slideIndex - 1].classList.add('slideshow__dot-active');
+}
+
+const miniButton = document.getElementsByClassName('mini-button');
+
+for (let i = 0; i < miniButton.length; i++) {
+  miniButton[i].addEventListener('click', function(e) {
+    if (
+      e.target.classList.contains('mini-button__span')
+      || e.target.classList.contains('mini-button__description')
+    ) {
+      return null;
+    }
+
+    if (miniButton[i].children[1].style.display === 'none') {
+      miniButton[i].children[1].style.display = 'block';
+      miniButton[i].classList.remove('mini-button--active');
+    } else {
+      miniButton[i].children[1].style.display = 'none';
+      miniButton[i].classList.add('mini-button--active');
+    }
+
+    if (miniButton[i].children[2].style.display === 'block') {
+      miniButton[i].children[2]
+        .classList.add('mini-button__description-disappear');
+
+      setTimeout(() => {
+        miniButton[i].children[2].style.display = 'none';
+
+        miniButton[i].children[2]
+          .classList.remove('mini-button__description-disappear');
+      }, 300);
+    } else {
+      miniButton[i].children[2].style.display = 'block';
+    }
+  });
+};
+
+const contactForm = document.getElementsByClassName('contact__form')[0];
+
+contactForm.addEventListener('submit', function(e) {
+  e.preventDefault();
 });

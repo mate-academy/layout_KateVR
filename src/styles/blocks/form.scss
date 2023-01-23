@@ -59,10 +59,18 @@
     @include onTablet {
       margin-right: 150px;
     }
+
+    @include onDesktop {
+      margin-right: 0;
+    }
   }
 
   &__price--desktop {
     margin-left: 86px;
+
+    @include onLargeDesktop {
+      margin-left: 96px;
+    }
   }
 
   &__inputs {
@@ -136,6 +144,10 @@
 
       &:last-of-type {
         margin-bottom: 48px;
+
+        @include onLargeDesktop {
+          margin-bottom: 80px;
+        }
       }
 
       &-cardholder {
@@ -183,6 +195,26 @@
 
     &--dropdown-label {
       margin-bottom: 28px;
+    }
+
+    &-contact {
+      margin-bottom: 10px;
+
+      &:last-of-type {
+        margin-bottom: 30px;
+
+        @include onTablet {
+          margin-bottom: 50px;
+        }
+
+        @include onDesktop {
+          margin-bottom: 90px;
+        }
+
+        @include onLargeDesktop {
+          margin-bottom: 50px;
+        }
+      }
     }
   }
 

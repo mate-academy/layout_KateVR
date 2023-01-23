@@ -1,12 +1,8 @@
 .popup-desktop {
-  position: absolute;
-  top: calc((100vh - #{$popup-desktop-height}) / 2);
-  left: calc((100vw - #{$popup-desktop-width}) / 2);
-
   display: none;
+  grid-template-columns: repeat(10, 1fr);
+  column-gap: 20px;
   width: $popup-desktop-width;
-  height: $popup-desktop-height;
-  padding: 20px 90px 74px;
   box-sizing: border-box;
   border-radius: 4px;
 
@@ -16,13 +12,13 @@
 
   transition: all $transition-time;
 
-  &--faq {
-    height: auto;
-    padding: 20px 90px 50px;
+  @include onLargeDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    width: 1083px;
   }
 
   &--open {
-    display: block;
+    display: grid;
 
     @extend %animation-appeared;
   }
@@ -34,34 +30,75 @@
   &__top-actions {
     display: flex;
     justify-content: end;
+    grid-column: 1 / 11;
     margin-bottom: 15px;
+
+    @include onLargeDesktop {
+      grid-column: 1 / 13;
+    }
   }
 
   &__icon {
-    margin-right: -75px;
+    margin-right: 20px;
+
+    @include onLargeDesktop {
+      margin-right: 30px;
+    }
 
     cursor: pointer;
   }
 
   &__title {
+    grid-column: 2 / 8;
     margin-bottom: 50px;
 
     @extend %h1;
 
     font-size: 36px;
     line-height: 130%;
+
+    @include onLargeDesktop {
+      grid-column: 2 / 9;
+      margin-bottom: 37px;
+    }
+
+    &-help {
+      margin-bottom: 60px;
+
+      @include onLargeDesktop {
+        grid-column: 2 / 8;
+      }
+    }
+  }
+
+  &__paragraph {
+    grid-column: 2 / 10;
+
+    @include onLargeDesktop {
+      grid-column: 2 / 12;
+    }
   }
 
   &__text {
     margin-bottom: 20px;
+
+    &:first-of-type {
+      margin-bottom: 30px;
+    }
   }
 
   &__bottom-links {
     display: flex;
+    grid-column: 2 / 7;
 
     &--faq {
       display: flex;
       justify-content: center;
+      grid-column: 1 / 11;
+
+      @include onLargeDesktop {
+        grid-column: 1 / 13;
+      }
     }
   }
 
@@ -71,10 +108,19 @@
 
     &:first-of-type {
       margin-right: 65px;
+
+      @include onLargeDesktop {
+        margin-right: 70px;
+      }
     }
   }
 
   &__collapsibles {
+    grid-column: 2 / 10;
     margin-bottom: 50px;
+
+    @include onLargeDesktop {
+      grid-column: 2 / 12;
+    }
   }
 }
