@@ -169,12 +169,12 @@ for (let i = 0; i < cardInputs.length; i++) {
 
   for (let j = 3; j < fieldsCard.length; j = j + 4) {
     fieldsCard[j].addEventListener('focus', function() {
-      labelCard.classList.add('input__name--card--focused');
+      labelCard.classList.add('input__name--card_focused');
       fieldsCard[j].classList.add('input__field--focused');
     });
 
     fieldsCard[j].oninput = function() {
-      labelCard.classList.remove('input__name--card--invalid');
+      labelCard.classList.remove('input__name--card_invalid');
       fieldsCard[j].classList.remove('input__field--invalid');
 
       if (fieldsCard[3].value.startsWith(4)) {
@@ -208,13 +208,13 @@ for (let i = 0; i < cardInputs.length; i++) {
         && !fieldsCard[11].value
         && !fieldsCard[15].value
       ) {
-        labelCard.classList.remove('input__name--card--focused');
+        labelCard.classList.remove('input__name--card_focused');
       }
     });
 
     fieldsCard[j].addEventListener('invalid', function(e) {
       if (e.target.validity.valueMissing) {
-        labelCard.classList.add('input__name--card--invalid');
+        labelCard.classList.add('input__name--card_invalid');
         fieldsCard[j].classList.add('input__field--invalid');
 
         if (labelCard.innerHTML.includes(`Please, fill your`)) {
@@ -233,19 +233,19 @@ const cardHolderLabel = cardHolder.childNodes[1];
 const cardHolderInput = cardHolder.childNodes[3];
 
 cardHolderInput.addEventListener('focus', function() {
-  cardHolderLabel.classList.add('input__name--cardholder--focused');
+  cardHolderLabel.classList.add('input__name--cardholder_focused');
 });
 
 cardHolderInput.addEventListener('focusout', function() {
   if (!cardHolderInput.value) {
-    cardHolderLabel.classList.remove('input__name--cardholder--focused');
+    cardHolderLabel.classList.remove('input__name--cardholder_focused');
   }
 });
 
 cardHolderInput.addEventListener('invalid', function(e) {
   if (e.target.validity.valueMissing) {
     cardHolderInput.classList.add('input__field--invalid');
-    cardHolderLabel.classList.add('input__name--cardholder--invalid');
+    cardHolderLabel.classList.add('input__name--cardholder_invalid');
 
     if (cardHolderLabel.innerHTML.includes(`Please, fill your`)) {
       return null;
@@ -257,7 +257,7 @@ cardHolderInput.addEventListener('invalid', function(e) {
 
 cardHolderInput.addEventListener('input', function() {
   cardHolderInput.classList.remove('input__field--invalid');
-  cardHolderLabel.classList.remove('input__name--cardholder--invalid');
+  cardHolderLabel.classList.remove('input__name--cardholder_invalid');
 });
 
 const inputCardholderMobile = document.getElementById('card-holder-name');
@@ -265,19 +265,19 @@ const labelCardholderMobile
   = document.getElementsByClassName('input__name--cardholder')[0];
 
 inputCardholderMobile.addEventListener('focus', function() {
-  labelCardholderMobile.classList.add('input__name--cardholder--focused');
+  labelCardholderMobile.classList.add('input__name--cardholder_focused');
 });
 
 inputCardholderMobile.addEventListener('focusout', function() {
   if (!inputCardholderMobile.value) {
-    labelCardholderMobile.classList.remove('input__name--cardholder--focused');
+    labelCardholderMobile.classList.remove('input__name--cardholder_focused');
   }
 });
 
 inputCardholderMobile.addEventListener('invalid', function(e) {
   if (e.target.validity.valueMissing) {
     inputCardholderMobile.classList.add('input__field--invalid');
-    labelCardholderMobile.classList.add('input__name--cardholder--invalid');
+    labelCardholderMobile.classList.add('input__name--cardholder_invalid');
 
     if (labelCardholderMobile.innerHTML.includes(`Please, fill your`)) {
       return null;
@@ -289,14 +289,14 @@ inputCardholderMobile.addEventListener('invalid', function(e) {
 
 inputCardholderMobile.addEventListener('input', function() {
   inputCardholderMobile.classList.remove('input__field--invalid');
-  labelCardholderMobile.classList.remove('input__name--cardholder--invalid');
+  labelCardholderMobile.classList.remove('input__name--cardholder_invalid');
 });
 
 const inputCvv = document.getElementById('input-cvv');
 const labelCvv = document.getElementById('cvv-label');
 
 inputCvv.addEventListener('focus', function() {
-  labelCvv.classList.add('input__name--card-back--focused');
+  labelCvv.classList.add('input__name--card-back_focused');
   inputCvv.classList.add('input__field--focused');
 
   inputCvv.oninput = function() {
@@ -310,13 +310,13 @@ inputCvv.addEventListener('focusout', function() {
   inputCvv.classList.remove('input__field--focused');
 
   if (!inputCvv.value) {
-    labelCvv.classList.remove('input__name--card-back--focused');
+    labelCvv.classList.remove('input__name--card-back_focused');
   }
 });
 
 inputCvv.addEventListener('invalid', function(e) {
   if (e.target.validity.valueMissing) {
-    labelCvv.classList.add('input__name--card-back--invalid');
+    labelCvv.classList.add('input__name--card-back_invalid');
     inputCvv.classList.add('input__field--invalid');
 
     if (labelCvv.innerHTML.includes(`Please, fill your`)) {
@@ -329,7 +329,7 @@ inputCvv.addEventListener('invalid', function(e) {
 
 inputCvv.addEventListener('input', function() {
   inputCvv.classList.remove('input__field--invalid');
-  labelCvv.classList.remove('input__name--card-back--invalid');
+  labelCvv.classList.remove('input__name--card-back_invalid');
 });
 
 const inputsExpireDate
@@ -342,13 +342,13 @@ const expirationSpan
 
 for (let i = 0; i < inputsExpireDate.length; i++) {
   inputsExpireDate[i].addEventListener('focus', function() {
-    labelExpireDate[0].classList.add('input__name--card-back--focused');
+    labelExpireDate[0].classList.add('input__name--card-back_focused');
     expirationSpan[0].classList.add('input__card-expiration--focused');
   });
 
   inputsExpireDate[i].addEventListener('input', function() {
     inputSlash.classList.add('input__card-expiration-slash--active');
-    labelExpireDate[0].classList.remove('input__name--card-back--invalid');
+    labelExpireDate[0].classList.remove('input__name--card-back_invalid');
     expirationSpan[0].classList.remove('input__card-expiration--invalid');
 
     if (this.value.length > 2) {
@@ -368,14 +368,14 @@ for (let i = 0; i < inputsExpireDate.length; i++) {
     expirationSpan[0].classList.remove('input__card-expiration--focused');
 
     if (!inputsExpireDate[0].value && !inputsExpireDate[1].value) {
-      labelExpireDate[0].classList.remove('input__name--card-back--focused');
+      labelExpireDate[0].classList.remove('input__name--card-back_focused');
       inputSlash.classList.remove('input__card-expiration-slash--active');
     }
   });
 
   inputsExpireDate[i].addEventListener('invalid', function(e) {
     if (e.target.validity.valueMissing) {
-      labelExpireDate[0].classList.add('input__name--card-back--invalid');
+      labelExpireDate[0].classList.add('input__name--card-back_invalid');
       expirationSpan[0].classList.add('input__card-expiration--invalid');
 
       if (labelExpireDate[0].innerHTML.includes(`Please, fill your`)) {
@@ -391,7 +391,7 @@ const inputCvvDesktop = document.getElementById('input-cvv-desktop');
 const labelCvvDesktop = document.getElementById('cvv-label-desktop');
 
 inputCvvDesktop.addEventListener('focus', function() {
-  labelCvvDesktop.classList.add('input__name--card-back--focused');
+  labelCvvDesktop.classList.add('input__name--card-back_focused');
   inputCvvDesktop.classList.add('input__field--focused');
 
   inputCvvDesktop.oninput = function() {
@@ -405,14 +405,14 @@ inputCvvDesktop.addEventListener('focusout', function() {
   inputCvvDesktop.classList.remove('input__field--focused');
 
   if (!inputCvvDesktop.value) {
-    labelCvvDesktop.classList.remove('input__name--card-back--focused');
+    labelCvvDesktop.classList.remove('input__name--card-back_focused');
   }
 });
 
 inputCvvDesktop.addEventListener('invalid', function(e) {
   if (e.target.validity.valueMissing) {
     inputCvvDesktop.classList.add('input__field--invalid');
-    labelCvvDesktop.classList.add('input__name--card-back--invalid');
+    labelCvvDesktop.classList.add('input__name--card-back_invalid');
 
     if (labelCvvDesktop.innerHTML.includes(`Please, fill your`)) {
       return null;
@@ -424,7 +424,7 @@ inputCvvDesktop.addEventListener('invalid', function(e) {
 
 inputCvvDesktop.addEventListener('input', function() {
   inputCvvDesktop.classList.remove('input__field--invalid');
-  labelCvvDesktop.classList.remove('input__name--card-back--invalid');
+  labelCvvDesktop.classList.remove('input__name--card-back_invalid');
 });
 
 const inputsExpireDateDesktop
@@ -437,7 +437,7 @@ const expirationSpanDesktop
 
 for (let i = 0; i < inputsExpireDateDesktop.length; i++) {
   inputsExpireDateDesktop[i].addEventListener('focus', function() {
-    labelExpireDateDesktop.classList.add('input__name--card-back--focused');
+    labelExpireDateDesktop.classList.add('input__name--card-back_focused');
     expirationSpanDesktop.classList.add('input__card-expiration--focused');
   });
 
@@ -465,7 +465,7 @@ for (let i = 0; i < inputsExpireDateDesktop.length; i++) {
       && !inputsExpireDateDesktop[1].value
     ) {
       labelExpireDateDesktop
-        .classList.remove('input__name--card-back--focused');
+        .classList.remove('input__name--card-back_focused');
 
       inputSlashDesktop
         .classList.remove('input__card-expiration-slash--active');
@@ -475,7 +475,7 @@ for (let i = 0; i < inputsExpireDateDesktop.length; i++) {
   inputsExpireDateDesktop[i].addEventListener('invalid', function(e) {
     if (e.target.validity.valueMissing) {
       expirationSpanDesktop.classList.add('input__card-expiration--invalid');
-      labelExpireDateDesktop.classList.add('input__name--card-back--invalid');
+      labelExpireDateDesktop.classList.add('input__name--card-back_invalid');
 
       if (labelExpireDateDesktop.innerHTML.includes(`Please, fill your`)) {
         return null;
@@ -488,7 +488,7 @@ for (let i = 0; i < inputsExpireDateDesktop.length; i++) {
 
   inputsExpireDateDesktop[i].addEventListener('input', function() {
     expirationSpanDesktop.classList.remove('input__card-expiration--invalid');
-    labelExpireDateDesktop.classList.remove('input__name--card-back--invalid');
+    labelExpireDateDesktop.classList.remove('input__name--card-back_invalid');
   });
 };
 
