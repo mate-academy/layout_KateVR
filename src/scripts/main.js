@@ -546,6 +546,10 @@ for (let i = 0; i < dropdowns.length; i++) {
   for (let j = 0; j < contentItems.length; j++) {
     contentItems[j].addEventListener('click', function() {
       dropdownInput.value = this.textContent || this.innerText;
+
+      dropdownLabel.innerHTML
+      = returnInitialName(this.textContent || this.innerText);
+      dropdownLabel.classList.remove('input__name--invalid');
       totalPrice.innerText = quantityInput.value * 1200 + '$';
       totalPrice2.innerText = quantityInput2.value * 1200 + '$';
 
@@ -736,7 +740,6 @@ linkHelp.addEventListener('click', function() {
 linkFaq.addEventListener('click', function() {
   document.body.classList.add('page__body--shadowed');
   faqDesktop.classList.add('popup-desktop--open');
-  faqDesktop.style.top = window.pageYOffset + 10 + 'px';
 });
 
 linkMoreFaq.addEventListener('click', function() {
@@ -916,4 +919,5 @@ const contactForm = document.getElementsByClassName('contact__form')[0];
 
 contactForm.addEventListener('submit', function(e) {
   e.preventDefault();
+  contactForm.reset();
 });
