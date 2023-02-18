@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>KatVR</title>
     <link rel="icon" href="../src/images/icon.svg">
     <link rel="stylesheet" href="./styles/main.scss">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -339,7 +339,10 @@
                 </div>
               </div>
             </div>
-            <form action="#pay" class="place__customer-info">
+            <form 
+              action="#pay" 
+              class="place__customer-info"
+              method="get">
               <fieldset class="page__fieldset">
                 <legend class="page__legend">
                   First Name*
@@ -349,7 +352,8 @@
                   type="text"
                   name="name"
                   id="first-name"
-                  required minlength="3"
+                  required
+                  minlength="3"
                 >
               </fieldset>
               <fieldset class="page__fieldset">
@@ -393,7 +397,7 @@
                   Country*
                 </legend>
                 <div class="country-select">
-                  <select name="countries">
+                  <select name="countries" required>
                     <option value=" "></option>
                     <option value="ua">Ukraine</option>
                     <option value="ru">Russia</option>
@@ -411,7 +415,7 @@
                   City*
                 </legend>
                 <div class="city-select">
-                  <select name="countries">
+                  <select name="countries" required>
                     <option value=" "></option>
                     <option value="kyiv">Kyiv</option>
                     <option value="zaporizhia">Zaporizhia</option>
@@ -432,6 +436,7 @@
                   type="adress"
                   name="adress"
                   id="ship-adress-1"
+                  required
                 >
               </fieldset>
               <fieldset class="page__fieldset">
@@ -443,11 +448,12 @@
                   type="adress"
                   name="adress"
                   id="ship-adress-2"
+                  required
                 >
               </fieldset>
-              <a href="#pay" class="button button__buy">
+              <button class="button button__buy" type="submit">
                 Purchase
-              </a>
+              </button>
             </form>
           </div>
         </div>
@@ -972,6 +978,7 @@
             <button class="contact__button">
               Contact us
             </button>
+            <a href="#" class="contact__arrow"></a>
           </form>
           <div class="contact__reply">Our manager will reply you within 15 minutes</div>
           <div class="contact__links">
