@@ -1,4 +1,35 @@
-%h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  column-gap: 20px;
+
+  @media (max-width: 1280px) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @media (max-width: 1024px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media (max-width: 460px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.out {
+  padding: 0 50px;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    padding: 0 34px;
+  }
+
+  @media (max-width: 460px) {
+    padding: 0 20px;
+  }
+}
+
+.in {
+  max-width: 1450px;
+  margin: 0 auto;
 }
