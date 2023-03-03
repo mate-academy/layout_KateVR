@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 window.addEventListener('load', eventWindow => {
@@ -42,10 +43,20 @@ window.addEventListener('load', eventWindow => {
     if (window.location.hash === '#popup-lang'
       || window.location.hash === '#popup-menu'
       || window.location.hash === '#popup-help'
+      || window.location.hash === '#popupvideo'
       || window.location.hash === '#popup-faq') {
       body.classList.add('body--with-menu');
     } else {
       body.classList.remove('body--with-menu');
+
+      const video = document.querySelectorAll('.video');
+
+      video.forEach(el => {
+        const url = el.getAttribute('src');
+
+        el.removeAttribute('src');
+        el.setAttribute('src', url);
+      });
     }
   });
 
@@ -55,8 +66,11 @@ window.addEventListener('load', eventWindow => {
         if (e.target.nextElementSibling.classList.contains('show-text')) {
           return;
         }
-        item.nextElementSibling.classList.remove('show-text');
-        item.nextElementSibling.nextElementSibling.classList.remove('show-text');
+
+        const x = item.nextElementSibling;
+
+        x.classList.remove('show-text');
+        x.nextElementSibling.classList.remove('show-text');
         item.firstElementChild.classList.remove('arrow-active');
       });
 
@@ -66,20 +80,77 @@ window.addEventListener('load', eventWindow => {
     });
   });
 });
-// const swiperStartpage = new Swiper('.test', {
-//   direction: 'horizontal',
-//   loop: true,
-//   speed: 200,
-//   spaceBetween: 100,
-//   slidesPerView: 1,
 
-//   autoplay: {
-//     delay: 1000,
-//   },
-//   navigation: {
-//     nextEl: '.startpage__slider-next',
-//     prevEl: '.startpage__slider-prev',
-//   },
-// }
-// );
-// renderFraction ('.startpage__current', '.startpage__total');
+// eslint-disable-next-line no-undef
+const swiper = new Swiper('.startpage__slider', {
+  direction: 'horizontal',
+  loop: true,
+  speed: 400,
+  spaceBetween: 100,
+  slidesPerView: 1,
+
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+  },
+  navigation: {
+    nextEl: '.startpage__slider-next',
+    prevEl: '.startpage__slider-prev',
+  },
+}
+);
+
+// eslint-disable-next-line no-undef
+const aboutSlider = new Swiper('.about__slider', {
+  direction: 'horizontal',
+  loop: true,
+  speed: 400,
+  spaceBetween: 100,
+  slidesPerView: 1,
+
+  autoplay: {
+    delay: 2000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  },
+  navigation: {
+    nextEl: '.about__slider-next',
+    prevEl: '.about__slider-prev',
+  },
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'bullets',
+  },
+}
+);
+
+const aboutButtonVideo = document.querySelector('.about__button');
+const startpageButtonVideo = document.querySelector('.startpage__button');
+const closeVideoCross = document.querySelector('.close-video');
+
+aboutButtonVideo.addEventListener('click', e => {
+  closeVideoCross.setAttribute('href', '#about');
+});
+
+startpageButtonVideo.addEventListener('click', e => {
+  closeVideoCross.setAttribute('href', '#');
+});
+
+const techDetails = document.querySelectorAll('.tech__details');
+
+techDetails.forEach(el => {
+  el.addEventListener('click', e => {
+    e.target.classList.toggle('tech__details');
+    e.target.classList.toggle('tech__details-active');
+
+    const body = document.querySelector('.body');
+
+    body.addEventListener('click', function techDetailsListener(event) {
+      if (event.target !== e.target) {
+        e.target.classList.add('tech__details');
+        e.target.classList.remove('tech__details-active');
+        body.removeEventListener(techDetailsListener);
+      }
+    });
+  });
+});

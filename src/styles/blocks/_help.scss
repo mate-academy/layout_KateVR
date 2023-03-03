@@ -10,19 +10,17 @@
   align-items: center;
   background-color: #00000050;
   transform: translateY(-100%);
+  backdrop-filter: blur(10px);
 
   @media (max-width: 1024px) {
     top: -40px;
     position: absolute;
     align-items: start;
   }
-  @media (max-width: 460px) {
-  }
 
   &:target {
     transform: translateY(0);
   }
-
 
   &__wrapper {
     position: relative;
@@ -38,6 +36,8 @@
     @media (max-width: 1024px) {
       padding: 100px 90px;
       width: 100%;
+      height: 100vh;
+      overflow-y: auto;
     }
 
     @media (max-width: 460px) {
@@ -76,26 +76,29 @@
     }
   }
 
-    &__text {
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 150%;
-      color: $lightgray;
-      margin-bottom: 30px;
-    }
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $lightgray;
+    margin-bottom: 30px;
+  }
 
   &__link {
     color: $blue;
   }
+
   &__links,
   &__description {
     display: inline-flex;
     flex-direction: column;
     gap: 20px;
   }
+
   &__description-text {
     color: $blue;
   }
+
   &__links {
     margin-left: 70px;
 
@@ -105,9 +108,11 @@
     }
 
   }
+
   &__tel {
     color: $lightgray;
   }
+
   &__mail {
     color: $lightgray;
   }
