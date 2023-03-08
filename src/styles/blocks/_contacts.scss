@@ -1,0 +1,140 @@
+.contact {
+  padding: 160px 0 205px;
+  @extend .grid;
+
+  @media (max-width: 1280px) {
+    padding: 100px 0;
+  }
+  @media (max-width: 1024px) {
+    padding: 70px 0 130px;
+
+  }
+  @media (max-width: 460px) {
+    padding: 50px 0 95px;
+  }
+
+  &__info {
+    grid-column: 1 / 5;
+
+    @media (max-width: 1024px) {
+      grid-column: 1 / 4;
+    }
+    @media (max-width: 460px) {
+      grid-row: 1;
+      grid-column: 1 / 3;
+    }
+
+    &-question {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: $blue;
+      margin-bottom: 15px;
+    }
+
+    &-title {
+      text-transform: uppercase;
+      margin-bottom: 26px;
+
+      span {
+        font-weight: 400;
+        color: $blue;
+      }
+    }
+
+    &-text {
+      color: $lightgray;
+      margin-bottom: 76px;
+
+      @media (max-width: 460px) {
+        display: none;
+      }
+    }
+
+    &-links {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      & > * {
+        color: $lightgray;
+
+        &:hover {
+          color: $blue;
+        }
+      }
+
+      @media (max-width: 460px) {
+        display: none;
+      }
+    }
+  }
+
+  &__form-block {
+    grid-column: 9 / 17;
+
+    @media (max-width: 1280px) {
+      grid-column: 7 / 13;
+    }
+    @media (max-width: 1024px) {
+      grid-column: 4 / 7;
+    }
+    @media (max-width: 460px) {
+      grid-row: 2;
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__form {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin-top: 24px;
+
+    &-textarea {
+      resize: none;
+      font-family: inherit;
+      margin-bottom: 50px;
+      height: 90px;
+
+      &::placeholder {
+        color: $lightgray;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 150%;
+      }
+
+      &:focus {
+        &::placeholder {
+          color: transparent;
+        }
+      }
+    }
+
+    &-button {
+      position: relative;
+      width: 200px;
+      margin-bottom: 0;
+      margin-top: auto;
+
+      @media (max-width: 460px) {
+        width: 100%;
+      }
+
+      &::after {
+        display: none;
+        content: "Our manager will reply you within 15 minutes";
+        position: absolute;
+        color: $lightgray;
+        width: 100%;
+        text-align: center;
+        bottom: -45px;
+        left: 0;
+
+        @media (max-width: 460px) {
+          display: block;
+        }
+      }
+    }
+  }
+}

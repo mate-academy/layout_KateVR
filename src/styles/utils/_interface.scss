@@ -1,3 +1,32 @@
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+
+  &__link {
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+
+    &:hover {
+      color: $blue;
+      text-shadow: -10px -14px 0 #ffffff35,
+        10px 14px 0 #ffffff35;
+    }
+  }
+}
+
 .button-buy {
   font-weight: 500;
   font-size: 16px;
@@ -59,10 +88,11 @@
     cursor: pointer;
     padding: 5px 0;
     white-space: nowrap;
-    border-right: 1px solid #014954 ;
+    border-right: 1px solid #014954;
 
     &:hover {
       border-right: 1px solid #05c2df;
+      text-shadow: 5px 4px 0 #ffffff30;
     }
   }
 
@@ -74,5 +104,68 @@
     border-left: 6px solid transparent;
     border-right: 6px solid transparent;
     border-top: 9px solid $blue;
+  }
+}
+
+.input-item {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.label {
+  position: absolute;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: $lightgray;
+  left: 0;
+  bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  display: block;
+  position: relative;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid $gray;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 5px 0;
+  height: 40px;
+  line-height: 150%;
+  color: #fff;
+
+  &:focus {
+    border-bottom-color: $blue;
+
+    & + .label {
+      color: $blue;
+      bottom: 32px;
+    }
+  }
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:invalid:not(:placeholder-shown) {
+    border-bottom-color: #860404;
+
+    & + .label {
+      color: #860404;
+      bottom: 32px;
+    }
+  }
+
+  &:valid:not(:placeholder-shown) {
+    border-bottom-color: $blue;
+
+    & + .label {
+      color: $blue;
+      bottom: 32px;
+    }
   }
 }

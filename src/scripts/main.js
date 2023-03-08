@@ -3,40 +3,53 @@
 
 window.addEventListener('load', eventWindow => {
   const body = document.querySelector('.body');
-  const select = document.querySelector('.select__text');
-  const selectArrow = document.querySelector('.select__arrow');
-  const selectItems = document.querySelectorAll('.select__item');
-  const selectItemsWrapper = document.querySelector('.select__items');
-  const selectUI = [select, selectArrow];
   const faqTabTitle = document.querySelectorAll('.popupfaq__tab-title');
-  let innerSelectItem = ''; // selectItem inner text work when element hover
+  const contactForm = document.querySelector('.contact__form');
 
-  selectUI.forEach(el => {
-    el.addEventListener('click', e => { //  selectUI is click
-      const innerTextSelect = select.innerHTML;
+  function selectWork(mainClass) {
+    const select = document.querySelector(mainClass);
+    const selectChilds = select.children;
 
-      selectItemsWrapper.style.display = 'flex'; // select list is show
+    const selectText = selectChilds[0];
+    const selectWrapper = selectChilds[1];
+    const selectArrow = selectChilds[2];
+    const selectItems = [...selectWrapper.children];
+    let innerSelectItem = '';
 
-      body.addEventListener('click', event => {
-        // take value from list item and put to select
-        // if terget not list item - close list
-        if (event.target.classList.contains('select__item')) {
-          selectItemsWrapper.style.display = 'none';
-          event.target.innerHTML = innerTextSelect;
-          select.innerHTML = innerSelectItem;
-        } else {
-          selectItemsWrapper.style.display = 'none';
-          innerSelectItem = '';
-        }
-      }, true);
+    selectItems.forEach(el => { // add hover item value to innerSelectItem
+      el.addEventListener('mouseover', event => {
+        innerSelectItem = event.target.innerHTML;
+      });
     });
-  });
 
-  selectItems.forEach(el => { // add hover item value to innerSelectItem
-    el.addEventListener('mouseover', event => {
-      innerSelectItem = event.target.innerHTML;
+    [selectText, selectArrow].forEach(el => {
+      el.addEventListener('click', e => { //  selectUI is click
+        const valueSelect = selectText.innerHTML;
+
+        // select list is show
+        selectWrapper.style.display = 'flex';
+
+        select.addEventListener('click', event => {
+          // take value from list item and put to select
+          // if terget not list item - close list
+          if (event.target.classList.contains('select__item')) {
+            selectWrapper.style.display = 'none';
+            event.target.innerHTML = valueSelect;
+            selectText.innerHTML = innerSelectItem;
+          } else {
+            selectWrapper.style.display = 'none';
+            innerSelectItem = '';
+          }
+        }, true);
+      });
     });
-  });
+  }
+
+  selectWork('.header__lang');
+  selectWork('.select-country');
+  selectWork('.select-city');
+  selectWork('.order-quantity');
+  selectWork('.payform-quantity');
 
   // scroll disable
   window.addEventListener('hashchange', () => {
@@ -44,6 +57,7 @@ window.addEventListener('load', eventWindow => {
       || window.location.hash === '#popup-menu'
       || window.location.hash === '#popup-help'
       || window.location.hash === '#popupvideo'
+      || window.location.hash === '#popuporder'
       || window.location.hash === '#popup-faq') {
       body.classList.add('body--with-menu');
     } else {
@@ -78,6 +92,11 @@ window.addEventListener('load', eventWindow => {
       el.nextElementSibling.nextElementSibling.classList.toggle('show-text');
       el.firstElementChild.classList.toggle('arrow-active');
     });
+  });
+
+  contactForm.addEventListener('submit', e => {
+    e.preventDefault();
+    contactForm.reset();
   });
 });
 
@@ -154,3 +173,94 @@ techDetails.forEach(el => {
     });
   });
 });
+
+// rotate cards on click (beta)
+const cards = document.querySelectorAll('.card');
+
+cards.forEach(el => {
+  el.addEventListener('click', e => {
+    el.classList.add('backside');
+
+    setTimeout(() => {
+      el.classList.remove('backside');
+    }, 1500);
+  }, true);
+});
+
+const orderButton = document.querySelector('.order-button');
+const payButton = document.querySelector('.pay-button');
+const completeButton = document.querySelector('.completeButton');
+const mainBuyButton = document.querySelector('.mainBuyButton');
+const orderForm = document.querySelector('#place-order');
+const payForm = document.querySelector('#pay');
+const orderLinks = document.querySelectorAll('.order__nav-link');
+const orderTabs = document.querySelectorAll('.ordertab');
+const orderImage = document.querySelector('.order__imageblock');
+
+// move forward 1 => 2 tab
+orderForm.addEventListener('submit', e => {
+  e.preventDefault();
+  orderForm.reset();
+
+  orderLinks.forEach(el => {
+    el.classList.remove('order__nav-link--active');
+  });
+  orderLinks[1].classList.add('order__nav-link--active');
+  orderTabs[0].classList.add('disabled');
+  orderTabs[1].classList.remove('disabled');
+});
+
+// move forward 2 => 3 tab
+payForm.addEventListener('submit', e => {
+  e.preventDefault();
+  orderForm.reset();
+  orderImage.style.display = 'none';
+
+  orderLinks.forEach(el => {
+    el.classList.remove('order__nav-link--active');
+  });
+  orderLinks[2].classList.add('order__nav-link--active');
+  orderTabs[1].classList.add('disabled');
+  orderTabs[2].classList.remove('disabled');
+});
+
+// move forward 3 => mainpage
+completeButton.addEventListener('click', e => {
+  orderImage.style.display = 'block';
+});
+
+// move to ORDER tabs
+mainBuyButton.addEventListener('click', e => {
+  orderImage.style.display = 'block';
+
+  orderLinks.forEach(el => {
+    el.classList.remove('order__nav-link--active');
+  });
+  orderLinks[0].classList.add('order__nav-link--active');
+  orderTabs[0].classList.remove('disabled');
+  orderTabs[1].classList.add('disabled');
+  orderTabs[2].classList.add('disabled');
+});
+
+// order tabs titles (not need, css blocked use)
+// orderLinks.forEach((el, i) => {
+//   el.addEventListener('click', event => {
+//     if (el === orderLinks[2]) {
+//       orderImage.style.display = 'none';
+//     } else {
+//       orderImage.style.display = 'block';
+//     }
+
+//     orderLinks.forEach(elem => {
+//       elem.classList.remove('order__nav-link--active');
+//     });
+//     el.classList.add('order__nav-link--active');
+
+//     orderTabs.forEach((item) => {
+//       if (!item.classList.contains('disabled')) {
+//         item.classList.add('disabled');
+//       }
+//     });
+//     orderTabs[i].classList.remove('disabled');
+//   });
+// });

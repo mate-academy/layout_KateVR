@@ -6,9 +6,14 @@
 @import "blocks/faq";
 @import "blocks/help";
 @import "blocks/more";
+@import "blocks/more-card";
 @import "blocks/about";
 @import "blocks/about-bot";
 @import "blocks/tech";
+@import "blocks/why";
+@import "blocks/contacts";
+@import "blocks/footer";
+@import "blocks/popup-order";
 
 .html {
   font-family: "Inter", sans-serif;
@@ -51,71 +56,41 @@
   transition: all 0.3s;
 }
 
-.grid-fixed-out {
-  display: none; // !!!
-  z-index: 1000;
-  height: 100%;
-  width: 100%;
+.fixed-button {
+  z-index: 50;
   position: fixed;
-  left: 0;
-  bottom: 0;
-  padding: 0 50px;
-  margin-bottom: 0;
-  pointer-events: none;
+  text-align: center;
+  width: 60%;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: none;
 
+  @media (max-width: 1280px) {
+    display: none;
+  }
   @media (max-width: 1024px) {
-    padding: 0 34px;
+    display: block;
   }
-
+  @media (max-width: 768px) {
+    bottom: 10px;
+    width: 40%;
+  }
   @media (max-width: 460px) {
-    padding: 0 20px;
+    width: 90%;
+    bottom: 10px;
   }
+}
 
-  .grid-in {
-    display: grid;
-    height: 100%;
-    max-width: 1450px;
-    margin: 0 auto;
-  }
+iframe {
+  border-color: transparent;
+}
 
-  .grid-fixed {
-    @extend .grid;
-
-    & > * {
-      background-color: rgba(145, 145, 145, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    @media (max-width: 1280px) {
-
-      & > *:nth-child(13),
-      & > *:nth-child(14),
-      & > *:nth-child(15),
-      & > *:nth-child(16) {
-        display: none;
-      }
-    }
-
-    @media (max-width: 1024px) {
-
-      & > *:nth-child(7),
-      & > *:nth-child(8),
-      & > *:nth-child(9),
-      & > *:nth-child(10),
-      & > *:nth-child(11),
-      & > *:nth-child(12) {
-        display: none;
-      }
-    }
-
-    @media (max-width: 460px) {
-
-      & > *:nth-child(3),
-      & > *:nth-child(4),
-      & > *:nth-child(5),
-      & > *:nth-child(6) {
-        display: none;
-      }
-    }
-  }
+.disabled {
+  position: absolute;
+  right: -200%;
+  user-select: none;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
 }
