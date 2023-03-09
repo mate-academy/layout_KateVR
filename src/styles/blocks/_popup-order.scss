@@ -14,6 +14,12 @@
   &:target {
     transform: translateY(0);
   }
+
+  .close {
+    @media (max-width: 460px) {
+      top: 20px;
+    }
+  }
 }
 
 .order {
@@ -92,8 +98,12 @@
     margin-bottom: -1px;
     position: relative;
     color: #545454;
-    // user-select: none;
-    // pointer-events: none;
+    user-select: none;
+    pointer-events: none;
+
+    @media (max-width: 460px) {
+      font-size: 12px;
+    }
 
     span {
       display: block;
@@ -484,7 +494,7 @@
       }
 
       &-text {
-        text-align: center;
+        padding-left: 10px;
         font-size: 18px;
       }
 
@@ -559,6 +569,7 @@
 
   //PAY
 
+  /* stylelint-disable */
   .payform {
     @extend .grid;
 
@@ -569,7 +580,16 @@
 
       display: flex;
       justify-content: space-between;
-      // gap: 50px;
+
+      .input {
+        &:focus {
+          border-bottom-color: $blue;
+          & + .label {
+            color: $blue;
+            bottom: 50px;
+          }
+        }
+      }
 
       @media (max-width: 1280px) {
         grid-column: 7 / 12;
@@ -610,7 +630,6 @@
         font-size: 20px;
         line-height: 130%;
         letter-spacing: 0.2em;
-        text-align: center;
         width: 60px;
 
         &::placeholder {
@@ -630,6 +649,16 @@
 
       label {
         bottom: 25px;
+      }
+
+      .input {
+        &:focus {
+          border-bottom-color: $blue;
+          & + .label {
+            color: $blue;
+            bottom: 50px;
+          }
+        }
       }
 
       @media (max-width: 1280px) {
@@ -652,13 +681,17 @@
 
     &_cvv {
       grid-column: 12 / 13;
+      max-width: 42px;
+
+      label {
+        bottom: 25px;
+      }
 
       input {
         font-weight: 400;
         font-size: 20px;
         line-height: 130%;
         letter-spacing: 0.2em;
-        text-align: center;
 
         &::placeholder {
           font-weight: 400;
@@ -667,10 +700,14 @@
           color: $gray;
           letter-spacing: 0.2em;
         }
-      }
 
-      label {
-        bottom: 25px;
+        &:focus {
+          border-bottom-color: $blue;
+          & + .label {
+            color: $blue;
+            bottom: 50px;
+          }
+        }
       }
 
       @media (max-width: 1280px) {
@@ -697,40 +734,39 @@
       height: min-content;
       display: flex;
       margin-bottom: 40px;
+      max-width: 90px;
 
       font-weight: 400;
       font-size: 20px;
       line-height: 130%;
       color: $lightgray;
 
-      p {
-        font-size: 24px;
-      }
+      input {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 130%;
+        letter-spacing: 0.2em;
 
-      .input-item {
-        margin-bottom: 0;
-        white-space: nowrap;
-
-        label {
-          bottom: 30px;
-          white-space: nowrap;
-        }
-
-        input {
+        &::placeholder {
           font-weight: 400;
           font-size: 20px;
           line-height: 130%;
+          color: $gray;
           letter-spacing: 0.2em;
-          text-align: center;
+        }
 
-          &::placeholder {
-            font-weight: 400;
-            font-size: 20px;
-            line-height: 130%;
-            color: $gray;
-            letter-spacing: 0.2em;
+        &:focus {
+          border-bottom-color: $blue;
+          & + .label {
+            color: $blue;
+            bottom: 50px;
           }
         }
+      }
+
+      label {
+        bottom: 25px;
+        white-space: nowrap;
       }
 
       @media (max-width: 1280px) {
@@ -779,8 +815,9 @@
       }
     }
   }
-
+/* stylelint-enable */
   // Complete
+
   &__complete {
     display: flex;
     flex-direction: column;

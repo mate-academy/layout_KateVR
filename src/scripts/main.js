@@ -132,16 +132,25 @@ const aboutSlider = new Swiper('.about__slider', {
     disableOnInteraction: false,
     pauseOnMouseEnter: true,
   },
+
   navigation: {
     nextEl: '.about__slider-next',
     prevEl: '.about__slider-prev',
   },
+
   pagination: {
     el: '.swiper-pagination',
     type: 'bullets',
   },
-}
-);
+});
+
+const aboutSliderCurrent = document.querySelector('.currentSlide');
+const aboutSliderAmount = document.querySelector('.allSlides');
+
+aboutSlider.on('slideChange', () => {
+  aboutSliderCurrent.innerHTML = aboutSlider.realIndex;
+  aboutSliderAmount.innerHTML = aboutSlider.slides.length;
+});
 
 const aboutButtonVideo = document.querySelector('.about__button');
 const startpageButtonVideo = document.querySelector('.startpage__button');
@@ -242,7 +251,7 @@ mainBuyButton.addEventListener('click', e => {
   orderTabs[2].classList.add('disabled');
 });
 
-// order tabs titles (not need, css blocked use)
+// order tabs titles clickable (only for DEVELOP)
 // orderLinks.forEach((el, i) => {
 //   el.addEventListener('click', event => {
 //     if (el === orderLinks[2]) {

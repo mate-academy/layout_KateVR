@@ -3,10 +3,10 @@
 }
 
 .about {
-
+  position: relative;
   @extend .grid;
 
-/* stylelint-disable */
+  /* stylelint-disable */
   &__slider {
     grid-column: 4 / 11;
     grid-row: 1;
@@ -42,9 +42,23 @@
       aspect-ratio: 16 / 9;
     }
   }
-/* stylelint-enable */
+
+  /* stylelint-enable */
+
+  &__pagination-fraction {
+    grid-column: 2 / 3;
+    justify-self: end;
+    height: min-content;
+
+    color: $blue;
+
+    @media (max-width: 1024px) {
+      display: none;
+    }
+  }
 
   &__swiper-pagination {
+
     display: none;
     position: absolute;
     transform: translateY(-15px);
