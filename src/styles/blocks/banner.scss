@@ -1,0 +1,266 @@
+.banner {
+  display: grid;
+  align-content: flex-start;
+  background: $background-gradient;
+  position: relative;
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    padding: 15px 0;
+    @include container-paddings;
+
+    &-logo {
+      width: 58px;
+      height: 12px;
+    }
+
+    &-menu-btn {
+      background-color: transparent;
+      border: none;
+      &::after {
+        content: url("../../src/images/menu-btn.svg");
+      }
+    }
+
+    &-lang,
+    &-buy {
+      display: none;
+    }
+  }
+
+  &__main {
+    display: grid;
+    @include container-paddings;
+
+    &-content {
+      display: grid;
+      gap: 20px;
+      order: 2;
+    }
+
+    &-title {
+      font-size: 26px;
+      color: $white;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      &-blue {
+        font-weight: 400;
+        color: $contrast-color;
+      }
+    }
+
+    &-text {
+      color: $text-color;
+      font-size: 16px;
+      font-weight: 500;
+
+    }
+
+    &-price {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500px;
+      color: $white;
+    }
+
+    &-play {
+      background:transparent;
+      border: none;
+
+      height: 75px;
+      width: 250px;
+      color: $white;
+      font-size: 16px;
+      padding: 0;
+
+      position: relative;
+
+      &::after {
+        content: url("../../src/images/play-btn.svg");
+      }
+
+      &:hover::after {
+        content: url("../../src/images/play-btn-hover.svg");
+      }
+    }
+
+    &-image {
+      order: 1;
+      width: 100%;
+      padding: 20px 0;
+    }
+  }
+
+  &__footer {
+
+    @include container-paddings;
+    &-desktop {
+      display: none;
+    }
+
+    &-mobile {
+      width: 100%;
+      margin: 32px 0;
+
+      @media (min-width: $media-tablet) {
+        display: none;
+      }
+    }
+
+
+  }
+
+  @media (min-width: $media-tablet) {
+    &__header {
+      padding-top: 30px;
+    }
+
+    &__main {
+      grid-template-columns: repeat(2, 1fr);
+      padding-top: 30px;
+      padding-bottom: 50px;
+
+      &-content {
+        order: 1;
+      }
+
+      &-price {
+        text-align: left;
+      }
+
+      &-image {
+        order: 2;
+        align-self: center;
+      }
+    }
+  }
+
+  @media (min-width: $media-desktop) {
+    grid-template-rows: auto 1fr 150px;
+    min-height: 100vh;
+
+    &__header {
+      grid-template-columns: auto auto 1fr 236px;
+      padding-top: 64px;
+      padding-bottom: 64px;
+
+      &-logo {
+        width: 77px;
+        height: 16px;
+      }
+
+      &-menu-btn {
+        display: none;
+      }
+
+      &-lang {
+        display: block;
+      }
+
+      &-buy {
+        display: block;
+        margin-left: 36px;
+      }
+    }
+
+    &__main {
+      align-self: center;
+      &-title {
+        font-size: 46px;
+      }
+
+      &-text,
+      &-price,
+      &-play {
+        padding-left: 100px;
+      }
+
+      &-text {
+        width: 50%;
+      }
+    }
+
+    &__footer {
+
+      &-desktop {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+      }
+    }
+
+    &__modal-triggers {
+      display: flex;
+      gap: 40px;
+    }
+
+    &__modal-trigger {
+      font-size: 16px;
+      font-weight: 500;
+      color: $white;
+      @include reset-button;
+
+      transition: color 0.3s;
+      &:hover {
+        color: $contrast-color;
+      }
+    }
+
+    &__slide-down {
+      text-align: center;
+      color: $contrast-color;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        content: url("../../src/images/more.svg");
+      }
+
+      &:hover {
+        color: $white;
+
+        &::after {
+          content: url("../../src/images/more.svg");
+        }
+      }
+    }
+
+    &__slider-btns {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: solid 1px #212121;
+    }
+
+    &__slider-btn {
+      @include reset-button;
+      color: $white;
+      font-size: 16px;
+      font-weight: 500;
+      padding-bottom: 10px;
+
+      &--active {
+        color: $text-color;
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+
+          width: 100%;
+          height: 1px;
+
+          background: $contrast-color;
+        }
+      }
+    }
+  }
+}
