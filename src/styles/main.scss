@@ -7,7 +7,11 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  position: relative;
+}
+
+.container {
+  overflow: hidden;
 }
 
 a,
@@ -37,7 +41,32 @@ button {
   }
 }
 
+.modal-desktop-bg {
+  display: none;
+
+  &--show {
+    display: none;
+  }
+
+  @media (min-width: $media-desktop) {
+    height: 100%;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    cursor: pointer;
+
+    display: none;
+    &--show {
+      display: flex;
+    }
+  }
+}
+
 @import "./blocks/banner.scss";
 @import "./blocks/nav.scss";
 @import "./blocks/language.scss";
 @import "./blocks/faq.scss";
+@import "./blocks/help.scss";

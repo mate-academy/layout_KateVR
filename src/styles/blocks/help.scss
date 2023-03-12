@@ -1,0 +1,120 @@
+.help {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: auto;
+  background: $color-purple;
+  display: grid;
+  z-index: 2;
+  transition: left 0.3s;
+  min-height: 100vh;
+  gap: 30px;
+  align-content: flex-start;
+
+  &--show {
+    left: 0;
+  }
+
+  &__close {
+    justify-self: flex-end;
+    margin: 20px 21px 38px 0;
+    @include reset-button;
+
+    &::after {
+      content: url("../../src/images/menu-btn-close.svg");
+    }
+
+    &:hover::after {
+      content: url("../../src/images/menu-btn-close-hover.svg");
+    }
+  }
+
+  &__content {
+    @include container-paddings;
+    display: grid;
+    gap: 30px;
+  }
+
+  &__title {
+    font-size: 21px;
+    font-weight: 400;
+    color: $white;
+
+    &--blue {
+      color: $contrast-color;
+    }
+  }
+
+  &__text {
+    color: $text-color;
+    font-size: 16px;
+
+    &--blue {
+      color: $contrast-color;
+    }
+  }
+
+  &__links {
+    @include container-paddings;
+    display: grid;
+    gap: 20px;
+  }
+
+  &__link {
+    font-size: 16px;
+    text-decoration: none;
+    font-weight: 300;
+    color: $contrast-color;
+
+    transition: color 0.3s;
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__contact {
+    display: grid;
+    gap: 20px;
+    @include container-paddings;
+    &-item {
+      font-size: 16px;
+      font-weight: 400;
+      color: $text-color;
+      text-decoration: none;
+
+      transition: color 0.3s;
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+
+  @media (min-width: $media-tablet) {
+    &__close {
+      margin: 30px 34px 38px 0;
+    }
+  }
+
+  @media (min-width: $media-desktop) {
+    width: 80vw;
+    min-height: auto;
+    height: auto;
+    justify-self: center;
+    position: absolute;
+    z-index: 100;
+    margin-bottom: 100px;
+    padding-bottom: 100px;
+    top: 10%;
+    &--show {
+      left: 10%;
+      top: 10%;
+    }
+
+    &__content,
+    &__links,
+    &__contact {
+      padding: 0 90px;
+    }
+  }
+}

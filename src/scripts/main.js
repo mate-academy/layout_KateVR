@@ -56,6 +56,7 @@ languageBtn.forEach(btn => {
 });
 
 // FAQ
+const modalDesktopBg = document.querySelector('.modal-desktop-bg');
 const mobileFaqTrigger = document.querySelectorAll('.faq-modal-trigger');
 const faq = document.querySelector('.faq');
 const faqClose = document.querySelector('.faq__close');
@@ -63,11 +64,13 @@ const faqClose = document.querySelector('.faq__close');
 mobileFaqTrigger.forEach(trigger => {
   trigger.addEventListener('click', () => {
     faq.classList.add('faq--show');
+    modalDesktopBg.classList.add('modal-desktop-bg--show');
   });
 });
 
 faqClose.addEventListener('click', () => {
   faq.classList.remove('faq--show');
+  modalDesktopBg.classList.remove('modal-desktop-bg--show');
 });
 
 // ACCORDION
@@ -80,4 +83,27 @@ faqQuestion.forEach((q, index) => {
     faqAnswer[index].classList.toggle('faq__answer--show');
     faqUpdate[index].classList.toggle('faq__update--show');
   });
+});
+
+// HELP
+const mobileHelpTrigger = document.querySelectorAll('.help-modal-trigger');
+const help = document.querySelector('.help');
+const helpClose = document.querySelector('.help__close');
+
+mobileHelpTrigger.forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    help.classList.add('help--show');
+    modalDesktopBg.classList.add('modal-desktop-bg--show');
+  });
+});
+
+helpClose.addEventListener('click', () => {
+  help.classList.remove('help--show');
+  modalDesktopBg.classList.remove('modal-desktop-bg--show');
+});
+
+modalDesktopBg.addEventListener('click', () => {
+  faq.classList.remove('faq--show');
+  help.classList.remove('help--show');
+  modalDesktopBg.classList.remove('modal-desktop-bg--show');
 });
