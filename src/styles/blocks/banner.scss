@@ -1,13 +1,16 @@
 .banner {
   display: grid;
   align-content: flex-start;
-  background: $background-gradient;
+
   position: relative;
-  // overflow: hidden;
+
+  background: $background-gradient;
+
   &__header {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: center;
+
     padding: 15px 0;
     @include container-paddings;
 
@@ -55,7 +58,6 @@
       color: $text-color;
       font-size: 16px;
       font-weight: 500;
-
     }
 
     &-price {
@@ -66,24 +68,7 @@
     }
 
     &-play {
-      background: transparent;
-      border: none;
-
-      height: 75px;
-      width: 250px;
-      color: $white;
-      font-size: 16px;
-      padding: 0;
-
-      position: relative;
-
-      &::after {
-        content: url("../../src/images/play-btn.svg");
-      }
-
-      &:hover::after {
-        content: url("../../src/images/play-btn-hover.svg");
-      }
+      @include play-btn;
     }
 
     &-image {
@@ -94,8 +79,8 @@
   }
 
   &__footer {
-
     @include container-paddings;
+
     &-desktop {
       display: none;
     }
@@ -166,6 +151,7 @@
 
     &__main {
       align-self: center;
+
       &-title {
         font-size: 46px;
       }
@@ -207,12 +193,13 @@
     }
 
     &__slide-down {
+      position: relative;
+
       text-align: center;
       color: $contrast-color;
       text-decoration: none;
       font-size: 16px;
       font-weight: 500;
-      position: relative;
 
       &::after {
         position: absolute;
@@ -239,14 +226,16 @@
 
     &__slider-btn {
       @include reset-button;
+      padding-bottom: 10px;
+
       color: $white;
       font-size: 16px;
       font-weight: 500;
-      padding-bottom: 10px;
 
       &--active {
-        color: $text-color;
         position: relative;
+
+        color: $text-color;
         &::after {
           content: "";
           position: absolute;

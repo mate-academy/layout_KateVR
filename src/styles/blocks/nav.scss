@@ -1,7 +1,6 @@
 .nav {
   display: grid;
   align-content: flex-start;
-  background: $color-purple;
 
   position: absolute;
   top: -100%;
@@ -11,23 +10,15 @@
   width: 100%;
   height: 100%;
 
+  background: $color-purple;
+
   transition: top 0.3s;
   &--show {
     top: 0;
   }
 
   &__close {
-    justify-self: flex-end;
-    margin: 20px 21px 38px 0;
-    @include reset-button;
-
-    &::after {
-      content: url("../../src/images/menu-btn-close.svg");
-    }
-
-    &:hover::after {
-      content: url("../../src/images/menu-btn-close-hover.svg");
-    }
+    @include close-btn;
   }
 
   &__list {
@@ -42,8 +33,8 @@
   &__link,
   &__btn {
     display: block;
-    @include reset-button;
 
+    @include reset-button;
     padding: 11px 20px;
 
     font-size: 21px;
@@ -63,10 +54,6 @@
 
     padding-bottom: 100px;
 
-    &__close {
-      margin: 30px 34px 38px 0;
-    }
-
     &--show {
       top: 0;
     }
@@ -78,13 +65,16 @@
   }
 
   @media (min-width: $media-desktop) {
-    position: relative;
-    background-color: transparent;
     align-content: center;
     justify-content: flex-end;
-    padding-bottom: 0;
-    z-index: 0;
+
+    position: relative;
     top: 0;
+    z-index: 0;
+
+    background-color: transparent;
+
+    padding-bottom: 0;
     &__close {
       display: none;
     }

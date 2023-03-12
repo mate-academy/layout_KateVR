@@ -1,8 +1,10 @@
 .about {
-  background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
-  @include main-paddings;
   display: grid;
   gap: 85px;
+
+  @include main-paddings;
+
+  background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
 
   &__top {
     display: grid;
@@ -24,24 +26,7 @@
   }
 
   &__play {
-    background: transparent;
-    border: none;
-
-    height: 75px;
-    width: 250px;
-    color: $white;
-    font-size: 16px;
-    padding: 0;
-
-    position: relative;
-
-    &::after {
-      content: url("../../src/images/play-btn.svg");
-    }
-
-    &:hover::after {
-      content: url("../../src/images/play-btn-hover.svg");
-    }
+    @include play-btn;
   }
 
   &__subtitle {
