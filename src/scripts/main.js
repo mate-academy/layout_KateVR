@@ -54,3 +54,30 @@ languageBtn.forEach(btn => {
     languageBack.innerHTML = btn.innerText;
   });
 });
+
+// FAQ
+const mobileFaqTrigger = document.querySelectorAll('.faq-modal-trigger');
+const faq = document.querySelector('.faq');
+const faqClose = document.querySelector('.faq__close');
+
+mobileFaqTrigger.forEach(trigger => {
+  trigger.addEventListener('click', () => {
+    faq.classList.add('faq--show');
+  });
+});
+
+faqClose.addEventListener('click', () => {
+  faq.classList.remove('faq--show');
+});
+
+// ACCORDION
+const faqQuestion = document.querySelectorAll('.faq__question');
+const faqAnswer = document.querySelectorAll('.faq__answer');
+const faqUpdate = document.querySelectorAll('.faq__update');
+
+faqQuestion.forEach((q, index) => {
+  q.addEventListener('click', () => {
+    faqAnswer[index].classList.toggle('faq__answer--show');
+    faqUpdate[index].classList.toggle('faq__update--show');
+  });
+});

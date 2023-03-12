@@ -1,0 +1,156 @@
+.faq {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: auto;
+  background: $color-purple;
+  display: grid;
+  z-index: 2;
+  transition: left 0.3s;
+  &--show {
+    left: 0;
+  }
+
+  &__close {
+    justify-self: flex-end;
+    margin: 20px 21px 38px 0;
+    @include reset-button;
+
+    &::after {
+      content: url("../../src/images/menu-btn-close.svg");
+    }
+
+    &:hover::after {
+      content: url("../../src/images/menu-btn-close-hover.svg");
+    }
+  }
+
+  &__title {
+    @include container-paddings;
+    font-weight: 900;
+    font-size: 21px;
+    color: $white;
+    margin-bottom: 30px;
+
+    &--blue {
+      color: $contrast-color;
+      font-weight: 400;
+    }
+  }
+
+  &__accordion {
+    @include container-paddings;
+    list-style: none;
+    display: grid;
+    gap: 13px;
+    margin-bottom: 30px;
+  }
+
+  &__item {
+    padding: 20px 12px;
+    display: grid;
+    gap: 15px;
+
+    border: 1px solid $contrast-color;
+    border-radius: 4px;
+  }
+
+  &__question {
+    font-size: 16px;
+    font-weight: 400;
+    color: $contrast-color;
+    cursor: pointer;
+
+    transition: color 0.3s;
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__answer {
+    font-size: 16px;
+    font-weight: 400;
+    color: $text-color;
+
+    display: none;
+    &--show {
+      display: flex;
+    }
+  }
+
+  &__update {
+    font-size: 12px;
+    font-weight: 400;
+    color: #545454;
+
+    display: none;
+    &--show {
+      display: flex;
+    }
+  }
+
+  &__link {
+    display: none;
+  }
+
+  @media (min-width: $media-tablet) {
+    padding-bottom: 100px;
+    min-height: 100vh;
+    align-content: flex-start;
+
+    &__close {
+      margin: 30px 34px 38px 0;
+    }
+
+    &__link {
+      display: flex;
+      text-align: center;
+      color: $contrast-color;
+      text-decoration: none;
+      font-size: 16px;
+      justify-self: center;
+      font-weight: 500;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        content: url("../../src/images/more.svg");
+      }
+
+      &:hover {
+        color: $white;
+
+        &::after {
+          content: url("../../src/images/more-hover.svg");
+        }
+      }
+    }
+  }
+
+  @media (min-width: $media-desktop) {
+    width: 50vw;
+    min-height: auto;
+    height: auto;
+    justify-self: center;
+    position: absolute;
+    z-index: 100;
+    margin-bottom: 100px;
+    top: 10%;
+    &--show {
+      left: 25%;
+      top: 10%;
+    }
+
+    &__title {
+      padding: 0 90px;
+    }
+
+    &__accordion {
+      padding: 0 90px;
+    }
+  }
+}
