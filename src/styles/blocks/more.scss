@@ -39,6 +39,14 @@
     }
   }
 
+  &--secondary {
+    gap: 32px;
+    background: $background-gradient;
+    .more__title {
+      text-align: left;
+    }
+  }
+
   @media (min-width: $media-tablet) {
     &__title,
     &__subtitle {
@@ -58,6 +66,14 @@
         display: flex;
       }
     }
+
+    &--secondary {
+      gap: 32px;
+
+      .more__content {
+        display: flex;
+      }
+    }
   }
 
   @media (min-width: $media-desktop) {
@@ -66,8 +82,21 @@
     }
 
     &__content {
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
       row-gap: 40px;
+    }
+  }
+
+  @media (min-width: $media-big-screen) {
+    &--secondary {
+      gap: 80px;
+      .more__title {
+        text-align: center;
+      }
+
+      .more__content {
+        gap: 200px;
+      }
     }
   }
 }
