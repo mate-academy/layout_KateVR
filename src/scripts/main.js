@@ -107,3 +107,15 @@ modalDesktopBg.addEventListener('click', () => {
   help.classList.remove('help--show');
   modalDesktopBg.classList.remove('modal-desktop-bg--show');
 });
+
+// TECH
+const techItemBtn = document.querySelectorAll('.tech__item-btn');
+
+techItemBtn.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const text = btn.closest('.tech__item').querySelector('.tech__item-text');
+
+    btn.classList.toggle('tech__item-btn--active');
+    text.classList.toggle('tech__item-text--active');
+  });
+});
