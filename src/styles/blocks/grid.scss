@@ -1,0 +1,23 @@
+.grid {
+  display: block;
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    column-gap: 20px;
+  }
+
+  @include onDesktop {
+    display: grid;
+    grid-template-columns: repeat(12, 70px);
+    column-gap: 20px;
+  }
+
+  @include onLarge {
+    display: grid;
+    grid-template-columns: repeat(16, 72px);
+    column-gap: 20px;
+
+    justify-content: center;
+  }
+}
