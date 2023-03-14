@@ -102,10 +102,12 @@ helpClose.addEventListener('click', () => {
   modalDesktopBg.classList.remove('modal-desktop-bg--show');
 });
 
+// Out of modal
 modalDesktopBg.addEventListener('click', () => {
   faq.classList.remove('faq--show');
   help.classList.remove('help--show');
   modalDesktopBg.classList.remove('modal-desktop-bg--show');
+  ytVideo.classList.remove('yt-video--show');
 });
 
 // TECH
@@ -137,4 +139,22 @@ contactBtn.addEventListener('click', () => {
   if (document.querySelectorAll('.failed').length === 0) {
     contactBtn.closest('form').reset();
   }
+});
+
+// Youtube Play
+
+const playBtn = document.querySelectorAll('.play-btn');
+const ytVideo = document.querySelector('.yt-video');
+const ytVideoClose = document.querySelector('.yt-video__close');
+
+playBtn.forEach(btn => {
+  btn.addEventListener('click', () => {
+    ytVideo.classList.add('yt-video--show');
+    modalDesktopBg.classList.add('modal-desktop-bg--show');
+  });
+});
+
+ytVideoClose.addEventListener('click', () => {
+  ytVideo.classList.remove('yt-video--show');
+  modalDesktopBg.classList.remove('modal-desktop-bg--show');
 });
