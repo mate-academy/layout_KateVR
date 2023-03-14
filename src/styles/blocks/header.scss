@@ -1,7 +1,15 @@
 .header {
   background-size: cover;
   background-position: center;
-  background-image: url(../images/header.jpg);
+  background-image: url(../images/header-mobile.jpg);
+
+  @include onTablet {
+    background-image: url(../images/header-tablet.jpg);
+  }
+
+  @include onDesktop {
+    background-image: url(../images/header-desktop.jpg);
+  }
 
   &__content {
     display: flex;
