@@ -93,3 +93,26 @@
     margin: 30px 34px 38px 0;
   }
 }
+
+@mixin main-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  padding-bottom: 6px;
+  color: $white;
+  border-bottom: 1px solid #2f2f2f;
+
+  &:focus {
+    border-bottom-color: $contrast-color;
+    + .contact__label {
+      color: $contrast-color;
+    }
+  }
+}
+
+@mixin main-label {
+  font-size: 14px;
+  color: $text-color;
+}

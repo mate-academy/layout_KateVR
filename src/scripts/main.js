@@ -1,6 +1,6 @@
 'use strict';
-// MOBILE NAV
 
+// MOBILE NAV
 const mobileMenuOpen = document.querySelector('#mobile-menu-open');
 const mobileMenuClose = document.querySelector('#mobile-menu-close');
 const nav = document.querySelector('.nav');
@@ -118,4 +118,23 @@ techItemBtn.forEach(btn => {
     btn.classList.toggle('tech__item-btn--active');
     text.classList.toggle('tech__item-text--active');
   });
+});
+
+// Contact
+
+const contactBtn = document.querySelector('.contact__btn');
+const cItems = document.querySelectorAll('.contact__input, .contact__textarea');
+
+contactBtn.addEventListener('click', () => {
+  cItems.forEach(item => {
+    if (item.value === '') {
+      item.classList.add('failed');
+    } else {
+      item.classList.remove('failed');
+    }
+  });
+
+  if (document.querySelectorAll('.failed').length === 0) {
+    contactBtn.closest('form').reset();
+  }
 });

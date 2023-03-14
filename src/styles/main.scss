@@ -4,6 +4,7 @@
 
 html {
   font-family: "Inter", sans-serif;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -12,6 +13,8 @@ body {
 
 .container {
   overflow: hidden;
+  // max-width: 1920px;
+  // margin: 0 auto;
 }
 
 a,
@@ -40,6 +43,13 @@ button {
   &:disabled {
     color: $dark-grey;
     background: $color-purple;
+  }
+}
+
+.failed {
+  border-bottom-color: red;
+  + .contact__label {
+    color: red;
   }
 }
 
@@ -97,3 +107,4 @@ button {
 @import "./blocks/about.scss";
 @import "./blocks/slider.scss";
 @import "./blocks/tech.scss";
+@import "./blocks/contact.scss";
