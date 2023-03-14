@@ -5,14 +5,17 @@
   top: 0;
   left: 100%;
   z-index: 2;
+  opacity: 0;
 
   width: 100%;
   height: auto;
+  max-width: 100%;
 
   background: $color-purple;
 
-  transition: left 0.3s;
+  transition: left 0.3s, opacity 0.3s;
   &--show {
+    opacity: 1;
     left: 0;
   }
 
@@ -141,7 +144,7 @@
     height: auto;
 
     margin-bottom: 100px;
-    
+
     &--show {
       left: 10%;
       top: 10%;

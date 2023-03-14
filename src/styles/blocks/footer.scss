@@ -1,11 +1,16 @@
 .footer {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-areas: "logo logo" "list contact" "list socials";
-  gap: 15px;
-
   background-color: $background-black;
-  @include main-paddings;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "logo logo" "list contact" "list socials";
+    gap: 15px;
+
+    @include main-paddings;
+
+    @include max-size;
+  }
 
   &__logo {
     grid-area: logo;
@@ -52,10 +57,12 @@
   }
 
   @media (min-width: $media-tablet) {
-    grid-template-columns: auto 1fr auto;
-    grid-template-areas: "logo list socials";
-    padding-top: 25px;
-    padding-bottom: 25px;
+    &__container {
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: "logo list socials";
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
 
     &__contact-list {
       display: none;

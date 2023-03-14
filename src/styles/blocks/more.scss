@@ -1,10 +1,14 @@
 .more {
-  display: grid;
-  gap: 12px;
-
-  @include main-paddings;
-
   background-color: $background-black;
+
+  &__container {
+    display: grid;
+    gap: 12px;
+
+    @include main-paddings;
+
+    @include max-size;
+  }
 
   &__subtitle {
     margin-bottom: 28px;
@@ -89,7 +93,10 @@
 
   @media (min-width: $media-big-screen) {
     &--secondary {
-      gap: 80px;
+      .more__container {
+        gap: 80px;
+      }
+
       .more__title {
         text-align: center;
       }

@@ -1,10 +1,16 @@
 .banner {
-  display: grid;
-  align-content: flex-start;
-
-  position: relative;
-
   background: $background-gradient;
+
+  &__container {
+    display: grid;
+    align-content: flex-start;
+
+    position: relative;
+
+    @include container-paddings;
+
+    @include max-size;
+  }
 
   &__header {
     display: grid;
@@ -12,7 +18,6 @@
     align-items: center;
 
     padding: 15px 0;
-    @include container-paddings;
 
     &-logo {
       width: 58px;
@@ -34,7 +39,6 @@
 
   &__main {
     display: grid;
-    @include container-paddings;
 
     &-content {
       display: grid;
@@ -79,7 +83,6 @@
   }
 
   &__footer {
-    @include container-paddings;
 
     &-desktop {
       display: none;
@@ -121,8 +124,11 @@
   }
 
   @media (min-width: $media-desktop) {
-    grid-template-rows: auto 1fr 150px;
-    min-height: 100vh;
+
+    &__container {
+      grid-template-rows: auto 1fr 150px;
+      min-height: 100vh;
+    }
 
     &__header {
       grid-template-columns: auto auto 1fr 236px;

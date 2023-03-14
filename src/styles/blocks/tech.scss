@@ -1,10 +1,14 @@
 .tech {
-  display: grid;
-  gap: 41px;
-
-  @include main-paddings;
-
   background-color: $background-black;
+
+  &__container {
+    display: grid;
+    gap: 41px;
+
+    @include main-paddings;
+
+    @include max-size;
+  }
 
   &__content {
     justify-self: center;
@@ -116,7 +120,11 @@
   }
 
   @media (min-width: $media-desktop) {
-    gap: 100px;
+
+    &__container {
+      gap: 100px;
+    }
+
     &__title {
       text-align: right;
     }
