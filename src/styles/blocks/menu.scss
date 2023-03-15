@@ -5,11 +5,22 @@
     box-sizing: border-box;
     height: 100vh;
     padding: 40px 0;
+
+    @include onTablet {
+      padding: 50px 0;
+    }
   }
 
   &__top {
-    @include top-actions;
+    --icon-width: 18px;
+    display: grid;
+    grid-template-columns: 1fr var(--icon-width);
     margin-bottom: 50px;
+
+    @include onTablet {
+      --icon-width: 24px;
+    }
+    
   }
 
   &__list {
