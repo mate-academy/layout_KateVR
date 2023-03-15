@@ -31,12 +31,18 @@
     width: 4px;
     height: 4px;
 
+    @include reset-button;
+
     background-color: #484848;
     border-radius: 50%;
 
     &--active {
       background-color: #ababab;
     }
+  }
+
+  &__count {
+    display: none;
   }
 
   @media (min-width: $media-tablet) {
@@ -55,6 +61,7 @@
     }
 
     &__count {
+      display: flex;
       font-size: 14px;
       color: $contrast-color;
     }
@@ -68,7 +75,7 @@
       grid-template-columns: auto 1fr auto;
       justify-content: space-between;
       grid-column: 2 / 3;
-      
+
       width: 50%;
       border-bottom: 1px solid #212121;
     }

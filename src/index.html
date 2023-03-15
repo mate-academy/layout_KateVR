@@ -99,7 +99,7 @@
                 </li>
               </ul>
             </nav>
-            <a href="#buy-now" class="banner__header-buy main-btn">
+            <a href="./buy.html" class="banner__header-buy main-btn">
               Buy Now
             </a>
           </section>
@@ -129,13 +129,13 @@
                 More
               </a>
               <div class="banner__slider-btns">
-                <button class="banner__slider-btn banner__slider-btn--active">Previous</button>
-                <button class="banner__slider-btn">Next</button>
+                <a href="#slider" class="banner__slider-btn banner__slider-btn--active">Previous</a>
+                <a href="#slider" class="banner__slider-btn">Next</a>
               </div>
             </div>
-            <button class="banner__footer-mobile main-btn">
+            <a href="./buy.html" class="banner__footer-mobile main-btn">
               Buy Now
-            </button>
+            </a>
           </section>
           <section class="faq banner__modal-faq">
             <button class="faq__close"></button>
@@ -252,36 +252,39 @@
           <div class="about__container">
             <div class="about__top">
               <h2 class="about__title main__title">About <span class="main__title--blue">Product</span></h2>
-              <div class="slider about__slider">
-                <div class="slider__count">1/5</div>
+              <div class="slider about__slider" id="slider">
+                <div class="slider__count">1/3</div>
                 <div class="slider__slides">
                   <img
                     src="./images/image 2.3.png"
                     alt="slide 1"
                     class="slider__slide slider__slide--show"
+                    data-index="1"
                   >
 
                   <img
                     src="./images/image.png"
                     alt="slide 2"
                     class="slider__slide"
+                    data-index="2"
                   >
 
                   <img
                     src="./images/asdasds.png"
                     alt="slide 2"
                     class="slider__slide"
+                    data-index="3"
                   >
                 </div>
                 <div class="slider__mobile-control">
-                  <div class="slider__btn slider__btn--active"></div>
-                  <div class="slider__btn"></div>
-                  <div class="slider__btn"></div>
+                  <button class="slider__btn slider__btn--active" data-index="0"></button>
+                  <button class="slider__btn" data-index="1"></button>
+                  <button class="slider__btn" data-index="2"></button>
                 </div>
                 <div class="slider__desktop-control">
-                  <button class="slider__change slider__change--active">Previous</button>
-                  <div class="slider__change"></div>
-                  <button class="slider__change">Next</button>
+                  <button class="slider__change slider__change--active slider-prev">Previous</button>
+                  <div class="slider__change slider-mid"></div>
+                  <button class="slider__change slider-next">Next</button>
                 </div>
               </div>
               <p class="about__text">KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.</p>

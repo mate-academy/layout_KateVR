@@ -67,27 +67,19 @@ button {
 .modal-desktop-bg {
   display: none;
 
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+
+  height: 100%;
+  width: 100%;
+
+  background: rgba(0, 0, 0, 0.7);
+
+  cursor: pointer;
   &--show {
-    display: none;
-  }
-
-  @media (min-width: $media-desktop) {
-    display: none;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
-
-    height: 100%;
-    width: 100%;
-
-    background: rgba(0, 0, 0, 0.7);
-
-    cursor: pointer;
-    &--show {
-      display: flex;
-    }
+    display: flex;
   }
 }
 
@@ -103,3 +95,4 @@ button {
 @import "./blocks/contact.scss";
 @import "./blocks/footer.scss";
 @import "./blocks/yt-video.scss";
+@import "./blocks/buy.scss";
