@@ -40,6 +40,14 @@
     @include main-input;
     margin-bottom: 10px;
     order: 2;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      @include main-input;
+      -webkit-text-fill-color: $white;
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
 
   &__textarea {
@@ -127,10 +135,10 @@
         content: url("../../src/images/arrow-top.svg");
       }
 
-      transition: background 0.3s;
+      transition: background 0.3s, transform 0.3s;
 
       &:hover {
-
+        transform: scale(1.1);
         background-color: $contrast-color;
         &::after {
           content: url("../../src/images/arrow-top-hover.svg");
