@@ -1,6 +1,36 @@
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: all 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin mediaTablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin mediaDesktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin mediaDesktopXL {
+  @media (min-width: $bp-xldesktop) {
+    @content;
+  }
+}
+
+@mixin mediaMobile {
+  @media (max-width: #{$bp-tablet - 1}) {
+    @content;
+  }
+}
+
+@mixin textTypohraphy($fontSize, $lineHeight : 1, $fontWeight : 400) {
+  font-size: $fontSize + px;
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
 }

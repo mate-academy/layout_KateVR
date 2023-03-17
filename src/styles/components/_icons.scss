@@ -1,0 +1,94 @@
+.burger {
+  position: relative;
+  width: 20px;
+  height: 17px;
+
+  &__line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-0.5px);
+    width: 12px;
+    height: 1px;
+    background-color: #fff;
+    transition: all 0.3s;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 16px;
+    height: 1px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    transition: all 0.3s;
+  }
+
+  &::before {
+    top: 4.5px;
+  }
+
+  &::after {
+    top: 12.5px;
+  }
+
+  &:hover &__line,
+  &:hover::before,
+  &:hover::after {
+    width: 100%;
+  }
+
+  &.active {
+
+    &::before {
+      width: 100%;
+      transform: rotate(-45deg);
+      top: 50%;
+    }
+
+    &::after {
+      width: 100%;
+      transform: rotate(45deg);
+      top: 50%;
+    }
+  }
+}
+
+.cross {
+  position: relative;
+  width: 20px;
+  height: 17px;
+  transition: scale 0.3s;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 16px;
+    height: 1px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    transition: all 0.3s;
+  }
+
+  &::before {
+    width: 100%;
+    transform: rotate(-45deg);
+    top: 50%;
+  }
+
+  &::after {
+    width: 100%;
+    transform: rotate(45deg);
+    top: 50%;
+  }
+
+  &:hover {
+    scale: 1.1;
+  }
+
+}

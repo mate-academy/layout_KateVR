@@ -1,0 +1,65 @@
+.dflex {
+  display: flex;
+
+  &--align-items-center {
+    align-items: center;
+  }
+  &--align-items-start {
+    align-items: start;
+  }
+  &--align-items-end {
+    align-items: end;
+  }
+
+  &--justify-start {
+    justify-content: start;
+  }
+  &--justify-center {
+    justify-content: center;
+  }
+  &--justify-space-between {
+    justify-content: space-between;
+  }
+  &--justify-space-around {
+    justify-content: space-around;
+  }
+}
+
+@for $start from 1 through $cols-tablet {
+  @include mediaTablet {
+    .col-md-#{$start} {
+      flex: 0 0 auto;
+      width: calc((100% / #{$cols-tablet}) * #{$start});
+    }
+
+    .col-md-offset-#{$start} {
+      margin-left: calc((100% / #{$cols-tablet}) * #{$start});
+    }
+  }
+}
+
+@for $start from 1 through $cols-desktop {
+  @include mediaDesktop {
+    .col-lg-#{$start} {
+      flex: 0 0 auto;
+      width: calc((100% / #{$cols-desktop}) * #{$start});
+    }
+
+    .col-lg-offset-#{$start} {
+      margin-left: calc((100% / #{$cols-tablet}) * #{$start});
+    }
+  }
+}
+
+@for $start from 1 through $cols-xldesktop {
+  @include mediaDesktopXL {
+    .col-xl-#{$start} {
+      flex: 0 0 auto;
+      width: calc((100% / #{$cols-xldesktop}) * #{$start});
+    }
+
+    .col-xl-offset-#{$start} {
+      margin-left: calc((100% / #{$cols-tablet}) * #{$start});
+    }
+  }
+}
