@@ -51,6 +51,9 @@ window.addEventListener('resize', langInner);
 
 languageBtn.forEach(btn => {
   btn.addEventListener('click', () => {
+    const langaugeShow = document.querySelector('.language--show');
+
+    langaugeShow.classList.remove('language--show');
     languageBack.innerHTML = btn.innerText;
   });
 });
@@ -59,7 +62,7 @@ languageBtn.forEach(btn => {
 const modalDesktopBg = document.querySelector('.modal-desktop-bg');
 const mobileFaqTrigger = document.querySelectorAll('.faq-modal-trigger');
 const faq = document.querySelector('.faq');
-const faqClose = document.querySelector('.faq__close');
+const faqClose = document.querySelectorAll('.faq__close');
 
 mobileFaqTrigger.forEach(trigger => {
   trigger.addEventListener('click', () => {
@@ -68,9 +71,11 @@ mobileFaqTrigger.forEach(trigger => {
   });
 });
 
-faqClose.addEventListener('click', () => {
-  faq.classList.remove('faq--show');
-  modalDesktopBg.classList.remove('modal-desktop-bg--show');
+faqClose.forEach(close => {
+  close.addEventListener('click', () => {
+    faq.classList.remove('faq--show');
+    modalDesktopBg.classList.remove('modal-desktop-bg--show');
+  });
 });
 
 // ACCORDION
@@ -88,7 +93,7 @@ faqQuestion.forEach((q, index) => {
 // HELP
 const mobileHelpTrigger = document.querySelectorAll('.help-modal-trigger');
 const help = document.querySelector('.help');
-const helpClose = document.querySelector('.help__close');
+const helpClose = document.querySelectorAll('.help__close');
 
 mobileHelpTrigger.forEach(trigger => {
   trigger.addEventListener('click', () => {
@@ -97,9 +102,11 @@ mobileHelpTrigger.forEach(trigger => {
   });
 });
 
-helpClose.addEventListener('click', () => {
-  help.classList.remove('help--show');
-  modalDesktopBg.classList.remove('modal-desktop-bg--show');
+helpClose.forEach(close => {
+  close.addEventListener('click', () => {
+    help.classList.remove('help--show');
+    modalDesktopBg.classList.remove('modal-desktop-bg--show');
+  });
 });
 
 // Out of modal
@@ -108,6 +115,8 @@ modalDesktopBg.addEventListener('click', () => {
   help.classList.remove('help--show');
   modalDesktopBg.classList.remove('modal-desktop-bg--show');
   ytVideo.classList.remove('yt-video--show');
+  // eslint-disable-next-line max-len
+  ytFrame.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
 });
 
 // TECH
@@ -145,6 +154,7 @@ contactBtn.addEventListener('click', () => {
 
 const playBtn = document.querySelectorAll('.play-btn');
 const ytVideo = document.querySelector('.yt-video');
+const ytFrame = document.querySelector('.yt-video__iframe');
 const ytVideoClose = document.querySelector('.yt-video__close');
 
 playBtn.forEach(btn => {
@@ -157,6 +167,8 @@ playBtn.forEach(btn => {
 ytVideoClose.addEventListener('click', () => {
   ytVideo.classList.remove('yt-video--show');
   modalDesktopBg.classList.remove('modal-desktop-bg--show');
+  // eslint-disable-next-line max-len
+  ytFrame.contentWindow.postMessage('{"event":"command","func":"' + 'pauseVideo' + '","args":""}', '*');
 });
 
 // Slider
@@ -226,5 +238,13 @@ sliderBtn.forEach(btn => {
 
     cb.classList.remove('slider__btn--active');
     btn.classList.add('slider__btn--active');
+  });
+});
+
+const allInputs = document.querySelectorAll('input, textarea');
+
+allInputs.forEach(input => {
+  input.addEventListener('change', () => {
+    input.classList.remove('failed');
   });
 });

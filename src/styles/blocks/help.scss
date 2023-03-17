@@ -24,6 +24,23 @@
 
   &__close {
     @include close-btn;
+
+    &--no-btn {
+      text-decoration: none;
+      margin: 0;
+      &::after {
+        content: "";
+      }
+
+      transition: color 0.3s;
+      &:hover {
+        color: $white;
+
+        &::after {
+          content: "";
+        }
+      }
+    }
   }
 
   &__content {

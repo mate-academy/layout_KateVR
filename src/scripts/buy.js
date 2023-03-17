@@ -26,3 +26,22 @@ buyBtn.forEach(btn => {
     }
   });
 });
+
+const quantity = document.querySelectorAll('.buy__select-quan');
+const quantityValue = document.querySelectorAll('.buy__price-value');
+
+quantity.forEach(select => {
+  select.addEventListener('change', () => {
+    quantityValue.forEach(val => {
+      val.innerText = `${select.value * 1200}$`;
+    });
+  });
+});
+
+const allInputs = document.querySelectorAll('input, textarea');
+
+allInputs.forEach(input => {
+  input.addEventListener('change', () => {
+    input.classList.remove('failed');
+  });
+});
