@@ -1,0 +1,54 @@
+.nav {
+  background-color: $color-backround-start;
+  padding: 20px 22px 0 0;
+  height: 100vh;
+  z-index: 1;
+
+  @include onTablet {
+    padding: 34px 34px 0 0;
+    height: 568px;
+  }
+
+  &__icon {
+    display: flex;
+    align-content: end;
+    margin-left: auto;
+    margin-bottom: 38px;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__menu-item {
+    display: flex;
+    height: 49px;
+    align-items: center;
+    padding: 0 22px;
+
+    @include onTablet {
+      padding-left: 154px;
+    }
+
+    &:hover,
+    .nav__menu-item--link:hover {
+      color: $color-text-blue;
+      background-color: $color-hover-background;
+      width: 100vw;
+    }
+
+    &--link {
+      text-decoration: none;
+      color: $color-white;
+      font-size: 21px;
+      line-height: 49px;
+      width: 100%;
+    }
+  }
+}

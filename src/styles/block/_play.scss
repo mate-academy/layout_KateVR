@@ -1,0 +1,56 @@
+.play {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  text-decoration: none;
+
+  @include hover(scale, 110%);
+
+  &__icon {
+    background-image: url(../images/icons/playbutton.svg);
+    height: 66px;
+    width: 85px;
+
+    @extend %icon;
+  }
+
+  &__text {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    color: $color-white;
+    display: block;
+    box-sizing: border-box;
+
+    &::before {
+      content: "";
+      display: flex;
+      background-image: url(../images/icons/playdots.svg);
+
+      @extend %icon;
+
+      width: 135px;
+      height: 2px;
+      position: relative;
+      top: -9px;
+    }
+
+    &::after {
+      content: "";
+      display: flex;
+      background-image: url(../images/icons/playdots.svg);
+
+      @extend %icon;
+
+      width: 135px;
+      height: 2px;
+      position: relative;
+      bottom: -10px;
+    }
+  }
+}
+
+
+
+
