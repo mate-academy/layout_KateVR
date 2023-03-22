@@ -74,12 +74,9 @@
     outline: none;
     color: $color-white;
 
-    &:focus {
-      border-color: $color-text-blue;
-    }
-
-    &::placeholder {
-      color: $color-text-grey;
+    &:-webkit-autofill {
+      border-bottom: 1px solid $color-text-blue;
+      transition-delay: 3600s;
     }
 
     &::-webkit-scrollbar {
@@ -94,6 +91,14 @@
     &::-webkit-scrollbar-thumb {
       background: $color-disabled-text;
       border-radius: 4px;
+    }
+
+    &:focus {
+      border-color: $color-text-blue;
+    }
+
+    &::placeholder {
+      color: $color-text-grey;
     }
 
     &--textarea {

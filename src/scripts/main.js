@@ -22,7 +22,8 @@ window.addEventListener('hashchange', () => {
   }
 });
 
-const swiper = new Swiper('.about-us__swiper', {
+// eslint-disable-next-line no-unused-vars, no-undef
+const swiper = new Swiper('.swiper', {
   direction: 'horizontal',
   loop: true,
   effect: 'slide',
@@ -30,7 +31,12 @@ const swiper = new Swiper('.about-us__swiper', {
   centeredSlides: true,
 
   pagination: {
-    el: '.about-us__pagination',
+    el: '.swiper-pagination',
     clickable: true,
-  }
+  },
+
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
 });

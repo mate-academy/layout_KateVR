@@ -50,6 +50,48 @@
     }
   }
 
+  &__tooltip {
+    background-color: #191536;
+    padding: 17px 11px;
+    border-radius: 4px;
+    width: max-content;
+    max-width: 168px;
+    display: flex;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+
+    &--1 {
+      transform: translate(-70%, 35%);
+
+      @include onTablet {
+        transform: translate(-70%, 65%);
+      }
+    }
+
+    &--2 {
+      transform: translate(-40%, 45%);
+
+      @include onTablet {
+        transform: translate(-70%, 75%);
+      }
+    }
+
+    &--3 {
+      transform: translate(20%, -75%);
+
+      @include onTablet {
+        transform: translate(40%, -75%);
+      }
+    }
+
+    &--content {
+      color: $color-text-grey;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
   &__icon {
     background-image: url(../images/icons/plusbutton.svg);
     position: absolute;
@@ -104,49 +146,6 @@
         left: -58px;
         bottom: 19px;
       }
-    }
-  }
-
-  &__tooltip {
-    background-color: #191536;
-    padding: 17px 11px;
-    border-radius: 4px;
-    width: max-content;
-    max-width: 168px;
-    display: flex;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-
-    &--1 {
-      transform: translate(-70%, 35%);
-
-      @include onTablet {
-        transform: translate(-70%, 65%);
-      }
-    }
-
-    &--2 {
-      transform: translate(-40%, 45%);
-
-      @include onTablet {
-        transform: translate(-70%, 75%);
-      }
-    }
-
-    &--3 {
-      transform: translate(20%, -75%);
-
-      @include onTablet {
-
-        transform: translate(40%, -75%);
-      }
-    }
-
-    &--content {
-      color: $color-text-grey;
-      font-size: 12px;
-      line-height: 18px;
     }
   }
 

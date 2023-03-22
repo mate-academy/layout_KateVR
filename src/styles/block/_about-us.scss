@@ -54,7 +54,7 @@
     z-index: 10;
 
     @include onDesktop {
-      display: flex;
+      display: none;
       height: 16px;
       width: 16px;
       color: $color-text-blue;
@@ -72,6 +72,57 @@
       &-active {
         --swiper-theme-color: #ababab;
       }
+    }
+  }
+
+  &__prev,
+  .swiper-button-prev {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      border: 0.5px solid $color-text-blue;
+      height: fit-content;
+      margin-top: 10px;
+      width: 69px;
+    }
+  }
+
+  &__next,
+  .swiper-button-next {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $color-white;
+    position: relative;
+    bottom: 22px;
+    left: 159px;
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid #212121;
+      width: 124px;
+      left: -90px;
+      position: relative;
+      margin-top: 10px;
     }
   }
 
