@@ -30,3 +30,46 @@
     background-color: $buttonActive;
   }
 }
+
+.button__main {
+  position: relative;
+
+  display: block;
+  width: 100%;
+  height: 72px;
+
+  &-image-def {
+    transition: opacity $animationDuration;
+  }
+
+  &-image-hover {
+    position: absolute;
+    top: 0;
+
+    transition: opacity $animationDuration;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &:hover {
+
+    .button__main-image-def {
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .button__main-image-hover {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    .button__main-image-hover {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+}
