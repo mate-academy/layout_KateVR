@@ -1,0 +1,89 @@
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+
+  width: 87.5%;
+
+  transition: $animationDurationLong cubic-bezier(0.37,-0.28,0.24,1.15);
+  z-index: 10;
+
+  @include onTablet {
+    width: 80%;
+  }
+
+  @include onDesktop {
+    width: 70%;
+  }
+
+  @include onLarge {
+    width: 60%;
+  }
+
+  &--active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &__close {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+
+    font-size: 32px;
+    font-weight: 300;
+
+    color: $white;
+    background-color: transparent;
+
+    border: none;
+    outline: none;
+
+    z-index: 11;
+    transition: color $animationDuration;
+    cursor: pointer;
+
+    @include onTablet {
+      top: 12px;
+      right: 16px;
+
+      font-size: 42px;
+    }
+
+    @include onDesktop {
+      top: 24px;
+      right: 24px;
+
+      font-size: 52px;
+    }
+
+    @include onLarge {
+      font-size: 64px;
+    }
+
+    &:hover {
+      color: $contrastColor;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: $modalOverlayColor;
+
+    transition: $animationDurationLong cubic-bezier(0.37,-0.28,0.24,1.15);
+    pointer-events: none;
+    opacity: 0;
+
+    z-index: 9;
+
+    &--active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}

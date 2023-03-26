@@ -35,6 +35,71 @@
     >
   </head>
   <body class="page__body">
+    <!-- <header class="header">
+      <div class="container grid">
+        <nav class="header__nav"></nav>
+
+        <div class="top-actions top-actions--mobile">
+          <a
+            href="#"
+            class="icon icon--logo"
+          >
+          </a>
+
+          <a
+            href="#menu"
+            class="icon icon--menu top-actions__menu"
+          >
+          </a>
+        </div>
+
+        <div class="header__texts">
+          <h1 class="header__title">
+            The new start of
+
+            <br>
+
+            <span class="page__section-title--span">
+              Vr locomotion
+            </span>
+          </h1>
+
+          <p class="header__description">
+            Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!
+          </p>
+
+          <p class="header__price">
+            1200
+          </p>
+
+          <button
+            data-modal-target="#modal"
+            type="button"
+            class="button__main header__button-video"
+          >
+            <img
+              class="button__main-image-def"
+              src="./images/button/buttonLink.svg"
+              alt="Play video button"
+            >
+
+            <img
+              class="button__main-image-hover"
+              src="./images/button/buttonHover.svg"
+              alt="Play video button hover effect"
+            >
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <a
+      href="#"
+      class="button header__button"
+    >
+      Buy now
+    </a> -->
+
     <main>
       <section class="page__section testimonials" id="testimonials">
         <div class="container grid">
@@ -353,7 +418,11 @@
                 KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.
               </p>
 
-              <a href="#" class="button__main about__button">
+              <button
+                data-modal-target="#modal"
+                type="button"
+                class="button__main about__button"
+              >
                 <img
                   class="button__main-image-def"
                   src="./images/button/buttonLink.svg"
@@ -365,8 +434,60 @@
                   src="./images/button/buttonHover.svg"
                   alt="Play video button hover effect"
                 >
-              </a>
+              </button>
             </div>
+
+            <div class="modal" id="modal">
+              <button
+                data-modal="close-button"
+                type="button"
+                class="modal__close"
+              >
+                &times;
+              </button>
+
+              <div class="video">
+                <a
+                  class="video__link"
+                  href="https://www.youtube.com/watch?v=3eJAE3lgmEM"
+                  target="_blank"
+                >
+                  <picture>
+                    <source
+                      type="image/webp"
+                      srcset="https://i.ytimg.com/vi_webp/3eJAE3lgmEM/maxresdefault.webp"
+                    >
+
+                    <img
+                      class="video__media"
+                      src="https://i.ytimg.com/vi/3eJAE3lgmEM/maxresdefault.jpg"
+                      alt="NEW KAT Walk C 2+ VR Treadmill: WALK Into Pavlov VR"
+                    >
+                  </picture>
+                </a>
+
+                <button class="video__button" aria-label="Play video">
+                  <svg
+                    width="68"
+                    height="48"
+                    viewBox="0 0 68 48"
+                  >
+                    <path
+                      class="video__button-shape"
+                      d="M66.52,7.74c-0.78-2.93-2.49-5.41-5.42-6.19C55.79,.13,34,0,34,0S12.21,.13,6.9,1.55 C3.97,2.33,2.27,4.81,1.48,7.74C0.06,13.05,0,24,0,24s0.06,10.95,1.48,16.26c0.78,2.93,2.49,5.41,5.42,6.19 C12.21,47.87,34,48,34,48s21.79-0.13,27.1-1.55c2.93-0.78,4.64-3.26,5.42-6.19C67.94,34.95,68,24,68,24S67.94,13.05,66.52,7.74z"
+                    >
+                    </path>
+
+                    <path
+                      class="video__button-icon" d="M 45,24 27,14 27,34"
+                    >
+                    </path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="modal__overlay" id="overlay"></div>
           </div>
 
           <div class="about__second-part grid">
@@ -708,7 +829,7 @@
     <footer class="footer">
       <div class="container grid grid--no-align">
         <a
-          class="footer__logo"
+          class="icon icon--logo footer__logo"
           href="#header"
           aria-label="KatVR logo"
         >
