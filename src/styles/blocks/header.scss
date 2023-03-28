@@ -11,22 +11,70 @@
   }
 
   @include onLarge {
-    padding: 42px 108px;
+    padding: 42px 0 108px;
   }
 
   &__nav {
     display: none;
 
     @include onDesktop {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
 
       width: 100%;
       grid-column: 1 / 13;
     }
+
+    @include onLarge {
+      grid-column: 1 / 17;
+    }
+  }
+
+  &__logo-link {
+    display: block;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__nav-list {
+    list-style: none;
+    display: flex;
+  }
+
+  &__nav-list-item {
+    margin-right: 36px;
+  }
+
+  &__nav-list-link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+
+    color: $white;
+    text-decoration: none;
+
+    transition: color $animationDuration;
+
+    &:hover {
+      color: $contrastColor;
+    }
+
+    &:active {
+      color: $buttonActiveText;
+    }
+  }
+
+  &__button {
+    width: 200px;
   }
 
   &__texts {
     width: 100%;
+    margin-top: 24px;
 
     @include onTablet {
       grid-column: 1 / 4;
@@ -44,7 +92,7 @@
     }
 
     @include onLarge {
-      margin-top: 256px;
+      margin-top: 152px;
     }
   }
 
@@ -120,27 +168,98 @@
     }
   }
 
-  &__button {
-    display: block;
-    width: 280px;
-
-    position: fixed;
-    left: 50%;
-    transform: translateX(-50%);
-
-    margin-top: 24px;
-
-    z-index: 2;
-
-    @include onTablet {
-      grid-column: 2 / 6;
-
-      top: 430px;
-      width: 458px;
-    }
+  &__additional {
+    display: none;
 
     @include onDesktop {
-      display: none;
+      display: flex;
+      justify-content: space-between;
+
+      grid-column: 1 / 13;
+      width: 100%;
+
+      margin-top: 84px;
+    }
+
+    @include onLarge {
+      grid-column: 1 / 17;
     }
   }
+
+  &__additional-links {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__additional-link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: $white;
+    text-decoration: none;
+
+    transition: color $animationDuration;
+
+    &:hover {
+      color: $contrastColor;
+    }
+
+    &:active {
+      color: $buttonActiveText;
+    }
+  }
+
+  &__additional-special-link {
+    color: $contrastColor;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 8px;
+      height: 6px;
+
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+
+      background-image: url(/images/moreButton.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &:hover {
+      color: $white;
+
+      &::after {
+        background-image: url(/images/moreButtonHover.svg);
+      }
+    }
+  }
+
+  // &__sticky-button {
+  //   display: block;
+  //   width: 280px;
+
+  //   // position: fixed;
+  //   // bottom: 650px;
+  //   position: sticky;
+  //   top: 530px;
+
+  //   margin-top: 24px;
+
+  //   z-index: 2;
+
+  //   @include onTablet {
+  //     grid-column: 2 / 6;
+
+  //     top: 430px;
+  //     width: 458px;
+  //   }
+
+  //   @include onDesktop {
+  //     display: none;
+  //   }
+  // }
 }

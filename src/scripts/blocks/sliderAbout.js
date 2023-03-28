@@ -19,6 +19,11 @@ const aboutSlider = new Swiper('.about__slider', {
     prevEl: '.about__slider-nav-buttons-prev',
   },
 
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
+  },
+
   slidesPerView: 1,
   spaceBetween: 20,
   loop: true,
