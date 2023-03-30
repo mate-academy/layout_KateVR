@@ -4,11 +4,6 @@
 new Swiper('.header__slider-container', {
   loop: true,
 
-  autoplay: {
-    delay: 3000,
-    disableOnInteraction: false,
-  },
-
   scrollbar: {
     el: '.header__slider-scrollbar',
     draggable: true,
@@ -17,5 +12,10 @@ new Swiper('.header__slider-container', {
   navigation: {
     nextEl: '.header__slider-nav-button-next',
     prevEl: '.header__slider-nav-button-prev',
+  },
+
+  autoplay: {
+    delay: 3000,
+    disableOnInteraction: false,
   },
 });

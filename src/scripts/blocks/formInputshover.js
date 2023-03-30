@@ -17,11 +17,13 @@ document.querySelectorAll('.contact__form-control').forEach(function(formWrapper
   const input = formWrapper.querySelector('.contact__form-input');
   const label = formWrapper.querySelector('.contact__form-label');
 
-  input.addEventListener('focusin', () => {
-    label.classList.add('contact__form-label--active');
-  });
+  if (input) {
+    input.addEventListener('focusin', () => {
+      label.classList.add('contact__form-label--active');
+    });
 
-  input.addEventListener('focusout', () => {
-    label.classList.remove('contact__form-label--active');
-  });
+    input.addEventListener('focusout', () => {
+      label.classList.remove('contact__form-label--active');
+    });
+  };
 });

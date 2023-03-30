@@ -22,13 +22,31 @@
       align-items: center;
       justify-content: space-between;
 
-      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
       grid-column: 1 / 13;
+
+      width: 100%;
+      padding: 24px 0 48px;
+
+      background: $navGradient;
+      z-index: 3;
     }
 
     @include onLarge {
       grid-column: 1 / 17;
     }
+  }
+
+  &__nav-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
   &__logo-link {
@@ -186,12 +204,12 @@
     }
   }
 
-  &__additional-links {
+  &__additional-buttons {
     display: flex;
     gap: 40px;
   }
 
-  &__additional-link {
+  &__additional-button {
     font-weight: 500;
     font-size: 16px;
     line-height: 150%;
@@ -199,6 +217,11 @@
     color: $white;
     text-decoration: none;
 
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    cursor: pointer;
     transition: color $animationDuration;
 
     &:hover {
@@ -212,6 +235,8 @@
 
   &__additional-special-link {
     color: $contrastColor;
+    text-decoration: none;
+    transition: color $animationDuration;
 
     &::after {
       display: block;
