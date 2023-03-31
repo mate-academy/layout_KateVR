@@ -44,7 +44,7 @@ function checkInputs() {
     setErrorFor(phone, 'Please, fill your phone*');
     result = false;
   } else if (!isPhone(phoneValue)) {
-    setErrorFor(phone, 'Incorrect phone format*');
+    setErrorFor(phone, 'Incorrect phone format* (123-456-7890)');
     result = false;
   } else {
     setSuccessFor(phone);
