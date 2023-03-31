@@ -1,0 +1,50 @@
+.section {
+  padding: 50px 0;
+
+  @include mediaTablet {
+    padding: 70px 0;
+  }
+
+  @include mediaDesktop {
+    padding: 100px 0;
+  }
+
+  @include mediaDesktop {
+    padding: 160px 0;
+  }
+
+  &:nth-child(odd) {
+    background-color: $color-background-section-1;
+  }
+  &:nth-child(even) {
+    background: $color-background-section-2;
+  }
+
+  &__title {
+    @extend .headline-2;
+    text-transform: uppercase;
+    color: $color-white;
+
+    &--important {
+      @extend .headline-2;
+      font-weight: 400;
+      color: $color-blue;
+    }
+
+    &--center {
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    @include textTypohraphy(12, 1.25, 400);
+    @include mediaDesktop {
+      @include textTypohraphy(14, 1.21, 400);
+    }
+    color: $color-blue;
+
+    &--center {
+      text-align: center;
+    }
+  }
+}

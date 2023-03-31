@@ -1,0 +1,44 @@
+.contact {
+
+  &__text {
+    display: none;
+
+    @include mediaTablet {
+      display: block;
+    }
+  }
+
+  &__list {
+
+    &-item:not(:last-child) {
+      margin: 0 0 8px;
+    }
+
+    &-item:first-child {
+      margin: 0 0 11px;
+    }
+
+    &-link {
+      @extend .button-link;
+      color: $color-gray;
+      transition: color $duration-transition;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    @include textTypohraphy(14, 1.3, 500);
+
+    @include mediaTablet {
+      width: 200px;
+      height: 48px;
+      @include textTypohraphy(16, 1.3, 500);
+    }
+  }
+}

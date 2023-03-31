@@ -1,0 +1,69 @@
+.menu {
+  z-index: 5;
+  &__list {
+    overflow: auto;
+  }
+
+  &__item {
+
+    &--desktop-hidden {
+      @include mediaDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__menu-top {
+    display: block;
+  }
+
+  &-sub {
+    overflow: auto;
+  }
+
+  &__link,
+  &-sub__link {
+    display: block;
+    padding: 11px 20px;
+    @include textTypohraphy(21, 1.3, 500);
+    color: $color-white;
+    transition: all 0.3s;
+
+    &:hover {
+      color: $color-blue;
+      background-color: $color-background-link-hover;
+    }
+
+    @include mediaTablet {
+      padding: 11px 20px;
+    }
+
+    @include mediaDesktop {
+      padding: 11px 0;
+      @include textTypohraphy(16, 1.3, 500);
+    }
+  }
+
+}
+
+.top-actions {
+  padding: 20px 20px 15px;
+
+  @include mediaTablet {
+    padding: 30px 34px 15px;
+  }
+
+  &__item {
+    display: inline-block;
+    cursor: pointer;
+
+    &--right {
+      margin-left: auto;
+    }
+
+    &--left {
+      margin-right: auto;
+    }
+  }
+
+}

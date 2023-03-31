@@ -1,0 +1,133 @@
+.footer {
+  width: 100%;
+  padding: 45px 0 50px;
+  background-color: $color-black;
+
+  @include mediaTablet {
+    padding: 22px 0;
+  }
+
+  @include mediaDesktop {
+    padding: 40px 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include mediaTablet {
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    height: 14px;
+    flex: 1 1 100%;
+    margin: 0 0 15px;
+
+    @include mediaTablet {
+      margin: 0;
+      flex: 0 0 auto;
+    }
+  }
+
+  &__item {
+
+    &--contacts {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @include mediaMobile {
+      width: 50%;
+      flex: 0 0 auto;
+    }
+
+    @include mediaTablet {
+      flex: 0 1 auto;
+    }
+  }
+
+  &__list {
+
+    @include mediaTablet {
+      display: flex;
+      align-items: center;
+      gap: 45px;
+    }
+
+    &-item:not(:last-child) {
+      margin: 0 0 12px;
+
+      @include mediaTablet {
+        margin: 0;
+      }
+    }
+
+    &-link {
+      @include textTypohraphy(13, 1.5, 400);
+      color: $color-white;
+      transition: color $duration-transition;
+
+      @include mediaTablet {
+        @include textTypohraphy(14, 1.5, 400);
+      }
+    }
+
+    &-item:hover &-link {
+      color: $color-blue;
+    }
+  }
+
+  &__contacts {
+
+    &-item {
+      display: block;
+      @include textTypohraphy(13, 1.5, 400);
+      color: $color-gray;
+      transition: color $duration-transition;
+
+      &:hover {
+        color: $color-blue;
+      }
+
+      &:not(:last-child) {
+        margin: 0 0 12px;
+      }
+    }
+
+    @include mediaTablet {
+      display: none;
+    }
+  }
+}
+
+.social {
+  display: flex;
+  align-items: end;
+  gap: 22px;
+
+  @include mediaTablet {
+    gap: 18px;
+  }
+
+  @include mediaDesktopXL {
+    gap: 38px;
+  }
+
+  &__item {
+    transition: all $duration-transition;
+  }
+
+  &__item path {
+    fill: $color-white;
+    transition: all $duration-transition;
+  }
+
+  &__item:hover path {
+    fill: $color-blue;
+  }
+}

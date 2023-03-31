@@ -1,0 +1,38 @@
+.plus {
+
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background-color: $color-blue;
+  transition: all $duration-transition;
+
+  &__line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background-color: $color-white;
+    transition: all $duration-transition;
+    &--hor {
+      height: 1px;
+      width: 35%;
+    }
+
+    &--ver {
+      height: 35%;
+      width: 1px;
+    }
+  }
+
+  &.active {
+    background-color: #07798b;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+
+    .plus__line--ver {
+      height: 0;
+    }
+  }
+}

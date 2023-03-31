@@ -1,0 +1,141 @@
+.header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 0 15px;
+
+  @include mediaTablet {
+    padding: 30px 0 15px;
+  }
+
+  @include mediaDesktop {
+    padding: 47px 0 15px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background-color: $color-background-menu;
+    transition: all 0.3s;
+
+    &.active {
+      left: 0;
+      overflow: auto;
+    }
+
+    @include mediaDesktop {
+      position: relative;
+      left: 0;
+      width: auto;
+      height: auto;
+      flex: 1 1 auto;
+      background-color: transparent;
+    }
+  }
+
+  &__menu-sub {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background-color: $color-background-menu;
+    transition: all 0.3s;
+
+    &.active {
+      left: 0;
+    }
+
+    @include mediaDesktop {
+      display: none;
+    }
+  }
+
+  .menu__link--has-sub.active + &__menu-sub {
+    left: 0;
+  }
+
+  .link-menu {
+    @media (min-width: $bp-tablet) and (max-width: $bp-desktop) {
+      padding-left: calc(100% / 6);
+    }
+  }
+  &__logo {
+    height: 12px;
+
+    @include mediaTablet {
+      height: 14px;
+    }
+
+    @include mediaDesktop {
+      height: 16px;
+    }
+  }
+
+  &__lang {
+    display: none;
+    margin: 0 0 0 34px;
+    @include mediaDesktop {
+      display: block;
+    }
+  }
+
+  &__select {
+    display: block;
+    width: 33px;
+    @extend .button-link;
+    color: $color-blue;
+    background: transparent;
+    outline: none;
+    border: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iOSIgaGVpZ2h0PSI2IiB2aWV3Qm94PSIwIDAgOSA2IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNC40MzU5OSA1LjM4NzY5TDAuNDgzNDQxIDAuOTc5NTMyTDguMzg4NTQgMC45Nzk1MzNMNC40MzU5OSA1LjM4NzY5WiIgZmlsbD0iIzA1QzJERiIvPgo8L3N2Zz4K");
+    background-repeat: no-repeat, repeat;
+    background-position: right 75%;
+    background-size: 8px auto, 100%;
+  }
+
+  &__burger {
+
+    @include mediaDesktop {
+      display: none;
+    }
+  }
+
+  &__button {
+    display: none;
+    width: 200px;
+    @include mediaDesktop {
+      display: block;
+    }
+  }
+
+  &__list {
+
+    @include mediaDesktop {
+      display: flex;
+      justify-content: flex-end;
+      gap: 36px;
+      margin: 0 35px 0 0;
+    }
+  }
+
+  &__top-actions {
+    @include mediaDesktop {
+      display: none;
+    }
+  }
+
+}
