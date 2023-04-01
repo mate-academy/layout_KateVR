@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body class="body">
-    <header class="header">
+    <header hidden class="header">
       <div class="container">
         <div class="header__content">
           <a href="#" class="header__logo logo">
@@ -114,7 +114,10 @@
       </div>
     </header>
     <main class="main body__main">
-      <section class="section hero">
+      <section
+        hidden
+        class="section hero"
+      >
         <div class="container">
           <div class="dflex dflex--column">
             <div class="dflex pos-relative">
@@ -172,7 +175,12 @@
           </div>
         </div>
       </section>
-      <section class="section more" id="more">
+
+      <section
+        hidden
+        class="section more"
+        id="more"
+      >
         <div class="container">
           <h2 class="section__title section__title--center more__title">
             MORE THAN <span class="section__title--important">GAMING!</span>
@@ -218,7 +226,12 @@
           </div>
         </div>
       </section>
-      <section class="section about">
+
+      <section
+        hidden
+        class="section about"
+        id="about"
+      >
         <div class="container">
           <div class="about__item">
             <h2 class="section__title about__title about__title--mobile">
@@ -344,7 +357,12 @@
           </div>
         </div>
       </section>
-      <section class="section specs">
+
+      <section
+        hidden
+        class="section specs"
+        id="specs"
+      >
         <div class="container">
           <h2 class="section__title specs__title">
             Tech <span class="section__title--important">Specs</span>
@@ -464,7 +482,12 @@
           </div>
         </div>
       </section>
-      <section class="section why">
+
+      <section
+        hidden
+        class="section why"
+        id="why"
+      >
         <div class="container">
           <h2 class="section__title section__title--center why__title">
             Why <span class="section__title--important">Kat Logo?</span>
@@ -500,14 +523,23 @@
           </div>
         </div>
       </section>
-      <section class="section more">
+
+      <section hidden class="section more">
       </section>
-      <section class="section contact">
+
+      <section class="section contact" id="contacts">
         <div class="container">
           <div class="dflex dflex--justify-space-between">
-            <div class="col-sm-2 col-md-3 col-lg-4 col-xl-4">
-              <div class="title">
-                <p class="title__up">Have any questions?</p>
+            <div class="
+              col-sm-2
+              col-md-3
+              col-lg-4
+              col-xl-5
+              dflex
+              dflex--column"
+              >
+              <div class="title contact__title">
+                <p class="title__up contact__title-up">Have any questions?</p>
                 <h2 class="title__title">
                   GET IN
                   <span class="title__title--accented">
@@ -553,8 +585,9 @@
                 method="POST"
                 class="contact-form contact__form"
                 name="contactForm"
+                id="formContact"
               >
-                <div class="contact-form__item">
+                <div class="contact-form__item item-form">
                   <input
                     class="contact-form__input"
                     data-form="input"
@@ -565,7 +598,8 @@
                   >
                   <label for="contact-name">Name*</label>
                 </div>
-                <div class="contact-form__item">
+
+                <div class="contact-form__item item-form">
                   <input
                     class="contact-form__input"
                     data-form="input"
@@ -576,7 +610,8 @@
                   >
                   <label for="contact-email">Email*</label>
                 </div>
-                <div class="contact-form__item">
+
+                <div class="contact-form__item item-form">
                   <input
                     class="contact-form__input"
                     data-form="input"
@@ -588,7 +623,12 @@
                   >
                   <label for="contact-tel">Phone*</label>
                 </div>
-                <div class="contact-form__item contact-form__item--textarea">
+
+                <div class="
+                  contact-form__item
+                  item-form
+                  contact-form__item--textarea"
+                >
                   <textarea
                     class="contact-form__textarea"
                     name="message"
@@ -597,11 +637,22 @@
                     ></textarea>
                   <label for="contact-message">Message</label>
                 </div>
+
+              </form>
+              <div class="contact__actions">
                 <button
                   class="button contact__button"
                   type="submit"
+                  form="formContact"
                 >Contact Us</button>
-              </form>
+                <a href="#" class="contact__button-up button-up">
+                  <img
+                    src="./images/icon-arrow-top.svg"
+                    class="svg-icon"
+                    alt="Button Up"
+                  >
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -616,22 +667,22 @@
           <div class="footer__item">
             <ul class="footer__list">
               <li class="footer__list-item">
-                <a href="#" class="footer__list-link">
+                <a href="#about" class="footer__list-link">
                   About
                 </a>
               </li>
               <li class="footer__list-item">
-                <a href="#" class="footer__list-link">
+                <a href="#specs" class="footer__list-link">
                   Tech
                 </a>
               </li>
               <li class="footer__list-item">
-                <a href="#" class="footer__list-link">
+                <a href="#why" class="footer__list-link">
                   Benefits
                 </a>
               </li>
               <li class="footer__list-item">
-                <a href="#" class="footer__list-link">
+                <a href="#contacts" class="footer__list-link">
                   Contact
                 </a>
               </li>

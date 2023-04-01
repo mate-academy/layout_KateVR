@@ -119,7 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Text Area adjust height
+  // Contact form - text Area adjust height
   const messageContactForm = document.querySelector('#contact-message');
 
   messageContactForm.addEventListener('input', changeHeightTextArea, false);
@@ -128,6 +128,16 @@ document.addEventListener('DOMContentLoaded', () => {
     messageContactForm.style.height = 'auto';
     messageContactForm.style.height = (messageContactForm.scrollHeight) + 'px';
   }
+
+  // Scroll to Top Button
+
+  const buttonToTop = document.querySelector('.button-up');
+
+  buttonToTop.addEventListener('click', e => {
+    e.preventDefault();
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  });
 
   // SVG icon fill
   const svgIcons = document.querySelectorAll('.svg-icon');
