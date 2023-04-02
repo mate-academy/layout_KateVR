@@ -146,4 +146,57 @@ document.addEventListener('DOMContentLoaded', () => {
     // eslint-disable-next-line no-undef
     SVGInjector(icon);
   });
+
+  // Video modal
+  const videoModal = document.querySelector('.video-modal');
+  const videoButtonOpen = document.querySelectorAll('.open-video-modal');
+  const frameYoutube = document.querySelector('#youtube');
+  const videoButtonClose = document.querySelector('.video-modal-close');
+  const videoYouTubeAutoPlay = '?autoplay=1';
+  const videoYouTubeNoRelated = '&rel=0';
+  const videoYouTubeShowInfo = '&showinfo=0';
+
+  function closeModal() {
+    body.classList.remove('lock');
+    videoModal.classList.remove('active');
+    frameYoutube.setAttribute('src', '');
+  };
+
+  function openModalVideo(src) {
+    frameYoutube.setAttribute('src', src);
+    videoModal.classList.add('active');
+    body.classList.add('lock');
+  }
+
+  videoButtonOpen.forEach(button => {
+    button.addEventListener('click', e => {
+      e.preventDefault();
+
+      const linkYoutube = button.getAttribute('href')
+        + videoYouTubeAutoPlay + videoYouTubeNoRelated + videoYouTubeShowInfo;
+
+      openModalVideo(linkYoutube);
+    });
+  });
+
+  videoButtonClose.addEventListener('click', e => {
+    e.preventDefault();
+    closeModal();
+  });
+
+  // Listening clicks on body
+
+  body.addEventListener('click', e => {
+    e.preventDefault();
+
+    if (e.target.classList.contains('overlay')) {
+      closeModal();
+    }
+  });
+
+  body.addEventListener('keyup', e => {
+    if (e.keyCode === 27) {
+      closeModal();
+    }
+  });
 });
