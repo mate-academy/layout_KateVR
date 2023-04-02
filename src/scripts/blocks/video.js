@@ -17,8 +17,9 @@ function setupVideo(video) {
   video.addEventListener('click', () => {
     const iframe = createIframe(id);
 
-    link.remove();
-    button.remove();
+    link.style.display = 'none';
+    button.style.display = 'none';
+
     video.appendChild(iframe);
   });
 
@@ -47,7 +48,7 @@ function createIframe(id) {
 }
 
 function generateURL(id) {
-  const query = '?rel=0&showinfo=0&autoplay=1';
+  const query = '?rel=0&showinfo=0&autoplay=1&enablejsapi=1';
 
   return 'https://www.youtube.com/embed/' + id + query;
 }

@@ -1,0 +1,147 @@
+.faq {
+
+  &__title {
+    text-align: left;
+  }
+
+  &__accordion {
+    width: 100%;
+  }
+
+  &__accordion-content {
+    padding: 0 32px;
+    overflow: hidden;
+
+    border: 1px solid $contrastColor;
+    border-radius: 4px;
+
+    transition: border-color $animationDuration;
+
+    &--active {
+      padding-bottom: 18px;
+    }
+  }
+
+  &__accordion-content:first-child {
+    margin-top: 50px;
+  }
+
+  &__accordion-content:not(:first-child) {
+    margin-top: 15px;
+  }
+
+  &__accordion-title {
+    color: $contrastColor;
+    transition: color $animationDuration;
+  }
+
+  &__accordion-svg {
+    transform: rotate(-90deg);
+
+    color: $contrastColor;
+    transition: color $animationDuration;
+
+    &--active {
+      color: $contrastColor;
+      transform: rotate(0deg);
+    }
+  }
+
+  &__accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 60px;
+    cursor: pointer;
+
+    &:hover {
+
+      .faq__accordion-title {
+        color: $white;
+      }
+
+      .faq__accordion-svg {
+        color: $white;
+      }
+
+      .faq__accordion-content {
+        border: 1px solid $white;
+      }
+    }
+
+    &:active {
+
+      .faq__accordion-title {
+        color: $buttonActive;
+      }
+
+      .faq__accordion-svg {
+        color: $buttonActive;
+      }
+    }
+  }
+
+  &__accordion-description {
+    height: 0;
+
+    transition: all $animationDuration;
+  }
+
+  &__accordion-text {
+
+    &--next {
+      margin-top: 16px;
+    }
+  }
+
+  &__accordion-date {
+    display: flex;
+    gap: 4px;
+
+    margin-top: 20px;
+  }
+
+  &__accordion-date-text {
+    color: $textDarkColor;
+    transition: all $animationDuration;
+  }
+
+  &__more-link {
+    display: flex;
+    justify-content: center;
+
+    position: relative;
+    margin-top: 50px;
+
+    color: $contrastColor;
+    text-decoration: none;
+    transition: color $animationDuration;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 8px;
+      height: 6px;
+
+      position: absolute;
+      left: 50%;
+      top: 100%;
+
+      transform: translateX(-50%);
+
+      background-image: url(/images/moreButton.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &:hover {
+      color: $white;
+
+      &::after {
+        background-image: url(/images/moreButtonHover.svg);
+      }
+    }
+  }
+}
