@@ -263,11 +263,39 @@
     }
   }
 
+  // &__sticky-button {
+  //   display: block;
+  //   width: 280px;
+
+  //   position: fixed;
+  //   left: 50%;
+  //   transform: translateX(-50%);
+  //   bottom: 220px;
+
+  //   z-index: 9;
+
+  //   @include onTablet {
+  //     position: absolute;
+  //     width: 458px;
+  //     bottom: 345px;
+  //   }
+
+  //   @include onDesktop {
+  //     display: none;
+  //   }
+  // }
+
   &__sticky-button {
-    display: block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 195px;
+
     width: 280px;
 
-    position: sticky;
-    top: 530px;
+    @include onTablet {
+      width: 460px;
+      bottom: 345px;
+    }
   }
 }
