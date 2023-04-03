@@ -48,9 +48,6 @@ function closeModal(modal) {
     const link = modal.querySelector('.video__link');
     const button = modal.querySelector('.video__button');
 
-    modal.classList.remove('modal--active');
-    overlay.classList.remove('modal__overlay--active');
-
     if (iframe) {
       iframe.outerHTML = '';
     }
@@ -62,6 +59,9 @@ function closeModal(modal) {
     if (button) {
       button.style.display = 'block';
     }
+
+    modal.classList.remove('modal--active');
+    overlay.classList.remove('modal__overlay--active');
   }
 }
 
