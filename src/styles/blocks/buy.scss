@@ -113,10 +113,18 @@
 
       &-active {
         display: block;
+        width: 100%;
 
         @include onTablet {
           grid-column: 1 / 7;
-          width: 100%;
+        }
+
+        @include onDesktop {
+          grid-column: 1 / 13;
+        }
+
+        @include onLarge {
+          grid-column: 1 / 17;
         }
       }
     }
@@ -125,7 +133,7 @@
       display: none;
 
       &-active {
-        display: block;
+        display: grid;
       }
     }
 
@@ -156,10 +164,33 @@
     }
   }
 
+  &__tab-content-image--1 {
+    display: none;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+
+      display: block;
+      margin-top: 40px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+      margin-top: 124px;
+    }
+
+    @include onLarge {
+      grid-column: 1 / 9;
+      margin-top: 224px;
+    }
+  }
+
   &__tab-content-quantity-container--1 {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
+    width: 100%;
 
     margin-top: 30px;
     padding: 0 12px;
@@ -167,6 +198,10 @@
     @include onTablet {
       grid-column: 1 / 4;
       padding: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
     }
   }
 

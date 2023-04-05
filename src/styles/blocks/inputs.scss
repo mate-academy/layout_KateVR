@@ -1,0 +1,124 @@
+.form {
+
+  &__label {
+
+    &--active {
+      color: $contrastColor;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 6px 0;
+
+    outline: none;
+    background-color: transparent;
+
+    color: $white;
+    border: 0;
+    border-bottom: 1px solid $darkGray;
+
+    transition: border-color $animationDuration;
+
+    &:focus {
+      border-color: $contrastColor;
+    }
+  }
+
+  &__error {
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    color: $red;
+  }
+
+  &__control {
+    position: relative;
+
+    &--error {
+      .form__label {
+        opacity: 0;
+      }
+
+      .form__input {
+        border-color: $red;
+      }
+
+      .form__error {
+        display: block;
+      }
+    }
+
+    &--contact {
+
+      &:not(:first-of-type) {
+        margin-top: 24px;
+      }
+    }
+
+    &--buy {
+      margin-top: 30px;
+
+      &-1 {
+
+        @include onTablet {
+          grid-column: 1 / 4;
+        }
+      }
+
+      &-2 {
+
+        @include onTablet {
+          grid-column: 4 / 7;
+        }
+      }
+    }
+  }
+
+  &__textarea-label {
+
+    &--active {
+      color: $contrastColor;
+    }
+  }
+
+  &__textarea {
+    width: 100%;
+    padding: 6px 0;
+
+    height: 90px;
+
+    outline: none;
+    background-color: transparent;
+
+    color: $white;
+    border: 0;
+    border-bottom: 1px solid $darkGray;
+
+    transition: border-color $animationDuration;
+
+    &:focus {
+      border-color: $contrastColor;
+    }
+  }
+
+  &__dropdown {
+
+    &--1 {
+
+      @include onTablet {
+        grid-column: 1 / 4;
+      }
+    }
+
+    &--2 {
+
+      @include onTablet {
+        grid-column: 4 / 7;
+      }
+    }
+  }
+}

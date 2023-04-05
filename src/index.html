@@ -590,61 +590,154 @@
       </div>
 
       <div class="container grid buy__tabs-content">
-        <div class="buy__tab-content--1 buy__tab-content--1-active grid">
-          <div class="buy__tab-content-quantity-container--1">
-            <div class="dropdown">
-              <div class="dropdown__name dropdown__name--centered">
-                Quantity
+        <div class="buy__tab-content--1 buy__tab-content--1-active">
+          <form
+            class="buy__tab-content-form--1 grid"
+            action="#"
+            id="formBuy"
+          >
+            <img
+              class="buy__tab-content-image--1"
+              src="./images/heroSection/1.webp"
+              alt="Kat loco preview"
+            >
+
+            <div class="buy__tab-content-quantity-container--1">
+              <div class="dropdown">
+                <div class="dropdown__name dropdown__name--centered">
+                  Quantity
+                </div>
+
+                <div class="dropdown__container dropdown__container--small">
+                  <button type="button" class="dropdown__button dropdown__button--count">&#8212;</button>
+
+                  <ul class="dropdown__list dropdown__list--count">
+                    <li class="dropdown__list-item" data-value="1">
+                      1
+                    </li>
+
+                    <li class="dropdown__list-item" data-value="2">
+                      2
+                    </li>
+
+                    <li class="dropdown__list-item" data-value="3">
+                      3
+                    </li>
+
+                    <li class="dropdown__list-item" data-value="4">
+                      4
+                    </li>
+
+                    <li class="dropdown__list-item" data-value="5">
+                      5
+                    </li>
+
+                    <li class="dropdown__list-item" data-value="6">
+                      6
+                    </li>
+
+                    <li class="dropdown__list-item" data-value="7">
+                      7
+                    </li>
+
+                    <li class="dropdown__list-item" data-value="8">
+                      8
+                    </li>
+
+                    <li class="dropdown__list-item" data-value="9">
+                      9
+                    </li>
+
+                    <li class="dropdown__list-item" data-value="10">
+                      10
+                    </li>
+                  </ul>
+
+                  <!-- linthtml-disable -->
+                  <input
+                    class="dropdown__input dropdown__input--hidden dropdown__input--quantity"
+                    type="text"
+                    name="city"
+                    value=""
+                  >
+                  <!-- linthtml-enable -->
+                </div>
               </div>
 
-              <div class="dropdown__container dropdown__container--small">
-                <button class="dropdown__button dropdown__button--count">&#8212;</button>
+              <div class="buy__tab-quantity-price-container--1">
+                <div class="buy__tab-quantity-price-label--1">
+                  Price
+                </div>
 
-                <ul class="dropdown__list dropdown__list--count">
-                  <li class="dropdown__list-item" data-value="1">
-                    1
+                <div class="buy__tab-quantity-price-value--1">
+                  1200&#36;
+                </div>
+              </div>
+            </div>
+
+            <div class="form__control form__control--buy form__control--buy-1">
+              <label class="form__label" for="nameFirstBuy">First Name*</label>
+
+              <input
+                class="form__input"
+                type="text"
+                id="nameFirstBuy"
+                name="name"
+                autocomplete="off"
+              >
+
+              <div class="form__error">Error message</div>
+            </div>
+
+            <div class="form__control form__control--buy form__control--buy-2">
+              <label class="form__label" for="nameLastBuy">Last Name*</label>
+
+              <input
+                class="form__input"
+                type="text"
+                id="nameLastBuy"
+                name="name"
+                autocomplete="off"
+              >
+
+              <div class="form__error">Error message</div>
+            </div>
+
+            <div class="dropdown form__dropdown form__dropdown--1">
+              <div class="dropdown__container">
+                <button type="button" class="dropdown__button dropdown__button--country">Select your country</button>
+
+                <ul class="dropdown__list">
+                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Estonia">
                   </li>
 
-                  <li class="dropdown__list-item" data-value="2">
-                    2
+                  <li class="dropdown__list-item dropdown__list-item--country" data-value="USA">
                   </li>
 
-                  <li class="dropdown__list-item" data-value="3">
-                    3
+                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
                   </li>
 
-                  <li class="dropdown__list-item" data-value="4">
-                    4
+                  <!--
+                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
                   </li>
 
-                  <li class="dropdown__list-item" data-value="5">
-                    5
+                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
                   </li>
 
-                  <li class="dropdown__list-item" data-value="6">
-                    6
+                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
                   </li>
 
-                  <li class="dropdown__list-item" data-value="7">
-                    7
+                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
                   </li>
 
-                  <li class="dropdown__list-item" data-value="8">
-                    8
+                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
                   </li>
-
-                  <li class="dropdown__list-item" data-value="9">
-                    9
-                  </li>
-
-                  <li class="dropdown__list-item" data-value="10">
-                    10
-                  </li>
+                  -->
                 </ul>
 
                 <!-- linthtml-disable -->
                 <input
-                  class="dropdown__input dropdown__input--hidden dropdown__input--quantity"
+                  class="dropdown__input dropdown__input--hidden dropdown__input--country"
                   type="text"
                   name="city"
                   value=""
@@ -653,110 +746,64 @@
               </div>
             </div>
 
-            <div class="buy__tab-quantity-price-container--1">
-              <div class="buy__tab-quantity-price-label--1">
-                Price
+            <div class="dropdown form__dropdown form__dropdown--2">
+              <div class="dropdown__container">
+                <button type="button" class="dropdown__button dropdown__button--city">Select your city</button>
+
+                <!-- linthtml-disable -->
+                <ul class="dropdown__list">
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+
+                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
+                  </li>
+                </ul>
+                <!-- linthtml-enable -->
+
+                <!-- linthtml-enable -->
+                <input
+                  class="dropdown__input dropdown__input--hidden"
+                  type="text"
+                  name="city"
+                  value=""
+                >
+                <!-- linthtml-enable -->
               </div>
-
-              <div class="buy__tab-quantity-price-value--1">
-                1200&#36;
-              </div>
             </div>
-          </div>
-
-          <!-- <div class="dropdown">
-            <div class="dropdown__container">
-              <button class="dropdown__button">Select your city</button>
-
-              <ul class="dropdown__list">
-                <li class="dropdown__list-item dropdown__list-item--1" data-value="Belgorod">
-                  Belgorod
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--2" data-value="Dnipro">
-                  Dnipro
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--3" data-value="Donetsk">
-                  Donetsk
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--4" data-value="Kharkiv">
-                  Kharkiv
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--5" data-value="Krasnodar">
-                  Krasnodar
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--6" data-value="Kyiv">
-                  Kyiv
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--7" data-value="Lviv">
-                  Lviv
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--8" data-value="Mykolaiv">
-                  Mykolaiv
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--9" data-value="Odessa">
-                  Odessa
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--10" data-value="Rostov-on-Don">
-                  Rostov-on-Don
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--11" data-value="Rivne">
-                  Rivne
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--12" data-value="Sevastopol">
-                  Sevastopol
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--13" data-value="Zaporizhia">
-                  Zaporizhia
-                </li>
-              </ul>
-
-              <input
-                class="dropdown__input dropdown__input--hidden"
-                type="text"
-                name="city"
-                value=""
-              >
-            </div>
-          </div> -->
-
-          <!-- <div class="dropdown">
-            <div class="dropdown__container">
-              <button class="dropdown__button">Select your country</button>
-
-              <ul class="dropdown__list">
-                <li class="dropdown__list-item dropdown__list-item--1" data-value="Estonia">
-                  Estonia
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--2" data-value="USA">
-                  USA
-                </li>
-
-                <li class="dropdown__list-item dropdown__list-item--3" data-value="Ukraine">
-                  Ukraine
-                </li>
-              </ul>
-
-              <input
-                class="dropdown__input dropdown__input--hidden"
-                type="text"
-                name="city"
-                value=""
-              >
-            </div>
-          </div> -->
+          </form>
         </div>
 
         <div class="buy__tab-content--2"></div>
@@ -1264,57 +1311,57 @@
 
           <div class="contact__form-container">
             <form
-              class="contact__form"
-              id="form"
-              action="/"
+              class="form contact__form"
+              id="formContact"
+              action="#"
             >
-              <div class="contact__form-control">
-                <label class="contact__form-label" for="name">Name*</label>
+              <div class="form__control form__control--contact">
+                <label class="form__label" for="nameContact">Name*</label>
 
                 <input
-                  class="contact__form-input"
+                  class="form__input"
                   type="text"
-                  id="name"
+                  id="nameContact"
                   name="name"
                   autocomplete="off"
                 >
 
-                <div class="contact__form-error">Error message</div>
+                <div class="form__error">Error message</div>
               </div>
 
-              <div class="contact__form-control">
-                <label class="contact__form-label" for="email">Email*</label>
+              <div class="form__control form__control--contact">
+                <label class="form__label" for="emailContact">Email*</label>
 
                 <input
-                  class="contact__form-input"
+                  class="form__input"
                   type="text"
-                  id="email"
+                  id="emailContact"
                   name="email"
                   autocomplete="off"
                 >
 
-                <div class="contact__form-error">Error message</div>
+                <div class="form__error">Error message</div>
               </div>
 
-              <div class="contact__form-control">
-                <label class="contact__form-label" for="phone">Phone (123-456-7890)*</label>
+              <div class="form__control form__control--contact">
+                <label class="form__label" for="phoneContact">Phone (123-456-7890)*</label>
 
                 <input
-                  class="contact__form-input"
+                  class="form__input"
                   type="tel"
-                  id="phone"
+                  id="phoneContact"
                   name="phone"
                   autocomplete="off"
                 >
 
-                <div class="contact__form-error">Error message</div>
+                <div class="form__error">Error message</div>
               </div>
 
-              <div class="contact__form-control">
-                <label class="contact__form-textarea-label" for="message">Message</label>
+              <div class="form__control form__control--contact">
+                <label class="form__textarea-label" for="message">Message</label>
 
                 <input
-                  class="contact__form-textarea"
+                  class="form__textarea"
                   name="message"
                   id="message"
                   autocomplete="off"

@@ -10,6 +10,7 @@ import './blocks/modal';
 import './blocks/accordion';
 import './blocks/dropdown';
 import './blocks/quantity';
+import './blocks/countrySelect';
 
 import './blocks/formValidation';
 import './blocks/formInputshover';

@@ -1,9 +1,9 @@
 'use strict';
 
-const form = document.getElementById('form');
-const nam = document.getElementById('name');
-const email = document.getElementById('email');
-const phone = document.getElementById('phone');
+const form = document.getElementById('formContact');
+const nam = document.getElementById('nameContact');
+const email = document.getElementById('emailContact');
+const phone = document.getElementById('phoneContact');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -56,17 +56,18 @@ function checkInputs() {
 
 function setErrorFor(input, message) {
   const formControl = input.parentElement;
-  const errorMessage = formControl.querySelector('.contact__form-error');
+  const errorMessage = formControl.querySelector('.form__error');
 
   errorMessage.innerText = message;
 
-  formControl.className = 'contact__form-control contact__form-control--error';
+  // eslint-disable-next-line max-len
+  formControl.className = 'form__control form__control--error contact__form-control';
 }
 
 function setSuccessFor(input) {
   const formControl = input.parentElement;
 
-  formControl.className = 'contact__form-control';
+  formControl.className = 'form__control';
 }
 
 // eslint-disable-next-line no-shadow

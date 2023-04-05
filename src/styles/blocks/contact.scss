@@ -98,12 +98,11 @@
 
   &__form-container {
     margin-top: 32px;
+    width: 100%;
 
     @include onTablet {
       grid-column: 4 / 7;
       margin-top: 0;
-
-      width: 100%;
     }
 
     @include onDesktop {
@@ -113,95 +112,6 @@
     @include onLarge {
       grid-column: 9 / 17;
     }
-  }
-
-  &__form-label {
-
-    &--active {
-      color: $contrastColor;
-    }
-  }
-
-  &__form-textarea-label {
-
-    &--active {
-      color: $contrastColor;
-    }
-  }
-
-  &__form-input {
-    width: 100%;
-    padding: 6px 0;
-
-    outline: none;
-    background-color: transparent;
-
-    color: $white;
-    border: 0;
-    border-bottom: 1px solid $darkGray;
-
-    transition: border-color $animationDuration;
-
-    &:focus {
-      border-color: $contrastColor;
-    }
-
-  }
-
-  &__form-textarea {
-    width: 100%;
-    padding: 6px 0;
-
-    height: 90px;
-
-    outline: none;
-    background-color: transparent;
-
-    color: $white;
-    border: 0;
-    border-bottom: 1px solid $darkGray;
-
-    transition: border-color $animationDuration;
-
-    &:focus {
-      border-color: $contrastColor;
-    }
-  }
-
-  &__form-error {
-    display: none;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    color: $red;
-  }
-
-  &__form-control {
-    position: relative;
-
-    &--error {
-      .contact__form-label {
-        opacity: 0;
-      }
-
-      .contact__form-input {
-        border-color: $red;
-      }
-
-      .contact__form-textarea {
-        border-color: $red;
-      }
-
-      .contact__form-error {
-        display: block;
-      }
-    }
-  }
-
-  &__form-control:not(:first-of-type) {
-    margin-top: 24px;
   }
 
   &__buttons {
