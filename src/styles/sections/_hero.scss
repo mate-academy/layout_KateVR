@@ -1,163 +1,201 @@
 .hero {
-  // display: flex;
-  display: none;
+  display: flex;
   height: 100vh;
-  padding: 52px 0 0 ;
-  overflow-x: hidden;
+  align-items: center;
+  padding: 37px 0 46px;
 
-  @include mediaTablet {
-    align-items: center;
-  }
-
-  &__content {
-    z-index: 3;
-  }
-
-  &__image {
-    margin: 0 auto;
-    @include mediaTablet {
-      display: none;
-    }
-    img {
-      width: 100%;
-      height: 100%;
-    }
-  }
-
-  &__background {
-    @include mediaTablet {
-      position: absolute;
-      top: 0;
-      right: -35px;
-      height: 100%;
-      width: 100%;
-      background-image: url("../images/hero/hero-image-tablet.png");
-      background-position: 100% 40%;
-      background-repeat: no-repeat;
-      background-size: 66.66% auto;
-    }
-
-    @include mediaDesktop {
-      background-image: url("../images/hero/hero-image-desktop.png");
-      right: -9px;
-    }
+  @include mediaDesktop {
+    padding: 95px 0 120px !important;
+    align-items: stretch;
   }
 
   &__title {
-    margin-bottom: 17px;
+    margin: 0 0 17px;
 
     @include mediaDesktop {
-      margin-bottom: 19px;
+      margin: 0 0 19px;
     }
+
     @include mediaDesktopXL {
-      margin-bottom: 35px;
+      margin: 0 0 35px;
     }
   }
 
-  &__paragraph {
-    margin-bottom: 8px;
-    @include mediaTablet {
-      margin-bottom: 8px;
-    }
+  &__wrapper {
+    position: relative;
+
     @include mediaDesktop {
-      margin-bottom: 25px;
-    }
-    @include mediaDesktopXL {
-      margin-bottom: 30px;
+      height: 100%;
     }
   }
 
-  &__price {
-    margin-bottom: 16px;
-    @include textTypohraphy(18, 1.21, 500);
-    text-align: center;
-    color: $color-white;
+  &__main {
+    display: flex;
+    flex-direction: column-reverse;
+    z-index: 2;
 
     @include mediaTablet {
-      text-align: left;
-      margin-bottom: 23px;
+      flex-direction: row;
+      align-items: end;
+      width: 100%;
+    }
+  }
+
+  &__image {
+    position: relative;
+    width: 100%;
+    padding: 0 0 clamp(172px, 53.75%, 260px);
+
+    @include mediaTablet {
+      padding: 0 0 clamp(172px, 53.75%, 300px);
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+
+      @include mediaTablet {
+        top: 60%;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        transform: translateY(-50%);
+      }
+
+    }
+  }
+
+  &__texts {
+
+    &-price {
+      @include textTypohraphy(18, 1.2, 500);
+      color: $color-white;
+      margin: 0 0 16px;
+      text-align: center;
+
+      &::after {
+        content: "$";
+        display: inline-block;
+        margin: 0 0 0 1px;
+      }
+
+      @include mediaTablet {
+        margin: 0 0 24px;
+        text-align: left;
+      }
+
+      @include mediaDesktop {
+        margin: 0 0 20px;
+      }
+
+      @include mediaDesktop {
+        margin: 0 0 36px;
+      }
+    }
+
+    &-paragraph {
+      margin: 0 0 8px;
+
+      @include mediaDesktop {
+        margin: 0 0 30px;
+      }
+    }
+  }
+
+  &__button {
+    position: fixed;
+    z-index: 2;
+    bottom: 10px;
+    left: 20px;
+    visibility: hidden;
+    opacity: 0;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    @include mediaMobile {
+      width: calc(100% - 40px);
+    }
+
+    @include mediaTablet {
+      bottom: 30px;
     }
 
     @include mediaDesktop {
-      margin-bottom: 19px;
+      display: none;
     }
   }
 
-  &__button-play {
-    margin-bottom: 22px;
+  &__right-image {
+
+    @include mediaTablet {
+      position: absolute;
+      right: 0;
+    }
+
   }
 
-  &__bottom {
+  &__actions {
     display: none;
+    z-index: 2;
 
     @include mediaDesktop {
-      display: block;
+      display: flex;
+      flex: 1 1 auto;
+      justify-content: space-between;
+      align-self: flex-end;
+    }
+
+    &-nav {
+      display: flex;
+      gap: 39px;
+    }
+
+    &-slider-nav {
+      display: flex;
+      gap: 103px;
     }
 
     &-link {
-
       @extend .button-link;
       color: $color-white;
-      transition: color 0.3s;
+      transition: color $duration-transition;
+
       &:hover {
         color: $color-blue;
       }
 
       &--more {
         position: relative;
+        padding: 0 0 10px;
         color: $color-blue;
 
         &::after {
           content: "";
           position: absolute;
-          bottom: -13px;
-          left: 50%;
-          transform: translateX(-50%);
+          display: block;
           width: 0;
           height: 0;
+          left: 50%;
+          transform: translate(-50%, 7px);
           border-style: solid;
           border-width: 6px 4.5px 0;
           border-color: $color-blue transparent transparent transparent;
+          transition: transform $duration-transition;
+        }
+
+        &:hover {
+          &::after {
+            transform: translate(-50%, 10px);
+          }
         }
       }
     }
-
-    &-navs {
-      display: flex;
-      gap: 39px;
-    }
-
-    &-slide {
-      position: relative;
-      display: flex;
-      gap: 103px;
-
-      .link-bottom--active {
-        position: relative;
-        &::after {
-          content: "";
-          position: absolute;
-          left: 0;
-          right: 0;
-          bottom: -9px;
-          height: 1px;
-          background-color: $color-blue;
-          z-index: 2;
-        }
-
-      }
-
-      &::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        right: 0;
-        bottom: -9px;
-        height: 1px;
-        background-color: #212121;
-      }
-
-    }
-
   }
 }

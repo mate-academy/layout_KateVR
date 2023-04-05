@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body class="body">
-    <header hidden class="header">
+    <header class="header">
       <div class="container">
         <div class="header__content">
           <a href="#" class="header__logo logo">
@@ -114,62 +114,65 @@
       </div>
     </header>
     <main class="main body__main">
-      <section
-        hidden
-        class="section hero"
-      >
+
+      <section class="section hero">
         <div class="container">
-          <div class="dflex dflex--column">
-            <div class="dflex pos-relative">
-              <div class="hero__image">
-                <img src="./images/hero/hero-image-mobile.png" alt="KateVR image">
+          <div class="hero__wrapper dflex">
+            <div class="hero__main">
+              <div class="col-sm-2 col-md-3 col-lg-6 col-xl-6">
+                <div class="hero__texts">
+                  <div class="title hero__title">
+                    <h2 class="title__title--main">
+                      The new start of<br>
+                      <span class="title__title--main-accented">
+                        VR Locomotion
+                      </span>
+                    </h2>
+                  </div>
+                  <div class="
+                    hero__texts-main
+                    col-lg-offset-1
+                    col-xl-offset-1"
+                  >
+                    <p class="paragraph hero__texts-paragraph">
+                      Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!
+                    </p>
+                    <p class="hero__texts-price">1200</p>
+                    <a href="https://www.youtube.com/embed/QKm-SOOMC4c" class="button-play open-video-modal"></a>
+                  </div>
+                </div>
               </div>
-              <div class="hero__content dflex dflex--column col-md-3 col-lg-6">
-                <h1 class="hero__title title-main">
-                  THE NEW START OF <br><span class="title-main--accent">VR LOCOMOTION</span>
-                </h1>
-                <p class="paragraph hero__paragraph col-lg-offset-1 col-lg-7">
-                  Discover the most comprehensive VR Locomotion system,
-                  and unlock infinite motion in any games on any platforms!
-                </p>
-                <p class="price hero__price col-lg-offset-1">1200$</p>
-                <a href="#" class="button-play hero__button-play col-lg-offset-1"></a>
+              <div class="col-sm-2 col-md-4 col-lg-8 col-xl-12 hero__right-image">
+                <div class="hero__image">
+                  <picture>
+                    <source
+                      srcset="./images/hero/hero-image-desktop.png"
+                      type="image/png"
+                      media="(min-width:1024px)"
+                    >
+                    <source
+                      srcset="./images/hero/hero-image-tablet.png"
+                      type="image/png"
+                      media="(min-width:768px)"
+                      >
+                    <img src="./images/hero/hero-image-mobile.png" alt="KateVR Image">
+                  </picture>
+                </div>
               </div>
-              <div class="hero__background"></div>
+              <div class="col-sm-2 col-md-4 col-md-offset-1 hero__button">
+                <a href="#" class="button">Buy Now</a>
+              </div>
             </div>
-            <div class="hero__bottom">
-              <div class="dflex dflex--justify-space-between">
-                <div class="col-lg-2 col-xl-2">
-                  <div class="
-                    hero__bottom-links
-                    dflex
-                    dflex--justify-start"
-                  >
-                    <div class="hero__bottom-navs">
-                      <a href="#" class="hero__bottom-link">FAQ</a>
-                      <a href="#modal-help" class="hero__bottom-link">Help</a>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-lg-2 col-xl-2">
-                  <div class="bottom__links dflex dflex--justify-center">
-                    <a href="#more" class="hero__bottom-link hero__bottom-link--more">
-                      More
-                    </a>
-                  </div>
-                </div>
-                <div class="col-lg-3 col-xl-3">
-                  <div class="
-                    hero__bottom-links
-                    dflex
-                    dflex--justify-end"
-                  >
-                    <div class="hero__bottom-slide">
-                      <a href="#" class="hero__bottom-link link-bottom--active">Previous</a>
-                      <a href="#" class="hero__bottom-link">Next</a>
-                    </div>
-                  </div>
-                </div>
+            <div class="hero__actions">
+              <div class="hero__actions-nav">
+                <a href="#" class="hero__actions-link">FAQ</a>
+                <a href="#modal-help" class="hero__actions-link">Help</a>
+              </div>
+              <a href="#more"
+                class="hero__actions-link hero__actions-link--more">More</a>
+              <div class="hero__actions-slider-nav">
+                <a href="#" class="hero__actions-link">Previous</a>
+                <a href="#" class="hero__actions-link">Next</a>
               </div>
             </div>
           </div>
@@ -255,7 +258,7 @@
                 about__slider"
               >
                 <div class="swiper-container">
-                  <div class="swiper">
+                  <div class="swiper swiper2">
                     <div class="swiper-wrapper">
                       <div class="swiper-slide">
                         <img src="./images/about/image-1.jpg" alt="Kate VR About">
@@ -462,7 +465,7 @@
                   <span class="plus__line plus__line--hor"></span>
                   <span class="plus__line plus__line--ver"></span>
                 </div>
-                <ul class="spec__list-detailed specs__list-detailed">
+                <ul class="spec__list-detailed specs__list-detailed spec__list-detailed--left">
                   <li class="spec__list-value specs__list-value">Wireless: Bluetooth 4.2 </li>
                   <li class="spec__list-value specs__list-value">Signal range: 5m</li>
                   <li class="spec__list-value specs__list-value">Receiver: USB 2.0 and above</li>
@@ -698,6 +701,60 @@
         </div>
         <div class="overlay"></div>
       </section>
+
+      <div
+      class="modal modal-help"
+      id="modal-help"
+    >
+        <div class="top-actions">
+          <div class="menu__cross cross top-actions__item--right"></div>
+        </div>
+        <div class="container">
+          <div class="modal__items">
+            <div class="modal__item">
+              <h2 class="modal__title">
+                HOW CAN WE <span class="modal__title--important">HELP</span> YOU?
+              </h2>
+            </div>
+            <div class="modal__item">
+              <p class="modal__paragraph">
+                Welcome to our help center.
+                Our goal is to make the process of getting acquainted and purchase as easy and pleasant as possible.
+                Need help with your KAT VR loco product?
+                Many product questions can be resolved by reviewing our Product Support
+                <a href="#" class="modal__link">FAQs</a>.
+              </p>
+              <p class="modal__paragraph">
+                Please also feel free to
+                <a href="#contact-us" class="modal__link">Contact Us</a>
+                directly should you need anything further.
+                We’re happy to help.
+              </p>
+            </div>
+            <div class="modal__item">
+              <div class="modal__links modal-help__service">
+                <a href="#" class="modal__link">Instruction manual</a>
+                <a href="#" class="modal__link">Where to go for a warranty</a>
+                <a href="#" class="modal__link">Service Policy</a>
+              </div>
+            </div>
+            <div class="modal__item">
+              <div class="modal__links modal-help__contacts">
+                <a href="tel:+86-0571-86105373" class="modal__link modal__link--gray">
+                  +86-0571-86105373
+                </a>
+                <a href="mailto:global@katvr.com" class="modal__link modal__link--gray">
+                  global@katvr.com
+                </a>
+                <a href="mailto:overseas@katvr.com" class="modal__link modal__link--gray">
+                  overseas@katvr.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </main>
     <footer class="footer">
       <div class="container">
@@ -783,58 +840,7 @@
         </div>
       </div>
     </footer>
-    <div
-      class="modal modal-help"
-      id="modal-help"
-    >
-      <div class="top-actions">
-        <div class="menu__cross cross top-actions__item--right"></div>
-      </div>
-      <div class="container">
-        <div class="modal__items">
-          <div class="modal__item">
-            <h2 class="modal__title">
-              HOW CAN WE <span class="modal__title--important">HELP</span> YOU?
-            </h2>
-          </div>
-          <div class="modal__item">
-            <p class="modal__paragraph">
-              Welcome to our help center.
-              Our goal is to make the process of getting acquainted and purchase as easy and pleasant as possible.
-              Need help with your KAT VR loco product?
-              Many product questions can be resolved by reviewing our Product Support
-              <a href="#" class="modal__link">FAQs</a>.
-            </p>
-            <p class="modal__paragraph">
-              Please also feel free to
-              <a href="#contact-us" class="modal__link">Contact Us</a>
-              directly should you need anything further.
-              We’re happy to help.
-            </p>
-          </div>
-          <div class="modal__item">
-            <div class="modal__links modal-help__service">
-              <a href="#" class="modal__link">Instruction manual</a>
-              <a href="#" class="modal__link">Where to go for a warranty</a>
-              <a href="#" class="modal__link">Service Policy</a>
-            </div>
-          </div>
-          <div class="modal__item">
-            <div class="modal__links modal-help__contacts">
-              <a href="tel:+86-0571-86105373" class="modal__link modal__link--gray">
-                +86-0571-86105373
-              </a>
-              <a href="mailto:global@katvr.com" class="modal__link modal__link--gray">
-                global@katvr.com
-              </a>
-              <a href="mailto:overseas@katvr.com" class="modal__link modal__link--gray">
-                overseas@katvr.com
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <script>
       function auto_grow(element) {
         element.style.height = "5px";

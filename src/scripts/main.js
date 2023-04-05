@@ -1,19 +1,34 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
+  let widthScreen = window.innerWidth;
+  let currentScroll = window.scrollY;
+  let documentHeight = document.body.scrollHeight;
+  let totalScroll = window.scrollY + window.innerHeight;
   const burgerButtonHeader = document.querySelector('.header__burger');
   const crossButtonMenu = document.querySelectorAll('.menu__cross');
   const body = document.querySelector('.body');
   const menuHeader = document.querySelector('.header__menu');
   const menuItemHasSub = document.querySelectorAll('.menu__link--has-sub');
   const menuItemSubArrow = document.querySelectorAll('.arrow-back');
-  const plusSpec = document.querySelectorAll('.spec__plus');
+
+  window.addEventListener('resize', () => {
+    widthScreen = window.innerWidth;
+    showBuyButton(widthScreen, currentScroll, totalScroll, documentHeight);
+  });
+
+  window.addEventListener('scroll', () => {
+    currentScroll = window.scrollY;
+    documentHeight = document.body.scrollHeight;
+    totalScroll = window.scrollY + window.innerHeight;
+    showBuyButton(widthScreen, currentScroll, totalScroll, documentHeight);
+  });
 
   // Header menu
 
   burgerButtonHeader.addEventListener('click', () => {
-    body.classList.toggle('lock');
-    menuHeader.classList.toggle('active');
+    body.classList.add('lock');
+    menuHeader.classList.add('active');
   });
 
   crossButtonMenu.forEach(cross => {
@@ -23,6 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (cross.closest('.active')) {
+        body.classList.remove('lock');
         cross.closest('.active').classList.remove('active');
       }
     });
@@ -40,14 +56,41 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  //  Show fixed BUY button on mobiles and Tablet
+  const floatingBuyButton = document.querySelector('.hero__button');
+
+  function showBuyButton(windowWidth, currScroll, totScroll, docHeight) {
+    if (windowWidth < 768 && totScroll + 220 < docHeight) {
+      floatingBuyButton.classList.add('active');
+    } else if (windowWidth >= 768
+              && windowWidth < 1024 && totScroll + 50 < docHeight) {
+      // eslint-disable-next-line max-len
+      const buttonShowSectionOffsetTop = document.querySelector('#more').offsetTop;
+      // eslint-disable-next-line max-len
+      const buttonShowSectionOffsetHeight = document.querySelector('#more').offsetHeight;
+
+      // eslint-disable-next-line max-len
+      if (currScroll > (buttonShowSectionOffsetTop - buttonShowSectionOffsetHeight / 2)
+      ) {
+        floatingBuyButton.classList.add('active');
+      } else {
+        floatingBuyButton.classList.remove('active');
+      }
+    } else {
+      floatingBuyButton.classList.remove('active');
+    }
+  };
+
+  showBuyButton(widthScreen, currentScroll, totalScroll, documentHeight);
+
   // Slider
   // eslint-disable-next-line no-undef
-  const swiper = new Swiper('.swiper', {
+  const swiper = new Swiper('.swiper2', {
     pagination: {
-      el: '.swiper-pagination',
+      el: '.swiper-pagination2',
     },
     breakpoints: {
-      1280: {
+      1024: {
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev',
@@ -77,13 +120,41 @@ document.addEventListener('DOMContentLoaded', () => {
   showSlidesNumbers();
 
   // Specs show
+  const plusSpec = document.querySelectorAll('.spec__plus');
+  let specOpened = false;
 
   plusSpec.forEach(plus => {
-    plus.addEventListener('click', () => {
-      plus.classList.toggle('active');
-      plus.parentElement.classList.toggle('active');
+    plus.addEventListener('click', (e) => {
+      const targetPlus = e.target;
+
+      if (!specOpened) {
+        openSpec(targetPlus);
+      }
+
+      if (specOpened) {
+        if (targetPlus.classList.contains('active')) {
+          closeSpec(targetPlus);
+        } else {
+          const activePlus = document.querySelector('.plus.active');
+
+          closeSpec(activePlus);
+          specOpened = !specOpened;
+          openSpec(targetPlus);
+        }
+      }
+      specOpened = !specOpened;
     });
   });
+
+  function closeSpec(specButton) {
+    specButton.classList.remove('active');
+    specButton.parentElement.classList.remove('active');
+  }
+
+  function openSpec(specButton) {
+    specButton.classList.add('active');
+    specButton.parentElement.classList.add('active');
+  }
 
   // Contact form
   const contactForm = document.querySelector('.contact__form');
@@ -187,8 +258,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Listening clicks on body
 
   body.addEventListener('click', e => {
-    e.preventDefault();
-
     if (e.target.classList.contains('overlay')) {
       closeModal();
     }
@@ -196,6 +265,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   body.addEventListener('keyup', e => {
     if (e.keyCode === 27) {
+      if (window.location.hash) {
+        window.location.hash = '';
+      };
       closeModal();
     }
   });

@@ -72,7 +72,7 @@
     margin: 0 auto;
     max-width: 194px;
     width: 100%;
-    z-index: 2;
+    z-index: 1;
 
     @include mediaTablet {
       max-width: 357px;
@@ -187,6 +187,11 @@
       opacity: 0;
       visibility: hidden;
       transition: all $duration-transition;
+
+      &--left {
+        transform: translateX(100%);
+      }
+
       @include mediaDesktop {
         position: relative;
         transform: translateX(0);
