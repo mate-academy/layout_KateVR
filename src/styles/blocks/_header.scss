@@ -147,6 +147,16 @@
   background-color: transparent;
   z-index: 3;
 
+  &.active &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+  }
+
   @include mediaTablet {
     height: 47px;
     padding: 30px 0 0;
@@ -182,6 +192,7 @@
     left: 0;
     right: 0;
     height: 100vh;
+    overflow-y: auto;
     transform: translateX(-100%);
     background-color: $color-background-menu;
     transition: transform $duration-transition;
@@ -206,6 +217,16 @@
       &.active {
         transform: translateX(0);
       }
+
+      @include mediaTablet {
+        min-height: 50vh;
+        height: max-content;
+      }
+    }
+
+    @include mediaTablet {
+      min-height: 50vh;
+      height: max-content;
     }
 
     @include mediaDesktop {
@@ -216,6 +237,7 @@
       justify-content: flex-end;
       margin: 0 35px 0 0;
       height: max-content;
+      min-height: auto;
       background-color: transparent;
     }
   }

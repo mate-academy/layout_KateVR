@@ -1,19 +1,24 @@
 'use strict';
 
 document.addEventListener('DOMContentLoaded', () => {
-  let widthScreen = window.innerWidth;
-  let currentScroll = window.scrollY;
-  let documentHeight = document.body.scrollHeight;
-  let totalScroll = window.scrollY + window.innerHeight;
   const burgerButtonHeader = document.querySelector('.header__burger');
   const crossButtonMenu = document.querySelectorAll('.menu__cross');
   const body = document.querySelector('.body');
+  const header = document.querySelector('.header');
   const menuHeader = document.querySelector('.header__menu');
   const menuItemHasSub = document.querySelectorAll('.menu__link--has-sub');
   const menuItemSubArrow = document.querySelectorAll('.arrow-back');
+  let widthScreen = window.innerWidth;
+  let bodyWidth = body.offsetWidth;
+  let currentScroll = window.scrollY;
+  let documentHeight = document.body.scrollHeight;
+  let totalScroll = window.scrollY + window.innerHeight;
+  const paddingLock = (widthScreen - bodyWidth) + 'px';
+  let locked = false;
 
   window.addEventListener('resize', () => {
     widthScreen = window.innerWidth;
+    bodyWidth = body.offsetWidth;
     showBuyButton(widthScreen, currentScroll, totalScroll, documentHeight);
   });
 
@@ -24,10 +29,22 @@ document.addEventListener('DOMContentLoaded', () => {
     showBuyButton(widthScreen, currentScroll, totalScroll, documentHeight);
   });
 
+  function lockBody(lockBodyTrigger = false) {
+    body.style.paddingRight = paddingLock;
+    body.classList.add('lock');
+  }
+
+  function unlockBody(unlockBodyTrigger = true) {
+    body.classList.remove('lock');
+    body.style.paddingRight = '';
+  }
+
   // Header menu
 
   burgerButtonHeader.addEventListener('click', () => {
-    body.classList.add('lock');
+    locked = true;
+    lockBody(locked);
+    header.classList.add('active');
     menuHeader.classList.add('active');
   });
 
@@ -38,7 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       if (cross.closest('.active')) {
-        body.classList.remove('lock');
+        locked = false;
+        unlockBody(!locked);
+        header.classList.remove('active');
         cross.closest('.active').classList.remove('active');
       }
     });
@@ -218,57 +237,250 @@ document.addEventListener('DOMContentLoaded', () => {
     SVGInjector(icon);
   });
 
-  // Video modal
-  const videoModal = document.querySelector('.video-modal');
-  const videoButtonOpen = document.querySelectorAll('.open-video-modal');
-  const frameYoutube = document.querySelector('#youtube');
-  const videoButtonClose = document.querySelector('.video-modal-close');
+  // Modal windows (faq, help, etc)
+  const openModalLinks = document.querySelectorAll('.modal-link');
+  const openModalLinksVideo = document.querySelectorAll('.modal-link-video');
+  const closeModalIcons = document.querySelectorAll('.modal__cross-close');
+  const frameVideo = document.querySelector('#youtube');
   const videoYouTubeAutoPlay = '?autoplay=1';
   const videoYouTubeNoRelated = '&rel=0';
   const videoYouTubeShowInfo = '&showinfo=0';
 
-  function closeModal() {
-    body.classList.remove('lock');
-    videoModal.classList.remove('active');
-    frameYoutube.setAttribute('src', '');
-  };
+  openModalLinks.forEach(openModalLink => {
+    openModalLink.addEventListener('click', (e) => {
+      const modalLink = openModalLink.getAttribute('href').replace('#', '');
+      const targetModalWindow = document.getElementById(modalLink);
 
-  function openModalVideo(src) {
-    frameYoutube.setAttribute('src', src);
-    videoModal.classList.add('active');
-    body.classList.add('lock');
-  }
-
-  videoButtonOpen.forEach(button => {
-    button.addEventListener('click', e => {
+      openModalWindow(targetModalWindow);
       e.preventDefault();
-
-      const linkYoutube = button.getAttribute('href')
-        + videoYouTubeAutoPlay + videoYouTubeNoRelated + videoYouTubeShowInfo;
-
-      openModalVideo(linkYoutube);
     });
   });
 
-  videoButtonClose.addEventListener('click', e => {
-    e.preventDefault();
-    closeModal();
+  openModalLinksVideo.forEach(openModalLinkVideo => {
+    openModalLinkVideo.addEventListener('click', (e) => {
+      e.preventDefault();
+
+      const linkVideo = openModalLinkVideo.getAttribute('href')
+        + videoYouTubeAutoPlay + videoYouTubeNoRelated + videoYouTubeShowInfo;
+
+      frameVideo.setAttribute('src', linkVideo);
+
+      const targetModalWindowVideo = document.getElementById('modal-video');
+
+      openModalWindow(targetModalWindowVideo);
+    });
   });
 
-  // Listening clicks on body
+  closeModalIcons.forEach(closeModalIcon => {
+    closeModalIcon.addEventListener('click', (e) => {
+      const currentOpenedModal = closeModalIcon.closest('.modal');
 
-  body.addEventListener('click', e => {
-    if (e.target.classList.contains('overlay')) {
-      closeModal();
+      closeModalWindow(currentOpenedModal);
+    });
+  });
+
+  function openModalWindow(modal) {
+    if (!locked) {
+      lockBody(true);
+    }
+    modal.style.paddingRight = paddingLock;
+    modal.classList.add('opened');
+
+    modal.addEventListener('click', (e) => {
+      if (!e.target.closest('.modal__wrapper')) {
+        closeModalWindow(modal);
+      }
+    });
+  };
+
+  function closeModalWindow(modal) {
+    if (modal.classList.contains('modal-video')) {
+      frameVideo.setAttribute('src', '');
+    }
+    modal.style.paddingRight = '0px';
+    modal.classList.remove('opened');
+
+    if (!locked) {
+      unlockBody(true);
+    }
+  }
+
+  // Accordion
+  const accordion = document.querySelector('.accordion');
+  const accordionItem = document.querySelectorAll('.accordion__item');
+  let accordionItemOpened = false;
+
+  accordionItem.forEach(accordItem => {
+    accordItem.addEventListener('click', (e) => {
+      const currentItem = e.target.closest('.accordion__item');
+      let activeItem = accordion.querySelector('.accordion__item.opened');
+
+      if (activeItem !== currentItem && accordionItemOpened) {
+        closeAccordion(activeItem);
+        openAccordion(currentItem);
+      }
+
+      if (activeItem === currentItem) {
+        closeAccordion(accordItem);
+        activeItem = currentItem;
+        accordionItemOpened = false;
+      }
+
+      if (!activeItem && !accordionItemOpened) {
+        openAccordion(accordItem);
+        accordionItemOpened = true;
+      }
+    });
+  });
+
+  function openAccordion(item) {
+    const itemContent = item.querySelector('.accordion__item-content');
+
+    item.classList.add('opened');
+    itemContent.style.maxHeight = itemContent.scrollHeight + 'px';
+  };
+
+  function closeAccordion(item) {
+    const itemContent = item.querySelector('.accordion__item-content');
+
+    item.classList.remove('opened');
+    itemContent.style.maxHeight = null;
+  }
+
+  // Tabs
+  const tabsProgressItems = document.querySelectorAll('.tabs__progress-item');
+  const tabsCarouselItem = document.querySelectorAll('.tabs__carousel-item');
+  const tabsButtonsNext = document.querySelectorAll('.tabs__button-next');
+
+  function offsetCarousel(n) {
+    const tabsCarousel = document.querySelector('.tabs__carousel-inner');
+    const targetTab = tabsCarouselItem[n];
+
+    tabsCarousel.style.transform
+      = `translateX(-${(n) * targetTab.offsetWidth}px)`;
+  }
+
+  function showCurrentProgressPosition(n) {
+    const targetProgressItem = tabsProgressItems[n];
+
+    targetProgressItem.classList.add('active');
+  }
+
+  function hidePrevProgressPosition(n) {
+    const targetProgressItem = tabsProgressItems[n];
+
+    targetProgressItem.classList.remove('active');
+  }
+
+  for (let i = 0; i < tabsButtonsNext.length; i++) {
+    tabsButtonsNext[i].addEventListener('click', (e) => {
+      if (i === tabsButtonsNext.length - 1) {
+        const openedModalBuy = tabsButtonsNext[i].closest('.modal');
+
+        closeModalWindow(openedModalBuy);
+        offsetCarousel(0);
+        hidePrevProgressPosition(i);
+        showCurrentProgressPosition(0);
+        e.preventDefault();
+      };
+
+      if (i < tabsButtonsNext.length - 1) {
+        hidePrevProgressPosition(i);
+        offsetCarousel(i + 1);
+        showCurrentProgressPosition(i + 1);
+        e.preventDefault();
+      };
+    });
+  }
+
+  // Dropdown options
+  const dropdownOptions = document.querySelectorAll('.dropdown__option');
+  const dropdownIconOpen = document.querySelectorAll('.dropdown__input-icon');
+
+  function openCloseDropdown(targetDropdown) {
+    targetDropdown.classList.toggle('opened');
+  };
+
+  function pasteSelectedValue(targetInput, inputValue) {
+    targetInput.value = inputValue;
+
+    // fix first loading
+    if (targetInput.closest('.dropdown.opened')) {
+      openCloseDropdown(targetInput.closest('.dropdown'));
+    }
+  };
+
+  dropdownIconOpen.forEach(icon => {
+    icon.addEventListener('click', e => {
+      const parentDropdown = e.target.closest('.dropdown');
+
+      openCloseDropdown(parentDropdown);
+    });
+  });
+
+  dropdownOptions.forEach(option => {
+    option.addEventListener('click', e => {
+      const selectedValue = e.target.textContent.trim();
+      const selectedValueRelatedInput
+        = e.target.closest('.dropdown').querySelector('.dropdown__input');
+
+      pasteSelectedValue(selectedValueRelatedInput, selectedValue);
+    });
+  });
+
+  // Paste initial values into dropdowns
+
+  function initialValuesInDropdowns() {
+    const dropdowns = document.querySelectorAll('.dropdown');
+
+    dropdowns.forEach(dropdawn => {
+      const dropdownInput = dropdawn.querySelector('.dropdown__input');
+      const dropdownInitialValue
+        = dropdawn.querySelector('.dropdown__option').textContent.trim();
+
+      pasteSelectedValue(dropdownInput, dropdownInitialValue);
+    });
+  }
+
+  initialValuesInDropdowns();
+
+  // Calc item price in purchase menu
+  const purchaseItemQty = document.getElementById('purchase-item-qty');
+  const purchaseItemQtySelected
+    = document.querySelectorAll('.purchase-item-selected');
+  const puchaseTotalPrice
+    = document.getElementById('purchase-item__info-price');
+
+  const basePrice = 800;
+
+  purchaseItemQty.addEventListener('input', e => {
+    if (!e.target.value) {
+      pasteTotalPrice(0);
+    } else {
+      pasteTotalPrice(e.target.value);
     }
   });
+
+  purchaseItemQtySelected.forEach(selected => {
+    selected.addEventListener('click', e => {
+      const selectedQty = e.target.textContent.trim();
+
+      pasteTotalPrice(selectedQty);
+      e.preventDefault();
+    });
+  });
+
+  function pasteTotalPrice(qty) {
+    puchaseTotalPrice.textContent = parseInt(qty) * basePrice;
+  }
+
+  // Listening clicks on body
 
   body.addEventListener('keyup', e => {
     if (e.keyCode === 27) {
       if (window.location.hash) {
         window.location.hash = '';
       };
-      closeModal();
     }
   });
 });

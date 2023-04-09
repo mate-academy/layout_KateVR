@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 
-<!-- 677 678px -->
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KateVR</title>
+    <link
+      rel="icon"
+      href="./images/favicon.svg"
+      type="image/svg+xml"
+    >
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css">
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body class="body">
     <header class="header">
-      <div class="container">
+
+      <div class="container header__container">
         <div class="header__content">
           <a href="#" class="header__logo logo">
             <img src="./images/logo.svg" alt="KatVR">
@@ -37,7 +42,7 @@
           </div>
           <nav class="header__menu menu">
             <div class="top-actions header__top-actions">
-              <div class="menu__cross cross top-actions__item--right"></div>
+              <div class="menu__cross cross-close top-actions__item--right"></div>
             </div>
             <ul class="menu__list header__list">
               <li class="menu__item">
@@ -102,16 +107,17 @@
                 </ul>
               </li>
               <li class="menu__item menu__item--desktop-hidden">
-                <a href="#" class="menu__link link-menu">FAQ</a>
+                <a href="#modal-faq" class="menu__link modal-link link-menu">FAQ</a>
               </li>
               <li class="menu__item menu__item--desktop-hidden">
-                <a href="#modal-help" class="menu__link link-menu">Help</a>
+                <a href="#modal-help" class="menu__link modal-link link-menu">Help</a>
               </li>
             </ul>
           </nav>
-          <a href="#" class="button header__button">Buy Now</a>
+          <a href="#buy" class="button header__button">Buy Now</a>
         </div>
       </div>
+      <div class="header__overlay"></div>
     </header>
     <main class="main body__main">
 
@@ -138,7 +144,7 @@
                       Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!
                     </p>
                     <p class="hero__texts-price">1200</p>
-                    <a href="https://www.youtube.com/embed/QKm-SOOMC4c" class="button-play open-video-modal"></a>
+                    <a href="https://www.youtube.com/embed/QKm-SOOMC4c" class="button-play modal-link-video"></a>
                   </div>
                 </div>
               </div>
@@ -160,13 +166,13 @@
                 </div>
               </div>
               <div class="col-sm-2 col-md-4 col-md-offset-1 hero__button">
-                <a href="#" class="button">Buy Now</a>
+                <a href="#modal-buy" class="button modal-link">Buy Now</a>
               </div>
             </div>
             <div class="hero__actions">
               <div class="hero__actions-nav">
-                <a href="#" class="hero__actions-link">FAQ</a>
-                <a href="#modal-help" class="hero__actions-link">Help</a>
+                <a href="#modal-faq" class="hero__actions-link modal-link">FAQ</a>
+                <a href="#modal-help" class="hero__actions-link modal-link">Help</a>
               </div>
               <a href="#more"
                 class="hero__actions-link hero__actions-link--more">More</a>
@@ -245,8 +251,6 @@
             <h2 class="section__title about__title about__title--mobile">
               About <span class="section__title--important">Product</span>
             </h2>
-
-
             <div class="dflex dflex--justify-space-between">
               <div class="
                 col-sm-2
@@ -312,7 +316,7 @@
                 </p>
                 <a
                   href="https://www.youtube.com/embed/LpQYs54IY5Q"
-                  class="button-play open-video-modal"
+                  class="button-play modal-link-video"
                 ></a>
               </div>
             </div>
@@ -548,6 +552,7 @@
               </div>
             </div>
           </div>
+          <a href="#buy" class="button why__button">Buy Now</a>
         </div>
       </section>
 
@@ -682,10 +687,10 @@
         </div>
       </section>
 
-      <section class="video-modal">
+      <section class="video-modal1 modal1">
         <div id="video-modal-content" class="video-modal-content">
           <iframe
-          id="youtube"
+          id="youtube123"
           width="100%"
           height="100%"
           allow="autoplay"
@@ -699,56 +704,281 @@
             >
           </a>
         </div>
-        <div class="overlay"></div>
       </section>
 
-      <div
-      class="modal modal-help"
-      id="modal-help"
-    >
-        <div class="top-actions">
-          <div class="menu__cross cross top-actions__item--right"></div>
+      <div class="modal modal-video" id="modal-video">
+        <div class="modal__wrapper modal__wrapper--video">
+          <div class="modal__top-actions modal__top-actions--video">
+            <div class="modal__cross-close cross-close"></div>
+          </div>
+          <div class="modal__content modal__content--video">
+            <iframe
+            id="youtube"
+            width="100%"
+            height="100%"
+            allow="autoplay"
+            allowfullscreen
+            ></iframe>
+            </a>
+          </div>
         </div>
-        <div class="container">
-          <div class="modal__items">
-            <div class="modal__item">
-              <h2 class="modal__title">
-                HOW CAN WE <span class="modal__title--important">HELP</span> YOU?
-              </h2>
-            </div>
-            <div class="modal__item">
-              <p class="modal__paragraph">
-                Welcome to our help center.
-                Our goal is to make the process of getting acquainted and purchase as easy and pleasant as possible.
-                Need help with your KAT VR loco product?
-                Many product questions can be resolved by reviewing our Product Support
-                <a href="#" class="modal__link">FAQs</a>.
-              </p>
-              <p class="modal__paragraph">
-                Please also feel free to
-                <a href="#contact-us" class="modal__link">Contact Us</a>
-                directly should you need anything further.
-                We’re happy to help.
-              </p>
-            </div>
-            <div class="modal__item">
-              <div class="modal__links modal-help__service">
-                <a href="#" class="modal__link">Instruction manual</a>
-                <a href="#" class="modal__link">Where to go for a warranty</a>
-                <a href="#" class="modal__link">Service Policy</a>
+      </div>
+
+      <div class="modal modal-help" id="modal-help">
+        <div class="modal__wrapper">
+          <div class="modal__top-actions">
+            <div class="modal__cross-close cross-close"></div>
+          </div>
+          <div class="modal__content">
+            <div class="modal__items">
+              <div class="modal__item">
+                <h2 class="modal__title">
+                  HOW CAN WE <span class="modal__title--important">HELP</span> YOU?
+                </h2>
+              </div>
+              <div class="modal__item">
+                <p class="modal__paragraph">
+                  Welcome to our help center.
+                  Our goal is to make the process of getting acquainted and purchase as easy and pleasant as possible.
+                  Need help with your KAT VR loco product?
+                  Many product questions can be resolved by reviewing our Product Support
+                  <a href="#" class="modal__link">FAQs</a>.
+                </p>
+                <p class="modal__paragraph">
+                  Please also feel free to
+                  <a href="#contact-us" class="modal__link">Contact Us</a>
+                  directly should you need anything further.
+                  We’re happy to help.
+                </p>
+              </div>
+              <div class="modal__item">
+                <div class="modal__links modal-help__service">
+                  <a href="#" class="modal__link">Instruction manual</a>
+                  <a href="#" class="modal__link">Where to go for a warranty</a>
+                  <a href="#" class="modal__link">Service Policy</a>
+                </div>
+              </div>
+              <div class="modal__item">
+                <div class="modal__links modal-help__contacts">
+                  <a href="tel:+86-0571-86105373" class="modal__link modal__link--gray">
+                    +86-0571-86105373
+                  </a>
+                  <a href="mailto:global@katvr.com" class="modal__link modal__link--gray">
+                    global@katvr.com
+                  </a>
+                  <a href="mailto:overseas@katvr.com" class="modal__link modal__link--gray">
+                    overseas@katvr.com
+                  </a>
+                </div>
               </div>
             </div>
-            <div class="modal__item">
-              <div class="modal__links modal-help__contacts">
-                <a href="tel:+86-0571-86105373" class="modal__link modal__link--gray">
-                  +86-0571-86105373
-                </a>
-                <a href="mailto:global@katvr.com" class="modal__link modal__link--gray">
-                  global@katvr.com
-                </a>
-                <a href="mailto:overseas@katvr.com" class="modal__link modal__link--gray">
-                  overseas@katvr.com
-                </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal modal-faq" id="modal-faq">
+        <div class="modal__wrapper">
+          <div class="modal__top-actions">
+            <div class="modal__cross-close cross-close"></div>
+          </div>
+          <div class="modal__content">
+            <div class="title modal__title">
+              <h2 class="title__title">
+                Frequently asked
+                <span class="title__title--accented">
+                  Questions
+                </span>
+              </h2>
+            </div>
+            <div class="accordion">
+              <div class="accordion__item">
+                <button class="accordion__item-label">
+                  What makes KAT loco different from other systems?
+                </button>
+                <div class="accordion__item-content">
+                  <p class="accordion__item-paragraph">
+                    Despite being approached from many different angles,
+                    all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an
+                    optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution
+                    for an affordable price what makes it a perfect choice for home-use.
+                    It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!
+                  </p>
+                  <p class="accordion__item-updated">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </div>
+              <div class="accordion__item">
+                <button class="accordion__item-label">
+                  Will it decrease my motion sickness?
+                </button>
+                <div class="accordion__item-content">
+                  <p class="accordion__item-paragraph">
+                    Despite being approached from many different angles,
+                    all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an
+                    optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution
+                    for an affordable price what makes it a perfect choice for home-use.
+                    It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!
+                  </p>
+                  <p class="accordion__item-updated">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </div>
+              <div class="accordion__item">
+                <button class="accordion__item-label">
+                  Which VR headsets is it compatible with?
+                </button>
+                <div class="accordion__item-content">
+                  <p class="accordion__item-paragraph">
+                    Despite being approached from many different angles,
+                    all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an
+                    optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution
+                    for an affordable price what makes it a perfect choice for home-use.
+                    It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!
+                  </p>
+                  <p class="accordion__item-updated">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </div>
+              <div class="accordion__item">
+                <button class="accordion__item-label">
+                  Is it compatible with Oculus Quest?
+                </button>
+                <div class="accordion__item-content">
+                  <p class="accordion__item-paragraph">
+                    Despite being approached from many different angles,
+                    all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an
+                    optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution
+                    for an affordable price what makes it a perfect choice for home-use.
+                    It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!
+                  </p>
+                  <p class="accordion__item-updated">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal modal-buy" id="modal-buy">
+        <div class="modal__wrapper modal-buy__wrapper">
+          <div class="modal__top-actions modal-buy__top-actions">
+            <a href="#" class="modal-buy__logo logo">
+              <img src="./images/logo.svg" alt="KatVR">
+            </a>
+            <div class="modal__cross-close cross-close"></div>
+          </div>
+          <div class="tabs">
+            <div class="tabs__wrapper">
+              <ul class="tabs__progress">
+                <li class="tabs__progress-item active">Place Order</li>
+                <li class="tabs__progress-item">Pay</li>
+                <li class="tabs__progress-item">Complete</li>
+              </ul>
+              <div class="tabs__content">
+                <div class="tabs__wrapper-with-static">
+                  <div class="tabs__static">
+                    <div class="purchase-item">
+                      <div class="purchase-item__image"></div>
+                      <div class="purchase-item__info">
+                        <div class="purchase-item__info-item">
+                          <p class="purchase-item__info-label">
+                            Quantity
+                          </p>
+                          <div class="dropdown">
+                            <div class="dropdown__input-container">
+                              <input
+                              type="number"
+                              class="dropdown__input"
+                              id="purchase-item-qty"
+                              >
+                              <span class="dropdown__input-icon">
+                                <div class="triangle"></div>
+                              </span>
+                            </div>
+                            <ul class="dropdown__options">
+                              <li class="
+                                dropdown__option
+                                dropdown__option--center
+                                purchase-item-selected
+                              ">
+                                1
+                              </li>
+                              <li class="
+                                dropdown__option
+                                dropdown__option--center
+                                purchase-item-selected
+                              ">
+                                2
+                              </li>
+                              <li class="
+                                dropdown__option
+                                dropdown__option--center
+                                purchase-item-selected
+                              ">
+                                3
+                              </li>
+                              <li class="
+                                dropdown__option
+                                dropdown__option--center
+                                purchase-item-selected
+                              ">
+                                4
+                              </li>
+                              <li class="
+                                dropdown__option
+                                dropdown__option--center
+                                purchase-item-selected
+                              ">
+                                5
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div class="purchase-item__info-item">
+                          <p class="purchase-item__info-label">
+                            Price
+                          </p>
+                          <p class="purchase-item__info-price"
+                            id="purchase-item__info-price"
+                          >
+                            600
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tabs__dynamic">
+                    <form
+                      action="#"
+                      method="POST"
+                      class="tabs__form"
+                      name="purchaseForm"
+                      id="purchaseFrom"
+                    >
+                      <div class="tabs__carousel">
+                        <div class="tabs__carousel-inner">
+                          <div class="tabs__carousel-item purchase active">
+                            <h2>TAB1</h2>
+                            <a href="#" class="button tabs__button-next">Purchase</a>
+                          </div>
+                          <div class="tabs__carousel-item">
+                            <h2>TAB2</h2>
+                            <a href="#" class="button tabs__button-next">Purchase</a>
+                          </div>
+                          <div class="tabs__carousel-item">
+                            <h2>TAB3</h2>
+                            <a href="#" class="button tabs__button-next">Purchase</a>
+                          </div>
+                        </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

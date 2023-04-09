@@ -1,5 +1,11 @@
 .why {
 
+  &__items {
+    @include mediaDesktop {
+      margin: 0 0 90px;
+    }
+  }
+
   &__item {
     display: flex;
 
@@ -18,6 +24,15 @@
     @include mediaDesktop {
       text-align: center;
       margin: 0 0 82px;
+    }
+  }
+
+  &__button {
+    display: none;
+    @include mediaDesktop {
+      display: block;
+      margin: 0 auto;
+      width: 200px;
     }
   }
 }
