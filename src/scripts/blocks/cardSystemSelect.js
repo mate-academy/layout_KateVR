@@ -5,7 +5,6 @@ const cardNumberPayIndicator = document.querySelector('.form__card-indicator');
 
 const cardNumberPayAllInputs = document.querySelectorAll('.form__input--card');
 const cardNumberPayAllLabel = document.querySelector('.form__label--pay');
-// const cardHolderNamePay = document.getElementById('cardHolderPay');
 
 cardNumberPayFirstInput.addEventListener('focusout', () => {
   if (cardNumberPayFirstInput.value[0] === '3') {
@@ -42,10 +41,6 @@ for (let i = 0; i < cardNumberPayAllInputs.length; i++) {
         cardNumberPayNextInput.focus();
         cardNumberPayAllLabel.classList.add('form__label--active');
       }
-      // else {
-      // cardNumberPayAllLabel.classList.remove('form__label--active');
-      // cardHolderNamePay.focus();
-      // }
     }
   });
 }
