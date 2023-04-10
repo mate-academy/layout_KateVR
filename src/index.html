@@ -35,68 +35,67 @@
     >
   </head>
   <body class="page__body">
-
-    <nav class="header__nav">
-      <div class="container header__nav-container">
-        <a href="#" class="header__logo-link">
-          <img
-            class="header__logo-image"
-            src="./images/logo.svg"
-            alt="KatVR logo"
-          >
-        </a>
-
-        <div class="header__content">
-          <ul class="header__nav-list">
-            <li class="header__nav-list-item">
-              <a
-                class="header__nav-list-link"
-                href="#about"
-                aria-label="Link to about section"
-              >
-                About
-              </a>
-            </li>
-
-            <li class="header__nav-list-item">
-              <a
-                class="header__nav-list-link"
-                href="#tech"
-                aria-label="Link to tech specs section"
-              >
-                Tech
-              </a>
-            </li>
-
-            <li class="header__nav-list-item">
-              <a
-                class="header__nav-list-link"
-                href="#benefits"
-                aria-label="Link to benefitssection"
-              >
-                Benefits
-              </a>
-            </li>
-
-            <li class="header__nav-list-item">
-              <a
-                class="header__nav-list-link"
-                href="#contact"
-                aria-label="Link to contact section"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-
-          <a href="#buy" class="button header__button">
-            Buy Now
-          </a>
-        </div>
-      </div>
-    </nav>
-
     <header class="header" id="header">
+      <nav class="header__nav">
+        <div class="container header__nav-container">
+          <a href="#" class="header__logo-link">
+            <img
+              class="header__logo-image"
+              src="./images/logo.svg"
+              alt="KatVR logo"
+            >
+          </a>
+
+          <div class="header__content">
+            <ul class="header__nav-list">
+              <li class="header__nav-list-item">
+                <a
+                  class="header__nav-list-link"
+                  href="#about"
+                  aria-label="Link to about section"
+                >
+                  About
+                </a>
+              </li>
+
+              <li class="header__nav-list-item">
+                <a
+                  class="header__nav-list-link"
+                  href="#tech"
+                  aria-label="Link to tech specs section"
+                >
+                  Tech
+                </a>
+              </li>
+
+              <li class="header__nav-list-item">
+                <a
+                  class="header__nav-list-link"
+                  href="#benefits"
+                  aria-label="Link to benefitssection"
+                >
+                  Benefits
+                </a>
+              </li>
+
+              <li class="header__nav-list-item">
+                <a
+                  class="header__nav-list-link"
+                  href="#contact"
+                  aria-label="Link to contact section"
+                >
+                  Contact
+                </a>
+              </li>
+            </ul>
+
+            <a href="#buy" class="button header__button">
+              Buy Now
+            </a>
+          </div>
+        </div>
+      </nav>
+
       <div class="container grid">
         <div class="top-actions top-actions--mobile">
           <a
@@ -590,223 +589,408 @@
       </div>
 
       <div class="container grid buy__tabs-content">
-        <div class="buy__tab-content--1 buy__tab-content--1-active">
+        <div class="buy__tab-content--1">
           <form
             class="buy__tab-content-form--1 grid"
             action="#"
             id="formBuy"
           >
-            <img
-              class="buy__tab-content-image--1"
-              src="./images/heroSection/1.webp"
-              alt="Kat loco preview"
-            >
+            <div class="buy__tab-additional">
+              <img
+                class="buy__tab-content-image buy__tab-content-image--second-tab"
+                src="./images/heroSection/1.webp"
+                alt="Kat loco preview"
+              >
 
-            <div class="buy__tab-content-quantity-container--1">
-              <div class="dropdown">
-                <div class="dropdown__name dropdown__name--centered">
-                  Quantity
+              <div class="buy__tab-content-quantity-container">
+                <div class="dropdown dropdown--width-small">
+                  <div class="dropdown__name dropdown__name--centered">
+                    Quantity
+                  </div>
+
+                  <div class="form__error">Error message</div>
+
+                  <div class="dropdown__container dropdown__container--small">
+                    <button type="button" class="dropdown__button dropdown__button--count">&#8212;</button>
+
+                    <ul class="dropdown__list dropdown__list--count">
+                      <li class="dropdown__list-item" data-value="1">
+                        1
+                      </li>
+
+                      <li class="dropdown__list-item" data-value="2">
+                        2
+                      </li>
+
+                      <li class="dropdown__list-item" data-value="3">
+                        3
+                      </li>
+
+                      <li class="dropdown__list-item" data-value="4">
+                        4
+                      </li>
+
+                      <li class="dropdown__list-item" data-value="5">
+                        5
+                      </li>
+
+                      <li class="dropdown__list-item" data-value="6">
+                        6
+                      </li>
+
+                      <li class="dropdown__list-item" data-value="7">
+                        7
+                      </li>
+
+                      <li class="dropdown__list-item" data-value="8">
+                        8
+                      </li>
+
+                      <li class="dropdown__list-item" data-value="9">
+                        9
+                      </li>
+
+                      <li class="dropdown__list-item" data-value="10">
+                        10
+                      </li>
+                    </ul>
+
+                    <!-- linthtml-disable -->
+                    <input
+                      class="dropdown__input dropdown__input--hidden dropdown__input--quantity"
+                      type="text"
+                      name="city"
+                      id="dropdownQuantityBuy"
+                      value=""
+                    >
+                    <!-- linthtml-enable -->
+                  </div>
                 </div>
 
-                <div class="dropdown__container dropdown__container--small">
-                  <button type="button" class="dropdown__button dropdown__button--count">&#8212;</button>
+                <div class="buy__tab-quantity-price-container--1">
+                  <div class="buy__tab-quantity-price-label--1">
+                    Price
+                  </div>
 
-                  <ul class="dropdown__list dropdown__list--count">
-                    <li class="dropdown__list-item" data-value="1">
-                      1
-                    </li>
+                  <div class="buy__tab-quantity-price-value--1">
+                    1200&#36;
+                  </div>
+                </div>
+              </div>
+            </div>
 
-                    <li class="dropdown__list-item" data-value="2">
-                      2
-                    </li>
+            <div class="form__control-container--buy">
+              <div class="form__control form__control--buy form__control--buy-1">
+                <label class="form__label" for="nameFirstBuy">First Name*</label>
 
-                    <li class="dropdown__list-item" data-value="3">
-                      3
-                    </li>
+                <input
+                  class="form__input"
+                  type="text"
+                  id="nameFirstBuy"
+                  name="firstName"
+                  autocomplete="off"
+                >
 
-                    <li class="dropdown__list-item" data-value="4">
-                      4
-                    </li>
+                <div class="form__error">Error message</div>
+              </div>
 
-                    <li class="dropdown__list-item" data-value="5">
-                      5
-                    </li>
+              <div class="form__control form__control--buy form__control--buy-2">
+                <label class="form__label" for="nameLastBuy">Last Name*</label>
 
-                    <li class="dropdown__list-item" data-value="6">
-                      6
-                    </li>
+                <input
+                  class="form__input"
+                  type="text"
+                  id="nameLastBuy"
+                  name="lastName"
+                  autocomplete="off"
+                >
 
-                    <li class="dropdown__list-item" data-value="7">
-                      7
-                    </li>
+                <div class="form__error">Error message</div>
+              </div>
 
-                    <li class="dropdown__list-item" data-value="8">
-                      8
-                    </li>
+              <div class="form__control form__control--buy form__control--buy-3">
+                <label class="form__label" for="emailBuy">Email*</label>
 
-                    <li class="dropdown__list-item" data-value="9">
-                      9
-                    </li>
+                <input
+                  class="form__input"
+                  type="text"
+                  id="emailBuy"
+                  name="email"
+                  inputmode="email"
+                  autocomplete="off"
+                >
 
-                    <li class="dropdown__list-item" data-value="10">
-                      10
+                <div class="form__error">Error message</div>
+              </div>
+
+              <div class="form__control form__control--buy form__control--buy-4">
+                <label class="form__label" for="phoneBuy">Phone (123-456-7890)*</label>
+
+                <input
+                  class="form__input"
+                  type="tel"
+                  id="phoneBuy"
+                  name="phone"
+                  inputmode="tel"
+                  autocomplete="off"
+                >
+
+                <div class="form__error">Error message</div>
+              </div>
+
+              <div class="dropdown form__dropdown form__dropdown--1">
+                <div class="dropdown__name">
+                  Country*
+                </div>
+
+                <div class="dropdown__container">
+                  <button type="button" class="dropdown__button dropdown__button--country">Select your country</button>
+
+                  <ul class="dropdown__list">
+                    <li class="dropdown__list-item dropdown__list-item--country" data-value="USA">
+                      USA
                     </li>
                   </ul>
 
                   <!-- linthtml-disable -->
                   <input
-                    class="dropdown__input dropdown__input--hidden dropdown__input--quantity"
+                    class="dropdown__input dropdown__input--hidden dropdown__input--country"
                     type="text"
-                    name="city"
+                    name="country"
+                    id="dropdownCountryBuy"
                     value=""
                   >
                   <!-- linthtml-enable -->
                 </div>
+
+                <div class="form__error">Error message</div>
               </div>
 
-              <div class="buy__tab-quantity-price-container--1">
-                <div class="buy__tab-quantity-price-label--1">
-                  Price
+              <div class="dropdown form__dropdown form__dropdown--2">
+                <div class="dropdown__name">
+                  City*
                 </div>
 
-                <div class="buy__tab-quantity-price-value--1">
-                  1200&#36;
+                <div class="dropdown__container">
+                  <button type="button" class="dropdown__button dropdown__button--city">Select your city</button>
+
+                  <!-- linthtml-disable -->
+                  <ul class="dropdown__list">
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="New York">
+                      New York
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="Los Angeles">
+                      Los Angeles
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="Chicago">
+                      Chicago
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="Houston">
+                      Houston
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="Phoenix">
+                      Phoenix
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="Philadelphia">
+                      Philadelphia
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="San Antonio">
+                      San Antonio
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="San Diego">
+                      San Diego
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="Dallas">
+                      Dallas
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="San Jose">
+                      San Jose
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="Austin">
+                      Austin
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="Jacksonville">
+                      Jacksonville
+                    </li>
+
+                    <li class="dropdown__list-item dropdown__list-item--city" data-value="Fort Worth">
+                      Fort Worth
+                    </li>
+                  </ul>
+                  <!-- linthtml-enable -->
+
+                  <!-- linthtml-disable -->
+                  <input
+                    class="dropdown__input dropdown__input--hidden"
+                    type="text"
+                    name="city"
+                    id="dropdownCityBuy"
+                    value=""
+                  >
+                  <!-- linthtml-enable -->
                 </div>
+
+                <div class="form__error">Error message</div>
               </div>
-            </div>
 
-            <div class="form__control form__control--buy form__control--buy-1">
-              <label class="form__label" for="nameFirstBuy">First Name*</label>
+              <div class="form__control form__control--buy form__control--buy-5">
+                <label class="form__label" for="addressFirstBuy">Shipping Adress*</label>
 
-              <input
-                class="form__input"
-                type="text"
-                id="nameFirstBuy"
-                name="name"
-                autocomplete="off"
-              >
-
-              <div class="form__error">Error message</div>
-            </div>
-
-            <div class="form__control form__control--buy form__control--buy-2">
-              <label class="form__label" for="nameLastBuy">Last Name*</label>
-
-              <input
-                class="form__input"
-                type="text"
-                id="nameLastBuy"
-                name="name"
-                autocomplete="off"
-              >
-
-              <div class="form__error">Error message</div>
-            </div>
-
-            <div class="dropdown form__dropdown form__dropdown--1">
-              <div class="dropdown__container">
-                <button type="button" class="dropdown__button dropdown__button--country">Select your country</button>
-
-                <ul class="dropdown__list">
-                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Estonia">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--country" data-value="USA">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
-                  </li>
-
-                  <!--
-                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--country" data-value="Ukraine">
-                  </li>
-                  -->
-                </ul>
-
-                <!-- linthtml-disable -->
                 <input
-                  class="dropdown__input dropdown__input--hidden dropdown__input--country"
-                  type="text"
-                  name="city"
-                  value=""
+                  class="form__input"
+                  type="tel"
+                  id="addressFirstBuy"
+                  name="shippingAddressFirst"
+                  autocomplete="off"
                 >
-                <!-- linthtml-enable -->
+
+                <div class="form__error">Error message</div>
               </div>
-            </div>
 
-            <div class="dropdown form__dropdown form__dropdown--2">
-              <div class="dropdown__container">
-                <button type="button" class="dropdown__button dropdown__button--city">Select your city</button>
+              <div class="form__control form__control--buy form__control--buy-6">
+                <label class="form__label" for="addressSecondBuy">Shipping Adress 2</label>
 
-                <!-- linthtml-disable -->
-                <ul class="dropdown__list">
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-
-                  <li class="dropdown__list-item dropdown__list-item--city" data-value="">
-                  </li>
-                </ul>
-                <!-- linthtml-enable -->
-
-                <!-- linthtml-enable -->
                 <input
-                  class="dropdown__input dropdown__input--hidden"
-                  type="text"
-                  name="city"
-                  value=""
+                  class="form__input"
+                  type="tel"
+                  id="addressSecondBuy"
+                  name="shippingAddressSecond"
+                  autocomplete="off"
                 >
-                <!-- linthtml-enable -->
+
+                <div class="form__error">Error message</div>
               </div>
+
+              <button type="submit" class="button form__control--buy-button">
+                Purchase
+              </button>
             </div>
           </form>
         </div>
 
-        <div class="buy__tab-content--2"></div>
+        <div class="buy__tab-content--2">
+          <form
+            class="pay__tab-content-form--2 grid"
+            action="#"
+            id="formPay"
+          >
+            <div class="form__control form__control--pay form__control--pay-1">
+              <label class="form__label form__label--pay" for="cardNumberPayFirst">Card Number*</label>
+
+              <div class="form__inputs-pay-container">
+                <input
+                  class="form__input form__input--card"
+                  type="text"
+                  id="cardNumberPayFirst"
+                  name="firstFourCardNumbers"
+                  placeholder="0000"
+                  maxlength="4"
+                  autocomplete="off"
+                >
+
+                <input
+                  class="form__input form__input--card"
+                  type="text"
+                  id="cardNumberPaySecond"
+                  name="secondFourCardNumbers"
+                  placeholder="0000"
+                  maxlength="4"
+                  autocomplete="off"
+                >
+
+                <input
+                  class="form__input form__input--card"
+                  type="text"
+                  id="cardNumberPayThird"
+                  name="thirdFourCardNumbers"
+                  placeholder="0000"
+                  maxlength="4"
+                  autocomplete="off"
+                >
+
+                <input
+                  class="form__input form__input--card"
+                  type="text"
+                  id="cardNumberPayFourth"
+                  name="fourthFourCardNumbers"
+                  placeholder="0000"
+                  maxlength="4"
+                  autocomplete="off"
+                >
+
+                <div class="form__card-indicator"></div>
+              </div>
+
+              <div class="form__error">Error message</div>
+            </div>
+
+            <div class="form__control form__control--pay form__control--pay-2">
+              <label class="form__label" for="cardHolderPay">Card Holder Name*</label>
+
+              <input
+                class="form__input"
+                type="text"
+                id="cardHolderPay"
+                name="cardHolderName"
+                autocomplete="off"
+              >
+
+              <div class="form__error">Error message</div>
+            </div>
+
+            <div class="form__control--pay-additional-container">
+              <div class="form__control form__control--pay form__control--pay-3">
+                <label class="form__label form__label--expiration-date" for="expirationDatePay">Expiration Date*</label>
+
+                <input
+                  class="form__input form__input--expiration-date"
+                  type="text"
+                  id="expirationDatePay"
+                  name="expirationDate"
+                  autocomplete="off"
+                  placeholder="MM / YY"
+                  maxlength="7"
+                >
+
+                <div class="form__error">Error message</div>
+              </div>
+
+              <div class="form__control form__control--pay form__control--pay-4">
+                <label class="form__label form__label--cvv" for="CVVPay">CVV*</label>
+
+                <input
+                  class="form__input form__input--cvv"
+                  type="text"
+                  id="CVVPay"
+                  name="cvv"
+                  autocomplete="off"
+                  maxlength="3"
+                >
+
+                <div class="form__error">Error message</div>
+              </div>
+            </div>
+
+            <button
+              type="submit"
+              class="button pay__tab-button--2"
+            >
+              Purchase
+            </button>
+
+          </form>
+        </div>
 
         <div class="buy__tab-content--3">
           <h2 class="page__section-title buy__tab-title--3">
@@ -1337,6 +1521,7 @@
                   type="text"
                   id="emailContact"
                   name="email"
+                  inputmode="email"
                   autocomplete="off"
                 >
 
@@ -1351,6 +1536,7 @@
                   type="tel"
                   id="phoneContact"
                   name="phone"
+                  inputmode="tel"
                   autocomplete="off"
                 >
 
@@ -1362,6 +1548,7 @@
 
                 <input
                   class="form__textarea"
+                  type="text"
                   name="message"
                   id="message"
                   autocomplete="off"

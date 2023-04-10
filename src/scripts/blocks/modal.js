@@ -36,6 +36,7 @@ closeModalButtons.forEach(button => {
 function openModal(modal) {
   modal.classList.add('modal--active');
   overlay.classList.add('modal__overlay--active');
+  document.body.classList.add('page__body--with-menu');
 }
 
 function closeModal(modal) {
@@ -62,6 +63,7 @@ function closeModal(modal) {
 
     modal.classList.remove('modal--active');
     overlay.classList.remove('modal__overlay--active');
+    document.body.classList.remove('page__body--with-menu');
   }
 }
 

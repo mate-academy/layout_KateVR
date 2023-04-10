@@ -1,6 +1,7 @@
 'use strict';
 
 const dropdownInputs = document.querySelectorAll('.dropdown__input');
+const priceValue = document.querySelector('.buy__tab-quantity-price-value--1');
 
 window.onload = (event) => {
   for (let i = 0; i < dropdownInputs.length; i++) {
@@ -27,6 +28,7 @@ document.querySelectorAll('.dropdown__container').forEach(function(dropdownWrapp
       dropdownButton.innerText = this.innerText;
       dropdownButton.style.color = '#fff';
       dropdownInput.value = this.dataset.value;
+      priceValue.innerHTML = `${1200 * Number(this.dataset.value)}$`;
       dropdownList.classList.remove('dropdown__list--active');
     });
   });
