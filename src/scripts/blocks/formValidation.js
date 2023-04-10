@@ -20,19 +20,13 @@ const firstNameBuy = document.getElementById('nameFirstBuy');
 const lastNameBuy = document.getElementById('nameLastBuy');
 const emailBuy = document.getElementById('emailBuy');
 const phoneBuy = document.getElementById('phoneBuy');
-// const dropdownQuantityBuy = document.getElementById('dropdownQuantityBuy');
-// const dropdownCountryBuy = document.getElementById('dropdownCountryBuy');
-// const dropdownCityBuy = document.getElementById('dropdownCityBuy');
 const addressFirstBuy = document.getElementById('addressFirstBuy');
 
 const formPay = document.getElementById('formPay');
-// const cardNumberPayFirst = document.getElementById('cardNumberPayFirst');
-// const cardNumberPaySecond = document.getElementById('cardNumberPaySecond');
-// const cardNumberPayThird = document.getElementById('cardNumberPayThird');
-// const cardNumberPayFourth = document.getElementById('cardNumberPayFourth');
 const cardHolderNamePay = document.getElementById('cardHolderPay');
-const cardExpirartionDateInput = document.getElementById('expirationDatePay');
-const cardCvvPay = document.getElementById('CVVPay');
+// eslint-disable-next-line max-len
+// const cardExpirartionDateInput = document.getElementById('expirationDatePay');
+// const cardCvvPay = document.getElementById('CVVPay');
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
@@ -129,9 +123,6 @@ function checkInputsBuy() {
   const lastNameBuyValue = lastNameBuy.value.trim();
   const emailBuyValue = emailBuy.value.trim();
   const phoneBuyValue = phoneBuy.value.trim();
-  // const dropdownQuantityBuyValue = dropdownQuantityBuy.value.trim();
-  // const dropdownCountryBuyValue = dropdownCountryBuy.value.trim();
-  // const dropdownCityBuyValue = dropdownCityBuy.value.trim();
   const addressFirstBuyValue = addressFirstBuy.value.trim();
 
   let result = false;
@@ -182,41 +173,14 @@ function checkInputsBuy() {
     result = true;
   }
 
-  // if (dropdownQuantityBuyValue === '') {
-  //   setErrorFor(dropdownQuantityBuy, 'Error*');
-  //   result = false;
-  // } else {
-  //   setSuccessFor(dropdownQuantityBuy);
-  //   result = true;
-  // }
-
-  // if (dropdownCountryBuyValue === '') {
-  //   setErrorFor(dropdownCountryBuy, 'Please, select your country*');
-  //   result = false;
-  // } else {
-  //   setSuccessFor(dropdownCountryBuy);
-  //   result = true;
-  // }
-
-  // if (dropdownCityBuyValue === '') {
-  //   setErrorFor(dropdownCityBuy, 'Please, select your city*');
-  //   result = false;
-  // } else {
-  //   setSuccessFor(dropdownCityBuy);
-  //   result = true;
-  // }
-
   return result;
 }
 
 function checkInputsPay() {
-  // const cardNumberPayFirstValue = cardNumberPayFirst.value.trim();
-  // const cardNumberPaySecondValue = cardNumberPaySecond.value.trim();
-  // const cardNumberPayThirdValue = cardNumberPayThird.value.trim();
-  // const cardNumberPayFourthValue = cardNumberPayFourth.value.trim();
   const cardHolderNamePayValue = cardHolderNamePay.value.trim();
-  const cardExpirartionDateInputValue = cardExpirartionDateInput.value.trim();
-  const cvvPayValue = cardCvvPay.value.trim();
+  // eslint-disable-next-line max-len
+  // const cardExpirartionDateInputValue = cardExpirartionDateInput.value.trim();
+  // const cvvPayValue = cardCvvPay.value.trim();
 
   let result = false;
 
@@ -228,34 +192,26 @@ function checkInputsPay() {
     result = true;
   }
 
-  if (cardExpirartionDateInputValue.length < 7) {
-    setErrorFor(cardExpirartionDateInput, 'Please, fill the expiration date*');
-    result = false;
-  } else {
-    setSuccessFor(cardExpirartionDateInput);
-    result = true;
-  }
-
-  if (cvvPayValue === '') {
-    setErrorFor(cardCvvPay, 'Please, fill the CVV*');
-    result = false;
-  } else if (cvvPayValue.length < 3) {
-    setErrorFor(cardCvvPay, 'Code must be 3 digits');
-    result = false;
-  } else if (cvvPayValue === /[a-zA-Z]/) {
-    setErrorFor(cardCvvPay, 'Code must be digit');
-    result = false;
-  } else {
-    setSuccessFor(cardCvvPay);
-    result = true;
-  }
-
+  // if (cardExpirartionDateInputValue.length < 7) {
   // eslint-disable-next-line max-len
-  // if (cardNumberPayFirstValue === '' && cardNumberPaySecondValue === '' && cardNumberPayThirdValue === '' && cardNumberPayFourthValue === '') {
-  //   setErrorFor(cardNumberPayFirst, 'Test');
+  //   setErrorFor(cardExpirartionDateInput, 'Please, fill the expiration date*');
   //   result = false;
   // } else {
-  //   setSuccessFor(cardNumberPayFirst);
+  //   setSuccessFor(cardExpirartionDateInput);
+  //   result = true;
+  // }
+
+  // if (cvvPayValue === '') {
+  //   setErrorFor(cardCvvPay, 'Please, fill the CVV*');
+  //   result = false;
+  // } else if (cvvPayValue.length < 3) {
+  //   setErrorFor(cardCvvPay, 'Code must be 3 digits');
+  //   result = false;
+  // } else if (cvvPayValue === /[a-zA-Z]/) {
+  //   setErrorFor(cardCvvPay, 'Code must be digit');
+  //   result = false;
+  // } else {
+  //   setSuccessFor(cardCvvPay);
   //   result = true;
   // }
 
