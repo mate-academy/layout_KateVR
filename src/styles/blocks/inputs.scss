@@ -49,6 +49,18 @@
       border-color: $contrastColor;
     }
 
+    &:invalid {
+      border-color: $red;
+    }
+
+    &:-moz-submit-invalid {
+      border-color: $red;
+    }
+
+    &:-moz-ui-invalid {
+      border-color: $red;
+    }
+
     &--card {
       width: 54px;
       text-align: center;
@@ -71,16 +83,6 @@
       width: 40px;
       text-align: center;
     }
-  }
-
-  &__error {
-    display: none;
-
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    color: $red;
   }
 
   &__control-container {
@@ -110,24 +112,6 @@
   &__control {
     position: relative;
     width: 100%;
-
-    &--error {
-      .form__label {
-        opacity: 0;
-      }
-
-      .dropdown__name {
-        opacity: 0;
-      }
-
-      .form__input {
-        border-color: $red;
-      }
-
-      .form__error {
-        display: block;
-      }
-    }
 
     &--contact {
 

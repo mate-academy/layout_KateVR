@@ -1,6 +1,7 @@
 'use strict';
 
 const cardNumberPayFirstInput = document.getElementById('cardNumberPayFirst');
+const cardNumberPayLastInput = document.getElementById('cardNumberPayFourth');
 const cardNumberPayIndicator = document.querySelector('.form__card-indicator');
 
 const cardNumberPayAllInputs = document.querySelectorAll('.form__input--card');
@@ -30,6 +31,10 @@ cardNumberPayFirstInput.addEventListener('focusout', () => {
     cardNumberPayIndicator.classList.remove('form__card-indicator--american-express');
     cardNumberPayIndicator.classList.remove('form__card-indicator--visa');
   }
+});
+
+cardNumberPayLastInput.addEventListener('focusout', () => {
+  cardNumberPayAllLabel.classList.remove('form__label--active');
 });
 
 for (let i = 0; i < cardNumberPayAllInputs.length; i++) {

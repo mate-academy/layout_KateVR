@@ -612,8 +612,6 @@
                     Quantity
                   </div>
 
-                  <div class="form__error">Error message</div>
-
                   <div class="dropdown__container dropdown__container--small">
                     <button type="button" class="dropdown__button dropdown__button--count">&#8212;</button>
 
@@ -694,9 +692,11 @@
                   id="nameFirstBuy"
                   name="firstName"
                   autocomplete="off"
+                  required
+                  minlength="2"
+                  pattern="[a-zA-Z]{2,20}"
+                  title="Please, fill only letters. Min length 2, max length 20*"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="form__control form__control--buy form__control--buy-2">
@@ -708,9 +708,11 @@
                   id="nameLastBuy"
                   name="lastName"
                   autocomplete="off"
+                  required
+                  minlength="2"
+                  pattern="[a-zA-Z]{2,20}"
+                  title="Please, fill only letters. Min length 2, max length 20*"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="form__control form__control--buy form__control--buy-3">
@@ -723,9 +725,11 @@
                   name="email"
                   inputmode="email"
                   autocomplete="off"
+                  required
+                  minlength="2"
+                  pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                  title="Please, fill correct email format*"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="form__control form__control--buy form__control--buy-4">
@@ -738,9 +742,11 @@
                   name="phone"
                   inputmode="tel"
                   autocomplete="off"
+                  required
+                  minlength="2"
+                  pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"
+                  title="Please, fill correct phone format (123-456-7890)*"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="dropdown form__dropdown form__dropdown--1">
@@ -768,8 +774,6 @@
                   >
                   <!-- linthtml-enable -->
                 </div>
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="dropdown form__dropdown form__dropdown--2">
@@ -847,8 +851,6 @@
                   >
                   <!-- linthtml-enable -->
                 </div>
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="form__control form__control--buy form__control--buy-5">
@@ -860,9 +862,11 @@
                   id="addressFirstBuy"
                   name="shippingAddressFirst"
                   autocomplete="off"
+                  required
+                  minlength="2"
+                  pattern="^[#.0-9a-zA-Z\s,-]+$"
+                  title="Please, fill your address without specific symbols*"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="form__control form__control--buy form__control--buy-6">
@@ -875,8 +879,6 @@
                   name="shippingAddressSecond"
                   autocomplete="off"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
 
               <button type="submit" class="button form__control--buy-button">
@@ -904,6 +906,10 @@
                   placeholder="0000"
                   maxlength="4"
                   autocomplete="off"
+                  required
+                  minlength="4"
+                  pattern="\d{4}"
+                  title="Please, fill correct card format. Min length 4. max length 4*"
                 >
 
                 <input
@@ -914,6 +920,10 @@
                   placeholder="0000"
                   maxlength="4"
                   autocomplete="off"
+                  required
+                  minlength="4"
+                  pattern="\d{4}"
+                  title="Please, fill correct card format. Min length 4. max length 4*"
                 >
 
                 <input
@@ -924,6 +934,10 @@
                   placeholder="0000"
                   maxlength="4"
                   autocomplete="off"
+                  required
+                  minlength="4"
+                  pattern="\d{4}"
+                  title="Please, fill correct card format. Min length 4. max length 4*"
                 >
 
                 <input
@@ -934,12 +948,14 @@
                   placeholder="0000"
                   maxlength="4"
                   autocomplete="off"
+                  required
+                  minlength="4"
+                  pattern="\d{4}"
+                  title="Please, fill correct card format. Min length 4. max length 4*"
                 >
 
                 <div class="form__card-indicator"></div>
               </div>
-
-              <div class="form__error">Error message</div>
             </div>
 
             <div class="form__control form__control--pay form__control--pay-2">
@@ -951,9 +967,11 @@
                 id="cardHolderPay"
                 name="cardHolderName"
                 autocomplete="off"
+                required
+                minlength="2"
+                pattern="[a-zA-Z]{2,20}"
+                title="Please, fill only letters. Min length 2, max length 20*"
               >
-
-              <div class="form__error">Error message</div>
             </div>
 
             <div class="form__control--pay-additional-container">
@@ -968,9 +986,11 @@
                   autocomplete="off"
                   placeholder="MM / YY"
                   maxlength="7"
+                  required
+                  minlength="7"
+                  pattern="^((0[1-9 ])|(1[0-2 ]))\/(\d{2 })$"
+                  title="Please, fill only digts. Eg: 11 / 07"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="form__control form__control--pay form__control--pay-4">
@@ -983,9 +1003,11 @@
                   name="cvv"
                   autocomplete="off"
                   maxlength="3"
+                  required
+                  minlength="3"
+                  pattern="^([0-9]{3,4})$"
+                  title="Please, fill only digits. Min length 3, max length 3*"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
             </div>
 
@@ -1444,7 +1466,7 @@
             </li>
           </ul>
 
-          <a href="#" class="button whyKatLoco__button">
+          <a href="#buy" class="button whyKatLoco__button">
             Buy Now
           </a>
         </div>
@@ -1515,9 +1537,11 @@
                   id="nameContact"
                   name="name"
                   autocomplete="off"
+                  required
+                  minlength="2"
+                  pattern="[a-zA-Z]{2,20}"
+                  title="Please, fill only letters. Min length 2, max length 20*"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="form__control form__control--contact">
@@ -1530,9 +1554,11 @@
                   name="email"
                   inputmode="email"
                   autocomplete="off"
+                  required
+                  minlength="2"
+                  pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+                  title="Please, fill correct email format*"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="form__control form__control--contact">
@@ -1545,9 +1571,11 @@
                   name="phone"
                   inputmode="tel"
                   autocomplete="off"
+                  required
+                  minlength="2"
+                  pattern="((\(\d{3}\) ?)|(\d{3}-))?\d{3}-\d{4}"
+                  title="Please, fill correct phone format (123-456-7890)*"
                 >
-
-                <div class="form__error">Error message</div>
               </div>
 
               <div class="form__control form__control--contact">
