@@ -1,4 +1,6 @@
-'use strict';
+
+import 'regenerator-runtime/runtime';
+import fetch from 'node-fetch';
 
 document.addEventListener('DOMContentLoaded', () => {
   const burgerButtonHeader = document.querySelector('.header__burger');
@@ -175,49 +177,159 @@ document.addEventListener('DOMContentLoaded', () => {
     specButton.parentElement.classList.add('active');
   }
 
-  // Contact form
-  const contactForm = document.querySelector('.contact__form');
-  const contactInputs = document.querySelectorAll('[data-form="input"]');
+  // Validation forms
+  function validateWholeForm(form) {
+    const inputFieldsRequired = form.querySelectorAll('[data-req="required"]');
+    let incorrectInputs = 0;
 
-  function formInputValidate(formInput) {
-    let emptyInputs = 0;
-
-    for (let i = 0; i < formInput.length; i++) {
-      if (formInput[i].value.length === 0) {
-        formInput[i].classList.add('no-valid');
-        emptyInputs++;
-      }
-
-      if (formInput[i].value.length > 0
-         && formInput[i].classList.contains('no-valid')) {
-        formInput[i].classList.remove('no-valid');
+    for (let i = 0; i < inputFieldsRequired.length; i++) {
+      if (!validateFormRequiredInput(inputFieldsRequired[i])) {
+        incorrectInputs++;
       }
     }
 
-    if (emptyInputs > 0) {
+    if (incorrectInputs > 0) {
       return false;
     } else {
       return true;
     }
   }
 
-  contactForm.addEventListener('submit', (e) => {
+  function validateFormRequiredInput(input) {
+    if (input.value.length === 0 || !input.checkValidity()) {
+      input.classList.add('no-valid');
+
+      return false;
+    }
+
+    if (input.value.length > 0 && input.classList.contains('no-valid')) {
+      input.classList.remove('no-valid');
+
+      return true;
+    }
+
+    if (input.value.length > 0 && input.checkValidity()) {
+      return true;
+    }
+  }
+
+  function textAreaAdjustHeight(textArea) {
+    textArea.style.height = 'auto';
+    textArea.style.height = (textArea.scrollHeight) + 'px';
+  }
+
+  // Contact Form
+  const contactForm = document.querySelector('.contact__form');
+  const messageContactForm = document.querySelector('#contact-message');
+
+  contactForm.addEventListener('submit', e => {
     e.preventDefault();
 
-    if (formInputValidate(contactInputs)) {
+    if (validateWholeForm(contactForm)) {
       contactForm.reset();
     }
   });
 
-  // Contact form - text Area adjust height
-  const messageContactForm = document.querySelector('#contact-message');
+  messageContactForm.addEventListener('input', e => {
+    textAreaAdjustHeight(e.target);
+  });
 
-  messageContactForm.addEventListener('input', changeHeightTextArea, false);
+  // Purchase form
 
-  function changeHeightTextArea() {
-    messageContactForm.style.height = 'auto';
-    messageContactForm.style.height = (messageContactForm.scrollHeight) + 'px';
+  const purchaseForm = document.getElementById('purchaseFrom');
+  const purchaseFormTabs
+    = purchaseForm.querySelectorAll('.purchase-form__carousel-item');
+
+  function validatePurchaseFormTab(tab) {
+    const tabRequiredInputs = tab.querySelectorAll('[data-req="required"]');
+    let notValidInput = 0;
+
+    tabRequiredInputs.forEach(input => {
+      if (input.value.length === 0 || !input.checkValidity()) {
+        notValidInput += 1;
+      }
+    });
+
+    if (notValidInput === 0) {
+      return true;
+    }
   }
+
+  purchaseFormTabs.forEach(tab => {
+    const tabRequiredInputs = tab.querySelectorAll('[data-req="required"]');
+    const tabButton = tab.querySelector('.purchase__button');
+
+    tabRequiredInputs.forEach(input => {
+      input.addEventListener('input', e => {
+        if (validatePurchaseFormTab(tab)) {
+          tabButton.disabled = false;
+        } else {
+          tabButton.disabled = true;
+        };
+      });
+    });
+  });
+
+  purchaseForm.addEventListener('submit', e => {
+    e.preventDefault();
+  });
+
+  // Credit card validation
+  const creditCard = document.querySelector('.credit-card__number');
+  const creditCardNumberInputs
+    = document.querySelectorAll('[data-card="number"]');
+  const creditCardCvv = document.getElementById('purchase-card-cvv');
+  const creditCardDate = document.getElementById('purchase-card-date');
+  const cardNumber = [];
+
+  for (let i = 0; i < creditCardNumberInputs.length; i++) {
+    creditCardNumberInputs[i].addEventListener('input', e => {
+      const cardNumImage = creditCard.querySelector('.credit-card__logo');
+      const currentNumber = e.target.value;
+
+      if (currentNumber.length === 4) {
+        cardNumber[i] = parseInt(currentNumber);
+
+        if (i === 0) {
+          if (currentNumber[0] === '2' || currentNumber[0] === '5') {
+            cardNumImage.classList.add('master');
+          }
+
+          if (currentNumber[0] === '4') {
+            cardNumImage.classList.add('visa');
+          }
+        }
+
+        if (i < creditCardNumberInputs.length - 1) {
+          e.target.nextElementSibling.focus();
+        }
+
+        if (i === creditCardNumberInputs.length - 1) {
+          e.target.blur();
+        }
+      }
+    });
+  };
+
+  creditCardCvv.addEventListener('input', e => {
+    const currentCvv = e.target.value;
+
+    if (currentCvv.length === 3) {
+      e.target.blur();
+    }
+  });
+
+  creditCardDate.addEventListener('input', e => {
+    const currentDate = e.target.value;
+
+    if (currentDate.length === 2) {
+      e.target.value += '/';
+    }
+
+    if (currentDate.length === 5) {
+      e.target.blur();
+    }
+  });
 
   // Scroll to Top Button
 
@@ -238,6 +350,33 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Modal windows (faq, help, etc)
+
+  function openModalWindow(modal) {
+    if (!locked) {
+      lockBody(true);
+    }
+    modal.style.paddingRight = paddingLock;
+    modal.classList.add('opened');
+
+    modal.addEventListener('click', (e) => {
+      if (!e.target.closest('.modal__wrapper')) {
+        closeModalWindow(modal);
+      }
+    });
+  };
+
+  function closeModalWindow(modal) {
+    if (modal.classList.contains('modal-video')) {
+      frameVideo.setAttribute('src', '');
+    }
+    modal.style.paddingRight = '0px';
+    modal.classList.remove('opened');
+
+    if (!locked) {
+      unlockBody(true);
+    }
+  };
+
   const openModalLinks = document.querySelectorAll('.modal-link');
   const openModalLinksVideo = document.querySelectorAll('.modal-link-video');
   const closeModalIcons = document.querySelectorAll('.modal__cross-close');
@@ -278,32 +417,6 @@ document.addEventListener('DOMContentLoaded', () => {
       closeModalWindow(currentOpenedModal);
     });
   });
-
-  function openModalWindow(modal) {
-    if (!locked) {
-      lockBody(true);
-    }
-    modal.style.paddingRight = paddingLock;
-    modal.classList.add('opened');
-
-    modal.addEventListener('click', (e) => {
-      if (!e.target.closest('.modal__wrapper')) {
-        closeModalWindow(modal);
-      }
-    });
-  };
-
-  function closeModalWindow(modal) {
-    if (modal.classList.contains('modal-video')) {
-      frameVideo.setAttribute('src', '');
-    }
-    modal.style.paddingRight = '0px';
-    modal.classList.remove('opened');
-
-    if (!locked) {
-      unlockBody(true);
-    }
-  }
 
   // Accordion
   const accordion = document.querySelector('.accordion');
@@ -354,10 +467,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function offsetCarousel(n) {
     const tabsCarousel = document.querySelector('.tabs__carousel-inner');
+    // eslint-disable-next-line no-unused-vars
     const targetTab = tabsCarouselItem[n];
 
     tabsCarousel.style.transform
-      = `translateX(-${(n) * targetTab.offsetWidth}px)`;
+      = `translateX(-${100 * n}%)`;
   }
 
   function showCurrentProgressPosition(n) {
@@ -375,10 +489,6 @@ document.addEventListener('DOMContentLoaded', () => {
   for (let i = 0; i < tabsButtonsNext.length; i++) {
     tabsButtonsNext[i].addEventListener('click', (e) => {
       if (i === tabsButtonsNext.length - 1) {
-        const openedModalBuy = tabsButtonsNext[i].closest('.modal');
-
-        closeModalWindow(openedModalBuy);
-        offsetCarousel(0);
         hidePrevProgressPosition(i);
         showCurrentProgressPosition(0);
         e.preventDefault();
@@ -393,9 +503,68 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // Purchase Form Tabs
+
+  const purchaseTabs = document.querySelector('.purchase__tabs');
+  const staticPartToHide = purchaseTabs.querySelector('.tabs__static');
+  const purchaseTabButtons
+    = purchaseTabs.querySelectorAll('.tabs__button-next');
+  const purchaseTabLastButton
+    = purchaseTabButtons[purchaseTabButtons.length - 1];
+  const purchaseTabPreLastButton
+    = purchaseTabButtons[purchaseTabButtons.length - 2];
+  const purchaseTabsCarousel
+    = purchaseTabs.querySelector('.tabs__carousel');
+  const aligmentBlockToHide
+    = purchaseTabs.querySelector('.purchase__tabs-align');
+
+  purchaseTabPreLastButton.addEventListener('click', (e) => {
+    staticPartToHide.classList.add('hidden');
+    aligmentBlockToHide.classList.add('hidden-card');
+    purchaseTabsCarousel.classList.add('overflow');
+  });
+
+  purchaseTabLastButton.addEventListener('click', (e) => {
+    const openedModalBuy = purchaseTabLastButton.closest('.modal');
+
+    closeModalWindow(openedModalBuy);
+    offsetCarousel(0);
+
+    if (validateWholeForm(purchaseForm)) {
+      purchaseForm.reset();
+    };
+    staticPartToHide.classList.remove('hidden');
+    aligmentBlockToHide.classList.remove('hidden-card');
+    purchaseTabsCarousel.classList.remove('overflow');
+  });
+
   // Dropdown options
-  const dropdownOptions = document.querySelectorAll('.dropdown__option');
-  const dropdownIconOpen = document.querySelectorAll('.dropdown__input-icon');
+
+  function initializationDropDownIcons() {
+    const dropdownIconOpen = document.querySelectorAll('.dropdown__input-icon');
+
+    dropdownIconOpen.forEach(icon => {
+      icon.addEventListener('click', e => {
+        const parentDropdown = e.target.closest('.dropdown');
+
+        openCloseDropdown(parentDropdown);
+      });
+    });
+  };
+
+  function initializationDropDownOptions() {
+    const dropdownOptions = document.querySelectorAll('.dropdown__option');
+
+    dropdownOptions.forEach(option => {
+      option.addEventListener('click', e => {
+        const selectedValue = e.target.textContent.trim();
+        const selectedValueRelatedInput
+          = e.target.closest('.dropdown').querySelector('.dropdown__input');
+
+        pasteSelectedValue(selectedValueRelatedInput, selectedValue);
+      });
+    });
+  }
 
   function openCloseDropdown(targetDropdown) {
     targetDropdown.classList.toggle('opened');
@@ -410,33 +579,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
-  dropdownIconOpen.forEach(icon => {
-    icon.addEventListener('click', e => {
-      const parentDropdown = e.target.closest('.dropdown');
-
-      openCloseDropdown(parentDropdown);
-    });
-  });
-
-  dropdownOptions.forEach(option => {
-    option.addEventListener('click', e => {
-      const selectedValue = e.target.textContent.trim();
-      const selectedValueRelatedInput
-        = e.target.closest('.dropdown').querySelector('.dropdown__input');
-
-      pasteSelectedValue(selectedValueRelatedInput, selectedValue);
-    });
-  });
+  initializationDropDownIcons();
+  initializationDropDownOptions();
 
   // Paste initial values into dropdowns
 
   function initialValuesInDropdowns() {
     const dropdowns = document.querySelectorAll('.dropdown');
 
-    dropdowns.forEach(dropdawn => {
-      const dropdownInput = dropdawn.querySelector('.dropdown__input');
-      const dropdownInitialValue
-        = dropdawn.querySelector('.dropdown__option').textContent.trim();
+    dropdowns.forEach(dropdown => {
+      const dropdownInput = dropdown.querySelector('.dropdown__input');
+      let dropdownInitialValue = '';
+      const dropdownFirstItem = dropdown.querySelector('.dropdown__option');
+
+      if (dropdownFirstItem) {
+        dropdownInitialValue = dropdownFirstItem.textContent.trim();
+      }
 
       pasteSelectedValue(dropdownInput, dropdownInitialValue);
     });
@@ -451,7 +609,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const puchaseTotalPrice
     = document.getElementById('purchase-item__info-price');
 
-  const basePrice = 800;
+  const basePrice = 1200;
 
   purchaseItemQty.addEventListener('input', e => {
     if (!e.target.value) {
@@ -473,6 +631,61 @@ document.addEventListener('DOMContentLoaded', () => {
   function pasteTotalPrice(qty) {
     puchaseTotalPrice.textContent = parseInt(qty) * basePrice;
   }
+
+  // Inital base price in purchase card
+
+  pasteTotalPrice(1);
+
+  // Get country and towns list for purchase
+
+  async function getAllCountries() {
+    // eslint-disable-next-line max-len
+    const url = 'https://gist.githubusercontent.com/bhatmand/507c38d37dff071c4f658863b919d2c3/raw/36bd83546b295de77338d93e778f548a86d53517/all-countries-cities-object.json';
+    const response = await fetch(url);
+    const data = await response.json();
+
+    return data;
+  }
+
+  getAllCountries().then((data) => {
+    const countriesCitiesDB = {};
+
+    for (const [key, value] of Object.entries(data)) {
+      countriesCitiesDB[key] = value;
+    }
+
+    //  Find list for Cities and Countries
+    const countriesListDB
+      = document.querySelector('[data-purchase="countries"]');
+    const citiesListDB = document.querySelector('[data-purchase="cities"]');
+
+    // Adding list of cities to list
+    for (const country in countriesCitiesDB) {
+      countriesListDB.innerHTML
+        += `<li class="dropdown__option">${country}</li>`;
+    };
+
+    // Updated list for dropdown
+    initializationDropDownOptions();
+
+    const countriesList
+      = document.querySelectorAll('[data-purchase="countries"] li');
+
+    countriesList.forEach(country => {
+      country.addEventListener('click', e => {
+        const selectedCountry = e.target.textContent;
+        const relatedCities = countriesCitiesDB[selectedCountry];
+
+        citiesListDB.innerHTML = '';
+
+        relatedCities.forEach(city => {
+          citiesListDB.innerHTML
+            += `<li class="dropdown__option">${city}</li>`;
+        });
+        initializationDropDownOptions();
+      });
+    });
+  });
 
   // Listening clicks on body
 

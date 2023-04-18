@@ -1,4 +1,4 @@
-.contact-form {
+.form {
 
   &__item {
     position: relative;
@@ -9,6 +9,10 @@
     &--textarea {
       height: auto;
       min-height: 89px;
+    }
+
+    &--auto {
+      height: min-content;
     }
   }
 
@@ -76,8 +80,8 @@
       }
     }
 
-    &:focus + label,
-    &:not(:placeholder-shown) + label {
+    &:focus ~ label,
+    &:not(:placeholder-shown) ~ label {
       bottom: 34px;
     }
 
@@ -86,8 +90,8 @@
       border-color: $color-blue;
     }
 
-    &:not(:placeholder-shown):focus:valid + label,
-    &:not(:placeholder-shown):not(:focus):valid + label {
+    &:not(:placeholder-shown):focus:valid ~ label,
+    &:not(:placeholder-shown):not(:focus):valid ~ label {
       color: $color-blue;
     }
 
@@ -95,8 +99,14 @@
       border-color: $color-red;
     }
 
-    &:not(:placeholder-shown):not(:focus):invalid + label {
+    &:not(:placeholder-shown):not(:focus):invalid ~ label {
       color: $color-red;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
     }
   }
 }

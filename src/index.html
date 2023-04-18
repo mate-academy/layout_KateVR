@@ -46,16 +46,16 @@
             </div>
             <ul class="menu__list header__list">
               <li class="menu__item">
-                <a href="#" class="menu__link link-menu">About</a>
+                <a href="#about" class="menu__link link-menu">About</a>
               </li>
               <li class="menu__item">
-                <a href="#" class="menu__link link-menu">Tech</a>
+                <a href="#specs" class="menu__link link-menu">Tech</a>
               </li>
               <li class="menu__item">
-                <a href="#" class="menu__link link-menu">Benefits</a>
+                <a href="#why" class="menu__link link-menu">Benefits</a>
               </li>
               <li class="menu__item">
-                <a href="#" class="menu__link link-menu">Contact</a>
+                <a href="#contacts" class="menu__link link-menu">Contact</a>
               </li>
               <li class="menu__item menu__item--desktop-hidden">
                 <a href="#" class="
@@ -114,7 +114,7 @@
               </li>
             </ul>
           </nav>
-          <a href="#buy" class="button header__button">Buy Now</a>
+          <a href="#modal-buy" class="button header__button modal-link">Buy Now</a>
         </div>
       </div>
       <div class="header__overlay"></div>
@@ -128,12 +128,12 @@
               <div class="col-sm-2 col-md-3 col-lg-6 col-xl-6">
                 <div class="hero__texts">
                   <div class="title hero__title">
-                    <h2 class="title__title--main">
+                    <h1 class="title__title--main">
                       The new start of<br>
                       <span class="title__title--main-accented">
                         VR Locomotion
                       </span>
-                    </h2>
+                    </h1>
                   </div>
                   <div class="
                     hero__texts-main
@@ -512,8 +512,7 @@
         </div>
       </section>
 
-      <section class="section why" id="why"
-      >
+      <section class="section why" id="why">
         <div class="container">
           <div class="title why__title">
             <h2 class="title__title">
@@ -552,7 +551,7 @@
               </div>
             </div>
           </div>
-          <a href="#buy" class="button why__button">Buy Now</a>
+          <a href="#modal-buy" class="button why__button modal-link">Buy Now</a>
         </div>
       </section>
 
@@ -612,14 +611,14 @@
               <form
                 action="#"
                 method="POST"
-                class="contact-form contact__form"
+                class="contact-form form contact__form"
                 name="contactForm"
                 id="formContact"
               >
-                <div class="contact-form__item item-form">
+                <div class="contact-form__item form__item item-form">
                   <input
-                    class="contact-form__input"
-                    data-form="input"
+                    class="contact-form__input form__input"
+                    data-req="required"
                     type="text"
                     name="name"
                     id="contact-name"
@@ -628,10 +627,10 @@
                   <label for="contact-name">Name*</label>
                 </div>
 
-                <div class="contact-form__item item-form">
+                <div class="contact-form__item form__item item-form">
                   <input
-                    class="contact-form__input"
-                    data-form="input"
+                    class="contact-form__input form__input"
+                    data-req="required"
                     type="email"
                     name="email"
                     id="contact-email"
@@ -640,10 +639,10 @@
                   <label for="contact-email">Email*</label>
                 </div>
 
-                <div class="contact-form__item item-form">
+                <div class="contact-form__item form__item item-form">
                   <input
-                    class="contact-form__input"
-                    data-form="input"
+                    class="contact-form__input form__input"
+                    data-req="required"
                     type="tel"
                     name="phone"
                     id="contact-tel"
@@ -655,11 +654,13 @@
 
                 <div class="
                   contact-form__item
+                  form__item
+                  form__item--textarea
                   item-form
                   contact-form__item--textarea"
                 >
                   <textarea
-                    class="contact-form__textarea"
+                    class="contact-form__textarea form__textarea"
                     name="message"
                     id="contact-message"
                     placeholder=" "
@@ -684,25 +685,6 @@
               </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      <section class="video-modal1 modal1">
-        <div id="video-modal-content" class="video-modal-content">
-          <iframe
-          id="youtube123"
-          width="100%"
-          height="100%"
-          allow="autoplay"
-          allowfullscreen
-          ></iframe>
-          <a href="#" class="video-modal-close">
-            <img
-            src="./images/icon-cross.svg"
-            alt="Button Close"
-            class="svg-icon"
-            >
-          </a>
         </div>
       </section>
 
@@ -864,120 +846,395 @@
         </div>
       </div>
 
-      <div class="modal modal-buy" id="modal-buy">
-        <div class="modal__wrapper modal-buy__wrapper">
-          <div class="modal__top-actions modal-buy__top-actions">
-            <a href="#" class="modal-buy__logo logo">
+      <div class="modal purchase" id="modal-buy">
+        <div class="modal__wrapper purchase__wrapper">
+          <div class="modal__top-actions purchase__top-actions">
+            <a href="#" class="purchase__logo logo">
               <img src="./images/logo.svg" alt="KatVR">
             </a>
             <div class="modal__cross-close cross-close"></div>
           </div>
-          <div class="tabs">
-            <div class="tabs__wrapper">
-              <ul class="tabs__progress">
-                <li class="tabs__progress-item active">Place Order</li>
-                <li class="tabs__progress-item">Pay</li>
-                <li class="tabs__progress-item">Complete</li>
+          <div class="tabs purchase__tabs">
+            <div class="purchase__tabs-top">
+              <a href="#" class="purchase__logo logo">
+                <img src="./images/logo.svg" alt="KatVR">
+              </a>
+              <ul class="tabs__progress purchase__tabs-progress">
+                <li class="tabs__progress-item purchase__tabs-progress-item active">Place Order</li>
+                <li class="tabs__progress-item purchase__tabs-progress-item">Pay</li>
+                <li class="tabs__progress-item purchase__tabs-progress-item">Complete</li>
               </ul>
-              <div class="tabs__content">
-                <div class="tabs__wrapper-with-static">
-                  <div class="tabs__static">
-                    <div class="purchase-item">
-                      <div class="purchase-item__image"></div>
-                      <div class="purchase-item__info">
-                        <div class="purchase-item__info-item">
-                          <p class="purchase-item__info-label">
-                            Quantity
-                          </p>
-                          <div class="dropdown">
-                            <div class="dropdown__input-container">
-                              <input
-                              type="number"
-                              class="dropdown__input"
-                              id="purchase-item-qty"
-                              >
-                              <span class="dropdown__input-icon">
-                                <div class="triangle"></div>
-                              </span>
-                            </div>
-                            <ul class="dropdown__options">
-                              <li class="
-                                dropdown__option
-                                dropdown__option--center
-                                purchase-item-selected
-                              ">
-                                1
-                              </li>
-                              <li class="
-                                dropdown__option
-                                dropdown__option--center
-                                purchase-item-selected
-                              ">
-                                2
-                              </li>
-                              <li class="
-                                dropdown__option
-                                dropdown__option--center
-                                purchase-item-selected
-                              ">
-                                3
-                              </li>
-                              <li class="
-                                dropdown__option
-                                dropdown__option--center
-                                purchase-item-selected
-                              ">
-                                4
-                              </li>
-                              <li class="
-                                dropdown__option
-                                dropdown__option--center
-                                purchase-item-selected
-                              ">
-                                5
-                              </li>
-                            </ul>
-                          </div>
-                        </div>
-                        <div class="purchase-item__info-item">
-                          <p class="purchase-item__info-label">
-                            Price
-                          </p>
-                          <p class="purchase-item__info-price"
-                            id="purchase-item__info-price"
+            </div>
+            <div class="tabs__tabs-with-static purchase__tabs-with-static container">
+              <div class="purchase__tabs-align">
+                <div class="tabs__static">
+                  <div class="purchase-item">
+                    <div class="purchase-item__image">
+                      <picture>
+                        <source
+                          srcset="./images/hero/hero-image-desktop.png"
+                          type="image/png"
+                          media="(min-width:1024px)"
+                        >
+                        <source
+                          srcset="./images/hero/hero-image-tablet.png"
+                          type="image/png"
+                          media="(min-width:768px)"
                           >
-                            600
-                          </p>
+                        <img src="./images/hero/hero-image-mobile.png" alt="KateVR Image">
+                      </picture>
+                    </div>
+                    <div class="purchase-item__info">
+                      <div class="purchase-item__info-item">
+                        <p class="purchase-item__info-label">
+                          Quantity
+                        </p>
+                        <div class="dropdown">
+                          <div class="dropdown__input-container">
+                            <input
+                            type="number"
+                            class="dropdown__input"
+                            id="purchase-item-qty"
+                            >
+                            <span class="dropdown__input-icon">
+                              <div class="triangle"></div>
+                            </span>
+                          </div>
+                          <ul class="dropdown__options">
+                            <li class="
+                              dropdown__option
+                              dropdown__option--center
+                              purchase-item-selected
+                            ">
+                              1
+                            </li>
+                            <li class="
+                              dropdown__option
+                              dropdown__option--center
+                              purchase-item-selected
+                            ">
+                              2
+                            </li>
+                            <li class="
+                              dropdown__option
+                              dropdown__option--center
+                              purchase-item-selected
+                            ">
+                              3
+                            </li>
+                            <li class="
+                              dropdown__option
+                              dropdown__option--center
+                              purchase-item-selected
+                            ">
+                              4
+                            </li>
+                            <li class="
+                              dropdown__option
+                              dropdown__option--center
+                              purchase-item-selected
+                            ">
+                              5
+                            </li>
+                          </ul>
                         </div>
+                      </div>
+                      <div class="purchase-item__info-item">
+                        <p class="purchase-item__info-label">
+                          Price
+                        </p>
+                        <p class="purchase-item__info-price"
+                          id="purchase-item__info-price"
+                        >
+                          600
+                        </p>
                       </div>
                     </div>
                   </div>
-                  <div class="tabs__dynamic">
-                    <form
-                      action="#"
-                      method="POST"
-                      class="tabs__form"
-                      name="purchaseForm"
-                      id="purchaseFrom"
-                    >
-                      <div class="tabs__carousel">
-                        <div class="tabs__carousel-inner">
-                          <div class="tabs__carousel-item purchase active">
-                            <h2>TAB1</h2>
-                            <a href="#" class="button tabs__button-next">Purchase</a>
+                </div>
+                <div class="tabs__dynamic">
+                  <form
+                    action="#"
+                    method="POST"
+                    class="purchase-form form"
+                    name="purchaseForm"
+                    id="purchaseFrom"
+                  >
+                    <div class="tabs__carousel">
+                      <div class="tabs__carousel-inner">
+                        <div class="tabs__carousel-item purchase-form__carousel-item">
+                          <div class="purchase-form__inputs">
+                            <div class="
+                              purchase-form__item
+                              form__item
+                            ">
+                              <input
+                                class="purchase-form__input form__input"
+                                data-req="required"
+                                type="text"
+                                name="purchase-firstname"
+                                id="purchase-firstname"
+                                placeholder=" "
+                              >
+                              <label for="contact-name">First Name*</label>
+                            </div>
+                            <div class="
+                              purchase-form__item
+                              form__item"
+                            >
+                              <input
+                                class="purchase-form__input form__input"
+                                data-req="required"
+                                type="text"
+                                name="purchase-lastname"
+                                id="purchase-lastname"
+                                placeholder=" "
+                              >
+                              <label for="contact-name">Last Name*</label>
+                            </div>
+                            <div class="
+                            purchase-form__item
+                            form__item"
+                            >
+                              <input
+                                class="purchase-form__input form__input"
+                                data-req="required"
+                                type="email"
+                                name="purchase-email"
+                                id="purchase-email"
+                                placeholder=" "
+                              >
+                              <label for="contact-name">Email*</label>
+                            </div>
+                            <div class="
+                              purchase-form__item
+                              form__item"
+                            >
+                              <input
+                                class="purchase-form__input form__input"
+                                data-req="required"
+                                type="tel"
+                                name="name"
+                                id="purchase-phone"
+                                pattern="[0-9]+"
+                                placeholder=" "
+                              >
+                              <label for="contact-name">Phone Number*</label>
+                            </div>
+                            <div class="
+                              purchase-form__item
+                              form__item
+                              purchase-form__item--shipping"
+                            >
+                              <div class="
+                                dropdown
+                                purchase-form__dropdown"
+                              >
+                                <div class="dropdown__input-container purchase-form__dropdown-container">
+                                  <input
+                                  type="text"
+                                  class="dropdown__input"
+                                  id="purchase-country"
+                                  data-req="required"
+                                  readonly
+                                  >
+                                  <span class="dropdown__input-icon">
+                                    <div class="triangle"></div>
+                                  </span>
+                                </div>
+                                <ul
+                                  class="purchase-form__dropdown-options dropdown__options"
+                                  data-purchase="countries"
+                                >
+                                </ul>
+                              </div>
+                              <div class="
+                                dropdown
+                                purchase-form__dropdown"
+                              >
+                                <div class="dropdown__input-container purchase-form__dropdown-container">
+                                  <input
+                                  type="text"
+                                  class="dropdown__input"
+                                  id="purchase-city"
+                                  data-req="required"
+                                  readonly
+                                  >
+                                  <span class="dropdown__input-icon">
+                                    <div class="triangle"></div>
+                                  </span>
+                                </div>
+                                <ul
+                                  class="purchase-form__dropdown-options dropdown__options"
+                                  data-purchase="cities"
+                                >
+                                </ul>
+                              </div>
+                            </div>
+                            <div class="
+                              purchase-form__item
+                              form__item"
+                            >
+                              <input
+                                class="purchase-form__input form__input"
+                                data-req="required"
+                                type="text"
+                                name="purchase-shipping-main"
+                                id="purchase-shipping-main"
+                                placeholder=" "
+                              >
+                              <label for="contact-name">Shipping Adress*</label>
+                            </div>
+                            <div class="
+                              purchase-form__item
+                              form__item"
+                            >
+                              <input
+                                class="purchase-form__input form__input"
+                                data-form="input"
+                                type="text"
+                                name="purchase-shipping-main"
+                                id="purchase-shipping-secondaty"
+                                placeholder=" "
+                              >
+                              <label for="contact-name">Shipping Adress 2</label>
+                            </div>
                           </div>
-                          <div class="tabs__carousel-item">
-                            <h2>TAB2</h2>
-                            <a href="#" class="button tabs__button-next">Purchase</a>
+                          <button
+                            type="button"
+                            class="button
+                              purchase__button
+                              tabs__button-next"
+                            disabled
+
+                          >Purchase</button>
+                        </div>
+                        <div class="tabs__carousel-item purchase-form__carousel-item">
+                          <div class="credit-card purchase-form__credit-card">
+                            <div class="
+                              credit-card__number
+                              purchase-form__item
+                              form__item"
+                            >
+                              <input
+                                class="purchase-form__input form__input"
+                                data-req="required"
+                                data-card="number"
+                                type="number"
+                                placeholder="0000"
+                              >
+                              <input
+                                class="purchase-form__input form__input"
+                                data-req="required"
+                                data-card="number"
+                                type="number"
+                                placeholder="0000"
+                              >
+                              <input
+                                class="purchase-form__input form__input"
+                                data-req="required"
+                                data-card="number"
+                                type="number"
+                                placeholder="0000"
+                              >
+                              <input
+                                class="purchase-form__input form__input"
+                                data-req="required"
+                                data-card="number"
+                                type="number"
+                                placeholder="0000"
+                              >
+                              <label for="purchase-card-num">
+                                Card Number*
+                              </label>
+                              <div class="credit-card__logo">
+                              </div>
+                            </div>
+                            <div class="
+                              credit-card__holder
+                              purchase-form__item
+                              form__item"
+                            >
+                              <input
+                                class="purchase-form__input form__input"
+                                data-req="required"
+                                type="text"
+                                name="purchase-card-holder"
+                                id="purchase-card-holder"
+                                placeholder=" ">
+                              <label for="purchase-card-holder">
+                                Card Holder Name*
+                              </label>
+                            </div>
+                            <div class="credit-card__dates purchase-form__item form__item">
+                              <div class="credit-card__date form__item">
+                                <input
+                                class="purchase-form__input
+                                form__input"
+                                data-req="required"
+                                type="text"
+                                name="purchase-card-date"
+                                id="purchase-card-date"
+                                placeholder="MM / YY"
+                                pattern="(0[1-9]|1[012])[- /.]\d\d"
+                                >
+                                <label for="purchase-card-date">
+                                  Expiration Date*
+                                </label>
+                              </div>
+                              <div class="credit-card__cvv form__item">
+                                <input
+                                class="purchase-form__input
+                                form__input"
+                                data-req="required"
+                                type="number"
+                                name="purchase-card-cvv"
+                                id="purchase-card-cvv"
+                                placeholder="000"
+                                >
+                                <label>
+                                  CVV*
+                                </label>
+                              </div>
+                            </div>
                           </div>
-                          <div class="tabs__carousel-item">
-                            <h2>TAB3</h2>
-                            <a href="#" class="button tabs__button-next">Purchase</a>
+                          <button
+                            type="submit"
+                            class="button purchase__button tabs__button-next"
+                            disabled
+                            >Purchase</button>
+                        </div>
+                        <div
+                          class="tabs__carousel-item
+                            purchase-form__carousel-item
+                            purchase-form__carousel-item--final"
+                          >
+
+                          <div class="purchase-form__final">
+                            <div class="title purchase-form__final-title">
+                              <h1 class="title__title--main">
+                                Thank you for
+                                <span class="title__title--main-accented">
+                                  your
+                                </span>
+                                order!
+                              </h1>
+                            </div>
+                            <p class="purchase-form__final-text">
+                              Your order has been placed and is being processed. You will recive an email with the order details
+                            </p>
+                            <button type="button" class="
+                              button
+                              tabs__button-next
+                              purchase__button--final
+                              purchase__button"
+                              >Purchase</button>
                           </div>
+
                         </div>
                       </div>
-                    </form>
-                  </div>
+                    </div>
+                  </form>
                 </div>
               </div>
             </div>
@@ -1077,6 +1334,7 @@
         element.style.height = (element.scrollHeight)+"px";
       }
     </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/svg-injector/1.1.3/svg-injector.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
     <script type="text/javascript" src="scripts/main.js"></script>
