@@ -22,6 +22,14 @@ document.addEventListener('DOMContentLoaded', () => {
     widthScreen = window.innerWidth;
     bodyWidth = body.offsetWidth;
     showBuyButton(widthScreen, currentScroll, totalScroll, documentHeight);
+
+    if (widthScreen > 1023) {
+      heroSliderInit(true);
+    }
+
+    if (widthScreen < 1024) {
+      heroSliderInit(false);
+    }
   });
 
   window.addEventListener('scroll', () => {
@@ -104,11 +112,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   showBuyButton(widthScreen, currentScroll, totalScroll, documentHeight);
 
-  // Slider
+  // Slider Hero Section
+
+  function heroSliderInit(init) {
+    const heroSection = document.querySelector('.hero');
+    const swiperHeroImageNext
+      = heroSection.querySelector('.swiper-button-next');
+    const swiperHeroImagePrev
+      = heroSection.querySelector('.swiper-button-prev');
+    const swiperHeroPaginationBar
+      = heroSection.querySelector('.swiper-pagination--progress-bar');
+
+    // eslint-disable-next-line no-undef
+    const swiperHeroText = new Swiper('.swiper-hero-text', {
+      effect: 'slide',
+      autoHeight: true,
+      direction: 'vertical',
+      loop: false,
+      allowTouchMove: false,
+      init: false,
+    });
+
+    // eslint-disable-next-line no-undef
+    const swiperHeroImage = new Swiper('.swiper-hero-image', {
+      loop: false,
+      watchSlidesProgress: true,
+      parallax: true,
+      lazy: {
+        loadPrevNext: true,
+      },
+      navigation: {
+        nextEl: swiperHeroImageNext,
+        prevEl: swiperHeroImagePrev,
+      },
+      pagination: {
+        el: swiperHeroPaginationBar,
+        type: 'progressbar',
+      },
+      init: false,
+    });
+
+    if (init) {
+      swiperHeroText.init();
+      swiperHeroImage.init();
+    } else {
+      swiperHeroText.destroy();
+      swiperHeroImage.destroy();
+    }
+    swiperHeroImage.controller.control = swiperHeroText;
+  }
+
+  if (widthScreen > 1023) {
+    heroSliderInit(true);
+  };
+
+  // Slider About
+
   // eslint-disable-next-line no-undef
-  const swiper = new Swiper('.swiper2', {
+  const swiper = new Swiper('.swiper-about', {
     pagination: {
-      el: '.swiper-pagination2',
+      el: '.swiper-pagination',
     },
     breakpoints: {
       1024: {
