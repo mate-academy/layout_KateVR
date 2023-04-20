@@ -3,13 +3,7 @@ import 'regenerator-runtime/runtime';
 import fetch from 'node-fetch';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const burgerButtonHeader = document.querySelector('.header__burger');
-  const crossButtonMenu = document.querySelectorAll('.menu__cross');
   const body = document.querySelector('.body');
-  const header = document.querySelector('.header');
-  const menuHeader = document.querySelector('.header__menu');
-  const menuItemHasSub = document.querySelectorAll('.menu__link--has-sub');
-  const menuItemSubArrow = document.querySelectorAll('.arrow-back');
   let widthScreen = window.innerWidth;
   let bodyWidth = body.offsetWidth;
   let currentScroll = window.scrollY;
@@ -51,6 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Header menu
 
+  const header = document.querySelector('.header');
+  const burgerButtonHeader = document.querySelector('.header__burger');
+  const crossButtonMenu = document.querySelectorAll('.menu__cross');
+  const menuHeader = document.querySelector('.header__menu');
+  const menuItemHasSub = document.querySelectorAll('.menu__link--has-sub');
+  const menuItemSubArrow = document.querySelectorAll('.arrow-back');
+  const menuItem = document.querySelectorAll('.menu__link');
+
   burgerButtonHeader.addEventListener('click', () => {
     locked = true;
     lockBody(locked);
@@ -71,6 +73,17 @@ document.addEventListener('DOMContentLoaded', () => {
         cross.closest('.active').classList.remove('active');
       }
     });
+  });
+
+  menuItem.forEach(item => {
+    if (!item.classList.contains('menu__link--has-sub')
+      && !item.classList.contains('modal-link')) {
+      item.addEventListener('click', (e) => {
+        header.classList.remove('active');
+        menuHeader.classList.remove('active');
+        unlockBody(!locked);
+      });
+    }
   });
 
   menuItemHasSub.forEach(item => {
@@ -738,13 +751,17 @@ document.addEventListener('DOMContentLoaded', () => {
       country.addEventListener('click', e => {
         const selectedCountry = e.target.textContent;
         const relatedCities = countriesCitiesDB[selectedCountry];
+        const citiesList = [];
 
         citiesListDB.innerHTML = '';
 
         relatedCities.forEach(city => {
-          citiesListDB.innerHTML
-            += `<li class="dropdown__option">${city}</li>`;
+          const cityToPaste = `<li class="dropdown__option">${city}</li>`;
+
+          citiesList.push(cityToPaste);
         });
+
+        citiesListDB.innerHTML = citiesList.join('');
         initializationDropDownOptions();
       });
     });
