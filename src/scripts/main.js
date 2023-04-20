@@ -18,12 +18,11 @@ document.addEventListener('DOMContentLoaded', () => {
     showBuyButton(widthScreen, currentScroll, totalScroll, documentHeight);
 
     if (widthScreen > 1023) {
-      heroSliderInit(true);
+      heroSliderInit();
     }
 
-    if (widthScreen < 1024) {
-      heroSliderInit(false);
-    }
+    sliderBreakpointChecker(widthScreen, swiperHeroText);
+    sliderBreakpointChecker(widthScreen, swiperHeroImage);
   });
 
   window.addEventListener('scroll', () => {
@@ -127,7 +126,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Slider Hero Section
 
-  function heroSliderInit(init) {
+  let swiperHeroText;
+  let swiperHeroImage;
+
+  function sliderBreakpointChecker(screenWidth, swiperBlock) {
+    if (screenWidth < 1024 && swiperBlock !== undefined
+        && !swiperBlock.destroyed) {
+      const swiperContainer
+        = document.querySelector(swiperBlock.originalParams.el);
+
+      swiperContainer.querySelector('.swiper-wrapper').removeAttribute('style');
+      swiperContainer.querySelector('.swiper-slide').removeAttribute('style');
+      swiperBlock.destroy(true, true);
+    }
+
+    if (screenWidth > 1023 && swiperBlock !== undefined) {
+      swiperBlock.init();
+    }
+  }
+
+  function heroSliderInit() {
     const heroSection = document.querySelector('.hero');
     const swiperHeroImageNext
       = heroSection.querySelector('.swiper-button-next');
@@ -137,17 +155,17 @@ document.addEventListener('DOMContentLoaded', () => {
       = heroSection.querySelector('.swiper-pagination--progress-bar');
 
     // eslint-disable-next-line no-undef
-    const swiperHeroText = new Swiper('.swiper-hero-text', {
+    swiperHeroText = new Swiper('.swiper-hero-text', {
       effect: 'slide',
       autoHeight: true,
       direction: 'vertical',
       loop: false,
       allowTouchMove: false,
-      init: false,
+      // init: false,
     });
 
     // eslint-disable-next-line no-undef
-    const swiperHeroImage = new Swiper('.swiper-hero-image', {
+    swiperHeroImage = new Swiper('.swiper-hero-image', {
       loop: false,
       watchSlidesProgress: true,
       parallax: true,
@@ -162,22 +180,14 @@ document.addEventListener('DOMContentLoaded', () => {
         el: swiperHeroPaginationBar,
         type: 'progressbar',
       },
-      init: false,
+      // init: false,
     });
-
-    if (init) {
-      swiperHeroText.init();
-      swiperHeroImage.init();
-    } else {
-      swiperHeroText.destroy();
-      swiperHeroImage.destroy();
-    }
     swiperHeroImage.controller.control = swiperHeroText;
-  }
-
-  if (widthScreen > 1023) {
-    heroSliderInit(true);
   };
+
+  heroSliderInit();
+  sliderBreakpointChecker(widthScreen, swiperHeroText);
+  sliderBreakpointChecker(widthScreen, swiperHeroImage);
 
   // Slider About
 
