@@ -1,0 +1,50 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+
+  @include desktop768 {
+    margin-bottom: 15vh;
+  }
+
+  @include desktop1024 {
+    margin-bottom: 0;
+  }
+
+  &__left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  &__logo {
+    height: 16px;
+    margin-right: 36px;
+
+    &-img {
+      height: 100%;
+    }
+  }
+
+  &__language {
+    color: rgba(5, 194, 223, 1);
+    font-weight: 500;
+    font-size: 14px;
+    height: 35px;
+    appearance: none;
+    cursor: pointer;
+    padding: 0 10px;
+    background: url("../images/icons/arrow.svg") no-repeat;
+    background-position: right 70%;
+    border: none;
+    display: none;
+
+    &-select {
+      background: #191536;
+    }
+
+    @include desktop1024 {
+      display: block;
+    }
+  }
+}

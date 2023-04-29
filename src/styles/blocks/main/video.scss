@@ -1,0 +1,46 @@
+.video {
+  &__player {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__youtube {
+    justify-content: center;
+    width: 375px;
+    height: 240px;
+
+    @include desktop500 {
+      width: 426px;
+    }
+
+    @include desktop768 {
+      width: 640px;
+      height: 360px;
+    }
+
+    @include desktop1024 {
+      width: 854px;
+      height: 480px;
+    }
+  }
+
+  &__name {
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 44px;
+    color: $white;
+    text-align: center;
+    margin-top: 0;
+
+    &-mod {
+      color: $contrastColor;
+      font-weight: 400;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 150%;
+    padding-bottom: 24px;
+  }
+}

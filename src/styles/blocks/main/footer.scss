@@ -1,0 +1,76 @@
+.footer {
+  background-color: #05040b;
+  padding: 25px 0;
+
+  @include desktop768 {
+    padding: 0;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    padding-right: 120px;
+    align-items: end;
+
+    @include desktop768 {
+      width: 75%;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @include desktop1224 {
+      width: 70%;
+    }
+
+    &--menu {
+      display: block;
+      z-index: 0;
+
+      @include desktop768 {
+        display: flex;
+      }
+
+      &-list {
+        @include desktop768 {
+          flex-direction: row;
+        }
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    &--contacts {
+      display: flex;
+      flex-direction: column;
+
+      @include desktop768 {
+        display: none;
+      }
+    }
+
+    &-social {
+      padding-right: 18px;
+      text-decoration: none;
+
+      &:hover path {
+        fill: $contrastColor;
+        transition: all ease 0.3s;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include desktop768 {
+      justify-content: space-between;
+    }
+  }
+}

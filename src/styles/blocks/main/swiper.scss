@@ -1,0 +1,71 @@
+.swiper {
+  padding-bottom: 40px;
+
+  @include desktop768 {
+    height: 275px;
+  }
+
+  @include desktop1224 {
+    height: 330px;
+    padding-bottom: 40px;
+  }
+
+  &-slide {
+    object-fit: cover;
+  }
+
+  &__buttons {
+    width: min-content;
+    display: none;
+    justify-content: space-between;
+    gap: 40px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #212121;
+
+    @include desktop1024 {
+      display: flex;
+    }
+
+    &-button {
+      padding: 5px 0;
+      background: none;
+      border: none;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      color: #fff;
+      cursor: pointer;
+      text-decoration: none;
+
+      &:hover {
+        color: $textColor;
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          width: 100%;
+          border-bottom: 1px solid $contrastColor;
+          bottom: -11px;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+
+#swiper-pagination-style {
+  @include desktop1224 {
+    width: 40px;
+    height: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $contrastColor;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

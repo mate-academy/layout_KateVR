@@ -1,0 +1,45 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include desktop768 {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
+
+  @include desktop1224 {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 24px;
+  }
+
+  &--desktop {
+    display: block;
+
+    @include desktop768 {
+      display: grid;
+    }
+  }
+
+  &__row {
+    grid-row: 1 / 3;
+  }
+
+  &__item {
+    @for $start from 1 through 12 {
+      @for $end from $start through 12 {
+        &--desktop768-#{$start}-#{$end} {
+          @include desktop768 {
+            grid-column: #{$start} / #{$end+ 1};
+          }
+        }
+
+        &--desktop1224-#{$start}-#{$end} {
+          @include desktop1224 {
+            grid-column: #{$start} / #{$end+ 1};
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.play {
+  height: 70px;
+  margin-bottom: 20px;
+  &__video {
+    height: 100%;
+    position: relative;
+    padding: 0 100px;
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      content: "";
+      width: 100%;
+      height: 70px;
+      background: url("../images/icons/button.svg") no-repeat;
+    }
+  }
+
+  &:hover {
+    animation: 1s infinite pulse both;
+  }
+
+  @keyframes pulse {
+    0% {
+      transform: scale3d(1, 1, 1);
+    }
+    50% {
+      transform: scale3d(1.05, 1.05, 1.05);
+    }
+    100% {
+      transform: scale3d(1, 1, 1);
+    }
+  }
+}
