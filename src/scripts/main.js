@@ -124,3 +124,73 @@ function onSubmit(event) {
   event.preventDefault();
   form.reset();
 };
+
+// const selectElement = document.querySelector('select[name="amount"]');
+// const priceElement = document.querySelector('.place__price');
+
+// const prices = {
+//   1: 1200,
+//   2: 2400,
+// };
+
+// selectElement.addEventListener('change', () => {
+//   const selectedAmount = parseInt(selectElement.value);
+//   const price = prices[selectedAmount];
+
+//   if (price) {
+//     priceElement.textContent = `${price}$`;
+//   }
+// });
+
+// const selectPayElement = document.querySelector('select[name="amount-pay"]');
+// const pricePayElement = document.querySelector('.pay__price');
+
+// selectPayElement.addEventListener('change', () => {
+//   const selectedPayAmount = parseInt(selectPayElement.value);
+//   const price = prices[selectedPayAmount];
+
+//   if (price) {
+//     pricePayElement.textContent = `${price}$`;
+//   }
+// });
+
+const prices = {
+  1: 1200,
+  2: 2400,
+};
+
+// eslint-disable-next-line no-shadow
+const updatePrice = (selectElement, priceElement) => {
+  const selectedAmount = parseInt(selectElement.value);
+  const price = prices[selectedAmount];
+
+  if (price) {
+    priceElement.textContent = `${price}$`;
+  }
+};
+
+const selectElement = document.querySelector('select[name="amount"]');
+const priceElement = document.querySelector('.place__price');
+
+selectElement.addEventListener('change', () => {
+  updatePrice(selectElement, priceElement);
+});
+
+const selectPayElement = document.querySelector('select[name="amount-pay"]');
+const pricePayElement = document.querySelector('.pay__price');
+
+selectPayElement.addEventListener('change', () => {
+  updatePrice(selectPayElement, pricePayElement);
+});
+
+const formSubmit = document.querySelector('.place__customer-info');
+const countrySelect = document.querySelector('select[name="countries"]');
+const citySelect = document.querySelector('select[name="cities"]');
+
+formSubmit.addEventListener('submit', (event) => {
+  if (countrySelect.value === ' ' || citySelect.value === ' ') {
+    event.preventDefault();
+    // eslint-disable-next-line no-undef
+    alert('Please select a country and a city.');
+  }
+});
