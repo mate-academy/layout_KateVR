@@ -1,0 +1,179 @@
+.header {
+  padding-top: 20px;
+
+  @include onTablet {
+    padding-top: 30px;
+  }
+
+  @include onDesktop {
+    padding-top: 48px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo-image {
+    display: block;
+    width: 58px;
+    height: 12px;
+
+    @include onTablet {
+      width: 68px;
+      height: 14px;
+    }
+
+    @include onDesktop {
+      width: auto;
+      height: auto;
+    }
+  }
+
+  &__menu-opener {
+    width: 20px;
+    height: 10px;
+
+    background-image: url(../images/icons/burger.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    transition: background-image $duration;
+    will-change: background-image;
+
+    @include onTablet {
+      width: 30px;
+      height: 14px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:hover {
+      background-image: url(../images/icons/burger-turquoise.svg);
+    }
+  }
+
+  &__nav-wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+
+    @include onTablet {
+      padding: 32px 0;
+
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.21) 0%,
+        rgba(4, 4, 4, 0.59) 23.44%,
+        #050505 100%
+      );
+    }
+
+    @include onDesktop {
+      position: static;
+
+      justify-content: initial;
+      align-items: center;
+      column-gap: 36px;
+      padding: 0;
+
+      background: none;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__nav-list {
+    display: none;
+    align-items: center;
+    column-gap: 36px;
+
+    list-style-type: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__nav-link,
+  &__button {
+    display: flex;
+    align-items: center;
+
+    text-decoration: none;
+    font-weight: 500;
+    line-height: 130%;
+    color: #fff;
+  }
+
+  &__nav-link {
+    flex-direction: column;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 0;
+      height: 1px;
+
+      background-color: $turquoise;
+
+      transition: width $duration;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__button {
+    justify-content: center;
+    width: 280px;
+    height: 40px;
+
+    font-size: 14px;
+
+    border: none;
+    border-radius: 4px;
+    background-color: $turquoise;
+
+    transition: background-color $duration, color $duration;
+
+    @include onTablet {
+      width: 458px;
+      height: 48px;
+
+      font-size: 16px;
+    }
+
+    @include onDesktop {
+      width: 200px;
+      height: 48px;
+    }
+
+    &:hover {
+      color: $turquoise;
+      background-color: #fff;
+    }
+
+    &:disabled {
+      color: #2f2f2f;
+      background-color: #191536;
+    }
+  }
+}
