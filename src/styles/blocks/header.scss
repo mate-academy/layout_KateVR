@@ -1,18 +1,42 @@
 .header {
-  padding-top: 20px;
+  position: relative;
+
+  padding: 20px 0 50px;
+
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
 
   @include onTablet {
-    padding-top: 30px;
+    padding: 30px 0 60px;
   }
 
   @include onDesktop {
-    padding-top: 48px;
+    padding: 50px 0 90px;
   }
 
   &__top {
+    margin-bottom: 14px;
+
+    @include onTablet {
+      position: relative;
+      z-index: 1;
+
+      margin-bottom: 54px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__top-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__logo-wrapper {
+    display: flex;
+    column-gap: 36px;
   }
 
   &__logo-image {
@@ -28,6 +52,100 @@
     @include onDesktop {
       width: auto;
       height: auto;
+    }
+  }
+
+  &__languages-wrapper {
+    display: none;
+
+    @include onDesktop {
+      position: relative;
+
+      display: block;
+
+      font-weight: 500;
+      line-height: 130%;
+      color: $turquoise;
+
+      cursor: pointer;
+    }
+  }
+
+  &__languages-opener {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 40px;
+
+    transition: color $duration;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 9px;
+      height: 6px;
+
+      background-image: url(../images/icons/languages-arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+
+      transition: background-image $duration, transform $duration;
+      will-change: background-image, transform;
+    }
+
+    &:hover {
+      color: #fff;
+
+      &::after {
+        background-image: url(../images/icons/languages-arrow-white.svg);
+      }
+    }
+
+    &--opened-list::after {
+      transform: rotateZ(-180deg);
+    }
+  }
+
+  &__languages-list {
+    position: absolute;
+    top: 110%;
+    left: 0;
+
+    width: 100%;
+    height: 0;
+    overflow-y: scroll;
+
+    list-style-type: none;
+
+    transition: height $duration;
+
+    scrollbar-width: thin;
+    scrollbar-color: $turquoise transparent;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $turquoise;
+      border-radius: 10px;
+    }
+
+    &--open {
+      height: 62px;
+    }
+  }
+
+  &__language {
+    transition: color $duration;
+
+    &:hover {
+      color: #fff;
     }
   }
 
@@ -111,7 +229,7 @@
     }
   }
 
-  &__nav-link,
+  &__link,
   &__button {
     display: flex;
     align-items: center;
@@ -119,10 +237,13 @@
     text-decoration: none;
     font-weight: 500;
     line-height: 130%;
+    text-transform: capitalize;
     color: #fff;
+
+    cursor: pointer;
   }
 
-  &__nav-link {
+  &__link {
     flex-direction: column;
 
     &::after {
@@ -139,6 +260,10 @@
     &:hover::after {
       width: 100%;
     }
+
+    &--capitalize {
+      text-transform: capitalize;
+    }
   }
 
   &__button {
@@ -151,6 +276,7 @@
     border: none;
     border-radius: 4px;
     background-color: $turquoise;
+    cursor: pointer;
 
     transition: background-color $duration, color $duration;
 
@@ -174,6 +300,240 @@
     &:disabled {
       color: #2f2f2f;
       background-color: #191536;
+    }
+
+    &--play {
+      width: 200px;
+      height: 48px;
+
+      border: 1px solid $turquoise;
+      background-color: transparent;
+
+      transition: border-color $duration, color $duration;
+
+      &:hover {
+        border-color: #fff;
+        background-color: transparent;
+      }
+
+      @include onTablet {
+        grid-column: 1 / 4;
+      }
+
+      @include onDesktop {
+        grid-column: 2 / 6;
+      }
+    }
+  }
+
+  &__slider {
+    position: relative;
+
+    padding-top: 53.75%;
+
+    overflow: hidden;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      grid-row: 1 / 5;
+
+      padding-top: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__slides {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    width: 200%;
+
+    transition: transform $duration;
+    will-change: transform;
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../images/header-image.png);
+    background-repeat: no-repeat;
+    background-position: 65% center;
+    background-size: 145%;
+
+    &--second {
+      background-image: url(../images/header-image-2.png);
+      background-size: 105%;
+      background-position: center;
+    }
+  }
+
+  &__main-content {
+    position: relative;
+    z-index: 1;
+
+    @include onDesktop {
+      margin-bottom: 84px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 18px;
+
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 130%;
+    text-transform: uppercase;
+    color: #fff;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+
+      font-size: 46px;
+    }
+  }
+
+  &__highlighted {
+    font-weight: 400;
+    color: $turquoise;
+  }
+
+  &__text {
+    margin-bottom: 10px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__price {
+    margin-bottom: 20px;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include onDesktop {
+      position: relative;
+      z-index: 1;
+
+      display: block;
+    }
+  }
+
+  &__faq-wrapper {
+    display: flex;
+    column-gap: 40px;
+    grid-column: 1 / 6;
+  }
+
+  &__more {
+    grid-column: 6 / 8;
+    justify-self: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 8px;
+
+    text-decoration: none;
+    font-weight: 500;
+    color: $turquoise;
+
+    transition: color $duration;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 9px;
+      height: 6px;
+
+      background-image: url(../images/icons/languages-arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+
+      transition: background-image $duration;
+      will-change: background-image;
+    }
+
+    &:hover {
+      color: #fff;
+
+      &::after {
+        background-image: url(../images/icons/languages-arrow-white.svg);
+      }
+    }
+  }
+
+  &__slider-buttons {
+    position: relative;
+
+    display: flex;
+    column-gap: 100px;
+    grid-column: 8 / -1;
+    justify-self: end;
+
+    &::after {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+
+      display: block;
+      content: "";
+      width: 100%;
+      height: 1px;
+
+      background-color: #212121;
+    }
+  }
+
+  &__slider-button {
+    position: relative;
+    z-index: 1;
+
+    color: #fff;
+
+    cursor: pointer;
+    border-bottom: 1px solid transparent;
+
+    transition: border-bottom-color $duration;
+
+    &:hover {
+      border-bottom-color: $turquoise;
+    }
+
+    &--not-active {
+      color: $gray;
+      pointer-events: none;
     }
   }
 }
