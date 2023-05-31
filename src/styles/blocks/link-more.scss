@@ -1,0 +1,34 @@
+.link-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 8px;
+
+  text-decoration: none;
+  font-weight: 500;
+  color: $turquoise;
+
+  transition: color $duration;
+
+  &::after {
+    display: block;
+    content: "";
+    width: 9px;
+    height: 6px;
+
+    background-image: url(../images/icons/languages-arrow.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: background-image $duration;
+    will-change: background-image;
+  }
+
+  &:hover {
+    color: #fff;
+
+    &::after {
+      background-image: url(../images/icons/languages-arrow-white.svg);
+    }
+  }
+}

@@ -10,6 +10,22 @@ const headerPreviousButton = document.querySelector(
   '.header__slider-button--previous'
 );
 const headerNextButton = document.querySelector('.header__slider-button--next');
+const menu = document.querySelector('.menu');
+const menuOpener = document.querySelector('.header__menu-opener');
+const menuCross = menu.querySelector('.icon--cross');
+const menuLanguages = document.querySelector('.menu--languages');
+const menuLanguagesOpener = document.querySelector('.menu__languages-opener');
+const menuLanguagesBack = menuLanguages.querySelector('.icon--back');
+const faq = document.querySelector('.faq');
+const headerFaqOpener = document.querySelector('.header__link--faq');
+const menuFaqOpener = document.querySelector('.menu__link--faq');
+const helpFaqOpener = document.querySelector('.help__link--faq');
+const faqCross = faq.querySelector('.icon--cross');
+const faqItems = document.querySelectorAll('.faq__item');
+const help = document.querySelector('.help');
+const headerHelpOpener = document.querySelector('.header__link--help');
+const menuHelpOpener = document.querySelector('.menu__link--help');
+const helpCross = help.querySelector('.icon--cross');
 const headerSlidesTranslateStep = 50;
 let activeSlide = 0;
 let startX = 0;
@@ -33,6 +49,17 @@ const moveSlides = () => {
   headerSlides.style.transform = `
     translateX(-${activeSlide * headerSlidesTranslateStep}%)
   `;
+};
+
+const openFaq = () => {
+  faq.classList.add('faq--open');
+  document.body.classList.add('page__body--with-menu');
+  help.classList.remove('help--open');
+};
+
+const openHelp = () => {
+  help.classList.add('help--open');
+  faq.classList.remove('faq--open');
 };
 
 languagesOpener.addEventListener('click', (e) => {
@@ -94,4 +121,56 @@ headerSlider.addEventListener('touchend', (e) => {
 
     moveSlides();
   }
+});
+
+menuOpener.addEventListener('click', () => {
+  menu.classList.add('menu--open');
+});
+
+menuCross.addEventListener('click', () => {
+  menu.classList.remove('menu--open');
+});
+
+menuLanguagesOpener.addEventListener('click', () => {
+  menuLanguages.classList.add('menu--open');
+  menu.classList.remove('menu--open');
+});
+
+menuLanguagesBack.addEventListener('click', () => {
+  menuLanguages.classList.remove('menu--open');
+  menu.classList.add('menu--open');
+});
+
+headerFaqOpener.addEventListener('click', () => {
+  faq.classList.add('faq--open');
+});
+
+headerFaqOpener.addEventListener('click', openFaq);
+menuFaqOpener.addEventListener('click', openFaq);
+helpFaqOpener.addEventListener('click', openFaq);
+
+faqCross.addEventListener('click', () => {
+  faq.classList.remove('faq--open');
+  document.body.classList.remove('page__body--with-menu');
+});
+
+faqItems.forEach(item => item.querySelector('.faq__item-title')
+  .addEventListener('click', (e) => {
+    e.target.classList.toggle('faq__item-title--item-opened');
+
+    item.querySelector('.faq__text-wrapper')
+      .classList.toggle('faq__text-wrapper--open');
+  })
+);
+
+headerHelpOpener.addEventListener('click', () => {
+  help.classList.add('help--open');
+});
+
+headerHelpOpener.addEventListener('click', openHelp);
+menuHelpOpener.addEventListener('click', openHelp);
+
+helpCross.addEventListener('click', () => {
+  help.classList.remove('help--open');
+  document.body.classList.remove('page__body--with-menu');
 });

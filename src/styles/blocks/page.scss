@@ -6,4 +6,24 @@
   background-color: #05040b;
 
   scroll-behavior: smooth;
+
+  &__body {
+    position: relative;
+
+    min-height: 100vh;
+
+    &--with-menu {
+      &::before {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+
+        display: block;
+        content: "";
+        height: 100vh;
+
+        background-color: rgba($color: #000, $alpha: 0.5);
+      }
+    }
+  }
 }

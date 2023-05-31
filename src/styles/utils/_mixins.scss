@@ -9,3 +9,90 @@
     @content;
   }
 }
+
+@mixin headerPaddingTop {
+  padding-top: 20px;
+
+  @include onTablet {
+    padding-top: 30px;
+  }
+
+  @include onDesktop {
+    padding-top: 50px;
+  }
+}
+
+@mixin faqStyles {
+  @include headerPaddingTop;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 20px;
+  overflow-y: auto;
+
+  background-color: $darkBlue;
+  visibility: hidden;
+
+  @include onTablet {
+    padding-bottom: 30px;
+  }
+
+  @include onDesktop {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 880px;
+    max-height: 860px;
+    padding-bottom: 50px;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: $turquoise transparent;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $turquoise;
+    border-radius: 10px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include onDesktop {
+      margin-bottom: 50px;
+    }
+  }
+
+  &--open {
+    z-index: 2;
+    visibility: visible;
+  }
+}
