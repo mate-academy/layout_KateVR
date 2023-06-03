@@ -16,6 +16,7 @@ const menuCross = menu.querySelector('.icon--cross');
 const menuLanguages = document.querySelector('.menu--languages');
 const menuLanguagesOpener = document.querySelector('.menu__languages-opener');
 const menuLanguagesBack = menuLanguages.querySelector('.icon--back');
+const menuLanguagesItems = menuLanguages.querySelectorAll('.menu__link');
 const faq = document.querySelector('.faq');
 const headerFaqOpener = document.querySelector('.header__link--faq');
 const menuFaqOpener = document.querySelector('.menu__link--faq');
@@ -26,6 +27,20 @@ const help = document.querySelector('.help');
 const headerHelpOpener = document.querySelector('.header__link--help');
 const menuHelpOpener = document.querySelector('.menu__link--help');
 const helpCross = help.querySelector('.icon--cross');
+const dropDownListWrappers = document.querySelectorAll(
+  '.order__drop-down-list-wrapper'
+);
+const buyButton = document.querySelector('.header__top .button');
+const order = document.querySelector('.order');
+const orderCross = document.querySelector('.order__top .icon--cross');
+const orderTabs = document.querySelectorAll('.order__tab');
+const orderTabsCross = document.querySelector('.order__tabs-cross');
+const orderFieldsWrappers = document.querySelectorAll('.order__field-wrapper');
+const orderFields = document.querySelectorAll('.order__field');
+const orderForm = document.querySelector('.order__form');
+const orderComplete = document.querySelector('.order__complete');
+const competeButton = orderComplete.querySelector('.button');
+
 const headerSlidesTranslateStep = 50;
 let activeSlide = 0;
 let startX = 0;
@@ -51,15 +66,26 @@ const moveSlides = () => {
   `;
 };
 
+const closeMenuLanguages = () => {
+  menuLanguages.classList.remove('menu--open');
+  menu.classList.add('menu--open');
+};
+
 const openFaq = () => {
-  faq.classList.add('faq--open');
   document.body.classList.add('page__body--with-menu');
+  faq.classList.add('faq--open');
   help.classList.remove('help--open');
 };
 
 const openHelp = () => {
+  document.body.classList.add('page__body--with-menu');
   help.classList.add('help--open');
   faq.classList.remove('faq--open');
+};
+
+const closeOrder = () => {
+  order.classList.add('order--hide');
+  document.body.classList.remove('page__body--with-menu');
 };
 
 languagesOpener.addEventListener('click', (e) => {
@@ -125,10 +151,12 @@ headerSlider.addEventListener('touchend', (e) => {
 
 menuOpener.addEventListener('click', () => {
   menu.classList.add('menu--open');
+  document.body.classList.add('page__body--with-menu');
 });
 
 menuCross.addEventListener('click', () => {
   menu.classList.remove('menu--open');
+  document.body.classList.remove('page__body--with-menu');
 });
 
 menuLanguagesOpener.addEventListener('click', () => {
@@ -136,10 +164,11 @@ menuLanguagesOpener.addEventListener('click', () => {
   menu.classList.remove('menu--open');
 });
 
-menuLanguagesBack.addEventListener('click', () => {
-  menuLanguages.classList.remove('menu--open');
-  menu.classList.add('menu--open');
-});
+menuLanguagesBack.addEventListener('click', closeMenuLanguages);
+
+menuLanguagesItems.forEach(item =>
+  item.addEventListener('click', closeMenuLanguages)
+);
 
 headerFaqOpener.addEventListener('click', () => {
   faq.classList.add('faq--open');
@@ -151,7 +180,10 @@ helpFaqOpener.addEventListener('click', openFaq);
 
 faqCross.addEventListener('click', () => {
   faq.classList.remove('faq--open');
-  document.body.classList.remove('page__body--with-menu');
+
+  if (!menu.classList.contains('menu--open')) {
+    document.body.classList.remove('page__body--with-menu');
+  }
 });
 
 faqItems.forEach(item => item.querySelector('.faq__item-title')
@@ -172,5 +204,112 @@ menuHelpOpener.addEventListener('click', openHelp);
 
 helpCross.addEventListener('click', () => {
   help.classList.remove('help--open');
-  document.body.classList.remove('page__body--with-menu');
+
+  if (!menu.classList.contains('menu--open')) {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
+buyButton.addEventListener('click', () => {
+  order.classList.remove('order--hide');
+  document.body.classList.add('page__body--with-menu');
+});
+
+orderCross.addEventListener('click', closeOrder);
+orderTabsCross.addEventListener('click', closeOrder);
+competeButton.addEventListener('click', closeOrder);
+
+dropDownListWrappers.forEach(wrapper => {
+  const listOpener = wrapper.querySelector('.order__drop-down-list-opener');
+  const list = wrapper.querySelector('.order__drop-down-list');
+  const listItems = wrapper.querySelectorAll('.order__drop-down-list-item');
+
+  listOpener.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    listOpener.parentNode.classList.toggle(
+      'order__drop-down-list-opener-wrapper--opened-list'
+    );
+
+    if (list.classList.contains('order__drop-down-list--quantity')) {
+      list.classList.toggle('order__drop-down-list--open-quantity');
+    } else {
+      list.classList.toggle('order__drop-down-list--open');
+    }
+  });
+
+  listItems.forEach(item => item.addEventListener('click', () => {
+    listOpener.value = item.innerText;
+
+    list.classList.remove(
+      'order__drop-down-list--open',
+      'order__drop-down-list--open-quantity'
+    );
+
+    listOpener.parentNode.classList.remove(
+      'order__drop-down-list-opener-wrapper--opened-list',
+    );
+  }));
+});
+
+orderFields.forEach(item => {
+  const label = item.parentNode.querySelector('.order__field-label');
+
+  item.addEventListener('focus', () => {
+    if (!item.classList.contains('order__field--invalid')) {
+      item.classList.add('order__field--focused');
+    }
+
+    if (label) {
+      label.classList.add('order__field-label--focused-field');
+    }
+  });
+
+  item.addEventListener('blur', () => {
+    if (!item.checkValidity()) {
+      item.classList.add('order__field--invalid');
+
+      if (label) {
+        label.classList.add('order__field-label--invalid');
+      }
+    } else {
+      item.classList.remove('order__field--invalid');
+
+      if (label) {
+        label.classList.remove('order__field-label--invalid');
+
+        if (item.value === '') {
+          label.classList.remove('order__field-label--focused-field');
+        }
+      }
+    }
+  });
+});
+
+orderTabs.forEach(tab => tab.addEventListener('click', () => {
+  orderTabs.forEach(item => item.classList.remove('order__tab--active'));
+  tab.classList.add('order__tab--active');
+
+  if (tab.dataset.type === 'complete') {
+    orderForm.classList.add('order__form--hide');
+    orderComplete.classList.add('order__complete--show');
+
+    return;
+  }
+
+  orderForm.classList.remove('order__form--hide');
+  orderComplete.classList.remove('order__complete--show');
+
+  orderFieldsWrappers.forEach(wrapper => {
+    if (wrapper.dataset.type === tab.dataset.type) {
+      wrapper.classList.remove('order__field-wrapper--hide');
+    } else {
+      wrapper.classList.add('order__field-wrapper--hide');
+    }
+  });
+}));
+
+orderForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  orderForm.reset();
 });
