@@ -86,6 +86,23 @@ const openHelp = () => {
 const closeOrder = () => {
   order.classList.add('order--hide');
   document.body.classList.remove('page__body--with-menu');
+  orderForm.reset();
+
+  orderFields.forEach(field => {
+    const label = field.parentNode.querySelector('.order__field-label');
+
+    field.classList.remove(
+      'order__field--focused',
+      'order__field--invalid'
+    );
+
+    if (label) {
+      label.classList.remove(
+        'order__field-label--focused-field',
+        'order__field-label--invalid'
+      );
+    }
+  });
 };
 
 languagesOpener.addEventListener('click', (e) => {
