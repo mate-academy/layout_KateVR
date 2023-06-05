@@ -7,9 +7,28 @@ const currentLanguage = document.querySelector('.header__current-language');
 const headerSlider = document.querySelector('.header__slider');
 const headerSlides = document.querySelector('.header__slides');
 const headerPreviousButton = document.querySelector(
-  '.header__slider-button--previous'
+  '.header .slider-buttons__button--previous'
 );
-const headerNextButton = document.querySelector('.header__slider-button--next');
+const headerNextButton = document.querySelector(
+  '.header .slider-buttons__button--next'
+);
+const aboutSlider = document.querySelector('.about__slider');
+const aboutSlides = document.querySelector('.about__slides');
+const aboutPreviousButton = document.querySelector(
+  '.about .slider-buttons__button--previous'
+);
+const aboutNextButton = document.querySelector(
+  '.about .slider-buttons__button--next'
+);
+const aboutSlidesIndicators = document.querySelector(
+  '.about__slides-indicators'
+);
+const aboutCurrentSlide = document.querySelector(
+  '.about__current-slide'
+);
+const aboutTotalSlides = document.querySelector(
+  '.about__total-slides'
+);
 const menu = document.querySelector('.menu');
 const menuOpener = document.querySelector('.header__menu-opener');
 const menuCross = menu.querySelector('.icon--cross');
@@ -41,30 +60,121 @@ const orderForm = document.querySelector('.order__form');
 const orderComplete = document.querySelector('.order__complete');
 const competeButton = orderComplete.querySelector('.button');
 
-const headerSlidesTranslateStep = 50;
-let activeSlide = 0;
-let startX = 0;
-let startY = 0;
-let endX = 0;
-let endY = 0;
+const sliderHandler = (slider, slides, previousButton, nextButton) => {
+  const slidesCount = slides.childElementCount;
+  const slidesTranslateStep = 100 / slidesCount;
+  const slidesIndicators = [];
+  let activeSlide = 0;
+  let startX = 0;
+  let startY = 0;
+  let endX = 0;
+  let endY = 0;
 
-const moveSlides = () => {
-  if (activeSlide < 0) {
-    activeSlide = 0;
+  if (slider === aboutSlider) {
+    for (let i = 0; i < slidesCount; i++) {
+      const slideIndicator = document.createElement('div');
 
-    return;
+      slidesIndicators.push(slideIndicator);
+
+      slideIndicator.classList.add('about__slide-indicator');
+
+      if (i === activeSlide) {
+        slideIndicator.classList.add('about__slide-indicator--active');
+      }
+
+      aboutSlidesIndicators.appendChild(slideIndicator);
+    }
+
+    aboutCurrentSlide.innerText = activeSlide + 1;
+    aboutTotalSlides.innerText = slidesCount;
   }
 
-  if (activeSlide > 1) {
-    activeSlide = 1;
+  const moveSlides = () => {
+    slides.style.transform = `
+      translateX(-${activeSlide * slidesTranslateStep}%)
+    `;
 
-    return;
-  }
+    if (slider === aboutSlider) {
+      aboutCurrentSlide.innerText = activeSlide + 1;
 
-  headerSlides.style.transform = `
-    translateX(-${activeSlide * headerSlidesTranslateStep}%)
-  `;
+      slidesIndicators.forEach((item, index) => {
+        if (index === activeSlide) {
+          item.classList.add('about__slide-indicator--active');
+        } else {
+          item.classList.remove('about__slide-indicator--active');
+        }
+      });
+    }
+  };
+
+  previousButton.addEventListener('click', () => {
+    activeSlide--;
+
+    moveSlides();
+
+    nextButton.classList.remove('slider-buttons__button--not-active');
+
+    if (activeSlide === 0) {
+      previousButton.classList.add('slider-buttons__button--not-active');
+    }
+  });
+
+  nextButton.addEventListener('click', () => {
+    activeSlide++;
+
+    moveSlides();
+
+    previousButton.classList.remove('slider-buttons__button--not-active');
+
+    if (activeSlide === slidesCount - 1) {
+      nextButton.classList.add('slider-buttons__button--not-active');
+    }
+  });
+
+  slider.addEventListener('touchstart', (e) => {
+    startX = e.changedTouches[0].clientX;
+    startY = e.changedTouches[0].clientY;
+  });
+
+  slider.addEventListener('touchend', (e) => {
+    endX = e.changedTouches[0].clientX;
+    endY = e.changedTouches[0].clientY;
+
+    if (Math.abs(startX - endX) > Math.abs(startY - endY)) {
+      if (startX > endX) {
+        if (activeSlide === slidesCount - 1) {
+          return;
+        }
+
+        activeSlide++;
+      }
+
+      if (startX < endX) {
+        if (activeSlide === 0) {
+          return;
+        }
+
+        activeSlide--;
+      }
+
+      moveSlides();
+    }
+  });
 };
+
+sliderHandler(
+  headerSlider,
+  headerSlides,
+  headerPreviousButton,
+  headerNextButton
+);
+
+sliderHandler(
+  aboutSlider,
+  aboutSlides,
+  aboutPreviousButton,
+  aboutNextButton
+);
 
 const closeMenuLanguages = () => {
   menuLanguages.classList.remove('menu--open');
@@ -119,52 +229,6 @@ document.addEventListener('click', () => {
 languagesItems.forEach(item => item.addEventListener('click', (e) => {
   currentLanguage.innerText = e.target.innerText;
 }));
-
-headerPreviousButton.addEventListener('click', () => {
-  activeSlide--;
-
-  moveSlides();
-
-  headerNextButton.classList.remove('header__slider-button--not-active');
-
-  if (activeSlide === 0) {
-    headerPreviousButton.classList.add('header__slider-button--not-active');
-  }
-});
-
-headerNextButton.addEventListener('click', () => {
-  activeSlide++;
-
-  moveSlides();
-
-  headerPreviousButton.classList.remove('header__slider-button--not-active');
-
-  if (activeSlide === 1) {
-    headerNextButton.classList.add('header__slider-button--not-active');
-  }
-});
-
-headerSlider.addEventListener('touchstart', (e) => {
-  startX = e.changedTouches[0].clientX;
-  startY = e.changedTouches[0].clientY;
-});
-
-headerSlider.addEventListener('touchend', (e) => {
-  endX = e.changedTouches[0].clientX;
-  endY = e.changedTouches[0].clientY;
-
-  if (Math.abs(startX - endX) > Math.abs(startY - endY)) {
-    if (startX > endX) {
-      activeSlide++;
-    }
-
-    if (startX < endX) {
-      activeSlide--;
-    }
-
-    moveSlides();
-  }
-});
 
 menuOpener.addEventListener('click', () => {
   menu.classList.add('menu--open');
