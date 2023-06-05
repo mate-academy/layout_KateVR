@@ -59,6 +59,8 @@ const orderFields = document.querySelectorAll('.order__field');
 const orderForm = document.querySelector('.order__form');
 const orderComplete = document.querySelector('.order__complete');
 const competeButton = orderComplete.querySelector('.button');
+const techButtons = document.querySelectorAll('.tech__button');
+const techInfos = document.querySelectorAll('.tech__info');
 
 const sliderHandler = (slider, slides, previousButton, nextButton) => {
   const slidesCount = slides.childElementCount;
@@ -213,6 +215,25 @@ const closeOrder = () => {
       );
     }
   });
+
+  orderTabs.forEach((item, index) => {
+    if (index === 0) {
+      item.classList.add('order__tab--active');
+    } else {
+      item.classList.remove('order__tab--active');
+    }
+  });
+
+  orderFieldsWrappers.forEach(wrapper => {
+    if (wrapper.dataset.type === 'place') {
+      wrapper.classList.remove('order__field-wrapper--hide');
+    } else {
+      wrapper.classList.add('order__field-wrapper--hide');
+    }
+  });
+
+  orderComplete.classList.remove('order__complete--show');
+  orderForm.classList.remove('order__form--hide');
 };
 
 languagesOpener.addEventListener('click', (e) => {
@@ -361,6 +382,7 @@ orderFields.forEach(item => {
 
         if (item.value === '') {
           label.classList.remove('order__field-label--focused-field');
+          item.classList.remove('order__field--focused');
         }
       }
     }
@@ -393,4 +415,24 @@ orderTabs.forEach(tab => tab.addEventListener('click', () => {
 orderForm.addEventListener('submit', (e) => {
   e.preventDefault();
   orderForm.reset();
+});
+
+techButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    techInfos.forEach(info => {
+      if (button.dataset.block === info.dataset.type) {
+        info.classList.add('tech__info--show');
+      } else {
+        info.classList.remove('tech__info--show');
+      }
+    });
+  });
+});
+
+techInfos.forEach(info => {
+  const cross = info.querySelector('.icon--cross');
+
+  cross.addEventListener('click', () => {
+    info.classList.remove('tech__info--show');
+  });
 });

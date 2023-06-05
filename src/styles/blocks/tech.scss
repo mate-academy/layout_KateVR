@@ -1,0 +1,275 @@
+.tech {
+  @include sectionPadding;
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+
+    grid-column: 1 / -1;
+    justify-self: center;
+    align-self: center;
+
+    width: 70%;
+    max-width: 300px;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      max-width: none;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / 9;
+      grid-row: 2 / 4;
+    }
+
+    &::before {
+      display: none;
+
+      @include onDesktop {
+        position: absolute;
+        top: 0;
+        left: -10px;
+        bottom: 0;
+
+        display: block;
+        content: "";
+        width: 50px;
+
+        background-image: url(../images/line.svg);
+        background-position: left center;
+        background-repeat: no-repeat;
+
+        transform: rotateZ(-3deg);
+      }
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    object-fit: contain;
+  }
+
+  &__button {
+    position: absolute;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+    background-image: url(../images/icons/button.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+
+    transition: background-image $duration;
+    will-change: background-image;
+
+    &:hover {
+      background-image: url(../images/icons/button-hover.svg);
+    }
+
+    @include onTablet {
+      width: 62px;
+      height: 62px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--sensor {
+      top: -10px;
+      left: 33%;
+    }
+
+    &--battery {
+      top: 40%;
+      left: 63%;
+    }
+
+    &--connection {
+      top: 77%;
+      left: -20px;
+    }
+  }
+
+  &__info {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &--sensor {
+      @include onDesktop {
+        grid-column: 1 / 4;
+      }
+    }
+
+    &--battery {
+      @include onDesktop {
+        grid-column: 9 / -1;
+      }
+    }
+
+    &--connection {
+      @include onDesktop {
+        grid-column: 2 / 5;
+      }
+    }
+
+    &--show {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      max-width: max-content;
+      padding: 20px;
+
+      background-color: $darkBlue;
+      border: 1px solid $turquoise;
+      border-radius: 10px;
+
+      @include onTablet {
+        padding: 40px;
+      }
+    }
+  }
+
+  &__info-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  &__info-cross {
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__info-title {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+  }
+
+  &__info-list {
+    list-style-type: none;
+  }
+
+  &__line {
+    display: none;
+
+    @include onDesktop {
+      position: absolute;
+
+      display: block;
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+
+      display: block;
+      content: "";
+      width: 6px;
+      height: 6px;
+
+      border-radius: 50%;
+      background-color: $turquoise;
+    }
+
+    &--sensor {
+      top: 134px;
+      left: 90px;
+      right: 50%;
+
+      height: 40px;
+
+      border-top: 1px solid $turquoise;
+      border-right: 1px solid $turquoise;
+
+      &::before {
+        top: 0;
+        left: 0;
+
+        transform: translate(-50%, -50%);
+      }
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &--battery {
+      top: 134px;
+      left: 50%;
+      right: 356px;
+
+      height: 170px;
+
+      border-right: 1px solid $turquoise;
+      border-bottom: 1px solid $turquoise;
+
+      &::before {
+        left: 0;
+        bottom: 0;
+
+        transform: translate(-50%, 50%);
+      }
+
+      &::after {
+        top: 0;
+        right: 0;
+
+        transform: translate(50%, -50%);
+      }
+    }
+
+    &--connection {
+      top: 230px;
+      left: 230px;
+      right: 63%;
+
+      height: 90px;
+
+      border-top: 1px solid $turquoise;
+      border-left: 1px solid $turquoise;
+
+      &::before {
+        left: 0;
+        bottom: 0;
+
+        transform: translate(-50%, 50%);
+      }
+
+      &::after {
+        top: 0;
+        right: 0;
+
+        transform: translate(50%, -50%);
+      }
+    }
+  }
+}
