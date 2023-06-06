@@ -157,3 +157,18 @@
     }
   }
 }
+
+@mixin benefitsSectionElementsGridPosition($gridRowStart) {
+  @for $index from 0 through 2 {
+    &:nth-of-type(#{$index + 1}) {
+      @include onTablet {
+        grid-column: #{1 + 2 * $index} / #{3 + 2 * $index};
+        grid-row: #{$gridRowStart} / #{$gridRowStart + 1};
+      }
+
+      @include onDesktop {
+        grid-column: #{1 + 4 * $index} / #{5 + 4 * $index};
+      }
+    }
+  }
+}
