@@ -1,0 +1,33 @@
+.contact-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+
+  list-style-type: none;
+
+  &__link {
+    text-decoration: none;
+    color: $gray;
+    cursor: pointer;
+
+    transition: color $duration;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &--contact {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &--fotter {
+    @include onTablet {
+      display: none;
+    }
+  }
+}

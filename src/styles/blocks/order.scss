@@ -322,11 +322,6 @@
   }
 
   &__field-wrapper {
-    position: relative;
-
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
     margin-bottom: 30px;
 
     grid-column: 1 / -1;
@@ -401,77 +396,6 @@
         grid-column: 9 / 11;
         grid-row: 3 / 4;
       }
-    }
-
-    &--hide {
-      display: none;
-    }
-  }
-
-  &__field-label {
-    position: absolute;
-    top: 0;
-
-    pointer-events: none;
-    transition: transform $duration, color $duration;
-
-    &--focused-field {
-      transform: translateY(-100%);
-      color: $turquoise;
-    }
-
-    &--invalid {
-      color: $red;
-    }
-  }
-
-  &__field {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 6px;
-
-    font-size: 16px;
-    line-height: 150%;
-    color: #fff;
-
-    border: none;
-    outline: none;
-    background-color: transparent;
-    border-bottom: 1px solid $darkDarkGray;
-    caret-color: $turquoise;
-
-    transition: border-bottom-color $duration;
-
-    &--focused {
-      border-bottom-color: $turquoise;
-    }
-
-    &--card-number {
-      letter-spacing: 0.2em;
-      text-align: center;
-      max-width: 60px;
-
-      @include onTablet {
-        font-size: 18px;
-        max-width: 70px;
-      }
-    }
-
-    &--expiration-date {
-      max-width: 80px;
-    }
-
-    &--cvv-number {
-      max-width: 50px;
-      letter-spacing: 0.2em;
-
-      @include onTablet {
-        font-size: 18px;
-      }
-    }
-
-    &--invalid {
-      border-bottom-color: $red;
     }
   }
 

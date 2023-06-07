@@ -54,13 +54,15 @@ const order = document.querySelector('.order');
 const orderCross = document.querySelector('.order__top .icon--cross');
 const orderTabs = document.querySelectorAll('.order__tab');
 const orderTabsCross = document.querySelector('.order__tabs-cross');
-const orderFieldsWrappers = document.querySelectorAll('.order__field-wrapper');
-const orderFields = document.querySelectorAll('.order__field');
 const orderForm = document.querySelector('.order__form');
+const orderFieldsWrappers = orderForm.querySelectorAll('.field-wrapper');
 const orderComplete = document.querySelector('.order__complete');
 const competeButton = orderComplete.querySelector('.button');
+const formFields = document.querySelectorAll('.field-wrapper__field');
 const techButtons = document.querySelectorAll('.tech__button');
 const techInfos = document.querySelectorAll('.tech__info');
+const contactForm = document.querySelector('.contact__form');
+const contactFieldsWrappers = contactForm.querySelectorAll('.field-wrapper');
 
 const sliderHandler = (slider, slides, previousButton, nextButton) => {
   const slidesCount = slides.childElementCount;
@@ -200,22 +202,6 @@ const closeOrder = () => {
   document.body.classList.remove('page__body--with-menu');
   orderForm.reset();
 
-  orderFields.forEach(field => {
-    const label = field.parentNode.querySelector('.order__field-label');
-
-    field.classList.remove(
-      'order__field--focused',
-      'order__field--invalid'
-    );
-
-    if (label) {
-      label.classList.remove(
-        'order__field-label--focused-field',
-        'order__field-label--invalid'
-      );
-    }
-  });
-
   orderTabs.forEach((item, index) => {
     if (index === 0) {
       item.classList.add('order__tab--active');
@@ -225,15 +211,53 @@ const closeOrder = () => {
   });
 
   orderFieldsWrappers.forEach(wrapper => {
+    const label = wrapper.querySelector('.field-wrapper__label');
+    const field = wrapper.querySelector('.field-wrapper__field');
+
+    if (field) {
+      field.classList.remove(
+        'field-wrapper__field--focused',
+        'field-wrapper__field--invalid'
+      );
+    }
+
+    if (label) {
+      label.classList.remove(
+        'field-wrapper__label--focused-field',
+        'field-wrapper__label--invalid'
+      );
+    }
+
     if (wrapper.dataset.type === 'place') {
-      wrapper.classList.remove('order__field-wrapper--hide');
+      wrapper.classList.remove('field-wrapper--hide');
     } else {
-      wrapper.classList.add('order__field-wrapper--hide');
+      wrapper.classList.add('field-wrapper--hide');
     }
   });
 
   orderComplete.classList.remove('order__complete--show');
   orderForm.classList.remove('order__form--hide');
+};
+
+const clearFields = (wrappers) => {
+  wrappers.forEach(wrapper => {
+    const label = wrapper.querySelector('.field-wrapper__label');
+    const fields = wrapper.querySelectorAll('.field-wrapper__field');
+
+    for (const field of fields) {
+      field.classList.remove(
+        'field-wrapper__field--focused',
+        'field-wrapper__field--invalid'
+      );
+    }
+
+    if (label) {
+      label.classList.remove(
+        'field-wrapper__label--focused-field',
+        'field-wrapper__label--invalid'
+      );
+    }
+  });
 };
 
 languagesOpener.addEventListener('click', (e) => {
@@ -354,35 +378,35 @@ dropDownListWrappers.forEach(wrapper => {
   }));
 });
 
-orderFields.forEach(item => {
-  const label = item.parentNode.querySelector('.order__field-label');
+formFields.forEach(item => {
+  const label = item.parentNode.querySelector('.field-wrapper__label');
 
   item.addEventListener('focus', () => {
-    if (!item.classList.contains('order__field--invalid')) {
-      item.classList.add('order__field--focused');
+    if (!item.classList.contains('field-wrapper__field--invalid')) {
+      item.classList.add('field-wrapper__field--focused');
     }
 
     if (label) {
-      label.classList.add('order__field-label--focused-field');
+      label.classList.add('field-wrapper__label--focused-field');
     }
   });
 
   item.addEventListener('blur', () => {
-    if (!item.checkValidity()) {
-      item.classList.add('order__field--invalid');
+    if (!item.checkValidity() || (item.dataset.required && item.value === '')) {
+      item.classList.add('field-wrapper__field--invalid');
 
       if (label) {
-        label.classList.add('order__field-label--invalid');
+        label.classList.add('field-wrapper__label--invalid');
       }
     } else {
-      item.classList.remove('order__field--invalid');
+      item.classList.remove('field-wrapper__field--invalid');
 
       if (label) {
-        label.classList.remove('order__field-label--invalid');
+        label.classList.remove('field-wrapper__label--invalid');
 
         if (item.value === '') {
-          label.classList.remove('order__field-label--focused-field');
-          item.classList.remove('order__field--focused');
+          label.classList.remove('field-wrapper__label--focused-field');
+          item.classList.remove('field-wrapper__field--focused');
         }
       }
     }
@@ -405,16 +429,68 @@ orderTabs.forEach(tab => tab.addEventListener('click', () => {
 
   orderFieldsWrappers.forEach(wrapper => {
     if (wrapper.dataset.type === tab.dataset.type) {
-      wrapper.classList.remove('order__field-wrapper--hide');
+      wrapper.classList.remove('field-wrapper--hide');
     } else {
-      wrapper.classList.add('order__field-wrapper--hide');
+      wrapper.classList.add('field-wrapper--hide');
     }
   });
 }));
 
 orderForm.addEventListener('submit', (e) => {
+  let flag = 0;
+
   e.preventDefault();
+
+  for (const wrapper of orderFieldsWrappers) {
+    const label = wrapper.querySelector('.field-wrapper__label');
+    const fields = wrapper.querySelectorAll('.field-wrapper__field');
+    const listOpener = wrapper.querySelector('.order__drop-down-list-opener');
+
+    for (const field of fields) {
+      if (field.dataset.required && field.value === '') {
+        field.classList.add('field-wrapper__field--focused');
+
+        if (label) {
+          label.classList.add('field-wrapper__label--focused-field');
+        }
+
+        field.focus();
+
+        flag = 1;
+
+        break;
+      }
+    }
+
+    if (listOpener) {
+      if (listOpener.dataset.required && listOpener.value === '') {
+        listOpener.focus();
+        flag = 1;
+      }
+    }
+
+    if (flag) {
+      break;
+    }
+  };
+
+  if (flag) {
+    return;
+  }
+
   orderForm.reset();
+  orderForm.classList.add('order__form--hide');
+  orderComplete.classList.add('order__complete--show');
+
+  orderTabs.forEach(tab => {
+    if (tab.dataset.type === 'complete') {
+      tab.classList.add('order__tab--active');
+    } else {
+      tab.classList.remove('order__tab--active');
+    }
+  });
+
+  clearFields(orderFieldsWrappers);
 });
 
 techButtons.forEach(button => {
@@ -435,4 +511,10 @@ techInfos.forEach(info => {
   cross.addEventListener('click', () => {
     info.classList.remove('tech__info--show');
   });
+});
+
+contactForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  contactForm.reset();
+  clearFields(contactFieldsWrappers);
 });
