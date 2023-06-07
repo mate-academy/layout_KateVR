@@ -182,56 +182,11 @@
     }
   }
 
-  &__nav {
-    display: none;
-
-    @include onDesktop {
-      display: block;
-    }
-  }
-
-  &__nav-list {
-    display: none;
-    align-items: center;
-    column-gap: 36px;
-
-    list-style-type: none;
-
-    @include onDesktop {
-      display: flex;
-    }
-  }
-
   &__link {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    text-decoration: none;
-    font-weight: 500;
-    line-height: 130%;
-    text-transform: capitalize;
-    color: #fff;
-
-    cursor: pointer;
-
-    &::after {
-      display: block;
-      content: "";
-      width: 0;
-      height: 1px;
-
-      background-color: $turquoise;
-
-      transition: width $duration;
-    }
-
-    &:hover::after {
-      width: 100%;
-    }
+    @include navLinkStyles;
 
     &--faq {
-      text-transform: capitalize;
+      text-transform: uppercase;
     }
   }
 

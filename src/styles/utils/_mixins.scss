@@ -128,6 +128,35 @@
   }
 }
 
+@mixin navLinkStyles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 130%;
+  text-transform: capitalize;
+  color: #fff;
+
+  cursor: pointer;
+
+  &::after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 1px;
+
+    background-color: $turquoise;
+
+    transition: width $duration;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
 @mixin elementsGridPosition($gridRowStart) {
   @for $index from 0 through 1 {
     &:nth-of-type(#{$index * 2 + 1}) {
