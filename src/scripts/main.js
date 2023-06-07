@@ -32,6 +32,7 @@ const aboutTotalSlides = document.querySelector(
 const menu = document.querySelector('.menu');
 const menuOpener = document.querySelector('.header__menu-opener');
 const menuCross = menu.querySelector('.icon--cross');
+const menuNavLinks = menu.querySelectorAll('.menu__link[href^="#"]');
 const menuLanguages = document.querySelector('.menu--languages');
 const menuLanguagesOpener = document.querySelector('.menu__languages-opener');
 const menuLanguagesBack = menuLanguages.querySelector('.icon--back');
@@ -40,6 +41,7 @@ const faq = document.querySelector('.faq');
 const headerFaqOpener = document.querySelector('.header__link--faq');
 const menuFaqOpener = document.querySelector('.menu__link--faq');
 const helpFaqOpener = document.querySelector('.help__link--faq');
+const helpContactUs = document.querySelector('.help__link[href="#contact"]');
 const faqCross = faq.querySelector('.icon--cross');
 const faqItems = document.querySelectorAll('.faq__item');
 const help = document.querySelector('.help');
@@ -180,6 +182,11 @@ sliderHandler(
   aboutNextButton
 );
 
+const closeMenu = () => {
+  menu.classList.remove('menu--open');
+  document.body.classList.remove('page__body--with-menu');
+};
+
 const closeMenuLanguages = () => {
   menuLanguages.classList.remove('menu--open');
   menu.classList.add('menu--open');
@@ -195,6 +202,14 @@ const openHelp = () => {
   document.body.classList.add('page__body--with-menu');
   help.classList.add('help--open');
   faq.classList.remove('faq--open');
+};
+
+const closeHelp = () => {
+  help.classList.remove('help--open');
+
+  if (!menu.classList.contains('menu--open')) {
+    document.body.classList.remove('page__body--with-menu');
+  }
 };
 
 const closeOrder = () => {
@@ -280,9 +295,10 @@ menuOpener.addEventListener('click', () => {
   document.body.classList.add('page__body--with-menu');
 });
 
-menuCross.addEventListener('click', () => {
-  menu.classList.remove('menu--open');
-  document.body.classList.remove('page__body--with-menu');
+menuCross.addEventListener('click', closeMenu);
+
+menuNavLinks.forEach(item => {
+  item.addEventListener('click', closeMenu);
 });
 
 menuLanguagesOpener.addEventListener('click', () => {
@@ -327,13 +343,11 @@ headerHelpOpener.addEventListener('click', () => {
 
 headerHelpOpener.addEventListener('click', openHelp);
 menuHelpOpener.addEventListener('click', openHelp);
+helpCross.addEventListener('click', closeHelp);
 
-helpCross.addEventListener('click', () => {
-  help.classList.remove('help--open');
-
-  if (!menu.classList.contains('menu--open')) {
-    document.body.classList.remove('page__body--with-menu');
-  }
+helpContactUs.addEventListener('click', () => {
+  closeHelp();
+  closeMenu();
 });
 
 buyButton.addEventListener('click', () => {
