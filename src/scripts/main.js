@@ -125,35 +125,6 @@ function onSubmit(event) {
   form.reset();
 };
 
-// const selectElement = document.querySelector('select[name="amount"]');
-// const priceElement = document.querySelector('.place__price');
-
-// const prices = {
-//   1: 1200,
-//   2: 2400,
-// };
-
-// selectElement.addEventListener('change', () => {
-//   const selectedAmount = parseInt(selectElement.value);
-//   const price = prices[selectedAmount];
-
-//   if (price) {
-//     priceElement.textContent = `${price}$`;
-//   }
-// });
-
-// const selectPayElement = document.querySelector('select[name="amount-pay"]');
-// const pricePayElement = document.querySelector('.pay__price');
-
-// selectPayElement.addEventListener('change', () => {
-//   const selectedPayAmount = parseInt(selectPayElement.value);
-//   const price = prices[selectedPayAmount];
-
-//   if (price) {
-//     pricePayElement.textContent = `${price}$`;
-//   }
-// });
-
 const prices = {
   1: 1200,
   2: 2400,
@@ -194,3 +165,31 @@ formSubmit.addEventListener('submit', (event) => {
     alert('Please select a country and a city.');
   }
 });
+
+const video = document.getElementById('video-source');
+const btnOpen = document.getElementById('video-link');
+const btnOpen2 = document.getElementById('video-link-2');
+const btnClose = document.getElementsByClassName('close')[0];
+const videoScreen = document.getElementById('video-screen');
+
+btnOpen.onclick = function() {
+  video.style.display = 'block';
+  videoScreen.src = 'https://youtu.be/26nx1zTAthw';
+};
+
+btnOpen2.onclick = function() {
+  video.style.display = 'block';
+  videoScreen.src = 'https://youtu.be/26nx1zTAthw';
+};
+
+btnClose.onclick = function() {
+  video.style.display = 'none';
+  videoScreen.src = '';
+};
+
+window.onclick = function(event) {
+  if (event.target === video) {
+    video.style.display = 'none';
+    video.src = '';
+  }
+};
