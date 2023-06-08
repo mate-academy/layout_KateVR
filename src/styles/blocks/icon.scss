@@ -1,0 +1,28 @@
+.icon {
+  width: 14px;
+  height: 14px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  @include onTablet {
+    width: 20px;
+    height: 20px;
+  }
+
+  &--cross {
+    background-image: url(../images/icons/menu-cross.svg);
+
+    transition: background-image $duration;
+    will-change: background-image;
+
+    &:hover {
+      background-image: url(../images/icons/menu-cross-turquoise.svg);
+    }
+  }
+
+  &--back {
+    background-image: url(../images/icons/arrow-back.svg);
+  }
+}
