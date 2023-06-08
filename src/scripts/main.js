@@ -173,12 +173,12 @@ const btnClose = document.getElementsByClassName('close')[0];
 const videoScreen = document.getElementById('video-screen');
 
 btnOpen.onclick = function() {
-  video.style.display = 'block';
+  video.style.display = 'flex';
   videoScreen.src = 'https://youtu.be/26nx1zTAthw';
 };
 
 btnOpen2.onclick = function() {
-  video.style.display = 'block';
+  video.style.display = 'flex';
   videoScreen.src = 'https://youtu.be/26nx1zTAthw';
 };
 
