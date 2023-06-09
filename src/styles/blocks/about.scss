@@ -1,0 +1,225 @@
+.about {
+  background: $gradient;
+
+  &__title {
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__first-part {
+    width: 100%;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+    }
+
+    @include onLarge {
+      grid-column: 1 / 17;
+    }
+  }
+
+  &__first-part-texts {
+    width: 100%;
+    height: min-content;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @include onDesktop {
+      grid-column: 9 / 13;
+    }
+
+    @include onLarge {
+      grid-column: 12 / 17;
+    }
+  }
+
+  &__first-part-title {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      text-align: left;
+    }
+  }
+
+  &__first-part-paragraph {
+    margin-top: 35px;
+
+    @include onTablet {
+      margin-top: 30px;
+    }
+  }
+
+  &__button {
+    margin-top: 16px;
+
+    @include onTablet {
+      margin-top: 24px;
+    }
+
+    @include onLarge {
+      margin-top: 32px;
+    }
+  }
+
+  &__second-part {
+    margin-top: 84px;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+
+      margin-top: 124px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+
+      margin-top: 224px;
+    }
+
+    @include onLarge {
+      grid-column: 1 / 17;
+    }
+  }
+
+  &__second-part-texts {
+    width: 100%;
+    height: min-content;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+
+    @include onLarge {
+      grid-column: 2 / 8;
+    }
+  }
+
+  &__second-part-custom-texts {
+    display: flex;
+    justify-content: space-between;
+
+    width: 100%;
+
+    @include onTablet {
+      grid-column: 5 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+
+    @include onLarge {
+      grid-column: 9 / 17;
+    }
+  }
+
+  &__second-title {
+    margin-top: 12px;
+
+    text-align: left;
+
+    @include onDesktop {
+      margin-top: 16px;
+    }
+  }
+
+  &__second-part-paragraph {
+    margin-top: 24px;
+
+    @include onDesktop {
+      margin-top: 32px;
+    }
+  }
+
+  &__second-part-custom-text {
+    display: none;
+
+    width: 80px;
+    height: 340px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &--1 {
+      background-image: url(/images/customText/aboutUs/100.svg);
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &--2 {
+      background-image: url(/images/customText/aboutUs/80.svg);
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &--3 {
+      background-image: url(/images/customText/aboutUs/60.svg);
+
+      @include onTablet {
+        display: block;
+      }
+    }
+
+    &--4 {
+      background-image: url(/images/customText/aboutUs/40.svg);
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &--5 {
+      background-image: url(/images/customText/aboutUs/20.svg);
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &--6 {
+      background-image: url(/images/customText/aboutUs/0.svg);
+
+      @include onLarge {
+        display: block;
+      }
+    }
+
+    &--7 {
+      background-image: url(/images/customText/aboutUs/-20.svg);
+
+      @include onLarge {
+        display: block;
+      }
+    }
+  }
+}

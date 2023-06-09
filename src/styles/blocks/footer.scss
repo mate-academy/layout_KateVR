@@ -1,0 +1,154 @@
+.footer {
+  padding: 24px 0;
+
+  background-color: $black;
+
+  &__logo {
+    display: block;
+    width: 70px;
+    height: 24px;
+  }
+
+  &__links {
+    display: flex;
+    justify-content: space-between;
+
+    margin-top: 16px;
+
+    @include onTablet {
+      grid-column: 2 / 7;
+      margin-top: 0;
+      align-items: center;
+
+      width: 100%;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 13;
+    }
+
+    @include onLarge {
+      grid-column: 2 / 17;
+    }
+  }
+
+  &__list {
+    list-style: none;
+
+    &--phone {
+
+      @include onTablet {
+        display: none;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+
+      @include onLarge {
+        display: none;
+      }
+    }
+
+    &--desktop {
+
+      @include onTablet {
+        display: flex;
+        gap: 42px;
+
+        position: relative;
+        left: 30%;
+        transform: translateX(-30%);
+      }
+
+      @include onDesktop {
+        left: 40%;
+        transform: translateX(-40%);
+      }
+
+      @include onLarge {
+        left: 45%;
+        transform: translateX(-45%);
+      }
+    }
+  }
+
+  &__list-link {
+    font-size: 13px;
+    line-height: 150%;
+
+    text-decoration: none;
+
+    color: $white;
+
+    transition: color $animationDuration;
+
+    &--contacts {
+      color: $textColor;
+    }
+
+    &:hover {
+      color: $contrastColor;
+    }
+
+    &:active {
+      color: $buttonActiveText;
+    }
+
+    @include onTablet {
+      font-size: 14px;
+    }
+  }
+
+  &__list-item:not(:first-of-type) {
+    margin-top: 12px;
+
+    @include onTablet {
+      margin-top: 0;
+    }
+
+    @include onDesktop {
+      margin-top: 0;
+    }
+
+    @include onLarge {
+      margin-top: 0;
+    }
+  }
+
+  &__social-list {
+    display: flex;
+    gap: 12px;
+    justify-content: space-between;
+
+    margin-top: 24px;
+
+    list-style: none;
+
+    @include onTablet {
+      margin-top: 0;
+    }
+
+    @include onDesktop {
+      margin-top: 0;
+    }
+
+    @include onLarge {
+      margin-top: 0;
+    }
+  }
+
+  &__social-icon {
+    color: $white;
+
+    transition: color $animationDuration;
+
+    &:hover {
+      color: $contrastColor;
+    }
+
+    &:active {
+      color: $backgroundBlack;
+    }
+  }
+}

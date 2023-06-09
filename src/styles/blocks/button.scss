@@ -1,0 +1,81 @@
+.button {
+  width: 100%;
+  padding: 12px 0;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+
+  text-decoration: none;
+  text-align: center;
+
+  border: 0;
+  border-radius: 4px;
+
+  outline: none;
+
+  color: $white;
+  background-color: $contrastColor;
+
+  cursor: pointer;
+  transition: color $animationDuration, background-color $animationDuration;
+
+  &:hover {
+    color: $contrastColor;
+    background-color: $white;
+  }
+
+  &:active {
+    color: $buttonActiveText;
+    background-color: $buttonActive;
+  }
+}
+
+.button__main {
+  position: relative;
+
+  display: block;
+  width: 230px;
+  height: 72px;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+
+  cursor: pointer;
+
+  &-image-def {
+    transition: opacity $animationDuration;
+  }
+
+  &-image-hover {
+    position: absolute;
+    top: 4px;
+
+    transition: opacity $animationDuration;
+    pointer-events: none;
+    opacity: 0;
+  }
+
+  &:hover {
+
+    .button__main-image-def {
+      pointer-events: none;
+      opacity: 0;
+    }
+
+    .button__main-image-hover {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+
+  &:focus {
+    outline: none;
+
+    .button__main-image-hover {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+}

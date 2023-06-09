@@ -1,0 +1,108 @@
+.modal {
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+
+  width: 87.5%;
+
+  transition: $animationDurationLong $animation;
+  z-index: 50;
+
+  @include onTablet {
+    width: 80%;
+  }
+
+  @include onDesktop {
+    top: 50%;
+    width: 70%;
+  }
+
+  @include onLarge {
+    top: 40%;
+
+    width: 60%;
+  }
+
+  &--active {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  &--header {
+    padding: 60px 90px 80px;
+
+    background: $gradient;
+  }
+
+  &--faq {
+    top: 50%;
+  }
+
+  &__close {
+    font-size: 32px;
+    font-weight: 300;
+
+    color: $white;
+    background-color: transparent;
+
+    border: none;
+    outline: none;
+
+    z-index: 11;
+    transition: color $animationDuration;
+    cursor: pointer;
+
+    @include onTablet {
+      font-size: 42px;
+    }
+
+    @include onDesktop {
+      font-size: 52px;
+    }
+
+    @include onLarge {
+      font-size: 64px;
+    }
+
+    &:hover {
+      color: $contrastColor;
+    }
+  }
+
+  &__close--button {
+    position: absolute;
+    top: 4px;
+    right: 8px;
+
+    @include onTablet {
+      top: 12px;
+      right: 16px;
+    }
+
+    @include onDesktop {
+      top: 24px;
+      right: 24px;
+    }
+  }
+
+  &__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background-color: $modalOverlayColor;
+
+    transition: $animationDurationLong $animation;
+    pointer-events: none;
+    opacity: 0;
+
+    z-index: 9;
+
+    &--active {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}

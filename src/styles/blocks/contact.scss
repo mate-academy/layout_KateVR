@@ -1,0 +1,197 @@
+.contact {
+  background-color: $backgroundBlack;
+
+  &__links {
+    width: 100%;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+
+    @include onLarge {
+      grid-column: 1 / 9;
+    }
+  }
+
+  &__links-title-description {
+
+    @include onTablet {
+      grid-column: 1 / 3;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+
+    @include onLarge {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__links-title {
+    margin-top: 12px;
+
+    @include onTablet {
+      grid-column: 1 / 3;
+
+      text-align: left;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+
+    @include onLarge {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__links-text {
+    display: none;
+
+    @include onTablet {
+      display: block;
+
+      margin-top: 50px;
+    }
+  }
+
+  &__links-list {
+    display: none;
+
+    list-style: none;
+
+    @include onTablet {
+      margin-top: 80px;
+
+      display: block;
+    }
+  }
+
+  &__links-item:not(:first-child) {
+    margin-top: 12px;
+  }
+
+  &__links-link {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+
+    text-decoration: none;
+
+    color: $textColor;
+
+    transition: color $animationDuration;
+
+    &:hover {
+      color: $contrastColor;
+    }
+
+    &:active {
+      color: $buttonActiveText;
+    }
+  }
+
+  &__form-container {
+    margin-top: 32px;
+    width: 100%;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      margin-top: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+
+    @include onLarge {
+      grid-column: 9 / 17;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-top: 30px;
+
+    @include onTablet {
+      margin-top: 48px;
+    }
+
+    @include onDesktop {
+      margin-top: 90px;
+    }
+
+    @include onLarge {
+      margin-top: 50px;
+    }
+  }
+
+  &__form-button {
+
+    @include onTablet {
+      width: 200px;
+    }
+
+    &::after {
+      content: "Our manager will reply you within 15 minutes";
+      display: block;
+      margin-top: 28px;
+
+      position: absolute;
+      left: 0;
+      width: 100%;
+
+      font-size: 12px;
+      text-align: center;
+      color: $textColor;
+
+      pointer-events: none;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    display: none;
+
+    justify-content: center;
+    align-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    color: $contrastColor;
+
+    border: 1px solid $contrastColor;
+    border-radius: 50%;
+
+    transition: all $animationDuration;
+
+    &:hover {
+      color: $white;
+      border-color: $contrastColor;
+      background-color: $contrastColor;
+    }
+
+    &:active {
+      color: $contrastColor;
+
+      border-color: $contrastColor;
+      background-color: $buttonActive;
+    }
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+}

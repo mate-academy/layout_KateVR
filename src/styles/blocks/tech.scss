@@ -1,0 +1,345 @@
+.tech {
+  background-color: $backgroundBlack;
+
+  &__title {
+
+    @include onTablet {
+      grid-column: 1 / 3;
+    }
+
+    @include onDesktop {
+      grid-column: 8 / 13;
+    }
+
+    @include onLarge {
+      grid-column: 12 / 15;
+      display: block;
+
+      margin-bottom: 80px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 40px;
+
+    width: 280px;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+
+      transform: none;
+      left: auto;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 13;
+
+      margin-top: 140px;
+    }
+
+    @include onLarge {
+      grid-column: 1 / 17;
+    }
+  }
+
+  &__content-image {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: 200px;
+    height: 200px;
+
+    background-image: url(/images/techSpecsSection/techSpecsSection320.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    @include onTablet {
+      width: 350px;
+      height: 350px;
+
+      background-image: url(/images/techSpecsSection/techSpecsSection768.png);
+    }
+
+    @include onDesktop {
+      width: 300px;
+      height: 300px;
+
+      background-image: url(/images/techSpecsSection/techSpecsSection.png);
+    }
+  }
+
+  &__button {
+    display: inline-flex;
+    justify-content: center;
+
+    position: absolute;
+
+    width: 32px;
+    height: 32px;
+
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 100%;
+
+    color: $white;
+    background-color: $contrastColor;
+
+    border: 2px solid $buttonBorderColor;
+    border-radius: 50%;
+
+    transition: background-color $animationDuration, color $animationDuration;
+
+    cursor: pointer;
+
+    @include onTablet {
+      align-items: center;
+
+      width: 60px;
+      height: 60px;
+
+      font-size: 32px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    @include onLarge {
+      display: none;
+    }
+
+    &--pressed {
+      background-color: $buttonPressedBackgroundColor;
+    }
+
+    &--1 {
+      top: 0;
+      left: 100px;
+
+      @include onTablet {
+        top: -20px;
+        left: 30px;
+      }
+    }
+
+    &--2 {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 70px;
+
+      @include onTablet {
+        right: 20px;
+      }
+    }
+
+    &--3 {
+      top: 85%;
+      left: 25px;
+
+      @include onTablet {
+        left: -100px;
+      }
+    }
+  }
+
+  &__button-message {
+    opacity: 0;
+    pointer-events: none;
+
+    position: absolute;
+
+    padding: 12px 24px;
+    width: 190px;
+
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+
+    background-color: $buttonMessageColor;
+    border-radius: 4px;
+
+    transition: opacity $animationDuration;
+
+    @include onTablet {
+      width: 220px;
+
+      font-size: 14px;
+    }
+
+    &--visible {
+      opacity: 1;
+    }
+
+    &--1 {
+      top: 40px;
+      left: -10px;
+
+      @include onTablet {
+        top: 50px;
+        left: -45px;
+      }
+    }
+
+    &--2 {
+      top: 125px;
+      right: 0;
+
+      @include onTablet {
+        top: 215px;
+        right: -30px;
+      }
+    }
+
+    &--3 {
+      bottom: -110px;
+
+      @include onTablet {
+        top: 380px;
+        left: -160px;
+        bottom: auto;
+      }
+    }
+  }
+
+  &__message {
+    display: none;
+
+    position: absolute;
+
+    &--sensor {
+      top: -55px;
+      left: -340px;
+
+      width: 250px;
+
+      @include onLarge {
+        left: -365px;
+      }
+    }
+
+    &--connection {
+      top: 160px;
+      left: -270px;
+
+      width: 240px;
+
+      @include onLarge {
+        left: -370px;
+      }
+    }
+
+    &--batteries {
+      top: -70px;
+      left: 365px;
+
+      width: 340px;
+
+      @include onLarge {
+        top: -60px;
+
+        left: 440px;
+      }
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onLarge {
+      display: block;
+    }
+  }
+
+  &__message-image {
+    display: none;
+
+    position: absolute;
+
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &--sensor {
+      top: -15%;
+      left: -90%;
+
+      width: 400px;
+      height: 70px;
+
+      background-image: url(/images/techSpecsSection/sensor.svg);
+
+      @include onLarge {
+        left: -100%;
+
+        width: 430px;
+
+        background-image: url(/images/techSpecsSection/sensorLarge.svg);
+      }
+    }
+
+    &--connection {
+      top: 65px;
+      left: -135px;
+
+      width: 130px;
+      height: 115px;
+
+      background-image: url(/images/techSpecsSection/connection.svg);
+
+      @include onLarge {
+        left: -235px;
+
+        width: 240px;
+        height: 110px;
+
+        background-image: url(/images/techSpecsSection/connectionLarge.svg);
+      }
+    }
+
+    &--batteries {
+      top: -65px;
+      left: 145px;
+
+      width: 200px;
+      height: 250px;
+
+      background-image: url(/images/techSpecsSection/batteries.svg);
+
+      @include onLarge {
+        top: -55px;
+
+        width: 280px;
+        height: 240px;
+
+        background-image: url(/images/techSpecsSection/batteriesLarge.svg);
+      }
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onLarge {
+      display: block;
+    }
+  }
+
+  &__message-title {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-transform: uppercase;
+
+    color: $white;
+  }
+
+  &__message-text {
+    margin-top: 24px;
+  }
+}

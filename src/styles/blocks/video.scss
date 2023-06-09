@@ -1,0 +1,67 @@
+.video {
+  position: relative;
+  width: 100%;
+  height: 0;
+
+  padding-bottom: 56.25%;
+  background-color: $black;
+
+  &__button {
+    display: none;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: 68px;
+    height: 68px;
+
+    padding: 0;
+
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    background-color: transparent;
+    transform: translate(-50%, -50%);
+
+    z-index: 6;
+  }
+
+  &--enabled {
+    cursor: pointer;
+
+    .video__button {
+      display: block;
+    }
+  }
+
+  &__media {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: 5;
+    border: none;
+  }
+
+  &__button-shape {
+    fill: $ytButtonColor;
+    fill-opacity: 0.8;
+
+    transition: all $animationDuration;
+  }
+
+  &:hover &__button-shape,
+  &__button:focus &__button-shape {
+    fill: $brightRed;
+    fill-opacity: 1;
+  }
+
+  &__button-icon {
+    fill: $white;
+  }
+}

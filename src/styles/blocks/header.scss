@@ -1,0 +1,289 @@
+.header {
+  padding: 18px 0 60px;
+  background: $gradient;
+
+  @include onTablet {
+    padding: 30px 0 60px;
+  }
+
+  @include onDesktop {
+    padding: 42px 0 84px;
+  }
+
+  @include onLarge {
+    padding: 42px 0 108px;
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+
+      grid-column: 1 / 13;
+
+      width: 100%;
+      padding: 24px 0 48px;
+
+      background: $navGradient;
+      z-index: 3;
+    }
+
+    @include onLarge {
+      grid-column: 1 / 17;
+    }
+  }
+
+  &__nav-container {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo-link {
+    display: block;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+  }
+
+  &__nav-list {
+    list-style: none;
+    display: flex;
+  }
+
+  &__nav-list-item {
+    margin-right: 36px;
+  }
+
+  &__nav-list-link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+
+    color: $white;
+    text-decoration: none;
+
+    transition: color $animationDuration;
+
+    &:hover {
+      color: $contrastColor;
+    }
+
+    &:active {
+      color: $buttonActiveText;
+    }
+  }
+
+  &__button {
+    width: 200px;
+  }
+
+  &__texts {
+    width: 100%;
+    margin-top: 24px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+
+      margin-top: 64px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+
+      margin-top: 116px;
+    }
+
+    @include onLarge {
+      margin-top: 152px;
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 130%;
+
+    color: $white;
+    text-transform: uppercase;
+
+    @include onDesktop {
+      font-size: 43px;
+
+      grid-column: 1 / 6;
+    }
+
+    @include onLarge {
+      font-size: 46px;
+    }
+  }
+
+  &__description {
+    margin-top: 16px;
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+
+      margin-top: 24px;
+    }
+
+    @include onLarge {
+      margin-top: 35px;
+
+      font-size: 20px;
+    }
+  }
+
+  &__price {
+    margin-top: 8px;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+
+    text-align: center;
+    color: $white;
+
+    @include onTablet {
+      margin-top: 12px;
+
+      text-align: left;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 2;
+    }
+  }
+
+  &__button-video {
+    margin-top: 16px;
+
+    @include onTablet {
+      margin-top: 24px;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 5;
+    }
+
+    @include onLarge {
+      margin-top: 36px;
+    }
+  }
+
+  &__additional {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+
+      grid-column: 1 / 13;
+      width: 100%;
+
+      margin-top: 84px;
+    }
+
+    @include onLarge {
+      grid-column: 1 / 17;
+    }
+  }
+
+  &__additional-buttons {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__additional-button {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: $white;
+    text-decoration: none;
+
+    border: none;
+    outline: none;
+    background-color: transparent;
+
+    cursor: pointer;
+    transition: color $animationDuration;
+
+    &:hover {
+      color: $contrastColor;
+    }
+
+    &:active {
+      color: $buttonActiveText;
+    }
+  }
+
+  &__additional-special-link {
+    color: $contrastColor;
+    text-decoration: none;
+    transition: color $animationDuration;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 8px;
+      height: 6px;
+
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+
+      background-image: url(/images/moreButton.svg);
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &:hover {
+      color: $white;
+
+      &::after {
+        background-image: url(/images/moreButtonHover.svg);
+      }
+    }
+  }
+
+  &__sticky-button-container {
+    position: relative;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__sticky-button-inner-container {
+    position: relative;
+  }
+
+  &__sticky-button {
+    position: absolute;
+    top: -25px;
+
+    @include onTablet {
+      width: 458px;
+
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}
