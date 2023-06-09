@@ -1,0 +1,159 @@
+.footer {
+
+  &__container {
+    display: flex;
+    justify-content: center;
+    width: 260px;
+    margin: 0 auto;
+
+    @include On768 {
+      justify-content: space-between;
+      width: 100%;
+    }
+  }
+
+  &__left-part {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    @include On768 {
+      width: max-content;
+    }
+  }
+
+  &__right-part {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+
+    @include On768 {
+      width: max-content;
+    }
+  }
+
+  &__logo {
+    margin: 0 auto 25px;
+    display: none;
+
+    &--shown-On-768 {
+
+      @include On768 {
+        display: block;
+        margin: 0;
+      }
+    }
+
+    &--hidden-On-768 {
+      display: block;
+
+      @include On768 {
+        display: none;
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    @include On768 {
+      flex-direction: row;
+
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    margin-bottom: 15px;
+
+    @include On768 {
+      margin-bottom: 0;
+      margin-right: 40px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    & a {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 150%;
+      color: #fff;
+      transition: 0.2s color;
+
+      &:hover {
+        color: $secondary-col;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    width: 120px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+
+    &-item {
+
+      &:hover {
+        animation: bellshake 0.5s cubic-bezier(0.36,0.07,0.19,0.97) both;
+      }
+    }
+
+    &-link {
+      filter: invert(0) sepia(0%) saturate(7500%) hue-rotate(268deg)
+        brightness(102%) contrast(99%);
+      transition: 0.2s filter;
+
+      &:hover {
+        filter: invert(20%) sepia(14%) saturate(7332%)
+          hue-rotate(145deg) brightness(98%) contrast(96%);
+      }
+    }
+
+    @keyframes bellshake {
+
+      0% {
+        transform: rotate(0);
+      }
+
+      15% {
+        transform: rotate(5deg);
+      }
+
+      30% {
+        transform: rotate(-5deg);
+      }
+      
+      45% {
+        transform: rotate(4deg);
+      }
+
+      60% {
+        transform: rotate(-4deg);
+      }
+
+      75% {
+        transform: rotate(2deg);
+      }
+
+      85% {
+        transform: rotate(-2deg);
+      }
+
+      92% {
+        transform: rotate(1deg);
+      }
+      
+      100% {
+        transform: rotate(0);
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+.welkoming {
+
+  $numb: 7;
+
+  &__words {
+    display: none;
+
+    @include On768 {
+      display: flex;
+      justify-content: space-between;
+      width: 650px;
+    }
+    @include On1280 {
+      width: 750px;
+    }
+
+  }
+
+  &__word {
+
+    display: block;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 85px;
+    height: 250px;
+    background-image: url(../images/about-us/ABOUT-US.svg);
+
+    @include On1280 {
+      height: 330px;
+    }
+
+    @for $index from 1 through $numb {
+      &--#{$index} {
+        $result: $index / $index / 0.2;
+        opacity: ($result - $index) / 5 + 0.2;
+      }
+    }
+  }
+}

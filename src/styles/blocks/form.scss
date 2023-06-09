@@ -1,0 +1,265 @@
+.form {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 20px;
+
+    @include On768 {
+      flex-direction: row;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    &--last {
+      margin-bottom: 60px;
+
+      @include On1920 {
+        margin-bottom: 80px;
+      }
+    }
+
+    &--card {
+      position: relative;
+      margin-bottom: 30px;
+      flex-direction: row;
+
+      @include On1920 {
+        margin-bottom: 50px;
+      }
+
+      &--expiration {
+        display: flex;
+      }
+
+      &--last {
+        flex-direction: column;
+        justify-content: start;
+        margin-bottom: 60px;
+        width: 50%;
+
+        @include On1920 {
+          margin-bottom: 80px;
+        }
+      }
+    }
+
+    &--btn {
+      margin-bottom: 30px;
+
+      @include On768 {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__label {
+    width: 100%;
+
+    @include On768 {
+      width: 45%;
+    }
+
+    &--pay {
+      display: flex;
+      justify-content: space-between;
+
+      @include On768 {
+        width: 100%;
+      }
+    }
+
+    &--card {
+      width: 150px;
+    }
+
+    &--contact {
+
+      @include On768 {
+        width: 100%;
+      }
+    }
+  }
+
+  &__item-element {
+    width: 100%;
+
+    @include On768 {
+      width: 45%;
+    }
+  }
+
+  &__input {
+    padding: 5px 5px 15px;
+    width: 100%;
+    text-transform: capitalize;
+    line-height: 21px;
+    color: #fff;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(146, 146, 146, 0.4);
+    opacity: 0.5;
+    transition: background-color 0.2s, border-color 0.2s;
+
+    &::placeholder {
+      color: #c4c4c4;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 130%;
+    }
+
+    &:hover {
+      background-color: #05040b;
+      border-color: $secondary-col;
+    }
+
+    &:focus {
+      opacity: 1;
+      outline: none;
+      color: #fff;
+
+      &::placeholder {
+        color: #fff;
+        opacity: 1;
+      }
+    }
+
+    &--pay {
+      text-align: center;
+      padding-top: 12px;
+      letter-spacing: 0.2em;
+      width: 95%;
+      font-size: 10px;
+
+      @media (min-width: 400px) {
+        font-size: 18px;
+      }
+
+      &::placeholder {
+        font-size: 12px;
+        letter-spacing: 0.2em;
+        
+        @media (min-width: 400px) {
+          font-size: 18px;
+        }
+      }
+
+      &--active {
+        opacity: 1;
+        border-color: $secondary-col;
+
+        &::placeholder {
+          color: #fff;
+          opacity: 1;
+        }
+      }
+    }
+
+    &--card {
+      text-align: center;
+      width: 30%;
+      font-size: 16px;
+      letter-spacing: 0.2em;
+
+      &--cvv {
+        width: 90%;
+      }
+
+      @media (min-width: 400px) {
+        font-size: 18px;
+      }
+
+      &::placeholder {
+        font-size: 16px;
+        letter-spacing: 0.2em;
+
+        @media (min-width: 400px) {
+          font-size: 18px;
+        }
+      }
+    }
+
+    &--contact {
+
+      @include On768 {
+        width: 100%;
+      }
+    }
+  }
+
+  &__select {
+    width: 100%;
+    position: relative;
+    padding: 10px;
+    color: #fff;
+    border: none;
+    background-color: #191536;
+    outline: none;
+    margin-bottom: 15px;
+  
+    & option {
+      background-color: #191536;
+    }
+  }
+
+  option {
+    color: #fff;
+  }
+
+  &__text {
+    display: block;
+    margin-bottom: 14px;
+
+    &--pay {
+      color: $secondary-col;
+      margin-bottom: 8px;
+    }
+
+    &--card {
+      color: $text-color;
+      margin-bottom: 8px;
+
+      &--not-margin {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__card {
+    position: absolute;
+    right: -60px;
+    display: none;
+
+    @include On768 {
+      display: block;
+      width: 54px;
+      height: 40px;
+    }
+  }
+
+  &__slash {
+    opacity: 0.5;
+  }
+
+  &__texarea {
+    resize: none;
+    display: block;
+    height: 80px;
+    margin-bottom: 20px;
+
+    &::placeholder {
+      text-transform: none;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+    }
+
+    @include On768 {
+      width: 100%;
+    }
+  }
+}

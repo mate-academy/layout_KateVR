@@ -1,0 +1,238 @@
+.tech {
+  
+  &__pict {
+    position: relative;
+    width: 197px;
+    height: 197px;
+    margin: 0 auto;
+
+    @include On768 {
+      width: 300px;
+      height: 300px;
+      margin-top: 58px;
+    }
+
+    &::after {
+      position: absolute;
+      left: -110px;
+      top: 0;
+      transform: translateY(10%) rotate(360deg);
+      content: "";
+      display: none;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-image: url(../images/tech/elipse.png);
+      width: 250px;
+      height: 250px;
+
+      @include On1280 {
+        display: block;
+      }
+    }
+  }
+
+  &__img {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+
+  }
+
+  &__increm {
+    position: absolute;
+    display: block;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: $secondary-col;
+    transition: 0.2s background-color;
+
+    &:hover {
+      background-color: #fff;
+    }
+
+    @include On768 {
+      width: 60px;
+      height: 60px;
+    }
+    @include On1280 {
+      display: none;
+    }
+
+    &--first {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 30px;
+      transition: 0.2s transform;
+
+      &:hover {
+        transform: scale(1.1) translateY(-40%);
+      }
+    }
+    &--second {
+      top: 0;
+      transform: translateY(-30%);
+      left: 60px;
+      transition: 0.2s transform;
+
+      &:hover {
+        transform: scale(1.1) translateY(-25%);
+      }
+    }
+    &--third {
+      bottom: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      transition: 0.2s transform;
+
+      &:hover {
+        transform: scale(1.1) translate(-40%, -40%);
+      }
+    }
+
+    &-plus {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      &::after {
+        position: absolute;
+        z-index: 5;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        content: "";
+        display: block;
+        height: 1px;
+        width: 12px;
+        background-color: #fff;
+        transition: 0.2s background-color;
+
+        @include On768 {
+          width: 20px;
+        }
+      }
+
+      &:hover::after {
+        background-color: $secondary-col;
+      }
+
+      &::before {
+        position: absolute;
+        z-index: 5;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) rotate(-90deg);
+        content: "";
+        display: block;
+        height: 1px;
+        width: 12px;
+        background-color: #fff;
+        transition: 0.2s background-color;
+
+        @include On768 {
+          width: 20px;
+        }
+      }
+
+      &:hover::before {
+        background-color: $secondary-col;
+      }
+    }
+  }
+
+  &__line {
+    display: none;
+    position: absolute;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include On1280 {
+      display: block;
+    }
+
+    &--first {
+      background-image: url(../images/tech/1.png);
+      width: 399px;
+      height: 70px;
+      top: -50px;
+      left: -50px;
+      transform: translateX(-50%);
+    }
+
+    &--second {
+      background-image: url(../images/tech/2.png);
+      width: 127px;
+      height: 107px;
+      bottom: 60%;
+      left: -140px;
+      transform: translateY(50%);
+    }
+
+    &--third {
+      background-image: url(../images/tech/3.png);
+      width: 185px;
+      height: 240px;
+      bottom: 38%;
+      transform: translateX(80%);
+    }
+
+    &-circle {
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      &::after {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $secondary-col;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        display: block;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: $secondary-col;
+      }
+
+      &--first::after {
+        transform: translateY(-25%);
+      }
+
+      &--second::after {
+        right: 0;
+        transform: translateY(-25%);
+      }
+      &--third::after {
+        right: 0;
+        transform: translateX(40%);
+      }
+      &--first::before {
+        bottom: 0;
+        right: 0;
+        transform: translateX(25%);
+      }
+
+      &--second::before {
+        bottom: 0;
+        left: 0;
+        transform: translateY(25%);
+      }
+      &--third::before {
+        bottom: 0;
+        left: 0;
+        transform: translateY(25%);
+      }
+
+    }
+  }
+}

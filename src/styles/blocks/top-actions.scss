@@ -1,0 +1,129 @@
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 10px;
+    width: 16px;
+
+    @include On768 {
+      height: 13px;
+    }
+
+    @include On1280 {
+      display: none;
+    }
+
+    &-item {
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: #fff;
+      transition: transform 0.2s, width 0.2s;
+
+      &:nth-child(2) {
+        width: 90%;
+        transform: translateX(-5px);
+      }
+    }
+
+    &:hover &-item:nth-child(2) {
+      transform: translateX(0);
+      width: 100%;
+    }
+  }
+
+  &__left-part {
+    width: 160px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include On768 {
+      width: 180px;
+    }
+    @include On1920 {
+      width: 220px;
+    }
+  }
+
+  &__lang {
+    display: none;
+    cursor: pointer;
+    font-size: 16px;
+    height: 16px;
+    color: $secondary-col;
+    transition: 0.2s color;
+
+    &:hover {
+      color: #fff;
+    }
+
+    @include On1280 {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      @extend .bg-img;
+      width: 9px;
+      height: 6px;
+      transform: translate(25px, -10px);
+      background-image: url(../images/vectors/down-blue.svg);
+      transition: 0.2s background-image;
+    }
+    
+    &:hover::after {
+      background-image: url(../images/vectors/down-white.svg);
+    }
+
+  }
+
+  &__right-part {
+    display: none;
+
+    @include On1280 {
+      display: flex;
+    }
+
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+  }
+
+  &__nav {
+    width: 60%;
+
+    @include On1280 {
+      display: flex;
+    }
+
+    &-list {
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-item {
+      display: block;
+      width: 25%;
+
+      & a {
+        color: #fff;
+        @include hover(color, $secondary-col);
+
+        &:hover {
+          color: $secondary-col;
+        }
+      }
+    }
+  }
+}

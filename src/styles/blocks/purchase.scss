@@ -1,0 +1,347 @@
+.purchase {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  min-width: 320px;
+  background-color: #05040b;
+  background-image: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  transform: translateY(-400vh);
+  height: 100%;
+
+  &:target {
+    transform: translate(0);
+  }
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: #05040b;
+    background-image: linear-gradient(107.56deg, #191536 0%, #000 100%);
+
+    @include On768 {
+      padding-top: 34px;
+    }
+
+    @include On1280 {
+      padding-top: 50px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+
+    @include On768 {
+      margin-bottom: 50px;
+    }
+
+    &-back {
+      transition: filter 0.2s;
+      &:hover {
+        filter: invert(59%) sepia(100%) saturate(2485%)
+          hue-rotate(147deg) brightness(101%) contrast(96%);
+      }
+    }
+  }
+
+  &__picture {
+    display: none;
+    position: relative;
+    overflow: hidden;
+
+    @include On768 {
+      display: block;
+      width: 100%;
+      height: 277px;
+
+    }
+    @include On1280 {
+      margin-left: -100px;
+    }
+    @include On1920 {
+      height: 347px;
+      margin-left: -150px;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 55%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+    display: block;
+    width: 110%;
+    height: 110%;
+    object-fit: contain;
+
+  }
+
+  &__order-state {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 50px;
+
+    @include On768 {
+      margin-bottom: 80px;
+    }
+
+    @include On1280 {
+      margin-bottom: 110px;
+    }
+
+    &::after {
+      position: absolute;
+      bottom: -16px;
+      z-index: 1;
+      opacity: 0.5;
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $text-color;
+
+      @include On1280 {
+        display: none;
+      }
+    }
+
+    &-item {
+      display: block;
+      width: 33%;
+      text-align: center;
+      position: relative;
+      cursor: pointer;
+      transition: color 0.2s, background-color 0.2s;
+
+      &:hover {
+        color: $secondary-col;
+      }
+
+      &::after {
+        position: absolute;
+        bottom: -16px;
+        transform: translateY(30%);
+        z-index: 2;
+        content: "";
+        display: block;
+        opacity: 1;
+        height: 2px;
+        width: 100%;
+        background-color: transparent;
+        transition: background-color 0.2s ease;
+
+        @include On1280 {
+          background-color: transparent;
+          background-size: contain;
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 0;
+          height: 10px;
+          left: 50%;
+          transform: translateX(-50%);
+          transition: width 0.2s ease;
+        }
+      }
+
+      &:hover::after {
+        background-color: $secondary-col;
+
+        @include On1280 {
+          background-color: transparent;
+          background-image: url(../images/vectors/down-blue.svg);
+          width: 10px;
+        }
+      }
+    }
+
+    &-link {
+      font-weight: 400;
+      display: block;
+      width: 100%;
+      color: $text-color;
+      transition: 0.2s color;
+
+      &:hover {
+        color: $secondary-col;
+      }
+
+      &--hidden {
+        @include On1280 {
+          display: none;
+        }
+      }
+
+      &--shown {
+        display: none;
+
+        @include On1280 {
+          display: block;
+        }
+      }
+
+      &--active {
+        position: relative;
+        color: $secondary-col;
+
+        &::after {
+          position: absolute;
+          bottom: -16px;
+          transform: translateY(30%);
+          z-index: 2;
+          content: "";
+          display: block;
+          height: 2px;
+          width: 100%;
+          background-color: $secondary-col;
+
+          @include On1280 {
+            background-color: transparent;
+            display: block;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+            width: 10px;
+            height: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-image: url(../images/vectors/down-blue.svg);
+          }
+        }
+      }
+    }
+  }
+
+  &__prices {
+    display: flex;
+    justify-content: space-between;
+    max-width: 350px;
+    margin-bottom: 30px;
+
+    @include On1280 {
+      margin: 0;
+    }
+  }
+
+  &__quantity {
+
+    &-title {
+      margin-bottom: 14px;
+      text-align: center;
+    }
+
+    &-box {
+      cursor: pointer;
+      position: relative;
+      display: grid;
+      color: #fff;
+      font-size: 16px;
+      place-items: center;
+      background-color: #0f0b2e;
+      width: 90px;
+      height: 40px;
+      transition: color 0.2s;
+      border: 0;
+      outline: 0;
+
+      &:hover {
+        color: $secondary-col;
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 10px;
+        display: block;
+        @extend .bg-img;
+        background-image: url(../images/vectors/down-blue.svg);
+        width: 9px;
+        height: 6px;
+        transition: background-image 0.2s;
+      }
+
+      &:hover::after {
+        background-image: url(../images/vectors/down-white.svg);
+      }
+    }
+
+    &-price {
+      cursor: pointer;
+      font-size: 26px;
+      color: $secondary-col;
+
+      @include On768 {
+        font-size: 36px;
+      }
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    display: block;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900;
+    line-height: 130%;
+    margin-bottom: 17px;
+
+    @include On768 {
+      text-align: left;
+    }
+
+    @include On1280 {
+      margin-bottom: 20px;
+      font-size: 46px;
+
+      &--purchase {
+        margin-bottom: 36px;
+      }
+    }
+    @include On1920 {
+      margin-bottom: 35px;
+      font-size: 54px;
+    }
+
+    &-first-word {
+      color: #fff;
+    }
+
+    &-second-word {
+      color: $secondary-col;
+      font-weight: 400;
+    }
+
+    &--purchase {
+      text-align: center;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20.8px;
+    color: #fff;
+    text-align: center;
+    display: block;
+    max-width: 600px;
+    margin: 0 auto 30px;
+
+    @include On768 {
+      font-size: 18px;
+      margin-bottom: 50px;
+    }
+    @include On1280 {
+      max-width: 100%;
+    }
+    @include On1920 {
+      margin-bottom: 56px;
+    }
+  }
+}
