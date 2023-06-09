@@ -1,0 +1,208 @@
+.header {
+  height: 100vh;
+  background: $primary-section-color;
+  box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.25);
+
+  @include onTablet {
+    height: fit-content;
+  }
+
+  &__wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 80px 1fr $header-icon-size;
+      margin-bottom: 55px;
+    }
+
+    @include onMobile {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__left {
+    display: flex;
+  }
+
+  &__right {
+    @include onTablet {
+      grid-column: 3;
+      transition: transform 0.5s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+
+  &__logo {
+    margin-right: 26px;
+  }
+
+  &__select-language {
+    appearance: none;
+    position: relative;
+    background-color: inherit;
+
+    width: 30px;
+    border: none;
+    color: $primary-text-color;
+
+    background-image: url(../images/Polygon.svg);
+    background-repeat: no-repeat;
+    background-position: right 80%;
+
+    &:focus {
+      outline: none;
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__option {
+    background-color: #191536;
+  }
+
+  &__content {
+    position: relative;
+
+    @include onMobile {
+      padding-top: 50%;
+    }
+  }
+
+  &__about {
+    display: flex;
+    width: 300px;
+    margin-left: 80px;
+    flex-direction: column;
+
+    @include onTablet {
+      margin-left: 0;
+    }
+
+    @include onMobile {
+      width: fit-content;
+    }
+
+    &-paragraph {
+      line-height: 150%;
+      color: $secondary-text-color;
+
+      margin-bottom: 18px;
+    }
+
+    &-price {
+      font-size: 18px;
+      line-height: 22px;
+      color: #fff;
+
+      margin-bottom: 19px;
+
+      @include onMobile {
+        text-align: center;
+      }
+    }
+  }
+
+  &__image {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    left: 50%;
+
+    background-image: url(../images/pictures/image-b.png);
+    background-repeat: no-repeat;
+    background-size: 130%;
+    background-position: center;
+
+    @include onMobile {
+      width: 100%;
+      position: absolute;
+      bottom: 100%;
+      top: 0;
+      left: -5%;
+      right: 20px;
+      background-image: url(../images/pictures/image-b.png);
+      background-repeat: no-repeat;
+      background-size: 131%;
+      background-position: center;
+      padding-bottom: 50%;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    line-height: 150%;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &-wrapper {
+      position: relative;
+      display: flex;
+
+      &--left {
+        gap: 39px;
+      }
+
+      &--center {
+        transition: transform 0.3s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+
+      &--right {
+        padding-bottom: 10px;
+        border-bottom: 1px solid #212121;
+        gap: 50px;
+
+        &:hover {
+          border-color: $primary-text-color;
+        }
+      }
+    }
+
+    &-text {
+      color: #fff;
+
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $secondary-text-color;
+      }
+    }
+
+    &-advanced {
+      position: relative;
+      color: $primary-text-color;
+
+      &:hover {
+        color: #fff;
+      }
+
+      &--icon {
+        position: absolute;
+        bottom: 0;
+        left: 40%;
+      }
+    }
+  }
+}

@@ -1,0 +1,117 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgba(255, 255, 255, 1);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.contacts {
+  background-color: $secondary-section-color;
+
+  &__wrapper {
+    display: flex;
+
+    @include onMobile {
+      display: block;
+    }
+  }
+
+  &__info {
+    width: 50%;
+  }
+
+  &__title {
+    @extend .page__title;
+    margin-bottom: 26px;
+  }
+
+  &__subtitle {
+    @extend .page__subtitle;
+    margin-bottom: 13px;
+  }
+
+  &__callback {
+    margin-bottom: 76px;
+
+    &--before {
+      @include onMobile {
+        display: none;
+      }
+    }
+
+    &--after {
+      display: none;
+
+      @include onMobile {
+        margin-bottom: 0;
+        margin-top: 20px;
+        display: block;
+      }
+    }
+  }
+
+  &__text {
+    @extend .page__text;
+
+    transition: opacity 0.4s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__contacts-us {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    @include onMobile {
+      display: none;
+    }
+  }
+
+  &__form {
+    width: 50%;
+
+    @include onMobile {
+      width: 100%;
+    }
+  }
+
+  &__form-field {
+    border: none;
+    margin-bottom: 24px;
+
+    &:nth-child(4n) {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__form-label {
+    @extend .page__text;
+    font-size: 14px;
+  }
+
+  &__form-input {
+    border: none;
+    width: 100%;
+    padding: 6px 0;
+    border-bottom: 1px solid #2f2f2f;
+    background-color: transparent;
+
+    font: inherit;
+    color: #fff;
+
+    outline: none;
+  }
+
+  &__form-message {
+    resize: none;
+  }
+}

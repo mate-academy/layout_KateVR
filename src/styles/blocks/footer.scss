@@ -1,0 +1,55 @@
+.footer {
+  background-color: #000;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__wrapper {
+    width: 61%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onTablet {
+      width: 70%;
+    }
+
+    @include onMobile {
+      width: auto;
+      gap: 15px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+  }
+
+  &__contacts {
+    display: none;
+    @extend .contacts__contacts-us;
+
+    @include onMobile {
+      display: flex;
+    }
+  }
+
+  &--menu {
+    @include onMobile {
+      gap: 12px;
+      flex-direction: column;
+    }
+  }
+}

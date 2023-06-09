@@ -1,0 +1,199 @@
+.techspecs {
+  background-color: $secondary-section-color;
+
+  &__content {
+    position: relative;
+    width: 297px;
+    height: 294px;
+    background-image: url(../images/pictures/techspecs-image.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+  }
+
+  &__title {
+    text-align: end;
+    margin-bottom: 142px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+      text-align: start;
+    }
+  }
+
+  &__vector {
+    position: absolute;
+    background-repeat: no-repeat;
+
+    @include onDesktop-max-1240 {
+      display: none;
+    }
+
+    &--1 {
+      background-image: url(../images/ellipse.svg);
+
+      width: 40px;
+      top: 14%;
+      bottom: 0;
+      right: 90%;
+    }
+
+    &--2 {
+      background-image: url(../images/sensor-vector.svg);
+
+      width: 404px;
+      height: 70px;
+      top: -54px;
+      right: 149px;
+    }
+
+    &--3 {
+      background-image: url(../images/connection-vector.svg);
+
+      width: 135px;
+      height: 115px;
+
+      top: 20%;
+      right: 100%;
+    }
+
+    &--4 {
+      background-image: url(../images/batterries-vector.svg);
+
+      width: 193px;
+      height: 246px;
+
+      top: -50px;
+      left: 50%;
+
+    }
+  }
+
+  &__touch {
+    position: absolute;
+    display: none;
+
+    width: 50px;
+    height: 50px;
+
+    background: $primary-text-color;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+
+    color: #fff;
+    font-size: 25px;
+
+    cursor: pointer;
+    z-index: 1;
+
+    @include onDesktop-max-1240 {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @include onMobile {
+      width: 40px;
+      height: 40px;
+      font-size: 20px;
+    }
+
+    &--sensor {
+      left: 20%;
+      top: -8%;
+    }
+
+    &--connection {
+      top: 43%;
+      right: 18%;
+    }
+
+    &--batterries {
+      bottom: 0;
+    }
+  }
+
+  &__description {
+    position: absolute;
+    width: 350px;
+    padding: 20px;
+
+    animation-name: showUp;
+    animation-duration: 0.5s;
+    animation-timing-function: ease;
+
+    @include onDesktop-max-1240 {
+      padding: 10px;
+      display: none;
+      width: fit-content;
+      background: #191536;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    @include onDesktop-min-1240 {
+      display: block !important;
+    }
+
+    &--sensor {
+      left: -125%;
+      bottom: 67%;
+
+      @include onDesktop-max-1240 {
+        bottom: 0;
+        left: 0;
+      }
+    }
+
+    &--connection {
+      left: -99%;
+      top: 47%;
+
+      @include onDesktop-max-1240 {
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &--batterries {
+      bottom: 40%;
+      left: 120%;
+
+      @include onDesktop-max-1240 {
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+
+  &__icon-close {
+    display: none;
+    height: 17px;
+    background-image: url(../images/icon-close.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+
+    @include onDesktop-max-1240 {
+      display: block;
+    }
+  }
+
+  &__description-title {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+
+    margin-bottom: 21px;
+  }
+}
+
+@keyframes showUp {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

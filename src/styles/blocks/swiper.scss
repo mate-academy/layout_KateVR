@@ -1,0 +1,103 @@
+.swiper {
+  position: relative;
+  padding-bottom: 50px;
+  height: 330px;
+  width: 100%;
+
+  &-slide {
+    padding: 0 50px;
+    object-fit: cover;
+
+    @include onDesktop-max-1240 {
+      padding: 0;
+    }
+  }
+
+  &-pagination {
+    position: absolute;
+    top: 0;
+    left: -46%;
+    font: inherit;
+    line-height: 17px;
+    color: $primary-text-color;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background-color: #212121;
+    }
+
+    @include onDesktop-min-1240 {
+      left: 0;
+      bottom: 0;
+      top: 90%;
+    }
+
+    @include onDesktop-max-1240 {
+      left: 0;
+      top: 88%;
+    }
+  }
+
+  &-button-prev {
+    display: block;
+    position: absolute;
+    top: 95%;
+    left: 8%;
+    width: 60px;
+    height: 26px;
+
+    @include onMobile {
+      display: none;
+    }
+
+    &::after {
+      content: "Previous";
+      display: block;
+      width: 100%;
+      font: inherit;
+      line-height: 150%;
+      color: #fff;
+
+      transition: color 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        color: $secondary-text-color;
+      }
+    }
+  }
+
+  &-button-next {
+    display: block;
+    position: absolute;
+    top: 95%;
+    right: 9%;
+
+    @include onMobile {
+      display: none;
+    }
+
+    &::after {
+      content: "Next";
+      display: block;
+      width: 100%;
+      font: inherit;
+      line-height: 150%;
+      color: #fff;
+
+      transition: color 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        color: $secondary-text-color;
+      }
+    }
+  }
+}
