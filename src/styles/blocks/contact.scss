@@ -1,0 +1,155 @@
+.contact {
+  background-color: $background-black;
+
+  &__container {
+    display: grid;
+    gap: 15px;
+
+    @include main-paddings;
+
+    @include max-size;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: $contrast-color;
+  }
+
+  &__list {
+    display: none;
+  }
+
+  &__link {
+    transition: color 0.3s;
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+
+  &__form {
+    display: grid;
+    gap: 5px;
+
+    &-item {
+      display: grid;
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__input {
+    @include main-input;
+    margin-bottom: 10px;
+    order: 2;
+
+    @include resetAutoFill($white);
+  }
+
+  &__textarea {
+    @include main-input;
+    resize: vertical;
+    order: 2;
+  }
+
+  &__label {
+    @include main-label;
+    order: 1;
+  }
+
+  &__info {
+    font-size: 12px;
+    color: $text-color;
+  }
+
+  &__back {
+    display: none;
+  }
+
+  &__btn {
+    margin-top: 20px;
+    grid-column: 1 / 3;
+  }
+
+  @media (min-width: $media-tablet) {
+    &__container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-areas: "subtitle form""title form""info form""list form";
+      grid-template-rows: auto auto 1fr 2fr;
+
+      align-content: flex-start;
+      align-items: flex-start;
+    }
+
+    &__subtitle {
+      grid-area: subtitle;
+    }
+
+    &__title {
+      grid-area: title;
+    }
+
+    &__list {
+      grid-area: list;
+      display: grid;
+      gap: 10px;
+    }
+
+    &__form {
+      grid-area: form;
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    &__info {
+      grid-area: info;
+      align-self: center;
+    }
+
+    &__link {
+      text-align: 16px;
+      color: $text-color;
+      text-decoration: none;
+    }
+
+    &__back {
+      display: grid;
+      justify-self: flex-end;
+      align-self: flex-end;
+      justify-content: center;
+      align-items: center;
+      width: 48px;
+      height: 48px;
+
+      grid-column: 2 / 3;
+      grid-row: 5 / 6;
+
+      border: 1px solid $contrast-color;
+      border-radius: 50%;
+
+      &::after {
+        content: url("../../src/images/arrow-top.svg");
+      }
+
+      transition: background 0.3s, transform 0.3s;
+
+      &:hover {
+        transform: scale(1.1);
+        background-color: $contrast-color;
+        &::after {
+          content: url("../../src/images/arrow-top-hover.svg");
+        }
+      }
+    }
+
+    &__btn {
+      grid-row: 5 / 6;
+      width: 200px;
+    }
+  }
+}
+
+.failed {
+  border-bottom-color: red;
+  + .contact__label {
+    color: red;
+  }
+}

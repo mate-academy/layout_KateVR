@@ -1,0 +1,86 @@
+.footer {
+  background-color: $background-black;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: "logo logo" "list contact" "list socials";
+    gap: 15px;
+
+    @include main-paddings;
+
+    @include max-size;
+  }
+
+  &__logo {
+    grid-area: logo;
+  }
+
+  &__list {
+    grid-area: list;
+    display: grid;
+    align-content: flex-start;
+    gap: 12px;
+    list-style: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $white;
+
+    transition: color 0.3s;
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+
+  &__contact-list {
+    grid-area: contact;
+    display: grid;
+    gap: 12px;
+  }
+
+  &__contact-link {
+    font-size: 13px;
+    color: $text-color;
+    text-decoration: none;
+  }
+
+  &__socials {
+    grid-area: socials;
+    display: flex;
+    list-style: none;
+    justify-content: space-between;
+  }
+
+  &__icon {
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+
+  @media (min-width: $media-tablet) {
+    &__container {
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: "logo list socials";
+      padding-top: 25px;
+      padding-bottom: 25px;
+    }
+
+    &__contact-list {
+      display: none;
+    }
+
+    &__list {
+      display: flex;
+      gap: 40px;
+      justify-self: center;
+    }
+
+    &__socials {
+      gap: 20px;
+    }
+  }
+}

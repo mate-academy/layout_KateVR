@@ -1,0 +1,117 @@
+.language {
+  z-index: 2;
+
+  width: 100%;
+  min-height: 100%;
+  height: auto;
+
+  background-color: $color-purple;
+
+  transition: left 0.3s;
+
+  &--show {
+    left: 0;
+  }
+
+  &__back {
+    @include reset-button;
+    margin: 20px 0 38px 20px;
+
+    &::after {
+      content: url("../../src/images/arrow-back.svg");
+    }
+
+    &:hover::after {
+      content: url("../../src/images/arrow-back-hover.svg");
+    }
+  }
+
+  &__list {
+    display: grid;
+    list-style: none;
+  }
+
+  &__btn {
+    @include reset-button;
+    width: 100%;
+    padding: 11px 20px;
+
+    font-size: 21px;
+    color: $white;
+    text-decoration: none;
+    text-align: left;
+
+    transition: color 0.3s, background 0.3s;
+    &:hover {
+      background-color: $color-link-hover;
+      color: $contrast-color;
+    }
+  }
+
+  @media (min-width: $media-tablet) {
+    padding-bottom: 100px;
+
+    &__btn {
+      padding-left: 150px;
+    }
+  }
+
+  @media (min-width: $media-desktop) {
+    z-index: 0;
+
+    padding-bottom: 0;
+
+    min-height: auto;
+    width: auto;
+
+    background-color: transparent;
+
+    &__back {
+      margin: 0;
+      padding: 0 15px;
+
+      font-size: 16px;
+      font-weight: 500;
+      color: $contrast-color;
+
+      &::after {
+        margin-left: 5px;
+        content: url("../../src/images/more.svg");
+      }
+
+      &:hover {
+        color: $white;
+
+        &::after {
+          content: url("../../src/images/more-hover.svg");
+        }
+      }
+    }
+
+    &__list {
+      display: none;
+
+      position: absolute;
+      top: 120%;
+      left: 0;
+
+      height: 120px;
+
+      background-color: $color-purple;
+      border-radius: 4px;
+
+      overflow-y: scroll;
+      @include scrollbar;
+    }
+
+    &--show &__list {
+      display: grid;
+    }
+
+    &__btn {
+      font-size: 16px;
+      text-align: center;
+      padding: 12px 6px;
+    }
+  }
+}

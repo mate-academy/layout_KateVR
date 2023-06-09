@@ -1,0 +1,157 @@
+.faq {
+  display: grid;
+
+  z-index: 2;
+  opacity: 0;
+
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+
+  background: $color-purple;
+
+  transition: left 0.3s, opacity 0.3s;
+  &--show {
+    opacity: 1;
+    left: 0;
+  }
+
+  &__close {
+    @include close-btn;
+  }
+
+  &__title {
+    @include container-paddings;
+    margin-bottom: 30px;
+
+    font-weight: 900;
+    font-size: 21px;
+    color: $white;
+    text-transform: uppercase;
+
+    &--blue {
+      color: $contrast-color;
+      font-weight: 400;
+    }
+  }
+
+  &__accordion {
+    display: grid;
+    gap: 13px;
+
+    @include container-paddings;
+    list-style: none;
+    margin-bottom: 30px;
+  }
+
+  &__item {
+    display: grid;
+    gap: 15px;
+
+    padding: 20px 12px;
+
+    border: 1px solid $contrast-color;
+    border-radius: 4px;
+  }
+
+  &__question {
+    font-size: 16px;
+    font-weight: 400;
+    color: $contrast-color;
+    cursor: pointer;
+
+    transition: color 0.3s;
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__answer {
+    display: none;
+
+    font-size: 16px;
+    font-weight: 400;
+    color: $text-color;
+
+    &--show {
+      display: flex;
+    }
+  }
+
+  &__update {
+    font-size: 12px;
+    font-weight: 400;
+    color: #545454;
+
+    display: none;
+    &--show {
+      display: flex;
+    }
+  }
+
+  &__link {
+    display: none;
+  }
+
+  @media (min-width: $media-tablet) {
+    align-content: flex-start;
+
+    padding-bottom: 100px;
+
+    min-height: 100vh;
+
+    &__link {
+      display: flex;
+      justify-self: center;
+
+      position: relative;
+
+      text-align: center;
+      color: $contrast-color;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+
+      &::after {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        content: url("../../src/images/more.svg");
+      }
+
+      &:hover {
+        color: $white;
+
+        &::after {
+          content: url("../../src/images/more-hover.svg");
+        }
+      }
+    }
+  }
+
+  @media (min-width: $media-desktop) {
+    justify-self: center;
+
+    z-index: 100;
+
+    width: 80vw;
+    min-height: auto;
+    height: auto;
+
+    margin-bottom: 100px;
+
+    &--show {
+      left: 10%;
+      top: 10%;
+    }
+
+    &__title {
+      padding: 0 90px;
+    }
+
+    &__accordion {
+      padding: 0 90px;
+    }
+  }
+}

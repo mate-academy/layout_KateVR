@@ -1,7 +1,46 @@
-@import "utils";
-@import "fonts";
-@import "typography";
+@import "./utils/variables";
+@import "./utils/reset";
+@import "./utils/normalize";
+@import "./utils/mixins";
 
 body {
-  background: $c-gray;
+  position: relative;
 }
+
+.container {
+  overflow: hidden;
+}
+
+.main {
+  &__title {
+    font-size: 21px;
+    font-weight: 900;
+    color: $white;
+    text-transform: uppercase;
+
+    &--blue {
+      color: $contrast-color;
+      font-weight: 400;
+    }
+
+    @media (min-width: $media-desktop) {
+      font-size: 36px;
+    }
+  }
+}
+
+@import "./blocks/mainBtn.scss";
+@import "./blocks/modalDesktopBg.scss";
+@import "./blocks/banner.scss";
+@import "./blocks/nav.scss";
+@import "./blocks/language.scss";
+@import "./blocks/faq.scss";
+@import "./blocks/help.scss";
+@import "./blocks/more.scss";
+@import "./blocks/about.scss";
+@import "./blocks/slider.scss";
+@import "./blocks/tech.scss";
+@import "./blocks/contact.scss";
+@import "./blocks/footer.scss";
+@import "./blocks/yt-video.scss";
+@import "./blocks/buy.scss";

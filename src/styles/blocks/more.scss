@@ -1,0 +1,116 @@
+.more {
+  background-color: $background-black;
+
+  &__container {
+    display: grid;
+    gap: 12px;
+
+    @include main-paddings;
+
+    @include max-size;
+  }
+
+  &__subtitle {
+    margin-bottom: 28px;
+
+    font-size: 12px;
+    color: $contrast-color;
+  }
+
+  &__content {
+    display: grid;
+    gap: 20px;
+  }
+
+  &__item {
+    display: grid;
+    align-content: flex-start;
+    gap: 11px;
+
+    &-icon {
+      display: none;
+    }
+
+    &-title {
+      font-size: 16px;
+      font-weight: 900;
+      color: $white;
+      text-transform: uppercase;
+    }
+
+    &-text {
+      font-size: 16px;
+      color: $text-color;
+    }
+  }
+
+  &--secondary {
+    gap: 32px;
+    background: $background-gradient;
+    .more__title {
+      text-align: left;
+    }
+  }
+
+  @media (min-width: $media-tablet) {
+    &__title,
+    &__subtitle {
+      text-align: center;
+    }
+
+    &__content {
+      grid-template-columns: repeat(2, 1fr);
+      row-gap: 40px;
+    }
+
+    &__item {
+      gap: 20px;
+      justify-items: center;
+      text-align: center;
+      &-icon {
+        display: flex;
+
+        transition: transform 0.3s;
+        &:hover {
+          transform: scale(1.1);
+          cursor: zoom-in;
+        }
+      }
+    }
+
+    &--secondary {
+      gap: 32px;
+
+      .more__content {
+        display: flex;
+      }
+    }
+  }
+
+  @media (min-width: $media-desktop) {
+    &__subtitle {
+      margin-bottom: 78px;
+    }
+
+    &__content {
+      display: flex;
+      row-gap: 40px;
+    }
+  }
+
+  @media (min-width: $media-big-screen) {
+    &--secondary {
+      .more__container {
+        gap: 80px;
+      }
+
+      .more__title {
+        text-align: center;
+      }
+
+      .more__content {
+        gap: 200px;
+      }
+    }
+  }
+}

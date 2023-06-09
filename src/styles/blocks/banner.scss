@@ -1,0 +1,308 @@
+.banner {
+  background: $background-gradient;
+
+  &__container {
+    display: grid;
+    align-content: flex-start;
+
+    position: relative;
+
+    @include container-paddings;
+
+    @include max-size;
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+
+    padding: 15px 0;
+
+    &-logo {
+      width: 58px;
+      height: 12px;
+    }
+
+    &-menu-btn {
+      background-color: transparent;
+      border: none;
+      &::after {
+        content: url("../../src/images/menu-btn.svg");
+      }
+    }
+
+    &-buy {
+      display: none;
+    }
+  }
+
+  &__main {
+    display: grid;
+
+    &-content {
+      display: grid;
+      gap: 20px;
+      order: 2;
+    }
+
+    &-title {
+      font-size: 26px;
+      color: $white;
+      font-weight: 700;
+      text-transform: uppercase;
+
+      &-blue {
+        font-weight: 400;
+        color: $contrast-color;
+      }
+    }
+
+    &-text {
+      color: $text-color;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    &-price {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 500px;
+      color: $white;
+    }
+
+    &-play {
+      @include play-btn;
+    }
+
+    &-image {
+      order: 1;
+      width: 100%;
+      padding: 20px 0;
+    }
+  }
+
+  &__footer {
+
+    &-desktop {
+      display: none;
+    }
+
+    &-mobile {
+      display: block;
+      text-decoration: none;
+      width: auto;
+      margin: 32px 0;
+
+      @media (min-width: $media-tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__modal-faq,
+  &__modal-help {
+    position: absolute;
+    top: 0;
+    left: 100%;
+  }
+
+  &__header-lang {
+    position: absolute;
+    top: 0;
+    left: -100%;
+  }
+
+  &__header-nav {
+    position: absolute;
+    top: -100%;
+    left: 0;
+  }
+
+  &__yt-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+  }
+
+  @media (min-width: $media-tablet) {
+    &__header {
+      padding-top: 30px;
+    }
+
+    &__header-nav {
+      top: calc(-100% - 100px);
+    }
+
+    &__main {
+      grid-template-columns: repeat(2, 1fr);
+      padding-top: 30px;
+      padding-bottom: 50px;
+
+      &-content {
+        order: 1;
+      }
+
+      &-price {
+        text-align: left;
+      }
+
+      &-image {
+        order: 2;
+        align-self: center;
+      }
+    }
+  }
+
+  @media (min-width: $media-desktop) {
+
+    &__container {
+      grid-template-rows: auto 1fr 150px;
+      min-height: 100vh;
+    }
+
+    &__modal-faq,
+    &__modal-help {
+      top: 10%;
+    }
+
+    &__header-lang,
+    &__header-nav {
+      position: relative;
+      left: 0;
+    }
+
+    &__header {
+      grid-template-columns: auto auto 1fr 236px;
+      padding-top: 64px;
+      padding-bottom: 64px;
+
+      &-logo {
+        width: 77px;
+        height: 16px;
+      }
+
+      &-menu-btn {
+        display: none;
+      }
+
+      &-lang {
+        display: block;
+      }
+
+      &-buy {
+        display: block;
+        margin-left: 36px;
+        text-decoration: none;
+      }
+    }
+
+    &__main {
+      align-self: center;
+
+      &-title {
+        font-size: 46px;
+      }
+
+      &-text,
+      &-price,
+      &-play {
+        padding-left: 100px;
+      }
+
+      &-text {
+        width: 50%;
+      }
+    }
+
+    &__footer {
+
+      &-desktop {
+        display: grid;
+        grid-template-columns: 1fr 3fr 1fr;
+      }
+    }
+
+    &__modal-triggers {
+      display: flex;
+      gap: 40px;
+    }
+
+    &__modal-trigger {
+      font-size: 16px;
+      font-weight: 500;
+      color: $white;
+      @include reset-button;
+
+      transition: color 0.3s;
+      &:hover {
+        color: $contrast-color;
+      }
+    }
+
+    &__slide-down {
+      position: relative;
+
+      text-align: center;
+      color: $contrast-color;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 500;
+
+      &::after {
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        content: url("../../src/images/more.svg");
+      }
+
+      &:hover {
+        color: $white;
+
+        &::after {
+          content: url("../../src/images/more-hover.svg");
+        }
+      }
+    }
+
+    &__slider-btns {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: solid 1px $darker-grey;
+    }
+
+    &__slider-btn {
+      @include reset-button;
+      padding-bottom: 10px;
+
+      color: $white;
+      font-size: 16px;
+      font-weight: 500;
+
+      text-decoration: none;
+
+      transition: color 0.3s;
+      &:hover {
+        color: $contrast-color;
+      }
+
+      &--active {
+        position: relative;
+
+        color: $text-color;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+
+          width: 100%;
+          height: 1px;
+
+          background: $contrast-color;
+        }
+      }
+    }
+  }
+}

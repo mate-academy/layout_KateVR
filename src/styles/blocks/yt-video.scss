@@ -1,0 +1,29 @@
+.yt-video {
+  z-index: 2;
+  transform: translate(-50%, -50%);
+
+  display: none;
+  &__iframe {
+    width: 80vw;
+    height: auto;
+    /* stylelint-disable */
+    aspect-ratio: 16 / 9;
+    /* stylelint-enable */
+  }
+
+  &__close {
+    position: absolute;
+    right: 0;
+    @include close-btn;
+    background-color: $background-black;
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: solid 1px $contrast-color;
+  }
+
+  &--show {
+    display: flex;
+  }
+}
