@@ -1,0 +1,131 @@
+
+.swiper {
+  max-width: 600px;
+  padding-bottom: 40px;
+  position: relative;
+
+  @include desktop1224 {
+    &::after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid #212121;
+      position: absolute;
+      width: 200px;
+      bottom: 0;
+      left: 50px;
+    }
+  }
+
+  @include desktop768 {
+    height: 275px;
+  }
+
+  @include desktop1224 {
+    height: 330px;
+    padding-bottom: 40px;
+  }
+
+  &--width768-before {
+    display: none;
+
+    @include desktop768 {
+      display: block;
+    }
+  }
+
+  &--width768-after {
+    @include desktop768 {
+      display: none;
+    }
+  }
+
+  &-pagination {
+
+    @include desktop1224 {
+      width: 40px;
+      height: 10px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: rgba(5, 194, 223, 1);
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &-slide {
+    width: 80%;
+    object-fit: cover;
+
+    @include desktop1224 {
+      padding: 0 50px;
+    }
+  }
+
+  &-wrapper {
+    width: 100%;
+  }
+
+  &-button-prev {
+    display: none;
+
+    @include desktop1224 {
+      display: inline;
+      position: absolute;
+      top: 99%;
+      left: 50px;
+      width: 60px;
+      height: 26px;
+
+      &:after {
+        content: "PREVIOUS";
+        display: block;
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        width: 50px;
+        color: #fff;
+      }
+
+      &:hover {
+        border-bottom: 1px solid #05c2df;
+
+        &:after {
+          color: #929292;
+        }
+      }
+    }
+  }
+
+  &-button-next {
+    display: none;
+
+    @include desktop1224 {
+      display: inline;
+      position: absolute;
+      top: 99%;
+      left: 215px;
+      width: 35px;
+      height: 26px;
+      &:after {
+        content: "NEXT";
+        display: block;
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 12px;
+        width: 50px;
+        color: #fff;
+      }
+      &:hover {
+        border-bottom: 1px solid #05c2df;
+        &:after {
+          color: #929292;
+        }
+      }
+    }
+  }
+}
