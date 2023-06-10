@@ -1,0 +1,69 @@
+.button {
+  @extend %inter-500;
+  font-size: 16px;
+  line-height: 130%;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: $c-blue;
+  border-radius: 4px;
+
+  &:hover {
+    background-color: #fff;
+    color: $c-blue;
+  }
+
+  &:disabled {
+    background-color: #191536;
+    color: #2f2f2f;
+  }
+}
+
+.input {
+  font-style: normal;
+  font-size: 16px;
+  line-height: 150%;
+  color: #4f4f4f;
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+  outline: none;
+  padding-left: 6px;
+  overflow-y: hidden;
+
+  &::placeholder {
+    font-style: normal;
+    font-size: 16px;
+    line-height: 150%;
+    color: #4f4f4f;
+  }
+
+  &:focus {
+    border-bottom: 1px solid #03839e;
+  }
+
+  &:valid {
+    color: #03839e;
+    border-bottom: 1px solid #03839e;
+  }
+
+  &:invalid {
+    color: brown;
+    border-bottom: 1px solid brown;
+  }
+
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  border-bottom: 1px solid inherit;
+  -webkit-text-fill-color: inherit;
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0;
+}
