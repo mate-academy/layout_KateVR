@@ -1,0 +1,38 @@
+.why {
+
+  &__items {
+    @include mediaDesktop {
+      margin: 0 0 90px;
+    }
+  }
+
+  &__item {
+    display: flex;
+
+    @include mediaMobile {
+      &:not(:last-child) {
+        margin: 0 0 20px;
+      }
+    }
+
+  }
+
+  &__title {
+    text-align: left;
+    margin: 0 0 30px;
+
+    @include mediaDesktop {
+      text-align: center;
+      margin: 0 0 82px;
+    }
+  }
+
+  &__button {
+    display: none;
+    @include mediaDesktop {
+      display: block;
+      margin: 0 auto;
+      width: 200px;
+    }
+  }
+}

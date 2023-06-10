@@ -1,0 +1,125 @@
+.contact {
+
+  &__title {
+    margin: 0 0 32px;
+
+    @include mediaTablet {
+      padding: 0;
+    }
+
+    &-up {
+      margin: 0 0 11px;
+
+      @include mediaDesktop {
+        margin: 0 0 13px;
+      }
+    }
+  }
+
+  &__text {
+    display: none;
+
+    @include mediaTablet {
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 auto;
+      padding: 0 0 96px;
+      justify-content: space-between;
+    }
+
+    @include mediaDesktop {
+      padding: 0 0 135px;
+    }
+
+    @include mediaDesktopXL {
+      padding: 0 0 96px;
+    }
+  }
+
+  &__list {
+
+    &-item:not(:last-child) {
+      margin: 0 0 8px;
+    }
+
+    &-item:first-child {
+      margin: 0 0 11px;
+    }
+
+    &-link {
+      @extend .button-link;
+      color: $color-gray;
+      transition: color $duration-transition;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+  }
+
+  &__button {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 0 0 39px;
+    padding: 0;
+    @include textTypohraphy(14, 1.3, 500);
+
+    &::after {
+      content: "Our manager will reply you within 15 minutes";
+      position: absolute;
+      left: 0;
+      bottom: -27px;
+      transform: translateY(100%);
+      display: block;
+      @include textTypohraphy(12, 1, 400);
+      text-transform: none;
+      color: $color-gray;
+    }
+
+    @include mediaTablet {
+      width: 200px;
+      height: 48px;
+      margin: 0;
+      @include textTypohraphy(16, 1.3, 500);
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__form {
+
+    margin: 0 0 30px;
+
+    @include mediaTablet {
+      margin: 0 0 48px;
+    }
+
+    @include mediaDesktop {
+      margin: 0 0 90px;
+    }
+
+    @include mediaDesktopXL {
+      margin: 0 0 50px;
+    }
+  }
+
+  .item-form {
+    margin: 0 0 24px;
+  }
+
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button-up {
+    display: none;
+
+    @include mediaTablet {
+      display: flex;
+    }
+  }
+}

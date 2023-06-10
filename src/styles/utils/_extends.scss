@@ -1,4 +1,39 @@
-%h1 {
-  font-family: "Roboto", sans-serif;
-  font-weight: 400;
+/*Typography*/
+/*lineheight 1 - is the same auto in figma*/
+.headline {
+  &-1 {
+    @include textTypohraphy(26, 1.3, 900);
+    @include mediaDesktop {
+      @include textTypohraphy(46, 1.3, 900);
+    }
+  }
+
+  &-2 {
+    @include textTypohraphy(21, 1.3, 900);
+    @include mediaDesktop {
+      @include textTypohraphy(36, 1.3, 900);
+    }
+  }
+
+  &-3 {
+    @include textTypohraphy(16, 1.3, 900);
+  }
+}
+
+.button-link {
+  @include textTypohraphy(16, 1.3, 500);
+}
+
+.text {
+  &-1 {
+    @include textTypohraphy(16, 1.5, 400);
+  }
+  &-2 {
+    @include textTypohraphy(14, 1.2, 400);
+  }
+  &-3 {
+    @include mediaMobile {
+      @include textTypohraphy(12, 1.3, 400);
+    }
+  }
 }

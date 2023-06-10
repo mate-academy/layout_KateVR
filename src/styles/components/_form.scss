@@ -1,0 +1,112 @@
+.form {
+
+  &__item {
+    position: relative;
+    height: 33px;
+    display: flex;
+    align-items: flex-end;
+
+    &--textarea {
+      height: auto;
+      min-height: 89px;
+    }
+
+    &--auto {
+      height: min-content;
+    }
+  }
+
+  label {
+    position: absolute;
+    bottom: 19px;
+    left: 0;
+    @include textTypohraphy (14, 1, 400);
+    color: $color-gray;
+    transition: bottom $duration-transition, top $duration-transition;
+    pointer-events: none;
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: 89px;
+    max-height: max-content;
+    overflow: hidden;
+    background-color: transparent;
+    font-family: inherit;
+    @extend .text-1;
+    color: $color-white;
+    border: none;
+    border-bottom: 1px solid $color-dark-gray;
+    outline: none;
+    resize: none;
+
+    & + label {
+      top: 0;
+      left: 0;
+      bottom: auto;
+    }
+
+    &:not(:placeholder-shown) + label {
+      top: -15px;
+    }
+
+    &:not(:placeholder-shown) {
+      border-color: $color-blue;
+    }
+
+    &:focus + label {
+      top: -15px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    @extend .text-1;
+    color: $color-white;
+    background-color: transparent;
+    border-bottom: 1px solid $color-dark-gray;
+    transition: all $duration-transition;
+
+    &.no-valid {
+      border-color: $color-red;
+
+      & + label {
+        color: $color-red;
+      }
+
+      & + label::before {
+        content: "Please, fill your\00a0";
+        white-space: pre;
+      }
+    }
+
+    &:focus ~ label,
+    &:not(:placeholder-shown) ~ label {
+      bottom: 34px;
+    }
+
+    &:not(:placeholder-shown):focus:valid,
+    &:not(:placeholder-shown):not(:focus):valid {
+      border-color: $color-blue;
+    }
+
+    &:not(:placeholder-shown):focus:valid ~ label,
+    &:not(:placeholder-shown):not(:focus):valid ~ label {
+      color: $color-blue;
+    }
+
+    &:not(:placeholder-shown):not(:focus):invalid {
+      border-color: $color-red;
+    }
+
+    &:not(:placeholder-shown):not(:focus):invalid ~ label {
+      color: $color-red;
+    }
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+}

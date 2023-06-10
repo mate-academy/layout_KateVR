@@ -1,0 +1,177 @@
+.hero {
+  height: 100vh;
+
+  &__container {
+    height: 100%;
+  }
+
+  &__slider {
+    display: grid;
+    height: 100%;
+    grid-template-areas: "hero-image" "hero-text";
+    grid-template-columns: 1fr;
+    grid-template-rows: 30% 1fr;
+
+    @include mediaTablet {
+      grid-template-areas: "hero-text hero-image" "hero-actions hero-actions";
+      grid-template-rows: 1fr 50px;
+      grid-template-columns: repeat(2, 50%);
+      align-items: center;
+    }
+
+  }
+
+  &__text {
+    grid-area: hero-text;
+    overflow-x: hidden;
+  }
+
+  &__title {
+    margin: 0 0 17px;
+
+    @include mediaTablet {
+      margin: 0 0 19px;
+    }
+  }
+
+  &__paragraph {
+    @extend .text-1;
+    margin: 0 0 10px;
+  }
+
+  &__price {
+    font-size: 18px;
+    line-height: 22px;
+    margin: 0 0 16px;
+    color: $color-white;
+    text-align: center;
+    &::after {
+      content: "$";
+      display: inline-block;
+    }
+
+    @include mediaTablet {
+      margin: 0 0 24px;
+      text-align: left;
+    }
+
+    @include mediaDesktop {
+      margin: 0 0 20px;
+    }
+  }
+
+  &__image {
+    grid-area: hero-image;
+    overflow-x: hidden;
+    height: 100%;
+  }
+
+  .swiper-hero-text {
+    overflow: hidden;
+  }
+
+  .swiper-hero-image {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__image-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  &__button {
+    position: fixed;
+    z-index: 2;
+    bottom: 10px;
+    left: 20px;
+    visibility: hidden;
+    opacity: 0;
+
+    &.active {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    @include mediaMobile {
+      width: calc(100% - 40px);
+    }
+
+    @include mediaTablet {
+      bottom: 30px;
+      width: 460px;
+      transform: translateX(-50%);
+      left: 50%;
+    }
+
+    @include mediaDesktop {
+      display: none;
+    }
+  }
+
+  &__actions {
+    display: none;
+    grid-area: hero-actions;
+    width: 100%;
+    height: max-content;
+    justify-content: space-between;
+
+    @include mediaDesktop {
+      display: flex;
+      align-items: center;
+    }
+
+    &-nav {
+      display: flex;
+      gap: 40px;
+    }
+
+    &-link {
+      @extend .text-1;
+      color: $color-white;
+      transition: color $duration-transition;
+
+      &:hover {
+        color: $color-blue;
+      }
+
+      &--more {
+        position: relative;
+        color: $color-blue;
+
+        &::after {
+          content: "";
+          position: absolute;
+          bottom: -7px;
+          left: 50%;
+          transform: translate(-50%, 0);
+          @extend .triangle;
+          transition: transform $duration-transition;
+        }
+
+        &:hover {
+          color: $color-white;
+
+          &::after {
+            transform: translate(-50%, 3px);
+            border-color: $color-white transparent transparent transparent;
+          }
+        }
+      }
+    }
+  }
+
+  .swiper-nav--about {
+    width: 205px;
+  }
+}

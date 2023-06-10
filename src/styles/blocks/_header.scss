@@ -1,0 +1,188 @@
+.header {
+  position: relative;
+  height: 37px;
+  padding: 20px 0 0;
+  background-color: transparent;
+  z-index: 3;
+
+  &.active &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: -1;
+  }
+
+  @include mediaTablet {
+    height: 47px;
+    padding: 30px 0 0;
+  }
+
+  @include mediaDesktop {
+    height: 95px;
+    padding: 47px 0 0;
+  }
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    height: 14px;
+    transition: scale $duration-transition;
+
+    &:hover {
+      scale: 1.1;
+    }
+  }
+
+  &__lang {
+    display: none;
+    margin: 0 0 0 35px;
+
+    @include mediaDesktop {
+      display: block;
+    }
+  }
+
+  &__dropdown {
+    width: 45px;
+
+    &-input {
+      font-size: 16px;
+      line-height: 1.3;
+      color: $color-blue;
+      padding: 0;
+      cursor: default;
+    }
+
+    &-icon {
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      align-items: end;
+      padding: 0;
+      background-color: transparent;
+      transform: translate(4px, -4px);
+
+      .triangle {
+        margin-left: auto;
+      }
+    }
+
+    &-options {
+      top: 32px;
+      left: 7px;
+    }
+
+    &-option {
+      color: $color-blue;
+      font-size: 16px;
+      line-height: 1.3;
+
+      &:hover {
+        color: $color-white;
+      }
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100vh;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    background-color: $color-background-menu;
+    transition: transform $duration-transition;
+    z-index: 10;
+
+    &.active {
+      transform: translateX(0);
+    }
+
+    &-sub {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 100vh;
+      transform: translateX(-100%);
+      overflow-y: hidden;
+      background-color: $color-background-menu;
+      z-index: 20;
+      transition: transform $duration-transition;
+
+      &.active {
+        transform: translateX(0);
+      }
+
+      @include mediaTablet {
+        min-height: 50vh;
+        height: max-content;
+      }
+    }
+
+    @include mediaTablet {
+      min-height: 50vh;
+      height: max-content;
+    }
+
+    @include mediaDesktop {
+      position: static;
+      transform: translateX(0);
+      display: flex;
+      flex: 1 1 auto;
+      justify-content: flex-end;
+      margin: 0 35px 0 0;
+      height: max-content;
+      min-height: auto;
+      background-color: transparent;
+    }
+  }
+
+  &__list {
+    @include mediaDesktop {
+      display: flex;
+      gap: 35px;
+    }
+  }
+
+  &__top-actions {
+    @include mediaDesktop {
+      display: none;
+    }
+  }
+
+  &__burger {
+
+    @include mediaDesktop {
+      display: none;
+    }
+  }
+
+  .link-menu {
+    @include mediaTablet {
+      padding-left: calc(100% / 6 + 20px);
+    }
+
+    @include mediaDesktop {
+      padding: 0;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include mediaDesktop {
+      display: block;
+      width: 200px;
+    }
+  }
+}

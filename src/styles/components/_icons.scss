@@ -1,0 +1,156 @@
+.burger {
+  position: relative;
+  width: 20px;
+  height: 17px;
+
+  &__line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-0.5px);
+    width: 12px;
+    height: 1px;
+    background-color: #fff;
+    transition: all 0.3s;
+  }
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    width: 16px;
+    height: 1px;
+    transform: translateY(-50%);
+    background-color: #fff;
+    transition: all 0.3s;
+  }
+
+  &::before {
+    top: 4.5px;
+  }
+
+  &::after {
+    top: 12.5px;
+  }
+
+  &:hover &__line,
+  &:hover::before,
+  &:hover::after {
+    width: 100%;
+  }
+
+  &.active {
+
+    &::before {
+      width: 100%;
+      transform: rotate(-45deg);
+      top: 50%;
+    }
+
+    &::after {
+      width: 100%;
+      transform: rotate(45deg);
+      top: 50%;
+    }
+  }
+}
+
+.cross-close {
+  position: relative;
+  display: block;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    top: 50%;
+    background-color: $color-white;
+    transition: background-color $duration-transition;
+    pointer-events: none;
+  }
+  &::before {
+    transform: rotate(-45deg);
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      background-color: $color-blue;
+    }
+  }
+}
+
+.plus {
+
+  position: relative;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background-color: $color-blue;
+  transition: all $duration-transition;
+
+  &__line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background-color: $color-white;
+    transition: all $duration-transition;
+    pointer-events: none;
+    &--hor {
+      height: 1px;
+      width: 35%;
+    }
+
+    &--ver {
+      height: 35%;
+      width: 1px;
+    }
+  }
+
+  &.active {
+    background-color: #07798b;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+
+    .plus__line--ver {
+      height: 0;
+    }
+  }
+}
+
+.arrow-back {
+  margin: 3px 0 0;
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid $color-white;
+  border-left: 1px solid $color-white;
+  transform: rotate(-45deg);
+  transition: border-color $duration-transition;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $color-blue;
+  }
+}
+
+.triangle {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 6px 4.5px 0;
+  border-color: $color-blue transparent transparent transparent;
+  cursor: pointer;
+}

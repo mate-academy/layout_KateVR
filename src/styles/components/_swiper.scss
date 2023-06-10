@@ -1,0 +1,121 @@
+.swiper {
+
+  &-container {
+    position: relative;
+  }
+
+  &-slide--about {
+    width: 100%;
+    height: auto;
+    max-height: 290px;
+
+    &::after {
+      content: "";
+      display: block;
+      padding: 0 0 67.5%;
+
+      @include mediaTablet {
+        padding: 0 0 79.5%;
+      }
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-nav {
+    @include mediaDesktop {
+      width: 40%;
+    }
+  }
+
+  &-buttons {
+
+    @include mediaDesktop {
+      display: flex;
+      justify-content: space-between;
+      margin: 12px 0 10px;
+    }
+  }
+
+  &-pagination {
+
+    &-bullets {
+      position: static;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0 0;
+    }
+    &-bullet {
+      width: 4px;
+      height: 4px;
+      margin: 0 6px !important;
+      background-color: #484848;
+      &-active {
+        background-color: #ababab;
+      }
+    }
+
+    @include mediaDesktop {
+      display: none;
+    }
+  }
+
+  &-pagination--progress-bar {
+    display: none;
+    position: relative;
+    height: 1px !important;
+    background-color: #212121;
+    span {
+      background-color: $color-blue !important;
+    }
+    @include mediaDesktop {
+      display: block;
+    }
+  }
+
+  &-button-prev,
+  &-button-next {
+    position: static;
+    display: none;
+    width: max-content;
+    @extend .button-link;
+    color: $color-white;
+    &::after {
+      content: "" !important;
+    }
+    @include mediaDesktop {
+      display: block;
+    }
+  }
+
+  &-counter {
+    position: absolute;
+    display: none;
+    top: -5px;
+    left: -20px;
+    transform: translateX(-100%);
+    &__current,
+    &__total {
+      @include textTypohraphy (14, 17px, 400);
+      color: $color-blue;
+    }
+
+    &__total::before {
+      content: "/";
+      display: inline-block;
+      @include textTypohraphy (14, 17px, 400);
+      color: $color-blue;
+    }
+
+    @include mediaDesktop {
+      display: block;
+    }
+  }
+}

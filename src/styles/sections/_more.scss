@@ -1,0 +1,50 @@
+.more {
+
+  &__title {
+    text-align: left;
+    margin: 0 0 12px;
+
+    @include mediaTablet {
+      margin: 0 0 30px;
+      text-align: center;
+    }
+
+    @include mediaDesktop {
+      margin: 0 0 83px;
+      text-align: center;
+    }
+
+    @include mediaDesktopXL {
+      margin: 0 0 70px;
+    }
+
+    &-bottom {
+      margin: 12px 0 0;
+
+      @include mediaDesktop {
+        margin: 16px 0 0;
+      }
+    }
+  }
+
+  &__item {
+
+    &:not(:last-child) {
+      margin: 0 0 20px;
+    }
+
+    @include mediaTablet {
+      &:not(:nth-last-child(-n + 2)) {
+        margin: 0 0 40px;
+      }
+
+    }
+  }
+
+  .text-more {
+    @include mediaTablet {
+      display: block;
+    }
+  }
+
+}
