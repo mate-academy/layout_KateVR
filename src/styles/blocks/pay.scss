@@ -1,0 +1,137 @@
+.pay {
+  position: absolute;
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+
+  &__card {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    align-content: center;
+
+    @include onTablet {
+      grid-template-columns: repeat(5, 1fr);
+      padding-top: 20px;
+    }
+  }
+
+  &__input {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: 0.2em;
+    display: block;
+    margin: auto;
+    width: 54px;
+    padding: 20px 0 10px;
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-bottom: 2px solid #2f2f2f;
+
+    &:hover {
+      border-bottom: 2px solid $colorBlue;
+    }
+  
+    &:target {
+      border-bottom: 2px solid $colorBlue;
+    }
+
+    &::placeholder {
+      color: #2f2f2f;
+    }
+
+    @include onTablet {
+      padding: 0 0 10px;
+    }
+
+    @include onDesktop {
+      font-size: 20px;
+      line-height: 130%;
+      width: 55px;
+    }
+
+  }
+
+  &__price {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    color: $colorBlue;
+
+    @include onDesktop {
+      margin-top: 10px;
+    }
+  }
+
+  &__customer-info {
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 154px;
+    }
+
+    @include onDesktop {
+      padding: 80px 0 0;
+      grid-column: 7 / 12;
+    }
+  }
+
+  &__info {
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 20px;
+      padding: 20px 110px;
+    }
+
+    &-place {
+      padding: 0 20px 20px;
+
+      @include onTablet {
+        padding: 0 154px 60px;
+      }
+      @include onDesktop {
+        padding: 0;
+        grid-column: 1 / 7;
+      }
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    color: $colorGrey;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      padding-top: 30px;
+      grid-gap: 20px;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+    }
+  }
+
+  &__plastic-card {
+    @include onTablet {
+      display: inline;
+      background-image: url(../images/visa.svg);
+      background-repeat: no-repeat;
+      background-size: 60%;
+      background-position: right center;
+      width: 100%;
+      padding-bottom: 40%;
+    }
+  }
+}

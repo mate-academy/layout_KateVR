@@ -1,0 +1,133 @@
+.more {
+
+  @include onTablet {
+    background-color: #05040b;
+  }
+  &__undertitle {
+    margin-top: 12px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: $colorBlue;
+
+    @include onDesktop {
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 16px;
+      line-height: 19px;
+    }
+  }
+
+  &__paragraph {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $colorGrey;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 150%;
+        color: $colorGrey;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  &__swap {
+
+    &:nth-of-type(1) {
+      @include onDesktop {
+        grid-column: 6 / 8;
+      }
+    }
+    @include onTablet {
+      background-image: url(../images/more-clear.svg);
+      position: relative;
+      display: block;
+      height: 35px;
+      width: 40px;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      margin: 0 auto;
+    }
+  }
+
+  &__info {
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      grid-gap: 20px;
+      padding-top: 18px;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: none;
+      padding-bottom: 100px;
+    }
+  }
+
+  &__section:first-child {
+    @include onTablet {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+  }
+
+  &__picture {
+    @extend %hover-scale;
+    
+    @include onTablet {
+      width: 100%;
+      position: relative;
+      left: 0;
+      padding-bottom: 50%;
+      background-repeat: no-repeat;
+      background-size: 40%;
+      background-position: 50%;
+      margin-bottom: 20px;
+
+      &--education {
+        background-image: url(../images/education.svg);
+      }
+
+      &--estate {
+        background-image: url(../images/house.svg);
+      }
+
+      &--fitness {
+        background-image: url(../images/fitness.svg);
+      }
+
+      &--social {
+        background-image: url(../images/social.svg);
+      }
+    }
+  }
+}

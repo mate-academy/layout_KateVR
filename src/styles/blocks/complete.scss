@@ -1,0 +1,58 @@
+.complete {
+  position: absolute;
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+
+  &__button {
+    @extend %button;
+
+    @include onDesktop {
+      width: 25%;
+      margin: auto;
+    }
+  }
+
+  &__content {
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 34px;
+    }
+
+    @include onDesktop {
+      padding: 0 200px;
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 130%;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 90px 0 18px;
+
+    &-blue {
+      display: inline;
+      font-weight: 400;
+      color: $colorBlue;
+    }
+
+    @include onTablet {
+      font-size: 46px;
+      margin: 180px 30px 20px;
+    }
+  }
+
+  &__paragraph {
+    text-align: center;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+}

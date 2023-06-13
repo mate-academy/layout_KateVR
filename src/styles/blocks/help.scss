@@ -1,0 +1,77 @@
+.help {
+  position: absolute;
+  background-color: #191536;
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+
+  @include onDesktop {
+    margin: 50px;
+    height: 90vh;
+  }
+
+  &__grid {
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 130%;
+
+    @include onTablet {
+      margin-top: 12px;
+    }
+  
+    &-blue {
+      display: inline;
+      font-weight: 400;
+      color: $colorBlue;
+    }
+  }
+
+  &__content {
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 34px;
+    }
+  }
+
+  &__paragraph {
+    color: #929292;
+    padding: 30px 0;
+  }
+
+  &__link {
+
+    text-decoration: none;
+    color: $colorBlue;
+    display: block;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 25px;
+    }
+
+    &:last-child {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__contact {
+    display: block;
+    color: #929292;
+    margin-bottom: 10px;
+    text-decoration: none;
+
+    @include onTablet {
+      margin-bottom: 25px;
+    }
+  }
+}

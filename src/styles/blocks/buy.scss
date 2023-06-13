@@ -1,0 +1,258 @@
+@import "../styles/utils/extends";
+
+.buy {
+  position: absolute;
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  color: #fff;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 3;
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: #545454;
+    padding: 0 0 17px;
+
+    &:hover {
+      color: $colorBlue;
+    }
+
+    @include onDesktop {
+      text-align: left;
+    }
+
+    &--place::after {
+      @extend %after;
+
+      @include onDesktop {
+        display: block;
+        left: 297px;
+      }
+    }
+
+    &--pay::after {
+      @extend %after;
+      
+      @include onDesktop {
+        display: block;
+        left: 539px;
+      }
+    }
+
+    &--complete::after {
+      @extend %after;
+
+      @include onDesktop {
+        display: block;
+        left: 822px;
+      }
+    }
+  }
+
+  &__top {
+    position: relative;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-row-gap: 34px;
+    margin: 20px 20px 38px;
+
+    @include onTablet {
+      margin: 20px 34px 0;
+    }
+
+    @include onDesktop {
+      grid-template-columns: repeat(12, 1fr);
+      margin: 65px 110px 15px;
+    }
+  }
+
+  &__icon {
+    position: relative;
+    display: block;
+    height: 20px;
+    text-decoration: none;
+
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__item {
+    display: block;
+    border-bottom: 1px solid #2f2f2f;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 130%;
+
+    @include onDesktop {
+      border-bottom: none;
+    }
+
+    &--place {
+      @include onDesktop {
+        grid-column: 1 / 2;
+      }
+    }
+
+    &--pay {
+      @include onDesktop {
+        grid-column: 4 / 5;
+      }
+    }
+
+    &--complete {
+      @include onDesktop {
+        grid-column: 7 / 8;
+      }
+    }
+
+    &:hover {
+      border-bottom: 1px solid $colorBlue;
+
+      @include onDesktop {
+        border-bottom: none;
+      }
+    }
+
+    &-place {
+      display: block;
+      border-bottom: 1px solid $colorBlue;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 130%;
+
+      @include onDesktop {
+        border-bottom: none;
+      }
+
+      & .buy__link {
+        color: $colorBlue;
+      }
+
+      &-pay {
+        display: block;
+        font-weight: 500;
+        font-size: 12px;
+        line-height: 130%;
+        border-bottom: 1px solid #2f2f2f;
+
+        @include onDesktop {
+          border-bottom: none;
+        }
+
+        & .buy__link {
+          color: #fff;
+        }
+
+        &:hover {
+          color: $colorBlue;
+          border-bottom: 1px solid $colorBlue;
+
+          @include onDesktop {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+
+    &-active {
+      display: block;
+      border-bottom: 1px solid $colorBlue;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 130%;
+
+      @include onDesktop {
+        border-bottom: none;
+      }
+
+      & .buy__link {
+        color: $colorBlue;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    box-sizing: border-box;
+    color: #fff;
+    text-align: center;
+    list-style: none;
+    justify-content: space-around;
+    margin: 0;
+    padding: 0;
+    grid-column: 1 / 3;
+
+    @include onDesktop {
+      grid-column: 4 / 13;
+      grid-template-columns: repeat(9, 1fr);
+    }
+  }
+
+  &__info {
+    overflow-y: auto;
+    max-height: calc(100vh - 200px);
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-gap: 20px;
+      padding: 100px 110px;
+    }
+
+    &-place {
+      padding: 0 20px 20px;
+
+      @include onTablet {
+        padding: 0 35px 48px;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+        padding: 0;
+      }
+    }
+  }
+
+  &__menu {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+
+    transform: translate(100%);
+    transition: transform 0.5s;
+
+    &:target {
+      transform: translate(0);
+    }
+  }
+
+  &__image {
+    @extend %hover-scale;
+    @include onTablet {
+      width: 100%;
+      position: relative;
+      left: 0;
+      padding-bottom: 36%;
+      background-image: url(../images/header.png);
+      background-repeat: no-repeat;
+      background-size: 100%;
+      background-position: 50%;
+    }
+
+    @include onDesktop {
+      padding-bottom: 75%;
+      background-size: 135%;
+      background-position: 75%;
+    }
+  }
+}

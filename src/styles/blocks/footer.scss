@@ -1,0 +1,145 @@
+.footer {
+  @include onTablet {
+    background: #000;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 60px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+  
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__link {
+    display: block;
+    margin-bottom: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      color: $colorBlue;
+    }
+
+    @include onTablet {
+      margin: 0;
+    }
+
+    &-grey {
+      display: block;
+      margin-bottom: 20px;
+      text-decoration: none;
+      color: #929292;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 150%;
+    }
+  }
+
+  &__logo {
+    position: relative;
+    display: block;
+    height: 20px;
+    width: 68px;
+    text-decoration: none;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../images/logo.png);
+    margin-bottom: 15px;
+
+    @include onTablet {
+      margin: 0;
+    }
+  }
+
+  &__socials {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 20px;
+    grid-gap: 20px;
+
+    &--grid {
+      display: none;
+
+      @include onTablet {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 20px;
+        grid-gap: 20px;
+        grid-column: 6 / 7;
+      }
+
+      @include onDesktop {
+        grid-column: 10 / 13;
+      }
+    }
+  }
+
+  &__icon {
+    position: relative;
+    display: block;
+    width: 20px;
+    height: 20px;
+    text-decoration: none;
+
+    background-size: contain;
+    background-position: bottom;
+    background-repeat: no-repeat;
+
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(150%);
+    }
+  
+    &--yt {
+      background-image: url(../images/yt.svg);
+    }
+  
+    &--fb {
+      background-image: url(../images/fb.svg);
+    }
+    &--tw {
+      background-image: url(../images/tw.svg);
+    }
+    &--red {
+      background-image: url(../images/red.svg);
+    }
+  }
+
+  &__links {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__nav--grid {
+    display: none;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-column: 3 / 6;
+    }
+
+    @include onDesktop {
+      grid-column: 4 / 10;
+    }
+  }
+}
