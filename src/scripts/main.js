@@ -173,10 +173,10 @@ const btnOpen2 = document.getElementById('video-link-2');
 const btnClose = document.getElementsByClassName('close')[0];
 const videoScreen = document.getElementById('videoPlayer');
 
-let player;
+let videoplayer;
 
 function initYouTubePlayer() {
-  player = new YT.Player('videoPlayer', {
+  videoplayer = new YT.Player('videoPlayer', {
     events: {
       onReady: onYouTubePlayerReady,
     },
@@ -203,8 +203,8 @@ btnClose.onclick = function() {
   video.style.display = 'none';
   videoScreen.src = '';
 
-  if (player) {
-    player.stopVideo();
+  if (videoplayer) {
+    videoplayer.stopVideo();
   }
 };
 
@@ -213,8 +213,8 @@ window.onclick = function(event) {
     video.style.display = 'none';
     video.src = '';
 
-    if (player) {
-      player.stopVideo();
+    if (videoplayer) {
+      videoplayer.stopVideo();
     }
   }
 };
