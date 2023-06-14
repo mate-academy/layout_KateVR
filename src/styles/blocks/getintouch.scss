@@ -1,0 +1,134 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgba(255, 255, 255, 1);
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+.getintouch {
+  background: rgba(5, 4, 11, 1);
+
+  &__wrapper {
+    @include desktop768 {
+      display: flex;
+    }
+  }
+
+  &__text {
+    @include desktop768 {
+      width: 50%;
+    }
+  }
+
+  // .getintouch__sub-title
+
+  &__sub-title {
+    margin-bottom: 11px;
+  }
+
+  // .getintouch__title
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include desktop768 {
+      margin-bottom: 26px;
+    }
+  }
+
+  // .getintouch__form
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 25px;
+
+    @include desktop768 {
+      width: 50%;
+    }
+  }
+
+  // .getintouch__form-fieldset
+
+  &__form-fieldset {
+    border: none;
+    margin-bottom: 10px;
+
+    &:focus-within > legend {
+      color: rgb(5, 194, 223);
+    }
+  }
+
+  &__form-legend {
+    color: rgba(146, 146, 146, 1);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+  }
+
+  &__form-input {
+    width: 100%;
+    background: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid rgba(47, 47, 47, 1);
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: rgba(255, 255, 255, 1);
+  }
+
+  &__form-textarea {
+    resize: none;
+    margin-bottom: 30px;
+    height: 28px;
+  }
+
+  &__button {
+    margin: 0 auto;
+
+    @include desktop768 {
+      width: 200px;
+      margin: 0;
+    }
+  }
+
+  &__callback {
+    color: rgba(146, 146, 146, 1);
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+
+    &--after {
+      @include desktop768 {
+        display: none;
+      }
+    }
+
+    &--before {
+      display: none;
+
+      @include desktop768 {
+        display: block;
+        margin-bottom: 70px;
+      }
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include desktop768 {
+      display: flex;
+    }
+  }
+}

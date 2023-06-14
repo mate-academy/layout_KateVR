@@ -1,0 +1,93 @@
+.about {
+  background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+
+  @include desktop1224 {
+    padding-bottom: 0;
+  }
+  &__wrapper {
+    margin-bottom: 60px;
+
+    @include desktop768 {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__content-top {
+    width: 100%;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include desktop768 {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__sub-title {
+    margin-bottom: 11px;
+  }
+
+  &__text {
+    margin-bottom: 15px;
+    width: 100%;
+
+    @include desktop1024 {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__us {
+    transform: rotate(89.52deg);
+    &--width768 {
+      display: none;
+
+      @include desktop768 {
+        display: block;
+      }
+    }
+  }
+
+  &__us-text {
+    position: relative;
+    left: -40px;
+    font-style: normal;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 130%;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    width: 253px;
+
+    &:nth-child(3) {
+      animation-name: flash;
+      animation-duration: 3s;
+      animation-fill-mode: both;
+      animation-iteration-count: infinite;
+    }
+
+    &--width1224 {
+      display: none;
+
+      @include desktop1224 {
+        display: block;
+      }
+    }
+
+    @include desktop1224 {
+      font-size: 64px;
+      width: 344px;
+      left: 50px;
+    }
+
+    @for $i from 1 through 5 {
+      &:nth-child(n + #{$i}) {
+        -webkit-text-stroke: 1px rgba(5, 194, 223, 1 - (1 - $i/10));
+      }
+
+      &:nth-child(even) {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}
