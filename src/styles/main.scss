@@ -71,6 +71,17 @@ $mobileSmall: em(479.98);
 
     &._lock {
       overflow: hidden;
+
+      &::before {
+        content: "";
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+      }
     }
   }
 
@@ -262,7 +273,19 @@ $mobileSmall: em(479.98);
       transition: all 0.3s;
     }
 
-    &:hover {
+    @media (any-hover: hover) {
+      &:hover {
+        background-color: #07798b;
+        border: 2px solid rgba(255, 255, 255, 0.14);
+
+        &::after {
+          opacity: 0;
+          visibility: hidden;
+        }
+      }
+    }
+
+    &[aria-describedby^="tippy"] {
       background-color: #07798b;
       border: 2px solid rgba(255, 255, 255, 0.14);
 

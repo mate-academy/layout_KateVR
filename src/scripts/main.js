@@ -8,6 +8,15 @@ import '../styles/blocks/libs/tippy.scss';
 // Swiper
 import Swiper, { Navigation, Pagination } from 'swiper';
 
+// SimpleBar is a plugin that replaces the appearance of the scrollbar.
+// https://www.npmjs.com/package/simplebar
+
+// Підключення плагіна з node_modules
+import SimpleBar from 'simplebar';
+// or 'import SimpleBar from 'simplebar';' if you want to use it manually.
+// Підключення стилів з node_modules
+import 'simplebar/dist/simplebar.css';
+
 const body = document.querySelector('.page__body');
 
 // Menu
@@ -115,7 +124,46 @@ iconsMenu.forEach(element => {
   }
 });
 
+const buttopPlay = document.querySelector('.button-play');
+
+if (buttopPlay) {
+  buttopPlay.addEventListener('click', function(e) {
+    const videoModal = document.querySelector('.video');
+    const closeModal = document.querySelector('.video__icon-cross');
+
+    if (videoModal && !videoModal.classList.contains('_active')) {
+      document.querySelector('iframe').setAttribute(
+        'src', 'https://www.youtube.com/embed/qGGpmqBHKEA'
+      );
+      videoModal.classList.add('_active');
+      body.classList.add('_lock');
+    } else {
+      videoModal.classList.remove('_active');
+      body.classList.remove('_lock');
+    }
+
+    closeModal.addEventListener('click', function() {
+      videoModal.classList.remove('_active');
+      body.classList.remove('_lock');
+      document.querySelector('iframe').setAttribute('src', '');
+    });
+  });
+}
+
+// Додаємо до блоку атрибут data-simplebar
+
+// Також можна ініціалізувати наступним кодом, застосовуючи налаштування
+
+if (document.querySelectorAll('[data-simplebar]').length) {
+  document.querySelectorAll('[data-simplebar]').forEach(scrollBlock => {
+    return new SimpleBar(scrollBlock, {
+      autoHide: false,
+    });
+  });
+}
+
 // Spollers
+
 spollers();
 
 function spollers() {
@@ -191,7 +239,7 @@ function spollers() {
       ? parseInt(spollersBlock.dataset.spollersSpeed) : 500;
 
     if (spollerActiveTitle
-        && !spollersBlock.querySelectorAll('._slide').length
+      && !spollersBlock.querySelectorAll('._slide').length
     ) {
       spollerActiveTitle.classList.remove('_spoller-active');
       _slideUp(spollerActiveTitle.nextElementSibling, spollerSpeed);
@@ -285,22 +333,47 @@ const _slideToggle = (target, duration = 500) => {
 
 // Form
 const forms = document.querySelectorAll('.form');
+const icons = document.getElementsByClassName('card-form__image');
+
+for (let i = 0; i < icons.length; i++) {
+  icons[i].addEventListener('click', function() {
+    const clickedIconId = this.id;
+
+    this.classList.add('_hidden');
+
+    switch (clickedIconId) {
+      case 'visa':
+        document.getElementById('master-card').classList.remove('_hidden');
+        break;
+      case 'master-card':
+        document.getElementById('visa').classList.remove('_hidden');
+        break;
+    }
+  });
+}
 
 function validateEmail(email) {
-  const re = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+.([A-Za-z]{2,4})$/;
+  // const re = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+.([A-Za-z]{2,4})$/;
+  const re
+    = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
 
   return re.test(String(email).toLowerCase());
 }
 
 function addError(input) {
-  input.classList.add('_error');
   input.parentElement.classList.add('_error');
+  input.classList.add('_error');
 
   const inputErrorText = input.getAttribute('data-error');
 
   if (inputErrorText
-    && inputErrorText !== '' && input.hasAttribute('required')) {
-    input.nextElementSibling.textContent = inputErrorText;
+    && inputErrorText !== '' && input.hasAttribute('required')
+  ) {
+    if (input.nextElementSibling
+      && input.nextElementSibling.classList.toString().includes('__label')
+    ) {
+      input.nextElementSibling.textContent = inputErrorText;
+    }
   } else {
     removeError(input);
   }
@@ -309,12 +382,15 @@ function addError(input) {
 function removeError(input) {
   input.classList.remove('_error');
   input.parentElement.classList.remove('_error');
+
+  input.value = '';
+  input.classList.remove('_complete');
 }
 
-for (let index = 0; index < forms.length; index++) {
-  const form = forms[index];
-  const formInputs = document.querySelectorAll('.form__input');
-  const inputEmail = document.querySelector('.form__input--email');
+forms.forEach(function(form) {
+  const formInputs = form.querySelectorAll('.form__input');
+  const cardFormInputs = form.querySelectorAll('.card-form__input');
+  const inputEmail = form.querySelector('.form__input--email');
 
   formInputs.forEach(function(input) {
     const inputPlaceholder = input.getAttribute('data-placeholder');
@@ -323,14 +399,13 @@ for (let index = 0; index < forms.length; index++) {
 
     input.onfocus = function() {
       const inputErrorText = input.getAttribute('data-error');
-      // const inputPlaceholder = input.getAttribute('data-placeholder');
 
       if (inputErrorText) {
         input.nextElementSibling.textContent = inputPlaceholder;
       }
 
       if (this.classList.contains('_error')) {
-        this.classList.remove('_error');
+        removeError(this);
         this.value = '';
       }
     };
@@ -344,39 +419,215 @@ for (let index = 0; index < forms.length; index++) {
     };
   });
 
+  cardFormInputs.forEach(function(input) {
+    input.onfocus = function() {
+      if (input.closest('.card-form--number')) {
+        this.parentNode.classList.add('_active');
+      }
+
+      if (this.classList.contains('_error')) {
+        removeError(this);
+        // this.value = '';
+      }
+    };
+
+    input.onblur = function() {
+      this.parentNode.classList.remove('_active');
+
+      if (input.value !== '') {
+        input.classList.add('_complete');
+      } else {
+        input.classList.remove('_complete');
+      }
+    };
+  });
+
   form.onsubmit = function(e) {
     e.preventDefault();
 
-    const emailVal = inputEmail.value;
     const emptyInputs = Array.from(formInputs).filter(
+      input => input.value === ''
+    );
+
+    const emptyCardFormInputs = Array.from(cardFormInputs).filter(
       input => input.value === ''
     );
 
     formInputs.forEach(function(input) {
       if (input.value === '' && emptyInputs.length > 0) {
-        input.classList.add('_error');
         addError(input);
 
         return false;
       } else {
         removeError(input);
-        input.classList.remove('_error');
-        input.value = '';
-        input.classList.remove('_complete');
       }
     });
 
-    if (!validateEmail(emailVal)) {
-      addError(inputEmail);
-      inputEmail.classList.add('_error');
+    cardFormInputs.forEach(function(input) {
+      if (input.value === '' && emptyCardFormInputs.length > 0) {
+        addError(input);
 
-      return false;
-    } else {
-      removeError(inputEmail);
-      inputEmail.classList.remove('_error');
+        return false;
+      } else {
+        removeError(input);
+      }
+    });
+
+    if (inputEmail && inputEmail.value) {
+      const emailVal = inputEmail.value;
+
+      if (validateEmail && !validateEmail(emailVal)) {
+        addError(inputEmail);
+
+        return false;
+      } else {
+        removeError(inputEmail);
+      }
+    }
+
+    if (form.closest('.order__card')) {
+      const hasError = form.querySelector('input._error');
+
+      if (hasError) {
+        form.closest('.order__card').classList.add('_error');
+      } else {
+        form.closest('.order__card').classList.remove('_error');
+      }
     }
   };
+});
+
+// Place order
+const order = document.querySelector('.order');
+const iconMenuOrder = document.querySelector('.icon-menu--order');
+const orderHeadButtons = document.querySelectorAll('.steps-order__link');
+const orderCards = document.querySelectorAll('.order__card');
+const nextButtons = document.querySelectorAll('[data-next]');
+const closeButton = document.querySelector('[data-close]');
+
+function openOrder() {
+  order.classList.add('_open');
+  body.classList.add('_lock');
+  iconMenuOrder.classList.add('_menu-open');
 }
+
+function closeOrder() {
+  order.classList.remove('_open');
+  body.classList.remove('_lock');
+}
+
+document.addEventListener('click', function(elem) {
+  const targetElement = elem.target;
+
+  if (targetElement.classList.contains('buy-now')) {
+    openOrder();
+
+    orderHeadButtons.forEach(orderHeadButton => {
+      if (orderHeadButton.dataset.target === 'order') {
+        orderHeadButton.parentElement.classList.add('_active');
+      }
+
+      orderHeadButton.addEventListener('click', function(e) {
+        const targetCard = document.querySelector(
+          `[data-card='${orderHeadButton.dataset.target}']`
+        );
+
+        orderCards.forEach(ordeCard => ordeCard.classList.remove('_active'));
+
+        orderHeadButtons.forEach(
+          el => el.parentElement.classList.remove('_active')
+        );
+
+        targetCard.classList.add('_active');
+        orderHeadButton.parentElement.classList.add('_active');
+      });
+    });
+
+    orderCards.forEach(orderCard => {
+      if (orderCard.dataset.card === 'order') {
+        orderCard.classList.add('_active');
+      }
+
+      nextButtons.forEach(nextButton => {
+        nextButton.addEventListener('click', function(e) {
+          const nextStep = nextButton.getAttribute('data-next');
+
+          if (nextStep) {
+            const nextCard = document.querySelector(
+              `[data-card='${nextButton.dataset.next}']`
+            );
+
+            if (
+              orderCard.classList.contains('_active')
+                && !orderCard.classList.contains('_error')
+            ) {
+              orderCard.classList.remove('_active');
+              nextCard.classList.add('_active');
+
+              orderHeadButtons.forEach(orderHeadButton => {
+                if (orderHeadButton.getAttribute('data-target') === nextStep) {
+                  orderHeadButton.parentNode.classList.add('_active');
+                } else {
+                  orderHeadButton.parentNode.classList.remove('_active');
+                }
+              });
+            }
+          }
+        });
+      });
+    });
+  }
+
+  if (targetElement === iconMenuOrder || targetElement === closeButton) {
+    closeOrder();
+
+    orderHeadButtons.forEach(orderHeadButton => {
+      if (orderHeadButton.parentElement.classList.contains('_active')) {
+        orderHeadButton.parentElement.classList.remove('_active');
+      }
+    });
+
+    orderCards.forEach(orderCard => {
+      if (orderCard.classList.contains('_active')) {
+        orderCard.classList.remove('_active');
+      }
+    });
+  }
+});
+
+/*
+// Налаштування
+Для селекту (select):
+class='ім'я класу' - модифікатор до конкретного селекту
+multiple - мультивибір
+data-class-modif= 'ім'я модифікатора'
+data-tags - режим тегів, тільки для (тільки для multiple)
+data-scroll - увімкнути прокручування для списку, що випадає,
+додатково можна підключити кастомний скролл
+simplebar в app.js.
+Зазначене число для атрибуту обмежить висоту
+data-checkbox - стилізація елементів
+по checkbox (тільки для multiple)
+data-show-selected - вимикає приховування вибраного елемента
+data-search - дозволяє шукати по списку, що випадає
+data-open - селект відкритий відразу
+data-submit - відправляє форму при зміні селекту
+
+data-one-select -
+селекти всередині оболонки з атрибутом показуватимуться лише по одному
+data-pseudo-label -
+додає псевдоелемент до заголовка селекту із зазначеним текстом
+
+Для плейсхолдера (Плейсхолдер – це option з value=''):
+data-label для плейсхолдера, додає label до селекту
+data-show для плейсхолдера, показує його у списку (тільки для одиничного вибору)
+
+Для елемента (option):
+data-class='ім'я класу' - додає клас
+data-asset='шлях до картинки або текст' - додає структуру 2х колонок та даними
+data-href='адреса посилання' - додає посилання в елемент списку
+data-href-blank - відкриє посилання у новому вікні
+*/
 
 // Select
 const selectLanguages = {};
@@ -385,7 +636,7 @@ class SelectConstructor {
   constructor(props, data = null) {
     const defaultConfig = {
       init: true,
-      logging: true,
+      logging: false,
     };
 
     this.config = Object.assign(defaultConfig, props);
@@ -493,7 +744,7 @@ class SelectConstructor {
         ).selectElement;
 
         selectItemTitle.insertAdjacentHTML(
-          'afterbegin', `<span class="${this.selectClasses.classSelectLabel}">
+          'afterbegin', `<span class='${this.selectClasses.classSelectLabel}'>
           ${this.getSelectPlaceholder(originalSelect).label.text
     ? this.getSelectPlaceholder(originalSelect).label.text
     : this.getSelectPlaceholder(originalSelect).value}</span>`);
@@ -502,8 +753,8 @@ class SelectConstructor {
 
     // Конструктор основних елементів
     selectItem.insertAdjacentHTML(
-      'beforeend', `<div class="${this.selectClasses.classSelectBody}">
-      <div hidden class="${this.selectClasses.classSelectOptions}"></div></div>`
+      'beforeend', `<div class='${this.selectClasses.classSelectBody}'>
+      <div hidden class='${this.selectClasses.classSelectOptions}'></div></div>`
     );
     // Запускаємо конструктор псевдоселекту
     this.selectBuild(originalSelect);
@@ -523,13 +774,16 @@ class SelectConstructor {
 
     // Додаємо ID селекту
     selectItem.dataset.id = originalSelect.dataset.id;
+    getSelect();
 
     // Отримуємо клас оригінального селекту,
     // створюємо модифікатор та додаємо його
-    // originalSelect.dataset.classModif
-    //   ? selectItem.classList.add(
-    //     `select_${originalSelect.dataset.classModif}`
-    //   ) : null;
+    function getSelect() {
+      return originalSelect.dataset.classModif
+        ? selectItem.classList.add(
+          `select--${originalSelect.dataset.classModif}`
+        ) : null;
+    }
 
     // Якщо множинний вибір, додаємо клас
     originalSelect.multiple
@@ -568,10 +822,10 @@ class SelectConstructor {
       const selectItem = targetElement.closest('.select')
         ? targetElement.closest('.select')
         : document.querySelector(
-          `.${this.selectClasses.classSelect}[data-id="
+          `.${this.selectClasses.classSelect}[data-id='
             ${targetElement.closest(
     this.getSelectClass(
-      this.selectClasses.classSelectTag)).dataset.selectId}"]`);
+      this.selectClasses.classSelectTag)).dataset.selectId}']`);
       const originalSelect
         = this.getSelectElement(selectItem).originalSelect;
 
@@ -586,8 +840,8 @@ class SelectConstructor {
             );
             const optionItem = document.querySelector(
               `.${this.selectClasses.classSelect}
-              [data-id="${targetTag.dataset.selectId}"]
-              .select__option[data-value="${targetTag.dataset.value}"]`);
+              [data-id='${targetTag.dataset.selectId}']
+              .select__option[data-value='${targetTag.dataset.value}']`);
 
             this.optionAction(selectItem, originalSelect, optionItem);
           } else if (targetElement.closest(this.getSelectClass(
@@ -699,8 +953,8 @@ class SelectConstructor {
       selectTitleValue
         = this.getSelectedOptionsData(originalSelect).elements.map(
           option =>
-            `<span role="button" data-select-id="${selectItem.dataset.id}"
-            data-value="${option.value}" class="_select-tag">
+            `<span role='button' data-select-id='${selectItem.dataset.id}'
+            data-value='${option.value}' class='_select-tag'>
             ${this.getSelectElementContent(option)}</span>`).join('');
 
       // Якщо виведення тегів у зовнішній блок
@@ -727,8 +981,8 @@ class SelectConstructor {
 
     if (originalSelect.hasAttribute('data-pseudo-label')) {
       pseudoAttribute = originalSelect.dataset.pseudoLabel
-        ? ` data-pseudo-label="${originalSelect.dataset.pseudoLabel}"`
-        : ` data-pseudo-label="Заповніть атрибут"`;
+        ? ` data-pseudo-label='${originalSelect.dataset.pseudoLabel}'`
+        : ` data-pseudo-label='Заповніть атрибут'`;
       pseudoAttributeClass = ` ${this.selectClasses.classSelectPseudoLabel}`;
     }
 
@@ -742,13 +996,13 @@ class SelectConstructor {
     // Повертаємо поле введення для пошуку чи текст
     if (originalSelect.hasAttribute('data-search')) {
       // Виводимо поле введення для пошуку
-      return `<div class="${this.selectClasses.classSelectTitle}">
+      return `<div class='${this.selectClasses.classSelectTitle}'>
         <span${pseudoAttribute}
-        class="${this.selectClasses.classSelectValue}">
-        <input autocomplete="off" type="text"
-        placeholder="${selectTitleValue}"
-        data-placeholder="${selectTitleValue}"
-        class="${this.selectClasses.classSelectInput}"></span></div>`;
+        class='${this.selectClasses.classSelectValue}'>
+        <input autocomplete='off' type='text'
+        placeholder='${selectTitleValue}'
+        data-placeholder='${selectTitleValue}'
+        class='${this.selectClasses.classSelectInput}'></span></div>`;
     } else {
       // Якщо вибрано елемент зі своїм класом
       const customClass
@@ -761,12 +1015,12 @@ class SelectConstructor {
           ).elements[0].dataset.class}` : '';
 
       // Виводимо текстове значення
-      return `<button type="button"
-        class="${this.selectClasses.classSelectTitle}">
+      return `<button type='button'
+        class='${this.selectClasses.classSelectTitle}'>
         <span${pseudoAttribute}
-        class="${this.selectClasses.classSelectValue}${pseudoAttributeClass}">
+        class='${this.selectClasses.classSelectValue}${pseudoAttributeClass}'>
         <span
-        class="${this.selectClasses.classSelectContent}${customClass}">
+        class='${this.selectClasses.classSelectContent}${customClass}'>
         ${selectTitleValue}</span></span></button>`;
     }
   }
@@ -777,19 +1031,19 @@ class SelectConstructor {
     const selectOptionData = selectOption.dataset.asset
       ? `${selectOption.dataset.asset}` : '';
     const selectOptionDataHTML = selectOptionData.indexOf('img') >= 0
-      ? `<img src="${selectOptionData}" alt="">` : selectOptionData;
+      ? `<img src='${selectOptionData}' alt=''>` : selectOptionData;
     let selectOptionContentHTML = ``;
 
     selectOptionContentHTML += selectOptionData
-      ? `<span class="${this.selectClasses.classSelectRow}">` : '';
+      ? `<span class='${this.selectClasses.classSelectRow}'>` : '';
 
     selectOptionContentHTML += selectOptionData
-      ? `<span class="${this.selectClasses.classSelectData}">` : '';
+      ? `<span class='${this.selectClasses.classSelectData}'>` : '';
     selectOptionContentHTML += selectOptionData ? selectOptionDataHTML : '';
     selectOptionContentHTML += selectOptionData ? `</span>` : '';
 
     selectOptionContentHTML += selectOptionData
-      ? `<span class="${this.selectClasses.classSelectText}">` : '';
+      ? `<span class='${this.selectClasses.classSelectText}'>` : '';
     selectOptionContentHTML += selectOption.textContent;
     selectOptionContentHTML += selectOptionData ? `</span>` : '';
     selectOptionContentHTML += selectOptionData ? `</span>` : '';
@@ -846,7 +1100,7 @@ class SelectConstructor {
     const selectOptionsScroll
       = originalSelect.hasAttribute('data-scroll') ? `data-simplebar` : '';
     const selectOptionsScrollHeight = originalSelect.dataset.scroll
-      ? `style="max-height:${originalSelect.dataset.scroll}px"` : '';
+      ? `style='max-height:${originalSelect.dataset.scroll}px'` : '';
     // Отримуємо елементи списку
     let selectOptions = Array.from(originalSelect.options);
 
@@ -863,7 +1117,7 @@ class SelectConstructor {
       // Будуємо та виводимо основну конструкцію
       selectOptionsHTML += selectOptionsScroll
         ? `<div ${selectOptionsScroll} ${selectOptionsScrollHeight}
-          class="${this.selectClasses.classSelectOptionsScroll}">` : '';
+          class='${this.selectClasses.classSelectOptionsScroll}'>` : '';
 
       selectOptions.forEach(selectOption => {
         // Отримуємо конструкцію конкретного елемента списку
@@ -896,19 +1150,19 @@ class SelectConstructor {
       ? selectOption.dataset.href : false;
     const selectOptionLinkTarget
       = selectOption.hasAttribute('data-href-blank')
-        ? `target="_blank"` : '';
+        ? `target='_blank'` : '';
     // Будуємо та повертаємо конструкцію елемента
     let selectOptionHTML = ``;
 
     selectOptionHTML += selectOptionLink
       ? `<a ${selectOptionLinkTarget} ${selectOptionHide}
-      href="${selectOptionLink}" data-value="${selectOption.value}"
-      class="${this.selectClasses.classSelectOption}
-      ${selectOptionClass}${selectOptionSelected}">`
+      href='${selectOptionLink}' data-value='${selectOption.value}'
+      class='${this.selectClasses.classSelectOption}
+      ${selectOptionClass}${selectOptionSelected}'>`
       : `<button ${selectOptionHide}
-        class="${this.selectClasses.classSelectOption}
-        ${selectOptionClass}${selectOptionSelected}"
-        data-value="${selectOption.value}" type="button">`;
+        class='${this.selectClasses.classSelectOption}
+        ${selectOptionClass}${selectOptionSelected}'
+        data-value='${selectOption.value}' type='button'>`;
     selectOptionHTML += this.getSelectElementContent(selectOption);
     selectOptionHTML += selectOptionLink ? `</a>` : `</button>`;
 
@@ -949,7 +1203,7 @@ class SelectConstructor {
 
       selectSelectedItems.forEach(selectSelectedItem => {
         originalSelect.querySelector(
-          `option[value="${selectSelectedItem.dataset.value}"]`
+          `option[value='${selectSelectedItem.dataset.value}']`
         ).setAttribute('selected', 'selected');
       });
     } else { // Якщо одиничний вибір
@@ -1230,6 +1484,9 @@ const da = new DynamicAdapt('max');
 
 da.init();
 
+// Документація по роботі у шаблоні:
+// Документація плагіна: https://atomiks.github.io/tippyjs/
+// Сніппет (HTML): tip (додає атрибут з підказкою для html тега)
 tippy('.tech__tip', {
   content(reference) {
     const id = reference.getAttribute('data-template');
@@ -1240,6 +1497,8 @@ tippy('.tech__tip', {
   allowHTML: true,
   placement: 'bottom-end',
   duration: 500,
+  hideOnClick: 'toggle',
+  trigger: 'click mouseenter',
 });
 
 function initHomeSliders() {
