@@ -369,11 +369,12 @@ function addError(input) {
   if (inputErrorText
     && inputErrorText !== '' && input.hasAttribute('required')
   ) {
-    if (input.nextElementSibling
-      && input.nextElementSibling.classList.toString().includes('__label')
-    ) {
-      input.nextElementSibling.textContent = inputErrorText;
-    }
+    input.nextElementSibling.textContent = inputErrorText;
+    // if (input.nextElementSibling
+    //   && input.nextElementSibling.classList.toString().includes('__label')
+    // ) {
+    //   input.nextElementSibling.textContent = inputErrorText;
+    // }
   } else {
     removeError(input);
   }
@@ -466,10 +467,12 @@ forms.forEach(function(form) {
     cardFormInputs.forEach(function(input) {
       if (input.value === '' && emptyCardFormInputs.length > 0) {
         addError(input);
+        input.classList.add('_error');
 
         return false;
       } else {
         removeError(input);
+        input.classList.remove('_error');
       }
     });
 
@@ -559,7 +562,7 @@ document.addEventListener('click', function(elem) {
 
             if (
               orderCard.classList.contains('_active')
-                && !orderCard.classList.contains('_error')
+              && !orderCard.classList.contains('_error')
             ) {
               orderCard.classList.remove('_active');
               nextCard.classList.add('_active');
