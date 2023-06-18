@@ -124,28 +124,69 @@ iconsMenu.forEach(element => {
   }
 });
 
-const buttopPlay = document.querySelector('.button-play');
+// Video
+const buttonsPlay = document.querySelectorAll('.button-play');
 
-if (buttopPlay) {
-  buttopPlay.addEventListener('click', function(e) {
-    const videoModal = document.querySelector('.video');
-    const closeModal = document.querySelector('.video__icon-cross');
+if (buttonsPlay) {
+  buttonsPlay.forEach(buttopPlay => {
+    buttopPlay.addEventListener('click', function(e) {
+      const videoModal = document.querySelector('.video');
+      const closeModal = document.querySelector('.video__icon-cross');
+      const productVideos = document.querySelectorAll('.video-product');
 
-    if (videoModal && !videoModal.classList.contains('_active')) {
-      document.querySelector('iframe').setAttribute(
-        'src', 'https://www.youtube.com/embed/qGGpmqBHKEA'
-      );
-      videoModal.classList.add('_active');
-      body.classList.add('_lock');
-    } else {
-      videoModal.classList.remove('_active');
-      body.classList.remove('_lock');
-    }
+      if (videoModal && !videoModal.classList.contains('_active')
+        && !buttopPlay.classList.contains('about-product__button-play')) {
+        document.querySelector('iframe').setAttribute(
+          'src', 'https://www.youtube.com/embed/qGGpmqBHKEA'
+        );
+        videoModal.classList.add('_active');
+        body.classList.add('_lock');
+      } else {
+        videoModal.classList.remove('_active');
+        body.classList.remove('_lock');
+      }
 
-    closeModal.addEventListener('click', function() {
-      videoModal.classList.remove('_active');
-      body.classList.remove('_lock');
-      document.querySelector('iframe').setAttribute('src', '');
+      productVideos.forEach(productVideo => {
+        if (buttopPlay.classList.contains('about-product__button-play')
+          && productVideo.closest('.swiper-slide-active')) {
+          if (productVideo.closest('.about-product__slider--d')
+            && window.innerWidth >= 992) {
+            const currentVideo = productVideo.querySelector('.video-iframe');
+            const crossIcon
+              = productVideo.querySelector('.video__icon-cross');
+
+            currentVideo.src
+              = 'https://www.youtube.com/embed/qGGpmqBHKEA?autoplay=1';
+            productVideo.classList.add('_active');
+
+            crossIcon.addEventListener('click', function() {
+              currentVideo.src = '';
+              productVideo.classList.remove('_active');
+            });
+          }
+
+          if (productVideo.closest('.about-product__slider--m')
+            && window.innerWidth < 992) {
+            const currentVideo = productVideo.querySelector('.video-iframe');
+            const crossIcon = productVideo.querySelector('.video__icon-cross');
+
+            currentVideo.src
+              = 'https://www.youtube.com/embed/qGGpmqBHKEA?autoplay=1';
+            productVideo.classList.add('_active');
+
+            crossIcon.addEventListener('click', function() {
+              currentVideo.src = '';
+              productVideo.classList.remove('_active');
+            });
+          }
+        }
+      });
+
+      closeModal.addEventListener('click', function() {
+        videoModal.classList.remove('_active');
+        body.classList.remove('_lock');
+        document.querySelector('iframe').setAttribute('src', '');
+      });
     });
   });
 }
@@ -353,26 +394,46 @@ for (let i = 0; i < icons.length; i++) {
 }
 
 function validateEmail(email) {
-  // const re = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+.([A-Za-z]{2,4})$/;
-  const re
-    = /^([a-z0-9_-]+\.)*[a-z0-9_-]+@[a-z0-9_-]+(\.[a-z0-9_-]+)*\.[a-z]{2,6}$/;
+  const re = /^([A-Za-z0-9_\-.])+@([A-Za-z0-9_\-.])+.([A-Za-z]{2,4})$/;
 
   return re.test(String(email).toLowerCase());
 }
 
+function validateText(inputText, input) {
+  const reText = /^[a-zA-Z\s`'-]{2,100}$/;
+  const reAddress = /^.{20,200}$/;
+
+  if (input && input.getAttribute('name') === 'shipping-address') {
+    return reAddress.test(String(inputText).toLowerCase());
+  } else {
+    return reText.test(String(inputText).toLowerCase());
+  }
+}
+
+function validatePhone(phone) {
+  const re = /^(?=[+\d\s()-]{7,20}$)[+\d\s()-]+$/;
+
+  return re.test(String(phone).toLowerCase());
+}
+
 function addError(input) {
-  input.parentElement.classList.add('_error');
-  input.classList.add('_error');
+  if (input.hasAttribute('required')) {
+    input.parentElement.classList.add('_error');
+    input.classList.add('_error');
 
-  const inputErrorText = input.getAttribute('data-error');
+    const inputErrorText = input.getAttribute('data-error');
 
-  if (inputErrorText
-    && inputErrorText !== '' && input.hasAttribute('required')
-  ) {
-    input.nextElementSibling.textContent = inputErrorText;
+    if (inputErrorText && inputErrorText !== '') {
+      input.value = '';
+      input.classList.remove('_complete');
+      input.nextElementSibling.textContent = inputErrorText;
+    }
+
     // if (input.nextElementSibling
     //   && input.nextElementSibling.classList.toString().includes('__label')
     // ) {
+    //   input.value = '';
+    //   input.classList.remove('_complete');
     //   input.nextElementSibling.textContent = inputErrorText;
     // }
   } else {
@@ -392,6 +453,7 @@ forms.forEach(function(form) {
   const formInputs = form.querySelectorAll('.form__input');
   const cardFormInputs = form.querySelectorAll('.card-form__input');
   const inputEmail = form.querySelector('.form__input--email');
+  const inputPhone = form.querySelector('.form__input--phone');
 
   formInputs.forEach(function(input) {
     const inputPlaceholder = input.getAttribute('data-placeholder');
@@ -459,44 +521,70 @@ forms.forEach(function(form) {
         addError(input);
 
         return false;
-      } else {
-        removeError(input);
       }
+
+      if (input.getAttribute('type') === 'text') {
+        const textVal = input.value;
+
+        if (validateText && !validateText(textVal, input)) {
+          addError(input);
+
+          return false;
+        } else {
+          removeError(input);
+        }
+      }
+
+      if (input === inputEmail && inputEmail.value) {
+        const emailVal = inputEmail.value;
+
+        if (validateEmail && !validateEmail(emailVal)) {
+          addError(input);
+
+          return false;
+        } else {
+          removeError(input);
+        }
+      }
+
+      if (input === inputPhone && inputPhone.value) {
+        const phonelVal = inputPhone.value;
+
+        if (validatePhone && !validatePhone(phonelVal)) {
+          addError(input);
+
+          return false;
+        } else {
+          removeError(input);
+        }
+      }
+
+      removeError(input);
     });
 
-    cardFormInputs.forEach(function(input) {
-      if (input.value === '' && emptyCardFormInputs.length > 0) {
-        addError(input);
-        input.classList.add('_error');
+    if (cardFormInputs && cardFormInputs.length > 0) {
+      cardFormInputs.forEach(function(input) {
+        if (input.value === '' && emptyCardFormInputs.length > 0) {
+          addError(input);
+          // input.classList.add('_error');
 
-        return false;
-      } else {
-        removeError(input);
-        input.classList.remove('_error');
-      }
-    });
-
-    if (inputEmail && inputEmail.value) {
-      const emailVal = inputEmail.value;
-
-      if (validateEmail && !validateEmail(emailVal)) {
-        addError(inputEmail);
-
-        return false;
-      } else {
-        removeError(inputEmail);
-      }
+          return false;
+        } else {
+          removeError(input);
+          // input.classList.remove('_error');
+        }
+      });
     }
 
-    if (form.closest('.order__card')) {
-      const hasError = form.querySelector('input._error');
+    // if (form.closest('.order__card')) {
+    //   const hasError = form.querySelector('input._error');
 
-      if (hasError) {
-        form.closest('.order__card').classList.add('_error');
-      } else {
-        form.closest('.order__card').classList.remove('_error');
-      }
-    }
+    //   if (hasError) {
+    //     form.closest('.order__card').classList.add('_error');
+    //   } else {
+    //     form.closest('.order__card').classList.remove('_error');
+    //   }
+    // }
   };
 });
 
