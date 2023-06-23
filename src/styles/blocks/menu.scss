@@ -1,0 +1,76 @@
+.menu {
+  position: absolute;
+  background-color: #191536;
+  color: #fff;
+  height: 100vh;
+  z-index: 3;
+
+  &__top {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 20px 38px;
+
+    @include onTablet {
+      margin: 30px 34px 38px;
+    }
+  }
+
+  &__list {
+    margin: 0 0 30px;
+    padding: 0;
+    list-style: none;
+
+    @include onDesktop {
+      margin: 0 0 48px;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding: 11px 20px;
+    color: inherit;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 130%;
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    &:hover {
+      color: $colorBlue;
+      background-color: #110e25;
+    }
+
+    @include onTablet {
+      padding: 11px 154px;
+    }
+  }
+
+  &__call {
+    display: block;
+    width: max-content;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    margin-bottom: 8px;
+
+    &:nth-child(2n) {
+      margin-bottom: 16px;
+    }
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+    
+    &--action {
+      padding-bottom: 8px;
+      border-bottom: 1px solid #fff;
+    }
+  }
+}
