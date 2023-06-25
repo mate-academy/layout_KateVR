@@ -1,0 +1,52 @@
+.page {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  &__body {
+    background: linear-gradient(107.56deg, #171333 0%, rgb(0, 0, 0) 100%);
+
+    margin: 0;
+  }
+
+  &__back-to-top {
+    display: block;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    bottom: 10vh;
+    right: 20px;
+    z-index: 2;
+    outline: none;
+    border: 1px solid $colorBlue;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: 0.5s;
+
+    @include onDesktop {
+      right: 100px;
+      bottom: 20vh;
+    }
+
+    &:hover {
+      background-color: rgb(64, 60, 60);
+      transform: rotateX(360deg);
+      opacity: 0.5;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 1s;
+    z-index: 1;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+}

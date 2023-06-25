@@ -1,0 +1,127 @@
+.footer {
+  background: #000;
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 45px 0 50px;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__menu {
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__img {
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    gap: 12px;
+    margin-top: 15px;
+
+    @include onTablet {
+      margin-top: 0;
+      flex-direction: row;
+      text-align: center;
+      align-items: center;
+      justify-content: space-between;
+      gap: 43px;
+    }
+  }
+
+  &__item {
+    list-style-type: none;
+    border-bottom: 1px solid transparent;
+    transition: 0.5s;
+    width: max-content;
+
+    &:hover {
+      border-bottom: 1px solid $colorBlue;
+      color: $colorBlue;
+    }
+
+    &-nav {
+      text-decoration: none;
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 150%;
+      color: $colorWhite;
+
+      &:hover {
+        color: $colorBlue;
+      }
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: column;
+    margin: 35px 0 25px;
+    gap: 12px;
+  }
+
+  &__contact {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__mail {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: #929292;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: 0.5s;
+    width: max-content;
+
+    &:hover {
+      border-bottom: 1px solid $colorBlue;
+      color: $colorBlue;
+    }
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    &-tablet {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+        flex-direction: row;
+        gap: 18px;
+      }
+    }
+  }
+
+  &__icon {
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.3);
+    }
+  }
+}

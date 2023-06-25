@@ -1,0 +1,122 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 14px;
+
+  @include onDesktop {
+    padding-top: 50px;
+  }
+
+  &__logo {
+    margin: auto;
+    transition: 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+
+  &__select {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+      color: $colorBlue;
+      background-color: #171331;
+      outline: none;
+      border: none;
+      transition: 0.5s;
+
+      &:hover {
+        cursor: pointer;
+        color: #fff;
+      }
+    }
+  }
+
+  &__menu {
+    transition: 0.5s;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+    gap: 37px;
+  }
+
+  &__list {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      gap: 32px;
+      list-style-type: none;
+    }
+  }
+
+  &__item {
+    border-bottom: 1px solid transparent;
+    transition: 0.5s;
+    width: max-content;
+
+    &:hover {
+      border-bottom: 1px solid $colorBlue;
+      color: $colorBlue;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    color: $colorWhite;
+  }
+
+  &__btn {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      padding: 15px 70px;
+      align-items: center;
+      background: $colorBlue;
+      border-radius: 4px;
+      font-family: "Inter", sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+      text-align: center;
+      color: $colorWhite;
+      text-decoration: none;
+      transition: 0.5s;
+
+      &:hover {
+        color: $colorBlue;
+        background: $colorWhite;
+      }
+    }
+  }
+}

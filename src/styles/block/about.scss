@@ -1,0 +1,267 @@
+.about {
+  background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+  &__product {
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      justify-content: center;
+      gap: 110px;
+      margin-bottom: 100px;
+    }
+  }
+
+  &__content {
+    padding: 50px 0 100px;
+
+    @include onTablet {
+      padding: 70px 0 100px;
+    }
+
+    @include onDesktop {
+      padding: 105px 0 100px;
+    }
+  }
+
+  &__carusel {
+    display: none;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $colorBlue;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__slider {
+    overflow: hidden;
+
+    &-tablet {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: row;
+        gap: 23px;
+      }
+
+      &-img {
+        width: 320px;
+        height: 270px;
+        object-fit: cover;
+        transition: 0.5s;
+
+        @include onDesktop {
+          width: 430px;
+          height: 290px;
+        }
+
+        &:hover {
+          transform: scale(0.95);
+        }
+      }
+    }
+  }
+
+  &__img {
+    display: flex;
+    margin: 14px auto 0;
+    transition: 0.5s;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(0.95);
+    }
+
+    &--nav {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: row;
+        gap: 103px;
+        margin-top: 13px;
+      }
+
+      &-pre {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: #929292;
+        border-bottom: 1px solid $colorBlue;
+        cursor: pointer;
+      }
+
+      &-next {
+        font-family: "Inter", sans-serif;
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 150%;
+        color: $colorWhite;
+        cursor: pointer;
+        border-bottom: 1px solid transparent;
+        transition: 0.5s;
+        width: max-content;
+
+        &:hover {
+          border-bottom: 1px solid $colorBlue;
+          color: $colorBlue;
+        }
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    gap: 6px;
+    justify-content: center;
+    padding: 0;
+    margin-bottom: 20px;
+
+    &-tablet {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+      gap: 6px;
+      justify-content: center;
+      padding: 0;
+      margin-bottom: 20px;
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+
+    &-activ {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background-color: #ababab;
+      border-radius: 50%;
+    }
+
+    &::before {
+      content: "";
+      width: 4px;
+      height: 4px;
+      background-color: #484848;
+      border-radius: 50%;
+    }
+
+    &:hover {
+      background-color: #ababab;
+      border-radius: 50%;
+      z-index: 0;
+      cursor: pointer;
+    }
+  }
+
+  &__mobile {
+    @include onTablet {
+      width: 340px;
+    }
+  }
+
+  &__title {
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: $colorWhite;
+    margin: 0 0 20px;
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    &-span {
+      font-weight: 400;
+      color: $colorBlue;
+    }
+  }
+
+  &__text {
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+    margin-bottom: 45px;
+
+    @include onTablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__btn {
+    transition: 0.5s;
+    margin-bottom: 80px;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(0.9);
+    }
+  }
+
+  &__nice {
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    &-helo {
+      font-family: "Inter", sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 17px;
+      color: $colorBlue;
+      margin-bottom: 11px;
+    }
+
+    &-text {
+      @include onDesktop {
+        width: 430px;
+      }
+    }
+
+    &-img {
+      display: none;
+
+      @include onTablet {
+        display: flex;
+      }
+
+      @include onDesktop {
+        padding-right: 300px;
+      }
+    }
+  }
+}
