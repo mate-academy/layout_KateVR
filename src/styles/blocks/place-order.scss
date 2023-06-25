@@ -1,0 +1,371 @@
+.place-order {
+  height: 100vh;
+  
+  background: $c-background-gradient;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  z-index: 3;
+
+  &__title {
+    margin: 0 31px 16px;
+
+    @extend %h1;
+
+    font-size: 26px;
+    text-transform: uppercase;
+    text-align: center;
+
+    @include onTablet {
+      margin-bottom: 20px;
+
+      font-size: 46px;
+    }
+
+    &-complete {
+      @extend %h1;
+
+      font-size: 46px;
+      text-align: center;
+      text-transform: uppercase;
+
+      @include onDesktop {
+        margin-bottom: 36px;
+      }
+
+      @include onLargeDesktop {
+        margin-bottom: 56px;
+      }
+    }
+  }
+
+  &__text {
+    margin-bottom: 40px;
+
+    line-height: 130%;
+    color: $c-white;
+    text-align: center;
+
+    @include onTablet {
+      font-size: 18px;
+      margin-bottom: 50px;
+    }
+
+    &-complete {
+      margin-bottom: 50px;
+
+      font-size: 18px;
+      line-height: 130%;
+      color: $c-white;
+      text-align: center;
+
+      @include onLargeDesktop {
+        margin-bottom: 70px;
+      }
+    }
+  }
+
+  &__content-mobile {
+    @extend %block-content;
+
+    height: auto;
+    padding: 20px 0 38px;
+
+    @include onTablet {
+      padding: 30px 0 44px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__content-desktop {
+    display: none;
+
+    padding: 64px 0 96px;
+    box-sizing: border-box;
+
+    background: center left url(../images/place-order-image.png) no-repeat;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onLargeDesktop {
+      padding-bottom: 270px;
+
+      background: center left url(../images/place-order-image-1920.png) no-repeat;
+    }
+
+    &-complete {
+      background-image: none;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 35px;
+    }
+
+    &-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+
+      grid-column: 1 / 13;
+      margin-bottom: 80px;
+
+      @include onLargeDesktop {
+        grid-template-columns: repeat(16, 1fr);
+
+        grid-column: 1 / 17;
+        margin-bottom: 216px;
+      }
+    }
+  }
+
+  &__logo {
+    @include onDesktop {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__steps {
+    display: flex;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__step {
+    width: 100%;
+    padding-bottom: 16px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 130%;
+    color: $c-text-gray-dark;
+    text-align: center;
+
+    border-bottom: 1px solid $c-dark-gray;
+    transition: all $transition-time;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+
+    &--active {
+      color: $c-contrast-blue;
+      border-color: $c-contrast-blue;
+    }
+
+    &--complete {
+      color: $c-white;
+    }
+  }
+
+  &__step-desktop {
+    justify-self: start;
+
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    color: $c-text-gray-dark;
+
+    transition: all $transition-time;
+
+    &:nth-of-type(1) {
+      grid-column: 4 / 6;
+
+      @include onLargeDesktop {
+        grid-column: 5 / 7;
+      }
+    }
+  
+    &:nth-of-type(2) {
+      grid-column: 7 / 8;
+
+      @include onLargeDesktop {
+        grid-column: 9 / 10;
+      }
+    }
+
+    &:nth-of-type(3) {
+      grid-column: 10 / 12;
+
+      @include onLargeDesktop {
+        grid-column: 13 / 15;
+      }
+    }
+
+    &--active {
+      color: $c-contrast-blue;
+
+      &::after {
+        content: "";
+        display: block;
+        height: 4px;
+        margin-top: 6px;
+
+        background: center url(../images/place-order-circle.png) no-repeat;
+      }
+    }
+
+    &--complete {
+      color: $c-white;
+    }
+  }
+
+  &__slides-container {
+    &-desktop {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 20px;
+
+      grid-column: 7 / 13;
+      grid-row: 1 / span 2;
+
+      @include onLargeDesktop {
+        grid-template-columns: repeat(8, 1fr);
+
+        grid-column: 9 / 17;
+      }
+    }
+  }
+  
+  &__slide {
+    padding: 0 20px;
+
+    transition: all $transition-time;
+
+    @include onTablet {
+      padding: 0 35px;
+    }
+
+    &-1 {
+      padding: 0;
+
+      @include onTablet {
+        padding: 320px 0 0;
+
+        background: center 40px url(../images/place-order_tablet.png) no-repeat;
+      }
+    }
+
+    &-2 {
+      display: none;
+    }
+
+    &-4 {
+      display: none;
+      padding-top: 60px;
+
+      @include onTablet {
+        padding-top: 180px;
+      }
+    }
+
+    &--swiped {
+      transform: translateX(-100%);
+    }
+
+    &--appeared {
+      display: block;
+
+      opacity: 0;
+
+      @extend %animation-appeared;
+    }
+
+    &-desktop {
+      grid-column: 1 / 7;
+
+      transition: all $transition-time;
+
+      @include onLargeDesktop {
+        margin-top: 10px;
+      }
+
+      &-2 {
+        display: none;
+        margin-top: 52px;
+        grid-column: 1 / 6;
+
+        @include onLargeDesktop {
+          grid-column: 1 / 7;
+          margin-top: 35px;
+        }
+      }
+
+      &-final {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        gap: 20px;
+
+        grid-column: 1 / 13;
+
+        transition: all $transition-time;
+
+        @include onLargeDesktop {
+          grid-template-columns: repeat(16, 1fr);
+          grid-column: 1 / 17;
+        }
+
+        &--swiped {
+          opacity: 0;
+        }
+      }
+
+      &-complete {
+        display: none;
+        grid-column: 1 / 13;
+        margin: 40px 0 0;
+
+        transition: all $transition-time;
+
+        @include onLargeDesktop {
+          grid-column: 1 / 17;
+          margin: 0;
+        }
+
+        &--appeared {
+          display: block;
+
+          @extend %animation-appeared;
+        }
+      }
+
+      &--swiped {
+        opacity: 0;
+      }
+
+      &--appeared {
+        display: block;
+
+        @extend %animation-appeared;
+      }
+    }
+  }
+
+  &__form-quantity {
+    grid-column: 1 / 5;
+    grid-row: 1 / 3;
+    align-self: end;
+  }
+
+  &__button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

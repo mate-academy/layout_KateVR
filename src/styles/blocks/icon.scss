@@ -1,0 +1,56 @@
+.icon {
+  display: flex;
+  
+  background: center / cover no-repeat;
+
+  &--menu-burger {
+    width: 20px;
+    height: 10px;
+    
+    background: center url(../images/menu.svg) no-repeat;
+
+    @include hover(background-image, url(../images/menu_hover.svg));
+
+    @include onTablet {
+      width: 30px;
+      height: 14px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--cross {
+    width: 20px;
+    height: 20px;
+
+    background: center url(../images/cross.svg) no-repeat;
+    transition: all $transition-time;
+
+    &:hover {
+      background-image: url(../images/cross_hover.svg);
+
+      transform: rotateZ(90deg);
+    }
+
+    @include onTablet {
+      width: 24px;
+      height: 24px;
+    }
+
+    &--big {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &--arrow {
+    width: 9px;
+    height: 17px;
+
+    background: center url(../images/arrow.svg) no-repeat;
+
+    @include hover(background-image, url(../images/arrow_hover.svg));
+  }
+}

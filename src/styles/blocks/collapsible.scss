@@ -1,0 +1,52 @@
+.collapsible {
+  &__button {
+    width: 100%;
+    padding: 18px 12px;
+
+    font-family: inherit;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-contrast-blue;
+    text-align: left;
+
+    background-color: transparent;
+    border: 1px solid $c-contrast-blue;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+
+    @include onTablet {
+      padding: 15px 30px;
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    padding: 0 12px;
+
+    border: 1px solid $c-contrast-blue;
+    border-top: 0;
+    border-bottom: 0;
+    
+    overflow: hidden;
+
+    transition: max-height $transition-time ease-out;
+
+    @include onTablet {
+      padding: 0 30px;
+    }
+
+    &-text {
+      margin-bottom: 30px;
+    }
+
+    &-bottom-text {
+      font-size: 12px;
+      color: $c-text-gray-dark;
+
+      @include onTablet {
+        margin-bottom: 13px;
+      }
+    }
+  }
+}

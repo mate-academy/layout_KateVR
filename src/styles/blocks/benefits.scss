@@ -1,0 +1,164 @@
+.benefits {
+  background: $c-background-gradient-secondary;
+
+  @include onTablet {
+    background: $c-background-gradient-benefits;
+  }
+
+  &__content {
+    padding: 50px 0;
+
+    @include onTablet {
+      padding: 70px 0;
+    }
+
+    @include onDesktop {
+      padding: 100px 0;
+    }
+
+    @include onLargeDesktop {
+      padding: 160px 0;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+
+    margin-bottom: 32px;
+
+    font-size: 21px;
+    line-height: 25px;
+
+    @include onTablet {
+      grid-column: 1 / 3;
+      margin-bottom: 10px;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / 9;
+      margin-bottom: 60px;
+
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    @include onLargeDesktop {
+      grid-column: 7 / 11;
+    }
+  }
+
+  &__article {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      margin-bottom: 70px;
+    }
+
+    @include onLargeDesktop {
+      margin-bottom: 0;
+    }
+
+    &:nth-of-type(1) {
+      @include onTablet {
+        grid-column: 1 / 3;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 5;
+      }
+    }
+
+    &:nth-of-type(2) {
+      @include onTablet {
+        grid-column: 3 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: 5 / 9;
+      }
+
+      @include onLargeDesktop {
+        grid-column: 7 / 11;
+      }
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+
+      @include onTablet {
+        grid-column: 5 / 7;
+      }
+
+      @include onDesktop {
+        grid-column: 9 / 13;
+      }
+
+      @include onLargeDesktop {
+        grid-column: 13 / 17;
+      }
+    }
+
+    &-subtitle {
+      margin-bottom: 12px;
+
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 19px;
+      color: $c-white;
+
+      &-1 {
+        @include onTablet {
+          margin-bottom: 35px;
+        }
+      }
+
+      &-2 {
+        @include onTablet {
+          margin-bottom: 25px;
+        }
+      }
+
+      &-3 {
+        @include onTablet {
+          margin-bottom: 20px;
+        }
+      }
+
+      @include onDesktop {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__image-container {
+    display: none;
+    margin-bottom: 25px;
+
+    @include onTablet {
+      display: block;
+    }
+
+    @include onDesktop {
+      margin-bottom: 34px;
+    }
+  }
+
+  &__image {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  &__button {
+    grid-column: 5 / 9;
+    margin: 0 auto;
+
+    @include onLargeDesktop {
+      display: none;
+    }
+  }
+}

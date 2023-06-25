@@ -1,0 +1,204 @@
+.link {
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration: none;
+  color: $c-white;
+
+  &--blue {
+    @include hover(color, $c-contrast-blue);
+
+    &-large {
+      line-height: 150%;
+
+      cursor: pointer;
+    }
+  }
+
+  &--more {
+    line-height: 150%;
+    color: $c-contrast-blue;
+    text-align: center;
+    
+    @include hover(color, $c-white);
+
+    &::after {
+      content: "";
+      display: block;
+      height: 6px;
+      margin-top: 6px;
+      
+      background: center url(../images/more_arrow.png) no-repeat;
+      
+      transition: all $transition-time;
+    }
+
+    &:hover {
+      &::after {
+        background-image: url(../images/more_arrow_hovered.png);
+      }
+    }
+  }
+
+  &--button {
+    display: block;
+    padding: 11px 0;
+
+    font-size: 14px;
+    text-align: center;
+    
+    background-color: $c-contrast-blue;
+    border-radius: 4px;
+
+    @extend %button-states;
+
+    &-home {
+      @include onTablet {
+        position: relative;
+        left: 50%;
+    
+        max-width: 458px;
+        padding: 13px 0;
+    
+        font-size: 16px;
+    
+        transform: translateX(-50%);
+      }
+    }
+
+    &-complete {
+      padding: 13px 36px;
+
+      font-size: 16px;
+      line-height: 130%;
+    }
+
+    &-nav {
+      display: none;
+      width: 200px;
+      padding: 13px 0;
+
+      font-size: 16px;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &-fixed {
+      position: fixed;
+      bottom: 10px;
+      left: 20px;
+      right: 20px;
+
+      z-index: 3;
+
+      @include onTablet {
+        left: 50%;
+        bottom: 30px;
+
+        width: 458px;
+
+        padding: 13px 0;
+
+        font-size: 16px;
+
+        transform: translateX(-50%);
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &--menu {
+    display: block;
+    padding: 11px 20px;
+
+    font-size: 21px;
+
+    transition: all $transition-time;
+
+    @include onTablet {
+      padding: 11px 154px;
+    }
+
+    &:hover,
+    &:active {
+      background-color: $c-menu-link-hover;
+      color: $c-contrast-blue;
+    }
+  }
+
+  &--help {
+    color: $c-contrast-blue;
+  }
+
+  &--desktop {
+    margin-bottom: 20px;
+
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $c-contrast-blue;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &-help {
+      margin-bottom: 25px;
+
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 19px;
+
+      color: $c-text-gray;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &--circle {
+    width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+
+    background: center url(../images/link-circle-center.png) no-repeat;
+
+    border-radius: 50%;
+    border: 1px solid $c-contrast-blue;
+
+    transition: all $transition-time;
+
+    &:hover,
+    &:active {
+      background-color: $c-contrast-blue;
+
+      background-image: url(../images/link-circle-center-active.png);
+    }
+  }
+
+  &--footer {
+    display: flex;
+
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    color: $c-white;
+
+    transition: all $transition-time;
+
+    @include onTablet {
+      font-size: 14px;
+      color: $c-link-footer;
+    }
+
+    &:hover,
+    &:active {
+      color: $c-contrast-blue;
+    }
+  }
+}

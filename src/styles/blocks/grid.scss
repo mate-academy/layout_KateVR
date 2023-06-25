@@ -1,0 +1,26 @@
+.grid {
+  &--footer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include onTablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  @include onDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+  }
+
+  @include onLargeDesktop {
+    grid-template-columns: repeat(16, 1fr);
+    gap: 20px;
+  }
+
+  &--contact {
+    position: relative;
+  }
+}

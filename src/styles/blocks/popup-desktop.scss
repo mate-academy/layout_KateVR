@@ -1,0 +1,129 @@
+.popup-desktop {
+  display: none;
+  grid-template-columns: repeat(10, 1fr);
+  column-gap: 20px;
+  width: $popup-desktop-width;
+  box-sizing: border-box;
+  border-radius: 4px;
+
+  z-index: 3;
+
+  background-color: $c-background-menu;
+
+  transition: all $transition-time;
+
+  @include onLargeDesktop {
+    grid-template-columns: repeat(12, 1fr);
+    width: 1083px;
+  }
+
+  &--open {
+    display: grid;
+
+    @extend %animation-appeared;
+  }
+
+  &--closed {
+    @extend %animation-disappear;
+  }
+
+  &__top-actions {
+    display: flex;
+    justify-content: end;
+    grid-column: 1 / 11;
+    margin-bottom: 15px;
+
+    @include onLargeDesktop {
+      grid-column: 1 / 13;
+    }
+  }
+
+  &__icon {
+    margin-right: 20px;
+
+    @include onLargeDesktop {
+      margin-right: 30px;
+    }
+
+    cursor: pointer;
+  }
+
+  &__title {
+    grid-column: 2 / 8;
+    margin-bottom: 50px;
+
+    @extend %h1;
+
+    font-size: 36px;
+    line-height: 130%;
+
+    @include onLargeDesktop {
+      grid-column: 2 / 9;
+      margin-bottom: 37px;
+    }
+
+    &-help {
+      margin-bottom: 60px;
+
+      @include onLargeDesktop {
+        grid-column: 2 / 8;
+      }
+    }
+  }
+
+  &__paragraph {
+    grid-column: 2 / 10;
+
+    @include onLargeDesktop {
+      grid-column: 2 / 12;
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+
+    &:first-of-type {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__bottom-links {
+    display: flex;
+    grid-column: 2 / 7;
+
+    &--faq {
+      display: flex;
+      justify-content: center;
+      grid-column: 1 / 11;
+
+      @include onLargeDesktop {
+        grid-column: 1 / 13;
+      }
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+
+    &:first-of-type {
+      margin-right: 65px;
+
+      @include onLargeDesktop {
+        margin-right: 70px;
+      }
+    }
+  }
+
+  &__collapsibles {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    grid-column: 2 / 10;
+    margin-bottom: 50px;
+
+    @include onLargeDesktop {
+      grid-column: 2 / 12;
+    }
+  }
+}

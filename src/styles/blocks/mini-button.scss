@@ -1,0 +1,122 @@
+.mini-button {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  box-sizing: border-box;
+
+  background-color: $c-contrast-blue;
+
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+
+  transition: all $transition-time;
+
+  cursor: pointer;
+
+  @include onTablet {
+    width: 62px;
+    height: 62px;
+  }
+
+  &--active {
+    background-color: $c-mini-button-active;
+  }
+
+  &__inner-sign {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    height: 1px;
+    width: 12px;
+
+    background-color: $c-white;
+
+    transform: translate(-50%, -50%);
+
+    &:nth-of-type(2) {
+      transform: rotate(90deg) translateY(6px);
+
+      @include onTablet {
+        transform: rotate(90deg) translateY(11px);
+      }
+    }
+
+    @include onTablet {
+      width: 22px;
+    }
+  }
+
+  &__description {
+    position: absolute;
+
+    display: none;
+    width: 168px;
+    height: 112px;
+    padding: 20px 10px;
+    box-sizing: border-box;
+
+    background-color: $c-background-menu;
+
+    border-radius: 4px;
+
+    transition: all $transition-time;
+
+    @extend %animation-appeared;
+
+    z-index: 2;
+
+    @include onTablet {
+      width: 200px;
+      height: auto;
+      padding: 25px 20px;
+    }
+
+    &-active {
+      display: block;
+    }
+
+    &-disappear {
+      @extend %animation-disappear;
+    }
+
+    &-1 {
+      top: -120px;
+      right: -150px;
+
+      @include onTablet {
+        top: 75px;
+        right: 30px;
+      }
+    }
+  
+    &-2 {
+      top: -120px;
+      right: -100px;
+
+      @include onTablet {
+        top: -140px;
+        right: -160px;
+      }
+    }
+  
+    &-3 {
+      bottom: 120%;
+      left: -95%;
+
+      @include onTablet {
+        bottom: 40%;
+        left: 130%;
+      }
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 150%;
+    }
+  }
+}

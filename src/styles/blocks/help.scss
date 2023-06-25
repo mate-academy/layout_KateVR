@@ -1,0 +1,99 @@
+.help {
+  background-color: $c-background-menu;
+
+  overflow-y: auto;
+
+  @extend %block-content;
+
+  @include onTablet {
+    height: auto;
+    padding: 34px 0 125px;
+
+    z-index: 3;
+  }
+
+  &__content {
+    padding: 0 20px;
+
+    @include onTablet {
+      padding: 0 34px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__title {
+    @extend %h1;
+
+    margin-bottom: 30px;
+
+    font-size: 21px;
+
+    &--text-blue {
+      @extend %text--blue;
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 30px;
+
+    &-text {
+      &:first-of-type {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__links {
+    @include onTablet {
+      display: flex;
+    }
+
+    &-column {
+      @include onTablet {
+        &:first-of-type {
+          margin-right: 152px;
+        }
+      }
+    }
+  
+    &-link {
+      display: block;
+      margin-bottom: 20px;
+      
+      color: $c-contrast-blue;
+
+      &:nth-child(3) {
+        margin-bottom: 30px;
+
+        @include onTablet {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &-contacts {
+      display: block;
+      margin-bottom: 10px;
+      
+      line-height: 19px;
+      color: $c-text-gray;
+
+      @include onTablet {
+        margin-bottom: 25px;
+      }
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

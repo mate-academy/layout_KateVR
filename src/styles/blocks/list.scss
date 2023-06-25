@@ -1,0 +1,58 @@
+.list {
+  padding: 0;
+
+  list-style: none;
+
+  &__item {
+    &--nav {
+      display: inline-block;
+      margin-right: 36px;
+    }
+  }
+
+  &__dropdown {
+    &-item {
+      display: block;
+
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      color: $c-white;
+
+      cursor: default;
+
+      @include hover(color, $c-contrast-blue);
+
+      &-number {
+        padding: 4px 0;
+
+        font-size: 20px;
+
+        &:first-of-type {
+          padding-top: 8px;
+        }
+      }
+
+      &-text {
+        padding: 5px 0 5px 22px;
+
+        &:first-of-type {
+          padding-top: 13px;
+        }
+      }
+
+      &-lang {
+        padding: 6px 12px;
+
+        font-weight: 500;
+        color: $c-contrast-blue;
+
+        @include hover(color, $c-white);
+
+        &:first-of-type {
+          padding-top: 12px;
+        }
+      }
+    }
+  }
+}

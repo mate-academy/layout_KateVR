@@ -1,4 +1,107 @@
 %h1 {
-  font-family: "Roboto", sans-serif;
+  font-weight: 900;
+  line-height: 130%;
+  color: $c-white;
+}
+
+%p {
   font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  color: $c-text-gray;
+}
+
+%text--blue {
+  font-weight: normal;
+  color: $c-contrast-blue;
+}
+
+%block-content {
+  height: 100vh;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+%remove-spin-buttons {
+  appearance: none;
+  -moz-appearance: textfield;
+  
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+%button-states {
+  transition: all $transition-time;
+  
+  &:hover {
+    background-color: $c-white;
+    color: $c-contrast-blue;
+  }
+
+  &:active {
+    background-color: $c-background-menu;
+    color: $c-dark-gray;
+  }
+}
+
+%animation-fade {
+  animation: fade $transition-time;
+
+  @keyframes fade {
+    from {
+      opacity: 0.4;
+      transform: scale(110%);
+    }
+    to {
+      opacity: 1;
+      transform: scale(100%);
+    }
+  }
+}
+
+%animation-appeared {
+  opacity: 0;
+
+  animation: appeared $transition-time forwards;
+  
+  @keyframes appeared {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+%animation-disappear {
+  opacity: 1;
+
+  animation: disappear $transition-time forwards;
+  
+  @keyframes disappear {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
+}
+
+%button-fixed-tablet {
+  @include onTablet {
+    position: relative;
+    left: 50%;
+
+    max-width: 458px;
+    padding: 13px 0;
+
+    font-size: 16px;
+
+    transform: translateX(-50%);
+  }
 }

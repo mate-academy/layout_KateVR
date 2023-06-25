@@ -1,0 +1,270 @@
+.header {
+  position: relative;
+
+  background: center 45px url(../images/header_mobile.png) no-repeat;
+
+  @include onTablet {
+    background: right top url(../images/header_tablet.png) no-repeat;
+  }
+
+  @include onDesktop {
+    background: right top url(../images/header_1280.png) no-repeat;
+  }
+
+  @include onLargeDesktop {
+    background: right top url(../images/header_1920.png) no-repeat;
+  }
+
+  &__content {
+    @extend %block-content;
+
+    height: auto;
+
+    padding: 20px 0 50px;
+
+    @include onTablet {
+      padding: 30px 0 60px;
+    }
+
+    @include onDesktop {
+      padding: 46px 0 84px;
+    }
+
+    @include onLargeDesktop {
+      padding: 46px 0 106px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 186px;
+
+    transition: all $transition-time;
+
+    z-index: 2;
+
+    @include onTablet {
+      grid-column: 1 / 7;
+      margin-bottom: 35px;
+    }
+
+    @include onDesktop {
+      display: block;
+      grid-column: 1 / 13;
+      margin-bottom: 80px;
+    }
+
+    @include onLargeDesktop {
+      grid-column: 1 / 17;
+      margin-bottom: 210px;
+    }
+
+    &-container {
+      @include onDesktop {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    &-fixed {
+      @include onDesktop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+
+        max-width: inherit;
+
+        padding: 15px 110px 34px;
+  
+        background: $c-background-gradient-header;
+      }
+    }
+  
+    &-left-actions,
+    &-right-actions {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+
+    font-size: 26px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+      margin-bottom: 0;
+
+      font-size: 46px;
+      line-height: 130%;
+    }
+
+    @include onLargeDesktop {
+      grid-column: 1 / 8;
+      margin: 0 0 12px 20px;
+
+      font-size: 54px;
+    }
+
+    &-top-margin {
+      @include onDesktop {
+        margin-top: 145px;
+      }
+
+      @include onLargeDesktop {
+        margin-top: 275px;
+      }
+    }
+  }
+
+  &__paragraph {
+    margin-bottom: 16px;
+
+    font-weight: 500;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+      margin-bottom: 0;
+    }
+
+    @include onLargeDesktop {
+      grid-column: 2 / 7;
+      margin: 0 0 15px 20px;
+
+      font-size: 20px;
+    }
+
+    &::after {
+      display: block;
+      content: "1200$";
+      margin-top: 10px;
+
+      font-size: 18px;
+      line-height: 22px;
+      color: $c-white;
+      text-align: center;
+
+      @include onTablet {
+        text-align: left;
+      }
+
+      @include onDesktop {
+        text-align: left;
+      }
+
+      @include onLargeDesktop {
+        margin-top: 30px;
+
+        font-size: 20px;
+        line-height: 24px;
+      }
+    }
+  }
+
+  &__play-button-container {
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 5;
+      margin-bottom: 64px;
+    }
+
+    @include onLargeDesktop {
+      margin: 0 0 192px 15px;
+    }
+  }
+
+  &__video-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+
+    display: none;
+
+    background: $c-background-menu;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 3;
+
+    &-active {
+      @extend %animation-appeared;
+
+      display: block;
+    }
+
+    &-closed {
+      display: none;
+    }
+  }
+
+  &__video-cross {
+    position: inherit;
+    top: 15px;
+    right: 15px;
+
+    cursor: pointer;
+  }
+
+  &__iframe {
+    width: calc(100vw - 100px);
+    height: calc(100vw / 2);
+
+    max-width: 876px;
+    max-height: 486px;
+
+    min-width: 200px;
+    min-height: 200px;
+
+    @include onDesktop {
+      width: 876px;
+      height: 486px;
+    }
+  }
+
+  &__bottom-actions {
+    display: none;
+
+    justify-content: space-between;
+    grid-column: 1 / 13;
+
+    @include onDesktop {
+      display: flex;
+    }
+
+    @include onLargeDesktop {
+      grid-column: 1 / 17;
+    }
+  }
+
+  &__bottom-left-actions {
+    .link {
+      &:first-of-type {
+        margin-right: 40px;
+      }
+    }
+  }
+}

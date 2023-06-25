@@ -1,0 +1,29 @@
+.menu {
+  background-color: $c-background-menu;
+  
+  overflow-y: auto;
+
+  @include onTablet {
+    z-index: 3;
+  }
+
+  &__content {
+    @extend %block-content;
+
+    @include onTablet {
+      height: auto;
+      padding: 35px 0 140px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: end;
+    margin: 0 0 $menu-top-indent;
+    padding-right: 20px;
+
+    @include onTablet {
+      padding-right: 35px;
+    }
+  }
+}
