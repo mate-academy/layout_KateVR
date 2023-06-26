@@ -1,0 +1,84 @@
+.benefits {
+  background: linear-gradient(108.62deg, #191536 0%, #000 77.34%);
+  @include padding-section;
+
+  &__title {
+    @include desktop {
+      text-align: center;
+    }
+  }
+
+  &__content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include tablet {
+      @include grid;
+    }
+
+    @include desktop {
+      margin: 84px 0 90px;
+    }
+
+    @include large-desktop {
+      margin: 84px 0 0;
+    }
+
+    & :nth-child(1) {
+      @include tablet {
+        grid-column: 1 / 3;
+      }
+
+      @include desktop {
+        grid-column: 1 / 5;
+      }
+
+      @include large-desktop {
+        grid-column: 1 / 5;
+      }
+    }
+
+    & :nth-child(2) {
+      @include tablet {
+        grid-column: 3 / 5;
+      }
+
+      @include desktop {
+        grid-column: 5 / 9;
+      }
+
+      @include large-desktop {
+        grid-column: 7 / 11;
+      }
+    }
+
+    & :nth-child(3) {
+      @include tablet {
+        grid-column: 5 / -1;
+      }
+
+      @include desktop {
+        grid-column: 9 / -1;
+      }
+
+      @include large-desktop {
+        grid-column: 13 / -1;
+      }
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      margin: 0 auto;
+    }
+
+    @include large-desktop {
+      display: none;
+    }
+  }
+}

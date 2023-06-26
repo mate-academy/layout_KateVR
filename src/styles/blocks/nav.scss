@@ -1,0 +1,63 @@
+.nav {
+  display: flex;
+  gap: 35px;
+
+  &--menu {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &--footer {
+    flex-direction: column;
+    gap: 12px;
+
+    @include tablet {
+      flex-direction: row;
+      gap: 42px;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-weight: 500;
+    line-height: 130%;
+    color: $c-white;
+    @include hover-text;
+
+    &--menu {
+      display: block;
+      width: 100%;
+      padding-left: 22px;
+      font-size: 21px;
+
+      @include tablet {
+        padding-left: 154px;
+      }
+    }
+
+    &--footer {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 150%;
+
+      @include tablet {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__item {
+    padding: 11px 0;
+    transition: background-color $animation-time;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #110e25;
+    }
+
+    &:hover .nav__link {
+      color: $c-blue;
+      text-shadow: 0 0 5px $c-blue;
+    }
+  }
+}

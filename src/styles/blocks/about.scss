@@ -1,0 +1,157 @@
+.about {
+  background: linear-gradient(146.86deg, #191536 -0.5%, #000 99.5%);
+  @include padding-section;
+
+  @include tablet {
+    padding-top: 70px;
+  }
+
+  @include large-desktop {
+    padding: 150px 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+
+    @include tablet {
+      gap: 84px;
+    }
+
+    @include desktop {
+      gap: 182px;
+    }
+
+    @include large-desktop {
+      gap: 176px;
+    }
+  }
+
+  &__product {
+    @include tablet {
+      @include grid;
+    }
+  }
+
+  &__swiper {
+    display: none;
+
+    @include desktop {
+      grid-column: 2 / 8;
+      display: block;
+    }
+
+    @include large-desktop {
+      grid-column: 3 / 11;
+    }
+
+    &--mobile {
+      margin: 20px 0;
+
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include tablet {
+        grid-column: 1 /4;
+        display: block;
+      }
+
+      @include desktop {
+        display: none;
+      }
+    }
+
+  }
+
+  &__text {
+    @include tablet {
+      grid-column: 4 / -1;
+    }
+
+    @include desktop {
+      grid-column: 9 / -1;
+    }
+
+    @include large-desktop {
+      grid-column: 12 / -1;
+    }
+  }
+
+  &__description {
+    margin: 20px 0 45px;
+
+    @include tablet {
+      margin: 30px 0 20px;
+    }
+
+    @include large-desktop {
+      margin: 60px 0 30px ;
+    }
+  }
+
+  &__info {
+    @include grid;
+  }
+
+  &__info-text {
+
+    @include tablet {
+      margin-top: 20px;
+      grid-column: 1/ 5;
+    }
+
+    @include desktop {
+      margin-top: 40px;
+      grid-column: 1 / 6;
+    }
+
+    @include large-desktop {
+      grid-column: 2 / 7;
+    }
+  }
+
+  &__hello {
+    font-size: 14px;
+    line-height: 17px;
+    color: $c-blue;
+  }
+
+  &__title {
+    margin: 10px 0 20px;
+
+    @include tablet {
+      margin-bottom: 32px;
+    }
+
+    @include desktop {
+      margin-top: 15px;
+    }
+  }
+
+  &__image-container {
+    display: none;
+
+    @include tablet {
+      display: block;
+      grid-column: 5 / -1;
+    }
+
+    @include desktop {
+      grid-column: 7 / -1;
+    }
+
+    @include large-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__image {
+    animation: blink 1.5s infinite;
+  }
+}

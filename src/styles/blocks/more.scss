@@ -1,0 +1,103 @@
+.more {
+  background-color: $c-black;
+  @include padding-section;
+
+  @include tablet {
+    padding: 70px 0;
+  }
+
+  &__title {
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  &__description {
+    margin: 12px 0 45px;
+    font-size: 12px;
+    line-height: 15px;
+    color: $c-blue;
+
+    @include tablet {
+      text-align: center;
+    }
+
+    @include desktop {
+      margin: 16px 0 82px;
+      font-size: 14px;
+      line-height: 17px;
+    }
+
+    @include large-desktop {
+      margin: 16px 0 70px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include tablet {
+      @include grid;
+      grid-template-rows: max-content;
+      row-gap: 40px;
+    }
+
+    & :nth-child(1) {
+      @include tablet {
+        grid-column: 1 / 4;
+      }
+
+      @include desktop {
+        grid-column: 1 / 4;
+      }
+
+      @include large-desktop {
+        grid-column: 1 / 5;
+      }
+    }
+
+    & :nth-child(2) {
+      @include tablet {
+        grid-column: 4 / -1;
+      }
+
+      @include desktop {
+        grid-column: 4 / 7;
+      }
+
+      @include large-desktop {
+        grid-column: 5 / 9;
+      }
+    }
+
+    & :nth-child(3) {
+      @include tablet {
+        grid-column: 1 / 4;
+      }
+
+      @include desktop {
+        grid-column: 7 / 10;
+      }
+
+      @include large-desktop {
+        grid-column: 9 / 13;
+      }
+    }
+
+    & :nth-child(4) {
+      @include tablet {
+        grid-column: 4 / -1;
+      }
+
+      @include desktop {
+        grid-column: 10 / -1;
+      }
+
+      @include large-desktop {
+        grid-column: 13 / -1;
+      }
+    }
+  }
+}

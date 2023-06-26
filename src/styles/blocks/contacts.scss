@@ -1,0 +1,29 @@
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  &--footer {
+    font-size: 13px;
+    line-height: 16px;
+    gap: 8px;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &--help {
+    @include tablet {
+      gap: 25px;
+    }
+  }
+
+  &__link {
+    display: block;
+    line-height: 19px;
+    color: $c-gray;
+
+    @include hover-text;
+  }
+}
