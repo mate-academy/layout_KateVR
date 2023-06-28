@@ -1,0 +1,176 @@
+.touch {
+  padding: 50px 0;
+  background-color: $black;
+
+  @include onTablet {
+    padding: 70px 0;
+  }
+
+  @include onDesktop {
+    padding: 100px 0;
+  }
+
+  &__wrapper {
+    position: relative;
+
+    @include onTablet {
+      display: flex;
+      gap: 19px;
+    }
+
+    @include onDesktop {
+      gap: 202px;
+      justify-content: center;
+    }
+  }
+
+  &__info {
+
+  }
+
+  &__titles {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $blue;
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 44px;
+    text-transform: uppercase;
+    @extend %h3;
+    color: $white;
+  }
+
+  &__title--blue {
+    color: $blue;
+  }
+
+  &__forms {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 280px;
+
+    @include onTablet {
+      width: 339px;
+    }
+
+    @include onDesktop {
+      width: 520px;
+    }
+  }
+
+  &__input {
+    text-decoration: none;
+    outline: none;
+    border: none;
+    background-color: inherit;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $grey;
+    border-bottom: 1px solid $darkGrey;
+    padding: 19px 0;
+  }
+
+  &__textarea {
+    outline: none;
+    border: none;
+    background-color: inherit;
+    border-bottom: 1px solid $darkGrey;
+    resize: none;
+    padding: 19px 0 67px;
+  }
+
+  &__button {
+    margin-top: 25px;
+
+    @include onTablet {
+      max-width: 200px;
+    }
+  }
+
+  &__feedback {
+    display: none;
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey;
+    margin-top: 35px;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey;
+
+  }
+
+  &__link-wrapper {
+    display: none;
+    flex-direction: column;
+    gap: 9px;
+    margin-top: 61px;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__top-button {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 48px;
+    height: 48px;
+    border: 1px solid $blue;
+    border-radius: 50%;
+
+    @include onTablet {
+      display: block;
+    }
+
+    &::after {
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      transform: rotate(45deg);
+      content: "";
+      display: block;
+      width: 13px;
+      height: 1px;
+      background-color: $blue;
+    }
+
+    &::before {
+      position: absolute;
+      top: 22px;
+      left: 13px;
+      transform: rotate(-45deg);
+      content: "";
+      display: block;
+      width: 13px;
+      height: 1px;
+      background-color: $blue;
+    }
+  }
+}

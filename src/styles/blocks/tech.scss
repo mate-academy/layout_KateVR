@@ -1,0 +1,292 @@
+.tech {
+  padding: 50px 0;
+  background-color: $black;
+
+  &__wrapper {
+    position: relative;
+  }
+
+  &__title {
+    color: $white;
+    @extend %h2;
+    margin-bottom: 50px;
+
+    @include onDesktop {
+      text-align: end ;
+      margin-bottom: 150px;
+    }
+  }
+
+  &__title--blue {
+    color: $blue;
+    font-weight: normal;
+  }
+
+  &__image-wrapper {
+    position: relative;
+    max-width: max-content;
+    margin: 0 auto;
+  }
+
+  &__image {
+    position: relative;
+    display: flex;
+    margin: 0 auto;
+    width: 197px;
+    height: 195px;
+    box-sizing: border-box;
+
+    @include onTablet {
+      width: 100%;
+      height: 100%;
+      justify-content: center;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    display: block;
+    width: 34px;
+    height: 34px;
+    background-color: $blue;
+    outline: none;
+    border: none;
+    border-radius: 50%;
+
+    @include onTablet {
+      width: 62px;
+      height: 62px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 12px;
+      height: 2px;
+      background-color: $white;
+      top: 16px;
+      left: 11px;
+
+      @include onTablet {
+        width: 22px;
+        top: 30px;
+        left: 20px;
+      }
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 2px;
+      height: 12px;
+      background-color: $white;
+      top: 11px;
+      left: 16px;
+
+      @include onTablet {
+        height: 22px;
+        top: 20px;
+        left: 30px;
+      }
+    }
+
+
+  }
+
+  &__button--1 {
+    top: -10px;
+    left: 58px;
+
+    @include onTablet {
+      top: -27px;
+      left: 37px;
+    }
+
+    &.active {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__button--2 {
+    top: 80px;
+    left: 130px;
+
+    @include onTablet {
+      top: 115px;
+      left: 205px;
+    }
+
+    &.active {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__button--3 {
+    left: -15px;
+    bottom: 0;
+
+    @include onTablet {
+      left: -50px;
+      bottom: 0;
+    }
+
+    &.active {
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  &__modal {
+    opacity: 0;
+    visibility: hidden;
+    background: $darkBlue;
+    border-radius: 4px;
+    max-width: max-content;
+    transition: all .3s;
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__modal-text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: $grey;
+    padding: 10px;
+    max-width: max-content;
+
+    @include onTablet {
+      padding: 17px 10px 22px;
+    }
+  }
+
+  &__modal--1 {
+    position: absolute;
+    top: 35px;
+    left: -115px;
+
+    @include onTablet {
+      top: 62px;
+      left: -94px;
+    }
+  }
+
+  &__modal--2 {
+    position: absolute;
+    top: 35px;
+    left: -115px;
+    width: 240px;
+
+    @include onTablet {
+      top: 62px;
+      left: -94px;
+    }
+  }
+
+  &__modal--3 {
+    position: absolute;
+    top: -74px;
+    left: -47px;
+    width: 175px;
+
+    @include onTablet {
+      top: -94px;
+      left: -100px;
+    }
+  }
+
+  &__lines {
+    position: absolute;
+    display: none;
+    gap: 19px;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__lines--1 {
+    flex-direction: row-reverse;
+    bottom: 210px;
+    right: 147px;
+  }
+
+  &__lines--2 {
+    bottom: 100px;
+    left: 165px;
+  }
+
+  &__lines--3 {
+    flex-direction: row-reverse;
+    bottom: 20px;
+    right: 300px;
+
+  }
+
+  &__line {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  &__line--1 {
+    background-image: url(../images/vector1.svg);
+    width: 399px;
+    height: 70px;
+    margin-left: -109px;
+    margin-top: 7px;
+  }
+
+  &__line--2 {
+    background-image: url(../images/vector2.svg);
+    width: 190px;
+    height: 255px;
+  }
+
+  &__line--3 {
+    background-image: url(../images/vector3.svg);
+    width: 127px;
+    height: 107px;
+    margin-left: -90px;
+    margin-top: -93px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+  }
+
+  &__info-title {
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: $white;
+    margin-bottom: 21px;
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey;
+    max-width: 338px;
+  }
+}

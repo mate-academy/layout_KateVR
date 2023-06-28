@@ -1,0 +1,129 @@
+.gaming {
+  padding-bottom: 35px;
+  background-color: #05040B;
+
+  @include onTablet {
+    padding: 43px 0;
+  }
+
+  &__title {
+    background-image: url(../images/gam.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: block;
+    width: 280px;
+    height: 25px;
+    margin-bottom: 12px;
+
+    @include onTablet {
+      width: 400px;
+      height: 40px;
+      margin: 0 auto;
+      margin-bottom: 12px;
+    }
+  }
+
+  &__text {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: $blue;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 85px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px 20px;
+    }
+
+    @include onDesktop {
+      flex-wrap: nowrap;
+    }
+  }
+
+  &__info {
+
+    @include onTablet {
+      max-width: 340px;
+      text-align: center;
+    }
+  }
+
+  &__image {
+    display: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    width: 100px;
+    height: 81px;
+
+    &--education {
+      background-image: url(../images/education.svg);
+    }
+
+    &--real {
+      background-image: url(../images/home.svg);
+    }
+
+    &--fitness {
+      background-image: url(../images/sport.svg);
+    }
+
+    &--social {
+      background-image: url(../images/network.svg);
+    }
+
+    @include onTablet {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__subtitle {
+    color: $white;
+    margin-bottom: 11px;
+
+    @include onTablet {
+      margin: 20px 0;
+    }
+  }
+
+  &__paragraph {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__paragraph--desk {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+}

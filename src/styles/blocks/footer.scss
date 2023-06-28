@@ -1,0 +1,128 @@
+.footer {
+  padding: 50px 0;
+  background-color: $black;
+
+  @include onTablet {
+    padding: 0;
+  }
+
+  @include onDesktop {
+    padding-top: 40px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 0.25fr 1fr 0.25fr;
+    grid-column-gap: 80px;
+    grid-row-gap: 15px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-template-rows: 1fr;
+      grid-column-gap: 0px;
+      grid-row-gap: 0px;
+    }
+  }
+
+  &__logo {
+    width: 69px;
+    height: 14px;
+    background-image: url(../images/logo.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    grid-area: 1 / 1 / 2 / 3;
+
+    @include onTablet {
+      grid-area: 1 / 1 / 2 / 2;
+    }
+
+    @include onDesktop {
+      width: 72px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    grid-area: 2 / 1 / 4 / 2;
+
+    @include onTablet {
+      flex-direction: row;
+      grid-area: 1 / 3 / 2 / 5;
+      justify-content: center;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 150%;
+    color: $white;
+  }
+
+  &__socials {
+    display: flex;
+    gap: 23px;
+    grid-area: 3 / 2 / 4 / 3;
+
+    @include onTablet {
+      grid-area: 1 / 6 / 2 / 7;
+      justify-content: center;
+    }
+  }
+
+  &__social {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+
+  &__social--fb {
+    background-image: url(../images/fb.svg);
+    width: 8px;
+    height: 15px;
+  }
+
+  &__social--tw {
+    background-image: url(../images/tw.svg);
+    width: 19px;
+    height: 14px;
+  }
+
+  &__social--yt {
+    background-image: url(../images/yt.svg);
+    width: 18px;
+    height: 14px;
+  }
+
+  &__social--rd {
+    background-image: url(../images/reddit.svg);
+    width: 18px;
+    height: 18px;
+  }
+
+  &__info-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    grid-area: 2 / 2 / 3 / 3;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__info {
+    color: $grey;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    text-decoration: none;
+  }
+}
