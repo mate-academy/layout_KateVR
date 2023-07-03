@@ -7,46 +7,47 @@ const buttonFirst = document.querySelector('.tech__button--1');
 const buttonSecond = document.querySelector('.tech__button--2');
 const buttonThird = document.querySelector('.tech__button--3');
 
+function toggleModal(buttonElement, modalElement) {
+  buttonElement.classList.toggle('active');
+  modalElement.classList.toggle('active');
+}
+
+function deactivateModal(buttonElement, modalElement) {
+  buttonElement.classList.remove('active');
+  modalElement.classList.remove('active');
+}
+
 buttonFirst.addEventListener('click', () => {
-  buttonFirst.classList.toggle('active');
-  techModalFirst.classList.toggle('active');
+  toggleModal(buttonFirst, techModalFirst);
 
   if (buttonFirst.classList.contains('active')) {
-    buttonSecond.classList.remove('active');
-    techModalSecond.classList.remove('active');
-    buttonThird.classList.remove('active');
-    techModalThird.classList.remove('active');
+    deactivateModal(buttonSecond, techModalSecond);
+    deactivateModal(buttonThird, techModalThird);
   }
 });
 
 buttonSecond.addEventListener('click', () => {
-  buttonSecond.classList.toggle('active');
-  techModalSecond.classList.toggle('active');
+  toggleModal(buttonSecond, techModalSecond);
 
   if (buttonSecond.classList.contains('active')) {
-    buttonFirst.classList.remove('active');
-    techModalFirst.classList.remove('active');
-    buttonThird.classList.remove('active');
-    techModalThird.classList.remove('active');
+    deactivateModal(buttonFirst, techModalFirst);
+    deactivateModal(buttonThird, techModalThird);
   }
 });
 
 buttonThird.addEventListener('click', () => {
-  buttonThird.classList.toggle('active');
-  techModalThird.classList.toggle('active');
+  toggleModal(buttonThird, techModalThird);
 
   if (buttonThird.classList.contains('active')) {
-    buttonFirst.classList.remove('active');
-    techModalFirst.classList.remove('active');
-    buttonSecond.classList.remove('active');
-    techModalSecond.classList.remove('active');
+    deactivateModal(buttonFirst, techModalFirst);
+    deactivateModal(buttonSecond, techModalSecond);
   }
 });
 
 const input = document.getElementById('counter');
 const priceElement = document.getElementById('price');
 
-input.addEventListener('change', function() {
+input.addEventListener('input', function() {
   const value = this.value;
   const price = calculatePrice(value);
 
@@ -60,60 +61,132 @@ function calculatePrice(value) {
   return totalPrice + '$';
 }
 
-let currentStep = 1;
+document.querySelector('.touch__form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  this.reset();
+});
 
-showStep(currentStep);
+document.querySelector('.purchase__form').addEventListener('submit', function(event) {
+  event.preventDefault();
+  this.reset();
+});
 
-function nextStep(evt, stepName) {
-  evt.preventDefault();
+const stepFirst = document.getElementById('step1');
+const stepSecond = document.getElementById('step2');
+const stepThird = document.getElementById('step3');
+const tabFirst = document.getElementById('tab1');
+const tabSecond = document.getElementById('tab2');
+const tabThird = document.getElementById('tab3');
+const btnFirst = document.getElementById('btn1');
+const btnSecond = document.getElementById('btn2');
+const formFirst = document.getElementById('form-first');
+const img = document.getElementById('img');
 
-  if (stepName === 'step3') {
-    submitForm();
-
-    return;
+function setStepActive(stepElement, tabElement, opacity) {
+  if (!stepElement.classList.contains('active')) {
+    stepElement.classList.add('active');
+    tabElement.classList.add('active');
   }
-  showStep(currentStep += 1);
-}
 
-function showStep(step) {
-  const i;
-  const tabcontent;
-
-  tabcontent = document.getElementsByClassName('purchase__slider');
-
-  for (i = 0; i < tabcontent.length; i++) {
-    tabcontent[i].style.display = 'none';
+  if (stepFirst !== stepElement) {
+    stepFirst.classList.remove('active');
+    tabFirst.classList.remove('active');
   }
 
-  document.getElementById('step' + step).style.display = 'block';
-  currentStep = step;
+  if (stepSecond !== stepElement) {
+    stepSecond.classList.remove('active');
+    tabSecond.classList.remove('active');
+  }
+
+  if (stepThird !== stepElement) {
+    stepThird.classList.remove('active');
+    tabThird.classList.remove('active');
+  }
+
+  formFirst.style.opacity = opacity;
+  img.style.opacity = opacity;
 }
 
-function submitForm() {
-  // Відправка форми або виконання необхідних дій при завершенні
-  alert('Form submitted!');
-  // Очищення форми
-  document.getElementById('step1').style.display = 'block';
-  document.getElementsByTagName('form')[0].reset();
-  currentStep = 1;
-}
+stepFirst.addEventListener('click', () => {
+  setStepActive(stepFirst, tabFirst, '1');
+});
 
-// function openTab(evt, tabName) {
-//   var i, tabcontent, tablinks;
-//   tabcontent = document.getElementsByClassName("purcahse__slider");
-//   for (i = 0; i < tabcontent.length; i++) {
-//     tabcontent[i].style.display = "none";
-//   }
-//   tablinks = document.getElementsByClassName("purcahse__link");
-//   for (j = 0; j < tablinks.length; j++) {
-//     tablinks[j].className = tablinks[j].className.replace(" active", "");
-//   }
-//   document.getElementById(tabName).style.display = "block";
-//   evt.currentTarget.className += " active";
-// }
+stepSecond.addEventListener('click', () => {
+  setStepActive(stepSecond, tabSecond, '1');
+});
 
-// document.getElementById("tab1").style.display = "block";
-// document.getElementsByClassName("tablink")[0].className += " active";
+stepThird.addEventListener('click', () => {
+  setStepActive(stepThird, tabThird, '0');
+});
 
-// const link = document.getElementsByClassName("purcahse__link");
-// const content = document.getElementsByClassName("purcahse__slider")
+btnFirst.addEventListener('click', () => {
+  setStepActive(stepSecond, tabSecond, '1');
+});
+
+btnSecond.addEventListener('click', () => {
+  setStepActive(stepThird, tabThird, '0');
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const btnPrev = document.getElementById('btnPrev');
+  const btnNext = document.getElementById('btnNext');
+  const aboutVideoItems = document.querySelectorAll('.about__video');
+  const aboutPages = document.querySelectorAll('.about__number');
+  let currentSlide = 0;
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  function showSlide(index) {
+    aboutVideoItems.forEach(function(item, itemIndex) {
+      item.classList.remove('active');
+      item.classList.add('hidden');
+
+      if (itemIndex === index) {
+        item.classList.add('active');
+        item.classList.remove('hidden');
+      }
+    });
+
+    aboutPages[0].textContent = index + 1;
+  }
+
+  function nextSlide() {
+    currentSlide++;
+
+    if (currentSlide >= aboutVideoItems.length) {
+      currentSlide = 0;
+    }
+    showSlide(currentSlide);
+  }
+
+  function previousSlide() {
+    currentSlide--;
+
+    if (currentSlide < 0) {
+      currentSlide = aboutVideoItems.length - 1;
+    }
+    showSlide(currentSlide);
+  }
+
+  function handleTouchStart(event) {
+    touchStartX = event.touches[0].clientX;
+  }
+
+  function handleTouchMove(event) {
+    touchEndX = event.touches[0].clientX;
+  }
+
+  function handleTouchEnd() {
+    if (touchStartX - touchEndX > 50) {
+      nextSlide();
+    } else if (touchEndX - touchStartX > 50) {
+      previousSlide();
+    }
+  }
+
+  btnNext.addEventListener('click', nextSlide);
+  btnPrev.addEventListener('click', previousSlide);
+  document.addEventListener('touchstart', handleTouchStart);
+  document.addEventListener('touchmove', handleTouchMove);
+  document.addEventListener('touchend', handleTouchEnd);
+});

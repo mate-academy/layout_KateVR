@@ -209,10 +209,22 @@
               <p class="about__number">/</p>
               <p class="about__number">3</p>
             </div>
-            <img
+            <div class="about__img-wrapper">
+              <img
               src="./images/video.jpg"
               alt="KateVR"
-              class="about__video">
+              class="about__video active">
+
+              <img
+                src="./images/video.jpg"
+                alt="KateVR"
+                class="about__video">
+
+              <img
+                src="./images/video.jpg"
+                alt="KateVR"
+                class="about__video">
+            </div>
 
             <div class="about__slider">
               <div class="about__dot active"></div>
@@ -223,8 +235,21 @@
             </div>
 
             <div class="about__slider-desk">
-              <button class="about__slider-btn">Previous</button>
-              <button class="about__slider-btn">Next</button>
+              <button
+                class="about__slider-btn"
+                id="btnPrev"
+                type="button"
+              >
+                Previous
+              </button>
+
+              <button
+                class="about__slider-btn"
+                id="btnNext"
+                type="button"
+              >
+                Next
+              </button>
             </div>
           </div>
         </div>
@@ -552,30 +577,30 @@
           <div class="purchase__link-wrapper">
             <button
               class="purchase__link active"
-              onclick="nextStep(event, 'step1')"
+              id="step1"
             >
               Place Order
             </button>
 
             <button
               class="purchase__link"
-              onclick="nextStep(event, 'step2')"
+              id="step2"
             >
               Pay
             </button>
 
             <button
               class="purchase__link"
-              onclick="nextStep(event, 'step3')"
+              id="step3"
             >
               Complete
             </button>
           </div>
 
           <div class="purchase__form-wrapper">
-            <div class="purchase__image"></div>
+            <div class="purchase__image" id="img"></div>
 
-            <div class="purchase__form-first">
+            <div class="purchase__form-first" id="form-first">
               <form
                 action="#"
                 method="post"
@@ -644,7 +669,7 @@
               </div>
             </div>
 
-            <div class="purchase__slider" id="step1">
+            <div class="purchase__slider active" id="tab1">
               <form
                 action="#"
                 method="post"
@@ -790,14 +815,14 @@
 
                 <button
                   class="primaryButton purchase__button-next"
-                  onclick="nextStep(event, 'step2')"
+                  id="btn1"
                 >
                   Purchase
                 </button>
               </form>
             </div>
 
-            <div class="purchase__buy purchase__slider" id="step2">
+            <div class="purchase__buy purchase__slider" id="tab2">
               <div class="purchase__card-number">
                 <p class="purchase__card-title">
                   Card Number*
@@ -882,12 +907,15 @@
                 </div>
               </div>
 
-              <button class="primaryButton purchase__button-next" onclick="nextStep(event, 'step3')">
+              <button
+                class="primaryButton purchase__button-next"
+                id="btn2"
+              >
                 Purchase
               </button>
             </div>
 
-            <div class="purchase__slider" id="step3">
+            <div class="purchase__slider" id="tab3">
               <h2 class="purchase__last-title">
                 Thank you for
 
@@ -917,7 +945,6 @@
       </div>
     </section>
 
-    <!-- <button href="#" class="primaryButton" disabled>Buy Now</button> -->
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>

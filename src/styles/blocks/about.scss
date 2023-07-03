@@ -1,5 +1,6 @@
 .about {
   padding: 50px 0;
+  overflow: hidden;
 
   &__wrapper {
     display: flex;
@@ -67,6 +68,12 @@
     background-color: inherit;
     outline: none;
     border: none;
+    cursor: pointer;
+    transition: all .3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
 
     @include onTablet {
       display: block;
@@ -83,10 +90,10 @@
   }
 
   &__player {
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
-    position: relative;
 
     @include onDesktop {
       align-items: start;
@@ -112,11 +119,32 @@
     color: $blue;
   }
 
+  &__img-wrapper {
+    max-width: 290px;
+    display: flex;
+    overflow: hidden;
+
+    @include onTablet {
+      max-width: 400px;
+    }
+
+    @include onDesktop {
+      max-width: 430px;
+    }
+
+    &:nth-child(1) {
+      left: 0;
+    }
+  }
+
   &__video {
+    visibility: hidden;
+    transform: translateX(100%);
     object-fit: cover;
     object-position: center;
     max-width: 280px;
     margin-bottom: 9px;
+    transition: all .3s;
 
     @include onTablet {
       max-width: max-content;
@@ -126,6 +154,12 @@
 
     @include onDesktop {
       height: 290px;
+    }
+
+    &.active {
+      position: absolute;
+      visibility: visible;
+      transform: translateX(0);
     }
   }
 
@@ -173,8 +207,7 @@
     border: none;
     background-color: inherit;
     color: $white;
-    // border-bottom: 1px solid $blue;
-    // padding: 10px;
+    cursor: pointer;
   }
 
   &__dot {
@@ -187,7 +220,7 @@
     &:active,
     &:hover,
     &:focus {
-      background-color: #ABABAB;
+      background-color: #ababab;
     }
 
     @include onDesktop {
@@ -230,11 +263,8 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+    cursor: pointer;
     transition: all .3s;
-  }
-
-  &__bg-img--1 {
-
   }
 
   &__bg-img--2 {
@@ -261,7 +291,7 @@
   &__bg-img--4 {
     display: none;
     transform: rotate(180deg);
-    opacity: .125;
+    opacity: .13;
 
     &:hover,
     &:target,
@@ -276,7 +306,7 @@
 
   &__bg-img--5 {
     display: none;
-    opacity: 0.083;
+    opacity: 0.08;
 
     @include onDesktop {
       display: block;
@@ -292,7 +322,7 @@
   &__second-titles {
     display: flex;
     flex-direction: column;
-    margin:75px 0 25px;
+    margin: 75px 0 25px;
   }
 
   &__second-title {
