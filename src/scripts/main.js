@@ -61,15 +61,17 @@ function calculatePrice(value) {
   return totalPrice + '$';
 }
 
-document.querySelector('.touch__form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  this.reset();
-});
+document.querySelector('.touch__form')
+  .addEventListener('submit', function(event) {
+    event.preventDefault();
+    this.reset();
+  });
 
-document.querySelector('.purchase__form').addEventListener('submit', function(event) {
-  event.preventDefault();
-  this.reset();
-});
+document.querySelector('.purchase__form')
+  .addEventListener('submit', function(event) {
+    event.preventDefault();
+    this.reset();
+  });
 
 const stepFirst = document.getElementById('step1');
 const stepSecond = document.getElementById('step2');
