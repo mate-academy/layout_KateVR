@@ -1,0 +1,283 @@
+.header {
+  position: relative;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      margin-bottom: 45px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+  }
+
+  &__lang {
+    display: none;
+    position: relative;
+    width: 40px;
+    height: 20px;
+    color: $blue;
+    appearance: none;
+    background-color: inherit;
+    border: none;
+    background-image: url(../images/arrBott.svg);
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: 70% 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__option {
+    background-color: $darkBlue;
+  }
+
+  &__desktop {
+    display: none;
+    align-items: center;
+    gap: 37px;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__nav-link {
+    text-decoration: none;
+    color: $white;
+    @extend %links;
+    font-weight: 500;
+    line-height: 130%;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__nav-btn {
+    padding: 13px 65px;
+  }
+
+  &__content {
+    overflow: hidden;
+    position: relative;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include onTablet {
+      width: 40%;
+    }
+  }
+
+  &__image {
+    padding-bottom: 50%;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      max-height: 490px;
+    }
+  }
+
+  &__img {
+    display: block;
+    position: absolute;
+    bottom: 100%;
+    top: 0;
+    left: -5%;
+    right: 20px;
+    background-image: url(../images/image.png);
+    background-repeat: no-repeat;
+    background-size: 137%;
+    background-position: 50%;
+    padding-bottom: 50%;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateX(-3%);
+    }
+
+    @include onTablet {
+      left: 50%;
+      bottom: 0;
+      right: 0;
+      max-height: 490px;
+    }
+  }
+
+  &__title {
+    color: $white;
+    @extend %h1;
+    margin-bottom: 17px;
+
+  }
+
+  &__title--blue {
+    color: $blue;
+    font-weight: normal;
+  }
+
+  &__text {
+    color: $grey;
+    @extend %text16;
+    font-weight: 500;
+    margin-bottom: 13px;
+  }
+
+  &__price {
+    display: flex;
+    justify-content: center;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: $white;
+    margin-bottom: 25px;
+
+    @include onTablet {
+      justify-content: start;
+    }
+  }
+
+  &__video {
+    display: block;
+    width: 210px;
+    height: 65px;
+    background-image: url(../images/play.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-bottom: 25px;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateX(3%);
+    }
+  }
+
+  &__buy {
+    padding: 10px 106px;
+
+    @include onTablet {
+      position: fixed;
+      bottom: 43px;
+      left: 155px;
+      right: 155px;
+      z-index: 1;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    display: none;
+    align-items: center;
+    justify-content: space-between;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__bottom-left {
+    display: flex;
+    gap: 39px;
+  }
+
+  &__bottom-link {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $white;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__more {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $blue;
+    text-decoration: none;
+
+    position: relative;
+    width: 40px;
+    height: 20px;
+    appearance: none;
+    background-color: inherit;
+    border: none;
+    background-image: url(../images/arrBott.svg);
+    background-repeat: no-repeat;
+    background-size: 30%;
+    background-position: 53% 103%;
+    padding-bottom: 15px;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__bottom-right {
+    display: flex;
+    gap: 103px;
+  }
+
+  &__bottom-slider {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $white;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

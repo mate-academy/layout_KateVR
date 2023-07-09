@@ -1,0 +1,518 @@
+.purchase {
+  height: 100vh;
+  overflow-x: scroll;
+  @include BgGradient;
+  z-index: 1;
+
+  &__logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 20px;
+
+    @include onDesktop {
+      grid-area: 1 / 1 / 2 / 4;
+    }
+  }
+
+  &__grid {
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: 70px 1fr;
+      grid-row-gap: 100px;
+    }
+  }
+
+  &__logo {
+    display: block;
+    background-image: url(../images/logo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 78px;
+    height: 18px;
+  }
+
+  &__button {
+    &::after {
+      display: block;
+      content: "";
+      width: 20px;
+      height: 1px;
+      background-color: $white;
+      transform: rotate(45deg);
+    }
+
+    &::before {
+      display: block;
+      content: "";
+      width: 20px;
+      height: 1px;
+      background-color: $white;
+      transform: rotate(-45deg);
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__link-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+
+    @include onDesktop {
+      grid-area: 1 / 4 / 2 / 13;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    border: none;
+    width: 33.3%;
+    text-align: center;
+    text-decoration: none;
+    color: $greyBtn;
+    border-bottom: 1px solid $greyBtn;
+    padding: 16px 0;
+    cursor: pointer;
+
+    background-color: transparent;
+    outline: none;
+
+    &.active {
+      position: relative;
+      color: $blue;
+      border-color: $blue;
+
+      @include onDesktop {
+        &::after {
+          position: absolute;
+          content: "";
+          display: block;
+          width: 4px;
+          height: 4px;
+          background-color: $blue;
+          border-radius: 50%;
+          bottom: 0;
+          left: 50%;
+        }
+      }
+    }
+
+    @include onDesktop {
+      border: none;
+    }
+  }
+
+  &__form-wrapper {
+    overflow-x: hidden;
+
+    @include onTablet {
+      overflow: hidden;
+      grid-area: 2 / 1 / 3 / 13;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+    }
+  }
+
+  &__image {
+    display: none;
+    width: 524px;
+    height: 277px;
+    margin: 0 auto;
+    background-image: url(../images/image.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include onTablet {
+      display: flex;
+    }
+
+    @include onDesktop {
+      grid-area: 1 / 1 / 3 / 7;
+      width: 701px;
+      height: 430px;
+    }
+  }
+
+  &__form-first {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+    }
+
+    @include onDesktop {
+      grid-area: 3 / 1 / 4 / 6;
+    }
+  }
+
+  &__slider {
+    grid-area: 1 / 7 / 4 / 13;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s;
+    transform: translateX(120%);
+
+    &.active {
+      transform: translateX(0);
+    }
+  }
+
+  &__form {
+    width: 100%;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 10px;
+    }
+
+    @include onDesktop {
+      justify-content: center;
+    }
+  }
+
+  &__input-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    color: $grey;
+    padding-bottom: 10px;
+  }
+
+  &__select {
+    width: 90px;
+    height: 41px;
+    border: none;
+    outline: none;
+    background-color: #191536;
+    display: flex;
+    text-align: center;
+    color: $white;
+  }
+
+  &__price-wrapper {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__price {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    color: $blue;
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    display: flex;
+    color: $grey;
+    padding: 19px 0;
+    border-bottom: 1px solid $darkGrey;
+    margin-bottom: 30px;
+
+  }
+
+  &__label {
+    display: block;
+    text-align: left;
+    width: 100%;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &__text-country {
+    text-align: left;
+  }
+
+  &__country {
+    width: 100%;
+    text-align: left;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    padding: 15px 25px;
+    height: max-content;
+  }
+
+  &__button-next {
+    width: 100%;
+    outline: none;
+    border: none;
+
+    @include onTablet {
+      grid-column: 1 / 3;
+      display: flex;
+      justify-content: center;
+      padding: 13px 190px;
+      width: 458px;
+      margin: 0 auto;
+    }
+
+    @include onDesktop {
+      width: 200px;
+      margin: 0;
+      padding: 13px 100px;
+    }
+  }
+
+  &__card-title {
+    font-size: 14px;
+    font-family: "Inter", sans-serif;
+    line-height: 130%;
+    color: $grey;
+    width: 100%;
+  }
+
+  &__card-number {
+    max-width: 290px;
+
+    @include onTablet {
+      max-width: max-content;
+    }
+
+    @include onDesktop {
+      width: 425px;
+      display: flex;
+      flex-direction: row;
+      column-gap: 25px;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__card-input {
+    display: inline-block;
+    width: 54px;
+    color: $white;
+    font-size: 17px;
+    font-family: "Inter", sans-serif;
+    line-height: 130%;
+    letter-spacing: 4px;
+    border-bottom: 1px solid $darkGrey;
+    margin-right: 15px;
+
+    &:focus,
+    &:active,
+    &:hover,
+    &:required:valid {
+      border-color: $blue;
+    }
+
+    &:required:invalid {
+      border-color: $darkGrey;
+    }
+
+    &:required:invalid:not(:placeholder-shown) {
+      border-color: #860404;
+    }
+
+    @include onDesktop {
+      width: 70px;
+      font-size: 20px;
+    }
+  }
+
+  &__visa-img {
+    display: none;
+    background-image: url(../images/visa.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 54px;
+    height: 34px;
+
+    @include onTablet {
+      display: block;
+      margin: 22px 0;
+      border-radius: 10px;
+    }
+  }
+
+  &__buy {
+    justify-content: center;
+    display: flex;
+
+    &:focus,
+    &:active,
+    &:hover,
+    &:required:valid {
+      border-color: $blue;
+    }
+
+    &:required:invalid {
+      border-color: #860404;
+    }
+
+    &:required:invalid:not(:placeholder-shown) {
+      border-color: #860404;
+    }
+  }
+
+  &__buy-form {
+    width: max-content;
+    color: $white;
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    line-height: 130%;
+    letter-spacing: 4px;
+
+    @include onDesktop {
+      width: 100%;
+    }
+
+    &:focus,
+    &:active,
+    &:hover,
+    &:required:valid {
+      border-color: $blue;
+    }
+
+    &:required:invalid {
+      border-color: $darkGrey;
+    }
+
+    &:required:invalid:not(:placeholder-shown) {
+      border-color: #860404;
+    }
+  }
+
+  &__date {
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    line-height: 130%;
+    color: $darkGrey;
+    width: 80px;
+    text-align: center;
+  }
+
+  &__cvv-text {
+    display: block;
+    width: 160px;
+  }
+
+  &__cvv-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 120px;
+
+    @include onDesktop {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__cvv {
+    font-size: 20px;
+    font-family: "Inter", sans-serif;
+    line-height: 130%;
+    color: $darkGrey;
+    width: 50px;
+    text-align: center;
+  }
+
+  &__last-title {
+    color: $white;
+    text-align: center;
+    font-size: 26px;
+    font-family: "Inter", sans-serif;
+    font-weight: 900;
+    line-height: 130%;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    @extend %h1;
+
+    &--blue {
+      font-weight: normal;
+      color: $blue;
+    }
+  }
+
+  &__last-text {
+    color: $white;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Inter", sans-serif;
+    line-height: 130%;
+    margin-bottom: 30px;
+  }
+
+  &__button-last {
+    padding: 13px 74px;
+
+    @include onTablet {
+      padding: 13px 160px;
+    }
+  }
+}
+
+#btn2 {
+  @include onTablet {
+    margin: 0;
+  }
+}
+
+#tab2 {
+  &.active {
+    position: fixed;
+    top: 250px;
+
+    @include onTablet {
+      top: 550px;
+      left: 25%;
+      right: 25%;
+    }
+
+    @include onDesktop {
+      position: unset;
+    }
+  }
+}
+
+#tab3 {
+  &.active {
+    position: fixed;
+    top: 250px;
+    width: 290px;
+
+    @include onTablet {
+      width: fit-content;
+    }
+
+    @include onDesktop {
+      left: 23%;
+      right: 23%;
+      top: 35%;
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active,
+select:-webkit-autofill {
+  -webkit-transition-delay: 9999s;
+  transition-delay: 9999s;
+}
