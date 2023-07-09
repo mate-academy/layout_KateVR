@@ -192,3 +192,67 @@ document.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('touchmove', handleTouchMove);
   document.addEventListener('touchend', handleTouchEnd);
 });
+
+// const menu = document.querySelector('.navs__burger-btn');
+// const menuBody = document.querySelector('.page__menu');
+// const body = document.querySelector('.page__body');
+// const menuLinks = document.querySelectorAll('.menu__link');
+
+// function menuClose() {
+//   menu.classList.remove('active');
+//   menuBody.classList.remove('active');
+//   body.classList.remove('lock');
+// }
+
+// if (menu) {
+//   menu.addEventListener('click', function(e) {
+//     menu.classList.toggle('active');
+
+//     if (menu.classList.contains('active')) {
+//       const logo = document.querySelector('.menu__logo');
+
+//       menuBody.classList.add('active');
+//       body.classList.add('lock');
+
+//       logo.addEventListener('click', (elem) => {
+//         elem.preventDefault();
+//         menuClose();
+//       });
+
+//       if (menuLinks.length > 0) {
+//         menuLinks.forEach(el => {
+//           el.addEventListener('click', function() {
+//             menuClose();
+//           });
+//         });
+//       };
+//     } else {
+//       menuClose();
+//     }
+//   });
+// };
+
+// Отримуємо посилання на елементи DOM
+const headerBurgerBtn = document.querySelector('.header__burger-btn');
+const pageBody = document.querySelector('.page__body');
+const menuLinks = document.querySelectorAll('.menu__link');
+const menuBurgerBtn = document.querySelector('.menu__burger-btn');
+const menuLogo = document.querySelector('.menu__logo');
+
+function addLockClass() {
+  pageBody.classList.add('lock');
+}
+
+function removeLockClass() {
+  pageBody.classList.remove('lock');
+}
+
+headerBurgerBtn.addEventListener('click', addLockClass);
+
+menuLinks.forEach(function(menuLink) {
+  menuLink.addEventListener('click', removeLockClass);
+});
+
+menuBurgerBtn.addEventListener('click', removeLockClass);
+
+menuLogo.addEventListener('click', removeLockClass);
