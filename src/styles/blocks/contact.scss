@@ -1,0 +1,231 @@
+.contact {
+  background-color: $color-backround-dark;
+  padding: 50px 0;
+
+  @include smartphone {
+    padding-top: 70px;
+    padding-bottom: 130px;
+  }
+
+  @include smalldesktop {
+    padding: 100px 0;
+  }
+
+  &__content {
+    @include smartphone {
+      @include gridPage;
+    }
+  }
+
+  &__left {
+    @include smartphone {
+      grid-column: 1 / 4;
+    }
+
+    @include smalldesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__title1 {
+    color: $color-blue;
+    font-family: $font-family;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 5px;
+  }
+
+  &__title2 {
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-bottom: 32px;
+
+    @include smartphone {
+      margin-bottom: 50px;
+    }
+
+    @include smalldesktop {
+      font-size: 36px;
+      margin-bottom: 26px;
+    }
+  }
+
+  &__span {
+    color: $color-blue;
+    font-weight: 200;
+
+  }
+
+  &__subtitle {
+    display: none;
+
+    @include smartphone {
+      display: flex;
+      color: $c0lor-grey;
+      font-family: $font-family;
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      margin-bottom: 76px;
+
+      @include smalldesktop {
+        font-size: 16px;
+      }
+    }
+  }
+
+  &__telephone {
+    display: none;
+
+    @include smartphone {
+      text-decoration: none;
+      display: flex;
+      color: $c0lor-grey;
+      font-family: $font-family;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      margin-bottom: 11px;
+      transition: 0.5s all;
+
+      &:hover {
+        color: $color-blue;
+      }
+    }
+  }
+
+  &__email {
+    display: none;
+
+    @include smartphone {
+      display: flex;
+    }
+  }
+
+  &__email2 {
+    display: none;
+
+    @include smartphone {
+      display: flex;
+    }
+  }
+
+  &__right {
+    @include smartphone {
+      grid-column: 4 / -1;
+    }
+
+    @include smalldesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__field {
+    display: block;
+    width: 100%;
+    background-color: $color-backround-dark;
+    color: $c0lor-grey;
+    font-family: $font-family;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 19px;
+
+    &::placeholder {
+      color: $c0lor-grey;
+    }
+  }
+
+  &__line {
+    border-bottom: 1px solid $color-line;
+    margin-bottom: 24px;
+  }
+
+  &__fields {
+    resize: none;
+    margin-bottom: 67px;
+  }
+
+  &__btn {
+    @include smartphone {
+      margin-top: 48px;
+    }
+
+    @include smalldesktop {
+      margin-top: 90px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    width: 100%;
+    height: 40px;
+    color: $color-white;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    margin-bottom: 27px;
+
+    border-radius: 4px;
+    background: $color-blue;
+    cursor: pointer;
+    transition: 0.5s all;
+
+    &:hover {
+      background-color: $color-white;
+      color: $color-blue;
+      border: 3px solid $color-blue;
+      font-weight: 900;
+    }
+
+    @include smartphone {
+      width: 200px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__btn {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__subtitle2 {
+    color: $color-blue;
+    font-family: $font-family;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+
+    @include smartphone {
+      display: none;
+    }
+  }
+
+  &__up {
+    display: none;
+
+    @include smartphone {
+      display: flex;
+      width: 48px;
+      height: 48px;
+
+      @include hover(transform, scale(1.1));
+    }
+  }
+}
