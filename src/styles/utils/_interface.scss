@@ -1,0 +1,170 @@
+.logo {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.menu {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+
+  &__link {
+    color: #fff;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+
+    &:hover {
+      color: $blue;
+      text-shadow: -10px -14px 0 #ffffff35,
+        10px 14px 0 #ffffff35;
+    }
+  }
+}
+
+.button-buy {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  color: #fff;
+  padding: 13px 0;
+  background-color: $blue;
+  border-radius: 4px;
+  outline: none;
+  border: none;
+
+  &:hover {
+    background-color: #fff;
+    color: $blue;
+  }
+
+  &:disabled {
+    background: #191536;
+    color: $gray;
+  }
+}
+
+.button-homepage {
+  padding: 13px 35px;
+}
+
+.select {
+  position: relative;
+  color: #fff;
+  background: #191536;
+  border-radius: 4px;
+  padding: 13px 24px;
+
+  &__text {
+    white-space: nowrap;
+    margin-right: 5px;
+    cursor: pointer;
+  }
+
+  &__items {
+    background: #191536;
+    border-radius: 4px;
+    z-index: 2;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -3px;
+    transform: translateY(100%);
+    outline: none;
+    overflow: hidden;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+  }
+
+  &__item {
+    cursor: pointer;
+    padding: 5px 0;
+    white-space: nowrap;
+    border-right: 1px solid #014954;
+
+    &:hover {
+      border-right: 1px solid #05c2df;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    cursor: pointer;
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid $blue;
+  }
+}
+
+.input-item {
+  position: relative;
+  margin-bottom: 24px;
+}
+
+.label {
+  position: absolute;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: $lightgray;
+  left: 0;
+  bottom: 20px;
+}
+
+.input {
+  width: 100%;
+  display: block;
+  position: relative;
+  background-color: transparent;
+  outline: none;
+  border: none;
+  border-bottom: 1px solid $gray;
+  font-weight: 400;
+  font-size: 16px;
+  padding: 5px 0 0;
+  height: 40px;
+  line-height: 150%;
+  color: #fff;
+
+  &:focus {
+    border-bottom-color: $blue;
+
+    & + .label {
+      color: $blue;
+      bottom: 32px;
+    }
+  }
+
+  &::placeholder {
+    color: transparent;
+  }
+
+  &:invalid:not(:placeholder-shown) {
+    border-bottom-color: #860404;
+
+    & + .label {
+      color: #860404;
+      bottom: 32px;
+    }
+  }
+
+  &:valid:not(:placeholder-shown) {
+    border-bottom-color: $blue;
+
+    & + .label {
+      color: $blue;
+      bottom: 32px;
+    }
+  }
+}

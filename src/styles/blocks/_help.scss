@@ -1,0 +1,119 @@
+.popuphelp {
+  z-index: 100;
+  position: fixed;
+  width: 100%;
+  min-height: 100vh;
+  left: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000050;
+  transform: translateY(-150vh);
+  backdrop-filter: blur(10px);
+
+  @media (max-width: 1024px) {
+    top: -40px;
+    position: absolute;
+    align-items: start;
+  }
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__wrapper {
+    position: relative;
+    background: #191536;
+    border-radius: 4px;
+    max-width: 1085px;
+    padding: 70px 95px 60px;
+
+    @media (max-width: 1280px) {
+      padding: 60px 90px;
+    }
+
+    @media (max-width: 1024px) {
+      padding: 100px 90px;
+      width: 100%;
+      height: 100vh;
+      overflow-y: auto;
+    }
+
+    @media (max-width: 460px) {
+      padding: 60px 20px;
+    }
+  }
+
+  &__cross {
+    position: absolute;
+    display: flex;
+    top: 30px;
+    right: 45px;
+
+    @media (max-width: 460px) {
+      right: 20px;
+      top: 20px;
+    }
+
+    &:hover {
+      * {
+        stroke: $blue;
+      }
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 130%;
+    margin-bottom: 50px;
+
+    span {
+      color: $blue;
+      font-weight: 400;
+    }
+  }
+
+  &__text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $lightgray;
+    margin-bottom: 30px;
+  }
+
+  &__link {
+    color: $blue;
+  }
+
+  &__links,
+  &__description {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__description-text {
+    color: $blue;
+  }
+
+  &__links {
+    margin-left: 70px;
+
+    @media (max-width: 460px) {
+      margin-left: 0;
+      margin-top: 30px;
+    }
+
+  }
+
+  &__tel {
+    color: $lightgray;
+  }
+
+  &__mail {
+    color: $lightgray;
+  }
+}
