@@ -1,0 +1,121 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
+.pay-order {
+  display: none;
+  flex-direction: column;
+  padding: 0 20px;
+
+  &--is-active {
+    display: flex;
+  }
+
+  &__vr-img {
+    display: none;
+  }
+
+  &__qty-details {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  &__qty,
+  &__amt {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    @include typography($weight-4, $size-16, $size-20);
+    color: $gray;
+    row-gap: 10px;
+  }
+
+  &__qty-select,
+  &__select {
+    background: $bgGradientBlue;
+    color: $white;
+    font-family: inherit;
+    outline: none;
+    border: none;
+
+    & > option {
+      background-color: $bgMenuHover;
+      padding: 10px 0;
+    }
+  }
+
+  &__qty-select {
+    width: 90px;
+    height: 40px;
+    text-align: center;
+  }
+
+  &__amt > :last-child {
+    color: $primary;
+    @include typography($weight-5, $size-26, $size-28);
+  }
+
+  &__card-details {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__card-icon {
+    display: none;
+  }
+
+  &__label {
+    @include typography($weight-4, $size-14, $size-20);
+    color: $gray;
+
+    &:first-of-type {
+      color: $primary;
+    }
+  }
+
+  &__input {
+    outline: none;
+    padding: 2px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid $darkGray;
+    background: transparent;
+    color: $gray;
+    margin-bottom: 5px;
+
+    &--w-65 {
+      width: 70px;
+      letter-spacing: 0.2em;
+    }
+
+    &--w-40 {
+      width: 40px;
+      letter-spacing: 0.2em;
+    }
+  }
+
+  &__cc-number-wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    & .pay-order__input {
+      max-width: 55px;
+      @include typography($weight-5, $size-18, $size-24);
+      letter-spacing: 0.2em;
+    }
+  }
+
+  &__btn {
+    margin-top: 10px;
+    width: 100%;
+    max-width: 320px;
+    align-self: center;
+  }
+
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
+}

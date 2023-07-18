@@ -1,0 +1,114 @@
+@import "./bottom_nav.scss";
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
+.hero {
+  background: linear-gradient($bgGradientBlue, $black);
+  display: flex;
+  flex-direction: column;
+
+  &__topbar {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__language {
+    display: none;
+  }
+
+  &__nav {
+    display: none;
+  }
+
+  &__menu-icon {
+    z-index: 5;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+  }
+
+  &__menu-icon--normal {
+    background: transparent url("../images/icons/icon_menu.svg") no-repeat center;
+  }
+
+  &__menu-icon--cross {
+    background: transparent url("../images/icons/icon_cross.svg") no-repeat center;
+  }
+
+  &__inner-menus {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &__contents {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__contents-text {
+    padding: 20px;
+  }
+
+  &__locomotion {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  &__discover {
+    @include typography($weight-5, $size-16, $size-24);
+    color: $gray;
+    margin-bottom: 20px;
+  }
+
+  &__price {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  &__vr-img {
+    min-width: 320px;
+  }
+
+  &__buy {
+    margin: 0 auto;
+    width: 270px;
+  }
+
+  &__video-iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100vw;
+    height: 100vh;
+
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: $bgBlack;
+    padding: 50px 5px;
+  }
+
+  &__video-iframe--is-active {
+    display: flex;
+  }
+
+  &__video-close-btn {
+    margin: 50px auto;
+  }
+
+  @media (max-width: 1279px) {
+    .hero__nav {
+      display: none;
+    }
+  }
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
+}

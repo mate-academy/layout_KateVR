@@ -1,0 +1,37 @@
+@mixin on-desktop($break-point) {
+  @media (min-width: $break-point) {
+    padding: 100px 110px;
+
+    &__title {
+      @include typography($weight-9, $size-36, $size-44);
+      text-align: center;
+      margin-bottom: 85px;
+    }
+
+    &__section {
+      flex-direction: row;
+      justify-content: center;
+      gap: 25px;
+      margin-bottom: 90px;
+    }
+
+    &__article {
+      gap: 35px;
+    }
+
+    &__text {
+      text-overflow: unset;
+      overflow: unset;
+      display: unset;
+      -webkit-line-clamp: unset;
+      -webkit-box-orient: unset;
+      white-space: unset;
+      max-width: 350px;
+    }
+
+    &__btn-buy {
+      margin: 0 auto;
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,54 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
+.features {
+  background: linear-gradient(147deg, $bgGradientBlue -0.5%, $black 99.5%);
+  padding: 50px 20px;
+  color: $white;
+
+  &__title {
+    @include typography($weight-9, $size-22, $size-26);
+    margin-bottom: 30px;
+    transition: transform 300ms ease;
+
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  &__icon {
+    display: none;
+  }
+
+  &__heading {
+    @include typography($weight-9, $size-16, $size-20);
+    margin-bottom: 10px;
+  }
+
+  &__text {
+    @include typography($weight-4, $size-16, $size-24);
+    color: $gray;
+
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    white-space: normal;
+  }
+
+  &__btn-buy {
+    display: none;
+  }
+
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
+}

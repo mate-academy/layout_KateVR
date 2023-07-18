@@ -1,0 +1,111 @@
+@import "./on-tab.scss";
+@import "./on-desktop.scss";
+@import "./on-laptop.scss";
+
+.about {
+  background-color: $bgBlack;
+  color: $white;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 50px 20px;
+  }
+
+  &__info-heading {
+    @include typography($weight-9, $size-22, $size-26);
+    transition: transform 300ms ease;
+
+    &:hover {
+      transform: scale(110%);
+    }
+  }
+
+  &__info-articles {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__info-text {
+    @include typography($weight-4, $size-12, $size-16);
+    color: $primary;
+    margin-bottom: 10px;
+  }
+
+  &__article {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__info-icon {
+    display: none;
+  }
+
+  &__article-heading {
+    @include typography($weight-9, $size-16, $size-20);
+    margin-bottom: 10px;
+  }
+
+  &__article-text {
+    @include typography($weight-4, $size-16, $size-24);
+    color: $gray;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__product {
+    background: linear-gradient(147deg, $bgGradientBlue -0.5%, $black 99.5%);
+    padding: 50px 20px;
+  }
+
+  &__heading {
+    @include typography($weight-9, $size-22, $size-26);
+  }
+
+  &__product-img {
+    width: 100%;
+    margin: 20px 0 40px;
+  }
+
+  &__controler {
+    display: none;
+  }
+
+  &__product-text {
+    @include typography($weight-4, $size-16, $size-24);
+    color: $gray;
+    margin-bottom: 15px;
+  }
+
+  &__play-video {
+    margin-bottom: 80px;
+  }
+
+  &__hello {
+    @include typography($weight-4, $size-14, $size-18);
+    color: $primary;
+    margin-bottom: 10px;
+  }
+
+  &__product-meet {
+    @include typography($weight-9, $size-22, $size-26);
+    margin-bottom: 20px;
+  }
+
+  &__message {
+    @include typography($weight-4, $size-16, $size-24);
+    color: $gray;
+    margin-bottom: 50px;
+  }
+
+  &__aboutus {
+    display: none;
+  }
+
+  @include on-tab($tab);
+  @include on-desktop($desktop);
+  @include on-laptop($laptop);
+}
