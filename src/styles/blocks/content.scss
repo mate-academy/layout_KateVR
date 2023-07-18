@@ -1,0 +1,45 @@
+.content {
+  @include onDesktop {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content: center;
+    gap: 35px;
+  }
+
+  &__language {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding-right: 14px;
+
+      font-family: Inter, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+      color: #05c2df;
+
+      outline: none;
+      border: none;
+      text-decoration: none;
+      background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+      cursor: pointer;
+      
+      background-image: url(../images/language-arrow.svg);
+      background-position: right center;
+      background-repeat: no-repeat;
+      background-size: 9px 6px;
+      appearance: none;
+
+      &:hover {
+        color: black;
+        background-color: rgb(40, 86, 92);
+      }
+    }
+  }
+}
