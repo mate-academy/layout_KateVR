@@ -1,0 +1,115 @@
+.more {
+  background-color: $bg-dark;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &--active {
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-bottom: 12px;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__info {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 85px;
+    }
+  }
+
+  &__block {
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      flex-direction: row;
+    }
+
+    @include onDesktop {
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+
+    @include onTablet {
+      flex-basis: calc((100% - 10px) / 3);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 340px;
+      height: 240px;
+
+      @include onDesktop {
+        flex-basis: calc((100% - 10px) / 5);
+        width: 250px;
+        height: 260px;
+      }
+    }
+
+    &_img {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        width: 90px;
+        height: 90px;
+        margin-bottom: 30px;
+      }
+    }
+
+    &_title {
+      font-weight: 900;
+      font-size: 16px;
+      line-height: 19px;
+      text-transform: uppercase;
+      margin-bottom: 11px;
+    }
+
+    &_subtitle {
+
+      @include onTablet {
+        text-align: center;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    &:not(:nth-last-child(-n+2)) {
+      @include onTablet {
+        margin-bottom: 40px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
