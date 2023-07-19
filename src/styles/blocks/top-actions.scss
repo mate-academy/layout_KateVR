@@ -1,0 +1,152 @@
+.top-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__logo-container {
+    display: flex;
+    flex-direction: row;
+    gap: 34px;
+  }
+
+  &__langs {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      position: relative;
+    }
+
+    &-container {
+      display: none;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      top: 25px;
+      width: 35px;
+      height: 90px;
+      background-color: $lang-menu;
+      border-radius: 4px;
+      overflow: scroll;
+
+      &--show {
+        display: flex;
+      }
+    }
+
+    &-item {
+      color: $highlight-text;
+      font-size: 16px;
+      line-height: 130%;
+      @include hover(color, $main-text);
+    }
+  }
+
+  &__lang {
+    position: relative;
+    color: $highlight-text;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    @include hover(color, $main-text);
+
+    &::after {
+      display: block;
+      position: absolute;
+      content: "";
+      right: -12px;
+      bottom: 4px;
+      width: 9px;
+      height: 6px;
+      background-image: url(../images/icons/polygon.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: bottom;
+      transition: background-image 0.3s;
+    }
+
+    &:hover {
+      &::after {
+        background-image: url(../images/icons/polygon-white.svg);
+      }
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+      gap: 36px;
+    }
+
+    &-list {
+      display: flex;
+      flex-direction: row;
+      gap: 36px;
+    }
+
+    &-link {
+      font-weight: 500;
+      color: $main-text;
+      @include hover(color, $highlight-text);
+    }
+  }
+}
+
+.bottom-actions {
+  display: none;
+
+  @include onDesktop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__info-container {
+      display: flex;
+      gap: 35px;
+    }
+
+    &__switcher-container {
+      display: flex;
+      gap: 35px;
+    }
+
+    &__link {
+      font-weight: 500;
+      line-height: 24px;
+      color: $main-text;
+      @include hover(color, $highlight-text);
+
+      &--more {
+        position: relative;
+        color: $highlight-text;
+        @include hover(color, $main-text);
+
+        &::after {
+          display: block;
+          position: absolute;
+          content: "";
+          left: 50%;
+          width: 9px;
+          height: 6px;
+          transform: translateX(-50%);
+          background-image: url(../images/icons/polygon.svg);
+          background-repeat: no-repeat;
+          background-size: contain;
+          background-position: bottom;
+          transition: background-image 0.3s;
+        }
+
+        &:hover {
+          &::after {
+            background-image: url(../images/icons/polygon-white.svg);
+          }
+        }
+      }
+    }
+  }
+}
