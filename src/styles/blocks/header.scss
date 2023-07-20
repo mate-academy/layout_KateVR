@@ -1,0 +1,273 @@
+.header {
+  margin-top: 60px;
+  height: 100vh;
+
+  @media (max-width: $tablet) {
+    margin-top: 30px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 245px;
+
+    @media (max-width: 1440px) {
+      margin-bottom: 120px;
+    }
+
+    @media (max-width: $desktop) {
+      margin-bottom: 112px;
+    }
+
+    @media (max-width: $tablet) {
+      margin-bottom: 55px;
+    }
+  }
+
+  &__logo-holder {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+  }
+
+  &__logo-link {
+    color: $blue;
+
+    &--hidden {
+      @media (max-width: $tablet) {
+        display: none;
+      }
+    }
+  }
+
+  &__logo-image {
+    width: 80px;
+    height: 20px;
+    color: $blue;
+  }
+
+  &__menu-holder {
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+
+    &-list {
+      display: flex;
+      font-size: 16px;
+      font-weight: $font-weight-medium;
+      line-height: 21px;
+      gap: 36px;
+      list-style: none;
+    }
+
+    &-link {
+      color: white;
+      transition: 0.3s;
+
+      &:hover {
+        color: $blue;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    position: relative;
+    margin-bottom: 220px;
+
+    @media (max-width: 1440px) {
+      margin-bottom: 120px;
+    }
+
+    @media (max-width: $desktop) {
+      margin-bottom: 90px;
+    }
+
+    @media (max-width: $mobile) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+  }
+
+  &__info {
+    color: $white;
+
+    @media (max-width: 1024px) {
+      position: unset;
+      z-index: 1;
+    }
+  }
+
+  &__title {
+    font-size: 54px;
+    font-weight: $font-weight-black;
+    line-height: 70px;
+    text-align: left;
+    max-width: 550px;
+    max-height: 140px;
+
+    @media (max-width: $desktop) {
+      max-width: 480px;
+      font-size: 46px;
+      line-height: 60px;
+    }
+
+    @media (max-width: $tablet) {
+      max-width: 295px;
+      font-size: 26px;
+      line-height: 34px;
+    }
+
+    &--blue {
+      font-size: 54px;
+      font-weight: $font-weight-regular;
+      line-height: 70px;
+      color: $blue;
+
+      @media (max-width: $desktop) {
+        font-size: 46px;
+        line-height: 60px;
+      }
+
+      @media (max-width: $tablet) {
+        font-size: 26px;
+        line-height: 34px;
+      }
+    }
+  }
+
+  &__descriptions {
+    margin-left: 92px;
+
+    @media (max-width: $tablet) {
+      margin-left: 0;
+    }
+  }
+
+  &__subtitle {
+    max-width: 440px;
+    height: 87px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 30px;
+    text-align: left;
+    color: $light-gray;
+    margin-top: 35px;
+    margin-bottom: 30px;
+
+    @media (max-width: $desktop) {
+      font-size: 16px;
+      line-height: 24px;
+      max-width: 340px;
+      margin-top: 20px;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__price {
+    font-size: 20px;
+    font-weight: $font-weight-medium;
+    line-height: 24px;
+    margin-bottom: 45px;
+
+    @media (max-width: $tablet) {
+      margin-bottom: 33px;
+    }
+
+    @media (max-width: $mobile) {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+  }
+
+  &__image-holder {
+    position: absolute;
+    right: 0;
+
+    @media (max-width: $mobile) {
+      position: static;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    @media (max-width: 1440px) {
+      max-width: 950px;
+    }
+
+    @media (max-width: $desktop) {
+      max-width: 810px;
+      max-height: 690px;
+    }
+
+    @media (max-width: $tablet) {
+      max-width: 494px;
+      max-height: 348px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 400px;
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
+
+    @media (max-width: 1024px) {
+      gap: 250px;
+    }
+
+    &-block {
+      display: flex;
+      gap: 40px;
+    }
+
+    &-link {
+      font-size: 16px;
+      font-weight: $font-weight-medium;
+      line-height: 24px;
+      color: $white;
+      transition: 0.3s;
+
+      &:hover {
+        color: $blue;
+      }
+
+      &--blue {
+        color: $blue;
+        transition: 0.3s;
+
+        &::after {
+          display: block;
+          content: "";
+          width: 0;
+          height: 0;
+          border-left: 5px solid transparent;
+          border-right: 5px solid transparent;
+          border-top: 10px solid $blue;
+          margin-left: 40%;
+          transition: 0.3s;
+        }
+
+        &:hover {
+          color: $white;
+          &::after {
+            border-top: 10px solid $white;
+          }
+        }
+      }
+    }
+  }
+}
