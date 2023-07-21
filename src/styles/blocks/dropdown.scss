@@ -1,0 +1,131 @@
+.dropdown {
+  position: relative;
+  width: 90px;
+  // height: 48px;
+
+  &::after {
+    top: 19px;
+    right: 11px;
+    @extend .triangle;
+    transition: transform $duration-transition;
+  }
+
+  &__input-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__input-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    height: 100%;
+    padding: 21px 10px;
+    transform: translateY(-50%);
+    transition: transform $duration-transition;
+    background-color: $color-background-menu;
+    cursor: pointer;
+
+    .triangle {
+      pointer-events: none;
+      transition: transform $duration-transition;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 12px 0;
+    @include textTypohraphy(20, 1.3, 400);
+    color: $color-white;
+    text-align: center;
+    background-color: $color-background-menu;
+    border-radius: 4px;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  &__options {
+    position: absolute;
+    left: 0;
+    top: 51px;
+    width: 100%;
+    height: 110px;
+    transform: translateY(-51px);
+    padding: 8px 0;
+    opacity: 0;
+    visibility: hidden;
+    overflow-y: auto;
+    border-radius: 4px;
+    background-color: $color-background-menu;
+    transition: all $duration-transition;
+    z-index: 1;
+
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      height: 17px;
+      background-color: $color-blue;
+    }
+
+    &::-webkit-scrollbar-track-piece:end {
+      background-color: $color-background-scroll;
+      margin: 0 0 4px;
+    }
+
+    &::-webkit-scrollbar-track-piece:start {
+      background-color: $color-background-scroll;
+      margin: 4px 0 0;
+    }
+  }
+
+  &__option {
+    @include textTypohraphy(20, 1.3, 400);
+    color: $color-white;
+    transition: color $duration-transition;
+    word-break: break-word;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-blue;
+    }
+
+    &--center {
+      text-align: center;
+    }
+
+    &:not(:last-child) {
+      margin: 0 0 8px;
+    }
+  }
+
+  &.opened &__input-icon .triangle {
+    transform: rotate(-180deg);
+  }
+
+  &.opened &__options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+}
+
+.purchase {
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+
+  }
+}

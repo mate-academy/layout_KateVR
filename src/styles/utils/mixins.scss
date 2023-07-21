@@ -1,0 +1,48 @@
+@mixin hover($_property, $_toValue) {
+  transition: all $duration-transition;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin mediaTablet {
+  @media (min-width: $bp-tablet) {
+    @content;
+  }
+}
+
+@mixin mediaDesktop {
+  @media (min-width: $bp-desktop) {
+    @content;
+  }
+}
+
+@mixin mediaDesktopXL {
+  @media (min-width: $bp-xldesktop) {
+    @content;
+  }
+}
+
+@mixin mediaMobile {
+  @media (max-width: #{$bp-tablet - 1}) {
+    @content;
+  }
+}
+
+@mixin textTypohraphy($fontSize, $lineHeight : 1, $fontWeight : 400) {
+  font-size: $fontSize + px;
+  line-height: $lineHeight;
+  font-weight: $fontWeight;
+}
+
+@mixin textOverflowLines($maxLinesInBlock) {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  // display: -moz-box;
+  // -moz-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: $maxLinesInBlock;
+  -webkit-box-orient: vertical;
+  line-clamp: $maxLinesInBlock;
+  // box-orient: vertical;
+}

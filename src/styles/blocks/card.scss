@@ -1,0 +1,59 @@
+.card {
+  display: flex;
+  flex-direction: column;
+
+  &__image-container {
+    display: none;
+    position: relative;
+    padding: 0 0 83px;
+    margin: 0 0 30px;
+
+    @include mediaTablet {
+      display: block;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      object-fit: contain;
+
+      @include hover(transform, scale(1.2))
+    }
+  }
+
+  &__title {
+    flex-grow: 1;
+    @extend .headline-3;
+    color: $color-white;
+    text-align: left;
+    margin: 0 0 11px;
+
+    @include mediaTablet {
+      text-align: center;
+      margin: 0 0 20px;
+    }
+  }
+
+  &__text {
+    @extend .text-1;
+    color: $color-gray;
+
+    &--2-lines {
+      @include textOverflowLines(2);
+    }
+
+    &--3-lines {
+      @include textOverflowLines(3);
+    }
+
+    @include mediaTablet {
+      text-align: center;
+    }
+
+    @include mediaDesktop {
+      display: block;
+    }
+  }
+}
