@@ -1,0 +1,56 @@
+.help {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100vh;
+  background: #191536;
+  
+  transform: translate(100%);
+  
+  &:target {
+    transform: translate(0%);
+  }
+  
+  &__text {
+    color: $color--grey;
+  }
+  
+  &__paragraph {
+    margin-top: 50px;
+  }
+  
+  &__link {
+    text-decoration: none;
+    color: #545454;
+  
+    &:hover {
+      color: #929292;
+    }
+  }
+  
+  &__list {
+    list-style: none;
+    line-height: 45px;
+  
+    &--footer {
+      line-height: 30px;
+      font-size: 0.9em;
+    }
+  }
+  
+  &__item {
+    &-1 {
+      margin-top: 60px;
+    }
+  }
+  
+  &__container {
+    @include tablet() {
+      width: 60%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}

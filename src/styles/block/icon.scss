@@ -1,0 +1,34 @@
+.icon {
+  &--menu {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  
+    @include desktop() {
+      display: none;
+    }
+  
+    &:hover {
+      .icon--menu--line-2 {
+        margin-left: 10px;
+      }
+    }
+  
+    &--line {
+      display: block;
+      width: 20px;
+      height: 1px;
+      background-color: #fff;
+    }
+  }
+  
+  &--cross {
+    width: 17px;
+    height: 17px;
+    background-image: url(../images/icon/icon--cross.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    margin-top: 5px;
+  }
+}

@@ -1,0 +1,77 @@
+.contact {
+  background-color: #05040b;
+
+  &__title {
+    &-blue {
+      color: $color--blue;
+    }
+  }
+  
+  &__link {
+    margin-top: 10px;
+    display: none;
+  
+    @include tablet() {
+      display: block;
+    }
+  
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  
+  &__buttons {
+    width: 100%;
+    display: flex;
+    align-items: center;
+  
+    @include tablet() {
+      margin-left: -25px;
+    }
+  
+    @include desktop() {
+      margin-left: -120px;
+    }
+  }
+  
+  &__form {
+    display: flex;
+  }
+  
+  &--button {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 15px;
+    cursor: pointer;
+  
+    @include tablet() {
+      width: 300px;
+    }
+  }
+  
+  &__text {
+    color: $color--grey;
+    margin-top: 50px;
+    display: none;
+  
+    @include tablet() {
+      display: block;
+    }
+  
+    &--2 {
+      display: block;
+  
+      @include tablet() {
+        display: none;
+      }
+    }
+  }
+  
+  &__content {
+    @include tablet() {
+      display: flex;
+      gap: 30px;
+      justify-content: center;
+    }
+  }
+}

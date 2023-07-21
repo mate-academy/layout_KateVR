@@ -1,0 +1,49 @@
+.card {
+  margin-bottom: 35px;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+
+  &__title {
+    color: #fff;
+    font-weight: 900;
+    font-size: 16px;
+    margin-top: 50px;
+    text-align: left;
+  
+    @include tablet() {
+      margin-top: 20px;
+      text-align: center;
+    }
+  }
+  
+  &__img {
+    display: none;
+
+    @include tablet() {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+  
+  &__text {
+    color: $color--grey;
+    margin: 0 auto;
+    margin-top: 20px;
+    text-align: left;
+  
+    @include tablet() {
+      width: 300px;
+      text-align: center;
+    }
+  }
+  
+  &__wrapper {
+    @include desktop() {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+  }
+}

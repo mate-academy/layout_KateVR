@@ -1,0 +1,119 @@
+.button {
+  &--buy {
+    display: inline-block;
+    background-color: $color--blue;
+    width: 160px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    border: 1px solid transparent;
+  
+    text-decoration: none;
+    color: #fff;
+  
+    &:hover {
+      background-color: transparent;
+      color: $color--blue;
+      border: 1px solid $color--blue;
+    }
+  
+    &-2 {
+      width: 100%;
+      margin-top: 20px;
+      display: block;
+  
+      @include tablet() {
+        margin-top: 20px;
+        display: none;
+      }
+  
+      @media (min-width:770px) and (max-width:1280px) {
+        margin-top: 40px;
+      }
+    }
+  
+    &--order-desktop {
+      margin-top: 20px;
+    }
+  
+    &-order {
+      position: sticky;
+      bottom: 20px;
+      left: 0;
+      right: 0;
+  
+      @include tablet() {
+        position: static;
+      }
+    }
+  
+    &-benef {
+      width: 70%;
+      margin: 0 auto;
+      display: none;
+  
+      @include tablet() {
+        display: block;
+        margin-top: 30px;
+      }
+    }
+  }
+  
+  &--playVideo {
+    display: block;
+    width: 250px;
+    height: 100px;
+    background-image: url(../images/playVideo.svg);
+    @extend %icon;
+    margin-top: 15px;
+  
+    &:hover {
+      background-image: url(../images/playVideo-hover.svg);
+    }
+  
+    @media (min-width:770px) and  (max-width:1280px) {
+      margin-top: 45px;
+      width: 300px;
+      height: 150px;
+    }
+  
+    @include desktop() {
+      width: 300px;
+      height: 150px;
+      margin-top: 50px;
+    }
+  }
+  
+  &--more {
+    width: max-content;
+    color: $color--blue;
+    text-decoration: none;
+    height: 10px;
+    margin-top: 55px;
+  
+    &:hover {
+      color: #fff;
+    }
+  
+    &-faq {
+      display: none;
+      margin: 0 auto;
+      margin-top: 30px;
+  
+      @include tablet() {
+        display: block;
+      }
+    }
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  
+    &-arrow {
+      width: 10px;
+      text-align: center;
+      margin: 0 auto;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+.form {
+  &__field {
+    background-color: transparent;
+    color: #929292;
+    outline: none;
+    border: 1px solid transparent;
+    border-bottom: 1px solid #545454;
+    width: 100%;
+    padding-bottom: 15px;
+    margin-top: 40px;
+  
+    &--textarea {
+      height: 100px;
+  
+      font-family: "Inter", sans-serif;
+    }
+  
+    @include tablet() {
+      width: 500px;
+    }
+  
+    @include desktop() {
+      width: 300px;
+    }
+  
+    &--cardName {
+      margin-top: 60px;
+  
+      @include desktop() {
+        width: 100%;
+      }
+    }
+
+    &--lang {
+      background-color: transparent;
+      color: $color--blue;
+      border-color: transparent;
+      outline: none;
+      cursor: pointer;
+    }
+  
+    &--width {
+
+      @include tablet {
+        width: 400px;
+      }
+
+      @include desktop() {
+        width: 600px;
+      }
+    }
+  
+    &--select {
+      background-color: #211b48;
+      border: 0;
+      width: 100%;
+      height: 40px;
+      color: #fff;
+      padding: 5px;
+      margin-top: 10px;
+    
+      outline: none;
+    
+      &:focus {
+        border: 1px solid $color--blue;
+      }
+    }
+  
+    &::placeholder {
+      color: #929292;
+      transition: 300ms;
+    }
+  
+    &:hover::placeholder {
+      color: $color--blue;
+    }
+  
+    &:focus {
+      border-bottom: 1px solid $color--blue;
+    }
+  
+    &--card {
+      text-align: center;
+      font-size: 18px;
+      letter-spacing: 0.2em;
+      width: 70px;
+      margin: 0 auto;
+      margin-top: 20px;
+  
+      &::placeholder {
+        color: #212121;
+      }
+    
+      &-width {
+        width: 100px;
+      }
+    }
+  }
+  
+  &__title {
+    color: #929292;
+    font-size: 14px;
+  
+    margin-top: 30px;
+  }
+  
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &--lang {
+    background-color: transparent;
+    color: $color--blue;
+    border-color: transparent;
+    outline: none;
+  }
+}
