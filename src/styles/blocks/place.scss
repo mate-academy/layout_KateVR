@@ -1,0 +1,127 @@
+.place {
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    color: $colorGrey;
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      padding-top: 55px;
+      grid-gap: 20px;
+    }
+  }
+
+  &__subtitle {
+    text-align: center;
+
+    @include onDesktop {
+      text-align: left;
+    }
+  }
+
+  &__price {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    color: $colorBlue;
+
+    @include onDesktop {
+      margin-top: 10px;
+    }
+  }
+
+  &__customer-info {
+    padding: 0 20px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      padding: 0 34px;
+      grid-gap: 20px;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+      padding: 0;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    background: none;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid #2f2f2f;
+    color: #fff;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 130%;
+    letter-spacing: 0.2em;
+    padding-left: 5px;
+
+    &-date {
+      display: inline-block;
+      width: 75px;
+      margin-top: 18px;
+      background: none;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #2f2f2f;
+      color: #fff;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 130%;
+      letter-spacing: 0.2em;
+
+      @include onDesktop {
+        font-size: 20px;
+        line-height: 130%;
+        width: 82px;
+      }
+
+      &::placeholder {
+        color: #2f2f2f;
+      }
+    }
+
+    &-cvv {
+      display: inline-block;
+      width: 42px;
+      margin-top: 18px;
+      background: none;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #2f2f2f;
+      color: #fff;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 130%;
+      letter-spacing: 0.2em;
+
+      @include onDesktop {
+        font-size: 20px;
+        line-height: 130%;
+      }
+
+      &::placeholder {
+        color: #2f2f2f;
+      }
+    }
+  }
+
+  &__amount {
+    @include onDesktop {
+      grid-column: 3 / 4;
+    }
+  }
+
+  &__card-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    @include onDesktop {
+      margin-bottom: 50px;
+    }
+  }
+}

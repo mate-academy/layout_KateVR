@@ -1,0 +1,258 @@
+.tech {
+  background: #05040b;
+
+  &__title {
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: #fff;
+    margin-bottom: 32px;
+    padding-top: 50px;
+
+    @include onTablet {
+      padding-top: 80px;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+      text-align: right;
+      padding-top: 100px;
+      margin-bottom: 140px;
+    }
+  }
+
+  &__image {
+    width: 195px;
+    height: 195px;
+    position: relative;
+    background-image: url(../images/device.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin: auto;
+
+    @include onTablet {
+      width: 352px;
+      height: 352px;
+    }
+
+    @include onDesktop {
+      width: 294px;
+      height: 294px;
+    }
+  }
+
+  &__close {
+    margin: 0;
+    align-self: flex-start;
+    width: 15px;
+    height: 15px;
+  }
+
+  &__info {
+    max-width: 360px;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 40px;
+  }
+
+  &__main {
+    @extend %hover-scale;
+
+    @include onDesktop {
+      padding-bottom: 80px;
+    }
+  }
+
+  &__button {
+    text-decoration: none;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: #05c2df;
+    font-size: 20px;
+    color: #fff;
+    font-weight: 100;
+    transform: rotate(45deg);
+
+    &--sensor {
+      top: 0%;
+      left: 35%;
+    }
+
+    &--batterries {
+      left: 65%;
+    }
+
+    &--connection {
+      bottom: 0;
+      left: 5%;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--cross {
+    position: relative;
+    display: block;
+    height: 20px;
+    text-decoration: none;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    align-self: flex-start;
+    width: 20px;
+    background-image: url(../images/cross.svg);
+    margin: 0 0 0 auto;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__description {
+    display: none;
+    position: absolute;
+    top: -10%;
+    left: 0;
+    padding: 20px;
+    max-width: 270px;
+    background-color: rgba(25,21,54, 0.9);
+
+    &:target {
+      display: flex;
+    }
+
+    &-name {
+      font-style: normal;
+      font-weight: 900;
+      font-size: 15px;
+      line-height: 22px;
+      color: #fff;
+      margin-bottom: 10px;
+
+      @include onDesktop {
+        font-size: 18px;
+      }
+    }
+
+    &-text {
+      color: #929292;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+
+      @include onDesktop {
+        font-size: 16px;
+      }
+    }
+
+    @include onTablet {
+      width: 300px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      background-color: rgba(25,21,54,0);
+    }
+
+    &--batterries {
+      @include onTablet {
+        top: 30%;
+        left: 60%;
+      }
+
+      @include onDesktop {
+        top: -35%;
+        left: 104%;
+      }
+    }
+
+    &--sensor {
+      @include onTablet {
+        top: -10%;
+        left: -30%;
+      }
+
+      @include onDesktop {
+        top: -28%;
+        left: -95%;
+      }
+    }
+
+    &--connection {
+      @include onTablet {
+        top: 70%;
+        left: -55%;
+      }
+
+      @include onDesktop {
+        top: 57%;
+        left: -75%;
+      }
+    }
+  }
+
+  &__vectore {
+    display: none;
+    position: absolute;
+
+    &--1 {
+      @include onDesktop {
+        top: -20%;
+        right: 36%;
+        display: block;
+        background: url(../images/Vector.svg) no-repeat;
+        background-position: 50%;
+        width: 500px;
+        height: 80px;
+      }
+    }
+
+    &--2 {
+      @include onDesktop {
+        top: 20%;
+        left: -30%;
+        display: block;
+        background: url(../images/Vector-2.svg) no-repeat;
+        background-position: 50%;
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    &--3 {
+      @include onDesktop {
+        top: -25%;
+        left: 50%;
+        display: block;
+        background: url(../images/Vector-3.svg) no-repeat;
+        background-position: 50%;
+        width: 200px;
+        height: 250px;
+      }
+    }
+
+    &--4 {
+      @include onDesktop {
+        top: 4%;
+        left: -14%;
+        display: block;
+        background: url(../images/Ellipse-2.svg) no-repeat;
+        background-position: 50%;
+        width: 200px;
+        height: 250px;
+      }
+    }
+  }
+}
