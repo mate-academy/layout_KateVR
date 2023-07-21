@@ -1,0 +1,127 @@
+@import "../utils";
+
+
+.Footer {
+    display: flex;
+    justify-content: space-between;
+    background: $section-bg;
+    align-items: center;
+    padding: 43px 12%;
+    justify-content: space-between;
+
+
+    @include BigScreen {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    @include Desktop {
+        padding: 5% 4%;
+    }
+
+    @include Tablet {
+        padding: 2% 4%;
+        flex-direction: column;
+        row-gap: 40px;
+    }
+
+    @include Mobile {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 50px 6%;
+        row-gap: 15px;
+
+    }
+
+    &__link-con {
+        display: flex;
+        column-gap: 43px;
+
+        @include Mobile {
+            display: none;
+
+        }
+
+        &--mobile {
+            @include Mobile {
+                display: flex;
+                flex-direction: column;
+                row-gap: 15px;
+            }
+        }
+    }
+
+    &__links {
+        color: $primary-color;
+        font-family: $font-family;
+        font-size: 16px;
+        font-weight: 500;
+
+        &:hover {
+            color: $secondary-color;
+            transform: scale(1.1);
+        }
+    }
+
+    &__social-con {
+        display: flex;
+        column-gap: 28px;
+
+        @include Mobile {
+            display: none;
+        }
+
+        &--mobile {
+            @include Mobile {
+                display: flex;
+                column-gap: 28px;
+            }
+        }
+    }
+
+    &__social {
+        cursor: pointer;
+
+        &--1 {
+            &:hover {
+                transform: scale(1.1);
+                filter: invert(42%) sepia(90%) saturate(3575%) hue-rotate(189deg) brightness(103%) contrast(90%);
+            }
+        }
+
+        &--3 {
+            &:hover {
+                transform: scale(1.1);
+                filter: brightness(0) saturate(100%) invert(17%) sepia(85%) saturate(6090%) hue-rotate(341deg) brightness(89%) contrast(93%);
+            }
+        }
+
+        &--4 {
+            &:hover {
+                transform: scale(1.1);
+                filter: brightness(0) saturate(100%) invert(32%) sepia(87%) saturate(4089%) hue-rotate(7deg) brightness(107%) contrast(105%);
+            }
+        }
+    }
+
+
+    &__mobile {
+        display: none;
+
+        @include Mobile {
+            display: flex;
+           
+            width: 100%;
+            justify-content: space-between;
+        }
+    }
+
+    &__test{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        row-gap: 20px;
+    }
+
+
+}

@@ -1,0 +1,215 @@
+@import "../utils";
+
+.Get-in-touch {
+    display: flex;
+    background: $section-bg;
+    padding: 158px 12%;
+    justify-content: space-between;
+
+
+    @include BigScreen {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    @include Desktop {
+        padding: 9% 4%;
+    }
+
+    @include Tablet {
+        padding: 9% 4%;
+    }
+
+    @include Mobile {
+        flex-direction: column;
+        padding: 50px 6%;
+    }
+
+    &__block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__txt {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 14px;
+        margin-bottom: 13px;
+        color: $secondary-color;
+
+        &--white {
+            font-family: $font-family;
+            font-weight: 400;
+            font-size: 16px;
+            margin-top: 26px;
+            color: $text-color;
+
+            @include Mobile {
+                display: none;
+            }
+        }
+
+        &--white__mobile {
+            display: none;
+
+            @include Mobile {
+                display: flex;
+                margin-top: 27px;
+                font-family: $font-family;
+                font-weight: 400;
+                font-size: 12px;
+                color: $text-color;
+            }
+
+        }
+    }
+
+    &__title {
+        font-family: $font-family;
+        font-weight: 900;
+        font-size: 36px;
+        color: $primary-color;
+
+        &--blue {
+            font-weight: 400;
+            color: $secondary-color;
+        }
+
+        @include Tablet {
+            font-size: 21px;
+        }
+
+        @include Mobile {
+            font-size: 21px;
+            align-items: flex-start;
+        }
+    }
+
+    &__group-links {
+        display: flex;
+        flex-direction: column;
+        row-gap: 11px;
+        margin-top: 76px;
+
+        @include Mobile {
+            display: none;
+        }
+    }
+
+
+    &__link {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 16px;
+        color: $text-color;
+        width: fit-content;
+
+        &:hover {
+            transform: scale(1.1);
+            color: $secondary-color;
+        }
+    }
+
+    &__form {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        row-gap: 24px;
+
+        @include Mobile {
+            width: 100%;
+            margin-top: 32px;
+        }
+    }
+
+    &__inputs {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 14px;
+        color: $text-color;
+        outline: none;
+        background: transparent;
+        border: none;
+        padding-bottom: 19px;
+        border-bottom: 1px solid $text-color;
+
+        &:focus {
+            border-bottom: 1px solid $secondary-color;
+
+            &::placeholder {
+                color: $secondary-color;
+            }
+        }
+
+        // &:focus:required {
+        //     border-bottom: 1px solid red;
+
+        //     &::placeholder {
+        //         color: red;
+        //     }
+        // }
+
+
+        &:not(:placeholder-shown):not(:focus):invalid {
+            color: red;
+            border-bottom: 1px solid red;
+        }
+
+
+
+
+
+        &--message {
+            padding-bottom: 67px;
+            margin-bottom: 50px;
+        }
+    }
+
+    &__sub-con {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__submit {
+        border: none;
+        width: 30%;
+        align-self: center;
+        justify-content: center;
+        text-align: center;
+        cursor: pointer;
+        background: $secondary-color;
+        font-family: $font-family;
+        color: $primary-color;
+        font-size: 16px;
+        font-weight: 500;
+        padding-top: 13px;
+        padding-bottom: 13px;
+        border-radius: 4px;
+
+        @include Tablet {
+            width: 50%;
+        }
+
+        @include Mobile {
+            width: 100%;
+
+        }
+
+        &:hover {
+            background: $primary-color;
+            color: $secondary-color;
+            transform: scale(1.1);
+        }
+    }
+
+    &__arrow {
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        @include Mobile {
+            display: none;
+        }
+
+    }
+}

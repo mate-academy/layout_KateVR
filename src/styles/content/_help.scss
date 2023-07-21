@@ -1,0 +1,129 @@
+@import "../utils";
+
+
+.Help {
+    display: none;
+    background: $primary_color;
+    flex-direction: column;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    transform: translateX(100%);
+    height: 100%;
+    background: $bg-color;
+
+    @include Tablet {
+        display: flex;
+    }
+
+    @include Mobile {
+        display: flex;
+    }
+
+    &:target {
+        transform: translateX(0);
+    }
+
+    &__close-con {
+        display: flex;
+        justify-content: end;
+        padding-top: 34px;
+        padding-bottom: 46px;
+
+        @include Mobile {
+            padding-top: 20px;
+            padding-bottom: 37px;
+        }
+    }
+
+    &__close {
+        display: block;
+        cursor: pointer;
+        justify-self: end;
+        margin-right: 34px;
+        width: 17px;
+        height: 17px;
+
+
+
+        @include Mobile {
+            margin-right: 20px;
+        }
+    }
+
+    &__title-con {
+        display: flex;
+        justify-content: center;
+        margin-left: 20px;
+        margin-right: 20px;
+        margin-bottom: 30px;
+
+        @include Mobile {}
+    }
+
+    &__title {
+        font-family: $font-family;
+        font-size: 21px;
+        font-weight: 900;
+        color: $primary-color;
+    }
+
+    &__blue {
+        font-family: $font-family;
+        font-size: 21px;
+        font-weight: 400;
+        color: $secondary-color;
+    }
+
+    &__info-con {
+        display: flex;
+        flex-direction: column;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    &__txt-1 {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 16px;
+        color: $text-color;
+    }
+
+    &__blue-2 {
+        @extend .Help__blue;
+        font-size: 16px;
+    }
+
+    &__txt-2 {
+        font-family: $font-family;
+        margin-top: 5%;
+        font-weight: 400;
+        font-size: 16px;
+        color: $text-color;
+    }
+
+    &__links {
+        display: flex;
+        flex-direction: column;
+        margin-top: 8%;
+        row-gap: 20px;
+    }
+
+    &__social-con {
+        @extend .Help__links;
+    }
+
+    &__social{
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 16px;
+        color: $text-color;
+
+        &:hover{
+         
+            color: $secondary-color;
+        }
+    }
+}

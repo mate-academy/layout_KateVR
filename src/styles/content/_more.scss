@@ -1,0 +1,168 @@
+@import "../utils";
+
+.More-than {
+    display: flex;
+    flex-direction: column;
+    background: $section-bg;
+    padding: 158px 12%;
+
+
+    @include BigScreen {
+        padding-left: 20%;
+        padding-right: 20%;
+    }
+
+    @include Desktop {
+        padding: 9% 4%;
+    }
+
+    @include Tablet {
+        padding: 9% 4%;
+    }
+
+    @include Mobile {
+        padding: 50px 6%;
+
+    }
+
+
+    &__btn-mob {
+        display: none;
+        margin-bottom: 33px;
+
+        @include Mobile {
+            display: flex;
+            border: none;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            background: $secondary-color;
+            font-family: $font-family;
+            color: $primary-color;
+            font-size: 16px;
+            font-weight: 500;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            border-radius: 4px;
+
+            &:hover {
+                background: $primary-color;
+                color: $secondary-color;
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    &__title-con {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        @include Mobile{
+            align-items: flex-start;
+        }
+
+    }
+
+    &__title {
+        font-family: $font-family;
+        font-weight: 900;
+        font-size: 36px;
+        color: $primary-color;
+
+        &--blue {
+            font-weight: 400;
+            color: $secondary-color;
+        }
+
+        @include Tablet {
+            font-size: 21px;
+        }
+
+        @include Mobile {
+            font-size: 21px;
+            align-items: flex-start;
+        }
+    }
+
+    &__txt {
+        margin-top: 16px;
+        margin-bottom: 83px;
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 14px;
+        color: $secondary-color;
+
+        @include Tablet {
+            font-size: 12px;
+        }
+
+        @include Mobile {
+            font-size: 12px;
+        }
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 20px;
+
+        @include Tablet {
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 40px;
+        }
+
+        @include Mobile {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+        }
+    }
+
+    &__img {
+        margin-bottom: 44px;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        @include Mobile{
+            display: none;
+        }
+    }
+
+    &__blocks {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        &--title {
+            font-weight: 900;
+            font-size: 16px;
+            margin-bottom: 21px;
+            font-family: $font-family;
+            color: $primary-color;
+        }
+
+        &--description {
+            font-family: $font-family;
+            color: $text-color;
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+        &--4 {
+            justify-content: flex-start;
+        }
+
+        @include Mobile{
+            align-items: flex-start;
+            text-align: left;
+        }
+    }
+
+}

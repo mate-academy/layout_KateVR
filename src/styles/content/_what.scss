@@ -1,0 +1,142 @@
+@import "../utils";
+
+
+.What-kat{
+    display: flex;
+    flex-direction: column;
+    padding: 158px 12%;
+
+
+    @include BigScreen {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    @include Desktop {
+        padding: 9% 4%;
+    }
+
+    @include Tablet {
+        padding: 9% 4%;
+    }
+
+    @include Mobile {
+        padding: 50px 6%;
+
+    }
+
+    &__title {
+        display: flex;
+        justify-content: center;
+        font-family: $font-family;
+        font-weight: 900;
+        font-size: 36px;
+        color: $primary-color;
+        margin-bottom: 83px;
+
+        &--blue {
+            font-weight: 400;
+            color: $secondary-color;
+        }
+
+        @include Tablet {
+            font-size: 21px;
+        }
+
+        @include Mobile {
+            font-size: 21px;
+            justify-content: flex-start;
+        }
+    }
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 205px;
+
+        @include Desktop{
+            column-gap: 23px;
+        }
+
+        @include Tablet{
+            column-gap: 17px;
+        }
+
+        @include Mobile {
+            display: flex;
+            flex-direction: column;
+            row-gap: 20px;
+        }
+    }
+
+    &__img {
+        margin-bottom: 44px;
+        cursor: pointer;
+
+        &:hover {
+            transform: scale(1.1);
+        }
+
+        @include Mobile{
+            display: none;
+        }
+    }
+
+    &__blocks {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+
+        &--title {
+            font-weight: 900;
+            font-size: 16px;
+            margin-bottom: 21px;
+            font-family: $font-family;
+            color: $primary-color;
+        }
+
+        &--description {
+            font-family: $font-family;
+            color: $text-color;
+            font-weight: 400;
+            font-size: 16px;
+        }
+
+
+        @include Mobile{
+            align-items: flex-start;
+            text-align: left;
+        }
+    }
+
+    &__btn-desk {
+        display: none;
+        margin-top: 80px;
+
+        @include Desktop {
+            display: flex;
+            border: none;
+            width: 30%;
+            align-self: center;
+            justify-content: center;
+            text-align: center;
+            cursor: pointer;
+            background: $secondary-color;
+            font-family: $font-family;
+            color: $primary-color;
+            font-size: 16px;
+            font-weight: 500;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            border-radius: 4px;
+
+            &:hover {
+                background: $primary-color;
+                color: $secondary-color;
+                transform: scale(1.1);
+            }
+        }
+    }
+}

@@ -1,0 +1,327 @@
+@import "../utils";
+
+
+.About {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    margin: 164px 12%;
+
+
+    @include BigScreen {
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+
+    @include Desktop {
+        margin: 105px 4%;
+    }
+
+    @include Tablet {
+        margin: 70px 4%;
+    }
+
+    @include Mobile {
+        margin: 50px 6%;
+    }
+
+    &__title-mobile {
+        display: none;
+
+        @include Mobile {
+            display: flex;
+            font-family: $font-family;
+            font-weight: 900;
+            font-size: 21px;
+            margin-bottom: 20px;
+            column-gap: 2%;
+            color: $primary-color;
+
+            &--blue {
+                font-weight: 400;
+                color: $secondary-color;
+            }
+        }
+
+    }
+
+    &__container {
+        display: flex;
+        justify-content: flex-end;
+        margin-left: 10%;
+
+        @include Desktop {
+            margin-left: 0;
+        }
+
+        @include Mobile {
+            flex-direction: column;
+        }
+
+    }
+
+    &__pages {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 14px;
+        color: $secondary-color;
+
+        @include Tablet {
+            display: none;
+        }
+
+        @include Mobile {
+            display: none;
+        }
+    }
+
+    &__img-con {
+        display: flex;
+        margin-left: 23px;
+        flex-direction: column;
+
+        @include Tablet {
+            margin-left: 0;
+        }
+
+        @include Mobile {
+            margin-left: 0;
+        }
+    }
+
+    &__img {
+        display: block;
+        width: 100%;
+
+        @include Desktop {
+            display: none;
+        }
+
+        @include Tablet {
+            display: none;
+        }
+
+        @include Mobile {
+            display: none;
+        }
+
+        &--2 {
+            display: none;
+
+            @include Desktop {
+                display: block;
+            }
+
+            @include Tablet {
+                display: block;
+            }
+
+            @include Mobile {
+                display: block;
+            }
+        }
+    }
+
+    &__next {
+        display: flex;
+        position: relative;
+        margin-top: 12px;
+        width: fit-content;
+        column-gap: 103px;
+        padding-bottom: 2%;
+        border-bottom: 1px solid #212121;
+
+        &::after {
+            position: absolute;
+            content: "";
+            bottom: 0;
+            height: 15px;
+            width: 30%;
+            border-bottom: 3px solid $secondary-color;
+
+        }
+
+        @include Tablet {
+            display: none;
+        }
+
+
+        @include Mobile {
+            display: none;
+        }
+    }
+
+    &__n {
+        font-family: $font-family;
+        color: $primary-color;
+        font-weight: 500;
+        font-size: 16px;
+    }
+
+    &__dots {
+        display: none;
+
+        @include Tablet {
+            display: flex;
+            width: 20%;
+            margin-top: 14px;
+            align-self: center;
+        }
+
+        @include Mobile {
+            display: flex;
+            width: 20%;
+            margin-top: 14px;
+            align-self: center;
+        }
+
+    }
+
+
+    &__about-con {
+        display: flex;
+        flex-direction: column;
+        width: 50%;
+        align-items: center;
+
+        @include Mobile {
+            width: 100%;
+        }
+    }
+
+    &__title {
+        font-family: $font-family;
+        font-weight: 900;
+        font-size: 36px;
+        color: $primary-color;
+
+        &--blue {
+            font-weight: 400;
+            color: $secondary-color;
+        }
+
+        @include Tablet {
+            font-size: 21px;
+        }
+
+        @include Mobile {
+            display: none;
+        }
+    }
+
+    &__description {
+        display: flex;
+
+        margin-top: 30px;
+        align-self: flex-end;
+        width: 80%;
+        line-height: 2vw;
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 16px;
+        color: $text-color;
+
+        @include Tablet {
+            line-height: normal;
+        }
+
+        @include Mobile {
+            line-height: normal;
+            width: 100%;
+        }
+    }
+
+    &__play-con {
+        display: flex;
+        position: relative;
+        justify-content: center;
+        width: fit-content;
+
+        @include Mobile {
+            width: 100%;
+            justify-content: flex-start;
+        }
+    }
+
+    &__play {
+        display: flex;
+        margin-right: 20%;
+        margin-top: 50px;
+
+        @include Tablet {
+            margin-right: 0;
+        }
+    }
+
+    &__play-link {
+        position: absolute;
+        bottom: 20%;
+        left: 35%;
+        font-family: $font-family;
+        font-weight: 500;
+        font-size: 16px;
+        color: $primary-color;
+
+        &:hover {
+            cursor: pointer;
+            color: $secondary-color;
+        }
+
+        @include Mobile {
+            left: 30%;
+        }
+    }
+
+    &__ntmy {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 175px;
+
+        @include Mobile {
+            display: flex;
+            margin-top: 80px;
+        }
+    }
+
+    &__hello {
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 14px;
+        color: $secondary-color;
+        margin-bottom: 15px;
+    }
+
+    &__nice-description {
+        margin-top: 30px;
+        font-family: $font-family;
+        font-weight: 400;
+        font-size: 16px;
+        color: $text-color;
+    }
+
+    &__nice-img {
+        width: 100%;
+
+        @include Tablet {
+            display: none;
+        }
+
+        @include Mobile {
+            display: none;
+        }
+
+        &--tab {
+            display: none;
+
+            @include Tablet {
+                display: flex;
+                width: 100%;
+            }
+
+            @include Mobile {
+                display: none;
+            }
+        }
+    }
+}
