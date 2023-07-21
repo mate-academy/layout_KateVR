@@ -1,0 +1,116 @@
+.why {
+
+  @include onScreen {
+    padding-bottom: 175px;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    @include onDesktop {
+      margin-bottom: 84px;
+      text-align: center;
+    }
+  }
+
+  &__section {
+    display: block;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+
+    @include onScreen {
+      margin-bottom: 0;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__subtitle {
+    color: $color-white;
+    margin-bottom: 11px;
+
+    @include onTablet {
+      margin-bottom: 37px;
+      text-align: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 18px;
+    }
+
+    @include onScreen {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__paragraph {
+    display: none;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &--phone {
+      display: block;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      margin-bottom: 24px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    @include onScreen {
+      display: none;
+    }
+  }
+}

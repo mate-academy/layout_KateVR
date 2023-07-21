@@ -1,0 +1,240 @@
+.techspecs {
+  background-color: $color-backround-dark;
+
+  @include onTablet {
+    padding: 80px 0;
+  }
+
+  @include onDesktop {
+    padding: 100px 0;
+  }
+
+  @include onScreen {
+    padding: 160px 0;
+  }
+
+  &__title {
+    margin-bottom: 41px;
+
+    @include onTablet {
+      margin-bottom: 57px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+
+    @include onDesktop {
+      padding-top: 49px;
+    }
+  }
+
+  &__image {
+    height: 195px;
+    width: 197px;
+
+    @include onTablet {
+      height: 354px;
+      width: 358px;
+    }
+
+    @include onDesktop {
+      height: 294px;
+      width: 298px;
+    }
+  }
+
+  &__tooltip {
+    background-color: #191536;
+    padding: 17px 11px;
+    border-radius: 4px;
+    width: max-content;
+    max-width: 168px;
+    display: flex;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+
+    &--1 {
+      transform: translate(-70%, 35%);
+
+      @include onTablet {
+        transform: translate(-70%, 65%);
+      }
+    }
+
+    &--2 {
+      transform: translate(-40%, 45%);
+
+      @include onTablet {
+        transform: translate(-70%, 75%);
+      }
+    }
+
+    &--3 {
+      transform: translate(20%, -75%);
+
+      @include onTablet {
+        transform: translate(40%, -75%);
+      }
+    }
+
+    &--content {
+      color: $color-text-grey;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  &__icon {
+    background-image: url(../images/icons/plusbutton.svg);
+    position: absolute;
+    height: 34px;
+    width: 34px;
+    z-index: 0;
+
+    @include onTablet {
+      height: 62px;
+      width: 62px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:hover {
+      background-image: url(../images/icons/minusbutton.svg);
+    }
+
+    &:hover .techspecs__tooltip {
+      opacity: 1;
+      pointer-events: all;
+      z-index: 5;
+    }
+
+    &--1 {
+      left: 60px;
+      top: -11px;
+
+      @include onTablet {
+        top: -27px;
+        left: 65px;
+      }
+    }
+
+    &--2 {
+      top: 80px;
+      right: 29px;
+
+      @include onTablet {
+        top: 145px;
+        right: 48px;
+      }
+    }
+
+    &--3 {
+      bottom: 8px;
+      left: -17px;
+
+      @include onTablet {
+        left: -58px;
+        bottom: 19px;
+      }
+    }
+  }
+
+  &__section {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &--1 {
+      margin-bottom: 74px;
+    }
+  }
+
+  &__subtitle {
+    color: $color-white;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    margin-bottom: 21px;
+  }
+
+  &__paragraph {
+    color: $color-text-grey;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__line {
+    position: absolute;
+    display: none;
+
+    @extend %icon;
+
+    @include onDesktop {
+      display: flex;
+    }
+
+    &--1 {
+      background-image: url(../images/icons/techlinefirst.svg);
+      min-width: 403px;
+      width: 431px;
+      height: 72px;
+      top: -3px;
+      left: -270px;
+
+      @include onScreen {
+        top: 4px;
+      }
+    }
+
+    &--2 {
+      background-image: url(../images/icons/techlinesecond.svg);
+      height: 113px;
+      width: 240px;
+      top: 108px;
+      left: -190px;
+
+      @include onScreen {
+        background-image: url(../images/icons/techlinesecondscreen.svg);
+        left: -236px;
+        top: 112px;
+      }
+    }
+
+    &--3 {
+      background-image: url(../images/icons/techlinethird.svg);
+      height: 240px;
+      width: 185px;
+      top: 0;
+      right: -40px;
+
+      @include onScreen {
+        background-image: url(../images/icons/techlinethirdscreen.svg);
+        width: 283px;
+        top: 4px;
+        right: -130px;
+        height: 232px;
+      }
+    }
+
+    &--4 {
+      background-image: url(../images/icons/techEllipse.svg);
+      height: 200px;
+      width: 50px;
+      top: 78px;
+      left: -8px;
+      transform: rotate(6deg);
+    }
+  }
+}

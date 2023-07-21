@@ -1,0 +1,289 @@
+.header {
+  padding: 18px 0 0;
+  overflow: hidden;
+  position: relative;
+
+  @include onTablet {
+    padding: 30px 0 0;
+  }
+
+  @include onDesktop {
+    padding: 47px 0 0;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+
+    @include onTablet {
+      margin-bottom: 55px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 116px;
+    }
+
+    @include onScreen {
+      margin-bottom: 246px;
+    }
+  }
+
+  &__lang-menu {
+    display: flex;
+    flex-direction: row;
+    gap: 34px;
+  }
+
+  &__dropdown-button {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__desktop-menu {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      gap: 36px;
+      align-items: center;
+    }
+
+    &--bottom {
+      flex-direction: row;
+      align-items: start;
+      justify-content: space-between;
+      margin-bottom: 97px;
+
+      @include onScreen {
+        margin-bottom: 121px;
+      }
+    }
+  }
+
+  &__menu-link {
+
+    &--prev {
+      color: $color-text-grey;
+      display: block;
+      margin-right: 103px;
+
+      &::after {
+        content: "";
+        display: block;
+        border: 0.5px solid $color-text-blue;
+        height: fit-content;
+        margin-top: 10px;
+      }
+    }
+
+    &--next {
+      display: block;
+      width: 36px;
+
+      &::after {
+        content: "";
+        display: block;
+        border-bottom: 1px solid #212121;
+        width: 138px;
+        left: -103px;
+        position: relative;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  &__image-container {
+    width: 100%;
+    z-index: -1;
+
+    @include onTablet {
+      position: absolute;
+      right: 0;
+      top: 0;
+      min-width: 320px;
+      max-width: 60%;
+    }
+
+    @include onDesktop {
+      width: 810px;
+      left: 45%;
+    }
+
+    @include onScreen {
+      width: 1150px;
+      left: 45%;
+      top: 0;
+    }
+  }
+
+  &__image {
+    position: relative;
+    left: -20px;
+    width: 100vw;
+
+    @include onTablet {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__content {
+    margin-bottom: 23px;
+
+    @include onTablet {
+      margin-bottom: 61px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 84px;
+    }
+
+    @include onScreen {
+      margin-bottom: 213px;
+    }
+  }
+
+  &__title {
+    font-size: 26px;
+    line-height: 130%;
+    margin-bottom: 17px;
+
+    @include onDesktop {
+      font-size: 46px;
+      line-height: 130%;
+      position: relative;
+      left: -92px;
+      width: 480px;
+      margin-bottom: 19px;
+    }
+
+    @include onScreen {
+      font-size: 54px;
+      width: 552px;
+      margin-bottom: 35px;
+    }
+
+    &--blue {
+      display: block;
+      left: 0;
+    }
+  }
+
+  &__paragraph {
+    font-weight: 500;
+    margin-bottom: 8px;
+
+    @include onTablet {
+      width: 340px;
+      margin-bottom: 10px;
+    }
+
+    @include onDesktop {
+      width: 336px;
+      margin-bottom: 5px;
+    }
+
+    @include onScreen {
+      width: 432px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__price {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: $color-white;
+    text-align: center;
+    margin-bottom: 26px;
+
+    @include onTablet {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 20px;
+    }
+
+    @include onScreen {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__button {
+    display: flex;
+    width: 200px;
+
+    &--phone {
+      display: flex;
+      width: 100%;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__menu-block {
+    display: flex;
+    flex-direction: row;
+    gap: 39px;
+  }
+
+  &__more {
+    display: block;
+    border: none;
+    color: $color-text-blue;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s;
+
+    &::after {
+      content: "";
+      display: flex;
+      background-image: url(../images/icons/arrowdown.svg);
+
+      @extend %icon;
+
+      height: 6px;
+      width: 9px;
+      margin: 0 auto;
+      position: relative;
+      bottom: -7px;
+    }
+
+    &:hover {
+      color: $color-white;
+
+      &::after {
+        content: "";
+        display: flex;
+        background-image: url(../images/icons/arrowdownhover.svg);
+
+        @extend %icon;
+
+        height: 6px;
+        width: 9px;
+        margin: 0 auto;
+        position: relative;
+        bottom: -7px;
+      }
+    }
+  }
+
+  &__slider {
+    display: flex;
+    flex-direction: row;
+    width: fit-content;
+  }
+}

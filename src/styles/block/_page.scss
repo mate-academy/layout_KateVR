@@ -1,0 +1,209 @@
+.page {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  scroll-behavior: smooth;
+  background: linear-gradient(107.56deg,
+  $color-backround-start 0%,
+  $color-backround-end 100%);
+
+  &__body {
+    margin: 0;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__section {
+    padding: 50px 0;
+
+    @include onTablet {
+      padding: 70px 0;
+    }
+
+    @include onDesktop {
+      padding: 100px 0;
+    }
+
+    @include onScreen {
+      padding: 160px 0;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(+100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__purchase {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(+100%);
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    opacity: 0;
+    -webkit-transition: opacity 300ms ease-in;
+    -moz-transition: opacity 300ms ease-in;
+    transition: opacity 300ms ease-in;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: auto;
+      overflow-y: auto;
+    }
+
+    &--wrapper {
+      background-color: $color-backround-start;
+      padding: 20px 0;
+
+      @include onTablet {
+        padding: 34px 0;
+      }
+
+      @include onDesktop {
+        width: 880px;
+        padding: 18px 0 50px;
+        height: auto;
+        margin: 134px auto;
+      }
+
+      @include onScreen {
+        width: 1083px;
+        padding: 28px 0 50px;
+      }
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 21px;
+    line-height: 26px;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    &--blue {
+      color: $color-text-blue;
+      font-weight: 400;
+    }
+  }
+
+  &__paragraph {
+    font-size: 16px;
+    line-height: 150%;
+    color: $color-text-grey;
+
+    @include onScreen {
+      font-size: 20px;
+    }
+
+    &--blue {
+      color: $color-text-blue;
+
+      @include onTablet {
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+  }
+
+  &__menu-link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    text-decoration: none;
+    color: $color-white;
+  }
+
+  &__contact {
+    text-decoration: none;
+    color: $color-text-grey;
+  }
+
+  &__dropdown-button {
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: $color-text-blue;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 9px;
+      height: 6px;
+      background-image: url(../images/icons/arrowdown.svg);
+      background-repeat: no-repeat;
+      margin-left: 4px;
+      position: relative;
+    }
+  }
+
+  &__dropdown-content {
+    display: none;
+    position: absolute;
+    overflow: auto;
+    height: 111px;
+    width: 45px;
+    background-color: $color-backround-start;
+    z-index: 1;
+
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #014954;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-text-blue;
+    }
+  }
+
+  &__dropdown-content .page__dropdown-link {
+    padding: 12px 11px;
+    text-decoration: none;
+    display: block;
+    color: $color-white;
+  }
+
+  &__dropdown-content .page__dropdown-link:hover {
+    color: $color-text-blue;
+  }
+
+  &__dropdown:hover .page__dropdown-content {
+    display: block;
+  }
+}

@@ -1,0 +1,530 @@
+.buy {
+  overflow: hidden;
+
+  &__section {
+    padding: 20px 0 37px;
+    height: 100vh;
+    background: linear-gradient(107.56deg,
+    $color-backround-start 0%,
+    $color-backround-end 100%);
+
+    @include onTablet {
+      padding: 30px 0;
+    }
+
+    @include onDesktop {
+      padding: 65px 0 0;
+    }
+  }
+
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 33px;
+
+    @include onTablet {
+      margin-bottom: 34px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template: 1fr 1fr 1fr;
+    }
+  }
+
+  &__desktop-header {
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      align-items: start;
+      margin-bottom: 113px;
+    }
+
+    @include onScreen {
+      margin-bottom: 230px;
+    }
+
+    &--complete {
+      margin-bottom: 151px;
+
+      @include onScreen {
+        margin-bottom: 247px;
+      }
+    }
+  }
+
+  &__cross {
+    height: 15px;
+    width: 15px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 51px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      justify-items: left;
+      margin-bottom: 0;
+    }
+
+    &--complete {
+      margin-bottom: 107px;
+
+      @include onTablet {
+        margin-bottom: 191px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__section-name {
+    text-decoration: none;
+    color: #545454;
+    font-size: 12px;
+    line-height: 130%;
+    width: fit-content;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+
+    &::after {
+      content: "";
+      border-bottom: 1px solid #545454;
+      display: block;
+      padding-top: 16px;
+      width: 100vw;
+      position: absolute;
+      left: -20px;
+
+      @include onTablet {
+        left: -34px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--active {
+      color: $color-text-blue;
+
+      &::after {
+        content: "";
+        border-bottom: 1px solid $color-text-blue;
+        display: block;
+        padding-top: 16px;
+        height: 1px;
+        width: 35vw;
+        position: absolute;
+
+        @include onDesktop {
+          content: "";
+          background-color: $color-text-blue;
+          clip-path: circle(2px);
+          width: 145px;
+          height: 8px;
+          border: none;
+        }
+      }
+    }
+
+    &--pay {
+      text-align: center;
+
+      &::after {
+        position: relative;
+        left: 0;
+      }
+    }
+
+    &--complete {
+
+      &::after {
+        position: absolute;
+        left: auto;
+        right: -20px;
+
+        @include onTablet {
+          right: -34px;
+        }
+
+        @include onDesktop {
+          position: relative;
+          right: 40px;
+          left: auto;
+        }
+      }
+    }
+  }
+
+  &__image {
+    display: none;
+    height: 278px;
+    width: 100%;
+    object-fit: contain;
+    margin: 0 auto;
+
+    @include onTablet {
+      display: flex;
+    }
+
+    @include onDesktop {
+      padding-top: 30px;
+      width: 701px;
+      height: 279px;
+      position: relative;
+      left: -110px;
+      margin-bottom: 32px;
+    }
+
+    @include onScreen {
+      width: 961px;
+      height: 447px;
+      left: -235px;
+      margin-bottom: 0;
+      padding-top: 0;
+    }
+
+    &--pay {
+      @include onDesktop {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &__item-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 20px 30px;
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      grid-column-gap: 19px;
+      justify-items: start;
+      margin: 0 0 48px;
+    }
+
+    &--2 {
+      margin-bottom: 53px;
+
+      @include onTablet {
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-items: end;
+      }
+    }
+  }
+
+  &__item-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include onTablet {
+      align-items: start;
+    }
+  }
+
+  &__label {
+    display: flex;
+    color: $color-text-grey;
+    font-size: 16px;
+    line-height: 21px;
+    margin-bottom: 10px;
+
+    @include onDesktop {
+      margin-bottom: 20px;
+    }
+
+    &--form {
+      font-size: 14px;
+      line-height: 18px;
+      margin-bottom: 13px;
+
+      @include onScreen {
+        margin-bottom: 17px;
+      }
+    }
+
+    &--card {
+      color: $color-text-blue;
+    }
+  }
+
+  &__price {
+    color: $color-text-blue;
+    font-size: 26px;
+    line-height: 32px;
+
+    @include onTablet {
+      font-size: 36px;
+      line-height: 44px;
+    }
+  }
+
+  &__selector-container {
+    display: flex;
+    flex-direction: column;
+    width: 90px;
+    height: 41px;
+    border: none;
+    position: relative;
+
+    &--form {
+      width: 100%;
+      margin-bottom: 30px;
+
+      @include onDesktop {
+        margin-bottom: 0;
+      }
+    }
+
+    &:after {
+      content: "";
+      height: 6px;
+      width: 9px;
+      clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+      background-color: $color-text-blue;
+      box-sizing: border-box;
+      position: absolute;
+      justify-self: end;
+      top: 17px;
+      right: 11px;
+    }
+  }
+
+  &__selector {
+    appearance: none;
+    outline: none;
+    background-color: $color-backround-start;
+    color: $color-white;
+    padding: 10px 39px;
+    border: none;
+    font-family: inherit;
+    font-size: 20px;
+    width: 100%;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+    grid-template-areas: "select";
+    align-items: center;
+
+    &--form {
+      font-size: 16px;
+      text-align: left;
+      font-weight: 400;
+    }
+  }
+
+  &__quantity-option {
+    background-color: $color-backround-start;
+    border: 1px solid transparent;
+  }
+
+  &__form {
+    background-color: transparent;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+    gap: 30px;
+
+    @include onTablet {
+      gap: 40px;
+    }
+
+    @include onScreen {
+      gap: 50px;
+      padding-top: 45px;
+    }
+
+    &--pay {
+
+      @include onTablet {
+        width: 460px;
+        margin: 0 auto;
+      }
+
+      @include onDesktop {
+        width: 430px;
+        margin: 0;
+      }
+    }
+  }
+
+  &__card-wrapper {
+
+    @include onScreen {
+      margin-bottom: 30px;
+    }
+
+    &--info {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  &__form-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include onTablet {
+      gap: 40px;
+    }
+
+    &--shipping {
+
+      @include onTablet {
+        margin-bottom: 19px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 28px;
+      }
+
+      @include onScreen {
+        margin-bottom: 42px;
+      }
+    }
+
+    @include onTablet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-column-gap: 19px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+
+    @include onDesktop {
+      margin-bottom: 0;
+    }
+
+    &--date {
+      width: 90px;
+      padding-bottom: 7px;
+    }
+
+    &--code {
+      width: 40px;
+      padding-bottom: 7px;
+    }
+
+    &--card {
+      width: 54px;
+      padding-bottom: 9px;
+      text-align: center;
+    }
+  }
+
+  &__card-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    @include onTablet {
+      margin-bottom: 94px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 60px;
+    }
+
+    @include onScreen {
+      margin-bottom: 85px;
+    }
+  }
+
+  &__card-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__title {
+    font-size: 26px;
+    line-height: 34px;
+    text-align: center;
+    margin: 0 auto 16px;
+    width: 218px;
+
+    @include onTablet {
+      font-size: 46px;
+      line-height: 60px;
+      width: 90%;
+      margin-bottom: 20px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 36px;
+    }
+
+    @include onScreen {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__comment {
+    font-size: 16px;
+    line-height: 21px;
+    text-align: center;
+    color: $color-white;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      font-size: 18px;
+      line-height: 24px;
+      margin-bottom: 50px;
+    }
+
+    @include onScreen {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__button {
+    display: flex;
+
+    @include onTablet {
+      width: 458px;
+      margin: 0 auto 43px;
+    }
+
+    @include onDesktop {
+      width: 200px;
+      align-self: start;
+      margin: 0;
+    }
+
+    &--complete {
+
+      @include onDesktop {
+        margin: 0 auto;
+      }
+    }
+  }
+}

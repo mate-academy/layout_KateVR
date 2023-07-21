@@ -1,0 +1,234 @@
+.about-us {
+  overflow: hidden;
+
+  &__title {
+    margin-bottom: 20px;
+    height: min-content;
+
+    @include onTablet {
+      margin-bottom: 30px;
+    }
+
+    @include onScreen {
+      height: 72px;
+      margin-bottom: 32px;
+    }
+
+    &--second {
+      height: min-content;
+    }
+  }
+
+  &__swiper {
+    width: 100%;
+    height: min-content;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__wrapper {
+    height: min-content;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__slide {
+    height: 100%;
+    width: 100%;
+    margin-bottom: 14px;
+  }
+
+  &__pagination,
+  .swiper-pagination {
+    display: flex;
+    position: relative;
+    justify-content: center;
+    height: 4px;
+    width: 100%;
+    z-index: 10;
+
+    @include onDesktop {
+      display: none;
+      height: 16px;
+      width: 16px;
+      color: $color-text-blue;
+      font-size: 14px;
+    }
+
+    &-bullet,
+    .swiper-pagination-bullet {
+      height: 4px;
+      width: 4px;
+      z-index: 5;
+      display: flex;
+      background: #484848;
+
+      &-active {
+        --swiper-theme-color: #ababab;
+      }
+    }
+  }
+
+  &__prev,
+  .swiper-button-prev {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      border: 0.5px solid $color-text-blue;
+      height: fit-content;
+      margin-top: 10px;
+      width: 69px;
+    }
+  }
+
+  &__next,
+  .swiper-button-next {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: $color-white;
+    position: relative;
+    bottom: 22px;
+    left: 159px;
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      border-bottom: 1px solid #212121;
+      width: 124px;
+      left: -90px;
+      position: relative;
+      margin-top: 10px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: contain;
+
+  }
+
+  &__paragraph {
+    margin-bottom: 14px;
+
+    @include onScreen {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__place {
+    margin-bottom: 79px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: 107px;
+    }
+
+    @include onScreen {
+      margin-bottom: 220px;
+    }
+  }
+
+  &__greeting {
+    margin-bottom: 11px;
+
+    @include onScreen {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__outline-text {
+    display: none;
+    font-weight: 900;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 70px;
+    font-size: 48px;
+    line-height: 130%;
+    width: max-content;
+    height: min-content;
+    color: transparent;
+    -webkit-text-stroke: 1px $color-text-blue;
+
+    @include onTablet {
+      display: flex;
+    }
+
+    @include onDesktop {
+      font-size: 64px;
+      bottom: 100px;
+    }
+
+    @include onScreen {
+      bottom: 130px;
+    }
+
+    &--1 {
+      transform: rotate(90deg);
+      left: -90px;
+    }
+
+    &--2 {
+      opacity: 0.5;
+      transform: rotate(-90deg);
+      left: 15px;
+    }
+
+    &--3 {
+      opacity: 0.2;
+      transform: rotate(90deg);
+      left: 105px;
+    }
+
+    &--4 {
+      opacity: 0.1;
+      transform: rotate(-90deg);
+      left: 200px;
+    }
+
+    &--5 {
+      opacity: 0.05;
+      transform: rotate(90deg);
+      left: 300px;
+    }
+
+    &--6 {
+      opacity: 0.03;
+      transform: rotate(90deg);
+      left: 400px;
+    }
+
+    &--7 {
+      opacity: 0.02;
+      transform: rotate(90deg);
+      left: 500px;
+    }
+  }
+}

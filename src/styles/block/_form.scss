@@ -1,0 +1,161 @@
+.form {
+  background-color: $color-backround-dark;
+
+  @include onTablet {
+    padding-bottom: 130px;
+  }
+
+  @include onScreen {
+    padding-bottom: 205px;
+  }
+
+  &__paragraph {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    margin-bottom: 11px;
+
+    @include onTablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 13px;
+    }
+
+    &--comment {
+      color: $color-text-grey;
+      margin-bottom: 76px;
+    }
+
+    &--contact {
+      color: $color-text-grey;
+      width: fit-content;
+      border: 1px solid transparent;
+
+      &:hover {
+        border-bottom: 1px solid $color-text-grey;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 21px;
+    line-height: 25px;
+    margin-bottom: 32px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+      margin-bottom: 26px;
+    }
+  }
+
+  &__form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid $color-disabled-text;
+    padding: 0 0 19px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 21px;
+    outline: none;
+    color: $color-white;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $color-backround-start;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $color-disabled-text;
+      border-radius: 4px;
+    }
+
+    &:-webkit-autofill {
+      border-bottom: 1px solid $color-text-blue;
+      transition-delay: 3600s;
+    }
+
+    &:focus {
+      border-color: $color-text-blue;
+    }
+
+    &::placeholder {
+      color: $color-text-grey;
+    }
+
+    &--textarea {
+      height: 69px;
+      resize: none;
+      margin-bottom: 6px;
+
+      @include onTablet {
+        margin-bottom: 24px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 66px;
+      }
+
+      @include onScreen {
+        margin-bottom: 26px;
+      }
+    }
+  }
+
+  &__button {
+    margin-bottom: 27px;
+
+    @include onTablet {
+      width: 200px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__contacts {
+    display: none;
+    flex-direction: column;
+
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__scroll-up {
+    background-image: url(../images/icons/scroll-up.svg);
+
+    @extend %icon;
+
+    display: none;
+    height: 48px;
+    width: 48px;
+
+    @include onTablet {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    &:hover {
+      background-image: url(../images/icons/scroll-uphover.svg);
+    }
+  }
+}
