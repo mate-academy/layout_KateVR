@@ -1,5 +1,8 @@
-import fetch from 'node-fetch';
-import 'regenerator-runtime/runtime';
+'use strict';
+
+const fetch = require('node-fetch');
+
+require('regenerator-runtime/runtime');
 
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.querySelector('.body');
