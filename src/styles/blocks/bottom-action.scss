@@ -1,0 +1,78 @@
+[class*="bottom-action__"] {
+  text-decoration: none;
+  color: $white;
+}
+
+.bottom-action {
+
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 500;
+  line-height: 1.5;
+  padding: 1.25rem 0;
+
+  &__nav {
+
+    &-list {
+      display: flex;
+      align-items: center;
+      gap: 2.5rem;
+      list-style: none;
+
+    }
+
+    &-item {
+      padding: .75rem;
+    }
+
+  }
+
+  &__show-more {
+    display:flex;
+    flex-direction: column-reverse;
+    justify-content: baseline;
+    font-weight: 500;
+    line-height: 1.5;
+    color: #05c2df;
+    transition: color .3s ease;
+
+    &:hover {
+      color: $white;
+    }
+
+    &::before {
+      content: "";
+      background-image: url(../images/triangle-more.svg);
+      background-position: 50%;
+      background-repeat: no-repeat;
+
+      padding-top: 8px;
+      transition: height .3s ease 0s;
+      }
+    &:hover::before {
+      animation: bounce 1.5s ease-in-out infinite;
+    }
+  }
+}
+
+
+.navigation-slider {
+  display: flex;
+  color: $white;
+}
+
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(.8rem);
+    transform: scale(2);
+  }
+  60% {
+    transform: translateY(.5rem);
+
+  }
+}

@@ -1,0 +1,43 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+
+  &__list {
+    padding: 5px;
+    display: flex;
+    color: $white;
+    list-style: none;
+
+    &-item {
+      padding-inline: 20px;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 20%;
+        bottom: -.5rem;
+        display: block;
+        width: 60%;
+        height: .125rem;
+        background-color: $white;
+        transform-origin: left;
+
+        transition: transform .3s ease-in-out;
+        transform: scale(0);
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+    &-link {
+      color: $white;
+      transition: color .3s;
+
+      &:hover {
+        color: $contrast-color;
+      }
+    }
+  }
+}

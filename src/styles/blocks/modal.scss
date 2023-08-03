@@ -1,0 +1,103 @@
+/* The Modal  */
+.modal {
+
+  position: fixed;
+  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,.5);
+
+  transform: translateX(-100%);
+  transition: transform .3s ease-in;
+
+  &[style*="display: block"] {
+    transform: translateX(0);
+  }
+  &__title {
+    text-align: left;
+
+    &--margin {
+      margin-right: 18.5rem;
+
+      @include onMobile {
+        margin-right: 0;
+        align-self: flex-start;
+      }
+    }
+  }
+
+  &__span {
+    color: $contrast-color;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $modal-background;
+    margin: 10% auto;
+    padding-block: 2.3rem;
+    width: 80%;
+    padding-inline: 5rem;
+
+    position: relative;
+
+    @include onTablet {
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    @include onMobile {
+      height: 100%;
+      overflow-y: auto;
+      padding-inline: 1.3rem;
+    }
+  }
+
+
+
+  &__close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1rem;
+    padding: 1rem;
+    transition: transform .5s ease-in-out,
+    filter .1s ease;
+
+    filter: invert(100%);
+
+    &--order--position {
+      position: unset;
+      padding: 0;
+    }
+    &:hover {
+      filter: invert(74%) sepia(24%) saturate(6845%) hue-rotate(142deg) brightness(91%) contrast(96%);
+      cursor: pointer;
+      transform-origin: center;
+      transform: rotateX(180deg);
+    }
+  }
+
+  &__back {
+    position: absolute;
+    top: 5%;
+    left: 7%;
+
+    transition: transform .5s ease-in-out;
+    &:hover {
+      filter: invert(74%) sepia(24%) saturate(6845%) hue-rotate(142deg) brightness(91%) contrast(96%);
+      cursor: pointer;
+      transform-origin: center;
+      transform: rotateX(180deg);
+    }
+  }
+
+  @include onMobile {
+    z-index: 8;
+    height: 100%;
+  }
+}

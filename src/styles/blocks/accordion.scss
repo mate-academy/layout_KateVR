@@ -1,0 +1,68 @@
+.accordion{
+  max-width: 56rem;
+  width: 100%;
+  padding-block: 1.25rem;
+
+  &__icon--right {
+      background-image: url(../images/triangle-more.svg);
+      background-repeat: no-repeat;
+      transform: rotate(-90deg);
+      display: block;
+      width: 0.5625rem;
+      height: 0.375rem;
+
+  }
+
+    &__icon--down {
+      background-image: url(../images/triangle-more.svg);
+      background-repeat: no-repeat;
+      display: none;
+      width: 0.5625rem;
+      height: 0.375rem;
+
+  }
+
+  &__content {
+    margin: .7rem 0;
+    border-radius: .25rem;
+    background: transparent;
+    border: 0.125rem solid $contrast-color;
+    overflow: hidden;
+
+    &.open{
+      padding-bottom: .625rem;
+    }
+  }
+
+  &__header {
+    display: flex;
+    min-height: 3.125rem;
+    padding: 0 1rem;
+    cursor: pointer;
+    align-items: center;
+    justify-content: space-between;
+    transition: all 0.2s linear;
+  }
+
+  &__title {
+    color: $contrast-color;
+  }
+
+  &__description {
+    height: 0;
+    color: $text-color;
+    padding: 0 1rem ;
+    margin-bottom: 0;
+    transition: all 0.2s linear;
+  }
+
+  &__info {
+    display: block;
+    height: 0;
+    color: $text-color;
+    padding: 0 1rem;
+    transition: all 0.2s linear;
+    font-size: 0.875rem;
+    color: #545454;
+  }
+}

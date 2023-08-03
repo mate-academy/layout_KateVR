@@ -1,0 +1,95 @@
+.contacts {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+
+
+  @include onMobile {
+    flex-direction: column-reverse;
+  }
+  &__span--mobile,
+  &__title--mobile {
+    display: none;
+
+    @include onMobile {
+      display: inline-block;
+      align-self: start;
+      margin-left: 2.5rem;
+      padding-block: 0;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+
+    & > *:not(.contacts__left-paragraph) {
+      @include onMobile {
+        display: none;
+      }
+    }
+    &-title {
+      padding-block: .81rem  1.63rem;
+    }
+
+    &-paragraph {
+      color: $text-color;
+    }
+
+    &-list {
+    padding-block:4.75rem;
+    list-style: none;
+    }
+
+    &-item {
+      padding-block: .256rem;
+    }
+    &-link {
+
+      color: $text-color;
+    }
+  }
+
+  &__button {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: .0625rem solid $contrast-color;
+    display: none;
+
+    position: fixed;
+    top: 70%;
+    right: 10%;
+
+    cursor: pointer;
+
+    transition: background-color .3s ease;
+    &::before {
+      content: '';
+      display: inline-block;
+      margin-top: .5rem;
+      width: .81rem;
+      height: .81rem;
+      border-top: 0.1rem solid $contrast-color;
+      border-right: 0.1rem solid $contrast-color;
+      transform: rotate(315deg);
+
+      transition: border-top .3s ease, border-right .3s ease;
+    }
+
+    &:hover {
+      background-color: $contrast-color;
+
+    }
+    &:hover::before {
+      border-top: 0.1rem solid $white;
+      border-right: 0.1rem solid $white;
+    }
+  }
+
+}
+
+
+

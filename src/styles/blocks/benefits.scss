@@ -1,0 +1,34 @@
+.benefit {
+  display: flex;
+  align-content: space-between;
+  gap: 5.25rem;
+  flex-direction: column;
+  // height: 100vh;
+  @include onMobile {
+    gap: 2rem;
+  }
+
+  &-title {
+    text-align: center;
+
+    @include onMobile {
+      text-align: left;
+    }
+  }
+
+  &__articles {
+    display: flex;
+
+    @include onMobile {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__button {
+    margin: 0 auto;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+}

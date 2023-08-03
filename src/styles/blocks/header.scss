@@ -1,0 +1,228 @@
+.header {
+  background: $background-gradient;
+  height: 100vh;
+
+  @include onTablet {
+    height: auto;
+  }
+  @include onMobile {
+    height: unset;
+  }
+  &__content {
+    max-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__dropdown {
+    @include onTablet {
+      display: none
+    }
+
+  }
+  &__title {
+    white-space: nowrap
+  }
+  &__top {
+    @include pageGrid;
+
+    &-left {
+      grid-column: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    &-right {
+      display: flex;
+      grid-column: 10/-1;
+      justify-self: center;
+      align-items: center;
+
+      @include onDesktop {
+        grid-column: 6/-1;
+      }
+
+      @include onLargeTablet {
+        grid-column: 4/-1;
+      }
+
+      @include onTablet {
+        grid-column: 6/-1;
+      }
+    }
+
+  }
+  &__logo {
+    transition: transform .3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__nav-link {
+    color: $white;
+    transition: color .3s;
+
+    &:hover {
+      color: $contrast-color;
+    }
+
+    @include onTablet {
+      display: none;
+     }
+  }
+
+  &__button {
+
+     &--tablet {
+      @include onLargeDesktop {
+        display: none;
+      }
+    }
+    @include onTablet {
+      display: none;
+     }
+  }
+
+  &__menu--icon {
+    display: block;
+    height: 20px;
+    width: 20px;
+    background-image: url(../images/menu.svg);
+    background-size: cover;
+    opacity: 0;
+    transition: transform .3s ease;
+    @include onTablet {
+      opacity: 1;
+    }
+
+    &:hover {
+      transform: scale(1.1)
+    }
+  }
+
+  &__center {
+    @include pageGrid;
+    height: 70vh;
+
+
+    @include onTablet {
+      margin-top: 3.4rem;
+      place-content: center;
+      height: auto;
+    }
+
+    @include onMobile {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-top: 1rem;
+      height: 100%;
+    }
+    &-image {
+      position: relative;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: .225rem;
+        height: .125rem;
+        background-color: $contrast-secondary-color;
+      }
+    }
+    &-left {
+      grid-column: span 7;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: flex-start;
+
+      @include onDesktop {
+        grid-column: span 6;
+      }
+
+      @include onTablet {
+        grid-column: span 3;
+
+        gap: .6rem;
+      }
+
+      & > *:not(:first-child) {
+        margin-left: 2rem;
+
+        @include onTablet {
+          margin: 0;
+        }
+      }
+
+    }
+
+
+    &-right {
+      grid-column: 8/-1;
+
+      @include onDesktop {
+        grid-column: 7/-1;
+      }
+      @include onLargeTablet {
+        align-self: center;
+      }
+      @include onTablet {
+        grid-column: 4/-1;
+      }
+
+      @include onMobile {
+        align-self: auto;
+        height: 10.75rem;
+      }
+
+      & > img {
+        width: 50.66875rem;
+        height: 43rem;
+        background-position: center;
+        object-fit: contain;
+      }
+
+    }
+  }
+
+  &__bottom {
+
+    @include onTablet {
+      display: none;
+    }
+  }
+   &__title {
+    text-align: left;
+    color: $white;
+
+    &--span {
+      color: $contrast-color;
+
+      @include onTablet {
+        font-weight: 400;
+      }
+    }
+   }
+
+   &__paragraph {
+    color: $text-color;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    text-align: left;
+
+    & + span {
+      color: $white;
+
+      @include onMobile {
+        align-self: center;
+      }
+    }
+   }
+
+}

@@ -1,0 +1,60 @@
+.main {
+  overflow: hidden;
+
+  &__section {
+    &:nth-child(2n+2) {
+      background:$background-gradient ;
+    }
+
+    &:nth-child(n+1) {
+      background-color: $background-black;
+    }
+
+    &-title {
+      text-transform: uppercase;
+    }
+
+    &-span {
+      color: $contrast-color;
+
+      &--custom--gaming{
+        background-image: url(../images/custom-text/gaming.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 10.02481rem;
+        height: 1.59075rem;
+        display: inline-block;
+
+        @include onTablet {
+          width: 7.02481rem;
+          height: 1.1rem;
+          display: inline-block;
+          background-size: cover;
+        }
+      }
+
+      &--custom--why{
+        background-image: url(../images/custom-text/why.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 15rem;
+        height: 1.59075rem;
+        display: inline-block;
+
+        @include onTablet {
+          width: 9rem;
+          height: 1.01rem;
+          display: inline-block;
+          background-size: contain;
+        }
+      }
+    }
+
+
+    &-paragraph {
+      line-height: 150%;
+    }
+  }
+
+}
+

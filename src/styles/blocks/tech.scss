@@ -1,0 +1,461 @@
+.tech {
+  position: relative;
+  height: 100vh;
+
+  display: grid;
+  grid-template-columns: 20rem 27rem 27rem 20rem;
+  grid-template-rows: repeat(4,25%);
+  place-content: center;
+
+  @include onMediumDesktop {
+    grid-template-columns: 15rem 22rem 22rem 15rem;
+  }
+
+  @include onDesktop {
+    grid-template-columns: 10rem 14rem 14rem 10rem;
+  }
+
+  @include onLargeTablet {
+    grid-template-columns: repeat(4, minmax(10rem, 1fr));
+    height: 100%;
+  }
+
+  @include onTablet {
+    grid-template-columns: repeat(4, minmax(5rem, 1fr));
+  }
+
+  @include onMobile {
+    grid-template-columns: 50% 50%;
+  }
+  &__image {
+    display: block;
+    max-width: 30rem;
+    width: 100%;
+    height: 18.3755rem;
+    object-fit: contain;
+    margin: 0 auto;
+
+    grid-row: 2/4;
+    grid-column: 2/4;
+    place-self: center;
+
+    @include onMobile {
+      grid-row: 2/4;
+      grid-column: 1/4;
+
+      width: 50%;
+    }
+    &:hover {
+      animation: spin 5s linear infinite;
+    }
+
+    &:hover ~ .tech__vector--pos--1,
+    &:hover ~ .tech__vector--pos--2,
+    &:hover ~ .tech__vector--pos--3{
+      &::before,
+      &::after {
+        animation: pulse 1.5s ease-in-out infinite;
+      }
+    }
+  }
+  &__content {
+    position: unset;
+
+    &--1 {
+      grid-column: 1/3;
+      grid-row: 2;
+      align-self: start;
+      justify-self: center;
+      margin-top: -2rem;
+      margin-right: 5rem;
+
+      @include onMediumDesktop {
+        justify-self: start;
+        margin-left: 5rem;
+      }
+
+      @include onDesktop {
+        margin-left: -2rem;
+      }
+
+      @include onLargeTablet {
+        margin: 0; // Needed to turn off previous margins
+        grid-column: 2/4;
+        grid-row: 1/3;
+        justify-self: center;
+        align-self: center;
+      }
+
+      @media (max-width:500px) {
+        margin-top: 3.5rem;
+      }
+
+      @include onMobile {
+        grid-column: 1/4;
+        grid-row: 1/3;
+        justify-self: center;
+        margin-top: 0;
+      }
+    }
+    &--2 {
+      grid-column: 3/5;
+      grid-row: 2;
+      align-self: start;
+      justify-self: end;
+      margin-top: -1.7rem;
+      margin-right: 4rem;
+
+      @include onMediumDesktop {
+        margin-right: -3rem;
+      }
+
+      @include onDesktop {
+        margin-right: -8rem;
+        margin-top: 0.5rem;
+      }
+
+      @include onLargeTablet {
+        margin: 0;
+        grid-row: 2/4;
+        grid-column: 3;
+        justify-self: center;
+        align-self: center;
+        margin-left: 4rem;
+      }
+
+      @include onMobile {
+        grid-column: 2;
+        margin-left: 0;
+      }
+    }
+    &--3 {
+      grid-column: 2;
+      grid-row: 3;
+      align-self: end;
+      margin-bottom: -2.2rem;
+      margin-left: 1rem;
+
+      @include onMediumDesktop {
+        margin-bottom: -3.1rem;
+        margin-left: -2rem;
+      }
+
+      @include onDesktop {
+        margin-left: -8rem;
+        margin-bottom: -2.5rem;
+      }
+
+      @include onLargeTablet {
+        margin: 0;
+        grid-column: 2;
+        grid-row: 2/4;
+        justify-self: center;
+        align-self: end;
+      }
+
+      @media (max-width:500px) {
+        margin-bottom: 3rem;
+      }
+
+      @include onMobile {
+        grid-column: 1;
+        grid-row: 3;
+        align-self: end;
+        margin-bottom: 0;
+        margin-left: 4rem;
+      }
+    }
+
+  }
+  &__card {
+    z-index: 3;
+    @include onLargeTablet {
+      position: absolute;
+      transform: scale(.9);
+    }
+
+    @include onTablet {
+      transform: scale(.8);
+    }
+
+    @include onMobile {
+      &--pos--2 {
+        left: 5rem;
+      }
+    }
+    &-title {
+      padding-block: 1.31rem;
+
+      @include onLargeTablet {
+        visibility: hidden;
+        display: none;
+
+      }
+    }
+
+    &-paragraph {
+      color: $text-color;
+    }
+
+
+    @include onLargeTablet {
+      opacity: 0;
+      visibility: hidden;
+      border-radius: .25rem;
+      background-color: $modal-background;
+      padding-inline: 1rem;
+      padding-block: .6rem;
+      max-width: calc(100vw - .75rem);
+    }
+  }
+
+  &__vector {
+    position: relative;
+    z-index: 3;
+
+    &--pos--1 {
+      background-image: url(../images/vectors/vector.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      display: block;
+      width: 27rem;
+      height: 4.3125rem;
+
+      grid-column: 2;
+      grid-row: 1/3;
+      align-self: center;
+      margin: 4.3rem 0 0 0.1rem;
+
+      @include onMediumDesktop {
+        margin: 4.3rem 0 0 -4.7rem;
+      }
+
+      @include onDesktop {
+        margin: 3.3rem 0 0 -10.2rem;
+        transform: scale(.8);
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 0.5rem;
+        width: 0.5rem;
+        border-radius: 50%;
+        background-color: $contrast-color;
+        top: -5%;
+      }
+
+    }
+
+    &--pos--2 {
+      background-image: url(../images/vectors/vector-2.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      display: block;
+      width: 17.56rem;
+      height: 15.03125rem;
+
+      grid-row: 2;
+      grid-column: 3;
+      justify-self: center;
+
+      @include onDesktop {
+        margin-left: -2rem;
+        transform: scale(0.7);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 0.5rem;
+        width: 0.5rem;
+        border-radius: 50%;
+        background-color: $contrast-color;
+        top: 97.5%;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 0.5rem;
+        width: 0.5rem;
+        border-radius: 50%;
+        background-color: $contrast-color;
+        top: 0;
+        left: 98%;
+      }
+    }
+
+    &--pos--3 {
+      background-image: url(../images/vectors/vector-3.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      display: block;
+      width: 7rem;
+      height: 15.03125rem;
+      transform: rotate(180deg);
+
+      grid-column: 2;
+      grid-row: 3;
+      justify-self: center;
+      align-self: center;
+
+      @include onMediumDesktop {
+       margin-left: -4rem;
+      }
+
+      @include onDesktop {
+        margin-left: -10rem;
+        transform: scale(.8);
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 0.5rem;
+        width: 0.5rem;
+        border-radius: 50%;
+        background-color: $contrast-color;
+        top: 26%;
+        left: 100%;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        height: 0.5rem;
+        width: 0.5rem;
+        border-radius: 50%;
+        background-color: $contrast-color;
+        top: 10.6rem;
+        left: -.3rem;
+      }
+    }
+
+    &--pos--img {
+      background-image: url(../images/vectors/ellipse.svg);
+      background-position: center;
+      background-repeat: no-repeat;
+      display: block;
+      width: 7rem;
+      transform: rotate(358deg);
+
+
+      grid-row: 2/4;
+      grid-column: 2/3;
+      justify-self: center;
+      margin-left: 10rem;
+
+      @include onMediumDesktop {
+        margin-left: 5rem;
+      }
+
+      @include onDesktop {
+        margin-left: -2rem;
+      }
+
+    }
+
+    @include onLargeTablet {
+      visibility: hidden;
+      display: none;
+    }
+  }
+
+  &__title {
+    grid-column: 4;
+
+    @include onDesktop {
+      white-space: nowrap;
+    }
+    @include onLargeTablet {
+      grid-column: 1;
+    }
+    @include onMobile {
+      grid-row: 1;
+    }
+  }
+
+  &__plus.active + &__card {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__plus {
+    display: none;
+    visibility: hidden;
+
+    @include onLargeTablet {
+      visibility:visible;
+      display: flex;
+
+    }
+  }
+}
+// Animation SPIN
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+
+.plus {
+  position: relative;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  background-color: $contrast-color;
+  transition: all .3s;
+
+  @media (max-width:500px) {
+    width: 1.875rem;
+    height: 1.875rem;
+  }
+  &__line {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    background-color: $white;
+    transition: all .3s;
+    pointer-events: none;
+    &--hor {
+      height: 1px;
+      width: 35%;
+    }
+
+    &--ver {
+      height: 35%;
+      width: 1px;
+    }
+  }
+
+  &.active {
+    background-color: #07798b;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+
+    .plus__line--ver {
+      height: 0;
+
+    }
+
+
+  }
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1.3);
+}
+
+100% {
+    transform: scale(0.7);
+}
+}

@@ -1,0 +1,29 @@
+.container {
+  max-width: 1920px;
+
+  @include onLargeDesktop() {
+    margin-inline: auto;
+    padding-inline: 220px;
+    padding-block: 60px ;
+  }
+
+  @include onDesktop() {
+    margin-inline: auto;
+    padding-inline: 110px;
+    padding-block: 60px ;
+  }
+
+  @include onTablet() {
+    padding-inline: 30px;
+    padding-block: 70px;
+    margin: 0;
+
+    &--header--tablet {
+      padding-block:30px;
+    }
+  }
+
+  @media (min-width:$mobile-min-width) and (max-width:$mobile-max-width) {
+    padding: 1.25rem;
+  }
+}
