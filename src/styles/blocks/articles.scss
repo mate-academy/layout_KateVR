@@ -5,8 +5,7 @@
   justify-items: center;
   padding: 1.2rem;
   overflow: hidden;
-  transition: transform .3s ease;
-
+  transition: transform 0.3s ease;
 
   cursor: pointer;
 
@@ -14,14 +13,6 @@
     align-items: unset;
     justify-items: unset;
     padding: 0;
- 
-  }
-  &:hover {
-    transform: scale(1.1);
-
-    .article__paragraph {
-      color: $white;
-    }
   }
 
   &__img {
@@ -42,7 +33,7 @@
     color: $text-color;
     line-height: 150%;
 
-    transition:  color .3s ease-in-out;
+    transition: color 0.3s ease-in-out;
 
     @include onMobile {
       text-align: left;
@@ -55,4 +46,11 @@
     }
   }
 
+  &:hover {
+    transform: scale(1.1);
+
+    .article__paragraph {
+      color: $white;
+    }
+  }
 }

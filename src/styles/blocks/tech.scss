@@ -27,37 +27,6 @@
   @include onMobile {
     grid-template-columns: 50% 50%;
   }
-  &__image {
-    display: block;
-    max-width: 30rem;
-    width: 100%;
-    height: 18.3755rem;
-    object-fit: contain;
-    margin: 0 auto;
-
-    grid-row: 2/4;
-    grid-column: 2/4;
-    place-self: center;
-
-    @include onMobile {
-      grid-row: 2/4;
-      grid-column: 1/4;
-
-      width: 50%;
-    }
-    &:hover {
-      animation: spin 5s linear infinite;
-    }
-
-    &:hover ~ .tech__vector--pos--1,
-    &:hover ~ .tech__vector--pos--2,
-    &:hover ~ .tech__vector--pos--3{
-      &::before,
-      &::after {
-        animation: pulse 1.5s ease-in-out infinite;
-      }
-    }
-  }
   &__content {
     position: unset;
 
@@ -171,11 +140,11 @@
     z-index: 3;
     @include onLargeTablet {
       position: absolute;
-      transform: scale(.9);
+      transform: scale(0.9);
     }
 
     @include onTablet {
-      transform: scale(.8);
+      transform: scale(0.8);
     }
 
     @include onMobile {
@@ -197,15 +166,14 @@
       color: $text-color;
     }
 
-
     @include onLargeTablet {
       opacity: 0;
       visibility: hidden;
-      border-radius: .25rem;
+      border-radius: 0.25rem;
       background-color: $modal-background;
       padding-inline: 1rem;
-      padding-block: .6rem;
-      max-width: calc(100vw - .75rem);
+      padding-block: 0.6rem;
+      max-width: calc(100vw - 0.75rem);
     }
   }
 
@@ -219,7 +187,7 @@
       background-repeat: no-repeat;
       display: block;
       width: 27rem;
-      height: 4.3125rem;
+      height: 4.3rem;
 
       grid-column: 2;
       grid-row: 1/3;
@@ -232,11 +200,11 @@
 
       @include onDesktop {
         margin: 3.3rem 0 0 -10.2rem;
-        transform: scale(.8);
+        transform: scale(0.8);
       }
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         height: 0.5rem;
@@ -254,7 +222,7 @@
       background-repeat: no-repeat;
       display: block;
       width: 17.56rem;
-      height: 15.03125rem;
+      height: 15.03rem;
 
       grid-row: 2;
       grid-column: 3;
@@ -265,7 +233,7 @@
         transform: scale(0.7);
       }
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         height: 0.5rem;
@@ -276,7 +244,7 @@
       }
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         height: 0.5rem;
@@ -294,7 +262,7 @@
       background-repeat: no-repeat;
       display: block;
       width: 7rem;
-      height: 15.03125rem;
+      height: 15.03rem;
       transform: rotate(180deg);
 
       grid-column: 2;
@@ -303,15 +271,15 @@
       align-self: center;
 
       @include onMediumDesktop {
-       margin-left: -4rem;
+        margin-left: -4rem;
       }
 
       @include onDesktop {
         margin-left: -10rem;
-        transform: scale(.8);
+        transform: scale(0.8);
       }
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         height: 0.5rem;
@@ -323,7 +291,7 @@
       }
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         display: block;
         height: 0.5rem;
@@ -331,7 +299,7 @@
         border-radius: 50%;
         background-color: $contrast-color;
         top: 10.6rem;
-        left: -.3rem;
+        left: -0.3rem;
       }
     }
 
@@ -342,7 +310,6 @@
       display: block;
       width: 7rem;
       transform: rotate(358deg);
-
 
       grid-row: 2/4;
       grid-column: 2/3;
@@ -362,6 +329,38 @@
     @include onLargeTablet {
       visibility: hidden;
       display: none;
+    }
+  }
+
+  &__image {
+    display: block;
+    max-width: 30rem;
+    width: 100%;
+    height: 18.38rem;
+    object-fit: contain;
+    margin: 0 auto;
+
+    grid-row: 2/4;
+    grid-column: 2/4;
+    place-self: center;
+
+    @include onMobile {
+      grid-row: 2/4;
+      grid-column: 1/4;
+
+      width: 50%;
+    }
+    &:hover {
+      animation: spin 5s linear infinite;
+    }
+
+    &:hover ~ .tech__vector--pos--1,
+    &:hover ~ .tech__vector--pos--2,
+    &:hover ~ .tech__vector--pos--3 {
+      &::before,
+      &::after {
+        animation: pulse 1.5s ease-in-out infinite;
+      }
     }
   }
 
@@ -389,7 +388,7 @@
     visibility: hidden;
 
     @include onLargeTablet {
-      visibility:visible;
+      visibility: visible;
       display: flex;
 
     }
@@ -397,11 +396,14 @@
 }
 // Animation SPIN
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
 }
-
-
 
 .plus {
   position: relative;
@@ -410,12 +412,13 @@
   border-radius: 50%;
   border: 2px solid transparent;
   background-color: $contrast-color;
-  transition: all .3s;
+  transition: all 0.3s;
 
   @media (max-width:500px) {
-    width: 1.875rem;
-    height: 1.875rem;
+    width: 1.87rem;
+    height: 1.87rem;
   }
+
   &__line {
     position: absolute;
     top: 50%;
@@ -423,7 +426,7 @@
     transform: translate(-50%, -50%);
     display: block;
     background-color: $white;
-    transition: all .3s;
+    transition: all 0.3s;
     pointer-events: none;
     &--hor {
       height: 1px;
@@ -442,20 +445,16 @@
 
     .plus__line--ver {
       height: 0;
-
     }
-
-
   }
 }
-
 
 @keyframes pulse {
   0% {
     transform: scale(1.3);
-}
+  }
 
-100% {
+  100% {
     transform: scale(0.7);
-}
+  }
 }

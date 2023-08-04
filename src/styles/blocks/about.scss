@@ -95,10 +95,10 @@
       font-weight: 900;
       line-height: 130%;
       color: transparent;
-      -webkit-text-stroke: 0.1rem #05C2DF;
+      -webkit-text-stroke: 0.1rem $contrast-color;
       transform: rotate(90deg);
 
-      transition: opacity .3s ease;
+      transition: opacity 0.3s ease;
 
       &:nth-child(2n) {
         transform: rotate(270deg);
@@ -117,12 +117,12 @@
         opacity: 1;
       }
 
-
       @include onLargeTablet {
         &:nth-child(n + 5) {
           display: none;
         }
       }
+
       @include onTablet {
         &:nth-child(n + 4) {
           display: none;
@@ -145,7 +145,6 @@
   }
 }
 
-
 // SLIDER
 
 .slider-pagination__fraction {
@@ -166,12 +165,12 @@
   width: 35vw;
   grid-column: 2;
 
-  max-height: 18.125rem;
+  max-height: 18.13rem;
 
   @include onMobile {
     order: 2;
     width: 17.5rem;
-    height: 11.8125rem;
+    height: 11.81rem;
   }
 }
 
@@ -191,13 +190,14 @@
 
 }
 
-.about-progressbar.swiper-pagination-horizontal{
+.about-progressbar.swiper-pagination-horizontal {
   height: 1px;
   width: 200px;
   top: 100%;
 
   overflow: hidden;
 }
+
 .about-progressbar.swiper-pagination-horizontal span {
   background-color: $contrast-color;
 }
@@ -216,7 +216,7 @@
   }
 }
 
-.about-swiper ~.swiper-about-bullets{
+.about-swiper ~ .swiper-about-bullets {
   display: none;
   justify-content: center;
   order: 3;
@@ -230,6 +230,7 @@
     align-self: center;
   }
 }
+
 .swiper-pagination-bullet {
   background-color: $white;
 
@@ -238,5 +239,3 @@
     width: 0.25rem;
   }
 }
-
-

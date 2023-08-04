@@ -3,11 +3,10 @@
   justify-content: space-around;
   align-items: center;
 
-
-
   @include onMobile {
     flex-direction: column-reverse;
   }
+
   &__span--mobile,
   &__title--mobile {
     display: none;
@@ -29,8 +28,9 @@
         display: none;
       }
     }
+
     &-title {
-      padding-block: .81rem  1.63rem;
+      padding-block: 0.81rem  1.63rem;
     }
 
     &-paragraph {
@@ -38,16 +38,27 @@
     }
 
     &-list {
-    padding-block:4.75rem;
-    list-style: none;
+      padding-block: 4.75rem;
+      list-style: none;
     }
 
     &-item {
-      padding-block: .256rem;
+      padding-block: 0.26rem;
     }
     &-link {
-
+      position: relative;
       color: $text-color;
+      overflow: hidden;
+      background: linear-gradient(to right, $contrast-color 0%, $contrast-color 50%,$text-color 50%, $text-color 50%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 100%;
+      background-position: 100%;
+      transition: background-position 500ms ease;
+      &:hover {
+        background-position: 0 100%;
+      }
     }
   }
 
@@ -56,7 +67,7 @@
     width: 3rem;
     border-radius: 50%;
     background-color: transparent;
-    border: .0625rem solid $contrast-color;
+    border: 0.06rem solid $contrast-color;
     display: none;
 
     position: fixed;
@@ -65,18 +76,18 @@
 
     cursor: pointer;
 
-    transition: background-color .3s ease;
+    transition: background-color 0.3s ease;
     &::before {
-      content: '';
+      content: "";
       display: inline-block;
-      margin-top: .5rem;
-      width: .81rem;
-      height: .81rem;
+      margin-top: 0.5rem;
+      width: 0.81rem;
+      height: 0.81rem;
       border-top: 0.1rem solid $contrast-color;
       border-right: 0.1rem solid $contrast-color;
       transform: rotate(315deg);
 
-      transition: border-top .3s ease, border-right .3s ease;
+      transition: border-top 0.3s ease, border-right 0.3s ease;
     }
 
     &:hover {
@@ -90,6 +101,3 @@
   }
 
 }
-
-
-

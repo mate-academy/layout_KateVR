@@ -18,13 +18,11 @@
 
   &__dropdown {
     @include onTablet {
-      display: none
+      display: none;
     }
 
   }
-  &__title {
-    white-space: nowrap
-  }
+
   &__top {
     @include pageGrid;
 
@@ -57,7 +55,7 @@
 
   }
   &__logo {
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
 
     &:hover {
       transform: scale(1.1);
@@ -66,7 +64,7 @@
 
   &__nav-link {
     color: $white;
-    transition: color .3s;
+    transition: color 0.3s;
 
     &:hover {
       color: $contrast-color;
@@ -74,19 +72,19 @@
 
     @include onTablet {
       display: none;
-     }
+    }
   }
 
   &__button {
 
-     &--tablet {
+    &--tablet {
       @include onLargeDesktop {
         display: none;
       }
     }
     @include onTablet {
       display: none;
-     }
+    }
   }
 
   &__menu--icon {
@@ -96,20 +94,19 @@
     background-image: url(../images/menu.svg);
     background-size: cover;
     opacity: 0;
-    transition: transform .3s ease;
+    transition: transform 0.3s ease;
     @include onTablet {
       opacity: 1;
     }
 
     &:hover {
-      transform: scale(1.1)
+      transform: scale(1.1);
     }
   }
 
   &__center {
     @include pageGrid;
     height: 70vh;
-
 
     @include onTablet {
       margin-top: 3.4rem;
@@ -126,11 +123,11 @@
     &-image {
       position: relative;
       &::before {
-        content: '';
+        content: "";
         display: block;
         position: absolute;
-        width: .225rem;
-        height: .125rem;
+        width: 0.23rem;
+        height: 0.13rem;
         background-color: $contrast-secondary-color;
       }
     }
@@ -148,7 +145,7 @@
       @include onTablet {
         grid-column: span 3;
 
-        gap: .6rem;
+        gap: 0.6rem;
       }
 
       & > *:not(:first-child) {
@@ -160,7 +157,6 @@
       }
 
     }
-
 
     &-right {
       grid-column: 8/-1;
@@ -181,7 +177,7 @@
       }
 
       & > img {
-        width: 50.66875rem;
+        width: 50.67rem;
         height: 43rem;
         background-position: center;
         object-fit: contain;
@@ -196,9 +192,10 @@
       display: none;
     }
   }
-   &__title {
+  &__title {
     text-align: left;
     color: $white;
+    white-space: nowrap;
 
     &--span {
       color: $contrast-color;
@@ -207,9 +204,9 @@
         font-weight: 400;
       }
     }
-   }
+  }
 
-   &__paragraph {
+  &__paragraph {
     color: $text-color;
     font-size: 16px;
     font-weight: 500;
@@ -223,6 +220,6 @@
         align-self: center;
       }
     }
-   }
+  }
 
 }

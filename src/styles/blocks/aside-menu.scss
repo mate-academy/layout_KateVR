@@ -11,19 +11,19 @@
   }
   &__item {
     list-style: none;
-    padding-block: .5rem;
+    padding-block: 0.5rem;
     padding-inline: 3rem;
-    transition: background-color .2s ease-in-out;
+    transition: background-color 0.2s ease-in-out;
     color: white;
 
     &:hover {
-      background-color: #110E25;
+      background-color: #110e25;
       color: $contrast-color;
     }
   }
 
-
 }
+
 .aside__menu {
 
   position: fixed;
@@ -33,12 +33,12 @@
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,.5);
+  background-color: rgba(0,0,0,0.5);
 
   opacity: 0;
   pointer-events: none;
   transform: translateY(-100%);
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 
   &:target {
     opacity: 1;
@@ -56,7 +56,7 @@
     text-decoration: none;
     color: $white;
 
-    transition: color .2s ease-in;
+    transition: color 0.2s ease-in;
     &:hover {
       color: $contrast-color;
     }
@@ -75,17 +75,15 @@
   left: 0;
   top: 0;
   width: 100%;
-  height: 100%;
   overflow: auto;
-  background-color: rgba(0,0,0,.5);
+  background: $modal-background;
 
   opacity: 0;
   pointer-events: none;
   transform: translateX(-100%);
-  transition: transform .3s ease;
+  transition: transform 0.3s ease;
 
   height: 75vw;
-  background: $modal-background;
 
   &:target {
     opacity: 1;
@@ -106,11 +104,12 @@
   }
 
   &__item {
-    padding-block: .8rem;
+    padding-block: 0.8rem;
 
     cursor: pointer;
   }
 }
+
 .arrow {
   display: inline-block;
   border: solid $white;
@@ -121,4 +120,3 @@
     transform: rotate(135deg);
   }
 }
-
