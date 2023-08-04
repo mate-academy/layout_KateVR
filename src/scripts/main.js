@@ -268,11 +268,13 @@ const videoIframe = document.querySelector('iframe');
 playerBtn.forEach(btn => {
   btn.addEventListener('click', () => {
     videoModal.classList.add('showed');
+    document.body.classList.add('no-scroll');
   });
 });
 
 videoIconCross.addEventListener('click', () => {
   videoModal.classList.remove('showed');
+  document.body.classList.remove('no-scroll');
 
   // stops the video when user close the iframe
   const iframeSrc = videoIframe.src;
