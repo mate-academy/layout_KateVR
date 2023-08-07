@@ -1,0 +1,80 @@
+.footer {
+  padding-top: 50px;
+  padding-bottom: 100px;
+
+  @include onTablet {
+    padding-bottom: 150px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 50px;
+  }
+
+  &__logo {
+    margin-bottom: 16px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / 2;
+  }
+
+  &__list {
+    grid-column: 2 / 3;
+  }
+
+  &__socials {
+    grid-column: 2 / 3;
+
+    display: flex;
+    align-items: center;
+    column-gap: 18px;
+  }
+
+  &__social-link {
+    display: block;
+    width: 16px;
+    height: 14px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: background-image $duration;
+    will-change: background-image;
+
+    &--facebook {
+      background-image: url(../images/icons/facebook.svg);
+
+      &:hover {
+        background-image: url(../images/icons/facebook-turquoise.svg);
+      }
+    }
+
+    &--twitter {
+      background-image: url(../images/icons/twitter.svg);
+
+      &:hover {
+        background-image: url(../images/icons/twitter-turquoise.svg);
+      }
+    }
+
+    &--youtube {
+      background-image: url(../images/icons/youtube.svg);
+
+      &:hover {
+        background-image: url(../images/icons/youtube-turquoise.svg);
+      }
+    }
+
+    &--reddit {
+      background-image: url(../images/icons/reddit.svg);
+
+      &:hover {
+        background-image: url(../images/icons/reddit-turquoise.svg);
+      }
+    }
+  }
+}

@@ -1,0 +1,62 @@
+.benefits {
+  @include sectionPadding;
+
+  background: linear-gradient(146.86deg, #191536 0%, #000 100%);
+
+  &__title {
+    margin-bottom: 32px;
+
+    @include onDesktop {
+      text-align: center;
+      margin-bottom: 86px;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      margin-bottom: 24px;
+      justify-self: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 32px;
+    }
+
+    @include benefitsSectionElementsGridPosition($gridRowStart: 1);
+  }
+
+  &__subtitle {
+    margin-bottom: 12px;
+
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+
+    @include onTablet {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    @include benefitsSectionElementsGridPosition($gridRowStart: 2);
+  }
+
+  &__text {
+    margin-bottom: 20px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+
+      text-align: center;
+    }
+
+    @include benefitsSectionElementsGridPosition($gridRowStart: 3);
+  }
+}

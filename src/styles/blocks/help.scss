@@ -1,0 +1,51 @@
+.help {
+  @include faqStyles;
+
+  @include onDesktop {
+    height: auto;
+    max-height: none;
+  }
+
+  &__text {
+    margin-bottom: 30px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $turquoise;
+    cursor: pointer;
+
+    transition: color $duration;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &--contact {
+      color: $gray;
+    }
+  }
+
+  &__list-wrapper {
+    @include onTablet {
+      display: flex;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    flex-basis: 50%;
+
+    list-style-type: none;
+
+    &:not(:last-child) {
+      margin-bottom: 30px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

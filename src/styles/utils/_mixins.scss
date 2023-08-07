@@ -1,6 +1,203 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin headerPaddingTop {
+  padding-top: 20px;
+
+  @include onTablet {
+    padding-top: 30px;
+  }
+
+  @include onDesktop {
+    padding-top: 50px;
+  }
+}
+
+@mixin faqStyles {
+  @include headerPaddingTop;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100vh;
+  padding-bottom: 20px;
+  overflow-y: auto;
+
+  background-color: $darkBlue;
+  visibility: hidden;
+
+  @include onTablet {
+    padding-bottom: 30px;
+  }
+
+  @include onDesktop {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    max-width: 880px;
+    max-height: 860px;
+    padding-bottom: 50px;
+  }
+
+  scrollbar-width: thin;
+  scrollbar-color: $turquoise transparent;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $turquoise;
+    border-radius: 10px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include onDesktop {
+      margin-bottom: 50px;
+    }
+  }
+
+  &--open {
+    z-index: 2;
+    visibility: visible;
+  }
+}
+
+@mixin scrollBar {
+  scrollbar-width: thin;
+  scrollbar-color: $turquoise $turquoiseGreen;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: $turquoiseGreen;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $turquoise;
+    border-radius: 10px;
+  }
+}
+
+@mixin sectionPadding {
+  padding: 50px 0;
+
+  @include onTablet {
+    padding: 70px 0;
+  }
+
+  @include onDesktop {
+    padding: 100px 0;
+  }
+}
+
+@mixin navLinkStyles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-decoration: none;
+  font-weight: 500;
+  line-height: 130%;
+  text-transform: capitalize;
+  color: #fff;
+
+  cursor: pointer;
+
+  &::after {
+    display: block;
+    content: "";
+    width: 0;
+    height: 1px;
+
+    background-color: $turquoise;
+
+    transition: width $duration;
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+@mixin elementsGridPosition($gridRowStart) {
+  @for $index from 0 through 1 {
+    &:nth-of-type(#{$index * 2 + 1}) {
+      @include onTablet {
+        grid-column: 1 / 4;
+        grid-row: #{$gridRowStart + 3 * $index} /
+          #{$gridRowStart + 1 + 3 * $index};
+      }
+
+      @include onDesktop {
+        grid-column: #{1 + 6 * $index} / #{4 + 6 * $index};
+        grid-row: #{$gridRowStart} / #{$gridRowStart + 1};
+      }
+    }
+
+    &:nth-of-type(#{$index * 2 + 2}) {
+      @include onTablet {
+        grid-column: 4 / 7;
+        grid-row: #{$gridRowStart + 3 * $index} /
+          #{$gridRowStart + 1 + 3 * $index};
+      }
+
+      @include onDesktop {
+        grid-column: #{4 + 6 * $index} / #{7 + 6 * $index};
+        grid-row: #{$gridRowStart} / #{$gridRowStart + 1};
+      }
+    }
+  }
+}
+
+@mixin benefitsSectionElementsGridPosition($gridRowStart) {
+  @for $index from 0 through 2 {
+    &:nth-of-type(#{$index + 1}) {
+      @include onTablet {
+        grid-column: #{1 + 2 * $index} / #{3 + 2 * $index};
+        grid-row: #{$gridRowStart} / #{$gridRowStart + 1};
+      }
+
+      @include onDesktop {
+        grid-column: #{1 + 4 * $index} / #{5 + 4 * $index};
+      }
+    }
   }
 }

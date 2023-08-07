@@ -1,0 +1,329 @@
+.header {
+  @include headerPaddingTop;
+
+  position: relative;
+
+  padding-bottom: 50px;
+
+  background: linear-gradient(107.56deg, $darkBlue 0%, #000 100%);
+
+  @include onTablet {
+    padding-bottom: 60px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 90px;
+  }
+
+  &__top {
+    margin-bottom: 14px;
+
+    @include onTablet {
+      position: relative;
+      z-index: 1;
+
+      margin-bottom: 54px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 100px;
+    }
+  }
+
+  &__top-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo-wrapper {
+    display: flex;
+    column-gap: 36px;
+  }
+
+  &__languages-wrapper {
+    display: none;
+
+    @include onDesktop {
+      position: relative;
+
+      display: block;
+
+      font-weight: 500;
+      line-height: 130%;
+      color: $turquoise;
+
+      cursor: pointer;
+    }
+  }
+
+  &__languages-opener {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 40px;
+
+    transition: color $duration;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 9px;
+      height: 6px;
+
+      background-image: url(../images/icons/languages-arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+
+      transition: background-image $duration, transform $duration;
+      will-change: background-image, transform;
+    }
+
+    &:hover {
+      color: #fff;
+
+      &::after {
+        background-image: url(../images/icons/languages-arrow-white.svg);
+      }
+    }
+
+    &--opened-list::after {
+      transform: rotateZ(-180deg);
+    }
+  }
+
+  &__languages-list {
+    @include scrollBar;
+
+    position: absolute;
+    top: 110%;
+    left: 0;
+
+    width: 100%;
+    height: 0;
+    overflow-y: scroll;
+
+    list-style-type: none;
+
+    transition: height $duration;
+
+    &--open {
+      height: 62px;
+    }
+  }
+
+  &__language {
+    transition: color $duration;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__menu-opener {
+    width: 20px;
+    height: 10px;
+
+    background-image: url(../images/icons/burger.svg);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+    transition: background-image $duration;
+    will-change: background-image;
+
+    @include onTablet {
+      width: 30px;
+      height: 14px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:hover {
+      background-image: url(../images/icons/burger-turquoise.svg);
+    }
+  }
+
+  &__nav-wrapper {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+
+    @include onTablet {
+      padding: 32px 0;
+
+      background: linear-gradient(
+        180deg,
+        rgba(0, 0, 0, 0.21) 0%,
+        rgba(4, 4, 4, 0.59) 23.44%,
+        #050505 100%
+      );
+    }
+
+    @include onDesktop {
+      position: static;
+
+      justify-content: initial;
+      align-items: center;
+      column-gap: 36px;
+      padding: 0;
+
+      background: none;
+    }
+  }
+
+  &__link {
+    @include navLinkStyles;
+
+    &--faq {
+      text-transform: uppercase;
+    }
+  }
+
+  &__play-video {
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__slider {
+    position: relative;
+
+    padding-top: 53.75%;
+
+    overflow: hidden;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      grid-row: 1 / 5;
+
+      padding-top: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__slides {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    display: flex;
+    width: 200%;
+
+    transition: transform $duration;
+    will-change: transform;
+  }
+
+  &__image-wrapper {
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../images/header-image.png);
+    background-repeat: no-repeat;
+    background-position: 65% center;
+    background-size: 145%;
+
+    &--second {
+      background-image: url(../images/header-image-2.png);
+      background-size: 105%;
+      background-position: center;
+    }
+  }
+
+  &__main-content {
+    position: relative;
+    z-index: 1;
+
+    @include onDesktop {
+      margin-bottom: 84px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 18px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__text {
+    margin-bottom: 10px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__price {
+    margin-bottom: 20px;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #fff;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include onDesktop {
+      position: relative;
+      z-index: 1;
+
+      display: block;
+    }
+  }
+
+  &__faq-wrapper {
+    display: flex;
+    column-gap: 40px;
+    grid-column: 1 / 6;
+  }
+
+  &__more {
+    grid-column: 6 / 8;
+    justify-self: center;
+  }
+
+  &__slider-buttons {
+    grid-column: 8 / -1;
+    justify-self: end;
+  }
+}

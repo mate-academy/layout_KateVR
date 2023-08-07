@@ -1,0 +1,29 @@
+.page {
+  font-family: "Inter", sans-serif;
+  line-height: 150%;
+  color: $gray;
+
+  background-color: #05040b;
+
+  scroll-behavior: smooth;
+
+  &__body {
+    position: relative;
+
+    &--with-menu {
+      overflow: hidden;
+
+      &::before {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+
+        display: block;
+        content: "";
+        height: 100vh;
+
+        background-color: rgba($color: #000, $alpha: 0.5);
+      }
+    }
+  }
+}

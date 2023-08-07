@@ -1,0 +1,215 @@
+.about {
+  @include sectionPadding;
+
+  background: linear-gradient(146.86deg, #191536 0%, #000 100%);
+
+  &__top-content {
+    margin-bottom: 80px;
+
+    @include onTablet {
+      margin-bottom: 90px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 190px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 30px;
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+
+    &--2 {
+      margin-bottom: 0;
+    }
+  }
+
+  &__play-video {
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__slider {
+    margin-bottom: 14px;
+    overflow: hidden;
+
+    @include onTablet {
+      margin-bottom: 0;
+      grid-column: 1 / 4;
+      grid-row: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 8;
+    }
+  }
+
+  &__slides {
+    display: flex;
+    height: 100%;
+    width: 300%;
+
+    transition: transform $duration;
+    will-change: transform;
+  }
+
+  &__slide {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__slide-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__slides-indicators {
+    display: flex;
+    justify-content: center;
+    column-gap: 6px;
+    margin-bottom: 20px;
+
+    @include onTablet {
+      margin-bottom: 0;
+      margin-top: 16px;
+      grid-column: 1 / 4;
+      grid-row: 4 / 5;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__slide-indicator {
+    width: 4px;
+    height: 4px;
+
+    border-radius: 50%;
+    background-color: #484848;
+
+    transition: background-color $duration;
+
+    &--active {
+      background-color: #ababab;
+    }
+  }
+
+  &__slides-numbers {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      margin-top: 0;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      justify-self: end;
+
+      font-size: 14px;
+      line-height: 17px;
+      color: $turquoise;
+    }
+  }
+
+  &__slider-buttons {
+    margin-top: 12px;
+    grid-column: 3 / 8;
+    grid-row: 4 / 5;
+    justify-self: start;
+  }
+
+  &__text-wrapper {
+    align-self: center;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__above-title {
+    margin-bottom: 14px;
+
+    font-size: 14px;
+    line-height: 17px;
+    color: $turquoise;
+  }
+
+  &__image-wrapper {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+      grid-column: 5 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__image {
+    @for $index from 1 through 2 {
+      &:nth-child(#{$index * 2}) {
+        transform: rotateZ(180deg);
+      }
+
+      &:nth-child(#{$index + 3}) {
+        display: none;
+
+        @include onDesktop {
+          display: block;
+        }
+      }
+    }
+
+    &:nth-child(2) {
+      opacity: 0.5;
+    }
+
+    &:nth-child(3) {
+      opacity: 0.2;
+    }
+
+    &:nth-child(4) {
+      opacity: 0.1;
+    }
+
+    &:nth-child(5) {
+      opacity: 0.05;
+    }
+  }
+}
