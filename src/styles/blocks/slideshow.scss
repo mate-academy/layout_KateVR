@@ -3,6 +3,22 @@
 
   &__container {
     position: relative;
+    max-width: 430px;
+
+    overflow: hidden;
+
+    @include onLargeDesktop {
+      max-width: 622px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    transition: all $transition-time;
+
+    & > li {
+      flex-shrink: 0;
+    }
   }
 
   &__counter {
@@ -36,16 +52,22 @@
   }
 
   &__image {
-    display: none;
     width: 100%;
+    max-width: 430px;
     object-fit: cover;
+    vertical-align: middle;
 
     @include onTablet {
       min-height: 270px;
+      max-height: 270px;
     }
 
     @include onDesktop {
       min-height: 290px;
+    }
+
+    @include onLargeDesktop {
+      max-width: 622px;
     }
 
     @extend %animation-fade;
@@ -96,7 +118,7 @@
   &__control-mob {
     position: absolute;
     top: 0;
-  
+
     display: inline-block;
     height: 100%;
     width: 30%;

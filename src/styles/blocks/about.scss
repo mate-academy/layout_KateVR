@@ -62,13 +62,15 @@
     }
   }
 
-  &__slideshow {
-    margin-bottom: 20px;
+  &__slideshow-container {
+    display: flex;
+    justify-content: center;
 
     @include onTablet {
       grid-column: 1 / 4;
       grid-row: 1 / span 3;
       margin-bottom: 0;
+      justify-self: center;
     }
 
     @include onDesktop {
@@ -78,6 +80,10 @@
     @include onLargeDesktop {
       grid-column: 4 / 11;
     }
+  }
+
+  &__slideshow {
+    margin-bottom: 20px;
   }
 
   &__paragraph {
@@ -160,7 +166,7 @@
         display: none;
       }
     }
-  
+
     &-desktop {
       @include onTablet {
         display: none;
@@ -185,7 +191,7 @@
 
     &--large-screen {
       display: none;
-  
+
       @include onLargeDesktop {
         display: block;
       }

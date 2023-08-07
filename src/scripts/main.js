@@ -1,8 +1,27 @@
 'use strict';
 
-window.addEventListener('hashchange', () => {
+window.addEventListener('DOMContentLoaded', onPageLoad);
+
+function onPageLoad() {
   const hash = window.location.hash;
-  const buyNowButton = document.getElementById('buy-now');
+
+  if (
+    (hash === '#menu'
+    || hash === '#language')
+    && window.matchMedia('(min-width: 1280px)').matches
+  ) {
+    return;
+  }
+
+  if (
+    (hash === '#faq'
+    || hash === '#help')
+    && window.matchMedia('(min-width: 1280px)').matches
+  ) {
+    document.body.classList.add('page__body--shadowed');
+
+    return;
+  }
 
   if (
     hash === '#menu'
@@ -12,776 +31,615 @@ window.addEventListener('hashchange', () => {
     || hash === '#place-order'
   ) {
     document.body.classList.add('page__body--with-menu');
-    buyNowButton.style.zIndex = '0';
+    document.body.classList.add('page__body--shadowed');
+  }
+}
+
+window.addEventListener('hashchange', onHashChange);
+
+function onHashChange() {
+  const hash = window.location.hash;
+
+  if (
+    (hash === '#faq'
+    || hash === '#help')
+    && window.matchMedia('(min-width: 1280px)').matches
+  ) {
+    document.body.classList.add('page__body--shadowed');
+
+    return;
+  }
+
+  if (
+    hash === '#menu'
+    || hash === '#language'
+    || hash === '#faq'
+    || hash === '#help'
+    || hash === '#place-order'
+  ) {
+    document.body.classList.add('page__body--with-menu');
+    document.body.classList.add('page__body--shadowed');
   } else {
     document.body.classList.remove('page__body--with-menu');
-
-    setTimeout(() => {
-      buyNowButton.style.zIndex = '1';
-    }, 300);
+    document.body.classList.remove('page__body--shadowed');
   }
-});
+}
 
-const collapsibles = document.getElementsByClassName('collapsible__button');
-const faqDesktop = document.getElementById('faq-desktop');
+function handleWidthChange(width) {
+  const hash = window.location.hash;
+
+  if (
+    (hash === '#faq'
+    || hash === '#help'
+    || hash === '#menu'
+    || hash === '#language'
+    || hash === '#place-order')
+    && width.matches
+  ) {
+    document.body.classList.add('page__body--with-menu');
+    document.body.classList.add('page__body--shadowed');
+  } else if (hash === '#menu' || hash === '#language') {
+    document.body.classList.remove('page__body--shadowed');
+    document.body.classList.remove('page__body--with-menu');
+  } else if (hash === '#faq' || hash === '#help') {
+    document.body.classList.remove('page__body--with-menu');
+  }
+}
+
+const screenWidth = window.matchMedia('(max-width: 1280px)');
+
+handleWidthChange(screenWidth);
+screenWidth.addEventListener('change', handleWidthChange);
+
+const collapsibles = document.querySelectorAll('.collapsible__button');
 
 for (let i = 0; i < collapsibles.length; i++) {
-  collapsibles[i].addEventListener('click', function() {
-    const content = this.nextElementSibling;
-
-    if (content.style.maxHeight) {
-      content.style.maxHeight = null;
-      content.style.paddingBottom = 0;
-
-      setTimeout(() => {
-        collapsibles[i].style.borderBottom = '1px solid #05c2df';
-        collapsibles[i].style.borderBottomLeftRadius = '4px';
-        collapsibles[i].style.borderBottomRightRadius = '4px';
-        content.style.borderBottom = 0;
-        content.style.borderBottomLeftRadius = 0;
-        content.style.borderBottomRightRadius = 0;
-      }, 300);
-    } else {
-      collapsibles[i].style.borderBottom = 0;
-      collapsibles[i].style.borderBottomLeftRadius = 0;
-      collapsibles[i].style.borderBottomRightRadius = 0;
-      content.style.maxHeight = content.scrollHeight + 100 + 'px';
-      content.style.paddingBottom = '12px';
-      content.style.borderBottom = '1px solid #05c2df';
-      content.style.borderBottomLeftRadius = '4px';
-      content.style.borderBottomRightRadius = '4px';
-    }
-  });
+  collapsibles[i].addEventListener('click', onToggleCollapsible);
 };
 
-const inputs = document.getElementsByClassName('input');
+function onToggleCollapsible() {
+  const content = this.nextElementSibling;
 
-function getMissingName(inputName) {
-  const trimmedName = inputName.innerHTML.toLowerCase().trim();
+  if (content.style.maxHeight) {
+    content.style.maxHeight = null;
+    content.style.paddingBottom = 0;
+  } else {
+    content.style.maxHeight = content.scrollHeight + 100 + 'px';
+    content.style.paddingBottom = '12px';
+  }
+}
+
+function getInvalidStatus(name) {
+  const trimmedName = name.innerText.toLowerCase().trim();
   const invalidValue = `Please, fill your ${trimmedName}`;
 
   return invalidValue;
 };
 
-function typeMismatch(inputName) {
-  const mismathName = inputName.innerHTML.toLowerCase().trim().slice(0, -1);
+function typeMismatch(name) {
+  const mismathName = name.innerHTML.toLowerCase().trim().slice(0, -1);
 
   return `Incorrect ${mismathName} format*`;
 };
 
-function returnInitialName(initialName) {
-  return initialName;
-};
+function applyFocusStyles(label, input) {
+  label.classList.add('input__name--focused');
+  input.classList.add('input__field--focused');
+
+  label.classList.remove('input__name--invalid');
+  input.classList.remove('input__field--invalid');
+}
+
+function applyFocusOutStyles(label, input) {
+  input.classList.remove('input__field--focused');
+
+  if (!input.value) {
+    label.classList.remove('input__name--focused');
+  }
+}
+
+function applyInvalidStyles(label, input) {
+  input.classList.add('input__field--invalid');
+  label.classList.add('input__name--invalid');
+}
+
+function getInvalidLabel(label) {
+  if (
+    !label.innerText.includes(`Please, fill your`)
+    && window.matchMedia('(min-width: 640px)').matches
+  ) {
+    return getInvalidStatus(label);
+  }
+
+  return label.innerText;
+}
+
+const inputs = document.querySelectorAll('.input--text');
 
 for (let i = 0; i < inputs.length; i++) {
-  const inputName = inputs[i].childNodes[1];
-  const inputField = inputs[i].childNodes[3];
+  const inputName = inputs[i].children[0];
+  const inputField = inputs[i].children[1];
   const initialName = inputName.innerHTML;
 
-  inputField.addEventListener('focus', function() {
-    inputName.classList.add('input__name--focused');
-    inputField.classList.add('input__field--focused');
-  });
+  inputField.addEventListener('focus', onInputFocus);
 
-  inputField.addEventListener('focusout', function() {
-    inputField.classList.remove('input__field--focused');
+  inputField.addEventListener('focusout', onInputFocusOut);
 
-    if (!inputField.value) {
-      inputName.classList.remove('input__name--focused');
-    }
-
-    inputField.classList.remove('input__field--invalid');
-    inputName.classList.remove('input__name--invalid');
-  });
-
-  inputField.addEventListener('invalid', function(e) {
-    if (e.target.validity.valueMissing) {
-      inputField.classList.add('input__field--invalid');
-      inputName.classList.add('input__name--invalid');
-
-      if (inputName.innerHTML.includes(`Please, fill your`)) {
-        return null;
-      } else {
-        inputName.innerHTML = getMissingName(inputName);
-      }
-    }
-
-    if (e.target.validity.typeMismatch) {
-      inputField.classList.add('input__field--invalid');
-      inputName.classList.add('input__name--invalid');
-
-      if (inputName.innerHTML.includes(`Incorrect`)) {
-        return null;
-      } else {
-        inputName.innerHTML = typeMismatch(inputName);
-      }
-    }
-  });
-
-  inputField.oninput = function() {
-    inputName.innerHTML = returnInitialName(initialName);
-
-    inputField.classList.remove('input__field--invalid');
-    inputName.classList.remove('input__name--invalid');
-  };
+  inputField.addEventListener('input', onInput(initialName));
 };
 
-const form1 = document.getElementById('form-1');
-const form2 = document.getElementById('form-2');
-const slides = document.getElementsByClassName('place-order__slide');
-const steps = document.getElementsByClassName('place-order__step');
-const placeOrderTop = document.getElementsByClassName('form__place-order-top');
+function onInputFocus() {
+  applyFocusStyles(this.previousElementSibling, this);
+}
 
-form2.addEventListener('submit', function(e) {
+function onInputFocusOut() {
+  applyFocusOutStyles(this.previousElementSibling, this);
+}
+
+function onInput(initialName) {
+  return function() {
+    this.previousElementSibling.innerHTML = initialName;
+
+    this.classList.remove('input__field--invalid');
+    this.previousElementSibling.classList.remove('input__name--invalid');
+  };
+}
+
+const form = document.querySelector('#form');
+const slides = document.querySelectorAll('.place-order__slide');
+const slidesForm = document.querySelectorAll('.form__slide');
+const steps = document.querySelectorAll('.place-order__step');
+const submitButton = document.querySelector('#purchase');
+const placeOrderContent = document.querySelector('.place-order__content');
+
+form.addEventListener('submit', onFormSubmit);
+
+function onFormSubmit(e) {
   e.preventDefault();
-  slides[2].classList.add('place-order__slide--swiped');
-  steps[0].classList.remove('place-order__step--active');
-  steps[0].classList.add('place-order__step--complete');
-  steps[1].classList.add('place-order__step--active');
+}
 
-  setTimeout(() => {
-    slides[2].style.display = 'none';
-    slides[1].classList.add('place-order__slide--appeared');
-    placeOrderTop[0].classList.add('form__place-order-top--grid');
-    document.getElementById('place-order').scrollTop = 0;
-  }, 300);
-});
+submitButton.addEventListener('click', handleFormSteps);
 
-form1.addEventListener('submit', function(e) {
-  e.preventDefault();
-  slides[0].classList.add('place-order__slide--swiped');
-  steps[1].classList.remove('place-order__step--active');
-  steps[0].classList.remove('place-order__step--complete');
-  steps[2].classList.add('place-order__step--active');
+let step = 1;
 
-  setTimeout(() => {
-    slides[0].style.display = 'none';
-    slides[3].classList.add('place-order__slide--appeared');
-    document.getElementById('place-order').scrollTop = 0;
-  }, 300);
-});
-
-const cardInputs = document.getElementsByClassName('form__input--card');
-
-for (let i = 0; i < cardInputs.length; i++) {
-  const labelCard = cardInputs[i].childNodes[1];
-  const fieldsCard = cardInputs[i].childNodes[3].childNodes;
-
-  for (let j = 3; j < fieldsCard.length; j = j + 4) {
-    fieldsCard[j].addEventListener('focus', function() {
-      labelCard.classList.add('input__name--card_focused');
-      fieldsCard[j].classList.add('input__field--focused');
-    });
-
-    fieldsCard[j].oninput = function() {
-      labelCard.classList.remove('input__name--card_invalid');
-      fieldsCard[j].classList.remove('input__field--invalid');
-
-      if (fieldsCard[3].value.startsWith(4)) {
-        fieldsCard[17].classList.remove('input__card-logo--mastercard');
-        fieldsCard[17].classList.add('input__card-logo--visa');
-      } else if (
-        fieldsCard[3].value.startsWith(2) || fieldsCard[3].value.startsWith(5)
-      ) {
-        fieldsCard[17].classList.remove('input__card-logo--visa');
-        fieldsCard[17].classList.add('input__card-logo--mastercard');
-      } else {
-        fieldsCard[17].classList.remove('input__card-logo--mastercard');
-        fieldsCard[17].classList.remove('input__card-logo--visa');
-      }
-
-      if (this.value.length > 4) {
-        this.value = this.value.slice(0, 4);
-      }
-
-      if (this.value.length === 4 && j !== 15) {
-        fieldsCard[j + 4].focus();
-      }
-    };
-
-    fieldsCard[j].addEventListener('focusout', function() {
-      fieldsCard[j].classList.remove('input__field--focused');
-
-      if (
-        !fieldsCard[3].value
-        && !fieldsCard[7].value
-        && !fieldsCard[11].value
-        && !fieldsCard[15].value
-      ) {
-        labelCard.classList.remove('input__name--card_focused');
-      }
-    });
-
-    fieldsCard[j].addEventListener('invalid', function(e) {
-      if (e.target.validity.valueMissing) {
-        labelCard.classList.add('input__name--card_invalid');
-        fieldsCard[j].classList.add('input__field--invalid');
-
-        if (labelCard.innerHTML.includes(`Please, fill your`)) {
-          return null;
-        } else {
-          labelCard.innerHTML = getMissingName(labelCard);
-        }
-      }
-    });
-  };
-};
-
-const cardHolder
-  = document.getElementsByClassName('form__input--desktop-cardholder')[0];
-const cardHolderLabel = cardHolder.childNodes[1];
-const cardHolderInput = cardHolder.childNodes[3];
-
-cardHolderInput.addEventListener('focus', function() {
-  cardHolderLabel.classList.add('input__name--cardholder_focused');
-});
-
-cardHolderInput.addEventListener('focusout', function() {
-  if (!cardHolderInput.value) {
-    cardHolderLabel.classList.remove('input__name--cardholder_focused');
-  }
-});
-
-cardHolderInput.addEventListener('invalid', function(e) {
-  if (e.target.validity.valueMissing) {
-    cardHolderInput.classList.add('input__field--invalid');
-    cardHolderLabel.classList.add('input__name--cardholder_invalid');
-
-    if (cardHolderLabel.innerHTML.includes(`Please, fill your`)) {
-      return null;
-    } else {
-      cardHolderLabel.innerHTML = getMissingName(cardHolderLabel);
-    }
-  }
-});
-
-cardHolderInput.addEventListener('input', function() {
-  cardHolderInput.classList.remove('input__field--invalid');
-  cardHolderLabel.classList.remove('input__name--cardholder_invalid');
-});
-
-const inputCardholderMobile = document.getElementById('card-holder-name');
-const labelCardholderMobile
-  = document.getElementsByClassName('input__name--cardholder')[0];
-
-inputCardholderMobile.addEventListener('focus', function() {
-  labelCardholderMobile.classList.add('input__name--cardholder_focused');
-});
-
-inputCardholderMobile.addEventListener('focusout', function() {
-  if (!inputCardholderMobile.value) {
-    labelCardholderMobile.classList.remove('input__name--cardholder_focused');
-  }
-});
-
-inputCardholderMobile.addEventListener('invalid', function(e) {
-  if (e.target.validity.valueMissing) {
-    inputCardholderMobile.classList.add('input__field--invalid');
-    labelCardholderMobile.classList.add('input__name--cardholder_invalid');
-
-    if (labelCardholderMobile.innerHTML.includes(`Please, fill your`)) {
-      return null;
-    } else {
-      labelCardholderMobile.innerHTML = getMissingName(labelCardholderMobile);
-    }
-  }
-});
-
-inputCardholderMobile.addEventListener('input', function() {
-  inputCardholderMobile.classList.remove('input__field--invalid');
-  labelCardholderMobile.classList.remove('input__name--cardholder_invalid');
-});
-
-const inputCvv = document.getElementById('input-cvv');
-const labelCvv = document.getElementById('cvv-label');
-
-inputCvv.addEventListener('focus', function() {
-  labelCvv.classList.add('input__name--card-back_focused');
-  inputCvv.classList.add('input__field--focused');
-
-  inputCvv.oninput = function() {
-    if (this.value.length > 3) {
-      this.value = this.value.slice(0, 3);
-    }
-  };
-});
-
-inputCvv.addEventListener('focusout', function() {
-  inputCvv.classList.remove('input__field--focused');
-
-  if (!inputCvv.value) {
-    labelCvv.classList.remove('input__name--card-back_focused');
-  }
-});
-
-inputCvv.addEventListener('invalid', function(e) {
-  if (e.target.validity.valueMissing) {
-    labelCvv.classList.add('input__name--card-back_invalid');
-    inputCvv.classList.add('input__field--invalid');
-
-    if (labelCvv.innerHTML.includes(`Please, fill your`)) {
-      return null;
-    } else {
-      labelCvv.innerHTML = getMissingName(labelCvv);
-    }
-  }
-});
-
-inputCvv.addEventListener('input', function() {
-  inputCvv.classList.remove('input__field--invalid');
-  labelCvv.classList.remove('input__name--card-back_invalid');
-});
-
-const inputsExpireDate
-= document.getElementsByClassName('input__field--number-expiration');
-const labelExpireDate
-= document.getElementsByClassName('input__name--card-back');
-const inputSlash = document.getElementById('input-slash');
-const expirationSpan
-= document.getElementsByClassName('input__card-expiration');
-
-for (let i = 0; i < inputsExpireDate.length; i++) {
-  inputsExpireDate[i].addEventListener('focus', function() {
-    labelExpireDate[0].classList.add('input__name--card-back_focused');
-    expirationSpan[0].classList.add('input__card-expiration--focused');
-  });
-
-  inputsExpireDate[i].addEventListener('input', function() {
-    inputSlash.classList.add('input__card-expiration-slash--active');
-    labelExpireDate[0].classList.remove('input__name--card-back_invalid');
-    expirationSpan[0].classList.remove('input__card-expiration--invalid');
-
-    if (this.value.length > 2) {
-      this.value = this.value.slice(0, 2);
-    }
-
-    if (this.value.length === 2 && i !== 1) {
-      inputsExpireDate[i + 1].focus();
-    }
-
-    if (this.value.length === 2 && i === 1) {
-      inputCvv.focus();
-    }
-  });
-
-  inputsExpireDate[i].addEventListener('focusout', function() {
-    expirationSpan[0].classList.remove('input__card-expiration--focused');
-
-    if (!inputsExpireDate[0].value && !inputsExpireDate[1].value) {
-      labelExpireDate[0].classList.remove('input__name--card-back_focused');
-      inputSlash.classList.remove('input__card-expiration-slash--active');
-    }
-  });
-
-  inputsExpireDate[i].addEventListener('invalid', function(e) {
-    if (e.target.validity.valueMissing) {
-      labelExpireDate[0].classList.add('input__name--card-back_invalid');
-      expirationSpan[0].classList.add('input__card-expiration--invalid');
-
-      if (labelExpireDate[0].innerHTML.includes(`Please, fill your`)) {
-        return null;
-      } else {
-        labelExpireDate[0].innerHTML = getMissingName(labelExpireDate[0]);
-      }
-    }
-  });
-};
-
-const inputCvvDesktop = document.getElementById('input-cvv-desktop');
-const labelCvvDesktop = document.getElementById('cvv-label-desktop');
-
-inputCvvDesktop.addEventListener('focus', function() {
-  labelCvvDesktop.classList.add('input__name--card-back_focused');
-  inputCvvDesktop.classList.add('input__field--focused');
-
-  inputCvvDesktop.oninput = function() {
-    if (this.value.length > 3) {
-      this.value = this.value.slice(0, 3);
-    }
-  };
-});
-
-inputCvvDesktop.addEventListener('focusout', function() {
-  inputCvvDesktop.classList.remove('input__field--focused');
-
-  if (!inputCvvDesktop.value) {
-    labelCvvDesktop.classList.remove('input__name--card-back_focused');
-  }
-});
-
-inputCvvDesktop.addEventListener('invalid', function(e) {
-  if (e.target.validity.valueMissing) {
-    inputCvvDesktop.classList.add('input__field--invalid');
-    labelCvvDesktop.classList.add('input__name--card-back_invalid');
-
-    if (labelCvvDesktop.innerHTML.includes(`Please, fill your`)) {
-      return null;
-    } else {
-      labelCvvDesktop.innerHTML = getMissingName(labelCvvDesktop);
-    }
-  }
-});
-
-inputCvvDesktop.addEventListener('input', function() {
-  inputCvvDesktop.classList.remove('input__field--invalid');
-  labelCvvDesktop.classList.remove('input__name--card-back_invalid');
-});
-
-const inputsExpireDateDesktop
-= document.getElementsByClassName('input__field--number-expiration-desktop');
-const labelExpireDateDesktop
-= document.getElementsByClassName('input__name--card-back')[2];
-const inputSlashDesktop = document.getElementById('input-slash-desktop');
-const expirationSpanDesktop
-= document.getElementsByClassName('input__card-expiration')[1];
-
-for (let i = 0; i < inputsExpireDateDesktop.length; i++) {
-  inputsExpireDateDesktop[i].addEventListener('focus', function() {
-    labelExpireDateDesktop.classList.add('input__name--card-back_focused');
-    expirationSpanDesktop.classList.add('input__card-expiration--focused');
-  });
-
-  inputsExpireDateDesktop[i].oninput = function() {
-    inputSlashDesktop.classList.add('input__card-expiration-slash--active');
-
-    if (this.value.length > 2) {
-      this.value = this.value.slice(0, 2);
-    }
-
-    if (this.value.length === 2 && i !== 1) {
-      inputsExpireDateDesktop[i + 1].focus();
-    }
-
-    if (this.value.length === 2 && i === 1) {
-      inputCvvDesktop.focus();
-    }
-  };
-
-  inputsExpireDateDesktop[i].addEventListener('focusout', function() {
-    expirationSpanDesktop.classList.remove('input__card-expiration--focused');
-
-    if (
-      !inputsExpireDateDesktop[0].value
-      && !inputsExpireDateDesktop[1].value
-    ) {
-      labelExpireDateDesktop
-        .classList.remove('input__name--card-back_focused');
-
-      inputSlashDesktop
-        .classList.remove('input__card-expiration-slash--active');
-    }
-  });
-
-  inputsExpireDateDesktop[i].addEventListener('invalid', function(e) {
-    if (e.target.validity.valueMissing) {
-      expirationSpanDesktop.classList.add('input__card-expiration--invalid');
-      labelExpireDateDesktop.classList.add('input__name--card-back_invalid');
-
-      if (labelExpireDateDesktop.innerHTML.includes(`Please, fill your`)) {
-        return null;
-      } else {
-        labelExpireDateDesktop.innerHTML
-          = getMissingName(labelExpireDateDesktop);
-      }
-    }
-  });
-
-  inputsExpireDateDesktop[i].addEventListener('input', function() {
-    expirationSpanDesktop.classList.remove('input__card-expiration--invalid');
-    labelExpireDateDesktop.classList.remove('input__name--card-back_invalid');
-  });
-};
-
-const dropdowns = document.getElementsByClassName('dropdown');
-const totalPrice = document.getElementById('price-total');
-const totalPrice2 = document.getElementById('price-total-2');
-const quantityInput = dropdowns[1].childNodes[1];
-const quantityInput2 = dropdowns[6].childNodes[1];
-
-function filterItems(txtValue, filter) {
-  if (txtValue.toUpperCase().indexOf(filter) > -1) {
-    return '';
-  } else {
-    return 'none';
-  }
-};
-
-for (let i = 0; i < dropdowns.length; i++) {
-  const dropdownInput = dropdowns[i].childNodes[1];
-  const dropdownButton = dropdowns[i].childNodes[3];
-  const dropdownContent = dropdowns[i].childNodes[5];
-  const contentItems = dropdownContent.childNodes[1].children;
-  const dropdownLabel = dropdowns[i].previousElementSibling;
-  const initialNameDropdown = dropdownLabel.innerHTML;
-
-  dropdownInput.value = contentItems[0].innerText;
-  dropdowns[3].childNodes[1].value = '';
-  dropdowns[5].childNodes[1].value = '';
-
-  dropdownInput.oninput = function() {
-    dropdownLabel.innerHTML
-      = returnInitialName(initialNameDropdown);
-    dropdownLabel.classList.remove('input__name--invalid');
-
-    totalPrice.innerText = quantityInput.value * 1200 + '$';
-    totalPrice2.innerText = quantityInput2.value * 1200 + '$';
-
-    if (quantityInput.value.length > 5) {
-      quantityInput.value = quantityInput.value.slice(0, 5);
-    }
-
-    if (quantityInput2.value.length > 5) {
-      quantityInput2.value = quantityInput2.value.slice(0, 5);
-    }
-
-    const filter = dropdownInput.value.toUpperCase();
-
-    for (let k = 0; k < contentItems.length; k++) {
-      const txtValue = contentItems[k].textContent || contentItems[k].innerText;
-
-      contentItems[k].style.display = filterItems(txtValue, filter);
-    };
-  };
-
-  for (let j = 0; j < contentItems.length; j++) {
-    contentItems[j].addEventListener('click', function() {
-      dropdownInput.value = this.textContent || this.innerText;
-
-      dropdownLabel.innerHTML
-      = returnInitialName(this.textContent || this.innerText);
-      dropdownLabel.classList.remove('input__name--invalid');
-      totalPrice.innerText = quantityInput.value * 1200 + '$';
-      totalPrice2.innerText = quantityInput2.value * 1200 + '$';
-
-      dropdownContent.style.display = 'none';
-    });
-  };
-
-  dropdownButton.addEventListener('click', function(e) {
+function handleFormSteps(e) {
+  if (step < 2 || !validatePurchaseForm()) {
     e.preventDefault();
+  }
 
-    if (dropdownContent.style.display === 'block') {
-      dropdownContent.style.display = 'none';
-    } else {
-      dropdownContent.style.display = 'block';
-    }
-  });
+  if (!validatePurchaseForm()) {
+    return;
+  }
 
-  dropdownInput.addEventListener('click', function() {
-    dropdownContent.classList.add('dropdown__content--visible');
+  steps[step - 1].classList
+    .replace('place-order__step--active', 'place-order__step--completed');
+  steps[step].classList.add('place-order__step--active');
 
-    if (dropdownContent.style.display === 'none') {
-      dropdownContent.style.display = 'block';
-    }
-  });
+  if (step === 1) {
+    slidesForm[0].classList.add('place-order__slide--swiped');
 
-  dropdownInput.addEventListener('focus', function() {
-    if (!dropdownLabel.classList.contains('label')) {
-      dropdownLabel.classList.add('input__name--focused');
-    }
-  });
-
-  dropdownInput.addEventListener('focusout', function() {
     setTimeout(() => {
-      if (!dropdownInput.value) {
-        dropdownLabel.classList.remove('input__name--focused');
+      slidesForm[1].classList.add('place-order__slide--appeared');
+      form.classList.add('grid--place-form-tablet');
+    }, 300);
+  }
+
+  if (step === 2) {
+    slides[0].classList.add('place-order__slide--swiped');
+    placeOrderContent.classList.add('place-order__content--no-background');
+
+    setTimeout(() => {
+      slides[1].classList.add('place-order__slide--appeared');
+      slides[0].style.display = 'none';
+    }, 300);
+  }
+
+  step++;
+}
+
+function validatePurchaseForm() {
+  let valid = true;
+
+  if (step === 2) {
+    const inputsCard
+      = slidesForm[1].querySelectorAll('.input__field--number-card');
+    const labelCard = slidesForm[1].querySelector('.input__name--card');
+
+    inputsCard.forEach(input => {
+      if (!input.value.trim()) {
+        applyInvalidStyles(labelCard, input);
+
+        labelCard.innerText = getInvalidLabel(labelCard);
+
+        valid = false;
       }
-    }, 100);
+    });
+
+    const inputsExpiration
+      = slidesForm[1].querySelectorAll('.input__field--number-expiration');
+    const labelExpiration
+      = slidesForm[1].querySelector('.input__name--expiration');
+
+    inputsExpiration.forEach(input => {
+      if (!input.value.trim()) {
+        input.parentElement.style.borderColor = '#860404';
+        labelExpiration.classList.add('input__name--invalid');
+
+        labelExpiration.innerText = getInvalidLabel(labelExpiration);
+
+        valid = false;
+      }
+    });
+
+    const otherInputs
+      = slidesForm[1].querySelectorAll('div[data-val="input--card"]');
+
+    otherInputs.forEach(input => {
+      const inputLabel = input.children[0];
+      const inputField = input.children[1];
+
+      if (!inputField.value.trim()) {
+        applyInvalidStyles(inputLabel, inputField);
+
+        inputLabel.innerText = getInvalidLabel(inputLabel);
+
+        valid = false;
+      }
+    });
+
+    return valid;
+  }
+
+  const localInputs = slidesForm[0].querySelectorAll('.input--text');
+  const localDropdowns = slidesForm[0].querySelectorAll('.dropdown');
+
+  localInputs.forEach(input => {
+    const inputLabel = input.children[0];
+    const inputField = input.children[1];
+
+    if (!inputField.value.trim()) {
+      applyInvalidStyles(inputLabel, inputField);
+
+      inputLabel.innerText = getInvalidLabel(inputLabel);
+
+      valid = false;
+    }
+
+    if (inputField.validity.typeMismatch) {
+      applyInvalidStyles(inputLabel, inputField);
+
+      if (!inputLabel.innerText.includes(`Incorrect`)) {
+        inputLabel.innerText = typeMismatch(inputLabel);
+      }
+
+      valid = false;
+    }
   });
 
-  dropdownInput.addEventListener('invalid', function(e) {
-    if (e.target.validity.valueMissing) {
+  localDropdowns.forEach(dropdown => {
+    const dropdownInput = dropdown.children[0];
+    const dropdownLabel = dropdown.previousElementSibling;
+
+    if (!dropdownInput.value.trim()) {
       dropdownLabel.classList.add('input__name--invalid');
 
-      if (dropdownLabel.innerHTML.includes(`Please, fill your`)) {
-        return null;
-      } else {
-        dropdownLabel.innerHTML = getMissingName(dropdownLabel);
-      }
+      dropdownLabel.innerText = getInvalidLabel(dropdownLabel);
+
+      valid = false;
     }
   });
 
-  window.addEventListener('click', function(e) {
-    if (e.target !== dropdownButton && e.target !== dropdownInput) {
-      dropdownContent.classList.remove('dropdown__content--visible');
+  return valid;
+}
 
-      if (dropdownContent.style.display === 'block') {
-        dropdownContent.style.display = 'none';
-      }
+const cardInputs = document.querySelectorAll('.input__field--number-card');
+const cardLabel = document.querySelector('.input__name--card');
+const cardName = cardLabel.innerText.trim();
+
+cardInputs[0].addEventListener('input', handleLogoVisibility);
+
+function handleLogoVisibility(e) {
+  const cardLogo = document.querySelector('.input__card-logo');
+
+  cardLogo.className = 'input__card-logo';
+
+  if (e.target.value[0] === '4') {
+    cardLogo.classList.add('input__card-logo--visa');
+  }
+
+  if (e.target.value[0] === '5') {
+    cardLogo.classList.add('input__card-logo--mastercard');
+  }
+}
+
+cardInputs.forEach(input => {
+  input.addEventListener('focus', onCardInputFocus);
+  input.addEventListener('focusout', onCardInputFocusOut);
+  input.addEventListener('input', onCardInput);
+});
+
+function onCardInputFocus() {
+  applyFocusStyles(cardLabel, this);
+
+  cardInputs.forEach(input => {
+    input.classList.remove('input__field--invalid');
+  });
+}
+
+function onCardInputFocusOut() {
+  this.classList.remove('input__field--focused');
+
+  if ([...cardInputs].every(input => !input.value)) {
+    cardLabel.classList.remove('input__name--focused');
+  }
+}
+
+function onCardInput(e) {
+  const { value } = e.target;
+
+  if (value.length > 3) {
+    this.value = value.slice(0, 4);
+  }
+
+  cardLabel.innerText = cardName;
+}
+
+const inputCvv = document.querySelector('#input-cvv');
+const labelCvv = document.querySelector('.input__name--cvv');
+
+inputCvv.addEventListener('input', onInputCvv);
+
+function onInputCvv(e) {
+  const { value } = e.target;
+
+  if (value.length > 2) {
+    this.value = value.slice(0, 3);
+  }
+
+  labelCvv.innerText = 'CVV*';
+}
+
+const expirationInputs
+  = document.querySelectorAll('.input__field--number-expiration');
+const expirationLabel
+  = document.querySelector('.input__name--expiration');
+const expirationSlash = document.querySelector('#input-slash');
+
+expirationInputs.forEach(input => {
+  input.addEventListener('focus', onExpirationFocus);
+  input.addEventListener('focusout', onExpirationFocusOut);
+  input.addEventListener('input', onExpirationInput);
+});
+
+function onExpirationFocus() {
+  expirationLabel.classList.add('input__name--focused');
+  this.parentElement.style.borderColor = '#05c2df';
+
+  expirationSlash.style.color = '#05c2df';
+
+  expirationLabel.classList.remove('input__name--invalid');
+}
+
+function onExpirationFocusOut() {
+  this.parentElement.style.borderColor = '';
+  expirationSlash.style.color = '';
+
+  if ([...expirationInputs].every(input => !input.value)) {
+    expirationLabel.classList.remove('input__name--focused');
+  }
+}
+
+function onExpirationInput(e) {
+  const { value } = e.target;
+
+  if (value.length > 1) {
+    this.value = value.slice(0, 2);
+  }
+
+  expirationLabel.innerText = 'Expiration Date*';
+}
+
+const totalPrice = document.getElementById('price-total');
+const quantityInput = document.querySelector('#quantity');
+
+quantityInput.addEventListener('input', onQuantityChange);
+
+function onQuantityChange(e) {
+  const { value } = e.target;
+
+  if (value.length < 1) {
+    this.value = 1;
+
+    return;
+  }
+
+  totalPrice.innerText = `$${value * 1200}`;
+}
+
+const dropdowns = document.querySelectorAll('.dropdown');
+
+dropdowns.forEach(dropdown => {
+  const dropdownInput = dropdown.children[0];
+  const dropdownButton = dropdown.children[1];
+  const dropdownContent = dropdown.children[2];
+  const contentitems
+    = dropdownContent.querySelectorAll('.list__dropdown-item');
+
+  dropdownButton.addEventListener('click', onToggleDropdown);
+  dropdownInput.addEventListener('focus', onFocusDropdown);
+  dropdownInput.addEventListener('focusout', onDropdownFocusOut);
+  dropdownInput.addEventListener('input', onDropdownInput);
+
+  window.addEventListener('click', (e) => {
+    if (e.target !== dropdownButton) {
+      dropdownContent.style.display = 'none';
     };
   });
-};
+
+  contentitems.forEach(item => {
+    item.addEventListener('click', onDropDownItemClick);
+  });
+});
+
+function onDropDownItemClick() {
+  const input = this
+    .parentElement
+    .parentElement
+    .previousElementSibling
+    .previousElementSibling;
+
+  input.value = this.innerText.trim();
+
+  if (input.name.includes('quantity')) {
+    input.dispatchEvent(new window.Event('input'));
+  }
+}
+
+function onToggleDropdown() {
+  const dropdownContent = this.nextElementSibling;
+
+  if (dropdownContent.style.display === 'block') {
+    dropdownContent.style.display = 'none';
+  } else {
+    dropdownContent.style.display = 'block';
+  }
+}
+
+function onFocusDropdown() {
+  const label = this.parentNode.previousElementSibling;
+
+  if (!label.classList.contains('label') && !this.value) {
+    label.classList.add('input__name--focused');
+  }
+}
+
+function onDropdownFocusOut() {
+  const label = this.parentNode.previousElementSibling;
+
+  if (!this.value) {
+    label.classList.remove('input__name--focused');
+  }
+}
+
+function onDropdownInput() {
+  const label = this.parentNode.previousElementSibling;
+
+  const name = this.name;
+
+  label.classList.remove('input__name--invalid');
+
+  if (label.innerText.includes('Quantity')) {
+    label.innerText = name[0].toUpperCase() + name.slice(1);
+
+    return;
+  }
+
+  label.innerText = name[0].toUpperCase() + name.slice(1) + '*';
+}
 
 const slidersHeader = document.getElementsByClassName('slider-step--header');
 const slidersAbout = document.getElementsByClassName('slider-step--about');
 const counterNumber
   = document.getElementsByClassName('slideshow__counter-text')[0];
+const slideshowList = document.querySelector('.slideshow__list');
+const slideDots = document.querySelectorAll('.slideshow__dot');
+const controlMob = document.querySelectorAll('.slideshow__control-mob');
 
-let sliderIndex = 1;
-let sliderAboutIndex = 1;
-
-showSlider(sliderIndex);
-showSliderAbout(sliderAboutIndex);
-
-function changeNumber(number) {
-  return number;
+const sliderIndices = {
+  header: 0,
+  about: 0,
 };
 
-slidersHeader[0].addEventListener('click', function() {
-  showSlider(sliderIndex += -1);
-});
+showSlider(sliderIndices, 'header', 2, slidersHeader);
+showSlider(sliderIndices, 'about', 4, slidersAbout, counterNumber);
 
-slidersHeader[2].addEventListener('click', function() {
-  showSlider(sliderIndex += 1);
-});
+slidersHeader[0].addEventListener('click', onSliderHeaderPrev);
 
-slidersAbout[0].addEventListener('click', function() {
-  showSliderAbout(sliderAboutIndex += -1);
-});
+slidersHeader[2].addEventListener('click', onSliderHeaderNext);
 
-slidersAbout[4].addEventListener('click', function() {
-  showSliderAbout(sliderAboutIndex += 1);
-});
+slidersAbout[0].addEventListener('click', onSliderAboutPrev);
+controlMob[0].addEventListener('click', onSliderAboutPrev);
 
-function showSlider(n) {
-  let i;
+slidersAbout[4].addEventListener('click', onSliderAboutNext);
+controlMob[1].addEventListener('click', onSliderAboutNext);
 
-  if (n > slidersHeader.length) {
-    sliderIndex = 1;
-  }
+function onSliderHeaderPrev() {
+  sliderIndices.header -= 1;
 
-  if (n < 1) {
-    sliderIndex = slidersHeader.length;
-  }
-
-  for (i = 0; i < slidersHeader.length; i++) {
-    slidersHeader[i].classList.remove('slider-step--active');
-  }
-
-  slidersHeader[sliderIndex - 1].classList.add('slider-step--active');
+  showSlider(sliderIndices, 'header', 2, slidersHeader);
 }
 
-function showSliderAbout(n) {
-  let i;
+function onSliderHeaderNext() {
+  sliderIndices.header += 1;
 
-  if (n > slidersAbout.length) {
-    sliderAboutIndex = 1;
-  }
-
-  if (n < 1) {
-    sliderAboutIndex = slidersAbout.length;
-  }
-
-  for (i = 0; i < slidersAbout.length; i++) {
-    slidersAbout[i].classList.remove('slider-step--active');
-  }
-
-  slidersAbout[sliderAboutIndex - 1].classList.add('slider-step--active');
-  counterNumber.innerHTML = changeNumber(sliderAboutIndex);
+  showSlider(sliderIndices, 'header', 2, slidersHeader);
 }
 
-const stepsDesktop
-= document.getElementsByClassName('place-order__step-desktop');
-const slidesDesktop
-= document.getElementsByClassName('place-order__slide-desktop');
-const slidesDesktopFinal
-= document.getElementsByClassName('place-order__slide-desktop-final');
-const slidesDesktopComplete
-= document.getElementsByClassName('place-order__slide-desktop-complete');
-const placeOrderContent = document
-  .getElementsByClassName('place-order__content-desktop');
-const formDesktop = document.getElementById('form-desktop');
-const formDesktop2 = document.getElementById('form-desktop-2');
+function onSliderAboutNext() {
+  sliderIndices.about += 1;
 
-formDesktop.addEventListener('submit', function(e) {
-  e.preventDefault();
-  stepsDesktop[0].classList.remove('place-order__step-desktop--active');
-  stepsDesktop[0].classList.add('place-order__step-desktop--complete');
-  stepsDesktop[1].classList.add('place-order__step-desktop--active');
-  slidesDesktop[0].classList.add('place-order__slide-desktop--swiped');
+  showSlider(sliderIndices, 'about', 4, slidersAbout, counterNumber);
 
-  setTimeout(() => {
-    slidesDesktop[0].style.display = 'none';
-    slidesDesktop[1].classList.add('place-order__slide-desktop--appeared');
-    document.getElementById('place-order').scrollTop = 0;
-  }, 300);
-});
+  swipeImage();
+}
 
-formDesktop2.addEventListener('submit', function(e) {
-  e.preventDefault();
-  stepsDesktop[1].classList.remove('place-order__step-desktop--active');
-  stepsDesktop[2].classList.add('place-order__step-desktop--active');
-  stepsDesktop[0].classList.remove('place-order__step-desktop--complete');
+function onSliderAboutPrev() {
+  sliderIndices.about -= 1;
 
-  slidesDesktopFinal[0]
-    .classList.add('place-order__slide-desktop-final--swiped');
+  showSlider(sliderIndices, 'about', 4, slidersAbout, counterNumber);
 
-  setTimeout(() => {
-    slidesDesktopFinal[0].style.display = 'none';
+  swipeImage();
+}
 
-    slidesDesktopComplete[0]
-      .classList.add('place-order__slide-desktop-complete--appeared');
-    document.getElementById('place-order').scrollTop = 0;
-    placeOrderContent[0].classList.add('place-order__content-desktop-complete');
-  }, 300);
-});
+function showSlider(indices, key, maxIndex, sliders, label) {
+  let i;
 
-const linkHelp = document.getElementById('link-help');
-const linkFaq = document.getElementById('link-faq');
-const popupDesktopIcon = document.getElementsByClassName('popup-desktop__icon');
-const helpDesktop = document.getElementById('help-desktop');
-const linkMoreFaq = document.getElementById('link-more-faq');
+  if (indices[key] > maxIndex) {
+    indices[key] = 0;
+  }
 
-linkHelp.addEventListener('click', function() {
-  document.body.classList.add('page__body--shadowed');
-  helpDesktop.classList.add('popup-desktop--open');
-});
+  if (indices[key] < 0) {
+    indices[key] = maxIndex;
+  }
 
-linkFaq.addEventListener('click', function() {
-  document.body.classList.add('page__body--shadowed');
-  faqDesktop.classList.add('popup-desktop--open');
-});
+  for (i = 0; i <= maxIndex; i++) {
+    sliders[i].classList.remove('slider-step--active');
 
-linkMoreFaq.addEventListener('click', function() {
-  document.body.classList.remove('page__body--shadowed');
-  faqDesktop.classList.add('popup-desktop--closed');
+    if (slideDots) {
+      slideDots[i].classList.remove('slideshow__dot-active');
+    }
+  }
 
-  setTimeout(() => {
-    faqDesktop.classList.remove('popup-desktop--open');
-    faqDesktop.classList.remove('popup-desktop--closed');
-  }, 300);
-});
+  sliders[indices[key]].classList.add('slider-step--active');
+  slideDots[indices[key]].classList.add('slideshow__dot-active');
 
-popupDesktopIcon[1].addEventListener('click', function() {
-  document.body.classList.remove('page__body--shadowed');
-  helpDesktop.classList.add('popup-desktop--closed');
+  if (label) {
+    label.innerText = indices[key] + 1;
+  }
+}
 
-  setTimeout(() => {
-    helpDesktop.classList.remove('popup-desktop--open');
-    helpDesktop.classList.remove('popup-desktop--closed');
-  }, 300);
-});
+let imageWidth = 430;
 
-popupDesktopIcon[0].addEventListener('click', function() {
-  document.body.classList.remove('page__body--shadowed');
-  faqDesktop.classList.add('popup-desktop--closed');
+function swipeImage() {
+  slideshowList.style.translate = '-' + sliderIndices.about * imageWidth + 'px';
+}
 
-  setTimeout(() => {
-    faqDesktop.classList.remove('popup-desktop--open');
-    faqDesktop.classList.remove('popup-desktop--closed');
-  }, 300);
-});
+function changeImageWidth(x) {
+  if (x.matches) {
+    imageWidth = 430;
 
-const iconMenu = document.getElementById('icon-menu');
-const iconMenuCross = document.getElementById('menu-cross-icon');
+    swipeImage();
+  } else {
+    imageWidth = 622;
 
-iconMenu.addEventListener('click', function() {
-  document.body.classList.add('page__body--shadowed');
-});
+    swipeImage();
+  }
+}
 
-iconMenuCross.addEventListener('click', function() {
-  document.body.classList.remove('page__body--shadowed');
-});
+const matches = window.matchMedia('(max-width: 1440px)');
+
+changeImageWidth(matches);
+matches.addEventListener('change', changeImageWidth);
 
 window.onscroll = function() {
   getFixed();
@@ -793,7 +651,7 @@ const headerTitle = document.getElementsByClassName('header__title')[0];
 const sticky = headerTop.offsetTop;
 
 function getFixed() {
-  if (window.pageYOffset > sticky) {
+  if (window.scrollY > sticky) {
     headerTop.classList.add('header__top-fixed');
     headerTitle.classList.add('header__title-top-margin');
   } else {
@@ -808,12 +666,16 @@ const videoCross = document.getElementsByClassName('header__video-cross')[0];
 const iframe = document.getElementsByClassName('header__iframe')[0];
 
 for (let i = 0; i < playButtons.length; i++) {
-  playButtons[i].addEventListener('click', function() {
-    videoContainer.classList.add('header__video-container-active');
-  });
+  playButtons[i].addEventListener('click', onVideoClick);
 }
 
-videoCross.addEventListener('click', function() {
+function onVideoClick() {
+  videoContainer.classList.add('header__video-container-active');
+}
+
+videoCross.addEventListener('click', onVideoClosed);
+
+function onVideoClosed() {
   videoContainer.classList.replace(
     'header__video-container-active', 'header__video-container-closed'
   );
@@ -826,98 +688,82 @@ videoCross.addEventListener('click', function() {
   setTimeout(() => {
     videoContainer.classList.remove('header__video-container-closed');
   }, 300);
-});
-
-const slidesImages = document.getElementsByClassName('slideshow__image');
-const slideDots = document.getElementsByClassName('slideshow__dot');
-const slideControl = document.getElementsByClassName('slideshow__control-mob');
-let slideIndex = 1;
-
-showSlides(slideIndex);
-
-slideControl[0].addEventListener('click', function() {
-  showSlides(slideIndex += -1);
-});
-
-slideControl[1].addEventListener('click', function() {
-  showSlides(slideIndex += 1);
-});
-
-slidersAbout[0].addEventListener('click', function() {
-  showSlides(slideIndex += -1);
-});
-
-slidersAbout[4].addEventListener('click', function() {
-  showSlides(slideIndex += 1);
-});
-
-for (let i = 0; i < slideDots.length; i++) {
-  slideDots[i].addEventListener('click', function(e) {
-    showSlides(slideIndex = e.target.dataset.number);
-  });
 }
 
-function showSlides(n) {
-  let i;
-
-  if (n > slidesImages.length) {
-    slideIndex = 1;
-  }
-
-  if (n < 1) {
-    slideIndex = slidesImages.length;
-  }
-
-  for (i = 0; i < slidesImages.length; i++) {
-    slidesImages[i].style.display = 'none';
-  }
-
-  for (i = 0; i < slideDots.length; i++) {
-    slideDots[i].classList.remove('slideshow__dot-active');
-  }
-
-  slidesImages[slideIndex - 1].style.display = 'block';
-  slideDots[slideIndex - 1].classList.add('slideshow__dot-active');
-}
-
-const miniButton = document.getElementsByClassName('mini-button');
+const miniButton = document.querySelectorAll('.mini-button');
 
 for (let i = 0; i < miniButton.length; i++) {
-  miniButton[i].addEventListener('click', function(e) {
-    if (
-      e.target.classList.contains('mini-button__span')
-      || e.target.classList.contains('mini-button__description')
-    ) {
-      return null;
-    }
-
-    if (miniButton[i].children[1].style.display === 'none') {
-      miniButton[i].children[1].style.display = 'block';
-      miniButton[i].classList.remove('mini-button--active');
-    } else {
-      miniButton[i].children[1].style.display = 'none';
-      miniButton[i].classList.add('mini-button--active');
-    }
-
-    if (miniButton[i].children[2].style.display === 'block') {
-      miniButton[i].children[2]
-        .classList.add('mini-button__description-disappear');
-
-      setTimeout(() => {
-        miniButton[i].children[2].style.display = 'none';
-
-        miniButton[i].children[2]
-          .classList.remove('mini-button__description-disappear');
-      }, 300);
-    } else {
-      miniButton[i].children[2].style.display = 'block';
-    }
-  });
+  miniButton[i].addEventListener('click', onMiniButtonClick);
 };
 
-const contactForm = document.getElementsByClassName('contact__form')[0];
+function onMiniButtonClick(e) {
+  if (
+    e.target.classList.contains('mini-button__span')
+    || e.target.classList.contains('mini-button__description')
+  ) {
+    return;
+  }
 
-contactForm.addEventListener('submit', function(e) {
+  if (this.children[2].style.display === 'block') {
+    this.children[2]
+      .classList.add('mini-button__description-disappear');
+    this.children[1].style.display = 'block';
+    this.classList.remove('mini-button--active');
+
+    setTimeout(() => {
+      this.children[2].style.display = 'none';
+
+      this.children[2]
+        .classList.remove('mini-button__description-disappear');
+    }, 300);
+  } else {
+    this.children[2].style.display = 'block';
+    this.children[1].style.display = 'none';
+    this.classList.add('mini-button--active');
+  }
+}
+
+const contactForm = document.getElementsByClassName('contact__form')[0];
+const contactButton = document.querySelector('#submit-contact');
+
+contactButton.addEventListener('click', onSubmitContactForm);
+
+function onSubmitContactForm(e) {
+  if (!validateContactForm()) {
+    e.preventDefault();
+  }
+}
+
+function validateContactForm() {
+  let valid = true;
+
+  const inputsContact = contactForm.querySelectorAll('.input');
+
+  inputsContact.forEach(input => {
+    const label = input.children[0];
+    const inputField = input.children[1];
+
+    if (!inputField.value.trim()) {
+      applyInvalidStyles(label, inputField);
+
+      label.innerText = getInvalidLabel(label);
+
+      valid = false;
+    }
+  });
+
+  return valid;
+}
+
+contactForm.addEventListener('submit', onContactFormSubmit);
+
+function onContactFormSubmit(e) {
   e.preventDefault();
   contactForm.reset();
-});
+
+  const labels = contactForm.querySelectorAll('.input__name');
+
+  labels.forEach(label => {
+    label.classList.remove('input__name--focused');
+  });
+}

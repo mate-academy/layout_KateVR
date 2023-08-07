@@ -1,14 +1,20 @@
 .language {
-  background-color: $c-background-menu;
-  
-  overflow-y: auto;
-
   height: 100vh;
+  bottom: auto;
+
+  background-color: $c-background-menu;
+  overflow-y: auto;
 
   @include onTablet {
     height: auto;
 
     z-index: 3;
+  }
+
+  @include onDesktop {
+    &:target {
+      display: none;
+    }
   }
 
   &__content {
@@ -23,11 +29,12 @@
 
   &__top {
     display: flex;
-    margin: 0 0 $menu-top-indent;
+    margin-bottom: 38px;
     padding-left: 20px;
 
     @include onTablet {
       padding-left: 34px;
+      margin-bottom: 48px;
     }
   }
 }

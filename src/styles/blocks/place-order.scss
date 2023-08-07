@@ -1,12 +1,18 @@
 .place-order {
   height: 100vh;
-  
+
   background: $c-background-gradient;
 
   overflow-y: auto;
   overflow-x: hidden;
 
   z-index: 3;
+
+  &__cross {
+    @include onDesktop {
+      display: none;
+    }
+  }
 
   &__title {
     margin: 0 31px 16px;
@@ -23,20 +29,12 @@
       font-size: 46px;
     }
 
-    &-complete {
-      @extend %h1;
+    @include onDesktop {
+      margin-bottom: 36px;
+    }
 
-      font-size: 46px;
-      text-align: center;
-      text-transform: uppercase;
-
-      @include onDesktop {
-        margin-bottom: 36px;
-      }
-
-      @include onLargeDesktop {
-        margin-bottom: 56px;
-      }
+    @include onLargeDesktop {
+      margin-bottom: 56px;
     }
   }
 
@@ -52,21 +50,12 @@
       margin-bottom: 50px;
     }
 
-    &-complete {
-      margin-bottom: 50px;
-
-      font-size: 18px;
-      line-height: 130%;
-      color: $c-white;
-      text-align: center;
-
-      @include onLargeDesktop {
-        margin-bottom: 70px;
-      }
+    @include onLargeDesktop {
+      margin-bottom: 70px;
     }
   }
 
-  &__content-mobile {
+  &__content {
     @extend %block-content;
 
     height: auto;
@@ -77,34 +66,43 @@
     }
 
     @include onDesktop {
-      display: none;
-    }
-  }
+      position: relative;
+      padding: 64px 110px 0;
 
-  &__content-desktop {
-    display: none;
-
-    padding: 64px 0 96px;
-    box-sizing: border-box;
-
-    background: center left url(../images/place-order-image.png) no-repeat;
-
-    @include onDesktop {
-      display: block;
+      background: bottom 140px left url(../images/place-order-image.png) no-repeat;
     }
 
     @include onLargeDesktop {
-      padding-bottom: 270px;
-
-      background: center left url(../images/place-order-image-1920.png) no-repeat;
+      padding-inline: 235px;
+      background: bottom 90px left url(../images/place-order-image-1920.png) no-repeat;
     }
 
-    &-complete {
-      background-image: none;
+    &--no-background {
+      background: none;
     }
   }
 
   &__top {
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      gap: 191px;
+      margin-bottom: 115px;
+    }
+
+    @include onLargeDesktop {
+      margin-bottom: 275px;
+      gap: 290px;
+    }
+  }
+
+  &__top-actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -115,20 +113,9 @@
       padding: 0 35px;
     }
 
-    &-desktop {
-      display: grid;
-      grid-template-columns: repeat(12, 1fr);
-      column-gap: 20px;
-
-      grid-column: 1 / 13;
-      margin-bottom: 80px;
-
-      @include onLargeDesktop {
-        grid-template-columns: repeat(16, 1fr);
-
-        grid-column: 1 / 17;
-        margin-bottom: 216px;
-      }
+    @include onDesktop {
+      margin: 0;
+      padding: 0;
     }
   }
 
@@ -140,14 +127,18 @@
 
   &__steps {
     display: flex;
-    margin-bottom: 30px;
 
-    @include onTablet {
-      margin-bottom: 0;
+    @include onDesktop {
+      gap: 191px;
+    }
+
+    @include onLargeDesktop {
+      gap: 290px;
     }
   }
 
   &__step {
+    position: relative;
     width: 100%;
     padding-bottom: 16px;
 
@@ -164,196 +155,101 @@
       font-size: 14px;
     }
 
+    @include onDesktop {
+      width: auto;
+      border: 0;
+      padding: 0;
+      flex-shrink: 0;
+    }
+
     &--active {
       color: $c-contrast-blue;
       border-color: $c-contrast-blue;
+
+      @include onDesktop {
+        &::after {
+          content: "";
+          display: inline-block;
+          position: absolute;
+          top: 100%;
+          margin-top: 7px;
+          left: 45%;
+          width: 4px;
+          height: 4px;
+
+          border-radius: 50%;
+          background-color: $c-contrast-blue;
+        }
+      }
     }
 
-    &--complete {
+    &--completed {
       color: $c-white;
     }
-  }
 
-  &__step-desktop {
-    justify-self: start;
-
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 130%;
-    color: $c-text-gray-dark;
-
-    transition: all $transition-time;
-
-    &:nth-of-type(1) {
-      grid-column: 4 / 6;
-
-      @include onLargeDesktop {
-        grid-column: 5 / 7;
-      }
-    }
-  
-    &:nth-of-type(2) {
-      grid-column: 7 / 8;
-
-      @include onLargeDesktop {
-        grid-column: 9 / 10;
-      }
-    }
-
-    &:nth-of-type(3) {
-      grid-column: 10 / 12;
-
-      @include onLargeDesktop {
-        grid-column: 13 / 15;
-      }
-    }
-
-    &--active {
-      color: $c-contrast-blue;
-
-      &::after {
-        content: "";
-        display: block;
-        height: 4px;
-        margin-top: 6px;
-
-        background: center url(../images/place-order-circle.png) no-repeat;
-      }
-    }
-
-    &--complete {
-      color: $c-white;
-    }
-  }
-
-  &__slides-container {
-    &-desktop {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 20px;
-
-      grid-column: 7 / 13;
-      grid-row: 1 / span 2;
-
-      @include onLargeDesktop {
-        grid-template-columns: repeat(8, 1fr);
-
-        grid-column: 9 / 17;
+    &:last-child {
+      @include onDesktop {
+        margin-left: 55px;
       }
     }
   }
-  
-  &__slide {
+
+  &__form-container {
     padding: 0 20px;
-
-    transition: all $transition-time;
 
     @include onTablet {
       padding: 0 35px;
     }
 
-    &-1 {
+    @include onDesktop {
       padding: 0;
+    }
+  }
 
+  &__slide {
+    transition: all $transition-time;
+
+    &-form {
       @include onTablet {
         padding: 320px 0 0;
 
         background: center 40px url(../images/place-order_tablet.png) no-repeat;
       }
+
+      @include onDesktop {
+        background: none;
+        padding: 0;
+      }
     }
 
-    &-2 {
-      display: none;
-    }
-
-    &-4 {
+    &-final {
       display: none;
       padding-top: 60px;
+      flex-direction: column;
 
       @include onTablet {
         padding-top: 180px;
       }
+
+      @include onDesktop {
+        padding-top: 36px;
+      }
+
+      @include onLargeDesktop {
+        padding-top: 0;
+        margin-top: -30px;
+      }
     }
 
     &--swiped {
-      transform: translateX(-100%);
+      @extend %animation-swiped;
     }
 
     &--appeared {
-      display: block;
-
+      display: flex;
       opacity: 0;
 
       @extend %animation-appeared;
-    }
-
-    &-desktop {
-      grid-column: 1 / 7;
-
-      transition: all $transition-time;
-
-      @include onLargeDesktop {
-        margin-top: 10px;
-      }
-
-      &-2 {
-        display: none;
-        margin-top: 52px;
-        grid-column: 1 / 6;
-
-        @include onLargeDesktop {
-          grid-column: 1 / 7;
-          margin-top: 35px;
-        }
-      }
-
-      &-final {
-        display: grid;
-        grid-template-columns: repeat(12, 1fr);
-        gap: 20px;
-
-        grid-column: 1 / 13;
-
-        transition: all $transition-time;
-
-        @include onLargeDesktop {
-          grid-template-columns: repeat(16, 1fr);
-          grid-column: 1 / 17;
-        }
-
-        &--swiped {
-          opacity: 0;
-        }
-      }
-
-      &-complete {
-        display: none;
-        grid-column: 1 / 13;
-        margin: 40px 0 0;
-
-        transition: all $transition-time;
-
-        @include onLargeDesktop {
-          grid-column: 1 / 17;
-          margin: 0;
-        }
-
-        &--appeared {
-          display: block;
-
-          @extend %animation-appeared;
-        }
-      }
-
-      &--swiped {
-        opacity: 0;
-      }
-
-      &--appeared {
-        display: block;
-
-        @extend %animation-appeared;
-      }
     }
   }
 

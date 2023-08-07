@@ -9,13 +9,13 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-  
+
     background: $c-background-gradient;
 
     &--shadowed {
       @include onTablet {
         &:after {
-          height: 100vh;
+          height: auto;
           content: "";
           position: absolute;
           top: 0;
@@ -41,34 +41,11 @@
     flex-grow: 1;
   }
 
+  &__faq,
+  &__help,
   &__place-order {
     @include onDesktop {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-  
       display: none;
-  
-      transition: all $transition-time;
-  
-      &:target {
-        display: block;
-  
-        opacity: 0;
-
-        animation: appeared $transition-time forwards;
-        
-        @keyframes appeared {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-      }
     }
   }
 
@@ -83,41 +60,35 @@
     right: 0;
     bottom: 0;
 
+    @extend %animation-appeared;
+
     transform: translateX(100%);
-    transition: transform $transition-time;
+    transition: all $transition-time;
+
+    z-index: 3;
 
     &:target {
       transform: translateX(0);
     }
+
+    @include onDesktop {
+      &:target {
+        display: block;
+      }
+
+      &:target:not(.page__place-order) {
+        transform: translateX(-50%);
+      }
+    }
   }
 
-  &__popup {
-    position: fixed;
-    top: 134px;
-    left: 50%;
-    
-    padding: 20px 0 74px;
-
-    transform: translateX(-50%);
-
-    @include onLargeDesktop {
-      top: 287px;
-
-      padding: 30px 0 82px;
-    }
-
-    &--faq {
+  &__faq:target,
+  &__help:target {
+    @include onDesktop {
       position: absolute;
       top: 134px;
       left: 50%;
-
-      padding: 20px 0 50px;
-
-      transform: translateX(-50%);
-
-      @include onLargeDesktop {
-        padding: 30px 0 50px;
-      }
+      bottom: auto;
     }
   }
 }

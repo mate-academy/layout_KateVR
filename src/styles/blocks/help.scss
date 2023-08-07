@@ -3,6 +3,8 @@
 
   overflow-y: auto;
 
+  bottom: auto;
+
   @extend %block-content;
 
   @include onTablet {
@@ -12,11 +14,31 @@
     z-index: 3;
   }
 
+  @include onDesktop {
+    min-width: 880px;
+    padding: 0 0 75px;
+  }
+
+  @include onLargeDesktop {
+    min-width: 1083px;
+  }
+
   &__content {
     padding: 0 20px;
 
     @include onTablet {
       padding: 0 34px;
+    }
+
+    @include onDesktop {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      gap: 20px;
+      padding: 0;
+    }
+
+    @include onLargeDesktop {
+      grid-template-columns: repeat(12, 1fr);
     }
   }
 
@@ -28,6 +50,30 @@
     @include onTablet {
       margin-bottom: 50px;
     }
+
+    @include onDesktop {
+      padding: 18px 18px 0 0;
+      grid-column: -2 / -1;
+    }
+
+    @include onLargeDesktop {
+      padding: 26px 26px 0 0;
+      margin-bottom: 0;
+    }
+
+    & > a:first-child {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    & > a:nth-child(2) {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
   }
 
   &__title {
@@ -37,6 +83,11 @@
 
     font-size: 21px;
 
+    @include onDesktop {
+      grid-column: 2 / 8;
+      font-size: 36px;
+    }
+
     &--text-blue {
       @extend %text--blue;
     }
@@ -44,6 +95,11 @@
 
   &__paragraph {
     margin-bottom: 30px;
+
+    @include onDesktop {
+      grid-column: 2 / -2;
+      margin-bottom: 0;
+    }
 
     &-text {
       &:first-of-type {
@@ -57,18 +113,28 @@
       display: flex;
     }
 
-    &-column {
+    @include onDesktop {
+      grid-column: 2 / 8;
+    }
+
+    &-column:first-of-type {
       @include onTablet {
-        &:first-of-type {
-          margin-right: 152px;
-        }
+        margin-right: 152px;
+      }
+
+      @include onDesktop {
+        margin-right: 65px;
+      }
+
+      @include onLargeDesktop {
+        margin-right: 70px;
       }
     }
-  
+
     &-link {
       display: block;
       margin-bottom: 20px;
-      
+
       color: $c-contrast-blue;
 
       &:nth-child(3) {
@@ -83,7 +149,7 @@
     &-contacts {
       display: block;
       margin-bottom: 10px;
-      
+
       line-height: 19px;
       color: $c-text-gray;
 

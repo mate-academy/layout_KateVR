@@ -1,10 +1,17 @@
 .menu {
   background-color: $c-background-menu;
-  
+
   overflow-y: auto;
+  bottom: auto;
 
   @include onTablet {
     z-index: 3;
+  }
+
+  @include onDesktop {
+    &:target {
+      display: none;
+    }
   }
 
   &__content {
@@ -12,17 +19,18 @@
 
     @include onTablet {
       height: auto;
-      padding: 35px 0 140px;
+      padding: 35px 0 128px;
     }
   }
 
   &__top {
     display: flex;
     justify-content: end;
-    margin: 0 0 $menu-top-indent;
+    margin-bottom: 38px;
     padding-right: 20px;
 
     @include onTablet {
+      margin-bottom: 46px;
       padding-right: 35px;
     }
   }

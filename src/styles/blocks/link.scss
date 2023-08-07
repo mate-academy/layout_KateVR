@@ -18,7 +18,7 @@
     line-height: 150%;
     color: $c-contrast-blue;
     text-align: center;
-    
+
     @include hover(color, $c-white);
 
     &::after {
@@ -26,9 +26,9 @@
       display: block;
       height: 6px;
       margin-top: 6px;
-      
+
       background: center url(../images/more_arrow.png) no-repeat;
-      
+
       transition: all $transition-time;
     }
 
@@ -45,7 +45,7 @@
 
     font-size: 14px;
     text-align: center;
-    
+
     background-color: $c-contrast-blue;
     border-radius: 4px;
 
@@ -55,13 +55,17 @@
       @include onTablet {
         position: relative;
         left: 50%;
-    
+
         max-width: 458px;
         padding: 13px 0;
-    
+
         font-size: 16px;
-    
+
         transform: translateX(-50%);
+      }
+
+      @include onDesktop {
+        max-width: 220px;
       }
     }
 
@@ -94,7 +98,7 @@
 
       @include onTablet {
         left: 50%;
-        bottom: 30px;
+        bottom: 50px;
 
         width: 458px;
 
@@ -132,33 +136,6 @@
 
   &--help {
     color: $c-contrast-blue;
-  }
-
-  &--desktop {
-    margin-bottom: 20px;
-
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 150%;
-    color: $c-contrast-blue;
-
-    &:last-of-type {
-      margin-bottom: 0;
-    }
-
-    &-help {
-      margin-bottom: 25px;
-
-      font-weight: 400;
-      font-size: 16px;
-      line-height: 19px;
-
-      color: $c-text-gray;
-
-      &:last-of-type {
-        margin-bottom: 0;
-      }
-    }
   }
 
   &--circle {

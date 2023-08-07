@@ -6,67 +6,46 @@
     line-height: 130%;
     color: $c-text-gray;
 
-    transform: translateY(14px);
     transition: all $transition-time;
 
     &--focused {
       color: $c-contrast-blue;
 
-      transform: translateY(0);
+      transform: translateY(-17px);
     }
 
     &--invalid {
       color: $c-red;
     }
 
-    &--card {
-      transform: translateY(0);
-      
-      &_focused {
-        color: $c-contrast-blue;
+    &--expiration,
+    &--cvv {
+      position: absolute;
+      bottom: 100%;
+      min-width: max-content;
 
-        transform: translateY(-17px);
-      }
-
-      &_invalid {
-        color: $c-red;
-      }
-    }
-
-    &--cardholder {
       @include onTablet {
-        transform: translateY(8px);
-
-        &_focused {
-          color: $c-contrast-blue;
-  
-          transform: translateY(-10px);
-        }
-
-        &_invalid {
-          color: $c-red;
-        }
+        margin-bottom: 17px;
       }
     }
 
-    &--card-back {
-      transform: translateY(-10px);
-
-      &_focused {
-        color: $c-contrast-blue;
-
-        transform: translateY(-22px);
+    &--expiration.input__name--invalid {
+      @include onDesktop {
+        transform: translateX(-40px);
       }
+    }
 
-      &_invalid {
-        color: $c-red;
+    &--card {
+      @include onTablet {
+        margin-bottom: 4px;
       }
     }
   }
 
   &__field {
     width: 100%;
-    padding: 4px 0 6px;
+    padding-bottom: 4px;
+    box-sizing: border-box;
 
     font-family: inherit;
     font-weight: 400;
@@ -79,15 +58,11 @@
     outline: none;
     border-bottom: 1px solid $c-dark-gray;
     caret-color: $c-contrast-blue;
-    
+
     transition: all $transition-time;
 
     @include onTablet {
       font-size: 18px;
-    }
-
-    &::placeholder {
-      font-size: 14px;
     }
 
     &--focused {
@@ -109,6 +84,8 @@
       letter-spacing: 0.2em;
       color: $c-white;
       text-align: center;
+      padding: 0;
+      padding-bottom: 4px;
 
       @include onTablet {
         font-size: 20px;
@@ -121,23 +98,25 @@
       }
 
       &::placeholder {
-        text-align: center;
+        @extend %input-placeholder;
+
         color: $c-dark-gray;
+        letter-spacing: 3.6px;
 
         @include onTablet {
-          font-size: 20px;
+          letter-spacing: 4px;
         }
       }
 
       &-card {
-        width: 54px;
+        width: 55px;
         margin-right: 20px;
-        padding-bottom: 9px;
+        padding-bottom: 6px;
 
         &:last-of-type {
           margin-right: 0;
         }
-        
+
         @include onTablet {
           width: 70px;
           margin-right: 30px;
@@ -165,7 +144,7 @@
         width: 37px;
 
         letter-spacing: normal;
-        
+
         border: none;
 
         &:first-of-type {
@@ -197,6 +176,8 @@
   }
 
   &__card-back {
+    position: relative;
+
     &:first-of-type {
       margin-right: 60px;
 
@@ -205,7 +186,7 @@
       }
 
       @include onDesktop {
-        margin-right: 70px;
+        margin-right: 90px;
       }
     }
   }
@@ -243,23 +224,29 @@
 
   &__card-logo {
     display: none;
-    width: 54px;
-    height: 34px;
+    min-width: 54px;
+    max-height: 33px;
+    border-radius: 3px;
 
-    &--visa {
-      @include onTablet {
-        display: block;
-      }
-      
-      background: center / cover url(../images/visa-logo.png) no-repeat;
-    }
-
+    &--visa,
     &--mastercard {
       @include onTablet {
         display: block;
       }
-      
-      background: center / cover url(../images/mastercard-logo.png) no-repeat;
+
+      background: center / cover no-repeat;
     }
+
+    &--visa {
+      background-image: url(../images/visa-logo.png);
+    }
+
+    &--mastercard {
+      background-image: url(../images/mastercard-logo.png);
+    }
+  }
+
+  &__dropdown {
+    margin-top: 13px;
   }
 }
