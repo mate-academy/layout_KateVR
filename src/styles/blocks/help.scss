@@ -1,0 +1,59 @@
+.help {
+  &__description {
+    font-size: 16px;
+    font-weight: $font-weight-regular;
+    line-height: 24px;
+    color: $light-gray;
+    margin-bottom: 20px;
+
+    &--blue {
+      color: $blue;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    padding-top: 20px;
+    gap: 150px;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+      gap: 0;
+    }
+
+    &-list {
+      list-style: none;
+    }
+
+    &-item {
+      margin-bottom: 20px;
+
+      &--gray {
+        @media (max-width: $mobile) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+
+    &-link {
+      font-size: 16px;
+      font-weight: $font-weight-regular;
+      line-height: 24px;
+      color: $blue;
+      transition: 0.3s;
+
+      &--gray {
+        color: $light-gray;
+        transition: 0.3s;
+
+        &:hover {
+          color: $white;
+        }
+      }
+
+      &:hover {
+        color: $white;
+      }
+    }
+  }
+}
