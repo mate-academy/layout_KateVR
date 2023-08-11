@@ -1,0 +1,70 @@
+.btn {
+  box-sizing: border-box;
+  display: block;
+  border-radius: 4px;
+
+  width: 280px;
+  height: 40px;
+  background-color: $accent-color;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  font-size: 14px;
+  line-height: 40px;
+
+  @include onDesktop {
+    width: 200px;
+    height: 48px;
+    line-height: 48px;
+  }
+
+  &__mob-hidden {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__web-hidden {
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__play {
+    display: flex;
+
+    &--image {
+      background-image: url(../images/icons/play_video_icon.svg);
+      width: 85px;
+      height: 70px;
+      transition: all 0.3s;
+
+      &:active {
+        background-image: url(../images/icons/play_video_icon_active.svg);
+      }
+    }
+
+    &--lines {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding-block: 12px;
+    }
+
+    &--text {
+      margin: 0;
+      color: #fff;
+      font-weight: 500;
+      line-height: 130%;
+      padding-left: 20px;
+      text-decoration: none;
+      transition: all 0.3s;
+
+      &:hover {
+        color: $accent-color;
+      }
+    }
+  }
+}

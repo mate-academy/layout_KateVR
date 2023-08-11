@@ -1,0 +1,43 @@
+.img {
+  &__mob {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__tabl {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__desk {
+    display: none;
+
+    @include onDesktop {
+      display: inline-block;
+    }
+
+    @include onWideScreen {
+      display: none;
+    }
+  }
+
+  &__wide {
+    display: none;
+
+    @include onWideScreen {
+      display: inline-block;
+    }
+  }
+}

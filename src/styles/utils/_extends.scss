@@ -1,4 +1,37 @@
 %h1 {
-  font-family: "Roboto", sans-serif;
+  font-family: $main-font;
+  font-weight: 900;
+  line-height: 130%;
+  font-size: 26px;
+  color: #fff;
+  margin: 0;
+
+  @include onDesktop {
+    font-size: 46px;
+  }
+
+  @include onWideScreen {
+    font-size: 54px;
+  }
+
+  br {
+    @include onWideScreen {
+      display: none;
+    }
+  }
+
+  &__extra {
+    font-size: 21px;
+  }
+}
+
+%h2 {
+  font-family: $main-font;
+  margin: 0;
+}
+
+%h4 {
   font-weight: 400;
+  color: $accent-color;
+  margin: 0;
 }
