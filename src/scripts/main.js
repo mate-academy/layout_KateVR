@@ -1,5 +1,16 @@
 'use strict';
 
+window.addEventListener('DOMContentLoaded', addPrice);
+
+const data = {
+  price: 1200,
+};
+
+function addPrice() {
+  document.querySelector('.header__price')
+    .innerText = `$${data.price}`;
+}
+
 window.addEventListener('DOMContentLoaded', onPageLoad);
 
 function onPageLoad() {
@@ -33,6 +44,22 @@ function onPageLoad() {
     document.body.classList.add('page__body--with-menu');
     document.body.classList.add('page__body--shadowed');
   }
+}
+
+document.addEventListener('DOMContentLoaded', addPhoneMask);
+
+function addPhoneMask() {
+  const phoneInput = document.querySelector('#phone');
+  const phoneInputContact = document.querySelector('#contact-phone');
+
+  const maskOptions = {
+    mask: '+{38}(000)000-00-00',
+  };
+
+  // eslint-disable-next-line no-undef
+  IMask(phoneInput, maskOptions);
+  // eslint-disable-next-line no-undef
+  IMask(phoneInputContact, maskOptions);
 }
 
 window.addEventListener('hashchange', onHashChange);
@@ -297,6 +324,17 @@ function validatePurchaseForm() {
     const inputLabel = input.children[0];
     const inputField = input.children[1];
 
+    if (
+      inputField.id === 'phone'
+      && inputField.value.trim().length < 17
+    ) {
+      applyInvalidStyles(inputLabel, inputField);
+
+      inputLabel.innerText = getInvalidLabel(inputLabel);
+
+      valid = false;
+    }
+
     if (!inputField.value.trim()) {
       applyInvalidStyles(inputLabel, inputField);
 
@@ -542,6 +580,7 @@ const slidersAbout = document.getElementsByClassName('slider-step--about');
 const counterNumber
   = document.getElementsByClassName('slideshow__counter-text')[0];
 const slideshowList = document.querySelector('.slideshow__list');
+const headerSliderList = document.querySelector('.header__carousel-list');
 const slideDots = document.querySelectorAll('.slideshow__dot');
 const controlMob = document.querySelectorAll('.slideshow__control-mob');
 
@@ -563,24 +602,33 @@ controlMob[0].addEventListener('click', onSliderAboutPrev);
 slidersAbout[4].addEventListener('click', onSliderAboutNext);
 controlMob[1].addEventListener('click', onSliderAboutNext);
 
+let headerImageLength
+  = window.getComputedStyle(headerSliderList).width.slice(0, -2);
+
 function onSliderHeaderPrev() {
   sliderIndices.header -= 1;
 
   showSlider(sliderIndices, 'header', 2, slidersHeader);
+
+  swipeImage(headerSliderList, 'header', headerImageLength);
 }
 
 function onSliderHeaderNext() {
   sliderIndices.header += 1;
 
   showSlider(sliderIndices, 'header', 2, slidersHeader);
+
+  swipeImage(headerSliderList, 'header', headerImageLength);
 }
+
+let imageWidth = 430;
 
 function onSliderAboutNext() {
   sliderIndices.about += 1;
 
   showSlider(sliderIndices, 'about', 4, slidersAbout, counterNumber);
 
-  swipeImage();
+  swipeImage(slideshowList, 'about', imageWidth);
 }
 
 function onSliderAboutPrev() {
@@ -588,7 +636,7 @@ function onSliderAboutPrev() {
 
   showSlider(sliderIndices, 'about', 4, slidersAbout, counterNumber);
 
-  swipeImage();
+  swipeImage(slideshowList, 'about', imageWidth);
 }
 
 function showSlider(indices, key, maxIndex, sliders, label) {
@@ -618,28 +666,40 @@ function showSlider(indices, key, maxIndex, sliders, label) {
   }
 }
 
-let imageWidth = 430;
-
-function swipeImage() {
-  slideshowList.style.translate = '-' + sliderIndices.about * imageWidth + 'px';
+function swipeImage(list, key, width) {
+  list.style.translate = '-' + sliderIndices[key] * width + 'px';
 }
 
 function changeImageWidth(x) {
   if (x.matches) {
     imageWidth = 430;
 
-    swipeImage();
+    swipeImage(slideshowList, 'about', imageWidth);
   } else {
     imageWidth = 622;
 
-    swipeImage();
+    swipeImage(slideshowList, 'about', imageWidth);
+  }
+}
+
+function changeHeaderCarouselWidth(x) {
+  if (x.matches) {
+    headerImageLength = 811;
+
+    swipeImage(headerSliderList, 'header', headerImageLength);
+  } else {
+    headerImageLength = 1151;
+
+    swipeImage(headerSliderList, 'header', headerImageLength);
   }
 }
 
 const matches = window.matchMedia('(max-width: 1440px)');
 
 changeImageWidth(matches);
+changeHeaderCarouselWidth(matches);
 matches.addEventListener('change', changeImageWidth);
+matches.addEventListener('change', changeHeaderCarouselWidth);
 
 window.onscroll = function() {
   getFixed();
@@ -742,6 +802,17 @@ function validateContactForm() {
   inputsContact.forEach(input => {
     const label = input.children[0];
     const inputField = input.children[1];
+
+    if (
+      inputField.id === 'contact-phone'
+      && inputField.value.trim().length < 17
+    ) {
+      applyInvalidStyles(label, inputField);
+
+      label.innerText = getInvalidLabel(label);
+
+      valid = false;
+    }
 
     if (!inputField.value.trim()) {
       applyInvalidStyles(label, inputField);

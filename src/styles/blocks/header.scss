@@ -1,20 +1,6 @@
 .header {
   position: relative;
 
-  background: center 45px url(../images/header_mobile.png) no-repeat;
-
-  @include onTablet {
-    background: right top url(../images/header_tablet.png) no-repeat;
-  }
-
-  @include onDesktop {
-    background: right top url(../images/header_1280.png) no-repeat;
-  }
-
-  @include onLargeDesktop {
-    background: right top url(../images/header_1920.png) no-repeat;
-  }
-
   &__content {
     @extend %block-content;
 
@@ -154,31 +140,58 @@
 
       font-size: 20px;
     }
+  }
 
-    &::after {
-      display: block;
-      content: "1200$";
-      margin-top: 10px;
+  &__price {
+    display: block;
+    margin-top: 10px;
 
-      font-size: 18px;
-      line-height: 22px;
-      color: $c-white;
-      text-align: center;
+    font-size: 18px;
+    line-height: 22px;
+    color: $c-white;
 
-      @include onTablet {
-        text-align: left;
-      }
+    @include onLargeDesktop {
+      margin-top: 30px;
 
-      @include onDesktop {
-        text-align: left;
-      }
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
 
-      @include onLargeDesktop {
-        margin-top: 30px;
+  &__carousel {
+    position: absolute;
+    top: 44px;
+    max-width: 320px;
+    left: 50%;
 
-        font-size: 20px;
-        line-height: 24px;
-      }
+    z-index: -1;
+    overflow: hidden;
+
+    transform: translateX(-50%);
+
+    @include onTablet {
+      max-width: 486px;
+      top: 20px;
+      right: 0;
+      left: auto;
+
+      transform: none;
+    }
+
+    @include onDesktop {
+      top: 10px;
+      max-width: 811px;
+    }
+
+    @include onLargeDesktop {
+      max-width: 1151px;
+      top: 0;
+    }
+
+    &-list {
+      display: flex;
+
+      transition: all $transition-time;
     }
   }
 
