@@ -3,9 +3,13 @@
 
   &__container {
     position: relative;
-    max-width: 430px;
+    max-width: 280px;
 
     overflow: hidden;
+
+    @include onTablet {
+      max-width: 430px;
+    }
 
     @include onLargeDesktop {
       max-width: 622px;
@@ -52,13 +56,15 @@
 
   &__image {
     width: 100%;
-    max-width: 430px;
+    max-width: 280px;
+    min-height: 190px;
     object-fit: cover;
     vertical-align: middle;
 
     @include onTablet {
       min-height: 270px;
       max-height: 270px;
+      max-width: 430px;
     }
 
     @include onDesktop {

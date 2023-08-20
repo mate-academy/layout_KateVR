@@ -30,8 +30,13 @@
     width: 12px;
 
     background-color: $c-white;
-
     transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    &.active {
+      display: none;
+    }
 
     &:nth-of-type(2) {
       transform: rotate(90deg) translateY(6px);
@@ -48,21 +53,15 @@
 
   &__description {
     position: absolute;
-
     display: none;
     width: 168px;
     height: 112px;
     padding: 20px 10px;
 
     background-color: $c-background-menu;
-
     border-radius: 4px;
-
-    transition: all $transition-time;
-
-    @extend %animation-appeared;
-
     z-index: 2;
+    cursor: default;
 
     @include onTablet {
       width: 200px;
@@ -72,10 +71,6 @@
 
     &-active {
       display: block;
-    }
-
-    &-disappear {
-      @extend %animation-disappear;
     }
 
     &-1 {

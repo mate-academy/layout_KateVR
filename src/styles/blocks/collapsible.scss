@@ -23,12 +23,8 @@
   }
 
   &__content {
-    max-height: 0;
+    display: none;
     padding: 0 12px;
-
-    overflow: hidden;
-
-    transition: max-height $transition-time ease-out;
 
     @include onTablet {
       padding: 0 30px;
@@ -39,11 +35,21 @@
     }
 
     &-bottom-text {
+      margin-bottom: 12px;
+
       font-size: 12px;
       color: $c-text-gray-dark;
 
       @include onTablet {
-        margin-bottom: 13px;
+        margin-bottom: 24px;
+      }
+
+      @include onDesktop {
+        margin-bottom: 20px;
+      }
+
+      @include onLargeDesktop {
+        margin-bottom: 24px;
       }
     }
   }

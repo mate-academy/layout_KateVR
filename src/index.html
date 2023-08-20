@@ -208,9 +208,9 @@
                 class="header__iframe"
                 width="200"
                 height="200"
-                src="https://www.youtube.com/embed/fVA3AyVLW5k?rel=0&showinfo=0&vq=720&&autoplay=1&enablejsapi=1"
+                src="about:blank"
+                data-src="https://www.youtube.com/embed/fVA3AyVLW5k?rel=0&showinfo=0&vq=720&&autoplay=1&enablejsapi=1"
                 allowfullscreen
-                enablejsapi = "1"
               >
               </iframe>
             </div>
@@ -241,7 +241,7 @@
               <div class="slider">
                 <div class="slider-container">
                   <button
-                    class="slider-step slider-step--header"
+                    class="slider-step slider-step--header slider-step--active"
                   >
                     Previous
                   </button>
@@ -653,6 +653,7 @@
                         type="text"
                         name="first-name"
                         id="first-name"
+                        data-label="First Name*"
                         required
                       >
                     </div>
@@ -670,6 +671,7 @@
                         type="text"
                         name="last-name"
                         id="last-name"
+                        data-label="Last Name*"
                         required
                       >
                     </div>
@@ -687,6 +689,7 @@
                         type="email"
                         name="email"
                         id="email"
+                        data-label="Email*"
                         required
                       >
                     </div>
@@ -704,6 +707,7 @@
                         type="text"
                         name="phone"
                         id="phone"
+                        data-label="Phone Number*"
                         required
                       >
                     </div>
@@ -723,6 +727,7 @@
                           autocomplete="off"
                           id="country"
                           value="Ukraine"
+                          data-label="Country*"
                           required
                         >
 
@@ -786,6 +791,7 @@
                           type="text"
                           name="city"
                           autocomplete="off"
+                          data-label="City*"
                           id="city"
                           required
                         >
@@ -848,6 +854,7 @@
                         type="text"
                         name="address-1"
                         id="address-1"
+                        data-label="Shipping Address*"
                         required
                       >
                     </div>
@@ -865,6 +872,7 @@
                         type="text"
                         name="address-2"
                         id="address-2"
+                        data-label="Shipping Address 2"
                         required
                       >
                     </div>
@@ -890,6 +898,7 @@
                           type="number"
                           name="card-1"
                           placeholder="0000"
+                          data-label="Card Number*"
                           required
                         >
 
@@ -905,6 +914,7 @@
                           type="number"
                           name="card-2"
                           placeholder="0000"
+                          data-label="Card Number*"
                           required
                         >
 
@@ -920,6 +930,7 @@
                           type="number"
                           name="card-3"
                           placeholder="0000"
+                          data-label="Card Number*"
                           required
                         >
 
@@ -936,6 +947,7 @@
                           type="number"
                           name="card-4"
                           placeholder="0000"
+                          data-label="Card Number*"
                           required
                         >
 
@@ -961,29 +973,31 @@
                         type="text"
                         name="card-holder-name"
                         id="card-holder-name"
+                        data-label="Card Holder Name*"
                         required
                       >
                     </div>
 
                     <div class="form__card-back">
                       <div class="input input__card-back">
+                        <label for="expire-2"></label>
+
                         <label
                           class="input__name input__name--expiration"
-                          for="cvv-1"
+                          for="expire-1"
                         >
                           Expiration Date*
                         </label>
 
-                        <label for="cvv-2"></label>
-
                         <span class="input__card-expiration">
                           <input
-                            id="cvv-1"
+                            id="expire-1"
                             autocomplete="off"
                             class="input__field input__field--number input__field--number-expiration"
                             type="number"
                             name="card-expiration-date-1"
                             placeholder="MM"
+                            data-label="Expiration Date*"
                             required
                           >
 
@@ -995,12 +1009,13 @@
                           </span>
 
                           <input
-                            id="cvv-2"
+                            id="expire-2"
                             autocomplete="off"
                             class="input__field input__field--number input__field--number-expiration"
                             type="number"
                             name="card-expiration-date-2"
                             placeholder="YY"
+                            data-label="Expiration Date*"
                             required
                           >
                         </span>
@@ -1025,6 +1040,7 @@
                           type="number"
                           name="card-cvv"
                           placeholder="000"
+                          data-label="CVV*"
                           required
                         >
                       </div>
@@ -1207,7 +1223,7 @@
                   </div>
 
                   <div class="slideshow__dots">
-                    <span class="slideshow__dot"></span>
+                    <span class="slideshow__dot slideshow__dot-active"></span>
                     <span class="slideshow__dot"></span>
                     <span class="slideshow__dot"></span>
                     <span class="slideshow__dot"></span>
@@ -1216,7 +1232,9 @@
 
                   <div class="slider slideshow__slider">
                     <div class="slider-container">
-                      <span class="slider-step slider-step--about">
+                      <span
+                        class="slider-step slider-step--about slider-step--active"
+                      >
                         Previous
                       </span>
 
@@ -1592,6 +1610,7 @@
                     type="text"
                     name="contact-name"
                     id="contact-name"
+                    data-label="Name*"
                     required
                   >
                 </div>
@@ -1607,6 +1626,7 @@
                     type="email"
                     name="contact-email"
                     id="contact-email"
+                    data-label="Email*"
                     required
                   >
                 </div>
@@ -1622,6 +1642,7 @@
                     type="text"
                     name="contact-phone"
                     id="contact-phone"
+                    data-label="Phone*"
                     required
                   >
                 </div>
@@ -1636,6 +1657,7 @@
                     autocomplete="off"
                     name="contact-message"
                     id="contact-message"
+                    data-label="Message"
                     required
                   ></textarea>
                 </div>
@@ -1805,7 +1827,19 @@
         </div>
       </div>
     </footer>
-    <script defer type="text/javascript" src="scripts/main.js"></script>
-    <script defer src="https://unpkg.com/imask"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.7.0.min.js"
+      integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.min.js"
+    >
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"
+    ></script>
+    <script src="https://unpkg.com/imask"></script>
+    <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>

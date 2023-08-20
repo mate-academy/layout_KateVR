@@ -19,11 +19,10 @@
 
     &--expiration,
     &--cvv {
-      position: absolute;
-      bottom: 100%;
-      min-width: max-content;
-
       @include onTablet {
+        position: absolute;
+        bottom: 100%;
+        min-width: max-content;
         margin-bottom: 17px;
       }
     }
@@ -66,7 +65,7 @@
       border-color: $c-contrast-blue;
     }
 
-    &--invalid {
+    &.error {
       border-color: $c-red;
     }
 
@@ -196,20 +195,24 @@
 
     transition: all $transition-time;
 
-    &--focused {
+    // &--focused {
+    //   border-color: $c-contrast-blue;
+    // }
+
+    &.focused {
       border-color: $c-contrast-blue;
     }
 
-    &--invalid {
-      border-color: $c-red;
-    }
+    // &.error {
+    //   border-color: $c-red;
+    // }
 
     &-slash {
       color: $c-dark-gray;
 
       transition: all $transition-time;
 
-      &--active {
+      &.active {
         color: $c-contrast-blue;
       }
     }
