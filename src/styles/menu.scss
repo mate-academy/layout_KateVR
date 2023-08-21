@@ -11,6 +11,7 @@
   &__lang {
     background-color: $aside-bg-color;
     box-sizing: border-box;
+    height: 100vh;
     // overflow: hidden;
   }
 
@@ -48,17 +49,14 @@
       list-style: none;
       margin: 0;
       padding: 0;
-      padding-bottom: 161px;
       display: flex;
       flex-direction: column;
-
-      @include onTablet {
-        padding-bottom: 139px;
-      }
+      border-right: 1px solid #014954;
     }
 
     &--item {
       position: relative;
+      transition: all 0.3s;
 
       &:hover::after {
         content: "";
@@ -86,6 +84,7 @@
 
       &:hover {
         color: $accent-color;
+        border-right: 1px solid $accent-color;
       }
 
       @include onTablet {
