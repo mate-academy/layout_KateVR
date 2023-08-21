@@ -1,8 +1,13 @@
 .faq {
   background-color: $aside-bg-color;
+  // height: 100vh;
+  // overflow: scroll;
 
   @include onDesktop {
     width: 880px;
+    height: 854px;
+    margin-top: 134px;
+    overflow: scroll;
   }
 
   @include onWideScreen {
@@ -77,6 +82,30 @@
     }
   }
 
+  &__accordion {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    background-color: transparent;
+    font-size: 16px;
+
+    &:after {
+      content: url(../images/icons/faq_arrow_close.svg);
+      width: 9px;
+      height: 6px;
+    }
+  }
+
+  &__accordion-info {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+
   &__title {
     font-size: 21px;
 
@@ -93,7 +122,6 @@
   }
 
   &__text {
-    font-weight: 400;
     margin: 0;
     margin-block: 18px 10px;
   }
@@ -102,7 +130,6 @@
     margin: 0;
     color: #545454;
     font-size: 12px;
-    font-weight: 400;
 
     @include onDesktop {
       font-size: 14px;

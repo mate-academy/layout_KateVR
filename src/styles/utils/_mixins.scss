@@ -39,6 +39,23 @@
   }
 }
 
+@mixin contentBlockPadding {
+  padding-block: 50px;
+
+  @include onTablet {
+    padding-block: 70px;
+    @content;
+  }
+
+  @include onDesktop {
+    padding-block: 100px;
+  }
+
+  @include onWideScreen {
+    padding-block: 160px;
+  }
+}
+
 @mixin pageGrid {
   --columns: 2;
   display: grid;
@@ -47,11 +64,12 @@
 
   @include onTablet() {
     --columns: 6;
-    column-gap: 30px;
+    column-gap: 18px;
   }
 
   @include onDesktop() {
     --columns: 12;
+    column-gap: 20px;
   }
 
   @include onWideScreen() {

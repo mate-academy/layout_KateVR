@@ -1,0 +1,75 @@
+.audience {
+  background-color: $bg-black;
+  margin-top: -17px;
+
+  @include contentBlockPadding;
+
+  @include onTablet {
+    margin: 0;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include onTablet {
+      align-items: center;
+    }
+
+    @include onDesktop {
+      gap: 16px;
+    }
+  }
+
+  &__content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      @include pageGrid;
+      margin-top: 43px;
+      row-gap: 40px;
+    }
+
+    @include onDesktop {
+      margin-top: 84px;
+    }
+  }
+
+  &__interest {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include onTablet {
+      grid-column: span 3;
+      align-items: center;
+    }
+
+    @include onWideScreen {
+      grid-column: span 4;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    flex: 1;
+
+    @include onTablet {
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    font-size: 12px;
+
+    @include onDesktop {
+      font-size: 14px;
+    }
+  }
+}

@@ -116,6 +116,11 @@
   &__content {
     @include onTablet {
       @include pageGrid;
+      margin-bottom: 60px;
+    }
+
+    @include onDesktop {
+      margin: 0;
     }
 
     &--block {
@@ -141,7 +146,8 @@
         position: absolute;
         display: inline-block;
         right: 0;
-        top: 98px;
+        top: 6px;
+        z-index: -1;
       }
 
       @include onDesktop {
@@ -150,8 +156,7 @@
       }
 
       @include onWideScreen {
-        top: 311px;
-        right: 234px;
+        top: 0;
       }
     }
   }
@@ -173,6 +178,7 @@
   &__text {
     margin: 0;
     padding-top: 17px;
+    font-weight: 500;
 
     @include onDesktop {
       padding-top: 19px;
@@ -198,10 +204,10 @@
     }
 
     @include onDesktop {
-      padding-block: 5px 19.95px;
+      padding-block: 15px 19.95px;
     }
 
-    @include onDesktop {
+    @include onWideScreen {
       padding-block: 30px 35.95px;
     }
   }
@@ -241,29 +247,6 @@
       align-items: center;
       gap: 7px;
     }
-
-    &--right {
-      display: flex;
-      gap: 103px;
-      align-items: center;
-      position: relative;
-
-      &::after {
-        content: "";
-        position: absolute;
-        display: block;
-        height: 1px;
-        width: 100%;
-        background-color: #212121;
-        bottom: -10px;
-      }
-
-      &:hover {
-        &::after {
-          background-color: $accent-color;
-        }
-      }
-    }
   }
 
   &__link {
@@ -289,26 +272,26 @@
       height: 6px;
     }
 
-    &--slide {
-      text-decoration: none;
-      color: #fff;
-      position: relative;
-      transition: all 0.3s;
+    // &--slide {
+    //   text-decoration: none;
+    //   color: #fff;
+    //   position: relative;
+    //   transition: all 0.3s;
 
-      &:focus {
-        color: $text-color;
+    //   &:focus {
+    //     color: $text-color;
 
-        &::after {
-          content: "";
-          position: absolute;
-          display: block;
-          height: 1px;
-          width: 100%;
-          background-color: $accent-color;
-          bottom: -10px;
-          z-index: 1;
-        }
-      }
-    }
+    //     &::after {
+    //       content: "";
+    //       position: absolute;
+    //       display: block;
+    //       height: 1px;
+    //       width: 100%;
+    //       background-color: $accent-color;
+    //       bottom: -10px;
+    //       z-index: 1;
+    //     }
+    //   }
+    // }
   }
 }

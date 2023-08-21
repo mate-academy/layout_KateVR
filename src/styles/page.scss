@@ -3,7 +3,7 @@
   font-family: $main-font;
   color: $text-color;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 150%;
 
   &__body {
@@ -49,14 +49,18 @@
         margin-inline: auto;
         box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.7);
 
-        @include onDesktop {
-          top: 134px;
-        }
+        // @include onDesktop {
+        //   margin-top: 134px;
+        // }
       }
     }
   }
 
-  // &:has(.page__menu:target) {
-  //   overflow: hidden;
-  // }
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &:has(.page__menu--extra:target) {
+    overflow: hidden;
+  }
 }
