@@ -35,16 +35,20 @@
 
   &__block {
     position: relative;
-    // display: flex;
-    // justify-content: center;
+    width: 197px;
+    height: auto;
+
     margin-top: 41px;
+    margin-inline: auto;
 
     @include onTablet {
       grid-column: 2 / 6;
+      width: 357px;
     }
 
     @include onDesktop {
       grid-column: 5 / 9;
+      width: 313px;
       margin: 0;
       transform: translateY(186px);
     }
@@ -60,7 +64,6 @@
     display: block;
     width: 197px;
     height: auto;
-    margin-inline: auto;
 
     @include onTablet {
       width: 357px;
@@ -81,7 +84,7 @@
         height: 201px;
         position: absolute;
         top: 42px;
-        left: -10px;
+        left: -11px;
       }
     }
   }
@@ -107,31 +110,31 @@
     }
 
     &--1 {
-      left: 35%;
+      left: 60px;
       top: -11px;
 
       @include onTablet {
-        left: 25%;
+        left: 65px;
         top: -27px;
       }
     }
 
     &--2 {
-      right: 27%;
+      right: 29px;
       top: 80px;
 
       @include onTablet {
-        right: 23%;
-        top: 140px;
+        right: 49px;
+        top: 145px;
       }
     }
 
     &--3 {
-      left: 7%;
-      top: 150px;
+      left: -17px;
+      top: 153px;
 
       @include onTablet {
-        left: 0;
+        left: -58px;
         top: 273px;
       }
     }
@@ -148,9 +151,9 @@
     &--1 {
       transform: translateY(-165px);
       grid-column: 1 / 4;
-      // position: relative;
 
       @include onWideScreen {
+        transform: translateY(-180px);
         grid-column: 3 / 6;
       }
     }
@@ -160,6 +163,7 @@
       grid-column: 9 / -1;
 
       @include onWideScreen {
+        transform: translateY(-180px);
         grid-column: 12 / -1;
       }
     }
@@ -170,6 +174,7 @@
       height: 0;
 
       @include onWideScreen {
+        transform: translateY(-130px);
         grid-column: 3 / 6;
       }
     }
@@ -186,11 +191,13 @@
         display: block;
         position: absolute;
         top: -50px;
-        right: 193px;
+        right: 166px;
       }
 
       @include onWideScreen {
-        right: 750px;
+        background-image: url(../images/main/tech/sensor_vector_wide.svg);
+        width: 431px;
+        height: 72px;
       }
     }
 
@@ -205,12 +212,14 @@
         display: block;
         position: absolute;
         top: -50px;
-        right: 0px;
+        right: -30px;
       }
 
-
       @include onWideScreen {
-        right: 550px;
+        background-image: url(../images/main/tech/batteries_vector_wide.svg);
+        width: 283px;
+        height: 245px;
+        right: -125px;
       }
     }
 
@@ -226,6 +235,13 @@
         position: absolute;
         top: 65px;
         left: -135px;
+      }
+
+      @include onWideScreen {
+        background-image: url(../images/main/tech/connection_vector_wide.svg);
+        width: 241px;
+        height: 112px;
+        left: -235px;
       }
     }
   }
