@@ -99,6 +99,7 @@
     width: 34px;
     height: 34px;
     z-index: 1;
+    transition: all 0.3s;
 
     @include onTablet {
       width: 61px;
@@ -109,9 +110,14 @@
       display: none;
     }
 
+    &:hover {
+      background-image: url(../images/main/tech/tech_info_open.svg);
+    }
+
     &--1 {
       left: 60px;
       top: -11px;
+      cursor: pointer;
 
       @include onTablet {
         left: 65px;
@@ -138,6 +144,22 @@
         top: 273px;
       }
     }
+  }
+
+  &__more-info {
+    display: none;
+    position: absolute;
+    background-color: $aside-bg-color;
+    border-radius: 4px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 150%;
+    padding: 17px 10px 22px 11px;
+    top: 45px;
+  }
+
+  &__more-info.show {
+    display: inline-block;
   }
 
   &__info {

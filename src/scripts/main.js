@@ -20,3 +20,21 @@ accordionButtons.forEach(button => {
     }
   });
 });
+
+const tooltipTech = document.querySelector('.tech__more-icon--1');
+const detailsTech = document.querySelector('.tech__more-info');
+const tooltipDelay = 200;
+let hideTooltipTimeout;
+
+tooltipTech.addEventListener('mouseover', () => {
+  clearTimeout(hideTooltipTimeout);
+  detailsTech.classList.add('show');
+});
+
+document.addEventListener('mouseover', (event) => {
+  if (!detailsTech.contains(event.target) && event.target !== tooltipTech) {
+    hideTooltipTimeout = setTimeout(() => {
+      detailsTech.classList.remove('show');
+    }, tooltipDelay);
+  }
+});
