@@ -123,6 +123,16 @@
         background-color: $accent-color;
       }
 
+      &:hover {
+        &::after {
+          content: "";
+          transform: scaleX(1);
+          transform-origin: left;
+          background-color: $accent-color;
+          z-index: 1;
+        }
+      }
+
       &:focus {
         color: $text-color;
 
@@ -135,16 +145,6 @@
           background-color: $accent-color;
           bottom: -10px;
           z-index: 10;
-        }
-      }
-
-      &:hover {
-        &::after {
-          content: "";
-          transform: scaleX(1);
-          transform-origin: left;
-          background-color: $accent-color;
-          z-index: 1;
         }
       }
     }
