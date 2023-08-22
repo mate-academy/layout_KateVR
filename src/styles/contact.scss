@@ -1,0 +1,139 @@
+.contact {
+  background-color: $bg-black;
+  padding-block: 50px;
+
+  @include onTablet {
+    padding-block: 70px 130px;
+  }
+
+  @include onDesktop {
+    padding-block: 100px;
+  }
+
+  @include onWideScreen {
+    padding-block: 160px 205px;
+  }
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__left {
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+
+    @include onWideScreen {
+      grid-column: span 8;
+    }
+  }
+
+  &__right {
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+
+    @include onWideScreen {
+      grid-column: span 8;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    @include onDesktop {
+      gap: 13px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+      margin-block: 50px 76px;
+    }
+
+    @include onDesktop {
+      display: inline-block;
+      margin-block: 26px 76px;
+    }
+
+    &--mob {
+      margin: 0;
+      margin-top: 27px;
+      font-size: 12px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+  }
+
+  &__emails {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include onTablet {
+      gap: 8px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $text-color;
+    line-height: 1;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__to-top {
+    display: none;
+
+    @include onTablet {
+      background-image: url(../images/main/go_to_top.svg);
+      display: block;
+      width: 48px;
+      height: 48px;
+      transition: all 0.3s;
+
+      &:hover {
+        background-image: url(../images/main/go_to_top_hover.svg);
+      }
+    }
+  }
+
+  &__btn {
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

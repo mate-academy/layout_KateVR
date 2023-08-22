@@ -1,0 +1,213 @@
+.about {
+  @include contentBlockPadding;
+
+  &__content {
+    &--top {
+      @include onTablet {
+        @include pageGrid;
+      }
+    }
+
+    &--bottom {
+      padding-top: 80px;
+
+      @include onTablet {
+        @include pageGrid;
+        align-items: center;
+        padding-top: 88px;
+      }
+
+      @include onDesktop {
+        padding-top: 190px;
+      }
+
+      @include onWideScreen {
+        padding-top: 185px;
+      }
+    }
+  }
+
+  &__title {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    &--mob {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--bottom {
+      margin-block: 11px 22px;
+    }
+  }
+
+  &__count {
+    display: none;
+
+    @include onDesktop {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      font-size: 14px;
+      line-height: 1;
+      color: $accent-color;
+      grid-column: 2 / 2;
+    }
+
+    @include onWideScreen {
+      grid-column: 3 / 3;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    margin-block: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      margin: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 8;
+      align-items: flex-start;
+    }
+
+    @include onWideScreen {
+      grid-column: 4 / 11;
+    }
+
+    &--bottom {
+      display: flex;
+      flex-direction: column;
+
+      @include onTablet {
+        grid-column: 1 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 6;
+      }
+
+      @include onWideScreen {
+        grid-column: 2 / 8;
+      }
+    }
+  }
+
+  &__img {
+    background-image: url(../images/main/about_video_cover.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 189px;
+    width: 100%;
+
+    @include onTablet {
+      height: 270px;
+    }
+
+    @include onDesktop {
+      height: 290px;
+    }
+  }
+
+  &__dots {
+    background-image: url(../images/main/carousel_btn.svg);
+    width: 44px;
+    height: 4px;
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__info-block {
+    display: flex;
+    flex-direction: column;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+
+    @include onWideScreen {
+      grid-column: 12 / -1;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      margin-block: 30px 21px;
+    }
+
+    @include onWideScreen {
+      margin-block: 64px 52px;
+    }
+
+    &--bottom {
+      margin: 0;
+
+    }
+  }
+
+  &__slide {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__design {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        background-image: url(../images/main/about/about_us_group_tabl.png);
+        width: 232px;
+        height: 257px;
+        grid-column: 5 / -1;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        background-image: url(../images/main/about/about_us_group.png);
+        width: 495px;
+        height: 342px;
+        grid-column: 7 / -1;
+      }
+
+      @include onWideScreen {
+        grid-column: 9 / -1;
+      }
+    }
+  }
+}
