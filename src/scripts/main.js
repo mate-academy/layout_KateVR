@@ -12,29 +12,14 @@ accordionButtons.forEach(button => {
 
       allAccordionInfos.forEach(info => {
         info.style.display = 'none';
+        info.previousElementSibling.setAttribute('data-state', 'closed');
       });
 
       accordionInfo.style.display = 'block';
+      button.setAttribute('data-state', 'open');
     } else {
       accordionInfo.style.display = 'none';
+      button.setAttribute('data-state', 'closed');
     }
   });
-});
-
-const tooltipTech = document.querySelector('.tech__more-icon--1');
-const detailsTech = document.querySelector('.tech__more-info');
-const tooltipDelay = 200;
-let hideTooltipTimeout;
-
-tooltipTech.addEventListener('mouseover', () => {
-  clearTimeout(hideTooltipTimeout);
-  detailsTech.classList.add('show');
-});
-
-document.addEventListener('mouseover', (event) => {
-  if (!detailsTech.contains(event.target) && event.target !== tooltipTech) {
-    hideTooltipTimeout = setTimeout(() => {
-      detailsTech.classList.remove('show');
-    }, tooltipDelay);
-  }
 });

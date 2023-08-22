@@ -64,6 +64,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      align-items: center;
     }
   }
 
@@ -89,12 +90,22 @@
     text-align: left;
     background-color: transparent;
     font-size: 16px;
+  }
 
-    &:after {
-      content: url(../images/icons/faq_arrow_close.svg);
-      width: 9px;
-      height: 6px;
-    }
+  &__accordion[data-state="open"] .arrow {
+    background-image: url(../images/icons/faq_arrow_open.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 9px;
+    height: 6px;
+  }
+
+  &__accordion[data-state="closed"] .arrow {
+    background-image: url(../images/icons/faq_arrow_close.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 9px;
+    height: 6px;
   }
 
   &__accordion-info {
