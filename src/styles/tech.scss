@@ -95,9 +95,12 @@
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    background-color: transparent;
+    border: none;
     position: absolute;
     width: 34px;
     height: 34px;
+    cursor: pointer;
     z-index: 1;
     transition: all 0.3s;
 
@@ -114,10 +117,13 @@
       background-image: url(../images/main/tech/tech_info_open.svg);
     }
 
+    &:focus {
+      background-image: url(../images/main/tech/tech_info_open.svg);
+    }
+
     &--1 {
       left: 60px;
       top: -11px;
-      cursor: pointer;
 
       @include onTablet {
         left: 65px;
@@ -188,11 +194,8 @@
   }
 
   &__more-icon--1:hover + &__more-info--1,
-  &__more-icon--1:focus + &__more-info--1,
   &__more-icon--2:hover + &__more-info--2,
-  &__more-icon--2:focus + &__more-info--2,
-  &__more-icon--3:hover + &__more-info--3,
-  &__more-icon--3:focus + &__more-info--3 {
+  &__more-icon--3:hover + &__more-info--3 {
     display: block;
     opacity: 1;
   }

@@ -23,3 +23,25 @@ accordionButtons.forEach(button => {
     }
   });
 });
+
+const icons = document.querySelectorAll('.tech__more-icon');
+const infoBlocks = document.querySelectorAll('.tech__more-info');
+
+icons.forEach((icon, index) => {
+  function toggleInfoBlock() {
+    infoBlocks.forEach(block => {
+      block.style.display = 'none';
+    });
+
+    if (infoBlocks[index].style.display === 'none') {
+      infoBlocks[index].style.display = 'block';
+      infoBlocks[index].style.opacity = '1';
+    } else {
+      infoBlocks[index].style.display = 'none';
+      infoBlocks[index].style.opacity = '0';
+    }
+  }
+
+  icon.addEventListener('mouseenter', toggleInfoBlock);
+  icon.addEventListener('click', toggleInfoBlock);
+});
