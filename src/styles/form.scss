@@ -40,6 +40,16 @@
     &:focus::placeholder {
       color: $accent-color;
     }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border: 0;
+      border-bottom: 1px solid $accent-color;
+      -webkit-text-fill-color: #fff;
+      -webkit-background-color: transparent;
+      transition: background-color 5000s ease-in-out 0s;
+    }
   }
 
   &__btn {
