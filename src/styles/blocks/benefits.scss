@@ -1,0 +1,40 @@
+.benefits {
+
+  &__title {
+
+    @media (max-width: $tablet) {
+      text-align: start;
+    }
+  }
+
+  &__blocks {
+    flex-wrap: nowrap;
+    gap: 20px;
+
+    @media (max-width: $tablet) {
+      gap: 15px;
+    }
+
+    @media (max-width: $mobile) {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__description {
+    max-width: 340px;
+
+    @media (max-width: $tablet) {
+      max-width: 220px;
+      text-align: center;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    @media (max-width: $mobile) {
+      max-width: 280px;
+      text-align: start;
+    }
+  }
+}
