@@ -1,0 +1,167 @@
+.tech {
+  background: $dark;
+
+  &__container {
+    max-width: 1055px;
+    padding: 0;
+
+    @media (max-width: 1115px) {
+      max-width: 415px;
+    }
+
+    @media (max-width: $mobile) {
+      max-width: 280px;
+    }
+  }
+
+  &__title {
+    text-align: end;
+
+    @media (max-width: 1115px) {
+      text-align: inherit;
+    }
+  }
+
+  &__image-holder {
+    display: flex;
+    justify-content: center;
+    margin-top: 140px;
+    position: relative;
+  }
+
+  &__line {
+    position: absolute;
+
+    @media (max-width: 1115px) {
+      display: none;
+    }
+  }
+
+  &__line-wrapper {
+    display: flex;
+    position: relative;
+  }
+
+  &__sub-title {
+    margin-bottom: 20px;
+    color: $white;
+  }
+
+  &__line--top-left {
+    top: -80px;
+    left: 38px;
+  }
+
+  &__line-sensor {
+    position: absolute;
+    left: 55px;
+    margin-top: 5px;
+    margin-left: 10px;
+  }
+
+  &__content {
+    color: $light-gray;
+  }
+
+  &__line--middle-left {
+    top: 170px;
+    left: 38px;
+  }
+
+  &__line-connection {
+    position: absolute;
+    top: -102px;
+    left: 100px;
+  }
+
+  &__line--right {
+    top: -65px;
+    right: 185px;
+  }
+
+  &__content--batteries {
+    position: relative;
+    top: -260px;
+    left: 205px;
+  }
+
+  &__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    background-color: $blue;
+    border-radius: 50%;
+    border: 2px solid #2bcbe4;
+    transition: 0.3s;
+
+    &::before {
+      display: block;
+      content: "";
+      height: 1px;
+      width: 20px;
+      background: $white;
+    }
+
+    &::after {
+      display: block;
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 1px;
+      background: $white;
+    }
+
+    &--top {
+      position: absolute;
+      top: -25px;
+      right: 250px;
+
+      @media (max-width: $mobile) {
+        top: -12px;
+        right: 145px;
+      }
+    }
+
+    &--right {
+      position: absolute;
+      top: 145px;
+      right: 50px;
+
+      @media (max-width: $mobile) {
+        top: 80px;
+        right: 70px;
+      }
+    }
+
+    &--bottom {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      @media (max-width: $mobile) {
+        left: 30px;
+      }
+    }
+
+    &[aria-describedby^="tippy-"] {
+      background-color: #07798b;
+      border: 2px solid #2a8c9b;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    @media (min-width: 1115px) {
+      display: none;
+    }
+
+    @media (max-width: $mobile) {
+      width: 34px;
+      height: 34px;
+    }
+  }
+}
