@@ -1,0 +1,83 @@
+.icon {
+  text-decoration: none;
+
+  @extend %icon;
+
+  @include hover(scale, 130%);
+
+  &--cross {
+    display: flex;
+    
+    height: 18px;
+    width: 18px;
+    background-image: url("../images/menu/cross.svg");
+
+    &:hover {
+      background-image: url("../images/menu/cross_hover.svg");
+    }
+  }
+
+  &--back {
+    background-image: url("../images/menu/back.svg");
+    height: 17px;
+    width: 9px;
+  }
+
+  &--menu {
+    background-image: url("../images/menu/menu.svg");
+    height: 10px;
+    width: 20px;
+
+    @include onTablet {
+      height: 13px;
+      width: 30px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &--more {
+    display: block;
+    border: none;
+    color: $color-text-blue;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all $duration;
+
+    &::after {
+      content: "";
+      display: flex;
+      background-image: url("../images/scrolls/scroll-down-blue.svg");
+
+      @extend %icon;
+
+      height: 6px;
+      width: 9px;
+      margin: 0 auto;
+      position: relative;
+      bottom: -7px;
+    }
+
+    &:hover {
+      color: $color-white;
+
+      &::after {
+        content: "";
+        display: flex;
+        background-image: url("../images/scrolls/scroll-down-white.svg");
+
+        @extend %icon;
+
+        height: 6px;
+        width: 9px;
+        margin: 0 auto;
+        position: relative;
+        bottom: -7px;
+      }
+    }
+  }
+}
