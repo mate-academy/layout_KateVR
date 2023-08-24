@@ -2,6 +2,16 @@ import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
 
 window.addEventListener('load', () => {
+  for (const element of document.getElementsByClassName('faq__question')) {
+    element.addEventListener('click', (e) => {
+      if (e.target.nextElementSibling.classList.contains('faq__open--is')) {
+        e.target.nextElementSibling.classList.remove('faq__open--is');
+      } else {
+        e.target.nextElementSibling.classList.add('faq__open--is');
+      }
+    });
+  }
+
   tippy('#popupTop', {
     trigger: 'click',
     placement: 'bottom',
@@ -45,13 +55,8 @@ window.addEventListener('load', () => {
     allowHTML: true,
   });
 
-  for (const element of document.getElementsByClassName('faq__question')) {
-    element.addEventListener('click', (e) => {
-      if (e.target.nextElementSibling.classList.contains('faq__open--is')) {
-        e.target.nextElementSibling.classList.remove('faq__open--is');
-      } else {
-        e.target.nextElementSibling.classList.add('faq__open--is');
-      }
-    });
-  }
+  document.getElementById('form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    document.getElementById('form').reset();
+  });
 });

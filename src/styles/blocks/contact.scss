@@ -1,0 +1,164 @@
+.contact {
+  background: $dark;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__title {
+    margin-top: 15px;
+    text-align: left;
+
+    @media (max-width: $mobile) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    line-height: 17px;
+    text-align: left;
+    color: $blue;
+
+    &--gray {
+      font-size: 16px;
+      font-weight: $font-weight-regular;
+      line-height: 24px;
+      text-align: left;
+      color: $light-gray;
+
+      @media (max-width: $mobile) {
+        display: none;
+      }
+    }
+
+    &--hidden {
+      display: none;
+      margin-top: 30px;
+      font-size: 12px;
+      font-weight: $font-weight-regular;
+      line-height: 18px;
+      color: $light-gray;
+
+      @media (max-width: $mobile) {
+        display: block;
+      }
+    }
+  }
+
+  &__links {
+    margin-top: 70px;
+
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: $font-weight-regular;
+    line-height: 21px;
+
+    margin-bottom: 24px;
+    height: 40px;
+    width: 700px;
+    outline: 0;
+    outline-offset: 0;
+    color: $white;
+    border: $dark;
+    border-bottom: 1px solid $dark-gray;
+    background-color: $dark;
+
+    &:nth-child(4) {
+      margin-bottom: 50px;
+
+      @media (max-width: $desktop) {
+        margin-bottom: 90px;
+      }
+
+      @media (max-width: $tablet) {
+        margin-bottom: 50px;
+      }
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: inset 0 0 0 40px $dark;
+      -webkit-text-fill-color: $white;
+    }
+
+    &:valid {
+      color: $white;
+      border: $dark;
+      border-bottom: 1px solid $blue;
+    }
+
+    &:invalid:not(:placeholder-shown) {
+      color: $red;
+      border-color: $red;
+      -webkit-text-fill-color: $red;
+    }
+
+    &:-webkit-autofill:focus,
+    :-webkit-autofill:active {
+      border-color: $blue;
+      -webkit-font-feature-settings: normal;
+      font-feature-settings: normal;
+      -webkit-text-fill-color: $white;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    &--name {
+      text-transform: capitalize;
+    }
+
+    &--message {
+      resize: none;
+      height: 90px;
+    }
+
+    @media (max-width: $desktop) {
+      width: 500px;
+    }
+
+    @media (max-width: 1024px) {
+      width: 330px;
+    }
+
+    @media (max-width: $mobile) {
+      width: 280px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+
+    @media (max-width: $mobile) {
+      flex-direction: column;
+    }
+  }
+
+  &__button-up {
+    transition: 0.3s;
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+}
