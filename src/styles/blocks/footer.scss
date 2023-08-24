@@ -1,0 +1,90 @@
+.footer {
+  background-color: black;
+  padding: 45px 0 50px;
+
+  @include onTablet {
+    padding: 22px 0;
+  }
+
+  @include onDesktop {
+    padding: 40px 0;
+  }
+
+  @include onScreen {
+    padding: 43px 0;
+  }
+
+  &__logo {
+    margin-bottom: 15px;
+    height: 14px;
+    width: 69px;
+
+    @include onTablet {
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      width: 72px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: min-content;
+
+    @include onTablet {
+      flex-direction: row;
+      gap: 42px;
+    }
+  }
+
+  &__menu-link {
+    font-size: 13px;
+    line-height: 20px;
+
+    @include onTablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    transition: all $duration;
+    &:hover {
+      color: $color-text-blue;
+      transition-delay: $duration;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    height: min-content;
+    margin-bottom: 26px;
+
+    @include onTablet {
+      display: none;
+      margin-bottom: 0;
+    }
+  }
+
+  &__contact {
+    text-decoration: none;
+    color: $color-text-gray;
+    font-size: 13px;
+    line-height: 16px;
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 22px;
+
+    @include onTablet {
+      gap: 18px;
+      height: min-content;
+    }
+  }
+}

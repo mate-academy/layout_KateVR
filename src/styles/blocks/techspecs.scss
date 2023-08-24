@@ -1,0 +1,277 @@
+.techspecs {
+  background-color: $color-background-dark;
+
+  @include onTablet {
+    padding: 80px 0;
+  }
+
+  @include onDesktop {
+    padding: 100px 0;
+  }
+
+  @include onScreen {
+    padding: 160px 0;
+  }
+
+  &__title {
+    margin-bottom: 41px;
+
+    @include onTablet {
+      margin-bottom: 57px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 80px;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    width: fit-content;
+    margin: 0 auto;
+
+    @include onDesktop {
+      padding-top: 49px;
+    }
+  }
+
+  &__image {
+    height: 195px;
+    width: 197px;
+
+    @include onTablet {
+      height: 354px;
+      width: 358px;
+    }
+
+    @include onDesktop {
+      height: 294px;
+      width: 298px;
+    }
+  }
+
+  &__tooltip {
+    background-color: #191536;
+    padding: 17px 11px;
+    border-radius: 4px;
+    width: max-content;
+    max-width: 168px;
+    display: flex;
+    opacity: 0;
+    transition: opacity $duration;
+    pointer-events: none;
+
+    &--sensor {
+      transform: translate(-70%, 35%);
+
+      @include onTablet {
+        transform: translate(-70%, 65%);
+      }
+    }
+
+    &--connection {
+      transform: translate(-40%, 45%);
+
+      @include onTablet {
+        transform: translate(-70%, 75%);
+      }
+    }
+
+    &--batteries {
+      transform: translate(20%, -75%);
+
+      @include onTablet {
+        transform: translate(40%, -75%);
+      }
+    }
+
+    &--content {
+      color: $color-text-gray;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+
+  &__icon {
+    background-image: url("../images/tech specs/plus_button.svg");
+    position: absolute;
+    height: 34px;
+    width: 34px;
+    z-index: 0;
+
+    @include onTablet {
+      height: 62px;
+      width: 62px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:hover {
+      background-image: url("../images/tech specs/minus_button.svg");
+    }
+
+    &:hover .techspecs__tooltip {
+      opacity: 1;
+      pointer-events: all;
+      z-index: 5;
+    }
+
+    &--sensor {
+      left: 60px;
+      top: -11px;
+
+      @include onTablet {
+        top: -20px;
+        left: 110px;
+      }
+    }
+
+    &--connection {
+      top: 80px;
+      right: 29px;
+
+      @include onTablet {
+        top: 145px;
+        right: 48px;
+      }
+    }
+
+    &--batteries {
+      bottom: 8px;
+      left: -17px;
+
+      @include onTablet {
+        left: -58px;
+        bottom: 19px;
+      }
+    }
+  }
+
+  &__section {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &--sensor {
+      margin-bottom: 40px;
+
+      @include onTablet {
+        margin-top: 80px;
+      }
+
+      @include onDesktop {
+        margin-top: -10px;
+        margin-left: 40px;
+        margin-bottom: 80px;
+      }
+
+      @include onScreen {
+        margin-top: 0;
+        margin-left: 0;
+      }
+    }
+
+    &--connection {
+      margin-top: -30px;
+      margin-left: 0;
+
+      @include onDesktop {
+        margin-top: 0;
+        margin-left: 20px;
+      }
+
+      @include onScreen {
+        margin-top: -70px;
+        margin-left: 0;
+      }
+    }
+  }
+
+  &__subtitle {
+    color: $color-white;
+    font-size: 18px;
+    line-height: 22px;
+    text-transform: uppercase;
+    margin-bottom: 21px;
+
+    cursor: pointer;
+
+    transition: all $duration;
+    &:hover {
+      color: $color-text-blue;
+      transition-delay: $duration;
+    }
+  }
+
+  &__paragraph {
+    color: $color-text-gray;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  &__line {
+    position: absolute;
+    display: none;
+    @extend %icon;
+
+    @include onDesktop {
+      display: flex;
+    }
+
+    &--1 {
+      background-image: url("../images/tech specs/techline_sensor.svg");
+      min-width: 403px;
+      width: 431px;
+      height: 72px;
+      top: -3px;
+      left: -270px;
+
+      @include onScreen {
+        top: 4px;
+      }
+    }
+
+    &--2 {
+      background-image: url("../images/tech specs/techline_connection.svg");
+      height: 113px;
+      width: 240px;
+      top: 108px;
+      left: -190px;
+
+      @include onScreen {
+        background-image: url("../images/tech specs/techline_connection_screen.svg");
+        left: -236px;
+        top: 112px;
+      }
+    }
+
+    &--3 {
+      background-image: url("../images/tech specs/techline_batterries.svg");
+      height: 240px;
+      width: 185px;
+      top: 0;
+      right: -40px;
+
+      @include onScreen {
+        background-image: url("../images/tech specs/techline_batterries_screen.svg");
+        width: 283px;
+        top: 4px;
+        right: -130px;
+        height: 232px;
+      }
+    }
+
+    &--4 {
+      background-image: url("../images/tech specs/elipse.svg");
+      height: 200px;
+      width: 50px;
+      top: 78px;
+      left: -8px;
+      transform: rotate(6deg);
+    }
+  }
+}
