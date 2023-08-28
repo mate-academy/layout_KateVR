@@ -1,0 +1,290 @@
+.tech {
+  background-color: $bg-dark;
+  padding: 70px 0 150px;
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include onDesktop {
+      text-align: end;
+      padding-right: 80px;
+      margin-bottom: 80px;
+    }
+  }
+
+  &__image {
+    position: relative;
+    user-select: none;
+    width: 215px;
+    height: 200px;
+    background-image: url(../images/tech-image.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+    transition: all 0.3s;
+    margin: 0 auto;
+    margin-top: 55px;
+
+    @include onTablet {
+      width: 350px;
+      height: 350px;
+    }
+
+    @include onDesktop {
+      width: 300px;
+      height: 300px;
+
+      &::before {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 39px;
+        left: -6px;
+        width: 50px;
+        height: 213px;
+        background-image: url(../images/icons/round-line.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: 50%;
+        user-select: none;
+      }
+    }
+  }
+
+  &__button {
+    position: absolute;
+    user-select: none;
+    width: 34px;
+    height: 34px;
+    background-image: url(../images/buttons/tech-button.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+
+    @include onTablet {
+      width: 60px;
+      height: 60px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &-top {
+      left: 32%;
+
+      @include onTablet {
+        left: 0;
+      }
+
+      &::before {
+        position: absolute;
+        display: none;
+        top: -40px;
+        left: 37px;
+        z-index: 10;
+        content: "Weight: 35g/1.23oz each""\A"
+          "Dimension: 50mm/1.97in""\A"
+          "24mm/0.94in""\A"
+          "Light: LED lights";
+        padding: 17px 10px;
+        color: $minor-text;
+        font-size: 11px;
+        line-height: 15px;
+
+        background-color: rgba(25, 21, 54, 0.9);
+        border-radius: 4px;
+        white-space: pre;
+
+        @include onTablet {
+          top: 0;
+          left: 75px;
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+
+    &-middle {
+      right: 15%;
+      bottom: 37%;
+      transform: translateY(50%);
+
+      @include onTablet {
+        right: 0;
+      }
+
+      &::before {
+        position: absolute;
+        display: none;
+        top: 55px;
+        left: -80px;
+        z-index: 10;
+        content: "Type: Lithium-ion""\A""polymer batteries""\A"
+          "Capacity: 370mAh""\A""Battery life: 10h of continuous""\A"
+          "use 150 hours on stand by""\A"
+          "Charging: Fast charging - 1 hour""\A"
+          "Charging voltage""\A"
+          "and current: 5V = 0.5A";
+        padding: 17px 10px;
+        color: $minor-text;
+        font-size: 11px;
+        line-height: 15px;
+        background-color: rgba(25, 21, 54, 0.9);
+        border-radius: 4px;
+        white-space: pre;
+
+        @include onTablet {
+          top: 75px;
+          left: -80px;
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+
+    &-bottom {
+      left: 10%;
+      bottom: 0;
+
+      @include onTablet {
+        left: 20%;
+      }
+
+      &::before {
+        position: absolute;
+        display: none;
+        top: -95px;
+        left: -60px;
+        z-index: 10;
+        content: "Wireless: Bluetooth 4.2""\A"
+          "Signal range: 5m""\A"
+          "Receiver: USB 2.0 and above";
+        padding: 17px 10px;
+        color: $minor-text;
+        font-size: 11px;
+        line-height: 15px;
+        background-color: rgba(25, 21, 54, 0.9);
+        border-radius: 4px;
+        transition: all 0.3s;
+        white-space: pre;
+
+        @include onTablet {
+          top: -125px;
+          left: -150px;
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+
+    &--active {
+      background-image: url(../images/icons/tech-button-active.svg);
+
+      &::before,
+      ::after {
+        display: block;
+      }
+    }
+  }
+
+  &__info {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &-container {
+      display: flex;
+      margin: 0 auto;
+
+      @include onDesktop {
+        width: 1077px;
+      }
+    }
+
+    &-block {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: column;
+        row-gap: 75px;
+        width: 250px;
+      }
+    }
+
+    &-first {
+      position: relative;
+
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 7px;
+        left: 93px;
+        width: 418px;
+        height: 72px;
+        background-image: url(../images/icons/sensor-line.svg);
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 2;
+      }
+    }
+
+    &-second {
+      position: relative;
+      padding-left: 60px;
+
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: -105px;
+        left: 205px;
+        width: 144px;
+        height: 121px;
+        background-image: url(../images/icons/connection-line.svg);
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        z-index: 2;
+      }
+    }
+
+    &-third {
+      position: relative;
+
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        top: 11px;
+        left: -290px;
+        width: 284px;
+        height: 230px;
+        background-image: url(../images/icons/bettarries-line.svg);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        z-index: 2;
+      }
+    }
+  }
+
+  &__name {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 22px;
+    text-transform: uppercase;
+    margin-bottom: 21px;
+  }
+
+  &__description {
+    font-size: 16px;
+    line-height: 24px;
+    color: $minor-text;
+  }
+}

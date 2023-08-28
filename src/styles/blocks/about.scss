@@ -1,0 +1,104 @@
+.about {
+
+  &__content {
+    @include pageGrid;
+  }
+
+  &__title {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    &--mobile {
+      margin-bottom: 20px;
+      grid-column: 1 / -1;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__video-container {
+    grid-column: 1 / -1;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 8;
+    }
+  }
+
+  &__subtitle {
+    color: $minor-text;
+    font-size: 16px;
+    line-height: 24px;
+  }
+}
+
+.swiper {
+  width: 280px;
+  height: 200px;
+  margin-bottom: 15px;
+
+  @include onTablet {
+    width: 340px;
+    height: 270px;
+  }
+
+  @include onDesktop {
+    width: 430px;
+    height: 290px;
+  }
+
+  &-pagination {
+    position: static !important;
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &-bullet {
+      background: $navigation-bullet !important;
+
+      &-active {
+        background: $navigation-bullet-active !important;
+      }
+    }
+  }
+
+  &-buttons {
+    display: none;
+    gap: 100px;
+
+  }
+
+  &-button-prev,
+  &-button-next {
+    position: static !important;
+
+    &::after {
+      display: none;
+    }
+  }
+}

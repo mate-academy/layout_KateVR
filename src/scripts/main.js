@@ -2,18 +2,15 @@
 
 const body = document.querySelector('#body');
 
+// Language switcher
+
 const langSelected = document.querySelector('#langMain');
 const langMenu = document.querySelector('#langMenu');
 const langs = document.querySelectorAll('.top-actions__langs-item');
 
-const moreBtn = document.querySelector('#more-btn');
-const moreSection = document.querySelector('#more');
-
-// Language switcher
-
-langSelected.addEventListener('click', (e) => {
+langSelected.addEventListener('click', (event) => {
   langMenu.classList.toggle('top-actions__langs-container--show');
-  e.stopPropagation();
+  event.stopPropagation();
 });
 
 langs.forEach(lang => {
@@ -23,7 +20,7 @@ langs.forEach(lang => {
   });
 });
 
-window.onclick = function(event) {
+window.onclick = (event) => {
   if (!event.target.matches('#langMain')) {
     if (langMenu.classList.contains('top-actions__langs-container--show')) {
       langMenu.classList.remove('top-actions__langs-container--show');
@@ -36,14 +33,37 @@ window.onclick = function(event) {
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menu') {
     body.classList.add('page__body--with-menu');
+
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1280) {
+        window.location.hash = '#';
+      }
+    });
   } else {
     body.classList.remove('page__body--with-menu');
   }
 });
 
-// More Section
+// Tech info buttons
 
-moreBtn.addEventListener('click', (e) => {
-  moreSection.classList.toggle('more--active');
-  e.stopPropagation();
+const techInfoBtns = document.querySelectorAll('.tech__button');
+
+techInfoBtns.forEach(techBtn => {
+  techBtn.addEventListener('click', () => {
+    techBtn.classList.toggle('tech__button--active');
+  });
+});
+
+// window resize check
+
+window.addEventListener('resize', () => {
+  if (window.innerWidth >= 1280) {
+    techInfoBtns.forEach(techBtn => {
+      techBtn.classList.remove('tech__button--active');
+    });
+  }
+
+  if (window.innerWidth < 1280) {
+    langMenu.classList.remove('top-actions__langs-container--show');
+  }
 });

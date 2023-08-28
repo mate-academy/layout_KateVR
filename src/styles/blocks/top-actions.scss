@@ -18,6 +18,18 @@
     }
 
     &-container {
+      &::-webkit-scrollbar {
+        width: 0.1rem;
+      }
+
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $highlight-text;
+      }
+
       display: none;
       flex-direction: column;
       gap: 10px;
@@ -27,7 +39,7 @@
       height: 90px;
       background-color: $lang-menu;
       border-radius: 4px;
-      overflow: scroll;
+      overflow-y: scroll;
 
       &--show {
         display: flex;
@@ -112,7 +124,7 @@
 
     &__switcher-container {
       display: flex;
-      gap: 35px;
+      gap: 100px;
     }
 
     &__link {

@@ -1,0 +1,75 @@
+.benefits {
+  &__title {
+    margin-bottom: 40px;
+
+    @include onDesktop {
+      margin-bottom: 80px;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 15px;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      margin: 0 auto;
+      margin-top: 80px;
+    }
+  }
+}
+
+.benefit {
+  @include onTablet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+  }
+
+  &__img {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      margin-bottom: 25px;
+      width: 90px;
+      height: 90px;
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 14px;
+    line-height: 19px;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+
+    @include onTablet {
+      margin-bottom: 35px;
+    }
+
+    @include onDesktop {
+      font-size: 18px;
+    }
+  }
+
+  &__subtitle {
+    @include onTablet {
+      text-align: center;
+    }
+  }
+}
