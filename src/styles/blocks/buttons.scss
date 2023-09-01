@@ -20,6 +20,43 @@
   }
 }
 
+.button__container {
+  display: none;
+
+  @media (max-width: $tablet) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+
+    width: 100%;
+    padding: 32px 0;
+    z-index: 3;
+
+    background: linear-gradient(
+      180deg, rgba(0, 0, 0, 0.21) 0%,
+      rgba(4, 4, 4, 0.59) 23.44%,
+      #050505 100%
+    );
+  }
+
+  @media (max-width: $mobile) {
+    padding: 12px 0;
+    background: none;
+  }
+}
+
+.button__buy {
+  width: 458px;
+  height: 48px;
+
+  @media (max-width: $mobile) {
+    width: 280px;
+    height: 40px;
+  }
+}
+
 .button__play {
   display: flex;
   align-items: start;

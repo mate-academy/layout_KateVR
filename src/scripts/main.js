@@ -1,5 +1,19 @@
+/* eslint-disable max-len */
 import tippy from 'tippy.js';
 import 'tippy.js/dist/tippy.css';
+
+import Swiper from 'swiper';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/swiper-bundle.min.css';
+import 'swiper/swiper.min.css';
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#mobile-menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
 
 window.addEventListener('load', () => {
   for (const element of document.getElementsByClassName('faq__question')) {
@@ -11,6 +25,46 @@ window.addEventListener('load', () => {
       }
     });
   }
+
+  const slidesCountElement = document.getElementById('slidesCount');
+
+  // eslint-disable-next-line no-new
+  new Swiper('.image-slider', {
+    modules: [Navigation, Pagination],
+    spaceBetween: 10,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+    // Navigation arrows
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+    on: {
+      init: function(sw) {
+        slidesCountElement.innerText = `${sw.realIndex + 1} / ${sw.slides.length}`;
+      },
+      slideChange: function(sw) {
+        slidesCountElement.innerText = `${sw.realIndex + 1} / ${sw.slides.length}`;
+      },
+    },
+    breakpoints: {
+      320: {
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'bullets',
+          dynamicBullets: true,
+        },
+      },
+      769: {
+        pagination: {
+          el: '.swiper-pagination',
+          type: 'progressbar',
+        },
+      },
+    },
+  });
 
   tippy('#popupTop', {
     trigger: 'click',

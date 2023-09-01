@@ -6,7 +6,11 @@
     <title>KAT VR</title>
     <link rel="icon" href="./images/Favicon.svg">
     <link rel="stylesheet" href="./styles/main.scss">
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script
+      type="text/javascript"
+      defer
+      src="scripts/main.js"
+    ></script>
   </head>
   <body class="page__body">
     <header class="header">
@@ -51,11 +55,9 @@
                 </li>
               </ul>
 
-              <div class="button">
-                <a href="#" class="button">
-                  Buy Now
-                </a>
-              </div>
+              <a href="#" class="button">
+                Buy Now
+              </a>
             </div>
           </div>
 
@@ -143,7 +145,7 @@
             <a href="#benefits" class="mobile-menu__link">Benefits</a>
           </li>
           <li class="mobile-menu__item">
-            <a href="#" class="mobile-menu__link">Contact</a>
+            <a href="#contact" class="mobile-menu__link">Contact</a>
           </li>
           <li class="mobile-menu__item">
             <a href="#language" class="mobile-menu__link">Language</a>
@@ -295,10 +297,16 @@
       </div>
     </nav>
 
+    <div class="button__container">
+      <a href="#" class="button button__buy">
+        Buy Now
+      </a>
+    </div>
+
     <main class="main">
       <section id="more" class="more main__section">
         <div class="container">
-          <h2 class="page__title">MORE THAN <span class="page__title-blue">GAMING!</span></h2>
+          <h2 class="more__title page__title">MORE THAN <span class="page__title-blue">GAMING!</span></h2>
           <p class="more__subtitle">This also made for people who are interested in...</p>
 
           <div class="more__blocks blocks">
@@ -357,17 +365,33 @@
       <section id="about" class="about main__section">
         <div class="container">
           <div class="about__top">
-            <div class="about__image-holder">
-              <picture>
-                <source media="(max-width:768px)" srcset="./images/Headphones-photo-tablet.png">
-                <source media="(max-width:1440px)" srcset="./images/Headphones-photo-1280.png">
-                <img
-                  class="about__image"
-                  src="./images/Headphones-photo.png"
-                  alt="Headphones"
-                >
-              </picture>
+            <div class="image-slider swiper">
+              <div id="slidesCount" class="image-slider__count"></div>
+              <div class="image-slider_wrapper swiper-wrapper">
+                <div class="image-slider_slide swiper-slide">
+                  <div class="image-slider__image">
+                    <img src="./images/Headphones-photo.png" alt="Picture">
+                  </div>
+                </div>
+
+                <div class="image-slider_slide swiper-slide">
+                  <div class="image-slider__image">
+                    <img src="./images/Headphones-photo.png" alt="Picture">
+                  </div>
+                </div>
+
+                <div class="image-slider_slide swiper-slide">
+                  <div class="image-slider__image">
+                    <img src="./images/Headphones-photo.png" alt="Picture">
+                  </div>
+                </div>
+              </div>
+              <div class="swiper-pagination"></div>
+              <button class="image-slider__button swiper-button-prev">Prevoius</button>
+              <button class="image-slider__button swiper-button-next">Next</button>
             </div>
+
+
             <div class="about__info">
               <h2 class="page__title about__title">ABOUT <span class="page__title-blue">PRODUCT</span></h2>
               <img

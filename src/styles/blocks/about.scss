@@ -1,8 +1,10 @@
 .about {
   &__top {
     display: flex;
+    justify-content: space-evenly;
     margin-left: 320px;
     gap: 90px;
+    min-width: 0;
 
     @media (max-width: 1440px) {
       margin-left: 190px;
@@ -26,14 +28,20 @@
     }
 
     &--mob {
-      @media (min-width: $tablet) {
-        display: none;
+      display: none;
+
+      @media (max-width: $mobile) {
+        display: block;
       }
     }
   }
 
   &__info {
     max-width: 440px;
+
+    @media (max-width: $tablet) {
+      max-width: 300px;
+    }
   }
 
   &__title {

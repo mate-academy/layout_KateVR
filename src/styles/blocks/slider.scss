@@ -1,0 +1,134 @@
+.image-slider.swiper {
+  padding-bottom: 36px;
+
+  & > .swiper-pagination {
+    top: unset;
+    bottom: 0;
+    width: 205px;
+    height: 2px;
+
+    @media (max-width: $tablet) {
+      height: 10px;
+    }
+  }
+  & .swiper-pagination-bullet {
+    display: none;
+
+    @media (max-width: $tablet) {
+      display: inline-block;
+      width: 6px;
+      height: 6px;
+      background: #484848;
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  &.swiper-pagination-progressbar {
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  & .swiper-pagination-bullet-active {
+    background: #ababab;
+  }
+  & .swiper-pagination-progressbar-fill {
+    background: $blue;
+  }
+
+  @media (max-width: $tablet) {
+    padding-bottom: 20px;
+  }
+
+  @media (max-width: $mobile) {
+    display: none;
+  }
+}
+
+.image-slider__count {
+  position: absolute;
+  z-index: 2;
+  color: $white;
+
+  @media (max-width: $tablet) {
+    display: none;
+  }
+}
+
+.image-slider__button {
+  padding: 0;
+  background: none;
+  border: 0;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: $font-weight-medium;
+  line-height: 24px;
+
+  &.swiper-button-prev {
+    left: 0;
+    top: unset;
+    bottom: 0;
+    width: auto;
+    color: $white;
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &.swiper-button-next {
+    left: 168px;
+    right: unset;
+    top: unset;
+    bottom: 0;
+    width: auto;
+    color: $white;
+
+    @media (max-width: $tablet) {
+      display: none;
+    }
+  }
+
+  &:after {
+    display: none;
+  }
+}
+
+// .image-slider.swiper {
+//   & > .swiper-pagination {
+//     top: unset;
+//     bottom: 0;
+//     width: 205px;
+//     height: 2px;
+
+//     @media (max-width: $tablet) {
+//       height: 10px;
+//     }
+//   }
+//   & .swiper-pagination-bullet {
+//     display: none;
+
+//     @media (max-width: $tablet) {
+//       display: inline-block;
+//       width: 6px;
+//       height: 6px;
+//       background: #484848;
+//       opacity: 1;
+//       transform: scale(1);
+//     }
+//   }
+
+//   &.swiper-pagination-progressbar {
+//     @media (max-width: $tablet) {
+//     display: none;
+//     }
+//   }
+
+//   & .swiper-pagination-bullet-active {
+//     background: #ababab;
+//   }
+//   & .swiper-pagination-progressbar-fill {
+//     background: $blue;
+//   }
+// }
