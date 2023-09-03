@@ -67,3 +67,5 @@ window.addEventListener('resize', () => {
     langMenu.classList.remove('top-actions__langs-container--show');
   }
 });
+
+//

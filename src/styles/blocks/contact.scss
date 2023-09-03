@@ -1,0 +1,92 @@
+.contact {
+  &__content {
+    @include pageGrid;
+  }
+
+  &__title-container {
+    grid-column: 1 / -1;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__info {
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      grid-column: 4 / 7;
+      margin-bottom: 0;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    display: none;
+    font-size: 12px;
+    line-height: 18px;
+    color: $minor-text;
+    margin-bottom: 75px;
+
+    @include onTablet {
+      display: block;
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+
+    &--mobile {
+      display: block;
+      text-align: center;
+      margin-bottom: 0;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    line-height: 18px;
+    color: $minor-text;
+
+    &:hover {
+      color: $highlight-text;
+    }
+  }
+}

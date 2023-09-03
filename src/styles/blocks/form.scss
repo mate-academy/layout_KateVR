@@ -1,0 +1,61 @@
+.form {
+  &__input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #2f2f2f;
+    outline: none;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    width: 100%;
+
+    font-size: 14px;
+    line-height: 150%;
+    color: $main-text;
+    padding-top: 10px;
+
+    &::placeholder {
+      color: $minor-text;
+    }
+
+    &:valid,
+    &:focus {
+      border-color: $highlight-text;
+    }
+
+    &--textarea {
+      height: 80px;
+      resize: none;
+      margin-bottom: 30px;
+      padding-top: 15px;
+    }
+
+    &:invalid:not(:placeholder-shown):not(:focus) {
+      border-color: $invalid;
+    }
+
+    &:focus::placeholder {
+      color: $highlight-text;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: 0.3s ease;
+      font-size: 10px;
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    line-height: 21px;
+    color: $minor-text;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: center;
+
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}
