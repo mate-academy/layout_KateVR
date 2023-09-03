@@ -1,40 +1,60 @@
 .menu-open {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 600px;
+  top: 134px;
+  // left: 0;
+  // right: 0;
+  width: 880px;
+  height: 568px;
+  border-radius: 4px;
   background: #191536;
   z-index: 6;
   transform: translateX(-100%);
   transition: 0.3s;
 
   &:target {
-    transform: translateX(0);
+    transform: translateX(-50%);
+    left: 50%;
+
+    @media (max-width: $tablet) {
+      transform: translateX(0);
+      left: unset;
+    }
   }
 
+  @media (max-width: 1600px) {
+    top: 74px;
+  }
+
+  @media (max-width: $tablet) {
+    top: 0;
+    width: 100%;
+  }
   @media (max-width: $mobile) {
     height: 100vh;
   }
 
   &__content {
     height: 100%;
-    padding-top: 34px;
+    padding-top: 97px;
     overflow-y: auto;
   }
 
   &__title {
     margin-bottom: 30px;
-    max-width: 280px;
-    font-size: 21px;
+    max-width: 520px;
+    font-size: 36px;
     font-weight: $font-weight-black;
-    line-height: 27px;
     color: $white;
 
-    &--blue {
+    @media (max-width: $tablet) {
       font-size: 21px;
-      font-weight: $font-weight-regular;
       line-height: 27px;
+    }
+
+    &--blue {
+      // font-size: 21px;
+      font-weight: $font-weight-regular;
+      // line-height: 27px;
       color: $blue;
     }
   }
