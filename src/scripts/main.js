@@ -8,10 +8,46 @@ import 'swiper/swiper-bundle.min.css';
 import 'swiper/swiper.min.css';
 
 window.addEventListener('hashchange', () => {
-  if (window.location.hash === '#mobile-menu') {
+  if (window.location.hash === '#mobile-menu' || window.location.hash === '#language' || window.location.hash === '#faq' || window.location.hash === '#help') {
     document.body.classList.add('page__body--with-menu');
+    document.getElementById('background').classList.add('blur');
   } else {
     document.body.classList.remove('page__body--with-menu');
+    document.getElementById('background').classList.remove('blur');
+  }
+});
+
+function showVideo(e) {
+  document.getElementById('video').classList.add('video--open');
+  document.body.classList.add('page__body--with-menu');
+  document.getElementById('background').classList.add('blur');
+}
+
+document
+  .getElementById('button-play')
+  .addEventListener('click', showVideo);
+
+document
+  .getElementById('button-play-about')
+  .addEventListener('click', showVideo);
+
+window.addEventListener('click', (e) => {
+  if (e.target.classList.contains('blur')) {
+    document.getElementById('video').classList.remove('video--open');
+    document.body.classList.remove('page__body--with-menu');
+    document.getElementById('background').classList.remove('blur');
+
+    const videos = document.querySelectorAll('iframe, video');
+
+    Array.prototype.forEach.call(videos, function(video) {
+      if (video.tagName.toLowerCase() === 'video') {
+        video.pause();
+      } else {
+        const src = video.src;
+
+        video.src = src;
+      }
+    });
   }
 });
 
