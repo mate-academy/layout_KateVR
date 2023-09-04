@@ -1,18 +1,24 @@
 .header {
   padding-top: 60px;
   padding-bottom: 100px;
-  height: 100vh;
+
+  @media (max-width: 1660px) {
+    padding-bottom: 50px;
+  }
 
   @media (max-width: $tablet) {
     padding-top: 30px;
     padding-bottom: 5px;
-    height: auto;
   }
 
   &__top {
     display: flex;
     justify-content: space-between;
     margin-bottom: 100px;
+
+    @media (max-width: 1660px) {
+      margin-bottom: 70px;
+    }
 
     @media (max-width: 1440px) {
       margin-bottom: 120px;
@@ -84,6 +90,10 @@
     position: relative;
     margin-bottom: 120px;
 
+    @media (max-width: 1660px) {
+      margin-bottom: 60px;
+    }
+
     @media (max-width: 1440px) {
       margin-bottom: 100px;
     }
@@ -109,7 +119,7 @@
   &__info {
     color: $white;
 
-    @media (max-width: 1024px) {
+    @media (max-width: $desktop) {
       position: unset;
       z-index: 1;
     }
@@ -123,7 +133,7 @@
     max-width: 550px;
     max-height: 140px;
 
-    @media (max-width: $desktop) {
+    @media (max-width: 1660px) {
       max-width: 480px;
       font-size: 46px;
       line-height: 60px;
@@ -235,6 +245,7 @@
     display: flex;
     justify-content: space-evenly;
     gap: 400px;
+    position: relative;
 
     @media (max-width: $tablet) {
       display: none;
