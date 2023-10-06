@@ -1,31 +1,12 @@
-# KateVR landing page (HARD)
+# Eco cosmetics landing page
+Eco cosmetics landing page - eco cosmitics brand web page. It consists of the following parts:
+- header with aside navigation menu on the mobile and tablet;
+- main content part which consists of 6 blocks (vision, about-brand, shop with slider, about-creators, aurvedic, contact-us);
+- footer with navigation and social networks links.
 
-**⚠️ Attention: this is a hard landing page for development. We highly recommend choosing this landing page only if you didn't have a lot of troubles with previous homework tasks and if you sent all homework in time (didn't miss deadlines).** 
+Technologies used: flex, grid, Sass, BEM, animations (transform, translate, animation), JS (function,'ForEach' cycle, eventListener, setTimeout).
 
-Implement landing page according to [Figma design](https://www.figma.com/file/Blpg4iapsI7fRqJeSp6DvK/KatVR?node-id=1%3A370) - Use BEM and SCSS
+It was build basing tehe following:
+[Figma design](https://www.figma.com/file/Fz588JKGuPS2Bk21De4KE5/Brand-of-eco-cosmetics-_FE-students?node-id=21779%3A631&t=Gtk1Kj4TKq6BJit2-1)
 
-- The design 1440px
-- Desktop 1280px
-- Tablet 640px
-- Mobile (> 320px)
-
-
-
-## Github flow
-1. **Fork** the repo.
-2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
-3. Run `npm install` (or just `npm i`).
-4. Run `npm start`.
-5. Open one more terminal window for the next steps.
-6. `git checkout -b develop` - to create new branch and switch on it.
-7. Write you code in `src` folder.
-8. Run `npm run lint` and fix code style errors.
-9. Run `npm run deploy` to deploy your solution to `gh-pages`.
-10. `git add . && git commit -m 'solution'` to save your changes.
-11. `git push origin develop` - to send you code for PR.
-12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
-13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_KateVR/).
-14. Copy `DEMO LINK` to the PR description.
-
-> To update you PR repeat steps 7-11.
+[DEMO LINK](https://natalia-serogina.github.io/eco-cosmetics-landing/)
