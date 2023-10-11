@@ -17,6 +17,7 @@ if (window.innerWidth >= 640) {
 
 function init() {
   width = document.querySelector('.slider').offsetWidth;
+  console.log(sliderImages.length);
 
   sliderLine.style.width
     = width * sliderImages.length;
@@ -57,7 +58,6 @@ function thisSlide(index) {
 }
 
 function autoSlider() {
-
   timer = setTimeout(function() {
     count++;
 
