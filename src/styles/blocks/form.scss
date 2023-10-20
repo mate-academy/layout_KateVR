@@ -22,13 +22,6 @@
       border-color: $highlight-text;
     }
 
-    &--textarea {
-      height: 80px;
-      resize: none;
-      margin-bottom: 30px;
-      padding-top: 15px;
-    }
-
     &:invalid:not(:placeholder-shown):not(:focus) {
       border-color: $invalid;
     }
@@ -40,6 +33,43 @@
       left: 0;
       transition: 0.3s ease;
       font-size: 10px;
+    }
+
+    &--card {
+      font-size: 18px;
+      line-height: 23px;
+      letter-spacing: 0.2em;
+      color: $main-text;
+
+      &::placeholder {
+        color: $form-placeholder;
+      }
+
+      &:focus::placeholder {
+        color: $form-placeholder;
+        position: relative;
+        font-size: 18px;
+      }
+
+      &:target::placeholder {
+        color: transparent;
+        transition: 0;
+      }
+
+      &-cvv {
+        margin-bottom: 0;
+      }
+
+      &-date {
+        margin-bottom: 0;
+      }
+    }
+
+    &--textarea {
+      height: 80px;
+      resize: none;
+      margin-bottom: 30px;
+      padding-top: 15px;
     }
   }
 

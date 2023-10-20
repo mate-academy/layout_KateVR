@@ -2,7 +2,7 @@
   display: block;
   width: 58px;
   height: 12px;
-  background-image: url(../images/logo.svg);
+  background-image: url(../images/logo.png);
   background-repeat: no-repeat;
   background-size: contain;
   background-position: 50%;
@@ -15,5 +15,22 @@
   @include onDesktop {
     width: 77px;
     height: 16px;
+  }
+
+  &-footer {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+
+    &--mobile {
+      display: block;
+      margin-bottom: 15px;
+
+      @include onTablet {
+        display: none;
+      }
+    }
   }
 }

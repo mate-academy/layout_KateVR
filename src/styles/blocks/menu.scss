@@ -1,6 +1,6 @@
 .menu {
-  padding-top: 20px;
-  z-index: 1;
+  padding-top: 60px;
+  z-index: $z-index-modal;
   background-color: $lang-menu;
 
   @include onDesktop {
@@ -23,6 +23,12 @@
     @include onTablet {
       margin-bottom: 45px;
     }
+  }
+
+  &__icon--close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
   }
 
   &__list {
@@ -50,6 +56,24 @@
 
     &:hover > .menu__link {
       color: $highlight-text;
+    }
+  }
+
+  &__help {
+    height: 100vh;
+    display: none;
+
+    @include onTablet {
+      height: 70vh;
+    }
+  }
+
+  &__faq {
+    height: 100vh;
+    display: none;
+
+    @include onTablet {
+      height: 70vh;
     }
   }
 }

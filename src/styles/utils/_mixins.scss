@@ -37,4 +37,23 @@
   @include onDesktop {
     --columns: 12;
   }
+
+  @include onDesktopXL {
+    --columns: 16;
+  }
+}
+
+@mixin customScrollBar {
+  &::-webkit-scrollbar {
+    width: 1px;
+
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $highlight-text;
+  }
 }

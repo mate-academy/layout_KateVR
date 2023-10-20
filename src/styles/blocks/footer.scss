@@ -1,0 +1,101 @@
+.footer {
+  padding: 50px 0;
+
+  @include onTablet {
+    padding: 20px 0;
+  }
+
+  @include onTablet {
+    padding: 40px 0;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  &__nav {
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+
+      @include onTablet {
+        flex-direction: row;
+        column-gap: 40px;
+      }
+    }
+
+    &-link {
+      font-size: 13px;
+      line-height: 20px;
+      color: $main-text;
+      @include hover(color, $highlight-text);
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &-list {
+      display: block;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &-link {
+      font-size: 12px;
+      line-height: 18px;
+      color: $minor-text;
+      @include hover(color, $highlight-text);
+    }
+  }
+
+  &__social-media {
+    display: flex;
+    column-gap: 20px;
+
+    &-link {
+      width: 20px;
+      height: 20px;
+      content: "";
+      display: block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      transition: background-image 0.3s;
+      @include hover(color, $highlight-text);
+
+      &-fb {
+        background-image: url(../images/icons/facebook.svg);
+        @include hover(background-image, url(../images/icons/facebook-hover.svg));
+      }
+
+      &-tw {
+        background-image: url(../images/icons/twitter.svg);
+        @include hover(background-image, url(../images/icons/twitter-hover.svg));
+      }
+
+      &-yt {
+        background-image: url(../images/icons/youtube.svg);
+        @include hover(background-image, url(../images/icons/youtube-hover.svg));
+      }
+
+      &-rd {
+        background-image: url(../images/icons/reddit.svg);
+        @include hover(background-image, url(../images/icons/reddit-hover.svg));
+      }
+    }
+
+  }
+}

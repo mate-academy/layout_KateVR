@@ -1,0 +1,470 @@
+.buy {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: $z-index-modal;
+  background: $bg-gradient;
+  padding: 20px 0;
+  overflow-y: auto;
+  transform: translateY(-100%);
+  transition: transform 0.6s;
+
+  &::-webkit-scrollbar {
+    width: 0;
+  }
+
+  &:target {
+    transform: translateY(0);
+  }
+
+  &__header {
+    margin-bottom: 30px;
+
+    &-logo {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &-close {
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__tabs-container {
+    border-bottom: 1px solid $disabled-text;
+    padding-bottom: 15px;
+
+    @include onTablet {
+      margin-bottom: 40px;
+    }
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 100px;
+      border: none;
+    }
+  }
+
+  &__tabs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include onDesktop {
+      gap: 190px;
+    }
+  }
+
+  &__tab {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    text-align: center;
+    color: $minor2-text;
+
+    &--active {
+      position: relative;
+      color: $highlight-text;
+
+      &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        width: 100%;
+        height: 4px;
+        border-bottom: 1px solid $highlight-text;
+
+        @include onDesktop {
+          left: 50%;
+          transform: translateX(-50%);
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          background-color: $highlight-text;
+        }
+      }
+    }
+
+    &-logo {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &-close {
+      position: relative;
+      top: 0;
+      right: 0;
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__image {
+    grid-column: 1/-1;
+    display: none;
+
+    @include onTablet {
+      display: block;
+      margin: 0 auto;
+      width: 600px;
+      height: 280px;
+    }
+
+    @include onDesktop {
+      grid-column: 1/7;
+    }
+  }
+
+  &__pay {
+    grid-column: 1/-1;
+
+    @include onDesktop {
+      grid-column: 7/13;
+    }
+  }
+
+  &__price {
+    grid-column: 1/-1;
+    @include onDesktop {
+      grid-column: 1/7;
+    }
+  }
+
+  &__complete {
+    display: none;
+    grid-column: 1/-1;
+    margin-top: 90px;
+
+    &-title {
+      margin-bottom: 16px;
+      text-align: center;
+    }
+
+    &-subtitle {
+      margin-bottom: 30px;
+      text-align: center;
+    }
+
+    &-button {
+      margin: 0 auto;
+    }
+  }
+
+  &__price-container {
+    display: flex;
+    gap: 70px;
+    width: max-content;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 30px;
+
+    @include onTablet {
+      gap: 140px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+      margin-top: 30px;
+    }
+  }
+
+  &__price-quantity {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+
+  &__quantity-container {
+    display: flex;
+  }
+
+  &__quantity-label {
+    font-size: 16px;
+    line-height: 21px;
+    color: $minor-text;
+  }
+
+  &__quantity {
+    background: $lang-menu;
+    border: none;
+    outline: none;
+    color: $main-text;
+    width: 60px;
+    height: 40px;
+    text-align: center;
+    font-size: 20px;
+    line-height: 26px;
+    cursor: default;
+    padding: 7px;
+    -moz-appearance: textfield;
+
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0;
+    }
+
+    &-arrow {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $lang-menu;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      width: 20px;
+      height: 40px;
+
+      &::after {
+        display: inline-block;
+        content: "";
+        width: 13px;
+        height: 8px;
+        background-image: url(../images/icons/polygon.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        transition: background-image 0.3s;
+      }
+
+      &:hover {
+        &::after {
+          background-image: url(../images/icons/polygon-white.svg);
+        }
+      }
+
+      &--up {
+        &::after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  &__price-info {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 10px;
+  }
+
+  &__price-text {
+    font-size: 16px;
+    line-height: 21px;
+    color: $minor-text;
+  }
+
+  &__price-cost {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 31px;
+    color: $highlight-text;
+  }
+
+  &__button {
+    margin: 0 auto;
+
+    &-purchase {
+      display: none;
+      @include onDesktop {
+        margin: 0;
+        margin-left: 65px;
+      }
+    }
+
+    &-next {
+      margin: 0 auto;
+
+      @include onDesktop {
+        margin: 0;
+      }
+    }
+  }
+
+  &__dropdown {
+    position: relative;
+
+    &-text {
+      font-size: 14px;
+      line-height: 150%;
+      color: $minor-text;
+      margin-bottom: 10px;
+    }
+
+    &-input-container {
+      position: relative;
+      margin-bottom: 25px;
+
+      &::after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 9px;
+        height: 6px;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+        transition: background-image 0.3s;
+        background-image: url(../images/icons/polygon.svg);
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+      }
+
+      &:hover {
+        &::after {
+          background-image: url(../images/icons/polygon-white.svg);
+        }
+      }
+    }
+
+    &-input {
+      border: none;
+      background: $lang-menu;
+      margin: 0;
+      cursor: pointer;
+      padding-left: 10px;
+    }
+
+    &-list {
+      position: absolute;
+      top: 75px;
+      width: 100%;
+      height: 130px;
+      border-radius: 4px;
+      background-color: #191536;
+      overflow-y: scroll;
+      z-index: 1;
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+
+      &--country {
+        display: none;
+        &--show {
+          display: block;
+        }
+      }
+
+      &--city {
+        display: none;
+        &--show {
+          display: block;
+        }
+      }
+    }
+
+    &-item {
+      font-size: 16px;
+      line-height: 21px;
+      padding: 5px 0;
+      padding-left: 20px;
+      @include hover(color, $highlight-text);
+      @include hover(background-color, $hover-menu);
+
+      &--city {
+        font-size: 16px;
+        line-height: 21px;
+        padding: 5px 0;
+        padding-left: 20px;
+        @include hover(color, $highlight-text);
+        @include hover(background-color, $hover-menu);
+      }
+    }
+  }
+
+  &__form {
+
+    &-order {
+      @include pageGrid;
+    }
+
+    &-grid-left {
+      grid-column: 1/-1;
+
+      @include onTablet {
+        grid-column: 1/4;
+      }
+
+      @include onDesktop {
+        grid-column: 1/7;
+      }
+    }
+
+    &-grid-right {
+      grid-column: 1/-1;
+
+      @include onTablet {
+        grid-column: 4/7;
+      }
+
+      @include onDesktop {
+        grid-column: 7/13;
+      }
+    }
+
+    &-pay {
+      display: none;
+      width: 280px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+
+      @include onTablet {
+        width: 340px;
+      }
+
+      @include onDesktop {
+        margin: 0;
+        margin-bottom: 65px;
+        margin-left: 65px;
+      }
+    }
+
+    &-card {
+      width: 280px;
+    }
+
+    &-card-text {
+      font-size: 14px;
+      line-height: 150%;
+      color: $minor-text;
+      margin-bottom: 10px;
+    }
+
+    &-card-info {
+      display: flex;
+      gap: 60px;
+    }
+
+    &-card-date-container {
+      width: 160px;
+    }
+
+    &-card-cvv-container {
+      width: 70px;
+    }
+  }
+}

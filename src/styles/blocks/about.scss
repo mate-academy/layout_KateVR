@@ -1,7 +1,55 @@
 .about {
 
   &__content {
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+  }
+
+  &__block {
     @include pageGrid;
+  }
+
+  &__swiper {
+    position: relative;
+    width: 280px;
+    height: 200px;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      width: 100%;
+      height: 270px;
+    }
+
+    @include onDesktop {
+      width: 100%;
+      height: 290px;
+    }
+
+    &-fraction {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: -50px;
+      width: max-content;
+      color: $highlight-text;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+
+    &-pagination {
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+
+  &__title-container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
   }
 
   &__title {
@@ -34,11 +82,21 @@
     @include onDesktop {
       grid-column: 9 / 13;
     }
+
+    &-company {
+      @include onTablet {
+        grid-column: 1 / 5;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 7;
+      }
+    }
   }
 
   &__video-container {
+    position: relative;
     grid-column: 1 / -1;
-    margin-bottom: 15px;
 
     @include onTablet {
       grid-column: 1 / 4;
@@ -49,56 +107,109 @@
     }
   }
 
+  &__image-container {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      grid-column: 5 / 7;
+    }
+
+    @include onDesktop {
+      grid-column: 7 / 13;
+    }
+
+    @include onDesktopXL {
+      grid-column: 8 / 17;
+    }
+  }
+
+  &__image {
+    display: block;
+    user-select: none;
+    width: 230px;
+    height: 256px;
+    background-image: url(../images/tablet/about-image-tablet.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: 50%;
+
+    @include onDesktop {
+      width: 495px;
+      height: 342px;
+      background-image: url(../images/desktop/about-image-desktop.png);
+    }
+
+    @include onDesktopXL {
+      width: 700px;
+      height: 343px;
+      background-image: url(../images/desktop/about-image-xl.png);
+    }
+  }
+
   &__subtitle {
     color: $minor-text;
     font-size: 16px;
     line-height: 24px;
   }
+
 }
 
 .swiper {
-  width: 280px;
-  height: 200px;
-  margin-bottom: 15px;
+  &__buttons {
+    display: none;
+    width: max-content;
 
-  @include onTablet {
-    width: 340px;
-    height: 270px;
+    @include onDesktop {
+      display: block;
+    }
+
+    &-wrapper {
+      display: flex;
+      gap: 100px;
+    }
   }
 
-  @include onDesktop {
-    width: 430px;
-    height: 290px;
+  &__button {
+    color: $main-text;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    cursor: pointer;
+    transition: color 0.3s, opacity 0.3s;
+
+    &:hover {
+      color: $highlight-text;
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
   }
 
   &-pagination {
-    position: static !important;
-
-    @include onDesktop {
-      display: none;
-    }
-
     &-bullet {
-      background: $navigation-bullet !important;
+      background: $navigation-bullet;
 
       &-active {
-        background: $navigation-bullet-active !important;
+        background: $navigation-bullet-active;
       }
     }
   }
+}
 
-  &-buttons {
-    display: none;
-    gap: 100px;
+.swiper__progressbar.swiper-pagination-progressbar,
+.swiper-pagination-horizontal {
+  position: relative;
+  height: 1px;
+}
 
-  }
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  width: max-content;
+  position: relative;
+  margin: 0 auto;
+}
 
-  &-button-prev,
-  &-button-next {
-    position: static !important;
-
-    &::after {
-      display: none;
-    }
-  }
+.swiper-pagination-progressbar-fill.swiper-pagination-progressbar-fill {
+  background: $highlight-text;
 }

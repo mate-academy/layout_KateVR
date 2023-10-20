@@ -1,8 +1,9 @@
 .header {
-  padding: 20px 0 60px;
+  padding: 20px 0 55px;
 
   @include onDesktop {
-    padding: 47px 0 85px;
+    height: 100vh;
+    padding-top: 47px;
   }
 
   &__top {
@@ -11,7 +12,7 @@
     }
 
     @include onDesktop {
-      margin-bottom: 100px;
+      margin-bottom: 80px;
     }
   }
 
@@ -22,7 +23,16 @@
     &-title {
       font-size: 26px;
       line-height: 34px;
+      margin-top: 25px;
       margin-bottom: 17px;
+
+      @include onTablet {
+        margin-top: 0;
+
+        & > span {
+          display: block;
+        }
+      }
 
       @include onDesktop {
         font-size: 46px;
@@ -34,7 +44,7 @@
     &-container {
       display: flex;
       flex-direction: column;
-      margin-bottom: 16px;
+      margin-bottom: 25px;
 
       @include onDesktop {
         margin-left: 90px;
@@ -44,8 +54,11 @@
 
     &-subtitle {
       font-weight: 500;
-      max-width: 340px;
       margin-bottom: 10px;
+
+      @include onTablet {
+        max-width: 340px;
+      }
 
       @include onDesktop {
         margin-bottom: 5px;
@@ -64,15 +77,34 @@
     }
 
     &-button--play {
+      margin: 0 auto;
       margin-bottom: 30px;
 
-      @include onTablet {
-        margin-bottom: 0;
-      }
-
       @include onDesktop {
+        margin: 0;
         margin-bottom: 90px;
       }
+    }
+  }
+
+  &__swiper {
+    @include onTablet {
+      position: absolute;
+      width: 410px;
+      height: 350px;
+      top: 0;
+      right: 0;
+      z-index: -1;
+    }
+
+    @include onDesktop {
+      width: 690px;
+      height: 550px;
+    }
+
+    &-progressbar.swiper-pagination-progressbar.swiper-pagination-horizontal {
+      position: relative;
+      height: 1px;
     }
   }
 
@@ -81,10 +113,11 @@
     user-select: none;
     min-width: 320px;
     height: 172px;
-    background-image: url(../images/mobile/header-image-mobile.png);
+    background-image: url(../images/mobile/header--mobile.png);
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50%;
+    z-index: -1;
 
     @include onTablet {
       position: absolute;
@@ -92,16 +125,46 @@
       right: 0;
       width: 486px;
       height: 439px;
-      z-index: -1;
-      background-image: url(../images/tablet/header-image-tablet.png);
+      background-image: url(../images/tablet/header--tablet.png);
     }
 
     @include onDesktop {
       top: 10px;
-      right: 0;
       width: 810px;
       height: 688px;
       background-image: url(../images/desktop/header-image-desktop.png);
     }
+
+    &-2 {
+      background-image: url(../images/desktop/header-image-2.png);
+
+      @include onTablet {
+        top: 50px;
+        height: 300px;
+      }
+
+      @include onDesktop {
+        top: 150px;
+        right: 100px;
+        width: 600px;
+        height: 360px;
+      }
+    }
+
+    &-3 {
+      background-image: url(../images/desktop/header-image-3.png);
+
+      @include onTablet {
+        right: 20px;
+        width: 380px;
+      }
+
+      @include onDesktop {
+        top: 100px;
+        width: 670px;
+        height: 500px;
+      }
+    }
+
   }
 }
