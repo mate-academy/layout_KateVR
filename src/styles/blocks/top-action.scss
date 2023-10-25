@@ -1,0 +1,107 @@
+.top-action {
+  padding: 18px 0 14px;
+
+  @include onDesktop {
+    padding: 60px 0;
+    color: #fff;
+  }
+
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include onDesktop {
+      gap: 34px;
+    }
+  }
+
+  &__item {
+
+    &:nth-child(2) {
+      display: none;
+    }
+
+
+    @include onDesktop {
+      &:nth-child(2) {
+        display: block;
+        flex: 1;
+      }
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+
+  &__logo {
+    display: block;
+    width: 58px;
+    height: 12px;
+
+    @include onTablet {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include onDesktop {
+      width: 76px;
+      height: 16px;
+    }
+  }
+
+  &__logo-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  &__menu-box {
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__language-change {
+
+  }
+
+  &__language-select {
+    background: none;
+    color: $contrast_color;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__menu-list {
+
+    &--desktop {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+    }
+  }
+
+  &__menu-link {
+
+    transition-duration: 300ms;
+    &:hover {
+      color: $contrast_color;
+    }
+  }
+
+  &__menu-opener {
+    position: relative;
+    z-index: 2;
+  }
+}

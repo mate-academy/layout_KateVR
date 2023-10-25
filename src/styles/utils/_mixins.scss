@@ -1,6 +1,73 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+//#region text-mixins
+
+@mixin headline-1 {
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 130%;
+}
+
+@mixin headline-2 {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: normal;
+}
+
+@mixin headline-3 {
+  font-size: 16px;
+  font-weight: 900;
+  line-height: normal;
+}
+
+@mixin button-link {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
+}
+
+@mixin text-1 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@mixin text-2 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 150%;
+}
+
+@mixin headline-1-mob {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 130%;
+}
+
+@mixin headline-2-mob {
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 130%;
+}
+
+@mixin text-mobile {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 150%
+}
+
+//#endregion
+
+//#region adaptiv
+
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
   }
 }
+
+@mixin onDesktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+//#endregion

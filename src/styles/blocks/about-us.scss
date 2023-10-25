@@ -1,0 +1,134 @@
+.about-us {
+  &--margin-bottom {
+    margin-bottom: 50px;
+
+    @include onDesktop {
+      margin-bottom: 160px;
+    }
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+
+    @include onTablet {
+      gap: 50px;
+    }
+
+    @include onDesktop {
+      gap: 100px;
+    }
+  }
+  &__item {
+    &:first-child {
+      min-width: 275px;
+      max-width: 530px;
+      padding-top: 20px;
+
+      @include onDesktop {
+        padding-top: 36px;
+      }
+    }
+    &:last-child {
+      display: none;
+      flex: 1;
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+  &__greetings {
+    color: $contrast_color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 11px;
+
+    @include onDesktop {
+      margin-bottom: 15px;
+    }
+  }
+  &__title {
+    margin-bottom: 22px;
+
+    @include onTablet {
+      margin-bottom: 32px;
+    }
+  }
+  &__text {
+    color: $text_color;
+  }
+  &__sub-row {
+    display: flex;
+    justify-content: space-around;
+    gap: 16px;
+  }
+  &__sub-item {
+    display: none;
+
+    @include onTablet {
+      height: 250px;
+      width: 60px;
+    }
+
+    @include onDesktop {
+      height: 340px;
+      width: 86px;
+    }
+
+    &:nth-child(1) {
+      .about-us__leters {
+        opacity: 1;
+      }
+    }
+    &:nth-child(2) {
+      .about-us__leters {
+        opacity: 0.5;
+      }
+    }
+    &:nth-child(3) {
+      .about-us__leters {
+        opacity: 0.2;
+      }
+    }
+    &:nth-child(4) {
+      .about-us__leters {
+        opacity: 0.1;
+      }
+    }
+    &:nth-child(5) {
+      .about-us__leters {
+        opacity: 0.05;
+      }
+    }
+    &:nth-child(6) {
+      .about-us__leters {
+        opacity: 0.03;
+      }
+    }
+    &:nth-child(7) {
+      .about-us__leters {
+        opacity: 0.02;
+      }
+    }
+    &:nth-child(even) {
+      transform: rotate(180deg);
+    }
+
+    @include onTablet {
+      &:nth-child(-n+3) {
+        display: block;
+      }
+    }
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+  &__leters {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

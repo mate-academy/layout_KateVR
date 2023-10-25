@@ -1,0 +1,116 @@
+.more-the-gaming {
+  background-color: $black;
+  padding: 16px 0 50px;
+
+  &--margin-bottom {
+    margin-bottom: 50px;
+
+    @include onTablet {
+      margin-bottom: 70px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 164px;
+    }
+  }
+
+  @include onTablet {
+    padding: 70px 0;
+  }
+
+  &__title {
+    margin-bottom: 12px;
+
+    @include onTablet {
+      text-align: center;
+    }
+  }
+
+  &__header-text {
+    margin-bottom: 30px;
+    color: $contrast_color;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__row {
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      max-width: 100px;
+      max-height: 100px;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onTablet {
+      flex: 1 1 48%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    @include onDesktop {
+      flex: 1 1 23%;
+    }
+
+    &:hover {
+      .more-the-gaming__icon {
+        animation: iconAnimate 3000ms infinite;
+      }
+    }
+  }
+
+  &__subtitle {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: normal;
+
+    @include onTablet {
+      font-size: 18px;
+    }
+  }
+
+  &__description {
+    @include text-1;
+    color: $text_color;
+    height: 52px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include onTablet {
+      text-align: center;
+      max-width: 340px;
+      height: auto;
+    }
+  }
+}

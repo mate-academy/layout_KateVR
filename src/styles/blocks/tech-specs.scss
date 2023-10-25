@@ -1,0 +1,242 @@
+.tech-specs {
+  padding: 50px 0;
+  background-color: #05040b;
+  position: relative;
+
+  @include onTablet {
+    padding: 80px 0;
+  }
+
+  @include onDesktop {
+    padding: 160px 0;
+  }
+
+  &__title {
+    margin-bottom: 40px;
+
+    @include onTablet {
+      margin-bottom: 60px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 140px;
+      text-align: right;
+      padding-right: 160px;
+    }
+  }
+  &__image {
+    position: relative;
+    display: block;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+
+    @include onTablet {
+      width: 360px;
+      height: 360px;
+    }
+
+    @include onDesktop {
+      width: 300px;
+      height: 300px;
+      z-index: 2;
+    }
+  }
+
+  &__block-button {
+    position: absolute;
+    display: block;
+    width: 34px;
+    height: 34px;
+    z-index: 1;
+
+    @include onTablet {
+      width: 60px;
+      height: 60px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__line {
+    display: none;
+    position: absolute;
+
+    @include onDesktop {
+      display: block;
+    }
+
+    &--sensor {
+      top: 287px;
+      left: 50%;
+      transform: translateX(-100%);
+    }
+    &--connection {
+      top: 403px;
+      left: 50%;
+      transform: translateX(-160%);
+    }
+    &--batterries {
+      top: 287px;
+      left: 50%;
+      transform: translateX(0);
+    }
+  }
+
+  &__curve-line {
+    position: absolute;
+    display: none;
+    top: 390px;
+    left: 50%;
+    transform: translateX(-165px);
+
+    @include onDesktop {
+      display: block;
+    }
+  }
+
+  &__block-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    max-height: 100%;
+    background-color: rgba($color: #05040b, $alpha: 0.6);
+    padding: 10px;
+    z-index: 2;
+
+    transition-duration: 300ms;
+    transform: scale(0);
+
+    @include onTablet {
+      padding: 40px;
+    }
+
+    @include onDesktop {
+      padding: 0;
+      transform: scale(1);
+      background-color: rgba($color: #05040b, $alpha: 0);
+      width: auto;
+    }
+  }
+  &__block {
+    &:hover {
+      .tech-specs__block-content {
+        transform: scale(1);
+      }
+    }
+    &--batterries {
+      &:hover {
+        .tech-specs__block-content {
+          @include onDesktop {
+            transform: translateX(310px);
+          }
+        }
+      }
+    }
+    &--sensor {
+      &:hover {
+        .tech-specs__block-content {
+          @include onDesktop {
+            transform: translateX(-560px);
+          }
+        }
+      }
+    }
+    &--connection {
+      &:hover {
+        .tech-specs__block-content {
+          @include onDesktop {
+            transform: translateX(-560px);
+          }
+        }
+      }
+    }
+  }
+  &__subtitle {
+    margin-bottom: 20px;
+    color: #fff;
+    font-family: inherit;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: normal;
+  }
+  &__list {
+  }
+  &__item {
+    color: $text_color;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+  &__block--sensor {
+    .tech-specs__block-button {
+      top: 105px;
+      left: 50%;
+      transform: translateX(-40px);
+
+      @include onTablet {
+        top: 135px;
+        transform: translateX(-110px);
+      }
+    }
+
+    .tech-specs__block-content {
+      @include onDesktop {
+        max-width: 350px;
+        top: 280px;
+        left: 50%;
+        transform: translateX(-560px);
+        bottom: auto;
+      }
+    }
+  }
+
+  &__block--connection {
+    .tech-specs__block-button {
+      top: 200px;
+      left: 50%;
+      transform: translateX(40px);
+
+      @include onTablet {
+        top: 310px;
+        transform: translateX(75px);
+      }
+    }
+
+    .tech-specs__block-content {
+      @include onDesktop {
+        max-width: 350px;
+        top: 500px;
+        left: 50%;
+        transform: translateX(-560px);
+        bottom: auto;
+      }
+    }
+  }
+  &__block--batterries {
+    .tech-specs__block-button {
+      top: 280px;
+      left: 50%;
+      transform: translateX(-110px);
+
+      @include onTablet {
+        top: 445px;
+        transform: translateX(-225px);
+      }
+    }
+
+    .tech-specs__block-content {
+      @include onDesktop {
+        max-width: 350px;
+        top: 285px;
+        left: 50%;
+        transform: translateX(310px);
+        bottom: auto;
+      }
+    }
+  }
+}
