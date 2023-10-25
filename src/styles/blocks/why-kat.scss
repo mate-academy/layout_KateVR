@@ -1,0 +1,126 @@
+.why-kat {
+  padding: 50px 0;
+
+  @include onTablet {
+    padding: 70px 0;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    @include onTablet {
+      text-align: center;
+    }
+  }
+
+  &__header-text {
+    margin-bottom: 30px;
+    color: $contrast_color;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onDesktop {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__row {
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+    }
+
+    @include onDesktop {
+      margin-bottom: 90px;
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+
+      @include onTablet {
+        margin-bottom: 0;
+      }
+    }
+
+    @include onTablet {
+      flex: 1 1 32%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    &:hover {
+      .why-kat__icon {
+        animation: iconAnimate 3000ms infinite;
+      }
+    }
+  }
+
+
+
+  &__subtitle {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: normal;
+    margin-bottom: 11px;
+  }
+
+  &__description {
+    @include text-1;
+    color: $text_color;
+    height: 52px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    @include onTablet {
+      text-align: center;
+      max-width: 340px;
+      height: 74px;
+    }
+
+    @include onDesktop {
+      height: auto;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include onDesktop {
+
+      display: block;
+      color: #fff;
+      width: fit-content;
+      margin: 0 auto;
+
+      &:visited {
+        color: #fff;
+      }
+
+      &:hover {
+        color: $contrast_color;
+      }
+    }
+  }
+}

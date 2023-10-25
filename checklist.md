@@ -9,7 +9,7 @@
 3. Menu on mobile should contain navigation links
 4. Logo should lead to the first section and don't reload the page
 5. Icons in the `more than gaming` and `why kat loco blocks` should be ***animated*** on hover
-6. The arrow icon in the footer should increase when hovering and when clicked smoothly scroll the page to the top
+6. The arrow dicon in the footer should increase when hovering and when clicked smoothly scroll the page to the top
 7. All interactive elements(**links, buttons, pictures, icons**) ***should have a hover effect and cursor pointer***. User must intuitively understand that he can interact with them
 8. Make sure when you click on logo there is no 404 error (Use `href="#"` in `anchor tag`)
 9. When you try to send the form there is no 405 error and the form is automatically cleared after submit and is scrolled to the top of the page or the page is reloaded

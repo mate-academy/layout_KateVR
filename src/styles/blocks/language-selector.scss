@@ -1,0 +1,63 @@
+.language-selector {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background: $gradient_background;
+  height: 100vh;
+  width: 100%;
+
+  z-index: 3;
+
+  @include onTablet {
+    height: fit-content;
+    padding-bottom: 14px;
+  }
+
+  transition-duration: 300ms;
+
+
+    transform: translateX(100%);
+
+    &:target {
+      transform: translateY(0);
+    }
+
+
+  &__menu-list {
+    color: #fff;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 130%;
+  }
+
+  &__menu-item {
+    margin-left: -20px;
+
+    @include onTablet {
+      margin-left: -35px;
+    }
+  }
+
+  &__menu-link {
+    display: block;
+    padding: 11px 0 11px 20px;
+    height: 100%;
+
+    @include onTablet {
+      padding: 11px 0 11px 155px;
+    }
+
+    transition-duration: 300ms;
+
+    &._active {
+      color: $contrast_color;
+      background-color: $black;
+    }
+
+    &:hover {
+      color: $contrast_color;
+      background-color: $black;
+    }
+  }
+}
