@@ -33,11 +33,35 @@
     @include hover(background-color, transparent);
   }
 
+  &-buy--sticky-container {
+    position: relative;
+  }
+
   &-buy--sticky {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: absolute;
+    top: -25px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 20px;
+    color: $main-text;
+    background-color: $highlight-text;
+    border: none;
+    border-radius: 4px;
+    outline: none;
+    @include hover(color, $highlight-text);
+    @include hover(background-color, $main-text);
+
     @include onTablet {
-      display: none;
       width: 458px;
       height: 48px;
+      left: 50%;
+      transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -webkit-transform: translateX(-50%);
     }
 
     @include onDesktop {

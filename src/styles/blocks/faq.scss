@@ -5,7 +5,7 @@
   bottom: 0;
   height: 100vh;
   z-index: $z-index-modal;
-  background-color: $lang-menu;
+  background: $bg-gradient;
   overflow: hidden;
   overflow-y: scroll;
   padding: 60px 20px;
@@ -32,6 +32,10 @@
     margin-bottom: 30px;
   }
 
+  &__subtitle span {
+    transition: color 0.3s;
+  }
+
   &__info {
     color: $minor2-text;
   }
@@ -44,26 +48,33 @@
   }
 
   &__question {
-    padding: 20px 12px;
+    padding: 20px 12px 0;
+    overflow: hidden;
     border: 1px solid $highlight-text;
     border-radius: 4px;
+    @include hover(border-color, $main-text);
+  }
+
+  &__question:hover &__subtitle span {
+    color: $main-text;
   }
 
   &__answer {
-    margin: 20px 0;
-    display: none;
+    height: 0;
+    transition: all 0.3s;
 
     &-text {
       margin: 20px 0;
-    }
-
-    &--active {
-      display: block;
     }
   }
 
   &__more-link {
     font-size: 16px;
     line-height: 150%;
+  }
+
+  &__more-link-container {
+    width: 100%;
+    text-align: center;
   }
 }
