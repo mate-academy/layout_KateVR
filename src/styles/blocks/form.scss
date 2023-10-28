@@ -1,0 +1,94 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding-bottom: 30px;
+
+  @include onTablet {
+    padding-bottom: 0;
+  }
+
+  &__label {
+    display: block;
+  }
+
+  &__input {
+    width: 100%;
+    padding-bottom: 20px;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $second-item-color;
+    color: $main-text-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+
+    &--two {
+      padding-bottom: 60px;
+      resize: none;
+      margin-bottom: 30px;
+
+      @include onTablet {
+        margin-bottom: 50px;
+      }
+
+      @include onSmallDesktop {
+        margin-bottom: 90px;
+      }
+
+      @include onMediumDesktop {
+        margin-bottom: 50px;
+      }
+
+      &:focus {
+        border-bottom: 1px solid $second-text-color;
+      }
+
+      &::placeholder {
+        font-family: "Inter", sans-serif;
+        color: $third-text-color;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 150%;
+      }
+    }
+
+    &::placeholder {
+      color: $third-text-color;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 150%;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $second-text-color;
+    }
+  }
+
+  &__button {
+    outline: none;
+    display: block;
+    border-radius: 4px;
+    width: 100%;
+    padding-block: 11px;
+    background-color: $second-text-color;
+    color: $main-text-color;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+    border: none;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+
+    @include onTablet {
+      width: 200px;
+    }
+
+    &:hover {
+      background-color: $main-text-color;
+      color: $second-text-color;
+    }
+  }
+}

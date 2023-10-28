@@ -1,0 +1,116 @@
+.about {
+  &__content {
+    grid-column: 1 / 5;
+
+    @include onSmallDesktop {
+      grid-column: 1 / 6;
+    }
+
+    @include onMediumDesktop {
+      grid-column: 2 /8;
+    }
+  }
+  &__hello {
+    color: $second-text-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 10px;
+
+    @include onSmallDesktop {
+      padding-bottom: 15px;
+    }
+  }
+
+  &__tittle {
+    padding-bottom: 20px;
+
+    @include onTablet {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__subtittle {
+    color: $third-text-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__decor {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      transform: rotate(90deg);
+      position: absolute;
+      right: 0;
+    }
+
+    @include onSmallDesktop {
+      top: -120px;
+    }
+
+    @include onMediumDesktop {
+      top: -240px;
+    }
+  }
+
+  &__text {
+    display: block;
+    font-size: 46px;
+    color: transparent;
+    -webkit-text-stroke: 1px $second-text-color;
+    font-weight: 900;
+    line-height: 130%;
+
+    @include onSmallDesktop {
+      font-size: 64px;
+    }
+
+    &--two {
+      opacity: 50%;
+      transform: rotate(180deg);
+    }
+
+    &--one {
+      opacity: 20%;
+    }
+
+    &--fore {
+      opacity: 10%;
+      transform: rotate(180deg);
+    }
+
+    &--five {
+      opacity: 5%;
+    }
+
+    &--six {
+      opacity: 3%;
+      transform: rotate(180deg);
+    }
+
+    &--seven {
+      opacity: 2%;
+    }
+
+    &--trens {
+      display: none;
+
+      @include onSmallDesktop {
+        display: block;
+      }
+    }
+
+    &--hide {
+      display: none;
+
+      @include onMediumDesktop {
+        display: block;
+      }
+    }
+  }
+}

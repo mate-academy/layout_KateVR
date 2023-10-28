@@ -1,0 +1,69 @@
+.footer {
+  padding-block: 50px;
+  background-color: $third-bg-color;
+
+  @include onTablet {
+    padding-block: 20px;
+  }
+
+  @include onSmallDesktop {
+    padding-block: 40px;
+  }
+
+  &__content {
+    @include pageGrid;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    background-image: url(../images/footer/Logo.svg);
+    background-repeat: no-repeat;
+    display: block;
+    height: 14px;
+    width: 69px;
+    padding-bottom: 15px;
+    grid-column: 1 / 2;
+
+    @include onTablet {
+      padding-bottom: 0;
+    }
+  }
+
+  &__nav {
+    grid-column: 1 / 2;
+  }
+
+  &__wrap {
+    grid-column: 2 / -1;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding-bottom: 25px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__icon {
+    display: flex;
+    gap: 20px;
+
+    &--link {
+      display: block;
+      transition: 0.4s ease-in-out;
+
+      &:hover {
+        transform: scale(1.07);
+      }
+    }
+  }
+}

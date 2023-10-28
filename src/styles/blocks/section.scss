@@ -1,0 +1,60 @@
+.section {
+  display: flex;
+  flex-direction: column;
+
+  @include onTablet {
+    align-items: center;
+  }
+
+  &__img {
+    height: 80px;
+    width: 98px;
+    display: none;
+
+    @include onTablet {
+      display: block;
+      padding-bottom: 20px;
+    }
+
+    @include onSmallDesktop {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__tittle {
+    color: $main-text-color;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: normal;
+    padding-bottom: 10px;
+
+    @include onTablet {
+      font-size: 18px;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__subtittle {
+    color: $third-text-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__second-tittle {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+      color: $third-text-color;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: normal;
+      text-align: center;
+    }
+  }
+}

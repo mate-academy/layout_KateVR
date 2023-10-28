@@ -1,0 +1,138 @@
+.contacts {
+  background-color: $third-bg-color;
+
+  @include onTablet {
+    padding-bottom: 60px;
+  }
+
+  @include onSmallDesktop {
+    padding-bottom: 0;
+  }
+
+  @include onMediumDesktop {
+    padding-bottom: 40px;
+  }
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+      position: relative;
+    }
+  }
+
+  &__text {
+    color: $second-text-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 10px;
+
+    @include onSmallDesktop {
+      padding-bottom: 13px;
+    }
+  }
+
+  &__tittle {
+    padding-bottom: 30px;
+
+    @include onTablet {
+      padding-bottom: 50px;
+    }
+
+    @include onSmallDesktop {
+      padding-bottom: 30px;
+    }
+  }
+
+  &__block {
+    grid-column: 1 / 4 ;
+
+    @include onSmallDesktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__form {
+    grid-column: 4 / -1;
+
+    @include onSmallDesktop {
+      grid-column: 7 / -1;
+    }
+
+    @include onMediumDesktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__info {
+    color: $third-text-color;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+
+    @include onTablet {
+      display: none;
+    }
+
+    &--two {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        padding-bottom: 80px;
+      }
+    }
+
+    @include onTablet {
+      font-size: 16px;
+    }
+  }
+
+  &__contact {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $third-text-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: normal;
+    transition: 0.4s ease-in-out;
+
+    &--footer {
+      font-size: 13px;
+    }
+
+    &:hover {
+      color: $second-text-color;
+    }
+  }
+
+  &__arrow {
+    display: none;
+    background-image: url(../images/page-arrow.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 49px;
+    width: 49px;
+    transition: 0.4s ease-in-out;
+
+    &:hover {
+      transform: scale(1.08);
+    }
+
+    @include onTablet {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}

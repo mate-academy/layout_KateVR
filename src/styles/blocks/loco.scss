@@ -1,0 +1,103 @@
+.loco {
+  background: linear-gradient(147deg, #191536 -0.5%, #000 99.5%);
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include onTablet {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  @include onSmallDesktop {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  @include onMediumDesktop {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+
+  &__tittle {
+    padding-bottom: 30px;
+
+    @include onSmallDesktop {
+      padding-bottom: 80px;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      @include pageGrid;
+    }
+
+    @include onSmallDesktop {
+      padding-bottom: 90px;
+    }
+
+    @include onMediumDesktop {
+      padding-bottom: 0;
+    }
+
+  }
+
+  &__card {
+    grid-column: span 2;
+
+    @include onSmallDesktop {
+      grid-column: span 4;
+    }
+
+    &--one {
+      @include onMediumDesktop {
+        grid-column: 1 /5;
+      }
+    }
+
+    &--two {
+      @include onMediumDesktop {
+        grid-column: 7 / 11;
+      }
+    }
+
+    &--three {
+      @include onMediumDesktop {
+        grid-column: 13 / 17;
+      }
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include onSmallDesktop {
+      text-decoration: none;
+      display: block;
+      border-radius: 4px;
+      width: 200px;
+      padding-block: 13px;
+      background-color: $second-text-color;
+      color: $main-text-color;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 130%;
+      transition: 0.4s ease-in-out;
+      margin: 0 auto;
+
+      &:hover {
+        background-color: $main-text-color;
+        color: $second-text-color;
+      }
+
+      @include onMediumDesktop {
+        display: none;
+      }
+    }
+  }
+}

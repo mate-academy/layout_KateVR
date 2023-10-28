@@ -1,0 +1,74 @@
+.category {
+  background-color: $third-bg-color;
+
+  &__tittle {
+    padding-bottom: 12px;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    @include onSmallDesktop {
+      padding-bottom: 16px;
+    }
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: $second-text-color;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: normal;
+    padding-bottom: 40px;
+
+    @include onTablet {
+      padding-bottom: 50px;
+      text-align: center;
+    }
+
+    @include onSmallDesktop {
+      font-size: 14px;
+      padding-bottom: 80px;
+    }
+
+    @include onMediumDesktop {
+      padding-bottom: 70px;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      @include pageGrid;
+      row-gap: 40px;
+    }
+  }
+
+  &__section {
+    grid-column: 4 / -1;
+
+    @include onSmallDesktop {
+      grid-column: span 3;
+    }
+
+    @include onMediumDesktop {
+      grid-column: span 4;
+    }
+
+    &--two {
+      grid-column: 1 / 4;
+
+      @include onSmallDesktop {
+        grid-column: span 3;
+      }
+
+      @include onMediumDesktop {
+        grid-column: span 4;
+      }
+    }
+  }
+}
