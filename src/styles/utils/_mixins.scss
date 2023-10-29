@@ -17,23 +17,26 @@
 
 @mixin grid() {
   display: grid;
+  max-width: 320px;
   justify-content: center;
   grid-template-columns: repeat(2, 130px);
   gap: 20px;
 
   @include for-tablet() {
-    grid-template-columns: repeat(6, 80px);
+    max-width: 768px;
+    grid-template-columns: repeat(6, 100px);
     gap: 20px;
   }
 
   @include for-desktop() {
+    max-width: 1260px;
     grid-template-columns: repeat(12, 70px);
     gap: 20px;
   }
 }
 
 @mixin for-tablet() {
-  @media (min-width: 744px) {
+  @media (min-width: 768px) {
     @content;
   }
 }
