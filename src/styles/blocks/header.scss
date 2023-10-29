@@ -17,7 +17,10 @@
   }
 
   @include for-desktop() {
-    background-image: none;
+    background-image: url(../images/header-large-background.svg);
+    background-position: right 26px;
+    background-repeat: no-repeat;
+    background-size: 810px 668px;
   }
 
   &__burger-menu {
@@ -38,7 +41,6 @@
     }
 
     &-bar {
-
       background-color: #fff;
       height: 0.5px;
       width: 16.3px;
@@ -127,9 +129,12 @@
         width: 711px;
         height: 23px;
         grid-column: 2 / 8;
+        align-items: center;
       }
 
       &-item {
+        justify-content: center;
+
         &:not(:first-child) {
           margin-left: 36px;
         }
@@ -142,7 +147,7 @@
 
       &-language {
         position: absolute;
-        bottom: 0;
+        bottom: -10px;
         background-color: transparent;
         font-size: 16px;
         font-weight: 400;
@@ -188,6 +193,11 @@
       grid-column: 1 / 4;
     }
 
+    @include for-desktop() {
+      margin-top: 96px;
+      grid-column: 1 / 13;
+    }
+
     &-title {
       margin-top: 152px;
 
@@ -207,6 +217,15 @@
       @include for-tablet() {
         margin-top: 5px;
       }
+
+      @include for-desktop() {
+        margin-top: 5px;
+
+        font-size: 46px;
+        font-weight: 900;
+        line-height: 60px;
+        letter-spacing: 0;
+      }
     }
 
     &-paragraph {
@@ -218,6 +237,11 @@
       line-height: 24px;
       letter-spacing: 0;
       color: #929292;
+
+      @include for-desktop() {
+        width: 336px;
+        margin: 19px 0 0 97px;
+      }
     }
 
     &-price {
@@ -234,6 +258,11 @@
         margin-top: 10px;
         text-align: left;
       }
+
+      @include for-desktop() {
+        width: 336px;
+        margin: 20px 0 0 97px;
+      }
     }
 
     &-play-video-btn {
@@ -248,7 +277,11 @@
       cursor: pointer;
 
       @include for-tablet() {
-        margin: 24px 0 60px;
+        margin: 24px 0 65px;
+      }
+
+      @include for-desktop() {
+        margin: 19px 0 0 93px;
       }
     }
 
@@ -271,6 +304,57 @@
 
       @include for-desktop() {
         display: none;
+      }
+    }
+  }
+
+  &__utilis {
+    display: none;
+
+    @include for-desktop() {
+      grid: 1 / 13;
+
+      margin: 64px 0;
+      display: flex;
+      width: 1055px;
+      height: 37px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0;
+
+    }
+
+    &-help {
+      margin-left: 40px;
+    }
+
+    &-more {
+      margin-left: 404px;
+      text-align: center;
+      color: #05c2df;
+    }
+
+    &-buttons {
+      margin-left: 298px;
+      width: 205px;
+
+      &:last-child {
+        align-items: end;
+      }
+
+      &-previous {
+        text-decoration: none;
+        color: #929292;
+        width: 66px;
+      }
+
+      &-next {
+        margin-left: 98px;
+        text-decoration: none;
+        color: #fff;
+        width: 36px;
       }
     }
   }
