@@ -270,14 +270,16 @@
       margin-top: 16px;
       border: none;
       background-image: url(../images/header-play-video-button.svg);
+      background-repeat: no-repeat;
       background-color: transparent;
-      background-size: cover;
-      width: 220px;
-      height: 66.5px;
+      background-size: contain;
+      width: 240px;
+      height: 66.05px;
       cursor: pointer;
 
       @include for-tablet() {
         margin: 24px 0 65px;
+        width: 247px;
       }
 
       @include for-desktop() {
@@ -336,25 +338,41 @@
       color: #05c2df;
     }
 
-    &-buttons {
+    &-image {
       margin-left: 298px;
       width: 205px;
 
-      &:last-child {
-        align-items: end;
-      }
-
-      &-previous {
+      &-previous-btn {
         text-decoration: none;
         color: #929292;
         width: 66px;
       }
 
-      &-next {
+      &-next-btn {
         margin-left: 98px;
         text-decoration: none;
         color: #fff;
         width: 36px;
+      }
+
+      &-previews {
+        position: relative;
+
+        &-range {
+          margin-top: 10px;
+          content: "";
+          width: 207px;
+          height: 1px;
+          background-color: #212121;
+        }
+
+        &-target {
+          position: absolute;
+          top: 0;
+          width: 69px;
+          height: 1px;
+          background-color: #05c2df;
+        }
       }
     }
   }
