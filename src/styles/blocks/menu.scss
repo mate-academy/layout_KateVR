@@ -1,0 +1,44 @@
+.menu {
+  background-color: $second-bg-color;
+  height: 100vh;
+
+  @include onTablet {
+    height: 568px;
+  }
+
+  &__bg {
+    @include onTablet {
+      display: block;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__close {
+    background-image: url(../images/header/close-icon.svg);
+    background-repeat: no-repeat;
+    display: block;
+    height: 17px;
+    width: 17px;
+    position: absolute;
+    top: 20px;
+    right: 0;
+
+    @include onTablet {
+      top: 35px;
+    }
+  }
+
+  &__links {
+    padding-top: 75px;
+
+    @include onTablet {
+      padding-block: 97px 128px;
+      @include pageGrid;
+    }
+  }
+}

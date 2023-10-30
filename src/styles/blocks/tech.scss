@@ -1,0 +1,161 @@
+.tech {
+  background-color: $third-bg-color;
+
+  &__content {
+    position: relative;
+    width: 280px;
+    margin: 0 auto;
+
+    @include onTablet {
+      width: 100%;
+    }
+
+    @include onSmallDesktop {
+      @include pageGrid;
+    }
+  }
+
+  &__tittle {
+    padding-bottom: 40px;
+
+    @include onTablet {
+      padding-bottom: 60px;
+    }
+
+    @include onSmallDesktop {
+      display: none;
+      padding-bottom: 80px;
+    }
+
+    &--two {
+      display: none ;
+
+      @include onSmallDesktop {
+        display: block;
+        grid-column: 9 /13;
+      }
+
+      @include onMediumDesktop {
+        grid-column: 12 / 16;
+      }
+    }
+  }
+
+  &__img {
+    display: block;
+    height: 195px;
+    width: 197px;
+    margin: 0 auto;
+
+    @include onTablet {
+      width: 353px;
+      height: 357px;
+    }
+
+    @include onSmallDesktop {
+      display: none;
+    }
+  }
+
+  &__plus {
+    position: absolute;
+
+    &--one {
+      top: 0;
+      left: 102px;
+
+      @include onTablet {
+        top: -20px;
+        left: 236px;
+      }
+    }
+
+    &--two {
+      top: 70px;
+      left: 176px;
+
+      @include onTablet {
+        top: 120px;
+        left: 418px;
+      }
+    }
+
+    &--three {
+      bottom: 0;
+      left: 25px;
+
+      @include onTablet {
+        bottom: 0;
+        left: 113px;
+      }
+    }
+
+    @include onSmallDesktop {
+      display: none;
+    }
+
+    &--img {
+      height: 34px;
+      width: 34px;
+
+      @include onTablet {
+        height: 61px;
+        width: 61px;
+      }
+    }
+  }
+
+  &__photo {
+    background-image: url(../images/tech/Group-10.png);
+    background-repeat: no-repeat;
+    height: 347px;
+    width: 600px;
+    display: none;
+
+    @include onSmallDesktop {
+      display: block;
+      position: absolute;
+      top: 130px;
+      left: 104px;
+    }
+
+    @include onMediumDesktop {
+      background-image: url(../images/tech/Group-10-2.png);
+      left: 283px;
+      width: 719px;
+    }
+  }
+
+  &__description {
+    display: none;
+
+    @include onSmallDesktop {
+      display: block;
+    }
+
+    &--one {
+      grid-column: 1/4;
+
+      @include onMediumDesktop {
+        grid-column: 3 / 6;
+      }
+    }
+
+    &--two {
+      grid-column: 9 / 13;
+
+      @include onMediumDesktop {
+        grid-column: 12 / 16;
+      }
+    }
+
+    &--three {
+      padding-top: 58px;
+      grid-column: 2 / 5;
+
+      @include onMediumDesktop {
+        grid-column: 3 / 6;
+      }
+    }
+  }
+}

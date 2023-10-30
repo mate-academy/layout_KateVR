@@ -1,0 +1,66 @@
+.card {
+  &__img {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      padding-bottom: 30px;
+      margin: 0 auto;
+    }
+  }
+
+  &__tittle {
+    color: $main-text-color;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: normal;
+    padding-bottom: 10px;
+
+    @include onTablet {
+      text-align: center;
+      font-size: 16px;
+      padding-bottom: 20px;
+    }
+
+    @include onSmallDesktop {
+      font-size: 18px;
+    }
+  }
+
+  &__subtittle {
+    color: $third-text-color;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+
+    @include onTablet {
+      text-align: center;
+    }
+
+    &--phone {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onSmallDesktop {
+        display: none;
+      }
+    }
+
+    &--desk {
+      display: none;
+
+      @include onSmallDesktop {
+        display: block;
+      }
+    }
+  }
+}
