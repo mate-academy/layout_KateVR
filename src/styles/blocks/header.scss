@@ -17,7 +17,7 @@
   }
 
   @include for-desktop() {
-    background-image: url(../images/header-large-background.svg);
+    background-image: url(../images/header-large-background-1.svg);
     background-position: right 26px;
     background-repeat: no-repeat;
     background-size: 810px 668px;
@@ -37,7 +37,7 @@
       grid-column: 6 / 7;
 
       padding-left: 5.42px;
-      height: 13px;
+      height: 15px;
     }
 
     &-bar {
@@ -171,6 +171,7 @@
         text-align: left;
         color: $c-blue;
         border: none;
+        cursor: pointer;
       }
 
       &-link {
@@ -343,14 +344,31 @@
 
     }
 
+    &-faq {
+      @extend .utilis-btn;
+
+      &:hover {
+        color: $c-blue;
+        transition: 0.3s;
+      }
+    }
+
     &-help {
+      @extend .utilis-btn;
       margin-left: 40px;
+
+      &:hover {
+        color: $c-blue;
+        transition: 0.3s;
+      }
     }
 
     &-more {
       margin-left: 404px;
       text-align: center;
       color: $c-blue;
+      cursor: pointer;
+      text-decoration: none;
     }
 
     &-image {
@@ -358,16 +376,17 @@
       width: 205px;
 
       &-previous-btn {
-        text-decoration: none;
-        color: #929292;
+        @extend .utilis-btn;
+        color: $c-lightgray;
         width: 66px;
       }
 
       &-next-btn {
+        @extend .utilis-btn;
         margin-left: 98px;
-        text-decoration: none;
-        color: $c-white;
+        color: $c-lightgray;
         width: 36px;
+
       }
 
       &-previews {
