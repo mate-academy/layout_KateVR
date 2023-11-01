@@ -78,25 +78,28 @@ document.addEventListener('click', function() {
 
 // Background-image change
 
-let p = 0;
-const images = [];
-const slideTime = 3000; // 3 seconds
+// let p = 0;
+// const images = [];
+// const slideTime = 3000; // 3 seconds
 
-images[0] = '../images/header-large-background-1.svg';
-images[1] = '../images/header-large-background-2.svg';
-images[2] = 'https://via.placeholder.com/150/AAA300';
+// images[0] = '../images/header-large-background-1.svg';
+// images[1] = '../images/header-large-background-2.svg';
+// images[2] = 'https://via.placeholder.com/150/AAA300';
 
-function changePicture() {
-  const header = document.getElementById('home');
+// function changePicture()
+// {
+//   const header = document.getElementById('home');
 
-  header.style.backgroundImage = 'url(' + images[p] + ')';
+//   header.style.backgroundImage = 'url(' + images[p] + ')';
 
-  if (p < images.length - 1) {
-    p++;
-  } else {
-    p = 0;
-  }
-  setTimeout(changePicture, slideTime);
-}
+//   if (p < images.length - 1)
+//   {
+//     p++;
+//   } else
+//   {
+//     p = 0;
+//   }
+//   setTimeout(changePicture, slideTime);
+// }
 
-window.onload = changePicture;
+// window.onload = changePicture;
