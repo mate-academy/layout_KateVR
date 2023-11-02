@@ -269,18 +269,17 @@ more.addEventListener('click', function() {
 const questionContents = document.querySelectorAll('.question-dropdown');
 
 questionContents.forEach((content, index) => {
-  content.style.height = '60px';
-
   content.addEventListener('click', function() {
+    // Toggle classes for all questionContents
     questionContents.forEach((otherContent, otherIndex) => {
       if (index !== otherIndex) {
-        otherContent.style.height = '60px';
+        otherContent.classList.add('closed');
+        otherContent.classList.remove('opened');
       }
     });
 
-    const currentHeight = content.style.height;
-
-    content.style.height = currentHeight === '60px' ? 'fit-content' : '60px';
+    content.classList.toggle('opened');
+    content.classList.toggle('closed');
   });
 });
 
