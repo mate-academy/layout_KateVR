@@ -270,7 +270,6 @@ const questionContents = document.querySelectorAll('.question-dropdown');
 
 questionContents.forEach((content, index) => {
   content.addEventListener('click', function() {
-    // Toggle classes for all questionContents
     questionContents.forEach((otherContent, otherIndex) => {
       if (index !== otherIndex) {
         otherContent.classList.add('closed');
