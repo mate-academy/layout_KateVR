@@ -1,0 +1,125 @@
+.about-product {
+  &__item {
+    @include grid();
+    margin: 0 auto;
+
+    &-title {
+      grid-column: 1 / 3;
+
+      @extend .section-title;
+
+      &--color {
+        @extend .section-title--color;
+      }
+
+      @include for-tablet() {
+        display: none;
+      }
+
+      @include for-desktop() {
+        display: none;
+      }
+
+      &--secondary {
+        margin-bottom: 20px;
+
+        @include for-tablet() {
+          display: inline-block;
+        }
+
+        @include for-desktop() {
+          display: inline-block;
+        }
+      }
+    }
+
+    &-image {
+      width: 100%;
+
+      @include for-tablet() {
+        width: 340px;
+        height: 270px;
+      }
+
+      @include for-desktop() {
+        width: 430px;
+        height: 290px;
+      }
+    }
+
+    &-wrapper {
+      grid-column: 1 / 3;
+
+      @include for-tablet() {
+        grid-column: 4 / -1;
+      }
+
+      &--secondary {
+        @include for-tablet() {
+          grid-column: 1 / 4;
+        }
+      }
+
+      &-title {
+        display: none;
+        margin-bottom: 20px;
+        @extend .section-title;
+
+        @include for-tablet() {
+          display: inline-block;
+          grid-column: 4 / 7;
+          text-align: center;
+        }
+
+        @include for-desktop() {
+          display: inline-block;
+          grid-column: 7 / 13;
+          text-align: center;
+
+          font-size: 36px;
+          line-height: 44px;
+        }
+      }
+
+      &-paragraph {
+        @include for-tablet() {
+          grid-column: 4 / 7;
+        }
+
+        @extend .section-paragraph;
+        height: 176px;
+      }
+
+      &-play-video-btn {
+        // grid-column: 1 / 3;
+        margin: 16px 0 79px;
+        border: none;
+        background-image: url(../images/header-play-video-button.svg);
+        background-repeat: no-repeat;
+        background-color: transparent;
+        background-size: contain;
+        width: 240px;
+        height: 66.05px;
+        cursor: pointer;
+
+        // @include for-tablet() {
+        //   margin: 24px 0 65px;
+        //   width: 247px;
+        // }
+
+        // @include for-desktop() {
+        //   margin: 19px 0 0 93px;
+        // }
+      }
+
+      &-paragraph-customized {
+        margin-bottom: 11px;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 17px;
+        letter-spacing: 0;
+        color: $c-contrast;
+      }
+    }
+  }
+}
