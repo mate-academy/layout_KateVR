@@ -29,6 +29,10 @@
 
         @include for-desktop() {
           display: inline-block;
+
+          font-size: 36px;
+          line-height: 44px;
+          text-wrap: nowrap;
         }
       }
     }
@@ -57,6 +61,7 @@
 
       @include for-desktop() {
         grid-column: 9 / -1;
+        height: 341px;
       }
 
       &--secondary {
@@ -65,6 +70,11 @@
 
           margin-top: 107.5px;
           height: 213px;
+        }
+
+        @include for-desktop() {
+          margin-top: 246px;
+          height: 265px;
         }
       }
 
@@ -84,6 +94,7 @@
           grid-column: 7 / 13;
           text-align: center;
 
+          margin-bottom: 30px;
           font-size: 36px;
           line-height: 44px;
         }
@@ -103,6 +114,13 @@
           height: 124px;
           width: 332px;
         }
+
+        &--secondary {
+          @include for-desktop() {
+            width: 429px;
+            height: 157px;
+          }
+        }
       }
 
       &-play-video-btn {
@@ -120,10 +138,6 @@
           margin: 24px 0 65px;
           width: 247px;
         }
-
-        // @include for-desktop() {
-        //   margin: 19px 0 0 93px;
-        // }
       }
 
       &-paragraph-customized {
@@ -141,8 +155,20 @@
 
           margin-top: 84px;
           display: block;
-          height: 256.71px;
+          height: 257px;
           width: 232px;
+          background-image: url(../images/about-us-medium.png);
+          background-size: cover;
+          transform: translateX(-20px);
+        }
+
+        @include for-desktop() {
+          grid-column: 7 / -1;
+
+          margin-top: 183px;
+          width: 495px;
+          height: 345px;
+          background-image: url(../images/about-us-large.png);
         }
       }
     }
