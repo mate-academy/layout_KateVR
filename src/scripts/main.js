@@ -97,9 +97,9 @@ function showSlides() {
   let i;
   const slides = document.getElementsByClassName('mySlides');
   const dots = document.getElementsByClassName('dot');
-  const slideCounter = document.querySelector('.slide-counter');
   const prevButton = document.getElementById('prevButton');
   const nextButton = document.getElementById('nextButton');
+  const slideCounter = document.querySelector('.slide-counter');
 
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
@@ -167,3 +167,27 @@ function changeSlide(n) {
   // Start a new automatic slide change using setInterval
   interval = setInterval(showSlides, 5000);
 }
+
+// Pobierz elementy .target i .slide-counter
+const target = document.querySelector('.target');
+const sliderCounter = document.querySelector('.slide-counter');
+
+// Funkcja do ustawiania odpowiednich stylów .target na podstawie numeru slajdu
+function updateTargetStyles() {
+  const slideText = sliderCounter.textContent;
+  const [currentSlide] = slideText.split('/').map((str) => parseInt(str));
+  // Oblicz przesunięcie X dla transformacji
+  const translateX = (currentSlide - 1) * 41.4;
+
+  // Ustaw odpowiednie style w zależności od numeru slajdu
+  target.style.width = '41.4px';
+  target.style.height = '1px';
+  target.style.backgroundColor = '$c-contrast';
+  target.style.transform = `translateX(${translateX}px)`;
+}
+
+// Wywołaj funkcję na początku i zaktualizuj style .target
+updateTargetStyles();
+
+// Nasłuchuj zmian w .slide-counter i aktualizuj style .target
+sliderCounter.addEventListener('DOMSubtreeModified', updateTargetStyles);
