@@ -164,6 +164,15 @@ function changeSlide(n) {
 
   showSlides(slideIndex += n); // Change by n slides
 
+  // Check if there's a next slide
+  if (slideIndex !== 5) {
+    nextBtn.classList.remove('inactive-next-btn'); // Remove the inactive class
+    nextBtn.classList.add('next-btn'); // Add native class
+  } else {
+    nextBtn.classList.add('inactive-next-btn'); // Add the inactive class
+    nextBtn.classList.remove('next-btn'); // Remove native class
+  }
+
   // Start a new automatic slide change using setInterval
   interval = setInterval(showSlides, 5000);
 }
