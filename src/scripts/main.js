@@ -74,41 +74,22 @@ document.addEventListener('click', function() {
   closeAllSelect();
 });
 
-// End of custom-select-language
-
-// Background-image change
-
-// let p = 0;
-// const images = [];
-// const slideTime = 3000; // 3 seconds
-
-// images[0] = '../images/header-large-background-1.svg';
-// images[1] = '../images/header-large-background-2.svg';
-// images[2] = 'https://via.placeholder.com/150/AAA300';
-
-// function changePicture()
-// {
-//   const header = document.getElementById('home');
-
-//   header.style.backgroundImage = 'url(' + images[p] + ')';
-
-//   if (p < images.length - 1)
-//   {
-//     p++;
-//   } else
-//   {
-//     p = 0;
-//   }
-//   setTimeout(changePicture, slideTime);
-// }
-
-// window.onload = changePicture;
-
-// End of background-image change
-
 // Slide-show
+let slideIndex = 1; // Set the slide index to 1 (first slide)
+let autoChange = true; // Default to enable automatic slide change
+let interval; // Variable to store the interval
 
-let slideIndex = 0;
+// Function to check the viewport window width
+function updateAutoChange() {
+  autoChange = window.innerWidth < 1280;
+}
+
+updateAutoChange(); // Call the function to initialize autoChange on startup
+
+// Function to handle the window resize event
+window.addEventListener('resize', () => {
+  updateAutoChange(); // Update the value of autoChange on window resize
+});
 
 showSlides();
 
@@ -116,20 +97,73 @@ function showSlides() {
   let i;
   const slides = document.getElementsByClassName('mySlides');
   const dots = document.getElementsByClassName('dot');
+  const slideCounter = document.querySelector('.slide-counter');
+  const prevButton = document.getElementById('prevButton');
+  const nextButton = document.getElementById('nextButton');
 
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }
-  slideIndex++;
 
   if (slideIndex > slides.length) {
-    slideIndex = 1;
+    slideIndex = 1; // Return to the first slide when reaching the last one
+  }
+
+  if (slideIndex < 1) {
+    slideIndex = slides.length; // If index < 1, set index = 5
   }
 
   for (i = 0; i < dots.length; i++) {
     dots[i].className = dots[i].className.replace(' active', '');
   }
+
   slides[slideIndex - 1].style.display = 'block';
   dots[slideIndex - 1].className += ' active';
-  setTimeout(showSlides, 5000); // Change image every 3 seconds
+
+  // Update the slide number in the `.slide-counter` div
+  slideCounter.textContent = `${slideIndex}/${slides.length}`;
+
+  // Disable the "Previous" button when the slide number is 1/5
+  if (slideIndex === 1) {
+    prevButton.disabled = true;
+  } else {
+    prevButton.disabled = false;
+  }
+
+  // Disable the "Next" button when the slide number is 5/5
+  if (slideIndex === slides.length) {
+    nextButton.disabled = true;
+  } else {
+    nextButton.disabled = false;
+  }
+
+  if (autoChange) {
+    slideIndex++;
+  }
+}
+
+// Start automatic slide change using setInterval
+interval = setInterval(showSlides, 5000);
+
+// Button handling
+const prevBtn = document.getElementById('prevButton');
+const nextBtn = document.getElementById('nextButton');
+
+prevBtn.addEventListener('click', () => {
+  changeSlide(-1); // Change by 1 slide backwards
+});
+
+nextBtn.addEventListener('click', () => {
+  changeSlide(1); // Change by 1 slide forwards
+});
+
+function changeSlide(n) {
+  autoChange = false;
+
+  clearInterval(interval); // Stop the previous interval
+
+  showSlides(slideIndex += n); // Change by n slides
+
+  // Start a new automatic slide change using setInterval
+  interval = setInterval(showSlides, 5000);
 }
