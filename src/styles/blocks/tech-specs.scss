@@ -1,0 +1,88 @@
+.tech-specs {
+  @include grid();
+
+  margin: 0 auto;
+
+  &__title {
+    grid-column: 1 / 3;
+
+    @extend .section-title;
+
+    &--color {
+      @extend .section-title--color;
+    }
+
+    @include for-desktop() {
+      display: none;
+    }
+
+    &--alternative {
+      display: none;
+
+      @include for-desktop() {
+        grid-column: 1 / -2;
+
+        margin-right: 30px;
+        display: inline-block;
+        color: white;
+        font-size: 36px;
+        line-height: 44px;
+        text-wrap: nowrap;
+        text-align: right;
+      }
+    }
+  }
+
+  &__item {
+    grid-column: 1 / 3;
+
+    position: relative;
+    margin: 37px auto 0;
+    width: 280px;
+    height: 200px;
+    background-image: url(../images/tech-specs-image-tablet-mobile.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    @include for-tablet() {
+      grid-column: 1 / 7;
+      margin: 46px auto 0;
+      width: 358px;
+      height: 354px;
+      background-image: url(../images/tech-specs-image-tablet-mobile.png);
+    }
+
+    @include for-desktop() {
+      margin: 60px auto 0;
+      width: 1055px;
+      height: 355px;
+      background-image: url(../images/tech-specs-image-1280.png);
+      border-radius: 0;
+    }
+
+    &-btn {
+      position: absolute;
+      width: 34px;
+      height: 34px;
+      background-image: url(../images/tech-specs-button.svg);
+      background-color: transparent;
+      border: none;
+
+      &--sensor {
+        top: -10px;
+        left: 100px;
+      }
+
+      &--batterries {
+        top: 83px;
+        left: 180px;
+      }
+
+      &--connection {
+        top: 150px;
+        left: 25px;
+      }
+    }
+  }
+}
