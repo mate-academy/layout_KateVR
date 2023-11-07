@@ -61,13 +61,79 @@
       border-radius: 0;
     }
 
+    &-paragraph {
+      position: absolute;
+      padding: 10px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 18px;
+      letter-spacing: 0;
+      z-index: -1;
+
+      opacity: 0;
+
+      color: $c-text;
+      background-color: #191536;
+      border-radius: 4px;
+
+      &--sensor {
+        top: 30px;
+      }
+
+      &--batterries {
+        top: 25px;
+        z-index: -1;
+      }
+
+      &--connection {
+        top: 70px;
+        left: -10px;
+      }
+
+      @include for-tablet() {
+        font-size: 14px;
+
+        &--sensor {
+          top: -45px;
+          left: 140px;
+        }
+
+        &--batterries {
+          width: 338px;
+          top: 100px;
+          left: -130px;
+        }
+
+        &--connection {
+          top: 255px;
+          left: 15px;
+        }
+      }
+    }
+
     &-btn {
       position: absolute;
-      width: 34px;
-      height: 34px;
+      width: 36px;
+      height: 36px;
       background-image: url(../images/tech-specs-button.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
       background-color: transparent;
       border: none;
+      transition: background-image 0.3s ease;
+      z-index: 1;
+
+      &:hover,
+      &:focus {
+        cursor: pointer;
+        background-image: url(../images/tech-specs-button-hover.svg);
+        background-size: cover;
+
+        + .tech-specs__item-paragraph {
+          z-index: 0;
+          opacity: 1;
+        }
+      }
 
       &--sensor {
         top: -10px;
@@ -76,12 +142,36 @@
 
       &--batterries {
         top: 83px;
-        left: 180px;
+        left: 190px;
       }
 
       &--connection {
         top: 150px;
         left: 25px;
+      }
+
+      @include for-tablet() {
+        width: 64px;
+        height: 64px;
+
+        &--sensor {
+          top: -30px;
+          left: 65px;
+        }
+
+        &--batterries {
+          top: 145px;
+          left: 240px;
+        }
+
+        &--connection {
+          top: 260px;
+          left: -60px;
+        }
+      }
+
+      @include for-desktop() {
+        display: none;
       }
     }
   }
