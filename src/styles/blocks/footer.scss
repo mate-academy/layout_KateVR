@@ -1,0 +1,114 @@
+.footer {
+  @include grid();
+
+  padding-top: 40px;
+  height: 200px;
+  background-color: black;
+
+  @include for-tablet() {
+    height: 64px;
+  }
+
+  @include for-desktop() {
+    height: 100px;
+  }
+
+  &__nav {
+    grid-column: 1 / 2;
+
+    &-logo {
+      width: 69px;
+      height: 14px;
+    }
+
+    &-menu {
+      margin-top: 15px;
+
+      &-item {
+        &:not(:first-child) {
+          margin-top: 12px;
+        }
+      }
+
+      &-link {
+        text-decoration: none;
+        color: $c-white;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0;
+
+      }
+    }
+  }
+
+  &__contacts {
+    margin-top: 25px;
+
+    @include for-tablet() {
+      display: block;
+    }
+
+    &-container {
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+    }
+
+    &-label {
+      @include visually-hidden();
+    }
+
+    &-content {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0;
+      color: $c-text;
+    }
+  }
+
+  &__social-media {
+    margin-top: 33px;
+    display: flex;
+    justify-content: space-between;
+
+    &-facebook {
+      display: inline-block;
+      background-image: url(../images/facebook-icon.svg);
+      width: 7.57px;
+      height: 15.15px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &-twitter {
+      display: inline-block;
+      background-image: url(../images/twitter-icon.svg);
+      width: 18.93px;
+      height: 13.88px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &-youtube {
+      display: inline-block;
+      background-image: url(../images/youtube-icon.svg);
+      width: 17.9px;
+      height: 13.63px;
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+
+    &-reddit {
+      display: inline-block;
+      background-image: url(../images/reddit-icon.svg);
+      width: 17.67px;
+      height: 17.67px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translateY(-3.5px);
+    }
+  }
+}
