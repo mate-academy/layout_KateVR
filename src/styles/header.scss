@@ -7,6 +7,11 @@
 
   &__content {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    @include contentPaddingInline;
+    padding-top: 246px;
   }
 
   &__img {
@@ -211,7 +216,7 @@
 }
 
 .opened {
-  max-height: 520px;
+  max-height: 600px;
 }
 
 .help:target {
@@ -220,7 +225,7 @@
 
   &::-webkit-scrollbar {
     background-color: #014954;
-    width: 8px;
+    width: 4px;
   }
   
   &::-webkit-scrollbar-thumb {
@@ -393,14 +398,6 @@
   text-decoration: none;
   margin-top: 20px;
   cursor: pointer;
-}
-
-.header__content {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  @include contentPaddingInline;
-  padding-top: 246px;
 }
 
 .header__header {
