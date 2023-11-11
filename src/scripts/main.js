@@ -560,7 +560,7 @@ const page = document.getElementById('page');
 buyLink.addEventListener('click', function() {
   placeOrder.style.opacity = 1;
   placeOrder.style.pointerEvents = 'all';
-  placeOrder.style.overflowY = "scroll";
+  placeOrder.style.overflowY = 'scroll';
   page.style.overflowY = 'hidden';
 });
 
