@@ -14,7 +14,7 @@
       href="./images/favicon.svg"
     >
   </head>
-  <body>
+  <body id="page">
     <header class="header">
       <div class="topbar">
         <div class="logo">
@@ -68,7 +68,13 @@
               <a class="nav__link" href="#contact">Contact</a>
             </li>
           </ul>
-          <a class="buy-link" href="#place-order">Buy Now</a>
+          <button 
+            type="button" 
+            id="buy-button" 
+            class="buy-link" 
+          >
+            Buy Now
+          </button>
           <a class="menu-link" href="#menu"></a>
         </div>
       </div>
@@ -98,7 +104,7 @@
 
         </a>
         <img class="header__img" 
-          src="./images/header-bg.png" 
+          src="./images/header-bg__copy.png" 
           alt="header-bg"
         >
 
@@ -282,13 +288,13 @@
         <div class="help__top-bar">
           <a class="help__return-link" href="#"></a>
         </div>
-        <div class="help__content">
+        <div class="help__content faq__content">
           <div class="help__header">
             <span>FREQUENTLY ASKED</span>
             <span class="section-header-blue help-blue">QUESTIONS</span>
           </div>
 
-          <div class="question-dropdown closed">
+          <div class="question-dropdown opened">
             <div class="question-content">
               <div class="question-header">
                 <span>What makes KAT loco different from other systems?</span>
@@ -415,13 +421,13 @@
     <aside class="place-order" id="place-order">
       <div class="place-order__container">
         <div class="place-order__top-bar">
-          <a class="logo" href="#">
+          <button id="back-btn-place-order" class="logo">
             <img 
               class="logo__img" 
               src="./images/Logo.png" 
               alt="logo"
             >
-          </a>
+          </button>
 
           <ul class="place-order__nav">
             <li class="place-order__nav-item">
@@ -444,15 +450,15 @@
 
         <div class="place-order__top-bar--small">
           <div class="place-order__top-bar--top">
-            <a class="logo" href="#">
+            <button id="back-btn-place-order-small" class="logo">
               <img 
                 class="logo__img" 
                 src="./images/Logo.png" 
                 alt="logo"
               >
-            </a>
+            </button>
 
-            <a class="place-order__return-link" href="#"></a>
+            <button id="back-btn-place-order-xmark" class="place-order__return-link"></button>
           </div>
 
           <ul class="place-order__nav">
@@ -549,7 +555,11 @@
               </div>
             </div>
           </div>
-          <form class="address-form">
+          <form 
+            class="address-form" 
+            onsubmit="this.reset(); return false;" 
+            id="place__order-form"
+          >
             <div class="address__name">
               <div class="address__first--name-container">
                 <label 
@@ -933,7 +943,13 @@
               </div>
             </div>
 
-            <a class="pay__link" href="#pay">Purchase</a>
+            <button 
+              type="submit" 
+              class="pay__link" 
+              id="pay-link"
+            >
+              Purchase
+            </button>
           </form>
         </div>
       </div>
@@ -944,13 +960,13 @@
     <aside class="pay" id="pay">
       <div class="pay__container">
         <div class="place-order__top-bar">
-          <a class="logo" href="#">
+          <button id="back-btn-pay" class="logo">
             <img 
               class="logo__img" 
               src="./images/Logo.png" 
               alt="logo"
             >
-          </a>
+          </button>
 
           <ul class="place-order__nav">
             <li class="place-order__nav-item">
@@ -973,15 +989,15 @@
 
         <div class="place-order__top-bar--small">
           <div class="place-order__top-bar--top">
-            <a class="logo" href="#">
+            <button id="back-btn-pay-small" class="logo">
               <img 
                 class="logo__img" 
                 src="./images/Logo.png" 
                 alt="logo"
               >
-            </a>
+            </button>
 
-            <a class="place-order__return-link" href="#"></a>
+            <button id="back-btn-pay-xmark" class="place-order__return-link"></button>
           </div>
 
           <ul class="place-order__nav">
@@ -1078,12 +1094,13 @@
               </div>
             </div>
           </div>
-
-          <form class="pay__form" id="pay-form">
+ 
+          <form class="pay__form" id="pay-form" onsubmit="this.reset(); return false;">
             <div class="card__number-container">
               <input 
                 class="card__number-part form__input" 
                 type="text" 
+                minlength="4"
                 maxlength="4" 
                 placeholder="0000" 
                 required
@@ -1092,6 +1109,16 @@
               <input 
                 class="card__number-part form__input" 
                 type="text" 
+                minlength="4"
+                maxlength="4" 
+                placeholder="0000" 
+                required
+              >
+
+              <input 
+                class="card__number-part form__input" 
+                type="text"
+                minlength="4"
                 maxlength="4" 
                 placeholder="0000" 
                 required
@@ -1100,14 +1127,7 @@
               <input 
                 class="card__number-part form__input" 
                 type="text" 
-                maxlength="4" 
-                placeholder="0000" 
-                required
-              >
-
-              <input 
-                class="card__number-part form__input" 
-                type="text" 
+                minlength="4"
                 maxlength="4" 
                 placeholder="0000" 
                 required
@@ -1161,8 +1181,10 @@
                 <input 
                   class="form__input exp-date" 
                   type="text" 
-                  id="exp-date" 
+                  id="exp-date"
+                  pattern="(0[1-9]|1[0-2]|1[0-9]|2[0-9]|3[0-3]) / \d{2}" 
                   placeholder="MM / YY" 
+                  minlength="7"
                   maxlength="7" 
                   required
                 >
@@ -1185,6 +1207,8 @@
 
                 <input 
                   class="form__input cvv" 
+                  pattern="\d{3}"
+                  minlength="3"
                   maxlength="3" 
                   type="text" 
                   id="cvv" 
@@ -1194,7 +1218,7 @@
               </div>
             </div>
 
-            <a class="complete__link" href="#complete">Purchase</a>
+            <button type="submit" id="complete-link" class="complete__link" href="#complete">Purchase</button>
           </form>
         </div>
       </div>
@@ -1205,13 +1229,13 @@
     <aside class="complete" id="complete">
       <div class="complete__container">
         <div class="place-order__top-bar">
-          <a class="logo" href="#">
+          <button id="back-btn-complete" class="logo">
             <img 
               class="logo__img" 
               src="./images/Logo.png" 
               alt="logo"
             >
-          </a>
+          </button>
 
           <ul class="place-order__nav">
             <li class="place-order__nav-item">
@@ -1234,15 +1258,15 @@
 
         <div class="place-order__top-bar--small">
           <div class="place-order__top-bar--top">
-            <a class="logo" href="#">
+            <button id="back-btn-complete-small" class="logo">
               <img 
                 class="logo__img" 
                 src="./images/Logo.png" 
                 alt="logo"
               >
-            </a>
+            </button>
 
-            <a class="place-order__return-link" href="#"></a>
+            <button id="back-btn-complete-xmark" class="place-order__return-link"></button>
           </div>
 
           <ul class="place-order__nav">
@@ -1279,7 +1303,14 @@
             </span>
           </div>
 
-          <a class="homepage__link" href="#">Back to homapage</a>
+          <button 
+            type="button" 
+            id="back-to-homepage" 
+            class="homepage__link" 
+            href="#"
+          >
+            Back to homapage
+          </button>
         </div>
       </div>
     </aside>
@@ -1802,11 +1833,12 @@
             </div>
           </div>
 
-          <form class="contact__form" id="form">
+          <form class="contact__form" id="form" onsubmit="this.reset(); return false;">
             <input 
               class="form__input" 
               type="text" 
-              id="name" 
+              id="name"
+              pattern="^[A-Za-z]+\s[A-Za-z]+$|^[A-Za-z]+\s[A-Za-z]+\s[A-Za-z]+$" 
               required
             >
 
@@ -1847,9 +1879,11 @@
 
             <input 
               class="form__input" 
-              type="tel" 
+              type="number" 
               id="phone" 
               required
+              maxlength="10"
+              minlength="10"
             >
 
             <label 
@@ -1869,6 +1903,7 @@
             <input 
               class="form__input" 
               id="message" 
+              minlength="30"
               required
             >
 
@@ -1887,7 +1922,7 @@
             ></label>
 
             <div class="form__buttons">
-              <button class="submit__btn">Contact Us</button>
+              <button id="form__submit-btn" class="submit__btn">Contact Us</button>
               <a class="return-link" href="#"></a>
             </div>
             <div class="contact__sub-small">

@@ -95,6 +95,7 @@
   position: relative;
   top: -35px;
   transition: 0.3s;
+  user-select: none;
 }
 
 .form__input {
@@ -111,6 +112,23 @@
   line-height: 150%;
   position: relative;
   transition: 0.3s;
+
+  &[type="number"]::-webkit-inner-spin-button,
+  &[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover, 
+  &:-webkit-autofill:focus, 
+  &:-webkit-autofill:active {
+    transition: background-color 5000s ease-in-out 0s;
+  }
+
+  &:-webkit-autofill {
+    -webkit-text-fill-color: #fff;
+  }
 
   &:focus {
     outline: none;
@@ -140,12 +158,20 @@ input:required:focus:invalid + .form__input::before {
   background: #05c2df;
   border: none;
   cursor: pointer;
+  color: #fff;
+  transition: 0.3s;
+
+  &:hover {
+    background-color: transparent;
+    border: 1px solid #05c2df;
+    color: #05c2df;
+  }
 }
 
 .return-link {
   display: flex;
   width: 48px;
-  height: 48px;
+  height: 49px;
   background-image: url(../images/return-link.svg);
   background-size: cover;
 }
@@ -210,9 +236,14 @@ input:required:focus:invalid + .form__input::before {
 .address-phone-error,
 .address-email-error,
 .shipping-error1,
-.shipping-error2,
+.shipping-error2 {
+  top: 5px;
+}
+
+
 .holder-name-error {
-  top: 0;
+  top: -15px;
+  position: absolute;
 }
 
 .address__region-header {
