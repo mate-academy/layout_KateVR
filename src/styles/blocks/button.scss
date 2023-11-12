@@ -1,0 +1,29 @@
+.button {
+  width: 100%;
+  height: 40px;
+  background-color: $color-1;
+  border-radius: 4px;
+
+  @include hover(background-color, $color-white);
+
+  @include onTablet {
+    height: 48px;
+  }
+
+  &__link-blue {
+    display: block;
+    @extend %text-link;
+    text-align: center;
+    padding: 10px 105px 13px;
+
+    @include onTablet {
+      padding: 13px 105px;
+    }
+
+    @include onDesctop {
+      padding: 13px 0;
+    }
+
+    @include hover(color, $color-1);
+  }
+}

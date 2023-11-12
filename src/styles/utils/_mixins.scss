@@ -1,6 +1,55 @@
+@mixin onTablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin onDesctop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin onLargeDesctop {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin contentPaddingInline {
+  max-width: 500px;
+  padding: 0 20px;
+  margin: 0 auto;
+
+  @include onTablet {
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  @include onDesctop {
+    max-width: 1060px;
+  }
+
+  @include onLargeDesctop {
+    max-width: 1452px;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin hoverAfter ($_property, $_toValue) {
+  &::after {
+    @extend %after-underline;
+    width: 0;
+    transition: #{$_property} 0.5s;
+  }
+  &:hover::after {
     #{$_property}: $_toValue;
   }
 }

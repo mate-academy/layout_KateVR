@@ -1,0 +1,54 @@
+.item-more {
+  @include onTablet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__icon {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__title {
+    @extend %h3;
+
+    @include onTablet {
+      margin-top: 22px;
+    }
+  }
+
+  &__text {
+    margin-top: 11px;
+    max-width: 500px;
+    flex: 1 0 auto;
+
+    @extend %text-header;
+    font-weight: 400;
+
+    /*для обрізання тексту в два рядки*/
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -moz-box-orient: vertical;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-clamp: 2;
+
+    @include onTablet {
+      margin-top: 20px;
+      text-align: center;
+
+      /*дефолтні стилі для тексту*/
+      overflow: visible;
+      text-overflow: clip;
+      display: block;
+      -webkit-line-clamp: initial;
+      -webkit-box-orient: horizontal;
+      line-clamp: initial;
+    }
+  }
+}

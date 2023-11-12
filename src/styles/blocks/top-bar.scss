@@ -1,0 +1,68 @@
+.top-bar {
+  position: relative;
+  z-index: 5;
+  padding: 19px 0 15px;
+
+  @include onTablet {
+    padding: 30px 0;
+  }
+
+  @include onDesctop {
+    padding: 47px 0;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__menu-svg:hover {
+    line {
+      transition: stroke 0.3s;
+      stroke: $color-1;
+    }
+  }
+
+  &__left {
+    @include onDesctop {
+      display: flex;
+      gap: 34px;
+      align-items: center;
+    }
+  }
+
+  &__right {
+    display: none;
+
+    @include onDesctop {
+      display: flex;
+      gap: 37px;
+      align-items: center;
+    }
+  }
+
+  &__select {
+    display: none;
+
+    @include onDesctop {
+      display: block;
+    }
+  }
+
+  &__list {
+    @include onDesctop {
+      display: flex;
+      gap: 32px;
+    }
+  }
+
+  &__menu {
+    @include onDesctop {
+      display: none;
+    }
+  }
+}
