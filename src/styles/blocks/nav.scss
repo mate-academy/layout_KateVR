@@ -1,0 +1,20 @@
+.nav {
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__link {
+    @extend %text-link;
+
+    position: relative;
+    @include hover(color, $color-text-body);
+    @include hoverAfter(width, 100%);
+  }
+
+  &__button {
+    @include onDesctop {
+      width: 200px;
+    }
+  }
+}

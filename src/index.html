@@ -1,13 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="page">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>KAT-VR</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap" rel="stylesheet">
+    <link rel="icon" href="./images/icon/favicon.png">
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
+  <body class="page__body">
+    <header class="header">
+      <div class="header__top-bar top-bar">
+        <div class="container">
+          <div class="top-bar__body">
+            <div class="top-bar__left">
+              <div class="top-bar__logo">
+                <a href="#">
+                  <img src="./images/icon/logo.svg" alt="logo">
+                </a>
+              </div>
+
+              <div class="top-bar__select select">
+                <button class="select__language">En</button>
+                <ul class="select__language-list">
+                  <li class="select__language-option" data-value="En">En</li>
+                  <li class="select__language-option" data-value="Ua">Ua</li>
+                  <li class="select__language-option" data-value="Ru">Ru</li>
+                  <li class="select__language-option" data-value="Pl">Pl</li>
+                </ul>
+
+                <input
+                  class="select__input-hidden"
+                  type="text"
+                  name="select-category"
+                  value="#"
+                >
+                <!-- <select
+                  class="top-bar__language"
+                  name="language"
+                  id="language"
+                >
+                  <option class="top-bar__language-option" value="English">En</option>
+                  <option class="top-bar__language-option" value="Ukrainian">Ua</option>
+                  <option class="top-bar__language-option" value="Russion">Ru</option>
+                  <option class="top-bar__language-option" value="Polish">Pl</option>
+                </select> -->
+              </div>
+            </div>
+
+            <nav class="top-bar__right nav">
+              <ul class="top-bar__list nav__list">
+                <li class="nav__item">
+                  <a href="#about" class="nav__link">About</a>
+                </li>
+
+                <li class="nav__item">
+                  <a href="#tech" class="nav__link">Tech</a>
+                </li>
+
+                <li class="nav__item">
+                  <a href="#benefits" class="nav__link">Benefits</a>
+                </li>
+
+                <li class="nav__item">
+                  <a href="#contact" class="nav__link">Contact</a>
+                </li>
+              </ul>
+
+              <div class="nav__button button">
+                <a class="button__link-blue" href="#">Buy Now</a>
+              </div>
+            </nav>
+
+            <div class="top-bar__menu">
+              <a class="top-bar__menu-link" href="#menu">
+                <svg
+                  class="top-bar__menu-svg"
+                  id="burger"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="20"
+                  height="10"
+                  viewBox="0 0 20 10"
+                  fill="#fff"
+                >
+                  <line
+                    x1="3.70312"
+                    y1="0.5"
+                    x2="19.9994"
+                    y2="0.5"
+                    stroke="white"
+                  ></line>
+
+                  <line
+                    x1="3.70312"
+                    y1="9.38867"
+                    x2="19.9994"
+                    y2="9.38867"
+                    stroke="white"
+                  ></line>
+
+                  <line
+                    x1="4.37114e-08"
+                    y1="4.94434"
+                    x2="11.8519"
+                    y2="4.94434"
+                    stroke="white"
+                  ></line>
+                </svg>
+                <!-- <img src="./images/icon/menu.svg" alt="burger"> -->
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="header__image">
+        <picture>
+          <!-- <source
+            media="(min-width: 1440px)"
+            srcset=""
+          >
+
+          <source
+            media="(min-width: 1280px)"
+            srcset=""
+          > -->
+
+          <!-- <source
+            media="(min-width: 768px)"
+            srcset="./images/header/main-image-tablet.svg"
+          > -->
+
+          <img
+            class="header__image-main"
+            src="./images/header/main-image-mobile.svg"
+            alt="header__image"
+          >
+        </picture>
+      </div>
+
+      <div class="container">
+        <div class="header__content">
+          <h1 class="header__title">THE NEW START OF
+            <span class="header__title-think">VR LOCOMOTION</span>
+          </h1>
+
+          <div class="header__text">Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!</div>
+
+          <div class="header__price">1200$</div>
+
+          <div class="header__button">
+            <a href="#">
+              <img
+                class="header__button-round"
+                src="./images/header/button.png"
+                alt="button_play"
+              >
+            </a>
+
+            <a class="header__button-play" href="#">Play Video</a>
+          </div>
+
+          <div class="header__button-fixed button">
+            <a class="button__link-blue" href="#">Buy Now</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="header__bottom-body">
+        <div class="header__bottom-content"></div>
+      </div>
+
+      <div class="header__details details-header">
+        <div class="container">
+          <div class="details-header__wrapper">
+            <div class="details-header__question">
+              <a class="details-header__faq" href="#">FAQ</a>
+              <a class="details-header__help" href="#">Help</a>
+            </div>
+
+            <div class="details-header__more">
+              <a class="details-header__link" href="#">More</a>
+            </div>
+
+            <div class="details-header__slide">
+              <a class="details-header__1" href="#">Previous</a>
+              <a class="details-header__2" href="#">Next</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <aside id="menu"></aside>
+
+    <main class="page__main">
+      <section class="more js-example-basic-single">
+        <div class="container">
+          <div class="more__body">
+            <h2 class="more__title">
+              MORE THAN
+              <span class="more__title-thin">GAMING!</span>
+            </h2>
+
+            <p class="more__subtitle">This also made for people who are interested in...</p>
+
+            <div class="more__content">
+              <div class="more__content-top">
+                <div class="more__item item-more">
+                  <img
+                    class="item-more__icon"
+                    src="./images/more/1.svg"
+                    alt="education"
+                  >
+
+                  <h3 class="item-more__title">EDUCATION</h3>
+
+                  <p class="item-more__text">
+                    Create aducational simulations, trainings and much more with unlimited virtual space and minimum physical space
+                  </p>
+                </div>
+
+                <div class="more__item item-more">
+                  <img
+                    class="item-more__icon"
+                    src="./images/more/2.svg"
+                    alt="estate"
+                  >
+
+                  <h3 class="item-more__title">REAL ESTATE</h3>
+
+                  <p class="item-more__text">
+                    Desighn architectural projects in a deeply realistic environment allowing visitors to freely walk around, and feel their vibe
+                  </p>
+                </div>
+              </div>
+
+
+              <div class="more__content-bottom">
+                <div class="more__item item-more">
+                  <img
+                    class="item-more__icon"
+                    src="./images/more/3.svg"
+                    alt="fitnes"
+                  >
+
+                  <h3 class="item-more__title">FITNESS</h3>
+
+                  <p class="item-more__text">
+                    Combine business with pleasure, and discover countless ways to stay fit while playing your favorite VR Games!
+                  </p>
+                </div>
+
+                <div class="more__item item-more">
+                  <img
+                    class="item-more__icon"
+                    src="./images/more/4.svg"
+                    alt="social"
+                  >
+
+                  <h3 class="item-more__title">SOCIAL INTERACTIONS</h3>
+
+                  <p class="item-more__text">
+                    Hang out with your friends in the virtual world when you can’t meet space requirements
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </section>
+    </main>
+
+    <footer></footer>
     <script type="text/javascript" src="scripts/main.js"></script>
   </body>
 </html>

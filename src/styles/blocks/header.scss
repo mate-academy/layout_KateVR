@@ -1,0 +1,182 @@
+.header {
+  @include onDesctop {
+    padding-bottom: 97px;
+  }
+
+  @include onLargeDesctop {
+    padding-bottom: 120px;
+  }
+
+  &__image-main {
+    width: 100%;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      margin-top: 25px;
+      width: 340px;
+    }
+
+    @include onDesctop {
+      margin-top: 54px;
+      width: 428px;
+    }
+
+    @include onLargeDesctop {
+      margin-top: 185px;
+      width: 531px;
+    }
+  }
+
+  &__bottom-body {
+    @include onTablet {
+      position: relative;
+    }
+  }
+
+  &__bottom-content {
+    @include onTablet {
+      background: url(../images/header/main-image-tablet.svg) center no-repeat;
+
+      position: absolute;
+      width: 63%;
+      height: 438px;
+      left: 30%;
+      top: -438px;
+    }
+
+    @include onDesctop {
+      background: url(../images/header/main-image-desctop.svg) center no-repeat;
+      height: 688px;
+      top: -630px;
+      left: 37%;
+    }
+
+    @include onLargeDesctop {
+      background: url(../images/header/main-image-desctopBig.svg) center no-repeat;
+      height: 988px;
+      top: -958px;
+      left: 40%;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+
+    @include onTablet {
+      width: 280px;
+    }
+
+    @include onDesctop {
+      width: 500px;
+    }
+
+    @include onLargeDesctop {
+      width: 552px;
+    }
+  }
+
+  &__title-think {
+    color: $color-1;
+    font-weight: normal;
+  }
+
+  &__text {
+    margin-top: 17px;
+    @extend %text-header;
+
+    @include onDesctop {
+      margin-left: 92px;
+    }
+
+    @include onLargeDesctop {
+      margin-top: 37px;
+      font-size: 20px;
+    }
+  }
+
+  &__price {
+    margin-top: 8px;
+    @extend %text-link;
+    font-size: 18px;
+    text-align: center;
+
+    @include onTablet {
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    @include onDesctop {
+      margin-left: 92px;
+    }
+  }
+
+  &__button {
+    margin: 16px 0 46px;
+    display: flex;
+    align-items: center;
+    @include hover(transform, scale(1.1));
+
+    @include onTablet {
+      margin: 24px 0 61px;
+    }
+
+    @include onDesctop {
+      margin: 24px 0 84px 92px;
+    }
+
+    @include onLargeDesctop {
+      margin: 35px 0 213px 92px;
+    }
+  }
+
+  &__button-round {
+    height: 67px;
+  }
+
+  &__button-play {
+    padding: 10px 30px 10px 20px;
+    margin-top: -3px;
+    width: 135px;
+    height: 44px;
+    border: 2px solid transparent;
+    border-image-source: url("../images/header/button_line.png");
+    border-image-slice: 10;
+    border-image-repeat: stretch round;
+
+    @extend %text-link;
+  }
+
+  &__button-fixed {
+    // margin-bottom: -23px;
+    // position: relative;
+    // z-index: 5;
+
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 10px;
+
+    width: 280px;
+
+    @include onTablet {
+      width: 458px;
+    }
+
+    @include onDesctop {
+      display: none;
+    }
+  }
+
+  &__details {
+    display: none;
+
+    @include onDesctop {
+      display: block;
+    }
+  }
+}

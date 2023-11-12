@@ -1,0 +1,72 @@
+.details-header {
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__question {
+    display: flex;
+    gap: 39px;
+  }
+
+  &__faq,
+  &__help {
+    @extend %text-link;
+
+    position: relative;
+    @include hover(color, $color-text-body);
+    @include hoverAfter(width, 100%);
+  }
+
+  &__more {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      cursor: pointer;
+
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 4.5px 0;
+      border-color: $color-1 transparent transparent transparent;
+    }
+  }
+
+  &__link {
+    color: $color-1;
+    @extend %text-link;
+  }
+
+  &__slide {
+    display: flex;
+    gap: 103px;
+
+    position: relative;
+
+    &::after {
+      position: absolute;
+      bottom: -10px;
+      content: "";
+      width: 100%;
+      height: 1px;
+      background-color: $color-line-header;
+
+    }
+  }
+
+  &__1,
+  &__2 {
+    @extend %text-link;
+
+    position: relative;
+    z-index: 5;
+    @include hover(color, $color-text-body);
+    @include hoverAfter(width, 100%);
+  }
+}
