@@ -923,6 +923,15 @@ cardNumberParts.forEach((cardNumberPart) => {
     cardNumberPart.addEventListener('input', function() {
       this.value = this.value.replace(/[^0-9]/g, '');
     });
+
+    cardNumberPart.addEventListener('focus', function() {
+      cardNumberPart.style.borderBottom = "1px solid #05C2DF"
+    });
+
+    cardNumberPart.addEventListener('blur', function() {
+      cardNumberPart.style.borderBottom = "1px solid #2f2f2f"
+    });
+
   });
 });
 
@@ -1006,10 +1015,12 @@ function validateExpDate() {
 dateInput.onkeyup = validateExpDate;
 
 dateInput.addEventListener('focus', function() {
+  dateInput.style.borderBottom = '1px solid #05C2DF';
   expDateLabel.style.color = '#05C2DF';
 });
 
 dateInput.addEventListener('blur', function() {
+  dateInput.style.borderBottom = '1px solid #2f2f2f';
   expDateLabel.style.color = '#929292';
 });
 
