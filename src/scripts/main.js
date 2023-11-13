@@ -63,8 +63,10 @@ function closeAllSelect(clickedSelect) {
   }
 
   for (let i = 0; i < selectItems.length; i++) {
-    if (selectItems[i].style.display !== 'none'
-      && selectItems[i].previousSibling !== clickedSelect) {
+    if (selectItems[i].style.display
+      !== 'none'
+      && selectItems[i].previousSibling
+      !== clickedSelect) {
       selectItems[i].classList.add('select-hide');
     }
   }
