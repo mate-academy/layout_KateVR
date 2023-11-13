@@ -2,19 +2,37 @@
   @include grid();
 
   padding-top: 40px;
+  margin: 0 auto;
   height: 200px;
   background-color: black;
 
   @include for-tablet() {
+    grid-column: 1 / 7;
+
+    padding-top: 0;
     height: 64px;
   }
 
   @include for-desktop() {
+    grid-column: 1 / 13;
     height: 100px;
   }
 
   &__nav {
     grid-column: 1 / 2;
+
+    @include for-tablet() {
+      grid-column: 1 / 5;
+      display: flex;
+      align-items: center;
+      vertical-align: middle;
+      height: 64px;
+    }
+
+    @include for-desktop() {
+      grid-column: 1 / 10;
+      height: 100px;
+    }
 
     &-logo {
       width: 69px;
@@ -24,9 +42,26 @@
     &-menu {
       margin-top: 15px;
 
+      @include for-tablet() {
+        margin: 5px 95px 0 127px;
+        display: flex;
+        width: 306px;
+        height: 23px;
+        grid-column: 2 / 8;
+        align-items: center;
+      }
+
+      @include for-desktop() {
+        margin-left: 304px;
+      }
+
       &-item {
         &:not(:first-child) {
           margin-top: 12px;
+
+          @include for-tablet() {
+            margin: 0 0 0 40px;
+          }
         }
       }
 
@@ -46,12 +81,26 @@
     margin-top: 25px;
 
     @include for-tablet() {
-      display: block;
+      grid-column: 6 / 7;
+      display: flex;
+
+      margin-top: 0;
+    }
+
+    @include for-desktop() {
+      grid-column: 12 / 13;
+      width: 104px;
+      transform: translateX(-34px);
+
     }
 
     &-container {
       &:not(:first-child) {
         margin-top: 12px;
+      }
+
+      @include for-tablet() {
+        display: none;
       }
     }
 
@@ -73,6 +122,16 @@
     margin-top: 33px;
     display: flex;
     justify-content: space-between;
+
+    @include for-tablet() {
+      grid-column: 6 / 7;
+      margin-top: 25px;
+      width: 200px;
+    }
+
+    @include for-desktop() {
+      margin-top: 43px;
+    }
 
     &-facebook {
       display: inline-block;
