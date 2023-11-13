@@ -79,6 +79,19 @@
         &:focus {
           border-bottom: 1px solid $c-contrast;
         }
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:hover,
+        &:-webkit-autofill:focus,
+        &:-webkit-autofill:active,
+        &:-webkit-autofill::first-line {
+          border: 0;
+          border-bottom: 1px solid #2f2f2f;
+          -webkit-text-fill-color: #fff;
+          -webkit-background-color: transparent;
+          transition: background-color 5000s ease-in-out 0s;
+          font-size: inherit;
+        }
       }
 
       &-textarea {
@@ -93,6 +106,10 @@
         box-sizing: border-box;
         resize: none;
         outline: none;
+
+        &:focus {
+          border-bottom: 1px solid $c-contrast;
+        }
       }
     }
 
