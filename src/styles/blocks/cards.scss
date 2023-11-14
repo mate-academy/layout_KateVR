@@ -1,0 +1,93 @@
+.credit-card-inputs {
+  width: 100%;
+}
+
+.credit-card-inputs:active > .cart__content-main-form-card-span-cardNumber {
+  color: $c-blue;
+}
+
+.credit-card-inputs__fields {
+  display: flex;
+  justify-content: space-between;
+}
+
+.credit-card-inputs__fields input {
+  border: none;
+  outline: none;
+  background: transparent;
+  box-sizing: border-box;
+  border-bottom: 1px solid #2f2f2f;
+  @extend %inter-400;
+  font-size: 18px;
+  line-height: 130%;
+  letter-spacing: 0.2em;
+  color: #fff;
+  width: 64px;
+  text-align: center;
+  transition: all 0.3s;
+
+  @include onTablet {
+    font-size: 20px;
+    line-height: 130%;
+    width: 70px;
+  }
+}
+
+.credit-card-inputs__fields input:focus {
+  border-color: #05c2df;
+}
+
+.credit-card-inputs__fields input::placeholder {
+  color: #2f2f2f;
+}
+
+.credit-card-inputs-image {
+  display: none;
+
+  @include onTablet {
+    display: block;
+    content: "";
+    width: 54px;
+    height: 34px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    background-image: url(../images/icons/visa.svg);
+
+    &--v {
+      background-image: url(../images/icons/visa.svg);
+    }
+
+    &--m {
+      background-image: url(../images/icons/mastercard.svg);
+    }
+  }
+}
+
+.credit-card-input__field-name {
+  border: none;
+  outline: none;
+  background: transparent;
+  box-sizing: border-box;
+  border-bottom: 1px solid #2f2f2f;
+  @extend %inter-400;
+  font-size: 18px;
+  line-height: 130%;
+  letter-spacing: 0.2em;
+  color: #fff;
+  text-align: center;
+  transition: all 0.3s;
+
+  &:focus {
+    border-color: #05c2df;
+  }
+
+  &::placeholder {
+    color: #2f2f2f;
+  }
+
+  @include onTablet {
+    font-size: 20px;
+    line-height: 130%;
+  }
+}

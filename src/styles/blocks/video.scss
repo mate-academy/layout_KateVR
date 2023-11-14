@@ -1,0 +1,104 @@
+.video-player {
+  display: none;
+
+  @include onDesktop {
+    display: block;
+    width: 430px;
+    height: 290px;
+    overflow: hidden;
+    margin-bottom: 12px;
+  }
+
+  @include onLargeScreen {
+    width: 622px;
+    height: 290px;
+  }
+
+  &--mobile {
+    width: 100%;
+    min-width: 280px;
+    height: 198px;
+    overflow: hidden;
+    margin-bottom: 15px;
+
+    @include onTablet {
+      width: 100%;
+      height: 270px;
+      min-width: 340px;
+      max-width: 44vw;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__frame {
+    width: 100%;
+    height: 198px;
+    border: none;
+    outline: none;
+
+    @include onDesktop {
+      width: 430px;
+      height: 290px;
+    }
+
+    @include onLargeScreen {
+      width: 622px;
+      height: 290px;
+    }
+
+    &--mob {
+      width: 100%;
+      height: 198px;
+      min-width: 280px;
+      border: none;
+      outline: none;
+      object-fit: cover;
+
+      @include onTablet {
+        width: 100%;
+        min-width: 340px;
+        height: 270px;
+      }
+    }
+  }
+}
+
+.video {
+  display: flex;
+  flex-direction: column;
+  background-color: #191536;
+  z-index: 100;
+
+  &__content {
+    position: relative;
+  }
+
+  &__frame {
+    width: 70vw;
+    height: 40vh;
+    display: block;
+    outline: none;
+    position: relative;
+  }
+
+  &__cross {
+    display: block;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    content: "";
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    background-image: url(../images/icons/close-hover.svg);
+    width: 30px;
+    height: 30px;
+
+    &:hover {
+      background-image: url(../images/icons/close-blue.svg);
+    }
+  }
+}

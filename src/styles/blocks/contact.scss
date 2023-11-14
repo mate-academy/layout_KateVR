@@ -1,0 +1,211 @@
+.contact {
+  padding: 50px 0;
+  background-color: $c-background;
+
+  @include onTablet {
+    padding: 80px 0;
+  }
+
+  @include onDesktop {
+    padding: 100px 0;
+  }
+
+  @include onLargeScreen {
+    padding: 160px 0;
+  }
+
+  &__info {
+    &-subtitle {
+      @extend %inter-400;
+      font-size: 14px;
+      line-height: 17px;
+      color: #05c2df;
+      margin-bottom: 11px;
+      display: block;
+    }
+
+    &-title {
+      content: "";
+      display: block;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: left;
+      background-image: url(../images/phrases/GETNTOUCH.svg);
+      width: 150px;
+      height: 25px;
+      margin-bottom: 30px;
+
+      @include onDesktop {
+        width: 240px;
+        height: 44px;
+        margin-bottom: 26px;
+      }
+    }
+
+    &-text {
+      display: none;
+      @extend %inter-400;
+      font-size: 12px;
+      line-height: 150%;
+      color: #929292;
+
+      @include onTablet {
+        display: block;
+        margin-bottom: 76px;
+      }
+    }
+
+    &-link {
+      display: none;
+      @extend %inter-400;
+      font-size: 16px;
+      line-height: 19px;
+      color: #929292;
+      margin-bottom: 11px;
+
+      &:nth-last-child(2) {
+        margin-bottom: 8px;
+      }
+
+      &:hover {
+        color: $c-blue;
+      }
+
+      @include onTablet {
+        display: block;
+      }
+    }
+  }
+
+  &__form {
+    &-input {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #2f2f2f;
+      padding-bottom: 10px;
+      outline: none;
+
+      @extend %inter-400;
+      font-size: 14px;
+      line-height: 150%;
+      color: #929292;
+
+      margin-bottom: 20px;
+      width: 100%;
+
+      &:enabled {
+        color: #fff;
+      }
+
+      &--textarea {
+        height: 80px;
+        resize: none;
+        margin-bottom: 30px;
+
+        @include onTablet {
+          margin-bottom: 48px;
+        }
+
+        @include onDesktop {
+          margin-bottom: 50px;
+        }
+
+        @include onLargeScreen {
+          margin-bottom: 50px;
+        }
+      }
+
+      &::placeholder {
+        color: #929292;
+      }
+
+      &:valid,
+      &:focus {
+        border-color: $c-blue;
+        padding-bottom: 0;
+        padding-top: 10px;
+      }
+
+      &:invalid:not(:placeholder-shown):not(:focus) {
+        border-color: #860404;
+      }
+
+      &:focus::placeholder {
+        color: $c-blue;
+        position: absolute;
+        top: 0;
+        transition: 0.3s ease;
+        font-size: 10px;
+        left: 0;
+      }
+    }
+
+    &-buttons {
+      display: flex;
+      @include onTablet {
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+
+    &-button {
+      outline: none;
+      border: none;
+      margin-bottom: 27px;
+
+      @include onTablet {
+        margin-bottom: 0;
+        width: 200px;
+        height: 48px;
+      }
+    }
+
+    &-link {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        margin-left: 100px;
+        content: "";
+        width: 48px;
+        height: 48px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        background-image: url(../images/icons/arrow.svg);
+
+        &:hover {
+          background-image: url(../images/icons/arrow-full.svg);
+        }
+      }
+    }
+
+    &-text {
+      @extend %inter-400;
+      font-size: 12px;
+      line-height: 150%;
+      color: #929292;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border-bottom: 1px solid $c-blue;
+  -webkit-text-fill-color: #fff;
+  box-shadow: none;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}

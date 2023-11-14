@@ -1,0 +1,183 @@
+.top-actions {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 14px;
+  z-index: 1;
+  overflow-y: visible;
+
+  @include onTablet {
+    padding-bottom: 55px;
+    margin-top: 20px;
+  }
+
+  @include onDesktop {
+    padding-bottom: 116px;
+    margin-top: 30px;
+  }
+
+  &__logo-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__langs {
+    position: relative;
+  }
+
+  &__logo {
+    display: block;
+    content: "";
+    background-image: url(../images/logo/logo.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    width: 51px;
+    height: 12px;
+
+    @include onTablet {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include onDesktop {
+      height: 16px;
+      width: 78px;
+    }
+  }
+
+  &__lang {
+    display: none;
+    @extend %inter-500;
+
+    @include onDesktop {
+      display: block;
+      position: relative;
+      width: 16px;
+      height: 16px;
+      background: transparent;
+      cursor: pointer;
+      color: $c-blue;
+      font-size: 16px;
+      line-height: 130%;
+
+      &::after {
+        display: block;
+        position: absolute;
+        right: -15px;
+        bottom: 0;
+        content: "";
+        width: 9px;
+        height: 6px;
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: bottom;
+        background-image: url(../images/icons/polygon-blue.svg);
+      }
+
+      &:hover {
+        color: #fff;
+
+        &::after {
+          background-image: url(../images/icons/polygon-white.svg);
+        }
+      }
+    }
+
+    &-container {
+      display: none;
+      gap: 10px;
+      flex-direction: column;
+      width: 35px;
+      height: 90px;
+      overflow: scroll;
+      position: absolute;
+      top: 25px;
+      background-color: #191536;
+      border-radius: 4px;
+
+      &:hover {
+        color: #fff;
+      }
+
+      &-langs {
+        @extend %inter-500;
+        cursor: pointer;
+        color: $c-blue;
+        font-size: 16px;
+        line-height: 130%;
+
+        &:hover {
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  &__nav-container {
+    bottom: -14px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 37px;
+  }
+
+  &__nav {
+    &-list {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: row;
+        gap: 36px;
+      }
+
+    }
+
+    &-link {
+      text-decoration: none;
+      @extend %inter-500;
+      font-size: 16px;
+      line-height: 130%;
+      color: #fff;
+
+      &:hover {
+        color: $c-blue;
+      }
+    }
+
+    &-button {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+        width: 200px;
+        height: 48px;
+        border-radius: 4px;
+      }
+    }
+
+    &-menu {
+      display: block;
+      content: "";
+      background-image: url(../images/icons/menu.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      width: 20px;
+      height: 9px;
+
+      @include onTablet {
+        width: 32px;
+        height: 14px;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+  }
+}
