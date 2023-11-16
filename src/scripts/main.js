@@ -1,5 +1,25 @@
 'use strict';
 
+// disable page scroll if burger menu appear
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#menu') {
+    document.body.classList.add('page__body--with-menu');
+  } else {
+    document.body.classList.remove('page__body--with-menu');
+  }
+});
+
+// disable page scroll if language select appear
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#language') {
+    document.body.classList.add('page__body--with-language');
+  } else {
+    document.body.classList.remove('page__body--with-language');
+  }
+});
+
 // Custom-select-language
 const customSelects = document.getElementsByClassName('custom-select');
 
