@@ -1,0 +1,104 @@
+.about {
+  background-color: $clr--bg-about;
+  &__layout {
+    @include pageGrid;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    padding-top: 50px;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      padding-top: 50px;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+
+      padding-top: 105px;
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+    padding-top: 20px;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      padding-top: 30px;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__play {
+    grid-column: 1 / -1;
+    margin-top: 50px;
+
+    @include onTablet {
+      grid-column: 4 / -1;
+      padding-top: 30px;
+    }
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__slider {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+
+    @include onTablet {
+      grid-column: 1 / 4;
+      grid-row: 1 / 4;
+      margin-top: 50px;
+    }
+
+    @include onDesktop {
+      grid-column: 3 / 8;
+      margin-top: 105px;
+      height: 290px;
+
+      margin-bottom: 100px;
+    }
+  }
+
+  &__nice {
+    grid-column: 1 / -1;
+    margin: 89px 0 50px;
+
+    @include onTablet {
+      grid-column: 1 / 5;
+      margin: 107px 0 73px;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 6;
+
+      margin: 226px 0 136px;
+    }
+
+    &--text {
+      font-size: 14px;
+      color: $clr--blue;
+    }
+
+    &--title {
+      padding-top: 11px;
+    }
+
+    &--desc {
+      padding-top: 22px;
+      font-size: 16px;
+      color: $clr--gray-1;
+
+      @include onTablet {
+        padding-top: 32px;
+      }
+    }
+  }
+}

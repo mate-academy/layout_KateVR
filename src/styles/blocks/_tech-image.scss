@@ -1,0 +1,54 @@
+.tech__image {
+  grid-column: 1 / -1;
+
+  @include onBgPicture;
+  margin: 40px auto 0;
+  width: 197px;
+  height: 195px;
+
+  background-image: url(../images/tech/tech-bg.png);
+
+  @include onTablet {
+    margin: 57px auto 0;
+    width: 358px;
+    height: 354px;
+  }
+
+  &--line {
+    display: none;
+  }
+
+  @include onDesktop {
+    position: relative;
+    grid-column: 5 / 9;
+    grid-row: 2 / 5;
+    margin: 140px auto 0;
+
+    &--line {
+      position: absolute;
+      display: block;
+    }
+
+    &--line1 {
+      top: -12%;
+      right: 50%;
+    }
+
+    &--line2 {
+      top: 30%;
+      right: 100%;
+    }
+
+    &--line3 {
+      top: -5%;
+      left: 50%;
+    }
+
+    &--elipse {
+      width: 40px;
+      height: 210px;
+      top: 20%;
+      right: 90%;
+    }
+  }
+}

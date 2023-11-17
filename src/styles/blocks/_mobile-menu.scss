@@ -1,0 +1,61 @@
+.menu {
+  height: 100%;
+
+  display: none;
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  overflow: auto;
+  background: $clr--bg-opacity;
+
+  &__wrapper {
+    height: 100%;
+    background-color: $clr--bg-aside;
+
+    @include onTablet {
+      height: 568px;
+    }
+  }
+
+  &__top {
+    float: right;
+  }
+}
+
+.nav-menu {
+  padding-top: 75px;
+
+  @include onTablet {
+    padding-top: 97px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    margin: 0 -20px;
+
+    @include onTablet {
+      margin: 0 -34px;
+    }
+  }
+
+  &__link {
+    box-sizing: border-box;
+
+    display: inline-block;
+    width: 100%;
+    padding: 11px 0 11px 20px;
+
+    @extend %nav--link;
+
+    @include onTablet {
+      padding: 11px 0 11px 153px;
+    }
+  }
+}

@@ -1,0 +1,24 @@
+.header__eng {
+  @include onViewDesktop;
+
+  flex: 1 2 40px;
+  padding-left: 35px;
+
+  &--link {
+    display: inline-block;
+
+    color: $clr--blue;
+    font-weight: 500;
+    line-height: 130%;
+
+    &::after {
+      width: 9px;
+      height: 6px;
+
+      padding-left: 4px;
+      content: url(../images/icons/icon-arrow-down.svg);
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+}

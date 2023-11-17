@@ -1,0 +1,179 @@
+@import "../../../node_modules/slick-carousel/slick/slick.scss";
+
+// Обмежувальна оболонка
+.slick-list {
+  overflow: hidden;
+}
+
+// Лента слайдів
+.slick-track {
+  display: flex;
+}
+
+// Slider Header
+.header-slider .slick-dots {
+  position: absolute;
+  z-index: 22;
+  right: 110px;
+  padding: 0;
+  margin-top: -45px;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+
+  li {
+    display: inline-block;
+    list-style: none;
+  }
+
+  button {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+
+    font-size: 0;
+
+    height: 1px;
+    width: 69px;
+    border-radius: 0;
+    background-color: $clr--gray-2;
+  }
+}
+
+.header-slider .slick-active {
+  button {
+    background-color: $clr--dot-active;
+
+    @include onDesktop {
+      background-color: $clr--blue;
+    }
+  }
+}
+
+.header-slider .slick-next {
+  right: 95px;
+}
+
+.header-slider .slick-prev {
+  right: 250px;
+}
+
+// Arrow
+.about-slider .slick-next {
+  left: 155px;
+}
+
+.header-slider .slick-prev,
+.header-slider .slick-next {
+  position: absolute;
+  z-index: 20;
+  display: block;
+  height: 24px;
+  width: 66px;
+
+  color: $clr--gray-1;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+
+  cursor: pointer;
+  background: transparent;
+  top: 100%;
+  margin-top: -50px;
+  padding: 0;
+  border: none;
+  outline: none;
+}
+
+.about-slider .slick-prev,
+.about-slider .slick-next {
+  position: absolute;
+  display: block;
+  height: 24px;
+  width: 66px;
+
+  color: $clr--gray-1;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 150%;
+
+  cursor: pointer;
+  background: transparent;
+  top: 100%;
+  margin-top: 12px;
+  padding: 0;
+  border: none;
+  outline: none;
+
+  &:hover,
+  &:focus {
+    outline: none;
+    background: transparent;
+    color: $clr--white;
+  }
+}
+
+.header-slider .slick-prev:hover,
+.header-slider .slick-next:hover,
+.header-slider .slick-prev:focus,
+.header-slider .slick-next:focus {
+  outline: none;
+  background: transparent;
+  color: $clr--white;
+}
+
+// Пагінація
+.about-slider .slick-dots {
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 15px;
+
+  @include onDesktop {
+    justify-content: start;
+    margin-top: 25px;
+
+    gap: 0;
+  }
+
+  li {
+    display: inline-block;
+    list-style: none;
+  }
+
+  button {
+    padding: 0;
+    border: none;
+    cursor: pointer;
+
+    height: 4px;
+    width: 4px;
+    border-radius: 50%;
+    background-color: $clr--dot;
+
+    font-size: 0;
+
+    @include onDesktop {
+      height: 1px;
+      width: 69px;
+      border-radius: 0;
+      background-color: $clr--gray-2;
+    }
+  }
+}
+
+.about-slider .slick-active {
+  button {
+    background-color: $clr--dot-active;
+
+    @include onDesktop {
+      background-color: $clr--blue;
+    }
+  }
+}
