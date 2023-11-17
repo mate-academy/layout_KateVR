@@ -1,0 +1,91 @@
+.benefits {
+  background-color: $clr--bg-aside;
+  padding-block: 50px;
+
+  @include onTablet {
+    background: linear-gradient(109deg, #191536 0%, #000 77.34%);
+    padding-block: 70px;
+  }
+
+  @include onDesktop {
+    padding-block: 100px;
+  }
+
+  &__layout {
+    @include pageGrid;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include onDesktop {
+      text-align: center;
+    }
+  }
+
+  &__btn {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      margin-top: 90px;
+      grid-column: 6 / 8;
+    }
+  }
+}
+
+.benefits-article {
+  grid-column: 1 / -1;
+  padding-top: 32px;
+
+  @include onTablet {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include onDesktop {
+    padding-top: 82px;
+    grid-column: span 4;
+  }
+
+  &__image {
+    display: none;
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+    @include onTablet {
+      cursor: pointer;
+      display: block;
+      height: 80px;
+
+      @include hover(transform, scale(1.1));
+    }
+  }
+
+  &__title {
+    @include onTablet {
+      padding-top: 25px;
+    }
+
+    @include onDesktop {
+      padding-top: 34px;
+    }
+  }
+
+  &__text {
+    padding-top: 11px;
+
+    @include onTablet {
+      text-align: center;
+      padding-top: 21px;
+    }
+
+    @include onDesktop {
+      padding-top: 16px;
+    }
+  }
+}

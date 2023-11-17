@@ -1,0 +1,89 @@
+.form {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__input-box {
+    position: relative;
+    width: 100%;
+    // height: 55px;
+  }
+
+  &__label {
+    cursor: text;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+
+    color: $clr--gray-1;
+    font-size: 14px;
+    transition: all 0.3s;
+  }
+
+  &__input {
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 40px;
+
+    margin: 0;
+    padding: 10px 0 6px;
+
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $clr--gray;
+    background-color: transparent;
+    caret-color: $clr--white;
+    color: $clr--white;
+    font-size: 16px;
+
+    &:focus ~ label,
+    &:valid ~ label {
+      top: -24px;
+
+      color: $clr--blue;
+      font-size: 14px;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $clr--blue;
+    }
+
+    // &:invalid {
+    //   color: $clr--input-error;
+    //   border-bottom: 1px solid $clr--input-error;
+    // }
+  }
+
+  &__textarea {
+    width: 100%;
+    height: 90px;
+    resize: none;
+
+    &::placeholder {
+      color: $clr--gray-1;
+      font-family: $font--main;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%; /* 21px */
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 6px;
+
+    @include onTablet {
+      width: 200px;
+      margin-top: 24px;
+    }
+
+    @include onDesktop {
+      margin-top: 66px;
+    }
+  }
+}

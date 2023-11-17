@@ -1,0 +1,68 @@
+.footer {
+  padding: 45px 0 50px;
+  background-color: #000;
+
+  @include onTablet {
+    padding-block: 25px;
+  }
+
+  @include onDesktop {
+    padding-block: 43px;
+  }
+
+  &__layout {
+    @include pageGrid;
+
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__top {
+    grid-column: 1 / 2;
+    padding-bottom: 15px;
+  }
+
+  &__logo {
+    display: block;
+    width: 69px;
+    height: 14px;
+  }
+
+  &__nav {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+
+    &--list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      @include onTablet {
+        flex-direction: row;
+        gap: 37px;
+      }
+    }
+  }
+
+  &__links {
+    grid-column: 2 / -1;
+    grid-row: 2 / 3;
+    padding-bottom: 22px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include onTablet {
+      display: none;
+    }
+  }
+
+  &__social {
+    grid-column: 2 / -1;
+    grid-row: 3 / 4;
+  }
+}

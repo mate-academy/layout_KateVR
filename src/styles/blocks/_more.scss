@@ -1,0 +1,159 @@
+.more {
+  position: relative;
+  display: none;
+  background-color: $clr--black;
+
+  @include onDesktop {
+    display: none;
+    height: auto;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &__layout {
+    @include pageGrid;
+
+    @include onTablet {
+      padding-bottom: 78px;
+    }
+
+    @include onDesktop {
+      padding: 82px 0 112px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    padding-top: 50px;
+
+    @include onTablet {
+      padding-top: 69px;
+    }
+
+    @include onDesktop {
+      padding-top: 100px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    padding-top: 12px;
+
+    color: $clr--blue;
+    font-family: $font--main;
+    font-size: 12px;
+    line-height: normal;
+
+    @include onDesktop {
+      padding-top: 16px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 80px;
+    background: $clr--bg-btn;
+
+    @include onTablet {
+      top: 467px;
+      margin-right: 30px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    margin: 33px 0 31px;
+
+    @include onTablet {
+      width: 65%;
+      margin: 33px auto 31px;
+    }
+  }
+}
+
+.hidden {
+  display: block;
+}
+
+.more-card {
+  grid-column: 1 / -1;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  @include onTablet {
+    grid-column: span 3;
+    padding-top: 40px;
+  }
+
+  @include onDesktop {
+    padding-top: 0;
+  }
+
+  &__image {
+    display: none;
+
+    @include onTablet {
+      display: inline-block;
+      cursor: pointer;
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      @include hover(transform, scale(1.1));
+    }
+
+    &-01 {
+      width: 98px;
+      height: 81px;
+
+      background-image: url(../images/more/more-card-01.svg);
+    }
+
+    &-02 {
+      width: 84px;
+      height: 84px;
+
+      background-image: url(../images/more/more-card-02.svg);
+    }
+
+    &-03 {
+      width: 113px;
+      height: 83px;
+
+      background-image: url(../images/more/more-card-03.svg);
+    }
+
+    &-04 {
+      width: 83px;
+      height: 83px;
+
+      background-image: url(../images/more/more-card-04.svg);
+    }
+  }
+
+  &__title {
+    padding-top: 22px;
+    color: $clr--white;
+    font-weight: 900;
+    line-height: normal;
+
+    @include onDesktop {
+      padding-top: 32px;
+    }
+  }
+
+  &__text {
+    text-align: center;
+    padding-top: 18px;
+  }
+}

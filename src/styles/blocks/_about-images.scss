@@ -1,0 +1,53 @@
+.about__images {
+  display: none;
+
+  @include onTablet {
+    grid-column: 5 / -1;
+    margin: 100px 0 50px;
+    height: 253px;
+
+    display: flex;
+    gap: 21px;
+  }
+
+  @include onDesktop {
+    grid-column: 7 / -1;
+    margin: 226px 0 103px;
+    height: 337px;
+  }
+}
+
+.about__image {
+  @include onTablet {
+    width: 62px;
+    height: 253px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
+  @include onDesktop {
+    width: 83px;
+    height: 337px;
+
+    &--04 {
+      background-image: url(../images/about/about-us-04.png);
+    }
+
+    &--05 {
+      background-image: url(../images/about/about-us-05.png);
+    }
+  }
+
+  &--01 {
+    background-image: url(../images/about/about-us-01.png);
+  }
+
+  &--02 {
+    background-image: url(../images/about/about-us-02.png);
+  }
+
+  &--03 {
+    background-image: url(../images/about/about-us-03.png);
+  }
+}

@@ -1,0 +1,59 @@
+.help {
+  height: 100%;
+
+  display: none;
+  position: fixed;
+  z-index: 110;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  background: $clr--bg-opacity;
+
+  &__wrapper {
+    height: 100%;
+    background-color: $clr--bg-aside;
+
+    @include onTablet {
+      height: 596px;
+    }
+  }
+
+  &__top {
+    float: right;
+  }
+
+  &__title {
+    padding-top: 80px;
+  }
+
+  &__text {
+    padding-block: 30px;
+    color: $clr--gray-1;
+
+    span {
+      color: $clr--blue;
+    }
+  }
+
+  &__link {
+    margin-bottom: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: $clr--blue;
+  }
+
+  &__contacts {
+    padding-bottom: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    &--link {
+      color: $clr--gray-1;
+
+      @include hover(color, $clr--dot);
+    }
+  }
+}

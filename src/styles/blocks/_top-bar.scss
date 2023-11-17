@@ -1,0 +1,37 @@
+.top-bar {
+  padding-top: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include onTablet {
+    padding-top: 30px;
+  }
+
+  @include onDesktop {
+    padding-top: 64px;
+  }
+
+  &__logo {
+    width: 48px;
+    height: 10px;
+
+    background-image: url("../images/logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include hover(transform, scale(1.1));
+
+    @include onTablet {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include onDesktop {
+      width: 77.5px;
+      height: 16px;
+    }
+  }
+}
