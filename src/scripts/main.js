@@ -20,6 +20,16 @@ window.addEventListener('hashchange', () => {
   }
 });
 
+// disable page scroll if faq appear
+
+window.addEventListener('hashchange', () => {
+  if (window.location.hash === '#faq') {
+    document.body.classList.add('page__body--with-faq');
+  } else {
+    document.body.classList.remove('page__body--with-faq');
+  }
+});
+
 // Custom-select-language
 const customSelects = document.getElementsByClassName('custom-select');
 

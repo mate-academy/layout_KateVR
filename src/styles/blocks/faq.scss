@@ -1,13 +1,49 @@
 .faq {
-  @include grid();
-
   margin: 0 auto;
-  padding-top: 68px;
+  padding: 0 20px;
+  padding-bottom: 20px;
+  height: calc(100vh - 20px);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+
   background-color: #191536;
+  overflow: scroll;
+  z-index: -1;
+
+  &:target {
+    transform: translateX(0);
+    z-index: 1;
+    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.7);
+  }
+
+  @include for-desktop() {
+    width: 700px;
+    height: 700px;
+    border-radius: 4px;
+    top: 8%;
+  }
+
+  &__icon {
+    display: flex;
+    height: 68px;
+
+    &-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 19px;
+      height: 19px;
+      background-image: url(../images/icon-close.svg);
+      background-repeat: no-repeat;
+    }
+  }
 
   &__title {
-    grid-column: 1 / 3;
-
     color: $c-white;
 
     font-size: 21px;
@@ -15,32 +51,28 @@
     line-height: 25px;
     letter-spacing: 0;
 
+    @include for-desktop() {
+      font-size: 36px;
+      line-height: 46.8px;
+    }
+
     &--color {
       font-weight: 400;
       color: $c-contrast;
     }
-
-    @include for-tablet() {
-      grid-column: 1 / 7;
-      text-align: center;
-    }
-
-    @include for-desktop() {
-      grid-column: 1 / 13;
-      text-align: center;
-
-      font-size: 36px;
-      line-height: 44px;
-    }
   }
 
   &__content {
-    grid-column: 1 / 3;
-
     &-question {
       padding: 12px;
+      padding-right: 40px;
       border: 1px solid $c-contrast;
       border-radius: 4px;
+      margin-top: 13px;
+
+      &:first-child {
+        margin-top: 25px;
+      }
 
       &-explanation {
         margin-top: 18px;
@@ -71,7 +103,7 @@
       &-button {
         background-color: transparent;
         border: none;
-        width: 240px;
+        width: 100%;
 
         color: $c-contrast;
         font-size: 16px;
@@ -79,13 +111,49 @@
         line-height: 24px;
         letter-spacing: 0;
         text-align: left;
+        cursor: pointer;
 
-        &:hover,
+        &:active,
         &:focus {
+
+          cursor: default;
           + .faq__content-question-explanation {
             display: block;
+            cursor: pointer;
           }
         }
+      }
+    }
+  }
+
+  &__utilis {
+    display: none;
+
+    @include for-tablet() {
+      margin: 64px 0;
+      display: flex;
+      width: 100%;
+      height: 37px;
+      color: $c-white;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0;
+    }
+
+    &-more {
+      position: relative;
+      margin: 0 auto;
+      text-align: center;
+      color: $c-contrast;
+      cursor: pointer;
+      text-decoration: none;
+
+      &-arrow {
+        position: absolute;
+        top: 30px;
+        left: 14.5px;
+        font-size: 22px;
       }
     }
   }
