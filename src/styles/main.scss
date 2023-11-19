@@ -1,7 +1,119 @@
 @import "utils";
 @import "fonts";
-@import "typography";
 
-body {
-  background: $c-gray;
+@import "./blocks/header.scss";
+@import "./blocks/custom-select-language.scss";
+@import "./blocks/video-modal-window.scss";
+
+@import "./blocks/menu.scss";
+@import "./blocks/language.scss";
+@import "./blocks/faq.scss";
+@import "./blocks/help.scss";
+
+@import "./blocks/more-than-gaming.scss";
+@import "./blocks/about-product.scss";
+@import "./blocks/slide-show.scss";
+@import "./blocks/tech-specs.scss";
+@import "./blocks/why-kat-loco.scss";
+@import "./blocks/get-in-touch.scss";
+@import "./blocks/footer.scss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+.page__body--with-menu,
+.page__body--with-language,
+.page__body--with-faq {
+  overflow: hidden;
+}
+
+.background-wrapper {
+  &--header {
+    background: $bc-gradient;
+  }
+
+  &--more-than-gaming {
+    padding-top: 50px;
+    height: 536px;
+    background-color: $bc-dark;
+
+    @include for-tablet {
+      padding-top: 70px;
+      height: 673px;
+    }
+
+    @include for-desktop {
+      padding-top: 100px;
+      height: 522px;
+    }
+  }
+
+  &--about-product {
+    padding-top: 50px;
+    height: 955px;
+    background: $bc-gradient;
+
+    @include for-tablet() {
+      padding-top: 70px;
+      height: 682px;
+    }
+
+    @include for-desktop() {
+      padding-top: 100px;
+      height: 968px;
+    }
+  }
+
+  &--tech-specs {
+    padding-top: 50px;
+    height: 315px;
+    background-color: $bc-dark;
+
+    @include for-tablet() {
+      padding-top: 80px;
+      height: 520px;
+    }
+
+    @include for-desktop() {
+      padding-top: 100px;
+      height: 580px;
+    }
+  }
+
+  &--why-kat-loco {
+    padding-top: 50px;
+    height: 470px;
+    background: $bc-gradient;
+
+    @include for-tablet() {
+      padding-top: 70px;
+      height: 362px;
+    }
+
+    @include for-desktop() {
+      padding-top: 100px;
+      height: 614px;
+    }
+  }
+
+  &--get-in-touch {
+    padding-top: 50px;
+    height: 530px;
+    background-color: $bc-dark;
+
+    @include for-tablet() {
+      padding-top: 70px;
+      height: 506px;
+    }
+
+    @include for-desktop() {
+      padding-top: 100px;
+      height: 518px;
+    }
+  }
+
+  &--footer {
+    background-color: black;
+  }
 }

@@ -1,0 +1,197 @@
+.footer {
+  @include grid();
+
+  padding-top: 40px;
+  margin: 0 auto;
+  height: 200px;
+  background-color: black;
+
+  @include for-tablet() {
+    grid-column: 1 / 7;
+
+    padding-top: 0;
+    height: 64px;
+  }
+
+  @include for-desktop() {
+    grid-column: 1 / 13;
+    height: 100px;
+  }
+
+  &__nav {
+    grid-column: 1 / 2;
+
+    @include for-tablet() {
+      grid-column: 1 / 5;
+      display: flex;
+      align-items: center;
+      vertical-align: middle;
+      height: 64px;
+    }
+
+    @include for-desktop() {
+      grid-column: 1 / 10;
+      height: 100px;
+    }
+
+    &-logo {
+      width: 69px;
+      height: 14px;
+    }
+
+    &-menu {
+      margin-top: 15px;
+
+      @include for-tablet() {
+        margin: 5px 95px 0 127px;
+        display: flex;
+        width: 306px;
+        height: 23px;
+        grid-column: 2 / 8;
+        align-items: center;
+      }
+
+      @include for-desktop() {
+        margin-left: 304px;
+      }
+
+      &-item {
+        &:not(:first-child) {
+          margin-top: 12px;
+
+          @include for-tablet() {
+            margin: 0 0 0 40px;
+          }
+        }
+      }
+
+      &-link {
+        text-decoration: none;
+        color: $c-white;
+        font-size: 13px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0;
+
+        &:hover {
+          color: $c-contrast;
+          transition: 0.3s;
+        }
+      }
+    }
+  }
+
+  &__contacts {
+    margin-top: 25px;
+
+    @include for-tablet() {
+      grid-column: 6 / 7;
+      display: flex;
+
+      margin-top: 0;
+    }
+
+    @include for-desktop() {
+      grid-column: 12 / 13;
+      width: 104px;
+      transform: translateX(-34px);
+
+    }
+
+    &-container {
+      &:not(:first-child) {
+        margin-top: 12px;
+      }
+
+      @include for-tablet() {
+        display: none;
+      }
+    }
+
+    &-label {
+      @include visually-hidden();
+    }
+
+    &-content {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0;
+      color: $c-text;
+    }
+  }
+
+  &__social-media {
+    margin-top: 33px;
+    display: flex;
+    justify-content: space-between;
+
+    @include for-tablet() {
+      grid-column: 6 / 7;
+      margin-top: 25px;
+      width: 200px;
+    }
+
+    @include for-desktop() {
+      margin-top: 43px;
+    }
+
+    &-facebook {
+      display: inline-block;
+      background-image: url(../images/facebook-icon.svg);
+      width: 7.57px;
+      height: 15.15px;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      &:hover {
+        background-image: url(../images/facebook-icon-hover.svg);
+        transition: 0.3s;
+      }
+    }
+
+    &-twitter {
+      display: inline-block;
+      background-image: url(../images/twitter-icon.svg);
+      width: 18.93px;
+      height: 13.88px;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      &:hover {
+        background-image: url(../images/twitter-icon-hover.svg);
+        transition: 0.3s;
+      }
+    }
+
+    &-youtube {
+      display: inline-block;
+      background-image: url(../images/youtube-icon.svg);
+      width: 17.9px;
+      height: 13.63px;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      &:hover {
+        background-image: url(../images/youtube-icon-hover.svg);
+        transition: 0.3s;
+      }
+    }
+
+    &-reddit {
+      display: inline-block;
+      background-image: url(../images/reddit-icon.svg);
+      width: 17.67px;
+      height: 17.67px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      transform: translateY(-3.5px);
+
+      &:hover {
+        background-image: url(../images/reddit-icon-hover.svg);
+        transition: 0.3s;
+      }
+    }
+  }
+}
