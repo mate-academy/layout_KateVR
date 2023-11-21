@@ -1,0 +1,58 @@
+.form {
+  margin-top: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @include onTablet {
+    margin-block: 0 48px;
+  }
+
+  @include onDesktop {
+    margin-bottom: 90px;
+  }
+
+  @include onWideScreen {
+    margin-bottom: 50px;
+  }
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    border: 0;
+    border-bottom: 1px solid $dark-grey;
+    padding-bottom: 19px;
+    background-color: transparent;
+    color: #fff;
+    line-height: 150%;
+
+    &--message {
+      min-height: 67px;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $accent-color;
+      outline: none;
+      color: #fff;
+    }
+
+    &:focus::placeholder {
+      color: $accent-color;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      border: 0;
+      border-bottom: 1px solid $accent-color;
+      -webkit-text-fill-color: #fff;
+      -webkit-background-color: transparent;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  &__btn {
+    margin-top: 30px;
+  }
+}

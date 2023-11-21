@@ -1,0 +1,92 @@
+.why {
+  @include contentBlockPadding;
+
+  &__title {
+    @include onDesktop {
+      text-align: center;
+    }
+
+    &--min {
+      font-size: 16px;
+    }
+  }
+
+  &__subtitle {
+    margin-top: 16px;
+  }
+
+  &__icon {
+    height: 80px;
+  }
+
+  &__content {
+    padding-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      @include pageGrid;
+
+      align-items: center;
+    }
+
+    @include onDesktop {
+      padding-top: 84px;
+    }
+
+    @include onWideScreen {
+      padding-top: 82px;
+    }
+  }
+
+  &__reason {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    @include onTablet {
+      grid-column: span 2;
+      align-items: center;
+      gap: 27px;
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+      gap: 16px;
+    }
+
+    &--2 {
+      @include onWideScreen {
+        grid-column: 7 / 11;
+      }
+    }
+
+    &--3 {
+      @include onWideScreen {
+        grid-column: 13 / -1;
+      }
+    }
+  }
+
+  &__text {
+    margin: 0;
+
+    @include onTablet {
+      text-align: center;
+    }
+  }
+
+  &__btn {
+    display: none;
+
+    @include onDesktop {
+      display: block;
+      margin: 80px auto 0;
+    }
+
+    @include onWideScreen {
+      display: none;
+    }
+  }
+}

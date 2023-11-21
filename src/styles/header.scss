@@ -1,0 +1,294 @@
+.header {
+  margin: 0;
+  padding: 0;
+  position: relative;
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 18px 6px;
+
+    @include onTablet {
+      padding-block: 30px 54px;
+    }
+
+    @include onDesktop {
+      padding-block: 47px 101px;
+    }
+
+    @include onWideScreen {
+      padding-bottom: 232px;
+    }
+
+    &--left {
+      display: flex;
+      align-items: center;
+      gap: 34.5px;
+    }
+
+    &--right {
+      display: none;
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: row;
+        gap: 36px;
+        align-items: center;
+      }
+    }
+  }
+
+  &__logo {
+    width: 58px;
+    height: 12px;
+
+    @include onTablet {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include onDesktop {
+      width: 77.5px;
+      height: 16px;
+    }
+
+    @include onWideScreen {
+      width: 76.5px;
+      height: 15.6px;
+    }
+  }
+
+  &__lang {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      gap: 4px;
+
+      &--text {
+        display: flex;
+        flex-direction: row;
+        color: $accent-color;
+        text-decoration: none;
+        line-height: 130%;
+        align-self: last baseline;
+      }
+
+      &--icon {
+        display: flex;
+        flex-direction: row;
+        background-image: url(../images/icons/more_btn_icon.svg);
+        background-repeat: no-repeat;
+        width: 9px;
+        height: 6px;
+        align-self: last baseline;
+      }
+    }
+  }
+
+  &__menu {
+    width: 20px;
+    height: 20px;
+    display: block;
+    transition: all 0.3s;
+
+    @include onTablet {
+      width: 29px;
+      height: 13px;
+      align-items: center;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+
+      margin-bottom: 60px;
+    }
+
+    @include onDesktop {
+      margin: 0;
+    }
+
+    &--block {
+      @include onTablet {
+        grid-column: 1 / 4;
+      }
+
+      @include onDesktop {
+        grid-column: 2 / 6;
+      }
+    }
+
+    &--mob {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--right {
+      display: none;
+
+      @include onTablet {
+        position: absolute;
+        display: inline-block;
+        right: 0;
+        top: 6px;
+        z-index: -1;
+      }
+
+      @include onDesktop {
+        top: 10px;
+        z-index: -1;
+      }
+
+      @include onWideScreen {
+        top: 0;
+      }
+    }
+  }
+
+  &__title {
+    @include onTablet {
+      grid-column: 1 / 4;
+    }
+
+    @include onDesktop {
+      grid-column: 1 / 7;
+    }
+
+    @include onWideScreen {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    padding-top: 17px;
+    font-weight: 500;
+
+    @include onDesktop {
+      padding-top: 19px;
+    }
+
+    @include onWideScreen {
+      padding-top: 35px;
+    }
+  }
+
+  &__price {
+    margin: 0;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding-block: 8px 15.95px;
+    text-align: center;
+    line-height: 1;
+
+    @include onTablet {
+      padding-block: 10px 23.95px;
+      text-align: left;
+    }
+
+    @include onDesktop {
+      padding-block: 15px 19.95px;
+    }
+
+    @include onWideScreen {
+      padding-block: 30px 35.95px;
+    }
+  }
+
+  &__btn {
+    margin-top: 23px;
+    margin-inline: auto;
+
+    @include onDesktop {
+      margin: 0;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      justify-content: space-between;
+      padding-block: 84px;
+      align-items: center;
+      z-index: 4;
+    }
+
+    @include onWideScreen {
+      padding-block: 213px 107px;
+    }
+
+    &--left {
+      display: flex;
+      gap: 39px;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    color: #fff;
+    text-decoration: none;
+    margin: 0;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $accent-color;
+    }
+
+    &--accent {
+      position: relative;
+      text-decoration: none;
+      margin: 0;
+      color: $accent-color;
+      transition: color 0.3s;
+
+      &::after {
+        content: url(../images/icons/more_btn_icon.svg);
+        display: block;
+        position: absolute;
+        width: 9px;
+        height: 6px;
+        top: 14px;
+        left: 40%;
+      }
+
+      &:hover {
+        color: #fff;
+
+        &::after {
+          content: url(../images/icons/more_btn_icon_white.svg);
+        }
+      }
+    }
+
+    &--more-close {
+      background-image: url(../images/icons/faq_arrow_close.svg);
+      background-repeat: no-repeat;
+      width: 9px;
+      height: 6px;
+    }
+  }
+}
