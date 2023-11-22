@@ -1,0 +1,218 @@
+.main {
+  &__first {
+    @include paddingBlock;
+    @include grid;
+    background-color: $background-black;
+
+    &-content {
+      grid-column: 1 / 3;
+      display: grid;
+      row-gap: 30px;
+
+      @include onTablet {
+        justify-items: center;
+        grid-column: 1 / 7;
+        row-gap: 43px;
+      }
+
+      @include onDesktop {
+        grid-column: 1 / 17;
+        row-gap: 70px;
+      }
+
+      &--image {
+        display: none;
+        height: 81px;
+        width: 98px;
+        transition: all 0.4s ease-in-out;
+
+        @include onTablet {
+          display: block;
+        }
+      }
+
+      &--text {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        @include onDesktop {
+          text-align: center;
+        }
+
+        &-title {
+          color: $white-color;
+
+          @include onTablet {
+            text-align: center;
+          }
+        }
+
+        &-span {
+          font-weight: 400;
+        }
+      }
+
+      &--basic {
+        display: grid;
+        row-gap: 20px;
+
+        @include onTablet {
+          grid-template-rows: repeat(2, 1fr);
+          grid-template-columns: repeat(2, 1fr);
+          column-gap: 20px;
+          row-gap: 40px;
+        }
+
+        @include onDesktop {
+          grid-template-rows: 1fr;
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        &-list {
+          display: flex;
+          flex-direction: column;
+          gap: 11px;
+
+          &:hover .main__first-content--image {
+            transform: scale(1.2);
+          }
+
+          @include onTablet {
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+          }
+
+          &--title {
+            color: $white-color;
+            transition: color 0.4s ease-in-out;
+          }
+
+          &:hover .main__first-content--basic-list--title {
+            color: $contrast-color;
+          }
+
+          &--description {
+            color: $text-color;
+
+            @include onTablet {
+              text-align: center;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__second {
+    @include grid;
+    @include paddingBlock;
+    row-gap: 32px;
+
+    @include onDesktop {
+      row-gap: 84px;
+    }
+
+    &-text {
+      grid-column: 1 / 3;
+
+      @include onDesktop {
+        grid-column: 7 / 12;
+      }
+
+      &--title {
+        color: $white-color;
+      }
+
+      &--span {
+        font-weight: 400;
+      }
+    }
+
+    &-content {
+      grid-column: 1 / 3;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      @include onTablet {
+        grid-row: 2;
+        grid-column: span 2;
+        flex-direction: row;
+      }
+
+      @include onDesktop {
+        grid-column: span 4;
+
+        &:nth-child(2) {
+          grid-column: 1 / 5;
+        }
+
+        &:nth-child(3) {
+          grid-column: 7 / 11;
+        }
+
+        &:nth-child(4) {
+          grid-column: 13 / 17;
+        }
+      }
+
+      &--basic {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+
+        @include onTablet {
+          justify-items: center;
+          gap: 37px;
+        }
+
+        @include onDesktop {
+          gap: 16px;
+        }
+
+        &-image {
+          display: none;
+          height: 50px;
+          width: 100%;
+          transition: transform 0.4s ease-in-out;
+
+          @include onTablet {
+            display: block;
+          }
+
+          @include onDesktop {
+            height: 80px;
+          }
+
+          &:hover .main__second-content--basic-image {
+            transform: scale(1.2);
+          }
+        }
+
+        &-title {
+          color: $white-color;
+          transition: color 0.4s ease-in-out;
+
+          @include onTablet {
+            font-size: 15px;
+            text-align: center;
+          }
+        }
+
+        &:hover .main__second-content--basic-title {
+          color: $contrast-color;
+        }
+
+        &-description {
+          color: $text-color;
+
+          @include onTablet {
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
