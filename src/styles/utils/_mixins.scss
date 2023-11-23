@@ -10,6 +10,12 @@
   }
 }
 
+@mixin onBigScreen {
+  @media (min-width: $big-desktop-min-width) {
+    @content;
+  }
+}
+
 @mixin grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -25,6 +31,10 @@
   @include onDesktop {
     grid-template-columns: repeat(16, 1fr);
     padding-inline: 110px;
+  }
+
+  @include onBigScreen {
+    padding-inline: 310px;
   }
 }
 

@@ -713,9 +713,9 @@
             id="button-faq"
           >
             <p
-              onclick="tabMenu(event, 'faq-text1')"
-              class="faq__content-title text--main"
-              >
+            onclick="tabMenu(event, 'faq-text1')"
+            class="faq__content-title text--main"
+            >
               What makes KAT loco different from other systems?
             </p>
 
@@ -729,7 +729,6 @@
                 Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
               </span>
             </p>
-
           </button>
 
           <button
@@ -899,9 +898,9 @@
           <div class="faq__content">
             <button
               class="button button--nav faq--link"
+              onclick="tabMenu(event, 'modal-faq-text1')"
             >
               <p
-                onclick="tabMenu(event, 'modal-faq-text1')"
                 class="faq__content-title text--main"
                 >
                 What makes KAT loco different from other systems?
@@ -917,14 +916,13 @@
                   Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
                 </span>
               </p>
-
             </button>
 
             <button
               class="button button--nav faq--link"
+              onclick="tabMenu(event, 'modal-faq-text2')"
             >
               <p
-                onclick="tabMenu(event, 'modal-faq-text2')"
                 class="faq__content-title text--main"
               >
                 Will it decrease my motion sickness?
@@ -944,9 +942,9 @@
 
             <button
               class="button button--nav faq--link"
+              onclick="tabMenu(event, 'modal-faq-text3')"
             >
               <p
-                onclick="tabMenu(event, 'modal-faq-text3')"
                 class="faq__content-title text--main"
               >
                 Which VR headsets is it compatible with?
@@ -966,9 +964,9 @@
 
             <button
               class="button button--nav faq--link"
+              onclick="tabMenu(event, 'modal-faq-text4')"
             >
               <p
-                onclick="tabMenu(event, 'modal-faq-text4')"
                 class="faq__content-title text--main"
               >
                 Is it compatible with Oculus Quest?
@@ -1379,8 +1377,7 @@
 
         <div class="tech__image">
           <button
-          class="tech__image-round"
-          onclick="change(this)"
+            class="tech__image-round"
           >
           </button>
           <div class="tech__image-text">
@@ -1579,8 +1576,8 @@
             <div class="tabs__content-form--field">
               <input
                 class="form--text"
-                type="text"
-                name="first-name"
+                type="email"
+                name="email"
                 id="contactEmail"
                 required
               >
@@ -1596,8 +1593,8 @@
             <div class="tabs__content-form--field">
               <input
                 class="form--text"
-                type="text"
-                name="first-name"
+                type="number"
+                name="contactPhone"
                 id="contactPhone"
                 required
               >
@@ -1614,8 +1611,9 @@
               <input
                 class="form--text form--messege"
                 type="text"
-                name="first-name"
+                name="contactMessege"
                 id="contactMessege"
+                required
               >
 
               <label
@@ -1741,26 +1739,66 @@
     </footer>
 
     <script type="text/javascript">
+      const modalFaq = document.getElementById('modal-faq');
+
+      const btnFaq = document.getElementById('modal-faq-button');
+
+      const spanFaq = document.getElementsByClassName('modal-faq--close')[0];
+
+      btnFaq.onclick = function() {
+        modalFaq.style.display = 'grid';
+      };
+
+      spanFaq.onclick = function() {
+        modalFaq.style.display = 'none';
+      };
+
+      window.onclick = function(event) {
+        if (event.target === modalFaq) {
+          modalFaq.style.display = 'none';
+        }
+      };
+
+      const modalHelp = document.getElementById('modal-help');
+
+      const btnHelp = document.getElementById('modal-help-button');
+
+      const spanHelp = document.getElementsByClassName('modal-help--close')[0];
+
+      btnHelp.onclick = function() {
+        modalHelp.style.display = 'grid';
+      };
+
+      spanHelp.onclick = function() {
+        modalHelp.style.display = 'none';
+      };
+
+      window.onclick = function(event) {
+        if (event.target === modalHelp) {
+          modalHelp.style.display = 'none';
+        }
+      };
+
       function tabMenu(evt, tabContent) {
-        let i, content, links;
+        const content = document.getElementsByClassName('tabs__content');
 
-        content = document.getElementsByClassName("tabs__content");
-        for (i = 0; i < content.length; i++) {
-          content[i].style.display = "none";
+        for (let i = 0; i < content.length; i++) {
+          content[i].style.display = 'none';
         }
 
-        links = document.getElementsByClassName("nav__item");
-        for (i = 0; i < links.length; i++) {
-          links[i].className = links[i].className.replace(" active", "");
+        const links = document.getElementsByClassName('nav__item');
+
+        for (let i = 0; i < links.length; i++) {
+          links[i].className = links[i].className.replace(' active', '');
         }
 
-        document.getElementById(tabContent).style.display = "grid";
-        evt.currentTarget.className += " active";
+        document.getElementById(tabContent).style.display = 'grid';
+        evt.currentTarget.className += ' active';
       }
-
-      document.getElementById("default").click();
+      document.getElementById('default').click();
 
       let slideIndex = 1;
+
       showSlides(slideIndex);
 
       function plusSlides(n) {
@@ -1772,160 +1810,123 @@
       }
 
       function showSlides(n) {
-      let i;
-      let slides = document.getElementsByClassName("about__slider-fade");
-      let dots = document.getElementsByClassName("about__slider-dots--dot");
+        let j;
+        const slides = document.getElementsByClassName('about__slider-fade');
+        const dots = document.getElementsByClassName('about__slider-dots--dot');
 
-      if (n > slides.length) {
-        slideIndex = 1;
-      }
-
-      if (n < 1) {
-        slideIndex = slides.length;
-      }
-
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-      }
-
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" target", "");
-      }
-
-      slides[slideIndex-1].style.display = "block";
-      dots[slideIndex-1].className += " target";
-    }
-
-    let acc = document.getElementsByClassName("tech__image-round");
-    let i;
-
-    for (i = 0; i < acc.length; i++) {
-      acc[i].addEventListener("click", function () {
-        this.classList.toggle("tech-active");
-        let text = this.nextElementSibling;
-
-        if (text.style.maxHeight) {
-          text.style.maxHeight = null;
+        if (n > slides.length) {
+          slideIndex = 1;
         }
 
-        else {
-          text.style.maxHeight = text.scrollHeight + "px";
+        if (n < 1) {
+          slideIndex = slides.length;
         }
-      });
-    }
 
-    let slideIndexDesktop = 1;
-    showSlidesDesktop(slideIndexDesktop);
+        for (j = 0; j < slides.length; j++) {
+          slides[j].style.display = 'none';
+        }
 
-    function plusSlidesDesktop(n) {
-      showSlidesDesktop(slideIndexDesktop += n);
-    }
+        for (j = 0; j < dots.length; j++) {
+          dots[j].className = dots[j].className.replace(' target', '');
+        }
 
-    function currentSlideDesktop(n) {
-      showSlidesDesktop(slideIndexDesktop = n);
-    }
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].className += ' target';
+      }
 
-    function showSlidesDesktop(n) {
+      const acc = document.getElementsByClassName('tech__image-round');
       let i;
-      let slides = document.getElementsByClassName("about__slider-desktop");
-      let dots = document.getElementsByClassName("demo");
 
-      if (n > slides.length) {
-        slideIndexDesktop = 1
+      for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener('click', function() {
+          this.classList.toggle('tech-active');
+
+          const text = this.nextElementSibling;
+
+          if (text.style.maxHeight) {
+            text.style.maxHeight = null;
+
+          }
+            else {
+              text.style.maxHeight = text.scrollHeight + 'px';
+          }
+        });
       }
 
-      if (n < 1) {
-        slideIndexDesktop = slides.length
+      let slideIndexDesktop = 1;
+
+      showSlidesDesktop(slideIndexDesktop);
+
+      function plusSlidesDesktop(n) {
+        showSlidesDesktop(slideIndexDesktop += n);
       }
 
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+      function currentSlideDesktop(n) {
+        showSlidesDesktop(slideIndexDesktop = n);
       }
 
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" target--desktop", "");
+      function showSlidesDesktop(n) {
+        let i;
+        const slides = document.getElementsByClassName('about__slider-desktop');
+        const dots = document.getElementsByClassName('demo');
+
+        if (n > slides.length) {
+          slideIndexDesktop = 1;
+        }
+
+        if (n < 1) {
+          slideIndexDesktop = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(' target--desktop', '');
+        }
+
+        slides[slideIndexDesktop - 1].style.display = 'block';
+        dots[slideIndexDesktop - 1].className += ' target--desktop';
       }
 
-      slides[slideIndexDesktop-1].style.display = "block";
-      dots[slideIndexDesktop-1].className += " target--desktop";
-    }
+      let slideIndexHeader = 1;
 
-    let slideIndexHeader = 1;
-    showSlidesHeader(slideIndexHeader);
+      showSlidesHeader(slideIndexHeader);
 
-    function plusSlidesHeader(n) {
-      showSlidesHeader(slideIndexHeader += n);
-    }
-
-    function currentSlideHeader(n) {
-      showSlidesHeader(slideIndexHeader = n);
-    }
-
-    function showSlidesHeader(n) {
-      let i;
-      let slides = document.getElementsByClassName("header__image-desktop");
-      let dots = document.getElementsByClassName("dots");
-
-      if (n > slides.length) {
-        slideIndexHeader = 1
+      function plusSlidesHeader(n) {
+        showSlidesHeader(slideIndexHeader += n);
       }
 
-      if (n < 1) {
-        slideIndexHeader = slides.length
+      function currentSlideHeader(n) {
+        showSlidesHeader(slideIndexHeader = n);
       }
 
-      for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
+      function showSlidesHeader(n) {
+        let i;
+        const slides = document.getElementsByClassName('header__image-desktop');
+        const dots = document.getElementsByClassName('dots');
+
+        if (n > slides.length) {
+          slideIndexHeader = 1;
+        }
+
+        if (n < 1) {
+          slideIndexHeader = slides.length;
+        }
+
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = 'none';
+        }
+
+        for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(' target--desktop', '');
+        }
+
+        slides[slideIndexHeader - 1].style.display = 'block';
+        dots[slideIndexHeader - 1].className += ' target--desktop';
       }
-
-      for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" target--desktop", "");
-      }
-
-      slides[slideIndexHeader-1].style.display = "block";
-      dots[slideIndexHeader-1].className += " target--desktop";
-    }
-
-    let modalFaq = document.getElementById("modal-faq");
-
-    let btnFaq = document.getElementById("modal-faq-button");
-
-    let spanFaq = document.getElementsByClassName("modal-faq--close")[0];
-
-    btnFaq.onclick = function() {
-      modalFaq.style.display = "grid";
-    }
-
-    spanFaq.onclick = function() {
-      modalFaq.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modalFaq) {
-        modalFaq.style.display = "none";
-      }
-    }
-
-    let modalHelp = document.getElementById("modal-help");
-
-    let btnHelp = document.getElementById("modal-help-button");
-
-    let spanHelp = document.getElementsByClassName("modal-help--close")[0];
-
-    btnHelp.onclick = function() {
-      modalHelp.style.display = "grid";
-    }
-
-    spanHelp.onclick = function() {
-      modalHelp.style.display = "none";
-    }
-
-    window.onclick = function(event) {
-      if (event.target == modalHelp) {
-        modalHelp.style.display = "none";
-      }
-    }
     </script>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script type="text/javascript" src="./scripts/index.js"></script>
   </body>
 </html>

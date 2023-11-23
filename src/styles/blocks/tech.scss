@@ -83,10 +83,7 @@
       width: 34px;
       position: absolute;
       transition: transform 0.4s ease-in-out;
-
-      &:hover {
-        transform: scale(1.2);
-      }
+      outline: none;
 
       &:nth-child(1) {
         top: -5%;
@@ -112,17 +109,8 @@
         display: none;
       }
 
-      &:active,
-      &:focus {
-        background-image: url(../images/tech/tech-icon-minus.svg);
-        display: block;
-        height: 34px;
-        width: 34px;
-
-        @include onTablet {
-          height: 62px;
-          width: 62px;
-        }
+      &:hover {
+        transform: scale(1.2);
       }
     }
 
@@ -145,11 +133,21 @@
       &:nth-child(4) {
         top: 52%;
         left: 52%;
+
+        @include onTablet {
+          top: 55%;
+          left: 50%;
+        }
       }
 
       &:nth-child(6) {
         bottom: 14%;
         left: 9%;
+
+        @include onTablet {
+          bottom: 18%;
+          left: 6%;
+        }
       }
 
       &--description {
@@ -284,6 +282,26 @@
           top: 54%;
         }
       }
+    }
+  }
+
+  &-active {
+    background-image: url(../images/tech/tech-icon-minus.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    height: 34px;
+    width: 34px;
+    cursor: pointer;
+
+    z-index: 2;
+    transition: transform 0.4s ease-in-out;
+    outline: none;
+
+    @include onTablet {
+      width: 64px;
+      height: 64px;
     }
   }
 }
