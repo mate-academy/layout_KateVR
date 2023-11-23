@@ -118,10 +118,10 @@
   }
 
   &__content {
+    margin-bottom: 60px;
+
     @include onTablet {
       @include pageGrid;
-
-      margin-bottom: 60px;
     }
 
     @include onDesktop {
@@ -220,8 +220,18 @@
   &__btn {
     margin-top: 23px;
     margin-inline: auto;
+    position: fixed;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    z-index: 2;
+
+    @include onTablet {
+      bottom: 30px;
+    }
 
     @include onDesktop {
+      position: static;
       margin: 0;
     }
   }
