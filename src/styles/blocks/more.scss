@@ -1,0 +1,184 @@
+.more {
+  background-color: $c-background;
+  padding: 50px 0;
+
+  @include onTablet {
+    padding: 70px 0;
+  }
+
+  @include onDesktop {
+    padding: 100px 0;
+  }
+
+  @include onLargeScreen {
+    padding: 160px 0;
+  }
+
+  &--active {
+    @include onDesktop {
+      display: block;
+    }
+
+    @include onLargeScreen {
+      display: block;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: row;
+    @extend %inter-900;
+    font-size: 21px;
+    line-height: 25px;
+    color: #fff;
+    width: max-content;
+    gap: 5px;
+
+    &--span {
+      display: flex;
+      @extend %inter-400;
+      font-size: 21px;
+      line-height: 25px;
+      color: $c-blue;
+
+      @include onDesktop {
+        font-size: 36px;
+        line-height: 44px;
+      }
+    }
+
+    margin-bottom: 12px;
+
+    @include onTablet {
+      margin: 0 auto 12px;
+    }
+
+    @include onDesktop {
+      font-size: 36px;
+      line-height: 44px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__subtitle {
+    @extend %inter-400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #05c2df;
+    margin-bottom: 30px;
+
+    @include onTablet {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 30px;
+    }
+
+    @include onDesktop {
+      font-size: 14px;
+      line-height: 17px;
+      margin-bottom: 85px;
+    }
+
+    @include onLargeScreen {
+      margin-bottom: 73px;
+    }
+  }
+
+  &__card {
+
+    padding-bottom: 20px;
+
+    &:last-of-type {
+      padding-bottom: 0;
+    }
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 0;
+
+      &:nth-of-type(2) {
+        padding-bottom: 40px;
+      }
+    }
+
+    &-image {
+      display: none;
+
+      @include onTablet {
+        display: block;
+        content: "";
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-position: center;
+        width: 81px;
+        height: 110px;
+        margin-bottom: 30px;
+      }
+
+      &--education {
+        background-image: url(../images/icons/EDUCATION.svg);
+      }
+
+      &--real {
+        background-image: url(../images/icons/REALESTATE.svg);
+      }
+
+      &--fitness {
+        background-image: url(../images/icons/FITNESS.svg);
+      }
+
+      &--social {
+        background-image: url(../images/icons/SOCIALINTERACTIONS.svg);
+      }
+    }
+
+    &-title {
+      @extend %inter-900;
+      font-size: 16px;
+      line-height: 19px;
+      color: #fff;
+      margin-bottom: 11px;
+
+      @include onTablet {
+        margin-bottom: 20px;
+      }
+
+      @include onDesktop {
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 18px;
+      }
+
+      @include onLargeScreen {
+        margin-bottom: 20px;
+      }
+    }
+
+    &-text--mobile {
+
+      @extend %inter-400;
+      font-size: 16px;
+      line-height: 150%;
+      color: #929292;
+
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &-text {
+      display: none;
+      @extend %inter-400;
+
+      @include onTablet {
+        display: block;
+        font-size: 16px;
+        line-height: 150%;
+        text-align: center;
+        color: #929292;
+      }
+    }
+  }
+}
