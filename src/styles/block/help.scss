@@ -1,0 +1,105 @@
+.help {
+  box-sizing: border-box;
+
+  &__wrapper {
+    background-color: $menu-bg-color;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+
+    @include onTablet {
+      min-height: auto;
+    }
+
+    @include onDesktop {
+      width: 880px;
+      margin: 100px auto;
+    }
+  }
+
+  &__container {
+    @include container;
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+    @include onTablet {
+      padding-top: 34px;
+      padding-bottom: 130px;
+    }
+
+    @include onDesktop {
+      padding-inline: 90px;
+      padding-bottom: 80px;
+    }
+  }
+
+  &__title {
+    padding-top: 48px;
+
+    @include onTablet {
+      padding-top: 68px;
+    }
+
+    @include onDesktop {
+      padding-top: 24px;
+      padding-bottom: 50px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey-text-color;
+    padding-top: 30px;
+
+    &--blue {
+      color: $blue-color;
+    }
+
+    @include onDesktop {
+      padding-top: 0;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__footer {
+    @include onTablet {
+      display: flex;
+      gap: 150px;
+      padding-top: 20px;
+    }
+
+    @include onDesktop {
+      padding-top: 0;
+    }
+  }
+
+  &__links {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include onTablet {
+      padding-top: 0;
+    }
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: 150%;
+    color: $blue-color;
+  }
+
+  &__contact {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    @include onTablet {
+      padding-top: 0;
+      gap: 25px;
+    }
+  }
+}

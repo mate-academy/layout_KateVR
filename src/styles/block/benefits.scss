@@ -1,0 +1,132 @@
+.benefits {
+  background: linear-gradient(147deg, #191536 -0.5%, #000 99.5%);
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include onTablet {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  @include onDesktop {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    padding-bottom: 12px;
+
+    @include onTablet {
+      padding-bottom: 32px;
+    }
+
+    @include onDesktop {
+      padding-bottom: 85px;
+      width: max-content;
+      margin: 0 auto;
+    }
+  }
+
+  &__box {
+    @include onTablet {
+      display: flex;
+      align-items: center;
+      @include pageGrid;
+    }
+
+    @include onDesktop {
+      align-items: baseline;
+    }
+  }
+
+  &__section {
+    @include onTablet {
+      text-align: center;
+      grid-column: span 2;
+    }
+
+    @include onDesktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__img {
+    display: none;
+    cursor: pointer;
+    transition: all $effect-duration;
+
+    &:hover {
+      transform: scale(1.2);
+      filter: hue-rotate(120deg);
+    }
+
+    @include onTablet {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: normal;
+    padding-top: 20px;
+
+    @include onTablet {
+      padding-top: 25px;
+    }
+
+    @include onDesktop {
+      padding-top: 35px;
+    }
+  }
+
+  &__paragraph {
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey-text-color;
+    padding-top: 11px;
+
+    @include onTablet {
+      padding-top: 37px;
+    }
+
+    @include onDesktop {
+      padding-top: 18px;
+    }
+
+    &--phone {
+      @include onTablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include onTablet {
+        display: block;
+      }
+
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+      }
+    }
+  }
+
+  &__buy {
+    margin: 90px auto 0;
+  }
+}

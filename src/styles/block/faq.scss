@@ -1,0 +1,142 @@
+.faq {
+  box-sizing: border-box;
+
+  &__wrapper {
+    background-color: $menu-bg-color;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+
+    @include onDesktop {
+      width: 880px;
+      min-height: auto;
+      margin: 100px auto;
+    }
+  }
+
+  &__container {
+    @include container;
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+    @include onTablet {
+      padding-top: 34px;
+    }
+
+    @include onDesktop {
+      padding-inline: 90px;
+    }
+  }
+
+  &__title {
+    padding-top: 48px;
+
+    @include onTablet {
+      padding-top: 68px;
+    }
+
+    @include onDesktop {
+      padding-top: 24px;
+    }
+  }
+
+  &__section {
+    border: 1px solid $blue-color;
+    border-radius: 4px;
+  }
+
+  &__section:not(:first-of-type) {
+    margin-top: 13px;
+    padding-bottom: 18px;
+
+    @include onTablet {
+      margin-top: 18px;
+    }
+
+    @include onDesktop {
+      margin-top: 15px;
+    }
+  }
+
+  &__different {
+    margin-top: 30px;
+    padding-bottom: 24px;
+
+    @include onDesktop {
+      margin-top: 50px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 150%;
+    padding: 0 12px;
+
+    @include onTablet {
+      padding-left: 28px;
+      padding-right: 14px;
+    }
+
+    &--blue {
+      padding-top: 18px;
+      color: $blue-color;
+    }
+
+    &--grey {
+      padding-top: 18px;
+      color: $grey-text-color;
+    }
+
+    &--small {
+      padding-top: 35px;
+      font-size: 12px;
+      color: #545454;
+
+      @include onTablet {
+        padding-top: 20px;
+      }
+    }
+  }
+
+  &__more {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__more-link {
+    padding-top: 50px;
+    margin: 0 auto;
+    width: max-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    color: $blue-color;
+
+    transition: $effect-duration;
+
+    &:hover {
+      transform: scale(1.2);
+      filter: brightness(100);
+    }
+
+    @include onDesktop {
+      padding-bottom: 50px;
+    }
+  }
+
+  &__bg {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+}

@@ -1,0 +1,50 @@
+.lang {
+  box-sizing: border-box;
+  overflow-x: hidden;
+
+  @include onDesktop {
+    display: none;
+  }
+
+  &__wrapper {
+    background-color: $menu-bg-color;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+
+    @include onTablet {
+      min-height: auto;
+    }
+  }
+
+  &__container {
+    padding-top: 20px;
+
+    @include onTablet {
+      padding-top: 33px;
+    }
+  }
+
+  &__back {
+    display: block;
+    width: 10px;
+    height: 20px;
+    background-image: url(../images/icons/arrow-back.svg);
+    background-repeat: no-repeat;
+    margin-left: 20px;
+
+    @include hover(transform, scale(1.2));
+
+    @include onTablet {
+      margin-left: 33px;
+    }
+  }
+
+  &__nav {
+    padding-bottom: 20px;
+
+    @include onTablet {
+      padding-bottom: 15px;
+    }
+  }
+}

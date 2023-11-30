@@ -1,0 +1,111 @@
+.menu {
+  box-sizing: border-box;
+
+  @include onTablet {
+    position: relative;
+  }
+
+  &#menu {
+    @media (max-width: $desktop-min-width) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-color: $menu-bg-color;
+      height: 100vh;
+      z-index: 1;
+
+      transition: all $effect-duration;
+      opacity: 0;
+      transform: translateX(100%);
+      pointer-events: none;
+
+      &:target {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: all;
+      }
+
+      @include onTablet {
+        height: max-content;
+      }
+
+    }
+  }
+
+  &__bg {
+    @include onTablet {
+      content: "";
+      position: absolute;
+      background-color: rgba(0, 0, 0, 0.7);
+      height: 100vh;
+      width: 100%;
+      top: 100%;
+      right: 0;
+      bottom: 0;
+      z-index: -1;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+  }
+
+  &__container {
+    padding-top: 20px;
+    position: relative;
+
+    @include onTablet {
+      padding-top: 32px;
+    }
+
+    @include onDesktop {
+      padding: 0;
+    }
+  }
+
+  &__close {
+    width: 17px;
+    height: 17px;
+    background-image: url(../images/icons/close.svg);
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 30px;
+    transition: all $effect-duration;
+
+    &:hover {
+      transform: scale(1.2);
+      background-image: url(../images/icons/close-hover.svg);
+    }
+    @include onTablet {
+      right: 60px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &--phone {
+      @include onDesktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+      @include onDesktop {
+        display: block;
+        top: 18px;
+        right: 18px;
+      }
+    }
+  }
+
+  &__navigation {
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+}

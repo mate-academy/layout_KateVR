@@ -1,0 +1,43 @@
+.buy {
+  margin: 0 37px;
+  height: 40px;
+  box-sizing: border-box;
+  background-color: $blue-color;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  bottom: -20px;
+  transition: all $effect-duration;
+
+  &:hover {
+    background-color: $white-color;
+    color: $blue-color;
+  }
+
+  @include onTablet {
+    display: none;
+  }
+
+  &__desktop {
+    display: none;
+    @include onDesktop {
+      display: flex;
+      bottom: 0;
+      width: 200px;
+      height: 48px;
+      margin-right: 0;
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 130%;
+
+    @include onDesktop {
+      font-size: 16px;
+    }
+  }
+}

@@ -1,0 +1,110 @@
+.nav {
+  margin-top: 38px;
+  padding-bottom: 140px;
+
+  @include onTablet {
+    margin-top: 47px;
+  }
+
+  @include onDesktop {
+    margin-top: 0;
+    padding-bottom: 0;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+
+    @include onDesktop {
+      flex-direction: row;
+      gap: 35px;
+    }
+
+    &--footer {
+      gap: 12px;
+
+      @include onTablet {
+        flex-direction: row;
+        gap: 45px;
+      }
+    }
+  }
+
+  &__item {
+    @include onDesktop {
+      &--language {
+        display: none;
+      }
+
+      &--faq {
+        display: none;
+      }
+
+      &--help {
+        display: none;
+      }
+    }
+  }
+
+  &__link {
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 130%;
+    display: block;
+    width: 100%;
+    padding: 11px 20px;
+    transition: all $effect-duration;
+
+    &:hover {
+      background-color: #110e25;
+      color: $blue-color;
+    }
+
+    @include onTablet {
+      padding-left: 155px;
+    }
+
+    @include onDesktop {
+      padding: 0;
+      font-size: 16px;
+
+      &:hover {
+        background-color: transparent;
+      }
+    }
+
+    &--bottom {
+      line-height: 150%;
+    }
+
+    &--blue {
+      color: $blue-color;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &--grey {
+      color: $grey-text-color;
+    }
+  }
+
+  &__link-footer {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 150%;
+    transition: all $effect-duration;
+
+    @include onTablet {
+      font-size: 14px;
+    }
+
+    &:hover {
+      color: $blue-color;
+    }
+  }
+
+  &__link-lang {
+    padding-right: 0;
+  }
+}

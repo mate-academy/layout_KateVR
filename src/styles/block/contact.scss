@@ -1,0 +1,238 @@
+.contact {
+  background-color: $dark-blue;
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include onTablet {
+    padding-top: 70px;
+    padding-bottom: 130px;
+  }
+
+  @include onDesktop {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__grid {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__title-box {
+    @include onTablet {
+      grid-column: span 3;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__question {
+    font-size: 14px;
+    line-height: normal;
+    color: $blue-color;
+    padding-bottom: 11px;
+
+    @include onDesktop {
+      padding-bottom: 13px;
+    }
+  }
+
+  &__form-box {
+    @include onTablet {
+      grid-column: span 3;
+      grid-row: span 4;
+      position: relative;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input-box {
+    width: 100%;
+    position: relative;
+  }
+
+  &__placeholder {
+    position: absolute;
+    left: 0;
+    bottom: 15px;
+    font-size: 14px;
+    line-height: 150%;
+    color: $grey-text-color;
+    transition: all $effect-duration;
+    cursor: text;
+
+    &:enabled {
+      bottom: 15px;
+    }
+  }
+
+  &__textarea {
+    resize: none;
+  }
+
+  &__input,
+  &__textarea {
+    font-family: "Inter", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $white-color;
+
+    background-color: transparent;
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid $dark-grey-color;
+    padding: 24px 0 10px;
+    outline: none;
+    position: relative;
+
+    &:focus {
+      border-bottom: 1px solid $blue-color;
+    }
+
+    &:focus ~ label,
+    &:valid ~ label {
+      transform: translateY(-90%);
+      color: $blue-color;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $white-color;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  &__button {
+    font-family: "Inter", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    color: $white-color;
+
+    margin-top: 30px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: $blue-color;
+    outline: none;
+    border: 1px solid $blue-color;
+    transition: all $effect-duration;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $white-color;
+      color: $blue-color;
+    }
+
+    @include onTablet {
+      width: 200px;
+      height: 48px;
+      margin-top: 48px;
+    }
+
+    @include onDesktop {
+      margin-top: 90px;
+    }
+  }
+
+  &__message {
+    margin-top: 27px;
+    color: $grey-text-color;
+    font-size: 12px;
+    line-height: 150%;
+
+    @include onTablet {
+      font-size: 16px;
+      grid-column: span 3;
+      margin-top: 50px;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+      margin-top: 26px;
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include onTablet {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      grid-column: span 3;
+      margin-top: 76px;
+    }
+
+    @include onDesktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: normal;
+    color: $grey-text-color;
+    position: relative;
+    width: max-content;
+    transition: all $effect-duration;
+
+    &--footer {
+      font-size: 13px;
+    }
+
+    &:after {
+      content: "";
+      position: absolute;
+      display: block;
+      height: 1px;
+      width: 0;
+      background-color: $grey-text-color;
+      bottom: -5px;
+      left: 0;
+      transition: all $effect-duration;
+    }
+
+    &:hover::after {
+      width: 100%;
+    }
+  }
+
+  &__scroll-up {
+    display: none;
+    width: 48px;
+    height: 48px;
+    background-image: url(../images/scroll-up-white.svg);
+    background-size: contain;
+    transition: all $effect-duration;
+
+    @include onTablet {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    &:hover {
+      background-image: url(../images/scroll-up-blue.svg);
+      transform: scale(1.2);
+    }
+  }
+}
