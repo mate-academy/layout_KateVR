@@ -1,0 +1,308 @@
+.tech {
+  background-color: $bg-black;
+  height: 100%;
+  padding-block: 50px;
+
+  @include onTablet {
+    padding-block: 80px;
+  }
+
+  @include onDesktop {
+    padding-block: 100px;
+  }
+
+  @include onWideScreen {
+    padding-block: 160px;
+  }
+
+  &__content {
+    @include onTablet {
+      @include pageGrid;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include onDesktop {
+      grid-column: 9 / -1;
+    }
+
+    @include onWideScreen {
+      grid-column: 12 / -1;
+    }
+  }
+
+  &__block {
+    position: relative;
+    width: 197px;
+    height: auto;
+
+    margin-top: 41px;
+    margin-inline: auto;
+
+    @include onTablet {
+      grid-column: 2 / 6;
+      width: 357px;
+    }
+
+    @include onDesktop {
+      grid-column: 5 / 9;
+      width: 313px;
+      margin: 0;
+      transform: translateY(186px);
+    }
+
+    @include onWideScreen {
+      transform: translateY(166px);
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__img {
+    box-sizing: border-box;
+    display: block;
+    width: 197px;
+    height: auto;
+
+    @include onTablet {
+      width: 357px;
+    }
+
+    @include onDesktop {
+      width: 297px;
+      margin: 0;
+    }
+
+    &--accent {
+      display: none;
+
+      @include onDesktop {
+        display: block;
+        background-image: url(../images/main/tech/tech_eclipse.svg);
+        width: 40px;
+        height: 201px;
+        position: absolute;
+        top: 42px;
+        left: -11px;
+      }
+    }
+  }
+
+  &__more-icon {
+    display: block;
+    background-image: url(../images/main/tech/tech_info.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 0.3s;
+
+    @include onTablet {
+      width: 61px;
+      height: 61px;
+    }
+
+    @include onDesktop {
+      display: none;
+    }
+
+    &:hover {
+      background-image: url(../images/main/tech/tech_info_open.svg);
+    }
+
+    &:focus {
+      background-image: url(../images/main/tech/tech_info_open.svg);
+    }
+
+    &--1 {
+      left: 60px;
+      top: -11px;
+
+      @include onTablet {
+        left: 65px;
+        top: -27px;
+      }
+    }
+
+    &--2 {
+      right: 29px;
+      top: 80px;
+
+      @include onTablet {
+        right: 49px;
+        top: 145px;
+      }
+    }
+
+    &--3 {
+      left: -17px;
+      top: 153px;
+
+      @include onTablet {
+        left: -58px;
+        top: 273px;
+      }
+    }
+  }
+
+  &__more-info {
+    display: none;
+    position: absolute;
+    background-color: $aside-bg-color;
+    border-radius: 4px;
+    margin: 0;
+    font-size: 12px;
+    line-height: 150%;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+
+    &--1 {
+      padding: 17px 10px 22px 11px;
+      top: 30px;
+
+      @include onTablet {
+        top: 45px;
+      }
+    }
+
+    &--2 {
+      padding: 10px;
+      top: 120px;
+
+      @include onTablet {
+        top: 215px;
+      }
+    }
+
+    &--3 {
+      padding: 10px;
+      left: -20px;
+
+      @include onTablet {
+        top: 345px;
+        left: -60px;
+      }
+    }
+  }
+
+  &__more-icon--1:hover + &__more-info--1,
+  &__more-icon--2:hover + &__more-info--2,
+  &__more-icon--3:hover + &__more-info--3 {
+    display: block;
+    opacity: 1;
+  }
+
+  &__info {
+    display: none;
+
+    @include onDesktop {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--1 {
+      transform: translateY(-165px);
+      grid-column: 1 / 4;
+
+      @include onWideScreen {
+        transform: translateY(-180px);
+        grid-column: 3 / 6;
+      }
+    }
+
+    &--2 {
+      transform: translateY(-165px);
+      grid-column: 9 / -1;
+
+      @include onWideScreen {
+        transform: translateY(-180px);
+        grid-column: 12 / -1;
+      }
+    }
+
+    &--3 {
+      transform: translateY(-135px);
+      grid-column: 2 / 5;
+      height: 0;
+
+      @include onWideScreen {
+        transform: translateY(-130px);
+        grid-column: 3 / 6;
+      }
+    }
+  }
+
+  &__more-vector {
+    &--1 {
+      display: none;
+
+      @include onDesktop {
+        background-image: url(../images/main/tech/sensor_vector.svg);
+        width: 403px;
+        height: 72px;
+        display: block;
+        position: absolute;
+        top: -50px;
+        right: 166px;
+      }
+
+      @include onWideScreen {
+        background-image: url(../images/main/tech/sensor_vector_wide.svg);
+        width: 431px;
+        height: 72px;
+      }
+    }
+
+    &--2 {
+      display: none;
+
+      @include onDesktop {
+        background-image: url(../images/main/tech/batteries_vector.svg);
+        background-repeat: no-repeat;
+        width: 191px;
+        height: 245px;
+        display: block;
+        position: absolute;
+        top: -50px;
+        right: -30px;
+      }
+
+      @include onWideScreen {
+        background-image: url(../images/main/tech/batteries_vector_wide.svg);
+        width: 283px;
+        height: 245px;
+        right: -125px;
+      }
+    }
+
+    &--3 {
+      display: none;
+
+      @include onDesktop {
+        background-image: url(../images/main/tech/connection_vector.svg);
+        background-repeat: no-repeat;
+        width: 134px;
+        height: 113px;
+        display: block;
+        position: absolute;
+        top: 65px;
+        left: -135px;
+      }
+
+      @include onWideScreen {
+        background-image: url(../images/main/tech/connection_vector_wide.svg);
+        width: 241px;
+        height: 112px;
+        left: -235px;
+      }
+    }
+  }
+}
