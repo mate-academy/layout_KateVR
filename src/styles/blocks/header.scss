@@ -1,0 +1,232 @@
+header {
+  .header__page {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5px;
+    @include onTablet {
+      padding-top: 55px;
+    }
+    @include onDesktop {
+      padding-top: 0;
+    }
+    // @include ondesing {
+    //   padding-top: 215px;
+    // }
+    .header__title {
+      display: flex;
+      flex-direction: column;
+      width: 1201px;
+      padding-top: 16px;
+      @include onDesktop {
+        padding-top: 115px;
+      }
+      @include ondesing {
+        padding-top: 245px;
+      }
+    }
+  }
+  .styleH1d {
+    color: $c-button;
+    font-weight: 400;
+  }
+  .flexH4 {
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    width: 400px;
+    @include onTablet {
+      padding: 20px 0 0;
+    }
+    @include onDesktop {
+      padding: 35px 0 0 90px;
+    }
+  }
+  .padbot {
+    @include onTablet {
+      padding-bottom: 20px;
+    }
+    @include onDesktop {
+      padding-bottom: 35px;
+    }
+  }
+  .buttonLogo {
+    display: flex;
+    width: 200px;
+    height: 70px;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+    background-image: url(../images/buttonVideo.png);
+    &:hover {
+      transition: 0.5s;
+      transform: scale(1.07);
+    }
+    &:focus {
+      background-image: url(../images/buttonVideoH.png);
+    }
+  }
+  .pad3-4A {
+    display: flex;
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    max-height: 470px;
+    transition: transform 0.4s;
+    @include onTablet {
+      display: none;
+    }
+    &:hover {
+      transform: scale(1.06);
+    }
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+
+  }
+  .pad3-4 {
+    display: none;
+    @include onTablet {
+      display: flex;
+      position: relative;
+      box-sizing: border-box;
+      width: 100%;
+      max-height: 700px;
+      transition: transform 0.4s;
+    }
+    &:hover {
+      transform: scale(1.06);
+    }
+    &::after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+  .img3-4 {
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    position: absolute;
+    transition: all 0.3s;
+  }
+  .button_padA {
+    display: flex;
+    padding-top: 120px;
+    @include onTablet {
+      display: none;
+      padding: 0;
+    }
+  }
+  .header__link-shop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid black;
+    background-color: $c-button;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    color: $grantext;
+    text-decoration: none;
+    cursor: pointer;
+    height: 48px;
+    width: 100%;
+    margin-bottom: 30px;
+    transition: 0.5s;
+    @include onTablet {
+      width: 200px;
+      margin: 0;
+    }
+    &:hover {
+      @extend %btnH-hover;
+    }
+    &:focus {
+      @extend %btnH-focus;
+    }
+  }
+  .navBott {
+    display: none;
+    @include onDesktop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 80px 0 180px;
+    }
+    @include ondesing {
+      padding: 190px 0 265px;
+    }
+    .dispTab {
+      display: flex;
+      align-items: center;
+      gap: 37px;
+    }
+    .nav__logo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 35px;
+    }
+    .logo {
+      display: block;
+      width: 78px;
+      height: 17px;
+      background-repeat: no-repeat;
+      transition: all 0.3s;
+      background-image: url(../images/logoD.svg);
+      &:hover {
+        transition: 0.5s;
+        transform: scale(1.07);
+      }
+    }
+    .navTab {
+      display: flex;
+      align-items: center;
+    }
+    .lang {
+      display: flex;
+      background-color: #191536;
+      border: none;
+      color: $c-button;
+      cursor: pointer;
+      @include onTablet {
+        display: flex;
+        align-items: center;
+      }
+      @include onDesktop {
+        display: flex;
+        align-items: center;
+      }
+    }
+    .menu__list1 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 36px;
+    }
+    .menu__item1 {
+      display: block;
+      text-decoration: none;
+      font-size: 16px;
+      line-height: 130%;
+      font-weight: 500;
+      font-style: normal;
+      color: $grantext;
+      cursor: pointer;
+      text-align: center;
+      &:hover {
+        color: green;
+        font-weight: 500;
+        opacity: 0.6;
+        -webkit-transition: opacity 0.5s ease-in-out;
+        -moz-transition: opacity 0.5s ease-in-out;
+        -ms-transition: opacity 0.5s ease-in-out;
+        -o-transition: opacity 0.5s ease-in-out;
+        transition: opacity 0.5s ease-in-out;
+      }
+    }
+  }
+}
