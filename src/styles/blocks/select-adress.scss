@@ -1,0 +1,83 @@
+.select-adress {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    top: 50%;
+    right: 35px;
+    transform: translateY(-50%);
+
+    pointer-events: none;
+    display: block;
+
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 4.5px 0;
+    border-color: $color-1 transparent transparent transparent;
+  }
+
+  &__name {
+    @extend %text-link;
+    font-size: 16px;
+    text-align: left;
+    font-weight: 400;
+    background-color: $color-background-buy;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    padding: 13px 24px;
+  }
+
+  &__list {
+    display: none;
+    list-style: none;
+    width: 100%;
+    padding: 0;
+
+    position: absolute;
+    left: 0;
+    top: 41px;
+
+    border-radius: 4px;
+    background-color: $color-background-buy;
+    overflow: hidden;
+
+    z-index: 10;
+  }
+
+  &__option {
+    @extend %text-link;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    cursor: pointer;
+
+    &:first-child {
+      padding: 12px 24px 6px;
+    }
+
+    &:not(:first-child) {
+      padding: 6px 24px;
+    }
+
+    &:last-child {
+      padding: 6px 24px 12px;
+    }
+
+    &:hover {
+      color: $color-white;
+      background-color: #302b62;
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+}
+
+.select-adress__list--visible {
+  display: block;
+}

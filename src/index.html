@@ -10,7 +10,8 @@
     <link rel="icon" href="./images/icon/favicon.png">
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
-  <body class="page__body">
+
+  <body class="page__body" id="body">
     <header class="header">
       <div class="header__top-bar top-bar">
         <div class="container">
@@ -37,16 +38,6 @@
                   name="select-category"
                   value="#"
                 >
-                <!-- <select
-                  class="top-bar__language"
-                  name="language"
-                  id="language"
-                >
-                  <option class="top-bar__language-option" value="English">En</option>
-                  <option class="top-bar__language-option" value="Ukrainian">Ua</option>
-                  <option class="top-bar__language-option" value="Russion">Ru</option>
-                  <option class="top-bar__language-option" value="Polish">Pl</option>
-                </select> -->
               </div>
             </div>
 
@@ -70,7 +61,7 @@
               </ul>
 
               <div class="nav__button button">
-                <a class="button__link-blue" href="#">Buy Now</a>
+                <a class="button__link-blue" href="#buy">Buy Now</a>
               </div>
             </nav>
 
@@ -152,19 +143,58 @@
           <div class="header__price">1200$</div>
 
           <div class="header__button">
-            <a href="#">
-              <img
+            <a class="header__button-link" href="#">
+              <svg
+                class="header__button-svg"
+                xmlns="http://www.w3.org/2000/svg"
+                width="86"
+                height="69"
+                viewBox="0 0 86 69"
+                fill="none"
+              >
+                <path
+                  opacity="0.45" d="M51 7C46.1191 3.58873 40.9135 2.35207 35 2.00004C29.0865 1.648 23.5605 3.00323 18.3211 5.81203C13.0817 8.62084 8.69816 12.8327 5.64507 17.9917C2.59199 23.1507 0.985693 29.0602 1.0001 35.0803C1.0145 41.1005 2.64905 47.002 5.72678 52.1458C8.80452 57.2896 13.2082 61.4798 18.4609 64.2627C23.7137 67.0456 29.6155 68.3151 35.5272 67.9339C41.439 67.5526 47.1355 65.4354 52 62"
+                  stroke="#05C2DF"
+                  stroke-width="2"
+                  stroke-miterlimit="1.51696"
+                ></path>
+
+                <path
+                  d="M34.0306 61.1555C48.6177 61.1555 60.4429 49.3649 60.4429 34.8204C60.4429 20.276 48.6177 8.48535 34.0306 8.48535C19.4434 8.48535 7.61816 20.276 7.61816 34.8204C7.61816 49.3649 19.4434 61.1555 34.0306 61.1555Z"
+                  stroke="#05C2DF"
+                  stroke-miterlimit="10"
+                ></path>
+
+                <path
+                  opacity="0.45"
+                  d="M86 12H56V14H86V12Z"
+                  fill="#05C2DF"
+                ></path>
+
+                <path
+                  opacity="0.45"
+                  d="M86 56H56V58H86V56Z"
+                  fill="#05C2DF"
+                ></path>
+
+                <path
+                  class="header__button-svg-path"
+                  d="M45 35L27.75 45.3923L27.75 24.6077L45 35Z"
+                  fill="#05C2DF"
+                ></path>
+              </svg>
+              <!-- <img
                 class="header__button-round"
                 src="./images/header/button.png"
                 alt="button_play"
-              >
+              > -->
             </a>
 
             <a class="header__button-play" href="#">Play Video</a>
           </div>
 
           <div class="header__button-fixed button">
-            <a class="button__link-blue" href="#">Buy Now</a>
+            <a class="button__link-blue" href="#buy">Buy Now</a>
           </div>
         </div>
       </div>
@@ -177,12 +207,12 @@
         <div class="container">
           <div class="details-header__wrapper">
             <div class="details-header__question">
-              <a class="details-header__faq" href="#">FAQ</a>
-              <a class="details-header__help" href="#">Help</a>
+              <a class="details-header__faq" href="#faq">FAQ</a>
+              <a class="details-header__help" href="#help">Help</a>
             </div>
 
             <div class="details-header__more">
-              <a class="details-header__link" href="#">More</a>
+              <a class="details-header__link" href="#more">More</a>
             </div>
 
             <div class="details-header__slide">
@@ -194,10 +224,761 @@
       </div>
     </header>
 
-    <aside id="menu"></aside>
+    <aside class="buy" id="buy">
+      <section class="buy__content">
+        <div class="buy__top-bar top-bar">
+          <div class="container">
+            <div class="top-bar__body">
+              <div class="top-bar__left">
+                <div class="top-bar__logo">
+                  <a href="#">
+                    <img src="./images/icon/logo.svg" alt="logo">
+                  </a>
+                </div>
+              </div>
+
+              <a
+                class="top-bar__button button-buy__link button-buy__link-active"
+                href="#buy"
+                onclick="showBlock('buy__place')"
+              >Place Order</a>
+
+              <a
+                class="top-bar__button  button-buy__link"
+                href="#buy"
+                onclick="showBlock('buy__pay')"
+              >Pay</a>
+
+              <a
+                class="top-bar__button  button-buy__link"
+                href="#buy"
+                onclick="showBlock('buy__complete')"
+              >Complete</a>
+
+              <div class="top-bar__menu top-bar__menu-cross">
+                <a class="top-bar__menu-link" href="#">
+                  <svg
+                    class="top-bar__menu-svg"
+                    id="cross-buy"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="19" height="19"
+                    viewBox="0 0 19 19"
+                    fill="#fff"
+                  >
+                    <line
+                      x1="1.35355"
+                      y1="0.995079"
+                      x2="18.2206"
+                      y2="17.8622"
+                      stroke="white"
+                    ></line>
+                    <path
+                      d="M1.13379 17.8672L18.0009 1.00011"
+                      stroke="white"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="buy__body">
+            <div class="buy__buttons button-buy">
+              <a
+                class="button-buy__link button-buy__link-active"
+                href="#buy"
+                onclick="showBlock('buy__place')"
+              >Place Order</a>
+
+              <a
+                class="button-buy__link"
+                href="#buy"
+                onclick="showBlock('buy__pay')"
+              >Pay</a>
+
+              <a
+                class="button-buy__link"
+                href="#buy"
+                onclick="showBlock('buy__complete')"
+              >Complete</a>
+            </div>
+
+            <script>
+              function showBlock(blockId) {
+                const buttons = document.querySelectorAll(".button-buy__link");
+                buttons.forEach(function(btn) {
+                  btn.classList.remove("button-buy__link-active");
+                });
+
+                event.target.classList.add("button-buy__link-active");
+
+                var blocks = document.querySelectorAll(".buy__place, .buy__pay, .buy__complete");
+                blocks.forEach(function(block) {
+                  block.classList.remove("active");
+                });
+
+                document.querySelector("." + blockId).classList.add("active");
+              }
+            </script>
+
+            <div class="buy__place place-buy active" id="place-buy">
+              <form
+                class="place-buy__contacts form-place"
+                action="#"
+                method="post"
+                id="form-place"
+              >
+                <div class="form-place__block-top">
+                  <div class="form-place__picture">
+                    <picture>
+                      <source
+                        media="(min-width: 1920px)"
+                        srcset="./images/header/image-buy2.png"
+                      >
+
+                      <img
+                        class="form-place__img"
+                        src="./images/header/image-buy.png"
+                        alt="picture"
+                      >
+                    </picture>
+                  </div>
+
+                  <div class="form-place__content-top">
+                    <div class="form-place__description">
+                      <div class="form-place__inf">Quantity</div>
+                      <div class="form-place__description-value select-buy">
+                        <button class="select-buy__quality" type="button">1</button>
+                        <ul class="select-buy__quality-list">
+                          <li class="select-buy__quality-option" data-value="1">1</li>
+                          <li class="select-buy__quality-option" data-value="2">2</li>
+                          <li class="select-buy__quality-option" data-value="3">3</li>
+                          <li class="select-buy__quality-option" data-value="4">4</li>
+                          <li class="select-buy__quality-option" data-value="5">5</li>
+                          <li class="select-buy__quality-option" data-value="6">6</li>
+                        </ul>
+
+                        <input
+                          class="select-buy__input"
+                          type="text"
+                          name="select-value"
+                          value="#"
+                        >
+                      </div>
+                    </div>
+
+                    <div class="form-place__description">
+                      <div class="form-place__inf">Price</div>
+
+                      <div class="form-place__price">1200$</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-place__blocks">
+                  <div class="form-place__block1">
+                    <div class="form-place__area">
+                      <input
+                        class="form-place__input"
+                        type="text"
+                        name="first-name"
+                        placeholder="First Name*"
+                        required
+                      >
+                    </div>
+                    <div class="form-place__area">
+                      <input
+                        class="form-place__input"
+                        type="text"
+                        name="surname"
+                        placeholder="Last Name*"
+                        required
+                      >
+                    </div>
+                  </div>
+
+                  <div class="form-place__block2">
+                    <div class="form-place__area">
+                      <input
+                        class="form-place__input"
+                        type="email"
+                        name="email"
+                        placeholder="Email*"
+                        required
+                      >
+                    </div>
+                    <div class="form-place__area">
+                      <input
+                        class="form-place__input"
+                        type="phone"
+                        name="phone"
+                        placeholder="Phone Number*"
+                        required
+                      >
+                    </div>
+                  </div>
+
+                  <div class="form-place__block3">
+                    <div class="form-place__adress-country">
+                      <div class="form-place__inf">Country*</div>
+                      <div class="form-place__country select-adress">
+                        <button class="select-adress__name" type="button">Ukraine</button>
+                        <ul class="select-adress__list">
+                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
+                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
+                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
+                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
+                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
+                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
+                        </ul>
+                        <input
+                          class="select-adress__input"
+                          type="text"
+                          name="select-country"
+                          value="#"
+                        >
+                      </div>
+                    </div>
+
+                    <div class="form-place__adress-city">
+                      <div class="form-place__inf">City*</div>
+                      <div class="form-place__city select-adress">
+                        <button class="select-adress__name" type="button">Kyiv</button>
+                        <ul class="select-adress__list">
+                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
+                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
+                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
+                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
+                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
+                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
+                        </ul>
+                        <input
+                          class="select-adress__input"
+                          type="text"
+                          name="select-city"
+                          value="#"
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-place__block4">
+                    <div class="form-place__area">
+                      <input
+                        class="form-place__input"
+                        type="text"
+                        name="adress1"
+                        placeholder="Shipping Adress*"
+                        required
+                      >
+                    </div>
+
+                    <div class="form-place__area">
+                      <input
+                        class="form-place__input"
+                        type="text"
+                        name="adress2"
+                        placeholder="Shipping Adress 2"
+                        required
+                      >
+                    </div>
+                  </div>
+
+                  <button
+                    class="form-place__purchase"
+                    type="submit"
+                  >Purchase</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="buy__pay pay-buy" id="pay-buy">
+              <form
+                class="pay-buy__form form-pay"
+                action="#"
+                method="post"
+              >
+                <div class="form-pay__block-top">
+                  <div class="form-pay__picture">
+                    <picture>
+                      <source
+                        media="(min-width: 1920px)"
+                        srcset="./images/header/image-buy2.png"
+                      >
+
+                      <img
+                        class="form-pay__img"
+                        src="./images/header/image-buy.png"
+                        alt="picture"
+                      >
+                    </picture>
+                  </div>
+
+                  <div class="form-place__content-top">
+                    <div class="form-place__description">
+                      <div class="form-place__inf">Quantity</div>
+                      <div class="form-place__description-value select-buy">
+                        <button class="select-buy__quality" type="button">1</button>
+                        <ul class="select-buy__quality-list">
+                          <li class="select-buy__quality-option" data-value="1">1</li>
+                          <li class="select-buy__quality-option" data-value="2">2</li>
+                          <li class="select-buy__quality-option" data-value="3">3</li>
+                          <li class="select-buy__quality-option" data-value="4">4</li>
+                          <li class="select-buy__quality-option" data-value="5">5</li>
+                          <li class="select-buy__quality-option" data-value="6">6</li>
+                        </ul>
+
+                        <input
+                          class="select-buy__input"
+                          type="text"
+                          name="select-value"
+                          value="#"
+                        >
+                      </div>
+                    </div>
+
+                    <div class="form-place__description">
+                      <div class="form-place__inf">Price</div>
+
+                      <div class="form-place__price">1200$</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-pay__blocks">
+                  <div class="form-pay__card">Card Number*</div>
+
+                  <div class="form-pay__area-num">
+                    <input
+                      class="form-pay__input-num"
+                      type="text"
+                      name="card-number"
+                      size="2"
+                      maxlength="4"
+                      placeholder="0000"
+                      id="input1"
+                      oninput="moveToNextInput(event, 'input2')"
+                      required
+                    >
+
+                    <input
+                      class="form-pay__input-num"
+                      type="text"
+                      name="card-number"
+                      size="2"
+                      maxlength="4"
+                      placeholder="0000"
+                      id="input2"
+                      oninput="moveToNextInput(event, 'input3')"
+                      required
+                    >
+
+                    <input
+                      class="form-pay__input-num"
+                      type="text"
+                      name="card-number"
+                      size="2"
+                      maxlength="4"
+                      placeholder="0000"
+                      id="input3"
+                      oninput="moveToNextInput(event, 'input4')"
+                      required
+                    >
+
+                    <input
+                      class="form-pay__input-num"
+                      type="text"
+                      name="card-number"
+                      size="2"
+                      maxlength="4"
+                      placeholder="0000"
+                      id="input4"
+                      required
+                    >
+
+                    <div class="form-pay__card-visa">
+                      <img
+                        class="form-pay__img-card"
+                        src="./images/header/card.jpg"
+                        alt="card"
+                      >
+                    </div>
+                  </div>
+
+                  <script>
+                    function moveToNextInput(event, nextInputId) {
+                      const input = event.target;
+                      const maxLength = parseInt(input.getAttribute('maxlength'));
+
+                      if (input.value.length === maxLength) {
+                        const nextInput = document.getElementById(nextInputId);
+
+                        if (nextInput) {
+                          nextInput.focus();
+                        }
+                      }
+                    }
+                  </script>
+
+                  <div class="form-pay__area-name">
+                    <input
+                      class="form-pay__input"
+                      type="text"
+                      name="holder-name"
+                      placeholder="Card Holder Name*"
+                    >
+                  </div>
+
+                  <div class="form-pay__inf">
+                    <div class="form-pay__expiration">
+                      <div class="form-pay__card form-pay__card-date">Expiration Date*</div>
+
+                      <div class="form-pay__area">
+                        <input
+                          class="form-pay__input form-pay__input-date"
+                          type="text"
+                          name="date-valid"
+                          size="5"
+                          maxlength="5"
+                          placeholder="MM / YY"
+                        >
+                      </div>
+                    </div>
+
+                    <div class="form-pay__cvv">
+                      <div class="form-pay__card form-pay__card-cvv">CVV*</div>
+
+                      <div class="form-pay__area">
+                        <input
+                          class="form-pay__input-cvv"
+                          type="text"
+                          name="cvv"
+                          size="1"
+                          maxlength="3"
+                          placeholder="000"
+                        >
+                      </div>
+                    </div>
+                  </div>
+
+                  <button
+                    class="form-place__purchase form-place__purchase-buy"
+                    type="submit"
+                  >Purchase</button>
+                </div>
+              </form>
+            </div>
+
+            <div class="buy__complete complete-buy" id="complete-buy">
+              <h1 class="complete-buy__title">Thank you for     <span class="complete-buy__title-think">your</span> order!</h1>
+
+              <div class="complete-buy__subtitle">Your order has been placed and is being processed. You will recive an email with the order details</div>
+
+              <div class="complete-buy__button button">
+                <a class="button__link-blue" href="#">Back to homepage</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
+
+    <aside class="aside" id="aside">
+      <section class="aside__menu menu" id="menu">
+        <div class="menu__top-bar top-bar">
+          <div class="container">
+            <div class="top-bar__menu top-bar__menu-cross">
+              <a class="top-bar__menu-link" href="#">
+                <svg
+                  class="top-bar__menu-svg"
+                  id="cross"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="19" height="19"
+                  viewBox="0 0 19 19"
+                  fill="#fff"
+                >
+                  <line
+                    x1="1.35355"
+                    y1="0.995079"
+                    x2="18.2206"
+                    y2="17.8622"
+                    stroke="white"
+                  ></line>
+                  <path
+                    d="M1.13379 17.8672L18.0009 1.00011"
+                    stroke="white"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <nav class="menu__nav nav">
+          <ul class="menu__nav nav__list nav__list-menu">
+            <li class="nav__item nav__item-menu">
+              <div class="container"><a href="#about" class="nav__link nav__link-menu">About</a></div>
+            </li>
+
+            <li class="nav__item nav__item-menu">
+              <div class="container"><a href="#tech" class="nav__link nav__link-menu">Tech</a></div>
+            </li>
+
+            <li class="nav__item nav__item-menu">
+              <div class="container"><a href="#benefits" class="nav__link nav__link-menu">Benefits</a></div>
+            </li>
+
+            <li class="nav__item nav__item-menu">
+              <div class="container"><a href="#contact" class="nav__link nav__link-menu">Contact</a></div>
+            </li>
+
+            <li class="nav__item nav__item-menu">
+              <div class="container"><a href="#language" class="nav__link nav__link-menu">Language</a></div>
+            </li>
+
+            <li class="nav__item nav__item-menu">
+              <div class="container"><a href="#faq" class="nav__link nav__link-menu">FAQ</a></div>
+            </li>
+
+            <li class="nav__item nav__item-menu">
+              <div class="container"><a href="#help" class="nav__link nav__link-menu">Help</a></div>
+            </li>
+          </ul>
+        </nav>
+      </section>
+
+      <section class="aside__language language" id="language">
+        <div class="language__top-bar top-bar">
+          <div class="container">
+            <div class="top-bar__language top-bar__language-arrow">
+              <a class="top-bar__language-link" href="#menu">
+                <svg
+                  class="top-bar__language-svg"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="10"
+                  height="19"
+                  viewBox="0 0 10 19"
+                  fill="none"
+                >
+                  <path
+                    d="M9.5 1L1 9.5L9.5 18"
+                    stroke="white"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <ul class="language__list">
+          <li class="language__item">
+            <div class="container"><a href="#" class="language__link">English</a></div>
+          </li>
+
+          <li class="language__item">
+            <div class="container"><a href="#" class="language__link">Arabic</a></div>
+          </li>
+
+          <li class="language__item">
+            <div class="container"><a href="#" class="language__link">Chinese (Simplified)</a></div>
+          </li>
+
+          <li class="language__item">
+            <div class="container"><a href="#" class="language__link">Chinese (Traditional)</a></div>
+          </li>
+
+          <li class="language__item">
+            <div class="container"><a href="#" class="language__link">French</a></div>
+          </li>
+
+          <li class="language__item">
+            <div class="container"><a href="#" class="language__link">German</a></div>
+          </li>
+
+          <li class="language__item">
+            <div class="container"><a href="#" class="language__link">Italian</a></div>
+          </li>
+
+          <li class="language__item">
+            <div class="container"><a href="#" class="language__link">Polish</a></div>
+          </li>
+
+          <li class="language__item">
+            <div class="container"><a href="#" class="language__link">Russian</a></div>
+          </li>
+
+          <li class="language__item">
+            <div class="container"><a href="#" class="language__link">Ukrainian</a></div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="aside__faq faq" id="faq">
+        <div class="faq__wrapper">
+          <div class="faq__top-bar top-bar">
+            <div class="container faq__container">
+              <div class="top-bar__menu top-bar__menu-cross">
+                <a class="top-bar__menu-link" href="#">
+                  <svg
+                    class="top-bar__menu-svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="19" height="19"
+                    viewBox="0 0 19 19"
+                    fill="#fff"
+                  >
+                    <line
+                      x1="1.35355"
+                      y1="0.995079"
+                      x2="18.2206"
+                      y2="17.8622"
+                      stroke="white"
+                    ></line>
+                    <path
+                      d="M1.13379 17.8672L18.0009 1.00011"
+                      stroke="white"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="faq__content">
+              <h2 class="faq__title">FREQUENTLY ASKED <span class="faq__title-think">QUESTIONS</span></h2>
+
+              <div class="faq__body">
+                <div class="faq__item">
+                  <div class="faq__item-title">What makes KAT loco different from other systems?</div>
+
+                  <p class="faq__item-text">Despite being approached from many different angles, all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution for an affordable price what makes it a perfect choice for home-use. It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!</p>
+
+                  <p class="faq__item-inf">Last updated: Wed, June 12 2019 7:07 PM UTC +03:00</p>
+                </div>
+
+                <div class="faq__item">
+                  <div class="faq__item-title">Will it decrease my motion sickness?</div>
+
+                  <p class="faq__item-text">Despite being approached from many different angles, all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution for an affordable price what makes it a perfect choice for home-use. It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!</p>
+
+                  <p class="faq__item-inf">Last updated: Wed, June 12 2019 7:07 PM UTC +03:00</p>
+                </div>
+
+                <div class="faq__item">
+                  <div class="faq__item-title">Which VR headsets is it compatible with?</div>
+
+                  <p class="faq__item-text">Despite being approached from many different angles, all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution for an affordable price what makes it a perfect choice for home-use. It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!</p>
+
+                  <p class="faq__item-inf">Last updated: Wed, June 12 2019 7:07 PM UTC +03:00</p>
+                </div>
+
+                <div class="faq__item">
+                  <div class="faq__item-title">Is it compatible with Oculus Quest?</div>
+
+                  <p class="faq__item-text">Despite being approached from many different angles, all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution for an affordable price what makes it a perfect choice for home-use. It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!</p>
+
+                  <p class="faq__item-inf">Last updated: Wed, June 12 2019 7:07 PM UTC +03:00</p>
+                </div>
+
+                <div class="faq__more details-header__more">
+                  <a class="details-header__link" href="#">More</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="aside__help help" id="help">
+        <div class="help__wrapper">
+          <div class="help__top-bar top-bar">
+            <div class="container help__container">
+              <div class="top-bar__menu top-bar__menu-cross">
+                <a class="top-bar__menu-link" href="#">
+                  <svg
+                    class="top-bar__menu-svg"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="19" height="19"
+                    viewBox="0 0 19 19"
+                    fill="#fff"
+                  >
+                    <line
+                      x1="1.35355"
+                      y1="0.995079"
+                      x2="18.2206"
+                      y2="17.8622"
+                      stroke="white"
+                    ></line>
+                    <path
+                      d="M1.13379 17.8672L18.0009 1.00011"
+                      stroke="white"
+                    ></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="container">
+            <div class="help__content">
+              <h2 class="help__title">HOW CAN WE <span class=" help__title-thik">HELP</span> YOU?</h2>
+
+              <p class="help__text">Welcome to our help center. Our goal is to make the process of
+                getting acquainted and purchase as easy and pleasant as possible. Need help with your KAT VR loco product? Many product questions can be resolved by reviewing our Product Support <a class="help__text-think" href="#faq">FAQs</a>.
+                <br><br>
+                Please also feel free to <a class="help__text-think" href="#contacts">Contact Us</a> directly should you need anything further. We’re happy to help.
+              </p>
+
+              <div class="help__content-button">
+                <div class="help__inf-links">
+                  <div class="help__inf">
+                    <a class="help__text-think" href="#instruction">Instruction manual</a>
+                  </div>
+                  <div class="help__inf">
+                    <a class="help__text-think" href="#warranty">Where to go for a warranty</a>
+                  </div>
+
+                  <div class="help__inf">
+                    <a class="help__text-think" href="#service">Service Policy</a>
+                  </div>
+                </div>
+
+                <div class="help__contacts">
+                  <div class="help__con">
+                    <a
+                      class="help__link"
+                      href="tel:+86057186105373"
+                      target="_blank"
+                    >+86-0571-86105373</a>
+                  </div>
+
+                  <div class="help__con">
+                    <a
+                      class="help__link"
+                      href="https://www.kat-vr.com/"
+                      target="_blank"
+                    >global@katvr.com</a>
+                  </div>
+
+                  <div class="help__con">
+                    <a
+                      class="help__link"
+                      href="email:overseas@katvr.com"
+                      target="_blank"
+                    >overseas@katvr.com</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
 
     <main class="page__main">
-      <section class="more js-example-basic-single">
+      <section class="more" id="more">
         <div class="container">
           <div class="more__body">
             <h2 class="more__title">
@@ -276,6 +1057,10 @@
     </main>
 
     <footer></footer>
-    <script type="text/javascript" src="scripts/main.js"></script>
+    <script
+      type="text/javascript"
+      src="scripts/main.js"
+      defer
+    ></script>
   </body>
 </html>

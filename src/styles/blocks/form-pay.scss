@@ -1,0 +1,172 @@
+.form-pay {
+  @include onDesctop {
+    display: flex;
+    gap: 80px;
+  }
+
+  @include onLargeDesctop {
+    gap: 0;
+    margin-top: 230px;
+  }
+
+  &__picture {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+    }
+  }
+
+  &__img {
+    @include onTablet {
+      margin-left: -52px;
+    }
+
+    @include onLargeDesctop {
+      margin-left: -100px;
+    }
+  }
+
+  &__blocks {
+    margin-top: 53px;
+  }
+
+  &__card {
+    margin-bottom: 17px;
+    @extend %text-placeholder;
+  }
+
+  &__area-num {
+    display: flex;
+    justify-content: space-between;
+
+    @include onDesctop {
+      gap: 28px;
+    }
+
+    @include onLargeDesctop {
+      gap: 60px;
+    }
+  }
+
+  &__input-num {
+    @include onTablet {
+      padding-bottom: 7px;
+    }
+  }
+
+  &__input-num,
+  &__input-cvv {
+    letter-spacing: 2px;
+
+    &::placeholder {
+      @extend %text-placeholder;
+      font-size: 16px;
+      letter-spacing: 2px;
+    }
+  }
+
+  &__input {
+    text-align: left;
+    width: 100%;
+    padding-bottom: 19px;
+
+    @include onTablet {
+      padding-bottom: 26px;
+    }
+  }
+
+  &__input-cvv,
+  &__input-date {
+    padding-bottom: 8px;
+  }
+
+  &__input,
+  &__input-num,
+  &__input-cvv {
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $color-line-input;
+    background-color: transparent;
+    padding-bottom: 9px;
+
+    @extend %text-placeholder;
+    font-size: 16px;
+    text-align: center;
+    color: $color-white;
+
+    &::placeholder {
+      @extend %text-placeholder;
+      font-size: 16px;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $color-1;
+      transition: 0.3s;
+
+      &:focus::placeholder {
+        color: transparent;
+      }
+    }
+  }
+
+  &__card-visa {
+    display: none;
+
+    @include onTablet {
+      display: block;
+    }
+  }
+
+  &__area-name {
+    margin-top: 30px;
+
+    @include onDesctop {
+      margin-top: 40px;
+    }
+  }
+
+  &__inf {
+    display: flex;
+    gap: 30px;
+    margin-top: 30px;
+
+    @include onTablet {
+      gap: 130px;
+    }
+
+    @include onDesctop {
+      margin-top: 40px;
+      gap: 50px;
+    }
+  }
+
+  &__expiration {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card-date {
+    color: $color-text-body;
+  }
+
+  // &__area {
+  // }
+
+  &__input-date {
+    @include onTablet {
+      padding-bottom: 7px;
+    }
+  }
+
+  &__cvv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  // &__card-cvv {
+  // }
+}

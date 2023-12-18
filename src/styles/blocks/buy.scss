@@ -1,0 +1,49 @@
+.buy {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 7;
+  overflow: scroll;
+  overflow-x: hidden;
+
+  background: linear-gradient(108deg, #191536 0%, #000 100%);
+  transform: translateX(100%);
+  transition: transform 0.3s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  // &__wrapper {
+  // }
+
+  // &__top-bar {
+  // }
+
+  &__body {
+    margin-top: 15px;
+  }
+
+  &__place,
+  &__pay,
+  &__complete {
+    display: none;
+  }
+
+  &__place.active {
+    display: block;
+  }
+
+  &__pay.active {
+    display: block;
+  }
+
+  &__complete.active {
+    display: block;
+  }
+
+  // &__buttons {
+  // }
+}

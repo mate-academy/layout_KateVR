@@ -1,0 +1,206 @@
+.form-place {
+  @include onDesctop {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include onLargeDesctop {
+    justify-content: start;
+    margin-top: 230px;
+  }
+
+  &__area {
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesctop {
+      width: 250px;
+    }
+  }
+
+  &__block1,
+  &__block2,
+  &__block3,
+  &__block4 {
+    @include onTablet {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include onDesctop {
+      gap: 20px;
+    }
+  }
+
+  &__block3 {
+    @include onTablet {
+      margin-top: 40px;
+    }
+  }
+
+  &__adress-city,
+  &__adress-country {
+    @include onTablet {
+      width: 340px;
+    }
+
+    @include onDesctop {
+      width: 250px;
+    }
+  }
+
+  // &__blocks {
+  //   @include onDesctop {
+  //     margin-top: 12px;
+  //   }
+  // }
+
+  // &__blocks-pay {
+  //   @include onDesctop {
+  //     margin-top: 52px;
+  //   }
+  // }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__picture {
+    display: none;
+
+    @include onTablet {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+    }
+  }
+
+  &__img {
+    @include onTablet {
+      margin-left: -52px;
+    }
+
+    @include onLargeDesctop {
+      margin-left: -100px;
+    }
+  }
+
+  &__content-top {
+    display: flex;
+    justify-content: space-around;
+
+    @include onTablet {
+      justify-content: flex-start;
+      gap: 148px;
+    }
+  }
+
+  &__purchase {
+    width: 100%;
+    height: 40px;
+    background-color: $color-1;
+    border-radius: 4px;
+    margin: 40px 0 37px;
+    @extend %text-link;
+    font-size: 14px;
+    transition: 0.5s;
+
+    @include hover(color, $color-1);
+    @include hover(background-color, $color-white);
+
+    @include onTablet {
+      height: 48px;
+      width: 458px;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include onDesctop {
+      width: 200px;
+      left: 0;
+      transform: translateX(0);
+    }
+  }
+
+  &__inf {
+    margin: 30px 0 10px;
+    @extend %text-body;
+
+    @include onTablet {
+      margin: 0 0 13px;
+    }
+  }
+
+  &__price {
+    color: $color-1;
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  // &__purchase-buy {
+  //   @include onTablet {
+  //     margin-top: 109px;
+  //   }
+
+  //   @include onDesctop {
+  //     margin-top: 90px;
+  //   }
+  // }
+
+  &__input {
+    margin-top: 30px;
+    height: 37px;
+    width: 100%;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $color-line-input;
+    background-color: transparent;
+    padding-bottom: 19px;
+
+    color: $color-white;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 130%;
+
+    &::placeholder {
+      @extend %text-placeholder;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $color-1;
+      transition: 0.3s;
+
+      &::placeholder {
+        color: transparent;
+      }
+    }
+
+    @include onTablet {
+      margin-top: 40px;
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: none;
+  border-bottom: 1px solid $color-line-input;
+  -webkit-text-fill-color: $color-white;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+// input:required:invalid {
+//   border-bottom: 1px solid red;
+// }

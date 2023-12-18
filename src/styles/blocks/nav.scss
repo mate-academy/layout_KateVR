@@ -4,12 +4,27 @@
     padding: 0;
   }
 
+  &__item-menu {
+    padding: 11px 0;
+    @include hover(background-color, $color-background-menu);
+
+    @include onTablet {
+      padding-left: 155px;
+    }
+  }
+
   &__link {
     @extend %text-link;
 
     position: relative;
     @include hover(color, $color-text-body);
     @include hoverAfter(width, 100%);
+  }
+
+  &__link-menu {
+    font-size: 21px;
+    @include hover(color, $color-1);
+    @include hoverAfter(width, 0);
   }
 
   &__button {

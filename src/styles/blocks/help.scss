@@ -1,0 +1,141 @@
+.help {
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  padding-bottom: 60px;
+
+  background: $color-background-buy;
+  transform: translateX(-100%);
+  transition: transform 0.5s;
+
+  &:target {
+    transform: translateX(0);
+  }
+
+  @include onTablet {
+    background: linear-gradient(to bottom,
+    #191536 596px,
+    rgba(0, 0, 0, 0.7) 596px);
+  }
+
+  @include onDesctop {
+    position: absolute;
+    height: 100%;
+    transform: translateX(-150%);
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &__wrapper {
+    @include onDesctop {
+      width: 880px;
+      height: 550px;
+      margin: 136px auto;
+      background: $color-background-buy;
+    }
+  }
+
+  &__container {
+    @include onDesctop {
+      max-width: 850px;
+    }
+  }
+
+  &__content {
+    @include onTablet {
+      width: 100%;
+    }
+
+    @include onDesctop {
+      padding: 0 90px;
+    }
+  }
+
+  &__top-bar {
+    @include onDesctop {
+      padding: 20px 0;
+    }
+  }
+
+  &__title {
+    margin-top: 5px;
+  }
+
+  &__title-thik {
+    @extend %text-link;
+    color: $color-1;
+    font-size: 21px;
+
+    @include onDesctop {
+      font-size: 36px;
+    }
+  }
+
+  &__text {
+    margin-top: 30px;
+    @extend %text-body;
+    padding-bottom: 10px;
+  }
+
+  &__text-think {
+    display: inline-block;
+    @extend %text-body;
+    color: $color-1;
+    text-decoration: none;
+  }
+
+  &__link {
+    @extend %text-body;
+    text-decoration: none;
+  }
+
+  &__inf-links {
+    @include onTablet {
+      flex: 1 0 50%;
+    }
+  }
+
+  &__inf {
+    margin-top: 20px;
+
+    @include onTablet {
+      margin-top: 0;
+
+      &:not(:first-child) {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &__contacts {
+    margin-top: 30px;
+
+    @include onTablet {
+      margin-top: 0;
+      flex: 1 0 50%;
+    }
+  }
+
+  &__con {
+    margin-top: 11px;
+
+    @include onTablet {
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:not(:first-child) {
+        margin-top: 25px;
+      }
+    }
+  }
+
+  &__content-button {
+    @include onTablet {
+      display: flex;
+      margin-top: 20px;
+    }
+  }
+}

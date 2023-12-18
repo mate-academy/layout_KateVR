@@ -1,0 +1,79 @@
+.select-buy {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+
+    top: 50%;
+    left: 70px;
+    transform: translateY(-50%);
+
+    pointer-events: none;
+    display: block;
+
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 6px 4.5px 0;
+    border-color: $color-1 transparent transparent transparent;
+  }
+
+  &__quality {
+    @extend %text-link;
+    font-size: 20px;
+    font-weight: 400;
+    background-color: $color-background-buy;
+    border: none;
+    cursor: pointer;
+    padding: 8px 42px;
+  }
+
+  &__quality-list {
+    display: none;
+    list-style: none;
+    padding: 0;
+
+    position: absolute;
+    left: 0;
+    top: 41px;
+
+    border-radius: 4px;
+    background-color: $color-background-buy;
+    overflow: hidden;
+
+    z-index: 10;
+  }
+
+  &__quality-option {
+    @extend %text-link;
+    font-size: 20px;
+    font-weight: 400;
+    cursor: pointer;
+
+    &:first-child {
+      padding: 8px 40px 4px;
+    }
+
+    &:not(:first-child) {
+      padding: 4px 40px;
+    }
+
+    &:last-child {
+      padding: 4px 40px 8px;
+    }
+
+    &:hover {
+      color: $color-white;
+      background-color: #302b62;
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+}
+
+.select-buy__quality-list--visible {
+  display: block;
+}

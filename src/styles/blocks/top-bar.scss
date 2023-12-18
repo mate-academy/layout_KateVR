@@ -1,6 +1,6 @@
 .top-bar {
   position: relative;
-  z-index: 5;
+  z-index: 2;
   padding: 19px 0 15px;
 
   @include onTablet {
@@ -14,14 +14,23 @@
   &__body {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+
+    @include onDesctop {
+      height: 48px;
+    }
   }
 
   &__logo {
     @include hover(transform, scale(1.2));
   }
 
+  // &__menu-svg {
+  // }
+
   &__menu-svg:hover {
-    line {
+    line,
+    path {
       transition: stroke 0.3s;
       stroke: $color-1;
     }
@@ -63,6 +72,32 @@
   &__menu {
     @include onDesctop {
       display: none;
+    }
+  }
+
+  &__menu-cross {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__language-arrow {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  &__language-svg:hover {
+    line,
+    path {
+      transition: stroke 0.3s;
+      stroke: $color-1;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include onDesctop {
+      display: block;
     }
   }
 }
