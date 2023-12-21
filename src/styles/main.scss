@@ -3,3 +3,46 @@
 @import "blocks";
 @import "fonts";
 @import "typography";
+
+.header__slider {
+  @include onDesctop {
+    position: relative;
+  }
+}
+
+// .swiper-img {
+// }
+
+.swiper {
+  display: none;
+  width: 80%;
+  height: 500px;
+
+  @include onDesctop {
+    display: block;
+  }
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  // background: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.hidden {
+  display: none;
+}
+
+body.faq-open {
+  overflow: hidden;
+}

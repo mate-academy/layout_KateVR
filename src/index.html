@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap" rel="stylesheet">
     <link rel="icon" href="./images/icon/favicon.png">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
 
@@ -200,14 +202,72 @@
       </div>
 
       <div class="header__bottom-body">
-        <div class="header__bottom-content"></div>
+        <div class="header__bottom-content">
+          <div class="swiper mySwiper" id="mySwiper">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img
+                  class="swiper-img"
+                  src="./images/header/1.png"
+                  alt="gun"
+                >
+              </div>
+
+              <div class="swiper-slide">
+                <img
+                  class="swiper-img"
+                  src="./images/header/2-1.png"
+                  alt="platforms"
+                >
+              </div>
+
+              <div class="swiper-slide">
+                <img
+                  class="swiper-img"
+                  src="./images/header/3-1.png"
+                  alt="instrument"
+                >
+              </div>
+
+              <div class="swiper-slide">
+                <img
+                  class="swiper-img"
+                  src="./images/header/main-image-desctop.svg"
+                  alt="instrument"
+                >
+              </div>
+            </div>
+          </div>
+
+          <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const swiper = new Swiper('#mySwiper', {
+                });
+
+                const prevBtn = document.querySelector('.details-header__1');
+                const nextBtn = document.querySelector('.details-header__2');
+
+                prevBtn.addEventListener('click', function() {
+                    swiper.slidePrev();
+                });
+
+                nextBtn.addEventListener('click', function() {
+                    swiper.slideNext();
+                });
+            });
+          </script>
+        </div>
       </div>
 
       <div class="header__details details-header">
         <div class="container">
           <div class="details-header__wrapper">
             <div class="details-header__question">
-              <a class="details-header__faq" href="#faq">FAQ</a>
+              <a
+                class="details-header__faq"
+                href="#faq"
+                id="open-faq"
+              >FAQ</a>
               <a class="details-header__help" href="#help">Help</a>
             </div>
 
@@ -240,19 +300,16 @@
               <a
                 class="top-bar__button button-buy__link button-buy__link-active"
                 href="#buy"
-                onclick="showBlock('buy__place')"
               >Place Order</a>
 
               <a
                 class="top-bar__button  button-buy__link"
                 href="#buy"
-                onclick="showBlock('buy__pay')"
               >Pay</a>
 
               <a
                 class="top-bar__button  button-buy__link"
                 href="#buy"
-                onclick="showBlock('buy__complete')"
               >Complete</a>
 
               <div class="top-bar__menu top-bar__menu-cross">
@@ -289,49 +346,28 @@
               <a
                 class="button-buy__link button-buy__link-active"
                 href="#buy"
-                onclick="showBlock('buy__place')"
               >Place Order</a>
 
               <a
                 class="button-buy__link"
                 href="#buy"
-                onclick="showBlock('buy__pay')"
               >Pay</a>
 
               <a
                 class="button-buy__link"
                 href="#buy"
-                onclick="showBlock('buy__complete')"
               >Complete</a>
             </div>
 
-            <script>
-              function showBlock(blockId) {
-                const buttons = document.querySelectorAll(".button-buy__link");
-                buttons.forEach(function(btn) {
-                  btn.classList.remove("button-buy__link-active");
-                });
-
-                event.target.classList.add("button-buy__link-active");
-
-                var blocks = document.querySelectorAll(".buy__place, .buy__pay, .buy__complete");
-                blocks.forEach(function(block) {
-                  block.classList.remove("active");
-                });
-
-                document.querySelector("." + blockId).classList.add("active");
-              }
-            </script>
-
-            <div class="buy__place place-buy active" id="place-buy">
+            <div class="buy__place place-buy hidden" id="place-buy">
               <form
-                class="place-buy__contacts form-place"
+                class="place-buy__contacts form-buy"
+                id="buy__place"
                 action="#"
                 method="post"
-                id="form-place"
               >
-                <div class="form-place__block-top">
-                  <div class="form-place__picture">
+                <div class="form-buy__block-top">
+                  <div class="form-buy__picture">
                     <picture>
                       <source
                         media="(min-width: 1920px)"
@@ -339,18 +375,22 @@
                       >
 
                       <img
-                        class="form-place__img"
+                        class="form-buy__img"
                         src="./images/header/image-buy.png"
                         alt="picture"
                       >
                     </picture>
                   </div>
 
-                  <div class="form-place__content-top">
-                    <div class="form-place__description">
-                      <div class="form-place__inf">Quantity</div>
-                      <div class="form-place__description-value select-buy">
-                        <button class="select-buy__quality" type="button">1</button>
+                  <div class="form-buy__content-top">
+                    <div class="form-buy__description">
+                      <div class="form-buy__inf">Quantity</div>
+                      <div class="form-buy__description-value select-buy">
+                        <button
+                          class="select-buy__quality"
+                          type="button"
+                          id="qualityButton"
+                        >1</button>
                         <ul class="select-buy__quality-list">
                           <li class="select-buy__quality-option" data-value="1">1</li>
                           <li class="select-buy__quality-option" data-value="2">2</li>
@@ -364,314 +404,262 @@
                           class="select-buy__input"
                           type="text"
                           name="select-value"
+                          id="selectValue"
                           value="#"
                         >
                       </div>
                     </div>
 
-                    <div class="form-place__description">
-                      <div class="form-place__inf">Price</div>
+                    <div class="form-buy__description">
+                      <div class="form-buy__inf">Price</div>
 
-                      <div class="form-place__price">1200$</div>
+                      <div class="form-buy__price" id="priceDisplay">1200$</div>
                     </div>
                   </div>
                 </div>
 
-                <div class="form-place__blocks">
-                  <div class="form-place__block1">
-                    <div class="form-place__area">
-                      <input
-                        class="form-place__input"
-                        type="text"
-                        name="first-name"
-                        placeholder="First Name*"
-                        required
-                      >
-                    </div>
-                    <div class="form-place__area">
-                      <input
-                        class="form-place__input"
-                        type="text"
-                        name="surname"
-                        placeholder="Last Name*"
-                        required
-                      >
-                    </div>
-                  </div>
-
-                  <div class="form-place__block2">
-                    <div class="form-place__area">
-                      <input
-                        class="form-place__input"
-                        type="email"
-                        name="email"
-                        placeholder="Email*"
-                        required
-                      >
-                    </div>
-                    <div class="form-place__area">
-                      <input
-                        class="form-place__input"
-                        type="phone"
-                        name="phone"
-                        placeholder="Phone Number*"
-                        required
-                      >
-                    </div>
-                  </div>
-
-                  <div class="form-place__block3">
-                    <div class="form-place__adress-country">
-                      <div class="form-place__inf">Country*</div>
-                      <div class="form-place__country select-adress">
-                        <button class="select-adress__name" type="button">Ukraine</button>
-                        <ul class="select-adress__list">
-                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
-                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
-                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
-                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
-                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
-                          <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
-                        </ul>
+                <div class="form-buy__block-buttom">
+                  <div class="form-buy__place form-place form-place__blocks hidden"                 id="form-place">
+                    <div class="form-place__block1">
+                      <div class="form-place__area">
                         <input
-                          class="select-adress__input"
+                          class="form-place__input"
                           type="text"
-                          name="select-country"
-                          value="#"
+                          name="first-name"
+                          placeholder="First Name*"
+                          required
+                        >
+                      </div>
+                      <div class="form-place__area">
+                        <input
+                          class="form-place__input"
+                          type="text"
+                          name="surname"
+                          placeholder="Last Name*"
+                          required
                         >
                       </div>
                     </div>
 
-                    <div class="form-place__adress-city">
-                      <div class="form-place__inf">City*</div>
-                      <div class="form-place__city select-adress">
-                        <button class="select-adress__name" type="button">Kyiv</button>
-                        <ul class="select-adress__list">
-                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
-                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
-                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
-                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
-                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
-                          <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
-                        </ul>
+                    <div class="form-place__block2">
+                      <div class="form-place__area">
                         <input
-                          class="select-adress__input"
+                          class="form-place__input"
+                          type="email"
+                          name="email"
+                          placeholder="Email*"
+                          required
+                        >
+                      </div>
+                      <div class="form-place__area">
+                        <input
+                          class="form-place__input"
                           type="text"
-                          name="select-city"
-                          value="#"
+                          name="phone"
+                          id="phone"
+                          placeholder="Phone Number*"
+                          required
+                          pattern="^\+?(\d{1,3})?[-.\s]?\(?(?:\d{1,4})\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}$"
+                          title="Please enter a valid phone number, example: +3XXXXXXXXXXX"
+                          maxlength="13"
+                        >
+                      </div>
+                    </div>
+
+                    <div class="form-place__block3">
+                      <div class="form-place__adress-country">
+                        <div class="form-place__inf">Country*</div>
+                        <div class="form-place__country select-adress">
+                          <button class="select-adress__name" type="button">Ukraine</button>
+                          <ul class="select-adress__list">
+                            <li class="select-adress__option" data-value="Ukraine">Ukraine</li>
+                            <li class="select-adress__option" data-value="Ukraine">Austria</li>
+                            <li class="select-adress__option" data-value="Ukraine">Belgium</li>
+                            <li class="select-adress__option" data-value="Ukraine">Egypt</li>
+                            <li class="select-adress__option" data-value="Ukraine">England</li>
+                            <li class="select-adress__option" data-value="Ukraine">Greece</li>
+                          </ul>
+                          <input
+                            class="select-adress__input"
+                            type="text"
+                            name="select-country"
+                            value="#"
+                          >
+                        </div>
+                      </div>
+
+                      <div class="form-place__adress-city">
+                        <div class="form-place__inf">City*</div>
+                        <div class="form-place__city select-adress">
+                          <button class="select-adress__name" type="button">Kyiv</button>
+                          <ul class="select-adress__list">
+                            <li class="select-adress__option" data-value="Kyiv">Kyiv</li>
+                            <li class="select-adress__option" data-value="Kyiv">Canberra</li>
+                            <li class="select-adress__option" data-value="Kyiv">Brussels</li>
+                            <li class="select-adress__option" data-value="Kyiv">Cairo</li>
+                            <li class="select-adress__option" data-value="Kyiv">London</li>
+                            <li class="select-adress__option" data-value="Kyiv">Athens</li>
+                          </ul>
+                          <input
+                            class="select-adress__input"
+                            type="text"
+                            name="select-city"
+                            value="#"
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="form-place__block4">
+                      <div class="form-place__area">
+                        <input
+                          class="form-place__input"
+                          type="text"
+                          name="adress1"
+                          placeholder="Shipping Adress*"
+                          required
+                        >
+                      </div>
+
+                      <div class="form-place__area">
+                        <input
+                          class="form-place__input"
+                          type="text"
+                          name="adress2"
+                          placeholder="Shipping Adress 2"
+                          required
                         >
                       </div>
                     </div>
                   </div>
 
-                  <div class="form-place__block4">
-                    <div class="form-place__area">
+                  <div class="form-buy__pay form-pay form-pay__blocks hidden" id="form-pay">
+                    <div class="form-pay__card">Card Number*</div>
+
+                    <div class="form-pay__area-num">
                       <input
-                        class="form-place__input"
+                        class="form-pay__input-num"
                         type="text"
-                        name="adress1"
-                        placeholder="Shipping Adress*"
+                        name="card-number"
+                        size="2"
+                        maxlength="4"
+                        placeholder="0000"
+                        id="input1"
+                        oninput="moveToNextInput(event, 'input2')"
                         required
                       >
-                    </div>
 
-                    <div class="form-place__area">
                       <input
-                        class="form-place__input"
+                        class="form-pay__input-num"
                         type="text"
-                        name="adress2"
-                        placeholder="Shipping Adress 2"
+                        name="card-number"
+                        size="2"
+                        maxlength="4"
+                        placeholder="0000"
+                        id="input2"
+                        oninput="moveToNextInput(event, 'input3')"
                         required
                       >
-                    </div>
-                  </div>
 
-                  <button
-                    class="form-place__purchase"
-                    type="submit"
-                  >Purchase</button>
-                </div>
-              </form>
-            </div>
-
-            <div class="buy__pay pay-buy" id="pay-buy">
-              <form
-                class="pay-buy__form form-pay"
-                action="#"
-                method="post"
-              >
-                <div class="form-pay__block-top">
-                  <div class="form-pay__picture">
-                    <picture>
-                      <source
-                        media="(min-width: 1920px)"
-                        srcset="./images/header/image-buy2.png"
+                      <input
+                        class="form-pay__input-num"
+                        type="text"
+                        name="card-number"
+                        size="2"
+                        maxlength="4"
+                        placeholder="0000"
+                        id="input3"
+                        oninput="moveToNextInput(event, 'input4')"
+                        required
                       >
 
-                      <img
-                        class="form-pay__img"
-                        src="./images/header/image-buy.png"
-                        alt="picture"
+                      <input
+                        class="form-pay__input-num"
+                        type="text"
+                        name="card-number"
+                        size="2"
+                        maxlength="4"
+                        placeholder="0000"
+                        id="input4"
+                        required
                       >
-                    </picture>
-                  </div>
 
-                  <div class="form-place__content-top">
-                    <div class="form-place__description">
-                      <div class="form-place__inf">Quantity</div>
-                      <div class="form-place__description-value select-buy">
-                        <button class="select-buy__quality" type="button">1</button>
-                        <ul class="select-buy__quality-list">
-                          <li class="select-buy__quality-option" data-value="1">1</li>
-                          <li class="select-buy__quality-option" data-value="2">2</li>
-                          <li class="select-buy__quality-option" data-value="3">3</li>
-                          <li class="select-buy__quality-option" data-value="4">4</li>
-                          <li class="select-buy__quality-option" data-value="5">5</li>
-                          <li class="select-buy__quality-option" data-value="6">6</li>
-                        </ul>
-
-                        <input
-                          class="select-buy__input"
-                          type="text"
-                          name="select-value"
-                          value="#"
+                      <div class="form-pay__card-visa">
+                        <img
+                          class="form-pay__img-card"
+                          src="./images/header/card.jpg"
+                          alt="card"
                         >
                       </div>
                     </div>
 
-                    <div class="form-place__description">
-                      <div class="form-place__inf">Price</div>
+                    <script>
+                      function moveToNextInput(event, nextInputId) {
+                        const input = event.target;
+                        const maxLength = parseInt(input.getAttribute('maxlength'));
 
-                      <div class="form-place__price">1200$</div>
-                    </div>
-                  </div>
-                </div>
+                        if (input.value.length === maxLength) {
+                          const nextInput = document.getElementById(nextInputId);
 
-                <div class="form-pay__blocks">
-                  <div class="form-pay__card">Card Number*</div>
-
-                  <div class="form-pay__area-num">
-                    <input
-                      class="form-pay__input-num"
-                      type="text"
-                      name="card-number"
-                      size="2"
-                      maxlength="4"
-                      placeholder="0000"
-                      id="input1"
-                      oninput="moveToNextInput(event, 'input2')"
-                      required
-                    >
-
-                    <input
-                      class="form-pay__input-num"
-                      type="text"
-                      name="card-number"
-                      size="2"
-                      maxlength="4"
-                      placeholder="0000"
-                      id="input2"
-                      oninput="moveToNextInput(event, 'input3')"
-                      required
-                    >
-
-                    <input
-                      class="form-pay__input-num"
-                      type="text"
-                      name="card-number"
-                      size="2"
-                      maxlength="4"
-                      placeholder="0000"
-                      id="input3"
-                      oninput="moveToNextInput(event, 'input4')"
-                      required
-                    >
-
-                    <input
-                      class="form-pay__input-num"
-                      type="text"
-                      name="card-number"
-                      size="2"
-                      maxlength="4"
-                      placeholder="0000"
-                      id="input4"
-                      required
-                    >
-
-                    <div class="form-pay__card-visa">
-                      <img
-                        class="form-pay__img-card"
-                        src="./images/header/card.jpg"
-                        alt="card"
-                      >
-                    </div>
-                  </div>
-
-                  <script>
-                    function moveToNextInput(event, nextInputId) {
-                      const input = event.target;
-                      const maxLength = parseInt(input.getAttribute('maxlength'));
-
-                      if (input.value.length === maxLength) {
-                        const nextInput = document.getElementById(nextInputId);
-
-                        if (nextInput) {
-                          nextInput.focus();
+                          if (nextInput) {
+                            nextInput.focus();
+                          }
                         }
                       }
-                    }
-                  </script>
+                    </script>
 
-                  <div class="form-pay__area-name">
-                    <input
-                      class="form-pay__input"
-                      type="text"
-                      name="holder-name"
-                      placeholder="Card Holder Name*"
-                    >
-                  </div>
-
-                  <div class="form-pay__inf">
-                    <div class="form-pay__expiration">
-                      <div class="form-pay__card form-pay__card-date">Expiration Date*</div>
-
-                      <div class="form-pay__area">
-                        <input
-                          class="form-pay__input form-pay__input-date"
-                          type="text"
-                          name="date-valid"
-                          size="5"
-                          maxlength="5"
-                          placeholder="MM / YY"
-                        >
-                      </div>
+                    <div class="form-pay__area-name">
+                      <input
+                        class="form-pay__input form-pay__input-name"
+                        type="text"
+                        name="holder-name"
+                        placeholder="Card Holder Name*"
+                      >
                     </div>
 
-                    <div class="form-pay__cvv">
-                      <div class="form-pay__card form-pay__card-cvv">CVV*</div>
+                    <div class="form-pay__inf">
+                      <div class="form-pay__expiration">
+                        <div class="form-pay__card form-pay__card-date">Expiration Date*</div>
 
-                      <div class="form-pay__area">
-                        <input
-                          class="form-pay__input-cvv"
-                          type="text"
-                          name="cvv"
-                          size="1"
-                          maxlength="3"
-                          placeholder="000"
-                        >
+                        <div class="form-pay__area">
+                          <input
+                            class="form-pay__input form-pay__input-date"
+                            type="text"
+                            name="date-valid"
+                            size="5"
+                            maxlength="5"
+                            placeholder="MM / YY"
+                          >
+                        </div>
+                      </div>
+
+                      <div class="form-pay__cvv">
+                        <div class="form-pay__card form-pay__card-cvv">CVV*</div>
+
+                        <div class="form-pay__area">
+                          <input
+                            class="form-pay__input-cvv"
+                            type="text"
+                            name="cvv"
+                            size="1"
+                            maxlength="3"
+                            placeholder="000"
+                          >
+                        </div>
                       </div>
                     </div>
                   </div>
 
                   <button
-                    class="form-place__purchase form-place__purchase-buy"
-                    type="submit"
+                    class="form-buy__purchase"
+                    type="button"
+
                   >Purchase</button>
                 </div>
               </form>
             </div>
 
-            <div class="buy__complete complete-buy" id="complete-buy">
+            <div class="buy__complete complete-buy hidden" id="complete-buy">
               <h1 class="complete-buy__title">Thank you for     <span class="complete-buy__title-think">your</span> order!</h1>
 
               <div class="complete-buy__subtitle">Your order has been placed and is being processed. You will recive an email with the order details</div>
@@ -1057,6 +1045,15 @@
     </main>
 
     <footer></footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js">
+    </script>
+
+    <script>
+      const swiper = new Swiper(".mySwiper", {});
+    </script>
+
     <script
       type="text/javascript"
       src="scripts/main.js"
