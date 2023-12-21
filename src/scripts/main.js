@@ -177,29 +177,23 @@ document.addEventListener('DOMContentLoaded', function() {
 /* вимкнути скрол при відкритих додаткових вікнах */
 
 document.addEventListener('DOMContentLoaded', function() {
-  const openButton = document.getElementById('open-faq');
-  const faqWindow = document.getElementById('faq');
-  const body = document.body;
-  const closeButton = document.getElementById('cross');
+  const url = window.location.href;
 
-  openButton.addEventListener('click', function() {
-    faqWindow.style.display = 'block';
-    body.classList.add('faq-open');
-  });
+  if (url.includes('#buy')) {
+    document.body.classList.add('page__body--hidden-overflow');
+  }
 
-  // Закриття вікна FAQ при кліку на елемент з id="cross"
-  closeButton.addEventListener('click', function() {
-    faqWindow.style.display = 'none';
-    body.classList.remove('faq-open');
-  });
+  if (url.includes('#faq')) {
+    document.body.classList.add('page__body--hidden-overflow');
+  }
 
-  // Опційно: закривайте вікно FAQ при кліку на затемнений фон
-  faqWindow.addEventListener('click', function(event) {
-    if (event.target === faqWindow) {
-      faqWindow.style.display = 'none';
-      body.classList.remove('faq-open');
-    }
-  });
+  if (url.includes('#help')) {
+    document.body.classList.add('page__body--hidden-overflow');
+  }
+
+  if (url.includes('#menu')) {
+    document.body.classList.add('page__body--hidden-overflow');
+  }
 });
 
 /* рахуємо вартість одиниць товарів */
