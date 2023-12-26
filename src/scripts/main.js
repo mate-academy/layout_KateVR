@@ -176,24 +176,63 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* вимкнути скрол при відкритих додаткових вікнах */
 
+// document.addEventListener('DOMContentLoaded', function() {
+//   const url = window.location.href;
+
+//   if (url.includes('#buy')) {
+//     document.body.classList.add('page__body--hidden-overflow');
+//   }
+
+//   if (url.includes('#faq')) {
+//     document.body.classList.add('page__body--hidden-overflow');
+//   }
+
+//   if (url.includes('#help')) {
+//     document.body.classList.add('page__body--hidden-overflow');
+//   }
+
+//   if (url.includes('#menu')) {
+//     document.body.classList.add('page__body--hidden-overflow');
+//   }
+// });
+
 document.addEventListener('DOMContentLoaded', function() {
   const url = window.location.href;
+  const body = document.body;
 
-  if (url.includes('#buy')) {
-    document.body.classList.add('page__body--hidden-overflow');
+  function disableScroll() {
+    body.classList.add('page__body--hidden-overflow');
   }
 
-  if (url.includes('#faq')) {
-    document.body.classList.add('page__body--hidden-overflow');
+  function enableScroll() {
+    body.classList.remove('page__body--hidden-overflow');
   }
 
-  if (url.includes('#help')) {
-    document.body.classList.add('page__body--hidden-overflow');
+  if (url.includes('#buy')
+    || url.includes('#faq')
+    || url.includes('#help')
+    || url.includes('#menu')) {
+    disableScroll();
   }
 
-  if (url.includes('#menu')) {
-    document.body.classList.add('page__body--hidden-overflow');
-  }
+  document.addEventListener('click', function(event) {
+    const target = event.target;
+
+    if (target.tagName === 'A' && target.hash) {
+      event.preventDefault();
+
+      if (target.hash === '#buy'
+        || target.hash === '#faq'
+        || target.hash === '#help'
+        || target.hash === '#menu') {
+        disableScroll();
+        window.location.hash = target.hash;
+      } else {
+        enableScroll();
+        window.location.href = target.href;
+      }
+    }
+  });
 });
 
 /* рахуємо вартість одиниць товарів */
