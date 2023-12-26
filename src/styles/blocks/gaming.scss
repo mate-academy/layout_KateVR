@@ -14,9 +14,10 @@
     display: flex;
     flex-direction: row;
     align-items: baseline;
-    justify-content: center;
-    padding-bottom: 16px;
+    justify-content: left;
+    padding-bottom: 12px;
     @include onTablet {
+      justify-content: center;
       padding-bottom: 50px;
     }
     @include onDesktop {
@@ -43,10 +44,15 @@
     font-weight: 400;
     line-height: normal;
   }
+  .textCol {
+    color: #05c2df;
+  }
   .titleH6 {
     display: flex;
-    justify-content: center;
+    justify-content: left;
+    padding-bottom: 10px;
     @include onTablet {
+      justify-content: center;
       padding-bottom: 30px;
     }
     @include onDesktop {
@@ -67,7 +73,10 @@
     // }
   }
   .gaming__title {
-    padding-bottom: 18px;
+    padding-bottom: 3px;
+    @include onTablet {
+      padding-bottom: 18px;
+    }
   }
   .gaming__title1 {
     padding-bottom: 16px;
@@ -75,6 +84,12 @@
   .gaming__title-e1 {
     display: flex;
     justify-content: center;
+  }
+  .gaming__title-e1--mob {
+    padding-bottom: 50px;
+    @include onTablet {
+      padding: 0;
+    }
   }
   .padGrid {
     @include onTablet {
@@ -85,7 +100,7 @@
     }
   }
   .ab1 {
-    padding-bottom: 30px;
+    padding-bottom: 20px;
     @include onTablet {
       padding-bottom: 25px;
     }
@@ -241,10 +256,25 @@
     color: #929292;
   }
   .padbot {
-    padding-bottom: 76px;
+    display: none;
+    @include onTablet {
+      display: flex;
+      padding-bottom: 76px;
+    }
+  }
+  .padbot1 {
+    display: flex;
+    padding-bottom: 95px;
+    @include onTablet {
+      display: none;
+    }
   }
   .pad_list {
-    padding-bottom: 11px;
+    display: none;
+    @include onTablet {
+      display: flex;
+      padding-bottom: 11px;
+    }
   }
   .contact-us__form {
     display: block;
@@ -287,7 +317,7 @@
     display: flex;
     position: relative;
     top: 0;
-    padding: 5px 0 100px;
+    padding: 5px 0 27px;
     @include onTablet {
       padding: 0;
     }
@@ -313,9 +343,9 @@
     cursor: pointer;
     height: 60px;
     width: 100%;
-    margin-right: 200px;
     @include onTablet {
       width: 270px;
+      margin-right: 200px;
     }
     &:hover {
       transition: 0.5s;
@@ -325,9 +355,12 @@
     }
   }
   .foot__vector {
-    display: flex;
-    justify-content: right;
-    margin-bottom: -25px;
+    display: none;
+    @include onTablet {
+      display: flex;
+      justify-content: right;
+      margin-bottom: -25px;
+    }
   }
   .Vectorfoot {
     display: block;

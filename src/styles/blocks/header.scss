@@ -15,7 +15,7 @@ header {
     .header__title {
       display: flex;
       flex-direction: column;
-      width: 1201px;
+      width: 100%;
       padding-top: 16px;
       @include onDesktop {
         padding-top: 115px;
@@ -42,6 +42,7 @@ header {
     }
   }
   .padbot {
+    padding: 16px 0 26px;
     @include onTablet {
       padding-bottom: 20px;
     }
@@ -69,7 +70,6 @@ header {
     position: relative;
     box-sizing: border-box;
     width: 100%;
-    max-height: 470px;
     transition: transform 0.4s;
     @include onTablet {
       display: none;
@@ -91,8 +91,19 @@ header {
       position: relative;
       box-sizing: border-box;
       width: 100%;
-      max-height: 700px;
+      max-height: 300px;
       transition: transform 0.4s;
+      margin-left: -300px;
+    }
+    @include onDesktop {
+      max-height: 340px;
+      padding-top: 100px;
+      margin-left: -325px;
+    }
+    @include ondesing {
+      max-height: 380px;
+      padding-top: 240px;
+      margin-left: -330px;
     }
     &:hover {
       transform: scale(1.06);
@@ -112,10 +123,9 @@ header {
   }
   .button_padA {
     display: flex;
-    padding-top: 120px;
+    padding: 33px 0;
     @include onTablet {
       display: none;
-      padding: 0;
     }
   }
   .header__link-shop {
@@ -135,7 +145,6 @@ header {
     cursor: pointer;
     height: 48px;
     width: 100%;
-    margin-bottom: 30px;
     transition: 0.5s;
     @include onTablet {
       width: 200px;
