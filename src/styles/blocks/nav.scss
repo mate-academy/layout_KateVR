@@ -15,7 +15,6 @@
   .dispTab {
     display: flex;
     @include onTablet {
-      display: flex;
       align-items: center;
       gap: 37px;
     }
@@ -39,24 +38,20 @@
     }
   }
   .navTab {
-    @include onTablet {
-      display: flex;
+    display: flex;
+    @include onDesktop {
       align-items: center;
     }
   }
   .lang {
     display: none;
-    cursor: pointer;
-    @include onTablet {
+    @include onDesktop {
       display: flex;
       align-items: center;
       background-color: #191536;
       border: none;
+      cursor: pointer;
       color: $c-button;
-    }
-    @include onDesktop {
-      display: flex;
-      align-items: center;
     }
   }
   .menu__list1 {
@@ -118,10 +113,31 @@
       @extend %btnH-focus;
     }
   }
-
-  .button_pad {
+  .menu_pad {
     display: flex;
-    @include onTablet {
+    @include onDesktop {
+      display: none;
+    }
+  }
+  .menu_logo {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+    background-image: url(../images/IkmenuMob.svg);
+    &:hover {
+      transition: 0.5s;
+      transform: scale(1.07);
+    }
+    @include onDesktop {
+      display: none;
+    }
+  }
+  .button_pad {
+    display: none;
+    @include onDesktop {
+      display: flex;
       padding: 0;
     }
   }
