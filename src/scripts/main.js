@@ -44,6 +44,13 @@ icons.forEach((icon, index) => {
 
   icon.addEventListener('mouseenter', toggleInfoBlock);
   icon.addEventListener('click', toggleInfoBlock);
+
+  icon.addEventListener('click', () => {
+    if (infoBlocks[index].style.display === 'block') {
+      infoBlocks[index].style.dysplay = 'none';
+      infoBlocks[index].style.opacity = '0';
+    }
+  });
 });
 
 const options = {
