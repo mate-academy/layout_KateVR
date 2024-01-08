@@ -1,0 +1,93 @@
+.help {
+  background-color: $aside-bg-color;
+
+  @include on-desktop {
+    margin-top: 134px;
+    width: 880px;
+  }
+
+  @include on-widescreen {
+    margin-top: 287px;
+    width: 1083px;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include on-desktop {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+  }
+
+  &__info {
+    margin-top: 30px;
+
+    @include on-tablet {
+      @include pagegrid;
+
+      margin-top: 20px;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    grid-column: 1 / 3;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+    }
+
+    @include on-widescreen {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__link {
+    transition: color 0.3s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    grid-column: 4 / -1;
+
+    @include on-tablet {
+      gap: 25px;
+    }
+
+    @include on-desktop {
+      grid-column: 6 / -1;
+    }
+
+    @include on-widescreen {
+      grid-column: 6 / -1;
+    }
+  }
+
+  &__contact {
+    text-decoration: none;
+    line-height: 1;
+    color: $text-color;
+    transition: color 0.3s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+}

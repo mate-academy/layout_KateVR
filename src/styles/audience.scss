@@ -1,0 +1,89 @@
+.audience {
+  background-color: $bg-black;
+  margin-top: -17px;
+
+  @include content-block-padding;
+
+  @include on-tablet {
+    margin: 0;
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transform: translateX(-50px);
+    opacity: 0;
+    z-index: 0;
+    transition: all ease-in-out 1s;
+
+    @include on-tablet {
+      align-items: center;
+    }
+
+    @include on-desktop {
+      gap: 16px;
+    }
+  }
+
+  &__content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      @include pagegrid;
+
+      margin-top: 43px;
+      row-gap: 40px;
+    }
+
+    @include on-desktop {
+      margin-top: 84px;
+    }
+  }
+
+  &__interest {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      align-items: center;
+    }
+
+    @include on-widescreen {
+      grid-column: span 4;
+    }
+  }
+
+  .img__icon {
+    transition: ease-in 0.5s;
+  }
+
+  .img__icon:hover {
+    transform: scale(1.2);
+    transition: ease-in 0.5s;
+  }
+
+  &__text {
+    margin: 0;
+    flex: 1;
+
+    @include on-tablet {
+      margin: 0;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    font-size: 12px;
+
+    @include on-desktop {
+      font-size: 14px;
+    }
+  }
+}

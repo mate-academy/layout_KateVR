@@ -1,0 +1,155 @@
+.faq {
+  background-color: $aside-bg-color;
+  height: 100vh;
+  overflow: scroll;
+  z-index: 10;
+
+  @include on-desktop {
+    width: 880px;
+    height: 78%;
+    margin-top: 134px;
+  }
+
+  @include on-widescreen {
+    width: 1083px;
+  }
+
+  &__top {
+    padding: 20px 20px 30px;
+
+    @include on-tablet {
+      padding: 34px 34px 50px;
+    }
+
+    @include on-desktop {
+      padding: 18px 18px 25px;
+    }
+
+    @include on-widescreen {
+      padding: 28px 28px 25px;
+    }
+  }
+
+  &__content {
+    padding: 0 20px 50px;
+
+    @include on-tablet {
+      padding: 0 34px 124px;
+    }
+
+    @include on-desktop {
+      padding: 0 90px 50px;
+    }
+
+    @include on-widescreen {
+      padding: 0 92px 50px 95px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding-block: 30px;
+
+    @include on-tablet {
+      gap: 18px;
+      padding-bottom: 50px;
+    }
+
+    @include on-desktop {
+      gap: 13px;
+    }
+
+    &--title {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__section {
+    border-radius: 4px;
+    border: 1px solid $accent-color;
+    padding: 20px 12px;
+
+    @include on-tablet {
+      padding: 20px 14px 24px 28px;
+    }
+
+    @include on-desktop {
+      padding: 18px 27px 23px;
+    }
+  }
+
+  &__accordion {
+    cursor: pointer;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    background-color: transparent;
+    font-size: 16px;
+  }
+
+  &__accordion[data-state="open"] .arrow {
+    background-image: url(../images/icons/faq_arrow_open.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 9px;
+    height: 6px;
+  }
+
+  &__accordion[data-state="closed"] .arrow {
+    background-image: url(../images/icons/faq_arrow_close.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 9px;
+    height: 6px;
+  }
+
+  &__accordion-info {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__title {
+    font-size: 21px;
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    margin-block: 18px 10px;
+  }
+
+  &__notice {
+    margin: 0;
+    color: #545454;
+    font-size: 12px;
+
+    @include on-desktop {
+      font-size: 14px;
+    }
+  }
+
+  &__more {
+    display: flex;
+    justify-content: center;
+  }
+}

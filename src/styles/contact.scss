@@ -1,0 +1,143 @@
+.contact {
+  background-color: $bg-black;
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-block: 70px 130px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  @include on-widescreen {
+    padding-block: 160px 205px;
+  }
+
+  &__content {
+    @include on-tablet {
+      @include pagegrid;
+    }
+  }
+
+  &__left {
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    @include on-widescreen {
+      grid-column: span 8;
+    }
+  }
+
+  &__right {
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    @include on-widescreen {
+      grid-column: span 8;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    transform: translateX(-50px);
+      opacity: 0;
+      transition: all ease-in-out 1s;
+
+
+    @include on-desktop {
+      gap: 13px;
+    }
+  }
+
+  &__text {
+    margin: 0;
+    display: none;
+
+    @include on-tablet {
+      display: inline-block;
+      margin-block: 50px 76px;
+    }
+
+    @include on-desktop {
+      display: inline-block;
+      margin-block: 26px 76px;
+    }
+
+    &--mob {
+      margin: 0;
+      margin-top: 27px;
+      font-size: 12px;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+    }
+  }
+
+  &__emails {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      gap: 8px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $text-color;
+    line-height: 1;
+    transition: all 0.3s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__to-top {
+    display: none;
+
+    @include on-tablet {
+      background-image: url(../images/main/go_to_top.svg);
+      display: block;
+      width: 48px;
+      height: 48px;
+      transition: all 0.3s;
+
+      &:hover {
+        background-image: url(../images/main/go_to_top_hover.svg);
+      }
+    }
+  }
+
+  &__btn {
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

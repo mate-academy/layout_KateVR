@@ -1,0 +1,243 @@
+.about {
+  @include content-block-padding;
+
+  &__content {
+    &--top {
+      @include on-tablet {
+        @include pagegrid;
+      }
+    }
+
+    &--bottom {
+      padding-top: 80px;
+
+      @include on-tablet {
+        @include pagegrid;
+
+        align-items: center;
+        padding-top: 88px;
+      }
+
+      @include on-desktop {
+        padding-top: 190px;
+      }
+
+      @include on-widescreen {
+        padding-top: 185px;
+      }
+    }
+  }
+
+  &__title {
+    display: none;
+    transform: translateX(50px);
+    opacity: 0;
+    transition: all ease-in-out 1s;
+
+    @include on-tablet {
+      display: block;
+    }
+
+    &--mob {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--bottom {
+      margin-block: 11px 22px;
+
+      transform: translateX(-50px);
+    opacity: 0;
+    transition: all ease-in-out 1s;
+    }
+  }
+
+  &__count {
+    display: none;
+
+    @include on-desktop {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      font-size: 14px;
+      line-height: 1;
+      color: $accent-color;
+      grid-column: 2 / 2;
+    }
+
+    @include on-widescreen {
+      grid-column: 3 / 3;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    align-items: center;
+    margin-block: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 8;
+      align-items: flex-start;
+    }
+
+    @include on-widescreen {
+      grid-column: 4 / 11;
+    }
+
+    &--bottom {
+      display: flex;
+      flex-direction: column;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 6;
+      }
+
+      @include on-widescreen {
+        grid-column: 2 / 8;
+      }
+    }
+  }
+
+  &__img {
+    position: relative;
+    background-image: url(../images/main/about_video_cover.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    width: 420px;
+    height: 279px;
+    top: 20px;
+
+    @include on-tablet {
+      height: 270px;
+      top: 1px;
+    }
+
+    @include on-desktop {
+      height: 290px;
+      top: 1px;
+    }
+
+    @include on-widescreen {
+      top: 1px;
+    }
+  }
+
+  video {
+    position: absolute;
+    width: 440px;
+    height: 310px;
+    top: -18px;
+    left: -1px;
+    background-color: black;
+  }
+
+
+  &__dots {
+    background-image: url(../images/main/carousel_btn.svg);
+    width: 44px;
+    height: 4px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__info-block {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+
+    @include on-widescreen {
+      grid-column: 12 / -1;
+    }
+  }
+
+  &__text {
+    position: relative;
+    margin: 0;
+    margin-bottom: 70px;
+    top: 20px;
+
+    @include on-tablet {
+      margin-block: 30px 21px;
+      top: 5px;
+    }
+
+    @include on-widescreen {
+      margin-block: 64px 52px;
+      top: 5px;
+    }
+
+    &--bottom {
+      margin: 0;
+
+    }
+  }
+
+  &__slide {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__design {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        background-image: url(../images/main/about/about_us_group_tabl.png);
+        width: 232px;
+        height: 257px;
+        grid-column: 5 / -1;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        background-image: url(../images/main/about/about_us_group.png);
+        width: 495px;
+        height: 342px;
+        grid-column: 7 / -1;
+      }
+
+      @include on-widescreen {
+        grid-column: 9 / -1;
+      }
+    }
+  }
+}
