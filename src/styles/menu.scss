@@ -1,4 +1,4 @@
-#menu {
+.menu {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,25 +10,23 @@
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
 
-  overflow-x: hidden;
+  overflow: hidden;
   overflow-y: auto;
 
   background-color: rgba(0, 0, 0, 0.7);
 
-  &:has(#list:target),
-  &:has(#catalog:target),
-  &:has(#help:target) {
+  &:target {
     pointer-events: all;
     opacity: 1;
   }
-}
 
-#menu:target {
-  pointer-events: all;
-  opacity: 1;
-}
+  &:has(.list:target),
+  &:has(.catalog:target),
+  &:has(.help:target) {
+    pointer-events: all;
+    opacity: 1;
+  }
 
-.menu {
   &__main {
     display: block;
     width: 100vw;
@@ -51,7 +49,8 @@
     width: 17px;
     height: 17px;
     opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+
+    //  transition: opacity 0.3s ease-in-out;
 
     background-image: url("../images/Menu/Close.svg");
     background-size: contain;
@@ -91,7 +90,7 @@
   }
 
   &__list {
-    padding: 15px 0 0 0;
+    padding: 15px 0 0;
     list-style-type: none;
 
     min-width: 100%;
@@ -120,7 +119,6 @@
   &__link {
     display: block;
 
-    font-family: Inter;
     font-size: 21px;
     font-weight: 500;
     line-height: 27px;
@@ -139,7 +137,6 @@
   }
 
   &__title {
-    font-family: Inter, sans-serif;
     font-size: 21px;
     font-weight: 900;
     line-height: 25px;
@@ -174,7 +171,6 @@
   }
 
   &__description {
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;

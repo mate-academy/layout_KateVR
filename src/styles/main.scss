@@ -1,26 +1,26 @@
 @import "utils";
 @import "fonts";
 @import "typography";
-@import "../styles/header.scss";
-@import "../styles/footer.scss";
-@import "../styles/menu.scss";
-@import "../styles/buy.scss";
-@import "../styles/faq.scss";
-@import "../styles/help.scss";
+@import "../styles/header";
+@import "../styles/footer";
+@import "../styles/menu";
+@import "../styles/buy";
+@import "../styles/faq";
+@import "../styles/help";
 
 body {
-  background: linear-gradient(#191536, #000000);
+  background: linear-gradient(#191536, #000);
   background-size: cover;
   background-repeat: no-repeat;
   height: 100%;
   width: 100%;
 
-  &:has(#menu:target),
-  &:has(#list:target),
-  &:has(#catalog:target),
-  &:has(#faq:target),
-  &:has(#help:target),
-  &:has(#buy:target) {
+  &:has(.menu:target),
+  &:has(.list:target),
+  &:has(.catalog:target),
+  &:has(.faq:target),
+  &:has(.help:target),
+  &:has(.buy:target) {
     overflow: hidden;
   }
 }
@@ -29,14 +29,14 @@ body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: Inter;
+  font-family: Inter, sans-serif;
   scroll-behavior: smooth;
 }
 
 
 .main {
   &__container {
-    background: linear-gradient(#191536, #000000);
+    background: linear-gradient(#191536, #000);
 
     &--dark {
       background: $custom-black;
@@ -71,7 +71,6 @@ body {
   }
 
   &__title {
-    font-family: Inter, sans-serif;
     font-size: 21px;
     font-weight: 900;
     line-height: 25px;
@@ -160,7 +159,6 @@ body {
   }
 
   &__description {
-    font-family: Inter;
     font-size: 12px;
     font-weight: 400;
     line-height: 15px;
@@ -252,11 +250,8 @@ body {
       display: block;
       grid-column: 2;
       grid-row: 1;
-      @include setSize(100, 100);
-    }
 
-    @include on-desktop {
-
+      @include set-size(100, 100);
     }
   }
 
@@ -306,7 +301,6 @@ body {
   }
 
   &__function-title {
-    font-family: Inter;
     font-size: 16px;
     font-weight: 900;
     line-height: 19px;
@@ -340,7 +334,6 @@ body {
   }
 
   &__function-description {
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -400,10 +393,10 @@ body {
   &__img-slider {
     position: relative;
 
-    @include setSize(430, 290);
+    @include set-size(430, 290);
 
     @include on-big-desktop {
-      @include setSize(622, 290);
+      @include set-size(622, 290);
     }
   }
 
@@ -417,7 +410,6 @@ body {
 
       display: block;
 
-      font-family: Inter;
       font-size: 14px;
       font-weight: 400;
       line-height: 17px;
@@ -530,7 +522,6 @@ body {
   }
 
   &__content-description {
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -603,7 +594,6 @@ body {
   }
 
   &__intro-container {
-
     @include on-tablet {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -691,7 +681,7 @@ body {
 
   &__hello {
     padding-bottom: 10px;
-    font-family: Inter;
+
     font-size: 14px;
     font-weight: 400;
     line-height: 17px;
@@ -719,7 +709,7 @@ body {
 
   &__intro-description {
     padding-top: 20px;
-    font-family: Inter;
+
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -753,7 +743,7 @@ body {
   &__inform-image {
     position: relative;
 
-    @include setSize(197, 194);
+    @include set-size(197, 194);
 
 
     @include on-desktop {
@@ -785,6 +775,18 @@ body {
 
     transition: background-image 0.3s ease-in-out;
 
+    &:nth-of-type(2n - 1) {
+      & :first-child {
+        transform: translateX(-60%);
+      }
+    }
+
+    &:nth-of-type(2n) {
+      & :first-child {
+        transform: translateX(-15%);
+      }
+    }
+
     &--top {
       left: 40%;
       transform: translate(-50%, -40%);
@@ -807,18 +809,6 @@ body {
     }
 
     background-size: contain;
-
-    &:nth-of-type(2n - 1) {
-      &:first-child {
-        transform: translateX(-60%);
-      }
-    }
-
-    &:nth-of-type(2n) {
-      &:first-child {
-        transform: translateX(-15%);
-      }
-    }
 
     @include on-desktop {
       background: none;
@@ -858,7 +848,7 @@ body {
     top: 100%;
 
 
-    display: none;
+    display: block;
     padding: 20px 10px;
     background-color: $purple;
     border-radius: 4px;
@@ -866,7 +856,6 @@ body {
     opacity: 0;
     transition: opacity 0.3s ease-in-out;
 
-    font-family: Inter;
     font-size: 12px;
     font-weight: 400;
     line-height: 18px;
@@ -930,6 +919,7 @@ body {
       &--top {
         width: 400px;
         height: 70px;
+
         @include background("../images/Main/Icons/First-line.svg");
 
         grid-column: 2;
@@ -939,6 +929,7 @@ body {
       &--center {
         width: 134px;
         height: 113px;
+
         @include background("../images/Main/Icons/Second-line.svg");
 
         grid-column: 2;
@@ -948,6 +939,7 @@ body {
       &--bottom {
         width: 192px;
         height: 245px;
+
         @include background("../images/Main/Icons/Third-line.svg");
 
         grid-column: 1;
@@ -958,7 +950,6 @@ body {
   }
 
   &__inform-btn-title {
-    font-family: Inter;
     font-size: 18px;
     font-weight: 900;
     line-height: 22px;
@@ -977,7 +968,6 @@ body {
 
   &__inform-desc {
     padding-top: 20px;
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -1031,7 +1021,6 @@ body {
     bottom: 20.5px;
     left: 0;
 
-    font-family: Inter;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
@@ -1057,7 +1046,6 @@ body {
     bottom: 100px;
     left: 0;
 
-    font-family: Inter;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
@@ -1078,6 +1066,10 @@ body {
     }
   }
 
+  &__form-input {
+    padding-bottom: 20px;
+  }
+
   &__form-area,
   &__form-input {
     position: relative;
@@ -1089,7 +1081,6 @@ body {
     border-bottom: 1px solid $gray;
     color: white;
 
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -1102,6 +1093,12 @@ body {
 
     &--error {
       border-bottom: 1px solid $custom-red;
+    }
+
+    &::placeholder {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
     }
 
     &:-webkit-autofill,
@@ -1118,17 +1115,6 @@ body {
         color: $gray;
       }
     }
-
-    &::placeholder {
-      font-family: Inter;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 21px;
-    }
-  }
-
-  &__form-input {
-    padding-bottom: 20px;
   }
 
   &__form-btn-container {
@@ -1155,7 +1141,6 @@ body {
 
     @include on-tablet {
       padding: 14px 0;
-      font-family: Inter;
       font-size: 16px;
       line-height: 21px;
     }
@@ -1231,7 +1216,9 @@ body {
       display: block;
       width: 48px;
       height: 48px;
-      transition: opacity 0.3s ease-in-out;
+
+      //  transition: opacity 0.3s ease-in-out;
+
       opacity: 0;
       border-radius: 50%;
       background-color: transparent;
@@ -1240,8 +1227,9 @@ body {
       @include background("../images/Main/Icons/To-top.svg");
 
       &:hover {
-        @include background("../images/Main/Icons/To-top-hover.svg");
         background-color: $blue;
+
+        @include background("../images/Main/Icons/To-top-hover.svg");
       }
     }
   }
@@ -1255,7 +1243,6 @@ body {
       padding: 13px 0;
       margin: 100px auto;
 
-      font-family: Inter;
       font-size: 16px;
       font-weight: 500;
       line-height: 21px;

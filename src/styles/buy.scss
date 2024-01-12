@@ -1,4 +1,4 @@
-#buy {
+.buy {
   position: fixed;
   top: 0;
   left: 0;
@@ -13,15 +13,12 @@
   opacity: 0;
 
   background:linear-gradient($purple, #000);
-}
 
-#buy:target {
-  pointer-events: all;
-  opacity: 1;
-  overflow-y: auto;
-}
-
-.buy {
+  &:target {
+    pointer-events: all;
+    opacity: 1;
+    overflow-y: auto;
+  }
 
   &__navigation {
     display: flex;
@@ -60,7 +57,8 @@
     width: 17px;
     height: 17px;
     opacity: 1;
-    transition: opacity 0.3s ease-in-out;
+
+    // transition: opacity 0.3s ease-in-out;
 
     background-image: url("../images/Menu/Close.svg");
     background-size: contain;
@@ -88,8 +86,6 @@
     grid-column: span 1;
     padding-bottom: 17px;
     border-bottom: 1px solid $gray;
-
-    font-family: Inter;
     font-size: 12px;
     font-weight: 500;
     line-height: 16px;
@@ -189,7 +185,6 @@
   }
 
   &__title {
-    font-family: Inter, sans-serif;
     font-size: 26px;
     line-height: 34px;
     padding: 0 30px 16px;
@@ -202,7 +197,6 @@
   }
 
   &__description {
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 21px;
@@ -290,8 +284,6 @@
     position: absolute;
     bottom: 20.5px;
     left: 0;
-
-    font-family: Inter;
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
@@ -360,7 +352,6 @@
     border-bottom: 1px solid $gray;
     color: white;
 
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 24px;
@@ -368,6 +359,12 @@
     transition: border-bottom 0.3s ease-in-out;
 
     padding-bottom: 20px;
+
+    &::placeholder {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 21px;
+    }
 
     &:-webkit-autofill,
     &:-webkit-autofill:hover,
@@ -384,24 +381,15 @@
       }
     }
 
-    &::placeholder {
-      font-family: Inter;
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 21px;
-    }
-
     &--card {
       padding-bottom: 9px;
 
-      font-family: Inter;
       font-size: 18px;
       line-height: 23px;
       font-weight: 400;
       letter-spacing: 0.2em;
 
       &::placeholder {
-        font-family: Inter;
         font-size: 18px;
         font-weight: 400;
         line-height: 23px;
@@ -424,7 +412,6 @@
     &--date {
       width: 90px;
 
-      font-family: Inter;
       font-size: 18px;
       font-weight: 400;
       line-height: 23px;
@@ -433,7 +420,6 @@
     &--cvv {
       width: 40px;
 
-      font-family: Inter;
       font-size: 18px;
       font-weight: 400;
       line-height: 23px;
@@ -567,7 +553,6 @@
     display: block;
     padding: 10px 20px;
 
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 21px;
@@ -581,7 +566,6 @@
   }
 
   &__option {
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 21px;
@@ -627,7 +611,6 @@
   &__form-title {
     padding-bottom: 10px;
 
-    font-family: Inter;
     font-size: 16px;
     font-weight: 400;
     line-height: 21px;
@@ -637,7 +620,6 @@
   }
 
   &__form-price {
-    font-family: Inter;
     font-size: 26px;
     font-weight: 500;
     line-height: 31px;
@@ -680,7 +662,8 @@
 
   &__product {
     position: relative;
-    @include setSize(524, 277);
+
+    @include set-size(524, 277);
   }
 
   &__product-image {
@@ -707,7 +690,6 @@
 
   &__nav-tab-item {
     position: relative;
-    font-family: Inter;
     font-size: 14px;
     font-weight: 500;
     line-height: 18px;
