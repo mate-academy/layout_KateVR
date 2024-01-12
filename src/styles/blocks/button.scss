@@ -1,0 +1,34 @@
+.button {
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  text-align: center;
+  color: $color-white;
+  text-decoration: none;
+  background-color: $color-text-blue;
+  border: 1px solid $color-text-blue;
+  border-radius: 4px;
+  transition: all $duration;
+  height: 40px;
+
+  @include on-tablet {
+    height: 48px;
+    font-size: 16px;
+  }
+
+  &:hover {
+    color: $color-text-blue;
+    background-color: $color-white;
+    border-color: $color-white;
+  }
+
+  &:disabled {
+    color: $color-disabled-text;
+    background-color: $color-background-start;
+    border-color: $color-background-start;
+  }
+}

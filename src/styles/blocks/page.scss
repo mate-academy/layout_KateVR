@@ -1,0 +1,213 @@
+.page {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  scroll-behavior: smooth;
+  background: $color-background-blue;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+
+  &__body {
+    margin: 0;
+    scroll-behavior: smooth;
+
+    height: 100vh;
+    overflow-x: hidden;
+
+    &--with-menu {
+      overflow: hidden;
+    }
+  }
+
+  &__section {
+    padding: 50px 0;
+
+    @include on-tablet {
+      padding: 70px 0;
+    }
+
+    @include on-desktop {
+      padding: 100px 0;
+    }
+
+    @include on-screen {
+      padding: 160px 0;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(+100%);
+    transition: transform $duration;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__purchase {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    transform: translateX(+100%);
+    transition: transform $duration;
+
+    &:target {
+      transform: translateX(0);
+    }
+  }
+
+  &__modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1050;
+    opacity: 0;
+    -webkit-transition: opacity 300ms ease-in;
+    -moz-transition: opacity 300ms ease-in;
+    transition: opacity 300ms ease-in;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: auto;
+      overflow-y: auto;
+    }
+
+    &--wrapper {
+      background-color: $color-background-start;
+      padding: 20px 0;
+
+      @include on-tablet {
+        padding: 34px 0;
+      }
+
+      @include on-desktop {
+        width: 880px;
+        padding: 18px 0 50px;
+        height: auto;
+        margin: 134px auto;
+      }
+
+      @include on-screen {
+        width: 1083px;
+        padding: 28px 0 50px;
+      }
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 21px;
+    line-height: 26px;
+    font-weight: 900;
+    text-transform: uppercase;
+
+    @include on-desktop {
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    &--blue {
+      color: $color-text-blue;
+      font-weight: 400;
+    }
+  }
+
+  &__paragraph {
+    font-size: 16px;
+    line-height: 150%;
+    color: $color-text-gray;
+
+    @include on-screen {
+      font-size: 20px;
+    }
+
+    &--blue {
+      color: $color-text-blue;
+
+      @include on-tablet {
+        font-size: 14px;
+        line-height: 17px;
+      }
+    }
+  }
+
+  &__menu-link {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    text-decoration: none;
+    color: $color-white;
+  }
+
+  &__contact {
+    text-decoration: none;
+    color: $color-text-gray;
+  }
+
+  &__dropdown-button {
+    background-color: transparent;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    color: $color-text-blue;
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 500;
+
+    &::after {
+      content: "";
+      display: inline-block;
+      width: 9px;
+      height: 6px;
+      background-image: url("../images/scrolls/scroll-down-blue.svg");
+      background-repeat: no-repeat;
+      margin-left: 4px;
+      position: relative;
+    }
+  }
+
+  &__dropdown-content {
+    display: none;
+    position: absolute;
+    overflow: auto;
+    height: 111px;
+    width: 45px;
+    background-color: $color-background-start;
+    z-index: 1;
+
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #014954;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-text-blue;
+    }
+  }
+
+  &__dropdown-content .page__dropdown-link {
+    padding: 12px 11px;
+    text-decoration: none;
+    display: block;
+    color: $color-white;
+  }
+
+  &__dropdown-content .page__dropdown-link:hover {
+    color: $color-text-blue;
+  }
+
+  &__dropdown:hover .page__dropdown-content {
+    display: block;
+  }
+}
