@@ -1,0 +1,159 @@
+.form {
+  @include on-tablet {
+    padding-bottom: 130px;
+  }
+
+  @include on-screen {
+    padding-bottom: 205px;
+  }
+
+  &__paragraph {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    text-decoration: none;
+    margin-bottom: 11px;
+
+    @include on-tablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 13px;
+    }
+
+    &--comment {
+      color: $color-text-gray;
+      margin-bottom: 76px;
+    }
+
+    &--contact {
+      color: $color-text-gray;
+      width: fit-content;
+      border: 1px solid transparent;
+
+      &:hover {
+        border-bottom: 1px solid $color-text-gray;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 21px;
+    line-height: 25px;
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      margin-bottom: 50px;
+    }
+
+    @include on-desktop {
+      font-size: 36px;
+      line-height: 44px;
+      margin-bottom: 26px;
+    }
+  }
+
+  &__form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__input {
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid $color-disabled-text;
+    padding: 0 0 19px;
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 21px;
+    outline: none;
+    color: $color-white;
+
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: $color-background-start;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $color-disabled-text;
+      border-radius: 4px;
+    }
+
+    &:-webkit-autofill {
+      border-bottom: 1px solid $color-text-blue;
+      transition-delay: 3600s;
+    }
+
+    &:focus {
+      border-color: $color-text-blue;
+    }
+
+    &::placeholder {
+      color: $color-text-gray;
+    }
+
+    &--textarea {
+      height: 69px;
+      resize: none;
+      margin-bottom: 6px;
+
+      @include on-tablet {
+        margin-bottom: 24px;
+      }
+
+      @include on-desktop {
+        margin-bottom: 66px;
+      }
+
+      @include on-screen {
+        margin-bottom: 26px;
+      }
+    }
+  }
+
+  &__button {
+    margin-bottom: 27px;
+
+    @include on-tablet {
+      width: 200px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__contacts {
+    display: none;
+    flex-direction: column;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__scroll-up {
+    background-image: url("../images/scrolls/scroll-up-white.svg");
+
+    @extend %icon;
+
+    display: none;
+    height: 48px;
+    width: 48px;
+
+    @include on-tablet {
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+
+    &:hover {
+      background-image: url("../images/scrolls/scroll-up-blue.svg");
+    }
+  }
+}

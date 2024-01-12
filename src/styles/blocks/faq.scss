@@ -1,0 +1,120 @@
+.faq {
+  &__nav {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 31px;
+
+    @include on-tablet {
+      margin-bottom: 52px;
+    }
+
+    @include on-desktop {
+      position: relative;
+      right: -72px;
+      margin-bottom: 24px;
+    }
+
+    @include on-screen {
+      right: -67px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    width: 280px;
+
+    @include on-desktop {
+      margin-bottom: 50px;
+      width: 520px;
+    }
+
+    @include on-screen {
+      margin-bottom: 37px;
+      width: fit-content;
+    }
+  }
+
+  &__content {
+    @include on-tablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__place {
+    padding: 18px 12px;
+    border: 1px solid $color-text-blue;
+    border-radius: 4px;
+    margin-bottom: 13px;
+
+    @include on-tablet {
+      padding: 14px 30px;
+    }
+
+    @include on-desktop {
+      padding: 18px 29px;
+      margin-bottom: 15px;
+    }
+
+    @include on-screen {
+      margin-bottom: 13px;
+    }
+
+    &--first {
+      padding: 20px 12px 12px;
+
+      @include on-tablet {
+        padding: 20px 14px 24px;
+      }
+
+      @include on-desktop {
+        padding: 18px 21px 21px;
+      }
+
+      @include on-screen {
+        padding: 18px 27px 23px;
+      }
+    }
+  }
+
+  &__question {
+    @include on-tablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &--first {
+      margin-bottom: 18px;
+    }
+  }
+
+  &__answer {
+    line-height: 24px;
+    margin-bottom: 34px;
+
+    @include on-tablet {
+      font-size: 16px;
+      line-height: 24px;
+      margin-bottom: 15px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__update {
+    font-size: 12px;
+    line-height: 150%;
+    color: #545454;
+  }
+
+  &__more {
+    display: none;
+    text-align: center;
+    margin: 0 auto;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+}

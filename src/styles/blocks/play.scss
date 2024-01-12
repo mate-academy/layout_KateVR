@@ -1,0 +1,51 @@
+.play {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  text-decoration: none;
+
+  @include hover(scale, 110%);
+
+  &__image {
+    width: 200px;
+    
+    @extend %icon;
+
+    transition: all $duration;
+    &:hover {
+      transform: scale(1.1) translateX(20px);
+      filter: hue-rotate(250deg);
+    }
+  }
+
+  &__text {
+    display: block;
+
+    &::before {
+      content: "";
+      display: flex;
+      background-image: url("../images/play/play_dots.svg");
+
+      @extend %icon;
+
+      width: 135px;
+      height: 2px;
+      position: relative;
+      top: -9px;
+    }
+
+    &::after {
+      content: "";
+      display: flex;
+      background-image: url("../images/play/play_dots.svg");
+
+      @extend %icon;
+
+      width: 135px;
+      height: 2px;
+      position: relative;
+      bottom: -10px;
+    }
+  }
+}

@@ -1,0 +1,118 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  @include on-screen {
+    grid-template-columns: repeat(16, 1fr);
+    column-gap: 20px;
+  }
+
+  &--not-phone {
+    display: block;
+
+    @include on-tablet {
+      display: grid;
+    }
+  }
+
+  &--not-tablet {
+    display: block;
+
+    @include on-desktop {
+      display: grid;
+    }
+  }
+
+  &--only-phone {
+    display: grid;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__item {
+    margin: 0;
+    position: relative;
+
+    @for $start from 1 through 2 {
+      @for $end from $start through 2 {
+        &--#{$start}-#{$end} {
+          grid-column: #{$start} / #{$end + 1};
+        }
+      }
+    }
+
+    @for $start from 1 through 5 {
+      @for $end from $start through 5 {
+        &--row-#{$start}-#{$end} {
+          grid-row: #{$start} / #{$end};
+        }
+      }
+    }
+
+    @include on-tablet {
+      @for $start from 1 through 6 {
+        @for $end from $start through 6 {
+          &--tablet-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include on-tablet {
+      @for $start from 1 through 5 {
+        @for $end from $start through 5 {
+          &--tablet-row-#{$start}-#{$end} {
+            grid-row: #{$start} / #{$end};
+          }
+        }
+      }
+    }
+
+    @include on-desktop {
+      @for $start from 1 through 5 {
+        @for $end from $start through 5 {
+          &--desktop-row-#{$start}-#{$end} {
+            grid-row: #{$start} / #{$end};
+          }
+        }
+      }
+    }
+
+    @include on-desktop {
+      @for $start from 1 through 12 {
+        @for $end from $start through 12 {
+          &--desktop-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+
+    @include on-screen {
+      @for $start from 1 through 16 {
+        @for $end from $start through 16 {
+          &--screen-#{$start}-#{$end} {
+            grid-column: #{$start} / #{$end + 1};
+          }
+        }
+      }
+    }
+  }
+}
