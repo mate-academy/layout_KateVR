@@ -4,3 +4,33 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin background($image) {
+  background-image: url($image);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+@mixin setSize($width, $height) {
+  width: 100%;
+
+  padding-bottom: calc(($height / $width) * 100 * 1%);
+}
+
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin on-big-desktop {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
