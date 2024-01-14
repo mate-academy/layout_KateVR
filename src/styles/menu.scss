@@ -1,0 +1,178 @@
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 15;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  overflow: hidden;
+
+  background-color: rgba(0, 0, 0, 0.7);
+
+  &:target {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  &:has(.menu__list:target) {
+    pointer-events: all;
+    opacity: 1;
+  }
+
+  &__main {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $purple;
+
+    overflow: hidden;
+    overflow-y: auto;
+
+    @include on-tablet {
+      height: fit-content;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  &__close {
+    display: block;
+    width: 17px;
+    height: 17px;
+    opacity: 1;
+
+    //  transition: opacity 0.3s ease-in-out;
+
+    background-image: url("../images/Menu/Close.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+
+    &--hidden {
+      opacity: 0;
+    }
+
+    transition: background-image 0.3s ease-in-out;
+    &:hover {
+      background-image: url("../images/Menu/Close-hover.svg");
+    }
+  }
+
+  &__back {
+    display: block;
+    width: 9px;
+    height: 17px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    background-image: url("../images/Menu/Back.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &--show {
+      opacity: 1;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    overflow-x: hidden;
+  }
+
+  &__list {
+    padding: 15px 0 0;
+    list-style-type: none;
+
+    min-width: 100%;
+  }
+
+  &__item {
+    display: block;
+    padding: 10px 20px;
+    background-color: transparent;
+
+    transition: background-color 0.3s ease-in-out;
+
+    & :first-child {
+      transition: color 0.3s ease-in-out;
+    }
+
+    &--active {
+      background-color: $active-black;
+
+      & :first-child {
+        color: $blue;
+      }
+    }
+  }
+
+  &__link {
+    display: block;
+
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 27px;
+    text-decoration: none;
+    text-transform: none;
+    color: #fff;
+    width: fit-content;
+
+    &--killers {
+      background-image: url("../images/Menu/blood.png");
+      background-size: cover;
+      background-position: left bottom;
+      pointer-events: none;
+      color:#999;
+    }
+  }
+
+  &__title {
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 25px;
+    padding-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: span 6;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      font-size: 36px;
+      line-height: 44px;
+      grid-column: span 12;
+    }
+  }
+
+  &__bold {
+    font-weight: 900;
+  }
+
+  &__white {
+    color: $white;
+  }
+
+  &__blue {
+    color: $blue;
+  }
+
+  &__thin {
+    font-weight: 400;
+  }
+
+  &__description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $gray;
+  }
+}

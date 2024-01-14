@@ -1,0 +1,238 @@
+.faq {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease-in-out;
+  overflow: hidden;
+
+  @include on-desktop {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    overflow-y: scroll;
+  }
+
+  &__main {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: $purple;
+
+    overflow: hidden;
+    overflow-y: auto;
+
+    @include on-desktop {
+      height: fit-content;
+      max-width: 880px;
+    }
+
+    @include on-big-desktop {
+      max-height: 1083px;
+      overflow-y: auto;
+    }
+  }
+
+  &__content {
+    padding: 10px 20px 20px;
+
+    @include on-desktop {
+      max-height: 600px;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width: 0;
+      }
+    }
+
+    @include on-big-desktop {
+      max-height: 800px;
+      overflow-y: auto;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  &__close {
+    display: block;
+    width: 17px;
+    height: 17px;
+    opacity: 1;
+
+    //  transition: opacity 0.3s ease-in-out;
+
+    background-image: url("../images/Menu/Close.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &--hidden {
+      opacity: 0;
+    }
+
+    transition: background-image 0.3s ease-in-out;
+    &:hover {
+      background-image: url("../images/Menu/Close-hover.svg");
+    }
+  }
+
+  &__title {
+    font-family: Inter, sans-serif;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 25px;
+    padding-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: span 6;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      font-size: 36px;
+      line-height: 44px;
+      grid-column: span 12;
+    }
+  }
+
+  &__bold {
+    font-weight: 900;
+  }
+
+  &__white {
+    color: $white;
+  }
+
+  &__blue {
+    color: $blue;
+  }
+
+  &__thin {
+    font-weight: 400;
+  }
+
+  &__questions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    list-style-type: none;
+
+    padding-bottom: 10px;
+  }
+
+  &__question {
+    position: relative;
+    padding: 12px 18px;
+    height: fit-content;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid $blue;
+
+    &--active {
+
+      & :last-child {
+        position: relative;
+        overflow-y: auto;
+        max-height: 100vh;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  &__question-title {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+
+    color: $blue;
+
+    text-decoration: none;
+  }
+
+  &__question-additional {
+    position: relative;
+    max-height: 0;
+    overflow-y: hidden;
+    margin-top: 0;
+
+    transition: max-height 0.3s ease-in-out, margin-top 0.3s ease-in-out;
+  }
+
+  &__question-description {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $gray;
+  }
+
+  &__question-date {
+    padding-top: 30px;
+
+
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+
+    color: $date-color;
+  }
+
+  &__info-more {
+    display: none;
+
+    @include on-tablet {
+      position: relative;
+      display: block;
+      margin: 50px auto;
+
+
+      width: fit-content;
+    }
+  }
+
+  &__info-more-content {
+    position: relative;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    color: $blue;
+
+    text-decoration: none;
+    text-transform: none;
+
+    &::after {
+      content: "";
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+      display: block;
+      width: 7px;
+      height: 7px;
+
+      @include background("../images/Header/Caret-down.svg");
+
+      background-size: contain;
+    }
+
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #fff;
+      cursor: pointer;
+    }
+  }
+}

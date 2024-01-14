@@ -1,0 +1,171 @@
+
+
+.footer {
+  padding: 45px 20px 55px;
+  background-color: #000;
+
+  @include on-tablet {
+    padding: 55px 34px;
+  }
+
+  @include on-desktop {
+    padding: 43px 110px;
+  }
+
+  @include on-big-desktop {
+    padding: 43px 234px;
+  }
+
+  &__logo {
+    display: block;
+    width: 58px;
+    height: 12px;
+    grid-column: span 2;
+    grid-row: 1;
+
+    background-image: url("../images/Header/Logo.svg");
+    background-size: cover;
+
+    @include on-tablet {
+      height: 14px;
+      width: 69px;
+      grid-column: span 1;
+    }
+  }
+
+  &__information {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 32px;
+    max-width: 1280px;
+    margin: auto;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+    }
+
+
+  }
+
+  &__navigation {
+    display: block;
+    grid-column: 1;
+    grid-row: 2;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      grid-row: 1;
+    }
+  }
+
+  &__contacts {
+    display: block;
+    grid-column: 2;
+    grid-row: 2;
+
+    @include on-tablet {
+      grid-column: -2 / -1;
+      grid-row: 1;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      flex-direction: row;
+      width: fit-content;
+      margin: auto;
+      list-style-type: none;
+    }
+  }
+
+  &__nav-link {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    color: white;
+    text-decoration: none;
+    text-transform: none;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      cursor: pointer;
+      color: $blue;
+    }
+  }
+
+  &__contact-address {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__contact {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 16px;
+    text-decoration: none;
+    text-transform: none;
+    color: $gray;
+  }
+
+  &__socials {
+    padding-top: 22px;
+    display: flex;
+    gap: 22px;
+    justify-content: space-between;
+
+    @include on-tablet {
+      padding-top: 0;
+    }
+  }
+
+  &__social {
+    display: block;
+    height: 18px;
+    width: 22px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease-in-out;
+
+    &--facebook {
+      background-image: url("../images/Footer/Facebook.svg");
+
+      &:hover {
+        background-image: url("../images/Footer/Facebook-hover.svg");
+      }
+    }
+
+    &--twitter {
+      background-image: url("../images/Footer/Twitter.svg");
+
+      &:hover {
+        background-image: url("../images/Footer/Twitter-hover.svg");
+      }
+    }
+
+    &--youtube {
+      background-image: url("../images/Footer/Youtube.svg");
+
+      &:hover {
+        background-image: url("../images/Footer/Youtube-hover.svg");
+      }
+    }
+
+    &--reddit {
+      background-image: url("../images/Footer/Reddit.svg");
+
+      &:hover {
+        background-image: url("../images/Footer/Reddit-hover.svg");
+      }
+    }
+  }
+}
