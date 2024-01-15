@@ -1,7 +1,72 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "blocks/header";
+@import "blocks/body-main";
+@import "blocks/footer";
 
-body {
-  background: $c-gray;
+.page {
+  margin: 0;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+
+  &__body {
+    margin: 0;
+  }
 }
+
+.page:has(.header__help:target) {
+  overflow: hidden;
+}
+
+.page:has(.header__top--nav:target) {
+  overflow: hidden;
+}
+
+@include on-desktop {
+  .page:has(.header__faq:target) {
+    overflow: hidden;
+  }
+}
+
+@include on-tablet {
+  .page:has(.header__faq:target) {
+    overflow: hidden;
+  }
+}
+
+@include on-phone {
+  .page:has(.header__faq:target) .main{
+    display: none;
+  }
+
+  .page:has(.header__faq:target) .footer{
+    display: none;
+  }
+}
+
+.page:has(.header__buy:target) .main{
+  display: none;
+}
+
+.page:has(.header__buy:target) .footer{
+  display: none;
+}
+
+.page:has(.header__lang:target) {
+  overflow: hidden;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: $white-color;
+  -webkit-box-shadow: 0 0 0 1000px $background-black inset;
+}
+
