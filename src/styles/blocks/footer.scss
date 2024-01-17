@@ -3,6 +3,7 @@
   justify-content: space-between;
   width: 100%;
   margin-bottom: 50px;
+  background: #000;
   @include onTablet {
     margin-bottom: 25px;
   }
@@ -33,6 +34,15 @@
     // @include ondesing {
     // }
   }
+  .menu__list1 {
+    display: none;
+    @include onDesktop {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 36px;
+    }
+  }
   .menu__list1--Disp {
     display: flex;
     flex-direction: column;
@@ -60,7 +70,7 @@
     cursor: pointer;
     background-repeat: no-repeat;
     transition: all 0.3s;
-    background-image: url(../images/facebook.png);
+    background-image: url(../images/twitt.png);
     &:hover {
       transform: scale(1.07);
     }
@@ -71,7 +81,7 @@
     cursor: pointer;
     background-repeat: no-repeat;
     transition: all 0.3s;
-    background-image: url(../images/facebook.png);
+    background-image: url(../images/youtube.png);
     &:hover {
       transform: scale(1.07);
     }
@@ -82,7 +92,7 @@
     cursor: pointer;
     background-repeat: no-repeat;
     transition: all 0.3s;
-    background-image: url(../images/facebook.png);
+    background-image: url(../images/cheree.png);
     &:hover {
       transform: scale(1.07);
     }
@@ -100,5 +110,57 @@
   }
   .foot-cont {
     color: #929292;
+  }
+  .nav__logo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 35px;
+  }
+  .logo {
+    display: block;
+    width: 78px;
+    height: 17px;
+    background-repeat: no-repeat;
+    transition: all 0.3s;
+    background-image: url(../images/logoD.svg);
+    &:hover {
+      transition: 0.5s;
+      transform: scale(1.07);
+    }
+  }
+  .navTab {
+    display: flex;
+    @include onDesktop {
+      align-items: center;
+    }
+  }
+  .dispTab {
+    display: flex;
+    @include onTablet {
+      align-items: center;
+      gap: 37px;
+    }
+  }
+  .menu__item1 {
+    display: block;
+    text-decoration: none;
+    font-size: 16px;
+    line-height: 130%;
+    font-weight: 500;
+    font-style: normal;
+    color: $grantext;
+    cursor: pointer;
+    text-align: center;
+    &:hover {
+      color: green;
+      font-weight: 500;
+      opacity: 0.6;
+      -webkit-transition: opacity 0.5s ease-in-out;
+      -moz-transition: opacity 0.5s ease-in-out;
+      -ms-transition: opacity 0.5s ease-in-out;
+      -o-transition: opacity 0.5s ease-in-out;
+      transition: opacity 0.5s ease-in-out;
+    }
   }
 }
