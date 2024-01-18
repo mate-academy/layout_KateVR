@@ -1,0 +1,123 @@
+.footer {
+  background: #000;
+  display: flex;
+  justify-content: center;
+  height: 100px;
+}
+
+.footer__container {
+  width: 100%;
+  @include contentPaddingInline;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__container-small {
+  display: none;
+}
+
+.footer__nav {
+  display: flex;
+  gap: 43px;
+}
+
+.footer__nav-link {
+  color: #f2f2f2;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  text-decoration: none;
+  transition: 0.3s;
+
+  &:hover {
+    color: #05c2df;
+  }
+}
+
+.facebook-blue {
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.twitter-blue {
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.youtube-blue {
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.redit-blue {
+  position: absolute;
+  left: 0;
+  bottom: 4px;
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.socials {
+  display: flex;
+  gap: 18px;
+
+  &__link {
+    cursor: pointer;
+  }
+}
+
+.socials__facebook {
+  position: relative;
+  &:hover .facebook-blue {
+    opacity: 1;
+  }
+  &:hover .facebook {
+    opacity: 0;
+    transition: 0.3s;
+  }
+}
+
+.socials__twitter {
+  position: relative;
+  &:hover .twitter-blue {
+    opacity: 1;
+  }
+  &:hover .twitter {
+    opacity: 0;
+    transition: 0.3s;
+  }
+}
+
+.socials__youtube {
+  position: relative;
+  &:hover .youtube-blue {
+    opacity: 1;
+  }
+  &:hover .youtube {
+    opacity: 0;
+    transition: 0.3s;
+  }
+}
+
+.socials__redit {
+  position: relative;
+  &:hover .redit-blue {
+    opacity: 1;
+  }
+  &:hover .redit {
+    opacity: 0;
+    transition: 0.3s;
+  }
+}

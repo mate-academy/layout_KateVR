@@ -1,0 +1,88 @@
+.menu,
+.languages {
+  width: 100%;
+  position: fixed;
+  opacity: 0;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  background: #191536;
+  z-index: 999;
+  box-shadow: 0 0 0 100vh rgba(0, 0, 0, 0.7);
+  padding-bottom: 139px;
+  transition: 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.menu__top-bar {
+  display: flex;
+  justify-content: end;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  @include contentPaddingInline;
+}
+
+.languages__top-bar {
+  display: flex;
+  justify-content: start;
+  padding-top: 35px;
+  padding-bottom: 35px;
+  @include contentPaddingInline;
+}
+
+.menu-close-link {
+  display: flex;
+  width: 17px;
+  height: 17.2px;
+  background-image: url(../images/x-mark.svg);
+  background-size: cover;
+}
+
+.languages-close-link {
+  display: flex;
+  width: 8.5px;
+  height: 17.2px;
+  background-image: url(../images/menu-return.svg);
+  background-size: cover;
+}
+
+.menu__content {
+  @include contentPaddingInline;
+  padding-inline: 0;
+}
+
+.languages__content {
+  @include contentPaddingInline;
+  padding-inline: 0;
+}
+
+.menu__nav,
+.languages__nav {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+}
+
+.menu__nav-link,
+.languages__nav-link {
+  display: flex;
+  align-items: center;
+  height: 49px;
+  color: #fff;
+  font-family: "Inter", sans-serif;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 130%;
+  text-decoration: none;
+  padding-left: 154px;
+  transition: 0.3s;
+
+  &:hover {
+    color: #05c2df;
+    background: #110e25;
+  }
+}
