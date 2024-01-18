@@ -3,17 +3,19 @@
   display: flex;
   justify-content: center;
 
-  @include onTablet {
+  @include on-tablet {
     padding: 70px 0;
   }
 
-  @include onDesktop {
+  @include on-desktop {
     padding: 100px 0;
   }
 
   &__title {
     color: $white;
+
     @extend %h2;
+
     text-transform: uppercase;
     margin-bottom: 50px;
   }
@@ -28,8 +30,8 @@
     flex-direction: column;
     gap: 25px;
 
-    @include onTablet {
-      flex-direction: row;
+    @include on-tablet {
+      flex-flow: row;
       gap: 15px;
       justify-content: space-around;
       flex-wrap: wrap;
@@ -58,11 +60,11 @@
       transform: scale(1.1);
     }
 
-    @include onTablet {
+    @include on-tablet {
       display: block;
     }
 
-    @include onDesktop {
+    @include on-desktop {
       margin-bottom: 30px;
     }
   }
