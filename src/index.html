@@ -468,7 +468,7 @@
           <div class="touch__forms">
             <form
               action="#"
-              method="get"
+              method="post"
               class="touch__form"
             >
               <input
@@ -603,7 +603,6 @@
             <div class="purchase__form-first" id="form-first">
               <form
                 action="#"
-                method="post"
                 class="purchase__form"
               >
                 <label
@@ -682,24 +681,28 @@
                   id="purchase__input"
                   placeholder="First Name*"
                   autocomplete="off"
+                  required
                 >
 
                 <input
                   type="text"
                   class="purchase__input"
                   placeholder="Last Name*"
+                  required
                 >
 
                 <input
                   type="email"
                   class="purchase__input"
                   placeholder="Email*"
+                  required
                 >
 
                 <input
                   type="phone"
                   class="purchase__input"
                   placeholder="Phone Number*"
+                  required
                 >
 
                 <label for="city" class="purchase__input purchase__label">
@@ -811,16 +814,19 @@
                   type="text"
                   class="purchase__input"
                   placeholder="Shipping Adress 2"
+                  required
                 >
 
                 <button
                   class="primaryButton purchase__button-next btn1">
-                  Purchase
+                  <a class="purchase__button-next--text" href="#purchase-2">
+                    Purchase
+                  </a>
                 </button>
               </form>
             </div>
 
-            <div class="purchase__buy purchase__slider tab2">
+            <div class="purchase__buy purchase__slider tab2" id="purchase-2">
               <div class="purchase__card-number">
                 <p class="purchase__card-title">
                   Card Number*
@@ -900,6 +906,7 @@
                       class="purchase__cvv purchase__input"
                       maxlength="3"
                       placeholder="000"
+                      required
                     >
                   </div>
                 </div>
