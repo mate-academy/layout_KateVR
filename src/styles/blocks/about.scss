@@ -1,0 +1,355 @@
+.about {
+  padding: 50px 0;
+  overflow: hidden;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    @include on-tablet {
+      flex-direction: row-reverse;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 110px;
+    }
+  }
+
+  &__content {
+    @include on-tablet {
+      max-width: 340px;
+    }
+  }
+
+  &__title {
+    text-transform: uppercase;
+    color: $white;
+
+    @extend %h2;
+
+    margin-bottom: 25px;
+
+  }
+
+  &__title--blue {
+    color: $blue;
+    font-weight: normal;
+  }
+
+  &__text {
+    display: none;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__text--mobile {
+    display: block;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__play {
+    display: none;
+    width: 210px;
+    height: 65px;
+    background-image: url(../images/play.png);
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: inherit;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-tablet {
+      display: block;
+    }
+
+  }
+
+  &__play--mobile {
+    display: block;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__player {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    @include on-desktop {
+      align-items: start;
+    }
+  }
+
+  &__pages {
+    display: none;
+    position: absolute;
+    top: -2px;
+    left: -33px;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__number {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: $blue;
+  }
+
+  &__img-wrapper {
+    max-width: 290px;
+    display: flex;
+    overflow: hidden;
+
+    @include on-tablet {
+      max-width: 400px;
+    }
+
+    @include on-desktop {
+      max-width: 430px;
+    }
+
+    &:nth-child(1) {
+      left: 0;
+    }
+  }
+
+  &__video {
+    visibility: hidden;
+    transform: translateX(100%);
+    object-fit: cover;
+    object-position: center;
+    max-width: 280px;
+    margin-bottom: 9px;
+    transition: all 0.3s;
+
+    @include on-tablet {
+      max-width: max-content;
+      height: 270px;
+      margin-bottom: 15px;
+    }
+
+    @include on-desktop {
+      height: 290px;
+    }
+
+    &.active {
+      position: absolute;
+      visibility: visible;
+      transform: translateX(0);
+    }
+  }
+
+  &__slider {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 20px;
+  }
+
+  &__slider-desk {
+    position: relative;
+    display: none;
+    flex-direction: row;
+    gap: 103px;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      left: 2px;
+      width: 199px;
+      height: 2px;
+      background-color: #212121;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      left: 2px;
+      width: 58px;
+      height: 2px;
+      background-color: $blue;
+    }
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__slider-btn {
+    outline: none;
+    border: none;
+    background-color: inherit;
+    color: $white;
+    cursor: pointer;
+  }
+
+  &__dot {
+    display: block;
+    width: 4px;
+    height: 4px;
+    background-color: $grey-normal;
+    border-radius: 50%;
+
+    &:active,
+    &:hover,
+    &:focus {
+      background-color: #ababab;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__second-wrapper {
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+    }
+
+    @include on-desktop {
+      gap: 110px;
+    }
+  }
+
+  &__second-texts {
+    @include on-tablet {
+      max-width: 460px;
+    }
+  }
+
+  &__backs {
+    display: none;
+    gap: 20px;
+    padding-top: 50px;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__bg-img {
+    display: block;
+    width: 63px;
+    height: 253px;
+    background-image: url(../images/au.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  &__bg-img--2 {
+    transform: rotate(180deg);
+    opacity: 0.5;
+
+    &:hover,
+    &:target,
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  &__bg-img--3 {
+    opacity: 0.25;
+
+    &:hover,
+    &:target,
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  &__bg-img--4 {
+    display: none;
+    transform: rotate(180deg);
+    opacity: 0.13;
+
+    &:hover,
+    &:target,
+    &:active {
+      opacity: 1;
+    }
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__bg-img--5 {
+    display: none;
+    opacity: 0.08;
+
+    @include on-desktop {
+      display: block;
+    }
+
+    &:hover,
+    &:target,
+    &:active {
+      opacity: 1;
+    }
+  }
+
+  &__second-titles {
+    display: flex;
+    flex-direction: column;
+    margin: 75px 0 25px;
+  }
+
+  &__second-title {
+    color: $white;
+    
+    @extend %h2;
+  }
+
+  &__second-title--blue {
+    color: $blue;
+    font-weight: normal;
+  }
+
+  &__hello {
+    color: $blue;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
+  &__second-text {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey;
+  }
+}
