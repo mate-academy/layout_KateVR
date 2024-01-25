@@ -4,7 +4,6 @@
   width: auto;
   height: auto;
   flex-shrink: 0;
-  max-width: 1280px;
   margin-inline: auto;
 
   .container__header-content {
@@ -29,6 +28,15 @@
     height: 100vh;
     position: relative;
     padding: 0;
+  }
+
+  &__content {
+    @include on-tablet {
+      max-width: 1280px;
+      justify-content: center;
+      margin-inline: auto;
+      box-sizing: border-box;
+    }
   }
 
   &__stisky {
@@ -71,7 +79,7 @@
 
       &:hover {
         transform: scale(1.2);
-        animation-duration: 0.3ms;
+        animation-duration: 0.7ms;
       }
 
       @include on-tablet {
@@ -173,6 +181,14 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 130%;
+
+    @include on-desctop {
+      &:hover {
+        color: $contrast-color;
+        transform: scale(1.1);
+        animation-duration: 0.7ms;
+      }
+    }
   }
 
   &__button--buy__now {
@@ -376,7 +392,12 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 130%;
+    text-wrap: nowrap;
     cursor: pointer;
+
+    &:hover {
+      color: $contrast-color;
+    }
   }
 
   .button__play--img {
@@ -424,6 +445,14 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 150%;
+
+    @include on-desctop {
+      &:hover {
+        color: $contrast-color;
+        transform: scale(1.1);
+        animation-duration: 0.7ms;
+      }
+    }
   }
 
   &__bottom-more-link {

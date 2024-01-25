@@ -11,12 +11,6 @@
     <link rel="stylesheet" href="./styles/main.scss">
   </head>
   <body>
-    <script
-      type="text/javascript"
-      src="scripts/main.js"
-      defer>
-    </script>
-
     <header class="header" id="#">
       <div class="header__top-bar">
         <div class="header__logo-en">
@@ -37,7 +31,7 @@
         <div class="header__nav-button">
           <ul class="header__nav--list">
             <li class="header__nav--item">
-              <a href="#about" class="header__nav--link">About</a>
+              <a href="#about" class="header__nav--link active">About</a>
             </li>
             <li class="header__nav--item">
               <a href="#tech" class="header__nav--link">Tech</a>
@@ -49,12 +43,12 @@
               <a href="#contact" class="header__nav--link">Contact</a>
             </li>
           </ul>
-          <a href="#place-order" class="header__button-link">
+          <div class="header__button-link">
             <button
-              class="header__button--buy__now">
+              class="header__button--buy__now buy-button">
               Buy Now
             </button>
-          </a>
+          </div>
           <a href="#menu">
             <img
               src="./images/logo/logo-header-menu.png"
@@ -64,6 +58,7 @@
           </a>
         </div>
       </div>
+
       <div class="header__content">
         <div class="header__img-container">
           <img
@@ -75,38 +70,39 @@
       </div>
       <div class="container">
         <div class="header__content">
-          <h1 class="header__title">THE NEW START OF<br>
-            <span class="header__title__blu">VR LOCOMOTION</span>
-          </h1>
-          </h1>
-          <p class="header__description">
-            Discover the most comprehensive
-            VR Locomotion system, and unlock
-            infinite motion in any games on any platforms!
-          </p>
-          <span class="header__description--price">1200$</span>
-          <div class="header__button-conteiner">
-            <a href="#video" class="button__link--video">
-              <button
-                class="button__play">
-                Play Video
-              </button>
-            </a>
-            <img
-              src="./images/image-header/play-2.png"
-              alt="play"
-              class="button__arrow--bottom"
-            >
-            <img
-              src="./images/image-header/header-button-play.png"
-              alt="play"
-              class="button__play--img"
-            >
-            <img
-              src="./images/image-header/play-1.png"
-              alt="play"
-              class="button__arrow--top"
-            >
+          <div class="header_title-description">
+            <h1 class="header__title">THE NEW START OF<br>
+              <span class="header__title__blu">VR LOCOMOTION</span>
+            </h1>
+            <p class="header__description">
+              Discover the most comprehensive
+              VR Locomotion system, and unlock
+              infinite motion in any games on any platforms!
+            </p>
+            <span class="header__description--price">1200$</span>
+            <div class="header__button-conteiner">
+              <div class="button__link--video">
+                <button
+                  class="button__play buyVideo">
+                  Play Video
+                </button>
+              </div>
+              <img
+                src="./images/image-header/play-2.png"
+                alt="play"
+                class="button__arrow--bottom"
+              >
+              <img
+                src="./images/image-header/header-button-play.png"
+                alt="play"
+                class="button__play--img"
+              >
+              <img
+                src="./images/image-header/play-1.png"
+                alt="play"
+                class="button__arrow--top"
+              >
+            </div>
           </div>
           <div class="header__bottom">
             <div class="header__bottom-nav">
@@ -236,8 +232,8 @@
                 required
                 name="country"
                 class="place-order__country-name">
-                <option value="1">Ukraine</option>
-                <option value="2">France</option>
+                <option value="1"></option>
+                <option value="2">Ukraine</option>
                 <option value="3">Spain</option>
                 <option value="4">United States</option>
                 <option value="5">China</option>
@@ -249,7 +245,7 @@
                 required
                 name="city"
                 class="place-order__city-name">
-                <option value="1">Lviv</option>
+                <option value="1"></option>
                 <option value="2">Kyiv</option>
                 <option value="3">Zaporizhia</option>
                 <option value="4">Kharkiv</option>
@@ -275,12 +271,13 @@
                 class="place-order__adress--2"
               >
             </form>
-            <a href="#pay" class="place-order__button-link">
+            <div class="place-order__button-link">
               <button
+              id="place-order__button-id"
                 class="place-order__button">
                 Purchase
               </button>
-            </a>
+            </div>
           </div>
         </div>
       </div>
@@ -396,12 +393,13 @@
                   class="pay__card-cvv"
                 >
               </div>
-              <a href="#complete" class="pay__button-link">
+              <div class="pay__button-link">
                 <button
+                  id="pay-id"
                   class="pay__button">
                   Purchase
                 </button>
-              </a>
+              </div>
             </div>
           </div>
         </div>
@@ -445,12 +443,13 @@
             Your order has been placed and is being processed.
             You will recive an email with the order details
           </p>
-          <a href="#header" class="complete__button-link">
+          <div class="complete__button-link">
             <button
+            id="complete-id"
               class="complete__button">
               Back to homepage
             </button>
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -460,7 +459,6 @@
         <div class="menu__top">
           <a href="#">
             <img
-              href="#"
               src="./images/logo/logo-close.png"
               alt="close"
               class="menu__logo--close"
@@ -505,36 +503,33 @@
           >
         </a>
         <ul class="language__list">
-          <a href="#language" class="language__link">
-            <li class="language__item">English</li>
-          </a>
-          <a href="#language" class="language__link">
-            <li class="language__item">Arabic</li>
-          </a>
-          <a href="#language" class="language__link">
-            <li class="language__item">Chinese (Simplified)</li>
-          </a>
-          <a href="#language" class="language__link">
-            <li class="language__item">Chinese (Traditional)</li>
-          </a>
-          <a href="#language" class="language__link">
-            <li class="language__item">French</li>
-          </a>
-          <a href="#language" class="language__link">
-            <li class="language__item">German</li>
-          </a>
-          <a href="#language" class="language__link">
-            <li class="language__item">Slovenčina</li>
-          </a>
-          <a href="#language" class="language__link">
-            <li class="language__item">Italian</li>
-          </a>
-          <a href="#language" class="language__link">
-            <li class="language__item">Polish</li>
-          </a>
-          <a href="#language" class="language__link">
-            <li class="language__item">Ukrainian</li>
-          </a>
+          <li href="#language" class="language__link">
+            <a class="language__item">English</a>
+          </li>
+          <li href="#language" class="language__link">
+            <a class="language__item">Arabic</a>
+          </li>
+          <li href="#language" class="language__link">
+            <a class="language__item">Chinese</a>
+          </li>
+          <li href="#language" class="language__link">
+            <a class="language__item">French</a>
+          </li>
+          <li href="#language" class="language__link">
+            <a class="language__item">German</a>
+          </li>
+          <li href="#language" class="language__link">
+            <a class="language__item">Slovenčina</a>
+          </li>
+          <li href="#language" class="language__link">
+            <a class="language__item">Italian</a>
+          </li>
+          <li href="#language" class="language__link">
+            <a class="language__item">Polish</a>
+          </li>
+          <li href="#language" class="language__link">
+            <a class="language__item">Ukrainian</a>
+          </li>
         </ul>
       </div>
     </section>
@@ -657,14 +652,6 @@
     </section>
 
     <section class="more" id="more">
-      <div class="more__button-container">
-        <a href="#place-order" class="more__button-link">
-          <button
-            class="more__button--buy__now">
-            Buy Now
-          </button>
-        </a>
-      </div>
       <div class="container">
         <div class="more__title-container">
           <h1 class="more__main__title">MORE THAN
@@ -728,6 +715,14 @@
           </div>
         </div>
       </div>
+      <div class="more__button-container">
+        <div class="more__button-link">
+          <button
+            class="more__button--buy__now buy-button">
+            Buy Now
+          </button>
+        </div>
+      </div>
     </section>
 
     <section class="about" id="about">
@@ -760,12 +755,12 @@
             movement in virtual reality.
           </p>
           <div class="about__button-conteiner">
-            <a href="#video" class="about__video-link">
+            <div class="about__video-link">
               <button
-                class="button__play">
+                class="button__play buyVideo">
                 Play Video
               </button>
-            </a>
+            </div>
             <img
               src="./images/image-header/play-2.png"
               alt="play"
@@ -876,35 +871,77 @@
               class="tech__img"
             >
             <img
+              onclick="toggleTechWindow2()"
               src="./images/image-tech/tech-icon-minus.png"
               alt="icon"
               class="tech__icon-minus--1"
             >
+            <div class="tech__window--2" id="techWindow2">
+              Type: Lthium-lon polymer batteries
+              Capacity: 370mAh
+              Battery life: 10h of continuous use 150 hours on stand by
+              Charging: Fast charging - 1 hour
+              Charging voltage and current: 5V = 0.5A
+            </div>
             <img
+              onclick="toggleTechWindow2()"
               src="./images/image-tech/tech-icon.svg"
               alt="icon"
               class="tech__icon--1"
             >
+            <script>
+              function toggleTechWindow2() {
+                var techWindow = document.getElementById('techWindow2');
+                techWindow.style.display = (techWindow.style.display === 'none' || techWindow.style.display === '') ? 'block' : 'none';
+              }
+            </script>
             <img
               src="./images/image-tech/tech-icon-minus.png"
               alt="icon"
               class="tech__icon-minus--2"
+              onclick="toggleTechWindow()"
             >
+            <div class="tech__window" id="techWindow">
+              Weight: 35g/1.23oz each
+              Dimension: 50mm/1.97in
+              24mm/0.94in
+              Light: LED lights
+            </div>
             <img
+              onclick="toggleTechWindow()"
               src="./images/image-tech/tech-icon.svg"
               alt="icon"
               class="tech__icon--2"
             >
+            <script>
+              function toggleTechWindow() {
+                var techWindow = document.getElementById('techWindow');
+                techWindow.style.display = (techWindow.style.display === 'none' || techWindow.style.display === '') ? 'block' : 'none';
+              }
+            </script>
             <img
+              onclick="toggleTechWindow3()"
               src="./images/image-tech/tech-icon-minus.png"
               alt="icon"
               class="tech__icon-minus--3"
             >
+            <div class="tech__window--3" id="techWindow3">
+              Wireless: Bluetooth 4.2
+              Signal range: 5m
+              Receiver: USB 2.0 and above
+            </div>
             <img
+              onclick="toggleTechWindow3()"
               src="./images/image-tech/tech-icon.svg"
               alt="icon"
               class="tech__icon--3"
             >
+            <script>
+              function toggleTechWindow3() {
+                var techWindow = document.getElementById('techWindow3');
+                techWindow.style.display = (techWindow.style.display === 'none' || techWindow.style.display === '') ? 'block' : 'none';
+              }
+            </script>
           </div>
         </div>
       </div>
@@ -919,44 +956,50 @@
           </h1>
         </div>
         <div class="benefits__content">
-          <img
-            src="./images/image-tablet/uc-logo.png"
-            alt="img"
-            class="benefits__logo-compatible"
-          >
-          <h2 class="benefits__titles--universally">UNIVERSALLY COMPATIBLE</h2>
-          <p class="benefits__description--universally">
-            KAT Loco offers universal compatibility
-            across all major VR headsets and platforms...
-          </p>
-          <img
-            src="./images/image-tablet/vr-logo.png"
-            alt="img"
-            class="benefits__logo-vr"
-          >
-          <h2 class="benefits__titles--vr">VR/PC CONTROL PANEL</h2>
-          <p class="benefits__description--vr">
-            Our Multifunctional Software allows for quick
-            access to KAT Loco&#8217;s control panel both from...
-          </p>
-          <img
-            src="./images/image-tablet/wireles-logo.png"
-            alt="img"
-            class="benefits__logo-wireless"
-          >
-          <h2 class="benefits__titles--wireless">WIRELESS SENSORS</h2>
-          <p class="benefits__description--wireless">
-            What makes it even more advanced,
-            KAT Loco is entirely wireless, and comes with a...
-          </p>
+          <div class="benefits__conteiner-centr">
+            <img
+              src="./images/image-tablet/uc-logo.png"
+              alt="img"
+              class="benefits__logo-compatible"
+            >
+            <h2 class="benefits__titles--universally">UNIVERSALLY COMPATIBLE</h2>
+            <p class="benefits__description--universally">
+              KAT Loco offers universal compatibility
+              across all major VR headsets and platforms...
+            </p>
+          </div>
+          <div class="benefits__conteiner-centr">
+            <img
+              src="./images/image-tablet/vr-logo.png"
+              alt="img"
+              class="benefits__logo-vr"
+            >
+            <h2 class="benefits__titles--vr">VR/PC CONTROL PANEL</h2>
+            <p class="benefits__description--vr">
+              Our Multifunctional Software allows for quick
+              access to KAT Loco&#8217;s control panel both from...
+            </p>
+          </div>
+          <div class="benefits__conteiner-centr">
+            <img
+              src="./images/image-tablet/wireles-logo.png"
+              alt="img"
+              class="benefits__logo-wireless"
+            >
+            <h2 class="benefits__titles--wireless">WIRELESS SENSORS</h2>
+            <p class="benefits__description--wireless">
+              What makes it even more advanced,
+              KAT Loco is entirely wireless, and comes with a...
+            </p>
+          </div>
         </div>
         <div class="benefits__button-content">
-          <a href="#place-order" class="benefits__button-link">
+          <div class="benefits__button-link">
             <button
-              class="benefits__button--buy__now">
+              class="benefits__button--buy__now buy-button">
               Buy Now
             </button>
-          </a>
+          </div>
         </div>
       </div>
     </section>
@@ -970,10 +1013,10 @@
             <a class="contact__contacts" href="tel:+86-0571-86105373">
               +86-0571-86105373
             </a>
-            <a class="contact__contacts" href="email:global@katvr.com">
+            <a class="contact__contacts" href="mailto:global@katvr.com">
               global@katvr.com
             </a>
-            <a class="contact__contacts" href="email:overseas@katvr.com">
+            <a class="contact__contacts" href="mailto:overseas@katvr.com">
               overseas@katvr.com
             </a>
           </div>
@@ -1046,10 +1089,10 @@
               <a class="footer__contacts" href="tel:+86-0571-86105373">
                 +86-0571-86105373
               </a>
-              <a class="footer__contacts" href="email:global@katvr.com">
+              <a class="footer__contacts" href="mailto:global@katvr.com">
                 global@katvr.com
               </a>
-              <a class="footer__contacts" href="email:overseas@katvr.com">
+              <a class="footer__contacts" href="mailto:overseas@katvr.com">
                 overseas@katvr.com
               </a>
               <img
@@ -1062,5 +1105,10 @@
         </div>
       </div>
     </footer>
+    <script
+      type="text/javascript"
+      src="scripts/main.js"
+      defer>
+    </script>
   </body>
 </html>

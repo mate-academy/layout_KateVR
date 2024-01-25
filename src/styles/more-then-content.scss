@@ -1,8 +1,7 @@
 .more {
-  top: 0;
-  left: 0;
-  right: 0;
+  bottom: 0;
   height: 586px;
+  padding: 20px 0;
 
   @include on-desctop {
     padding: 100px 0;
@@ -27,10 +26,8 @@
 
   &__button-container {
     position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
-      padding-top: 15px;
+    bottom: 0;
+    padding-top: 5px;
 
     @include on-tablet {
       display: flex;
@@ -39,9 +36,7 @@
       height: 112px;
       width: 100%;
       position: sticky;
-      top: 0;
-      left: 0;
-      right: 0;
+      bottom: 0;
       padding-top: 20px;
       background: linear-gradient(180deg, rgba(0, 0, 0, 0.21) 0%, rgba(4, 4, 4, 0.59) 23.44%, #050505 100%);
     }
@@ -94,8 +89,14 @@
 
    &__title-container {
     display: flex;
-    justify-content: center;
     align-items: center;
+    margin-top: 70px;
+    justify-content: left;
+
+    @include on-tablet {
+      justify-content: center;
+      margin-top: 50px;
+    }
    }
 
   &__main__title {

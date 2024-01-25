@@ -8,11 +8,12 @@
 
     &__content {
       @include on-tablet {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      column-gap: 18px;
+      display: flex;
+      flex-direction: row;
+      column-gap: 20px;
       justify-content: center;
-      justify-items: center;
+      align-items: center;
+      text-align: justify;
     }
 
     @include on-desctop {
@@ -20,10 +21,20 @@
     }
   }
 
+  &__conteiner-centr {
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
   &__title-content {
     @include on-desctop {
       display: flex;
       justify-content: center;
+      align-items: center;
     }
   }
 
@@ -52,9 +63,13 @@
 
     @include on-tablet {
       width: 80px;
-      height: 79.45px;
-      display: grid;
-      grid-column: 1;
+      height: 80px;
+      display: block;
+      padding-bottom: 20px;
+    }
+
+    @include on-desctop {
+      padding-bottom: 20px;
     }
   }
 
@@ -63,10 +78,13 @@
 
     @include on-tablet {
       width: 86.37px;
-      height: 79.45px;
-      display: grid;
-      grid-column: 2;
-      grid-row: 1;
+      height: 80px;
+      display: block;
+      padding-bottom: 20px;
+    }
+
+    @include on-desctop {
+      padding-bottom: 20px;
     }
   }
 
@@ -75,10 +93,13 @@
 
     @include on-tablet {
       width: 105.31px;
-      height: 75.32px;
-      display: grid;
-      grid-column: 3;
-      grid-row: 1;
+      height: 80px;
+      display: block;
+      padding-bottom: 20px;
+    }
+
+    @include on-desctop {
+      padding-bottom: 20px;
     }
   }
 
@@ -97,8 +118,6 @@
       @include on-tablet {
         text-align: center;
         white-space: nowrap;
-        margin: 25px 0 37px;
-        grid-column: 1;
       }
     }
 
@@ -112,9 +131,17 @@
         text-align: center;
         white-space: nowrap;
         display: flex;
-        margin: 25px 0 37px;
-        grid-column: 2;
-        grid-row: 2;
+      }
+    }
+
+    &__conteiner-centr {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
       }
     }
 
@@ -127,9 +154,6 @@
       @include on-tablet {
         text-align: center;
         white-space: nowrap;
-        margin: 25px 0 37px;
-        grid-column: 3;
-        grid-row: 2;
     }
     }
   }
@@ -141,8 +165,8 @@
     font-weight: 400;
     line-height: 150%;
 
-    @include on-desctop {
-      width: 340px;
+    @include on-tablet {
+      margin: 0;
     }
 
     &--universally {
@@ -153,8 +177,7 @@
       line-height: 150%;
 
       @include on-tablet {
-        max-width: 100%;
-        grid-column: 1;
+        margin: 0;
       }
     }
 
@@ -166,8 +189,7 @@
       line-height: 150%;
 
       @include on-tablet {
-        grid-column: 2;
-        grid-row: 3;
+        margin: 0;
       }
     }
 
@@ -179,8 +201,7 @@
       line-height: 150%;
 
       @include on-tablet {
-        grid-column: 3;
-        grid-row: 3;
+        margin: 0;
       }
     }
   }

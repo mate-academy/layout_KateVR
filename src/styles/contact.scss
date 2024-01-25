@@ -45,11 +45,23 @@
 
   &__contacts {
     @include on-tablet {
+      display: inline-block;
       color: #929292;
       font-size: 16px;
       font-weight: 400;
       text-decoration: none;
       cursor: pointer;
+
+      &:hover {
+        color: $contrast-color;
+      }
+    }
+
+    @include on-desctop {
+      display: inline;
+      &:hover {
+        color: $contrast-color;
+      }
     }
   }
 
