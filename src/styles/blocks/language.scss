@@ -1,0 +1,49 @@
+.language {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  inset: 0;
+  background-color: $menu-background;
+  z-index: 1;
+
+  @media (min-width:640px) {
+    max-height: 600px;
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__container {
+    @include column;
+    @include padding-inline;
+
+    display: grid;
+    margin-top: 35px;
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      grid-column: span 3;
+    }
+
+    &-item {
+      &:hover {
+        background-color: #110E25;
+      }
+    }
+
+    &-link {
+      color: $white-color;
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 130%;
+
+      &:hover {
+        color: $contrast-color;
+      }
+    }
+  }
+}

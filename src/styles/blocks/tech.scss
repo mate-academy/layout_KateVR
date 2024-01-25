@@ -1,0 +1,203 @@
+.tech {
+  background-color: #05040B;
+  padding: 50px 0;
+
+  &__container {
+    @include column;
+    @include padding-inline;
+
+    display: grid;
+  }
+
+  &__top {
+    grid-column: span 2;
+
+    @media (min-width:640px) {
+      grid-area: 1/1/1/3;
+    }
+
+    @media (min-width:1280px) {
+      grid-area: 1/9/1/13;
+    }
+
+    &-title {
+      color: $white-color;
+
+      @media (min-width:1280px) {
+        font-size: 36px;
+      }
+    }
+
+    &-second {
+      color: $contrast-color;
+    }
+  }
+
+  &--content-box {
+    display: none;
+
+    @media (min-width:1280px) {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+    }
+  }
+
+  &__content {
+    grid-column: span 2;
+    margin-top: 40px;
+    position: relative;
+
+    @media (min-width:640px) {
+      grid-column: 3/5;
+      margin-top: 60px;
+    }
+
+    @media (min-width:1280px) {
+      grid-area: 2/5/2/8;
+      margin-top: 140px;
+    }
+
+    @media (min-width:1440px) {
+      grid-column: 5/9;
+    }
+
+    &-title {
+      color: $white-color;
+    }
+
+    &-text {
+      color: $text-color;
+      line-height: 150%;
+    }
+
+    &--box-1 {
+      @media (min-width:1280px){
+        left: -360px;
+        top: -54px;
+      }
+    }
+
+    &--box-2 {
+      @media (min-width:1280px){
+        left: -280px;
+        top: 150px;
+      }
+    }
+
+    &--box-3 {
+      @media (min-width:1280px){
+        top: -45px;
+        right: -360px;
+      }
+    }
+
+    &-vector {
+      display: none;
+
+      @media (min-width:1280px) {
+        display: block;
+      }
+    }
+
+    &--box-logo-1 {
+      display: none;
+
+      @media (min-width:1280px) {
+        display: block;
+        position: absolute;
+        left: -255px;
+        top: -45px;
+      }
+    }
+
+    &--box-logo-2 {
+      display: none;
+
+      @media (min-width:1280px) {
+        display: block;
+        position: absolute;
+        top: 50px;
+        left: -120px;
+      }
+    }
+
+    &--box-logo-3 {
+      display: none;
+
+      @media (min-width:1280px) {
+        display: block;
+        position: absolute;
+        top: -43px;
+        left: 150px;
+      }
+    }
+
+    &-image {
+      background-image: url(/images/section/tech-logo.png);
+      background-position: 50%;
+      width: 100%;
+      height: 200px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: relative;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-content;
+      }
+
+      @media (min-width:1280px) {
+        height: 300px;
+        width: 300px;
+      }
+
+      @media (min-width:1280px) {
+        &::after {
+          content: url(/images/section/arc.svg);
+          width: 100%;
+          position: absolute;
+          top: 45px;
+          left: -10px;
+        }
+      }
+    }
+
+    &-plus {
+      display: none;
+
+      @media (min-width:640px) {
+        background-image: url(/images/section/plus.svg);
+        background-size: contain;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        height: 35px;
+        width: 40px;
+        position: absolute;
+        display: block;
+      }
+
+      @media (min-width:1280px) {
+        display: none;
+      }
+    }
+  }
+}
+
+.plus-1 {
+  top: -15px;
+  left: 40px;
+}
+
+.plus-2 {
+  bottom: 80px;
+  right: 20px;
+}
+
+.plus-3 {
+  bottom: 10px;
+  left: -20px;
+}

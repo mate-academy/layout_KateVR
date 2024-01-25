@@ -1,0 +1,138 @@
+.help {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  inset: 0;
+  background-color: $menu-background;
+  z-index: 1;
+
+  @media (min-width:640px) {
+    max-height: 600px;
+  }
+
+  @media (min-width:1280px) {
+    margin: 100px 200px;
+    max-height: 550px;
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    overflow: auto;
+  }
+
+  &__continer {
+    @include column;
+    @include padding-inline;
+
+    display: grid;
+
+    @media (min-width:1280px) {
+      margin-top: 50px;
+    }
+
+    &-text {
+      grid-column: span 2;
+      color: $text-color;
+
+      @media (min-width:640px) {
+        grid-area: 2/1/2/7;
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media (min-width:1280px) {
+        grid-column: 1/13;
+      }
+    }
+
+    &--text-link {
+      color: $contrast-color;
+      transition: $animation-text;
+
+      &:hover {
+        transform: $transform-text;
+      }
+    }
+  }
+
+  &__title {
+    grid-column: span 2;
+    margin: 30px 0;
+
+    @media (min-width:640px) {
+      grid-area: 1/1/1/4;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 1/10;
+      font-size: 36px;
+      margin: 0 0 30px;
+    }
+
+    &-how {
+      color: $white-color;
+    }
+
+    &-help {
+      color: $contrast-color;
+    }
+  }
+
+  &__advice {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 30px 0;
+
+    @media (min-width:640px) {
+      grid-area: 3/1/3/4;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 1/5;
+    }
+
+    &-item {
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-content;
+      }
+    }
+
+    &-link {
+      color: $contrast-color;
+    }
+  }
+
+  &__contacts {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (min-width:640px) {
+      grid-area: 3/4/3/7;
+      margin-top: 30px;
+      gap: 20px;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 5/9;
+    }
+
+    &-item {
+      transition: $animation-text;
+
+      &:hover {
+        transform: $transform-text;
+      }
+    }
+
+    &-link {
+      color: $text-color;
+    }
+  }
+}

@@ -1,7 +1,71 @@
 @import "utils";
 @import "fonts";
 @import "typography";
+@import "./blocks/header";
+@import "./blocks/top-bar";
+@import "./blocks/menu";
+@import "./blocks/language";
+@import "./blocks/faq";
+@import "./blocks/help";
+@import "./blocks/buy";
+@import "./blocks/more";
+@import "./blocks/about";
+@import "./blocks/tech";
+@import "./blocks/why";
+@import "./blocks/get";
+@import "./blocks/footer";
 
-body {
-  background: $c-gray;
+.page {
+  scroll-behavior: smooth;
+  font-family: Inter, sans-serif;
+
+  &-body {
+    margin: 0;
+    overflow-x: hidden;
+
+    &:has(.menu:target) {
+      overflow: hidden;
+    }
+
+    &:has(.language:target) {
+      overflow: hidden;
+    }
+
+    &:has(.faq:target) {
+      overflow: hidden;
+    }
+
+    &:has(.help:target) {
+      overflow: hidden;
+    }
+  }
+}
+
+a {
+  width: fit-content;
+  text-decoration: none;
+}
+
+a, button, img {
+  cursor: pointer;
+}
+
+a, h1, h2, h3, h4, ul, p {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: $white-color;
+  -webkit-box-shadow: 1000px #05040B inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
