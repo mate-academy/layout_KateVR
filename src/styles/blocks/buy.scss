@@ -1,0 +1,370 @@
+.buy {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  inset: 0;
+  background: linear-gradient(108deg, #191536 0%, #000 100%);
+  z-index: 1;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    overflow: auto;
+    z-index: 2;
+  }
+
+  &__container {
+    @include column;
+    @include padding-inline;
+
+    display: grid;
+    position: relative;
+
+    &-image {
+      display: none;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-content;
+      }
+
+      @media (min-width:640px) {
+        display: block;
+        background-image: url(/images/header/header-image.svg);
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        width: 100%;
+        height: 250px;
+        grid-area: 2/1/2/7;
+      }
+
+      @media (min-width:1280px) {
+        grid-area: 1/1/1/7;
+        margin-top: 100px;
+        height: 300px;
+        position: absolute;
+        left: -45px;
+      }
+    }
+  }
+
+  &__top-nav {
+    display: none;
+
+    @media (min-width:1280px) {
+      display: flex;
+      grid-column: 4/12;
+      justify-content: space-between;
+    }
+  }
+
+  &__top-link {
+    color: $white-color;
+  }
+
+  &__top--link-order {
+    color: $contrast-color;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      height: 4px;
+      width: 4px;
+      background-color: $contrast-color;
+      top: 30px;
+      left: 40px;
+      border-radius: 50%;
+    }
+  }
+
+  &__nav {
+    grid-column: span 2;
+    display: flex;
+    flex-direction: row;
+    gap: 60px;
+    justify-content: space-between;
+    margin: 30px 0 50px;
+    position: relative;
+
+    @media (min-width:640px) {
+      justify-content: space-around;
+    }
+
+    @media (min-width:1280px) {
+      display: none;
+    }
+
+    &::after {
+      content: "";
+      height: 1px;
+      width: 100%;
+      background-color: #2F2F2F;
+      position: absolute;
+      top: 20px;
+    }
+
+    @media (min-width:640px) {
+      grid-area: 1/1/1/7;
+    }
+
+    &-link {
+      grid-column: span 1;
+      font-size: 12px;
+      color: $text-color;
+
+      @media (min-width:640px) {
+        font-size: 14px;
+      }
+
+      &:hover {
+        color: $contrast-color;
+      }
+    }
+
+    &--link-order {
+      color: $contrast-color;
+
+      &::after {
+        content: "";
+        width: 65px;
+        height: 1px;
+        position: absolute;
+        background-color: $contrast-color;
+        left: 0;
+        top: 20px;
+        z-index: 1;
+
+        @media (min-width:640px) {
+          width: 190px;
+        }
+      }
+    }
+  }
+
+  &__catalog {
+    grid-column: span 2;
+    display: flex;
+    gap: 75px;
+    justify-content: center;
+
+    @media (min-width:640px) {
+      grid-area: 3/1/3/5;
+      justify-content: left;
+      gap: 100px;
+    }
+
+    @media (min-width:1280px) {
+      grid-area: 1/1/1/7;
+      position: absolute;
+      bottom: 0;
+    }
+
+    &-quantity {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+    }
+
+    &--quantity-slide {
+      position: absolute;
+      display: none;
+      flex-direction: column;
+      pointer-events: none;
+      transition: all 0.5s;
+      z-index: 1;
+    }
+
+    &-title {
+      color: $text-color;
+    }
+
+    &-button {
+      display: flex;
+      gap: 20px;
+      background-color: #191536;
+      padding: 10px 20px 10px 40px;
+      align-items: center;
+      border: none;
+      height: 40px;
+
+      &::after {
+        content: "";
+        display: flex;
+        background-repeat: no-repeat;
+        background-image: url(/images/aside/arrow-down.png);
+        width: 8px;
+        height: 8px;
+      }
+    }
+
+    &-number {
+      color: $white-color;
+      font-size: 20px;
+      font-weight: 400;
+      line-height: 130%;
+    }
+
+    &-price {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    &-sum {
+      color: $contrast-color;
+      font-size: 26px;
+      font-weight: 500;
+    }
+  }
+
+  &__form {
+    margin: 30px 0 40px;
+    grid-column: span 2;
+
+    @media (min-width:640px) {
+      grid-area: 4/1/4/7;
+      margin-top: 50px;
+    }
+
+    @media (min-width:1280px) {
+      grid-area: 1/7/1/13;
+      margin: 100px 0 0;
+    }
+
+    &-form {
+      @media (min-width:640px) {
+        grid-column: 1/7;
+        grid-template-columns: repeat(6, 1fr);
+        column-gap: 20px;
+        display: grid;
+      }
+    }
+
+    &-text {
+      color: $text-color;
+      margin-bottom: 20px;
+    }
+
+    &-input {
+      margin-bottom: 30px;
+      background: 0;
+      border: none;
+      border-bottom: 2px solid $text-color;
+      width: 100%;
+      outline: none;
+      padding: 0 0 20px;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-content;
+      }
+    }
+
+    &--input-first {
+      @media (min-width:640px) {
+        grid-area: 1/1/1/4;
+      }
+    }
+
+    &--input-last {
+      @media (min-width:640px) {
+        grid-area: 1/4/1/7;
+      }
+    }
+
+    &--input-email {
+      grid-area: 2/1/2/4;
+    }
+
+    &--input-phone {
+      grid-area: 2/4/2/7;
+    }
+
+    &--list-country {
+      margin-bottom: 30px;
+
+      @media (min-width:640px) {
+        grid-area: 3/1/3/4;
+      }
+    }
+
+    &--list-city {
+      margin-bottom: 30px;
+
+      @media (min-width:640px) {
+        grid-area: 3/4/3/7;
+      }
+    }
+
+    &--input-address {
+      @media (min-width:640px) {
+        grid-area: 4/1/4/4;
+      }
+    }
+
+    &--input-address-2 {
+      grid-area: 4/4/4/7;
+    }
+
+    &-link {
+      color: $white-color;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 130%;
+    }
+
+    &-box {
+      width: 100%;
+      height: 50px;
+      background-color: #191536;
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-inline: 20px;
+
+      &::after {
+        content: "";
+        display: flex;
+        background-repeat: no-repeat;
+        background-image: url(/images/aside/arrow-down.png);
+        height: 8px;
+        width: 8px;
+      }
+    }
+  }
+
+  &__button {
+    background-color: $contrast-color;
+    color: $white-color;
+    border: none;
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    transition: $animation-content;
+
+    &:hover {
+      transform: $transform-content;
+      background-color: $white-color;
+      color: $contrast-color;
+    }
+
+    &:active {
+      background-color: #191536;
+      color: #2F2F2F;
+    }
+
+    @media (min-width:640px) {
+      grid-area: 5/2/5/6;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 1/3;
+      margin-top: 50px;
+    }
+  }
+}

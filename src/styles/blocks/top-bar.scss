@@ -1,0 +1,49 @@
+.top-bar {
+  @include column;
+  @include padding-inline;
+
+  display: grid;
+  padding-top: 18px;
+
+  @media (min-width:640px) {
+    padding-top: 30px;
+    justify-self: end;
+  }
+}
+
+.top-logo {
+  height: 12px;
+  grid-column: 1/1;
+  transition: $animation-text;
+
+  &:hover {
+    fill: $contrast-color;
+    transform: $transform-content;
+  }
+
+  @media (min-width:640px) {
+    height: 15px;
+  }
+}
+
+.top-icon {
+  grid-column: 3/3;
+  transition: $animation-text;
+
+  &:hover {
+    fill: $contrast-color;
+    transform: $transform-content;
+  }
+
+  @media (min-width:640px) {
+    grid-column: 7/7;
+  }
+
+  @media (min-width:1280px) {
+    grid-column: 13/13;
+  }
+}
+
+.menu-burger {
+  height: 20px;
+}

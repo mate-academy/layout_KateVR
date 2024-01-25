@@ -1,0 +1,144 @@
+.faq {
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  inset: 0;
+  background-color: $menu-background;
+  z-index: 2;
+
+  @media (min-width:1280px) {
+    margin: 100px 200px;
+  }
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+    overflow: auto;
+
+    @media (min-width:640px) {
+      padding-bottom: 100px;
+    }
+  }
+
+  &__title {
+    margin: 30px 0;
+    grid-column: span 2;
+
+    @media (min-width:640px) {
+      grid-area: 1/1/1/4;
+    }
+
+    @media (min-width:1280px) {
+      font-size: 36px;
+      grid-column: 1/8;
+    }
+
+    &-up {
+      color: $white-color;
+    }
+
+    &-down {
+      color: $contrast-color;
+    }
+  }
+
+  &__container {
+    @include column;
+    @include padding-inline;
+
+    display: grid;
+
+    &-list {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+
+      @media (min-width:640px) {
+        grid-area: 2/1/2/7;
+      }
+
+      @media (min-width:1280px) {
+        grid-column: 1/13;
+      }
+    }
+
+    &-item {
+      border: 1px solid $contrast-color;
+      border-radius: 4px;
+      padding: 20px 12px 12px;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-content;
+      }
+    }
+
+    &-link {
+      color: $contrast-color;
+    }
+
+    &-content {
+      margin-top: 20px;
+    }
+
+    &-text {
+      color: $text-color;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+    }
+
+    &-update {
+      color: #545454;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 150%;
+      margin-top: 20px;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @media (min-width:640px) {
+      display: flex;
+      grid-area: 3/3/3/5;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    @media (min-width:1280px) {
+      grid-column: 6/8;
+    }
+
+    &-icon {
+      transition: $animation-content;
+
+      path {
+        transition: $animation-content;
+
+        &:hover {
+          transform: $transform-content;
+
+          path {
+            fill: $white-color;
+          }
+        }
+      }
+    }
+
+    &--link-more {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      color: $contrast-color;
+      transition: $animation-content;
+
+      &:hover {
+        transform: $transform-content;
+        color: $white-color;
+      }
+    }
+  }
+}
