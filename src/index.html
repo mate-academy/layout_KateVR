@@ -491,7 +491,7 @@
         </div>
 
         <div class="buy__form">
-          <form class="buy__form-form">
+          <form class="buy__form-form" onsubmit="this.reset(); return false;">
             <input
               class="buy__form-input buy__form--input-first"
               type="text"
@@ -1361,7 +1361,7 @@
         </div>
       </section>
 
-      <section class="get">
+      <section class="get" id="get">
         <div class="get__container">
           <div class="get__top">
             <p class="get__top-subtitle">Have any questions?</p>
@@ -1371,9 +1371,8 @@
             </h2>
           </div>
 
-          <form class="get__form">
-
-            <div class="get__form-box">
+          <form class="get__form" onsubmit="this.reset(); return false;">
+            <label class="get__form-box">
               <p class="get__form--input-text">Name*</p>
               <input
                 type="text"
@@ -1383,9 +1382,9 @@
                 pattern="[A-Za-z]+"
                 title="Please, fill your name*"
               >
-            </div>
+            </label>
 
-            <div class="get__form-box">
+            <label class="get__form-box">
               <p class="get__form--input-text">Email*</p>
               <input
                 type="email"
@@ -1394,9 +1393,9 @@
                 name="email"
 
               >
-            </div>
+            </label>
 
-            <div class="get__form-box">
+            <label class="get__form-box">
               <p class="get__form--input-text">Phone*</p>
               <input
                 type="tel"
@@ -1404,17 +1403,16 @@
                 required
                 name="phone"
               >
-            </div>
+            </label>
 
-            <div class="get__form-box">
+            <label class="get__form-box">
               <p class="get__form--input-text">Message</p>
               <textarea
                 class="get__form-input get__form-textarea"
                 required
-                autofocus
               >
               </textarea>
-            </div>
+            </label>
 
             <div class="get__form-bottom">
               <button class="get__form-button">Contact Us</button>
