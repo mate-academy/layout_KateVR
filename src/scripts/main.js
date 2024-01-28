@@ -1,28 +1,31 @@
 'use strict';
 
-function redirectToOtherPage(targetClass, destination) {
-  document.body.addEventListener('click', function(event) {
-    if (event.target.classList.contains(targetClass)) {
-      window.location.href = destination;
-    }
-  });
+function redirectTo(hash) {
+  window.location.href = `#${hash}`;
 }
 
-function redirectToOtherForm(formClass, destination) {
-  document.body.addEventListener('click', function(event) {
-    if (event.target.classList.contains('place-order__button')) {
-      const form = document.querySelector(formClass);
+document.body.addEventListener('click', function(event) {
+  const target = event.target;
 
-      if (form.checkValidity()) {
-        window.location.href = destination;
-      }
+  if (target.classList.contains('buy-button')) {
+    redirectTo('place-order');
+  } else if (target.classList.contains('buyVideo')) {
+    redirectTo('video');
+  } else if (target.classList.contains('complete-id')) {
+    redirectTo('');
+  } else if (target.classList.contains('complete__button')) {
+    redirectTo('');
+  } else if (target.classList.contains('place-order__button')) {
+    const form = document.querySelector('.place-order__forms');
+
+    if (form.checkValidity()) {
+      redirectTo('pay');
     }
-  });
-}
+  } else if (target.classList.contains('pay__button')) {
+    const form = document.querySelector('.pay__forms');
 
-redirectToOtherPage('buy-button', '#place-order');
-redirectToOtherPage('buyVideo', '#video');
-redirectToOtherPage('complete-id', '#');
-redirectToOtherPage('complete__button', '#');
-redirectToOtherForm('.pay__forms', '#pay');
-redirectToOtherForm('.complete__forms', '#complete');
+    if (form.checkValidity()) {
+      redirectTo('complete');
+    }
+  }
+});
