@@ -24,50 +24,56 @@ function redirectToOtherPageVideo() {
   window.location.href = '#video';
 }
 
-const buyOrder = document.getElementById('place-order__button-id');
+document.getElementById('complete-id');
 
-buyOrder.addEventListener('click', function() {
-  redirectToOtherPageOrder();
+document.body.addEventListener('click', function(event) {
+  if (event.target.classList.contains('complete-id')) {
+    redirectToOtherPageHome();
+  }
 });
 
-function redirectToOtherPageOrder() {
-  window.location.href = '#pay';
-}
-
-const buyPay = document.getElementById('pay-id');
-
-buyPay.addEventListener('click', function() {
-  redirectToOtherPagePay();
-});
-
-function redirectToOtherPagePay() {
-  window.location.href = '#complete';
-}
-
-const buyComplete = document.getElementById('complete-id');
-
-buyComplete.addEventListener('click', function() {
-  redirectToOtherPageComplete();
-});
-
-function redirectToOtherPageComplete() {
+function redirectToOtherPageHome() {
   window.location.href = '#';
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Отримуємо посилання на елементи
-  const showButton = document.getElementById('icon-id');
-  const hiddenElement = document.getElementById('tech_window');
+document.querySelectorAll('.complete__button');
 
-  // Додаємо обробник події для кліку на кнопці
-  showButton.addEventListener('click', function() {
-    // Перевіряємо, чи елемент прихований
-    if (hiddenElement.style.display === 'none') {
-      // Якщо так, робимо його видимим
-      hiddenElement.style.display = 'block';
-    } else {
-      // Якщо ні, приховуємо його
-      hiddenElement.style.display = 'none';
-    }
-  });
+document.body.addEventListener('click', function(event) {
+  if (event.target.classList.contains('complete__button')) {
+    redirectToOtherHome();
+  }
 });
+
+function redirectToOtherHome() {
+  window.location.href = '#';
+}
+
+document.body.addEventListener('click', function(event) {
+  if (event.target.classList.contains('place-order__button')) {
+    const form = document.querySelector('.place-order__forms');
+
+    if (form.checkValidity()) {
+      redirectToOtherPay();
+    } else {
+    }
+  }
+});
+
+function redirectToOtherPay() {
+  window.location.href = '#pay';
+}
+
+document.body.addEventListener('click', function(event) {
+  if (event.target.classList.contains('pay__button')) {
+    const form = document.querySelector('.pay__forms');
+
+    if (form.checkValidity()) {
+      redirectToOtherComplete();
+    } else {
+    }
+  }
+});
+
+function redirectToOtherComplete() {
+  window.location.href = '#complete';
+}
