@@ -1,0 +1,75 @@
+.language {
+  overflow: scroll;
+  height: 100vh;
+  margin: 0;
+  padding-bottom: 30px;
+  background: linear-gradient(108deg, #191536 0%, #000 100%);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  &__icon-link {
+    display: flex;
+    justify-content: left;
+    height: 75px;
+    text-decoration: none;
+  }
+
+  &__icon-back {
+    padding-top: 20px;
+    width: 8.5px;
+    height: 17px;
+
+    &:hover {
+      transform: scale(1.2);
+      animation-duration: 0.3ms;
+    }
+
+    @include on-tablet {
+      padding-top: 33px;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    text-decoration: none;
+    color: $color-white;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 130%;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    list-style: none;
+
+    @include on-tablet {
+      padding-left: 135px;
+    }
+
+    &:hover {
+      background-color: #110E25;
+      color: $contrast-color;
+    }
+  }
+}
+
+.language:target {
+  opacity: 1;
+  pointer-events: all;
+}

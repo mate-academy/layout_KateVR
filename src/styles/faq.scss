@@ -1,0 +1,137 @@
+.faq {
+  overflow: scroll;
+  height: 100vh;
+  background: linear-gradient(108deg, #191536 0%, #000 100%);
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  @include on-desctop {
+    width: 880px;
+    height: 854px;
+    left: 20%;
+    bottom: 20%;
+  }
+
+  &__icon-link {
+    display: flex;
+    height: 75px;
+    justify-content: right;
+  }
+
+  &__icon-close {
+    padding-top: 16.5px;
+    width: 17.00px;
+    height: 17.22px;
+
+    &:hover {
+      transform: scale(1.2);
+      animation-duration: 0.3ms;
+    }
+
+    @include on-tablet {
+      padding-top: 34px;
+    }
+
+    @include on-desctop {
+      position: absolute;
+      right: 5%;
+      top: 1%;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 130%;
+
+    @include on-desctop {
+      color: $color-white;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 130%;
+    }
+  }
+
+  &__border-content {
+    margin-top: 30px;
+    border-radius: 4px;
+    border: 1px solid $contrast-color;
+  }
+
+  &__question {
+    padding: 20px 12px 18px;
+    color: $contrast-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__answer {
+    padding: 0 12px 10px 11px;
+    color: #929292;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__time {
+    padding: 0 12px 12px 14px;
+    color: #545454;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__question-bottom {
+    margin: 13px 0;
+    padding: 18px 12px;
+    color: $contrast-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    border-radius: 4px;
+    border: 1px solid $contrast-color;
+  }
+
+  &__more-container {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__more-link {
+    text-decoration: none;
+  }
+
+  &__more {
+    display: flex;
+    color: $contrast-color;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    margin: 50px 0 7px;
+  }
+
+  &__more-icon {
+    padding-left: 14px;
+    display: flex;
+    width: 9px;
+    height: 6px;
+  }
+}
+
+.faq:target {
+  opacity: 1;
+  pointer-events: all;
+}

@@ -1,0 +1,60 @@
+.video {
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  position: fixed;
+  top: 170px;
+  left: 0;
+  right: 0;
+  background: transparent;
+  z-index: 1;
+
+  &__img-video {
+    position: relative;
+    width: 100%;
+    height: 200px;
+
+    @include on-tablet {
+      width: 650px;
+      height: 400px;
+      left: 3%;
+
+      @include content-padding-inline;
+    }
+
+    @include on-desctop {
+      width: 752px;
+      height: 450;
+      left: 15%;
+    }
+  }
+
+  &__icon-close {
+    position: absolute;
+    width: 14.00px;
+    height: 14.22px;
+    right: 8%;
+    top: 5%;
+
+    @include on-desctop {
+      display: block;
+      left: 77%;
+      top: 3%;
+      width: 17.00px;
+      height: 17.22px;
+    }
+
+    @include on-tablet {
+      display: none;
+      right: 10%;
+      top: 3%;
+      width: 17.00px;
+      height: 17.22px;
+    }
+  }
+}
+
+.video:target {
+  opacity: 1;
+  pointer-events: all;
+}

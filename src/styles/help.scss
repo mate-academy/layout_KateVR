@@ -1,0 +1,149 @@
+.help {
+  background: linear-gradient(108deg, #191536 0%, #000 100%);
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: scroll;
+  z-index: 1;
+
+  @include on-tablet {
+    height: 596px;
+  }
+
+  @include on-desctop {
+    width: 880px;
+    height: 550px;
+    left: 20%;
+    top: 18%;
+  }
+
+  &__icon-link {
+    display: flex;
+    height: 68px;
+    justify-content: right;
+  }
+
+  &__icon-close {
+    padding-top: 16.5px;
+    width: 17.00px;
+    height: 17.22px;
+
+    &:hover {
+      transform: scale(1.2);
+      animation-duration: 0.3ms;
+    }
+
+    @include on-tablet {
+      padding-top: 34px;
+    }
+
+    @include on-desctop {
+      position: absolute;
+      right: 5%;
+      top: 1%;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 130%;
+
+    @include on-tablet {
+      padding-top: 50px;
+    }
+
+    @include on-desctop {
+      color: $color-white;
+      font-size: 36px;
+      font-weight: 900;
+      line-height: 130%;
+    }
+  }
+
+  &__description {
+    margin: 30px 0;
+    color: $text-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__link-descriptions {
+    text-decoration: none;
+    color: $contrast-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__links-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 1 / 3;
+    }
+  }
+
+  &__help-links {
+    text-decoration: none;
+    color: $contrast-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__contacts {
+    padding-bottom: 11px;
+    text-decoration: none;
+    color: $text-color;
+    font-size: 16px;
+    font-weight: 400;
+
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+
+  &__contacts--2 {
+    padding-bottom: 8px;
+    text-decoration: none;
+    color: $text-color;
+    font-size: 16px;
+    font-weight: 400;
+    
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+
+  &__links-contacts {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+      row-gap: 17px;
+    }
+  }
+
+  &__on-tablet {
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+}
+
+.help:target {
+  opacity: 1;
+  pointer-events: all;
+}

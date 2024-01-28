@@ -1,0 +1,448 @@
+.tech {
+  position: relative;
+  background-color: #05040B;
+  padding-top: 50px;
+
+  @include on-tablet {
+    padding-top: 80px;
+  }
+
+  &__content {
+    @include on-desctop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(12, 50px);
+      gap: 20px;
+      justify-content: center;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 21px;
+    font-weight: 900;
+    margin-bottom: 42px;
+
+    @include on-desctop {
+      color: $color-white;
+      font-size: 36px;
+      font-weight: 900;
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__img--container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    @include on-desctop {
+      display: grid;
+      grid-column: 5 / 8;
+      grid-row: 5 / 10;
+    }
+  }
+
+  &__img {
+    width: 197px;
+    height: 194.70px;
+    padding-inline: 44px;
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      padding: 0;
+      width: 357.95px;
+      height: 353.78px;
+    }
+  }
+
+  &__icon-minus--1 {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    left: calc(100vw - 45%);
+    bottom: calc(100% - 55%);
+
+    @include on-tablet {
+      width: 61.68px;
+      height: 61.68px;
+      left: calc(100vw - 55%);
+      bottom: calc(100% - 20%);
+    }
+
+    @include on-desctop {
+      display: none;
+    }
+  }
+
+  &__window {
+    padding: 10px;
+    display: none;
+    align-items: center;
+    text-align: left;
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    background: #191536;
+    top: 0;
+    left: 5%;
+    right: 0;
+    color: $text-color;
+    font-size: 8px;
+    font-weight: 400;
+    line-height: 150%;
+
+    @include on-tablet {
+      width: 160px;
+      height: 100px;
+      top: 55%;
+      left: 8%;
+      right: 0;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 150%;
+
+      @include on-desctop {
+        display: none;
+      }
+    }
+
+    &--2 {
+      padding: 10px;
+      display: none;
+      align-items: center;
+      text-align: left;
+      position: absolute;
+      width: 100px;
+      height: 95px;
+      border-radius: 4px;
+      background: #191536;
+      top: -8%;
+      left: 60%;
+      right: 0;
+      color: $text-color;
+      font-size: 8px;
+      font-weight: 400;
+      line-height: 150%;
+
+      @include on-tablet {
+        width: 160px;
+        height: 215px;
+        top: -5%;
+        left: 27%;
+        right: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 150%;
+        text-align: left;
+      }
+
+      @include on-desctop {
+        display: none;
+      }
+    }
+
+    &--3 {
+      padding: 10px;
+      display: none;
+      align-items: center;
+      text-align: left;
+      position: absolute;
+      width: 100px;
+      height: 50px;
+      border-radius: 4px;
+      background: #191536;
+      top: 60%;
+      left: 2%;
+      right: 0;
+      color: $text-color;
+      font-size: 8px;
+      font-weight: 400;
+      line-height: 150%;
+
+      @include on-tablet {
+        width: 160px;
+        height: 90px;
+        top: 35%;
+        left: 67%;
+        right: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 150%;
+        text-align: left;
+      }
+
+      @include on-desctop {
+        display: none;
+      }
+    }
+  }
+
+  &__icon-minus--2 {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    left: calc(100vw - 70%);
+    bottom: calc(100% - 20%);
+
+    @include on-tablet {
+      width: 61.68px;
+      height: 61.68px;
+      left: calc(100vw - 75%);
+      bottom: calc(100% - 75%);
+    }
+
+    @include on-desctop {
+      display: none;
+    }
+  }
+
+  &__icon-minus--3 {
+    width: 34px;
+    height: 34px;
+    position: absolute;
+    left: calc(100vw - 70%);
+    bottom: calc(100% - 70%);
+
+    @include on-tablet {
+      width: 61.68px;
+      height: 61.68px;
+      left: calc(100vw - 45%);
+      bottom: calc(100% - 80%);
+    }
+
+    @include on-desctop {
+      display: none;
+    }
+  }
+
+  &__icon--1 {
+    position: absolute;
+    left: calc(100vw - 45%);
+    bottom: calc(100% - 55%);
+
+    @include on-tablet {
+      width: 61.68px;
+      height: 61.68px;
+      left: calc(100vw - 55%);
+      bottom: calc(100% - 20%);
+    }
+
+    @include on-desctop {
+      display: none;
+    }
+
+    &:hover {
+      display: none;
+      position: absolute;
+    }
+  }
+
+  &__icon--2 {
+    position: absolute;
+    left: calc(100vw - 70%);
+    bottom: calc(100% - 20%);
+
+    @include on-tablet {
+      width: 61.68px;
+      height: 61.68px;
+      left: calc(100vw - 75%);
+      bottom: calc(100% - 75%);
+    }
+
+    @include on-desctop {
+      display: none;
+    }
+
+    &:hover {
+      display: none;
+      position: absolute;
+    }
+  }
+
+  &__icon--3 {
+    position: absolute;
+    left: calc(100vw - 70%);
+    bottom: calc(100% - 70%);
+
+    @include on-tablet {
+      width: 61.68px;
+      height: 61.68px;
+      left: calc(100vw - 45%);
+      bottom: calc(100% - 80%);
+    }
+
+    @include on-desctop {
+      display: none;
+    }
+
+    &:hover {
+      display: none;
+      position: absolute;
+    }
+  }
+
+  &__sensor--img {
+    display: none;
+
+    @include on-desctop {
+      display: block;
+      width: 398.5px;
+      height: 69px;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      grid-column: 2 / 9;
+      grid-row: 4;
+    }
+  }
+
+  &__sensor--title {
+    display: none;
+
+    @include on-desctop {
+      display: block;
+      color: $color-white;
+      font-size: 18px;
+      font-weight: 900;
+      grid-column: 1;
+      grid-row: 4;
+      position: absolute;
+      top: 31%;
+      left: 8%;
+      right: 0;
+    }
+  }
+
+  &__sensor--description {
+    display: none;
+
+    @include on-desctop {
+      display: block;
+      position: absolute;
+      color: $text-color;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+      width: 250px;
+      height: 100px;
+      grid-column: 1 / 5;
+      grid-row: 5;
+      top: 34%;
+      left: 8%;
+      right: 0;
+    }
+  }
+
+  &__connection--img {
+    display: none;
+
+    @include on-desctop {
+      display: block;
+      position: absolute;
+      width: 133.92px;
+      height: 113px;
+      grid-column: 2 / 3;
+      grid-row: 5;
+      top: 49%;
+      left: 27%;
+      right: 0;
+    }
+  }
+
+  &__connection__title {
+    display: none;
+
+    @include on-desctop {
+      display: block;
+      position: absolute;
+      margin-top: 100px;
+      padding-right: 10px;
+      color: $color-white;
+      font-size: 18px;
+      font-weight: 900;
+      top: 49%;
+      left: 16%;
+      right: 0;
+    }
+  }
+
+  &__connection--description {
+    display: none;
+
+    @include on-desctop {
+      display: block;
+      position: absolute;
+      margin-top: 135px;
+      padding-right: 10px;
+      color: $text-color;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+      width: 241px;
+      height: 81px;
+      top: 48%;
+      left: 16%;
+      right: 0;
+    }
+  }
+
+  &__batteries {
+    display: none;
+
+    @include on-desctop {
+      display: block;
+      position: relative;
+      grid-column: 7 / 12;
+      grid-row: 5;
+    }
+  }
+
+  &__batteries--img {
+    display: none;
+
+    @include on-desctop {
+      display: block;
+      width: 191.5px;
+      height: 244.96px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+    }
+  }
+
+  &__batteries--title {
+    display: none;
+
+    @include on-desctop {
+      display: block;
+      color: $color-white;
+      font-size: 18px;
+      font-weight: 900;
+      padding-left: 210px;
+    }
+  }
+
+  &__batteries--description {
+    display: none;
+
+    @include on-desctop {
+      display: block;
+      color: $text-color;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 150%;
+      width: 338px;
+      height: 164px;
+      padding: 5px 0 0 210px;
+    }
+  }
+}
