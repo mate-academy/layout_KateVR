@@ -1,0 +1,117 @@
+.benefits {
+  padding: 50px 20px;
+  background: $bg-header;
+
+  @include on-tablet {
+    padding: 70px 32px;
+  }
+
+  @include on-desktop {
+    padding: 100px 107px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include on-large {
+    padding: 160px 234px 175px;
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 21px;
+    font-weight: 900;
+
+    @include on-desktop {
+      font-size: 36px;
+      text-align: center;
+    }
+  }
+
+  &__title--other {
+    color: $color-blue;
+    font-weight: 400;
+  }
+
+  &__content {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      margin-top: 32px;
+      flex-direction: row;
+    }
+
+    @include on-desktop {
+      margin-top: 80px;
+      gap: 23px;
+    }
+
+    @include on-large {
+      gap: 204px;
+    }
+  }
+
+  &__subtitle {
+    color: $color-white;
+    font-size: 16px;
+    font-weight: 900;
+
+    @include on-tablet {
+      margin-top: 25px;
+      min-width: 222px;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      margin-top: 34px;
+    }
+  }
+
+  &__prg {
+    margin-top: 11px;
+    line-height: 150%;
+
+    @include on-tablet {
+      text-align: center;
+    }
+
+    @include on-desktop {
+      margin-top: 18px;
+      display: none;
+    }
+  }
+
+  &__img {
+    cursor: pointer;
+    
+    @include hover (transform, scale(1.1));
+  }
+
+  &__img--wrap {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+    align-items: center;
+    }
+  }
+
+  &__prg--desktop {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+}

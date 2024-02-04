@@ -1,0 +1,123 @@
+.info {
+  padding: 15px 20px 50px;
+  background-color: $color-dark;
+
+  @include on-tablet {
+    padding: 70px 35px 78px;
+  }
+
+  @include on-desktop {
+    padding: 100px 110px 110px;
+  }
+
+  @include on-large {
+    padding: 158px 234px 166px;
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 21px;
+    font-weight: 900;
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__title--other {
+    color: $color-blue;
+    font-size: 21px;
+    font-weight: 400;
+  }
+
+  &__prg {
+    margin-top: 12px;
+    color: $color-blue;
+    font-size: 12px;
+
+    @include on-desktop {
+      margin-top: 16px;
+      font-size: 14px;
+    }
+  }
+
+  &__content {
+    margin-top: 30px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px 20px;
+      justify-items: center;
+    }
+
+    @include on-desktop {
+      margin-top: 83px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @include on-large {
+      margin-top: 70px;
+    }
+  }
+
+  &__content--title {
+    margin-top: 20px;
+    color: $color-white;
+    font-size: 18px;
+    font-weight: 900;
+
+    @include on-desktop {
+      margin-top: 30px;
+    }
+  }
+
+  &__content--prg {
+    margin-top: 11px;
+    line-height: 150%;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__content--prg--tablet {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      margin-top: 11px;
+      line-height: 150%;
+    }
+
+    @include on-desktop {
+      margin-top: 18px;
+    }
+  }
+
+  &__top {
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__img--item {
+    cursor: pointer;
+    
+    @include hover (transform, scale(1.1));
+  }
+
+  &__items {
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+}

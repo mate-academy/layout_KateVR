@@ -1,0 +1,154 @@
+.about {
+  padding: 50px 20px;
+  background: $bg-header;
+
+  @include on-tablet {
+    padding: 70px 34px;
+  }
+
+  @include on-desktop {
+    padding: 105px 118px 104px 109px;
+  }
+
+  @include on-large {
+    padding: 164px 234px 158px 328px;
+  }
+
+  &__title {
+    color: $color-white;
+    font-size: 21px;
+    font-weight: 900;
+
+    @include on-tablet {
+      grid-column: -2/-1;
+    }
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__title--other {
+    color: $color-blue;
+    font-size: 21px;
+    font-weight: 400;
+  }
+
+  &__prg {
+    line-height: 150%;
+
+    @include on-large {
+      margin-top: 32px;
+    }
+  }
+
+  &__bottom {
+    margin-top: 80px;
+
+    @include on-tablet {
+      margin-top: 105px;
+      display: flex;
+      gap: 11px;
+    }
+
+    @include on-desktop {
+      margin-top: 190px;
+      gap: 112px;
+    }
+
+    @include on-large {
+      margin-top: 185px;
+      gap: 101px;
+    }
+  }
+
+  &__bottom--subtitle {
+    color: $color-blue;
+    font-size: 14px;
+  }
+
+  &__bottom--title {
+    margin-top: 10px;
+    color: $color-white;
+    font-size: 21px;
+    font-weight: 900;
+
+    @include on-desktop {
+      margin-top: 15px;
+      font-size: 36px;
+    }
+  }
+
+  &__bottom--other {
+    color: $color-blue;
+    font-size: 21px;
+    font-weight: 400;
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+
+    @include on-large {
+      font-weight: 900;
+    }
+  }
+
+  &__bottom--prg {
+    margin-top: 20px;
+    line-height: 150%;
+
+    @include on-desktop {
+      margin-top: 32px;
+    }
+
+    @include on-large {
+      width: 532px;
+    }
+  }
+
+  &__bottom---words--mobile {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__bottom---words--desktop {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__top {
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 1fr 3fr 3fr;
+      column-gap: 20px;
+    }
+
+    @include on-desktop {
+      column-gap: 110px;
+    }
+
+    @include on-large {
+      column-gap: 119px;
+    }
+  }
+
+  &__player {
+    @include on-tablet {
+      grid-column: -2/-1;
+    }
+  }
+
+  &__bottom---words {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      height: 258px;
+    }
+  }
+}

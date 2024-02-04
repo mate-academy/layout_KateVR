@@ -1,0 +1,79 @@
+.contact {
+  padding: 50px 20px;
+  background-color: $color-dark;
+
+  @include on-tablet {
+    padding: 70px 32px 130px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    grid-gap: 22px;
+  }
+
+  @include on-desktop {
+    padding: 100px 110px;
+  }
+
+  @include on-large {
+    padding: 160px 235px 205px;
+  }
+
+  &__subtitle {
+    color: $color-blue;
+    font-size: 14px;
+  }
+
+  &__title {
+    margin-top: 11px;
+    color: $color-white;
+    font-size: 21px;
+    font-weight: 900;
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__title--other {
+    color: $color-blue;
+    font-weight: 400;
+  }
+
+  &__msg {
+    margin-top: 30px;
+    font-size: 12px;
+
+    @include on-tablet {
+      grid-column: 1/-2;
+      grid-row: 2/3;
+    }
+
+    @include on-desktop {
+      font-size: 16px;
+    }
+  }
+
+  &__info {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__info--link {
+    display: flex;
+    flex-direction: row;
+    color: $color-main;
+    cursor: pointer;
+    transition: all 0.6s ease-out;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  &__info--link--other {
+    margin-top: 11px;
+  }
+}
