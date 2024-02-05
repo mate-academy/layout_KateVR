@@ -1,0 +1,35 @@
+.btn {
+  padding: 11px 108px;
+  margin-top: 23px;
+  width: 100%;
+  border: none;
+  border-radius: 4px;
+  background: $color-blue;
+  color: $color-white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 130%;
+  transition: all 0.6s ease-out;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: $color-white;
+    color: $color-blue;
+  }
+
+  &__small {
+    display: none;
+
+    @include on-desktop {
+      padding: 0;
+      margin-top: 90px;
+      display: block;
+      width: 200px;
+      height: 48px;
+    }
+
+    @include on-large {
+      display: none;
+    }
+  }
+}

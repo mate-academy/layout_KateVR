@@ -1,0 +1,37 @@
+.menu {
+  padding: 20px 22px;
+  background-color: $bg-menu;
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @include on-tablet {
+    padding: 0;
+    background-color: $bg-menu-tablet;
+  }
+  
+  &__wrap {
+    @include on-tablet {
+      height: 568px;
+      padding: 34px;
+      background-color: $bg-menu;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+
+    @include hover (transform, scale(1.1));
+  }
+
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

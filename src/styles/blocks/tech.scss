@@ -1,0 +1,218 @@
+.tech {
+  padding: 50px 20px;
+  background-color: $color-dark;
+
+  @include on-tablet {
+    padding: 80px 32px;
+  }
+
+  @include on-desktop {
+    padding: 100px 113px;
+  }
+
+  @include on-large {
+    padding: 160px 320px 160px 426px;
+  }
+
+  &__title {
+    color: $color-white;
+    font-weight: 900;
+
+    @include on-desktop {   
+      display: flex;
+      justify-content: flex-end;
+      grid-column: -2/-1;
+      font-size: 36px;
+    }
+  }
+
+  &__title--other {
+    color: $color-blue;
+    font-weight: 400;
+  }
+
+  &__title,
+  &__title--other {
+    font-size: 21px;
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__img {
+    padding: 41px;
+    display: flex;
+    justify-content: center;
+
+    @include on-desktop {
+      margin-top: 80px;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(20, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+    }
+
+    @include on-large {
+      row-gap: 50px;
+    }
+  }
+
+  &__img--circle {
+    position: absolute;
+
+    @include on-tablet {
+      width: 67px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__img--circle--1 {
+    left: 59px;
+    top: -10px;
+
+    @include on-tablet {
+      top: -26px;
+    }
+  }
+
+  &__img--circle--2 {
+    top: 79px;
+    left: 127px;
+
+    @include on-tablet {
+      top: 138px;
+      left: 246px;
+    }
+  }
+
+  &__img--circle--3 {
+    top: 154px;
+    left: -15px;
+
+    @include on-tablet {
+      top: 260px;
+      left: -47px;
+    }
+  }
+
+  &__img--scheme {
+    margin-top: 41px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    @include on-tablet {
+      margin-top: 57px;
+    }
+
+    @include on-desktop {
+      display: block;
+      grid-column: 9/-2;
+      grid-row: 1/-1;
+    }
+
+    @include on-large {
+      grid-column: 8/-2;
+    }
+  }
+
+  &__img--headphones {
+    width: 197px;
+
+    @include on-tablet {
+      width: 358px;
+    }
+
+    @include on-desktop {
+      width: 297px;
+    }
+  }
+
+  &__img--lines {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+    }
+  }
+
+  &__img--line--1 {
+    top: 83px;
+    left: -130px;
+
+    @include on-large {
+      display: none;
+    }
+  }
+
+  &__img--line--2 {
+    top: -49px;
+    left: 150px;
+  }
+
+  &__img--line--3 {
+    top: -50px;
+    left: -256px;
+  }
+
+  &__img--line--4 {
+    top: 42px;
+    left: -12px;
+  }
+
+  &__description {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__description--title {
+    color: $color-white;
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  &__description--prg {
+    margin-top: 21px;
+  }
+
+  &__description--sensor {
+    grid-column: 1/6;
+    grid-row: 1/2;
+  }
+
+  &__description--connection {
+    grid-column: 3/8;
+    grid-row: 2/-1;
+
+    @include on-large {
+      grid-column: 1/6;
+    }
+  }
+
+  &__description--batteries {
+    grid-column: 16/-1;
+    grid-row: 1/2;
+
+    @include on-large {
+      grid-column: 15/-1;
+    }
+  }
+
+  &__img--line--1--large {
+    display: none;
+
+    @include on-large {
+      display: block;
+      top: 55px;
+      left: -230px;
+    }
+  }
+}

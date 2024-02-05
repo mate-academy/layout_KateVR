@@ -1,0 +1,121 @@
+.footer {
+  padding: 45px 20px 50px;
+  background-color: $color-black;
+
+  @include on-tablet {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 34px;
+  }
+
+  @include on-large {
+    padding: 43px 234px;
+  }
+
+  &__top--list {
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  &__top--list--item {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 13px;
+    color: $color-white;
+    transition: all 0.6s ease-out;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-blue;
+    }
+
+    @include on-tablet {
+      margin-right: 43px;
+      margin-bottom: 0;
+    }
+
+    @include on-large {
+      font-size: 14px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__info--link {
+    font-size: 13px;
+    color: $color-main;
+    transition: all 0.6s ease-out;
+    cursor: pointer;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  &__info--link--other {
+    margin-top: 12px;
+  }
+
+  &__top--img {
+    cursor: pointer;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__top--logo {
+    @include hover (transform, scale(1.1));
+  }
+
+  &__media {
+    margin-top: 22px;
+
+    @include on-tablet {
+      margin-top: 0;
+    }
+  }
+
+  &__media--item {
+    margin-right: 23px;
+
+    @include hover (transform, scale(1.2));
+  }
+
+  &__media--item--other {
+    @include on-tablet {
+      margin-right: 0;
+    }
+  }
+
+  &--wrap {
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      margin-top: 0;
+      align-items: center;
+      flex-grow: 1;
+    }
+  }
+
+  &__top--img--tablet {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      
+      @include hover (transform, scale(1.1));
+    }
+  }
+}

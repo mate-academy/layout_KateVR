@@ -1,0 +1,148 @@
+.slider {
+  margin-top: 20px;
+
+  @include on-tablet {
+    margin-top: 0;
+    grid-column: 1/-2;
+    grid-row: 1/-1;
+  }
+
+  @include on-desktop {
+    margin-left: 137px;
+    display: grid;
+    grid-template-columns: 21px 1fr 1fr;
+    column-gap: 23px;
+  }
+
+  @include on-large {
+    margin-left: 139px;
+  }
+
+  &__img {
+    width: 100%;
+    cursor: pointer;
+
+    @include hover (transform, scale(1.1));
+
+    @include on-desktop {
+      height: 100%;
+    }
+  }
+
+  &__img--wrap {
+    overflow: hidden;
+
+    @include on-desktop {
+      grid-column: 2/-1;
+    }
+  }
+
+  &__dots {
+    display: block;
+    margin: 14px auto 20px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__prg {
+    line-height: 150%;
+  }
+
+  &__numbers {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      font-size: 14px;
+      color: $color-blue;
+    }
+  }
+
+  &__bottom--list {
+    display: none;
+
+    @include on-desktop {
+      margin-top: 12px;
+      display: flex;
+      gap: 103px;
+      grid-column: 2/-2;
+      position: relative;
+    }
+  }
+
+  &--previous {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $color-blue;
+      z-index: 1;
+    }
+  }
+
+  &--button {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      background-color: $color-line;
+      right: 0;
+      bottom: -10px;
+      display: block;
+      height: 1px;
+      width: 200px;
+    }
+  }
+
+  &__bottom--link,
+  &__bottom--link--other {
+    font-weight: 500;
+    line-height: 150%;
+    cursor: pointer;
+    transition: all 0.6s ease-out;
+  }
+
+  &__bottom--link {
+    color: $color-white;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  &__bottom--link--other {
+    color: $color-main;
+
+    &:hover {
+      color: $color-blue;
+    }
+  }
+
+  &__line {
+    display: block;
+    width: 100%;
+  }
+
+  &__img--small {
+    @include on-large {
+      display: none;
+    }
+  }
+
+  &__img--large {
+    display: none;
+
+    @include on-large {
+      display: block;
+    }
+  }
+}

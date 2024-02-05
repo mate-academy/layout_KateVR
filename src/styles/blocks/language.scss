@@ -1,0 +1,38 @@
+.language {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  background-color: $bg-menu;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @include on-tablet {
+    padding: 0;
+    background-color: $bg-menu-tablet;
+  }
+
+  &--wrap {
+    padding: 20px 22px;
+    background-color: $bg-menu;
+
+    @include on-tablet {
+      padding: 33px;
+    }
+  }
+
+  &__arrow {
+    margin-bottom: 38px;
+    cursor: pointer;
+
+    @include hover (transform, scale(1.1));
+  }
+
+  &__top {
+    display: flex;
+    justify-content: flex-start;
+  }
+}

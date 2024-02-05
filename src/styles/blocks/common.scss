@@ -1,0 +1,16 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.body {
+  font-family: $font-family;
+  color: $color-main;
+  font-weight: 400;
+  transition: transform 0.3s ease-in-out;
+
+  &:has(.menu:target),
+  &:has(.language:target),
+  &:has(.help:target) {
+    overflow: hidden;
+  }
+}
