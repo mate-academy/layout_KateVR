@@ -42,12 +42,24 @@ header {
     }
   }
   .padbot {
-    padding: 16px 0 26px;
+    padding: 16px 0 10px;
     @include onTablet {
-      padding-bottom: 20px;
+      padding-bottom: 10px;
     }
     @include onDesktop {
-      padding-bottom: 35px;
+      padding-bottom: 30px;
+    }
+  }
+  .manyPad {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+    @include onTablet {
+      padding-bottom: 25px;
+      justify-content: left;
+    }
+    @include onDesktop {
+      padding-bottom: 40px;
     }
   }
   .buttonLogo {
@@ -95,7 +107,7 @@ header {
       width: 100%;
       max-height: 270px;
       transition: transform 0.4s;
-      margin-left: -220px;
+      margin-left: -320px;
     }
     @include onDesktop {
       max-height: 340px;
@@ -145,10 +157,11 @@ header {
     color: $grantext;
     text-decoration: none;
     cursor: pointer;
-    height: 48px;
+    height: 40px;
     width: 100%;
     transition: 0.5s;
     @include onTablet {
+      height: 48px;
       width: 200px;
       margin: 0;
     }
@@ -165,7 +178,7 @@ header {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 80px 0 100px;
+      padding: 20px 0 100px;
     }
     @include ondesing {
       padding: 90px 0 100px;
@@ -216,7 +229,7 @@ header {
       display: flex;
       flex-direction: row;
       justify-content: center;
-      gap: 36px;
+      gap: 100px;
     }
     .menu__item1 {
       display: block;
@@ -229,14 +242,9 @@ header {
       cursor: pointer;
       text-align: center;
       &:hover {
-        color: green;
         font-weight: 500;
         opacity: 0.6;
-        -webkit-transition: opacity 0.5s ease-in-out;
-        -moz-transition: opacity 0.5s ease-in-out;
-        -ms-transition: opacity 0.5s ease-in-out;
-        -o-transition: opacity 0.5s ease-in-out;
-        transition: opacity 0.5s ease-in-out;
+        border-bottom: 2px solid white;
       }
     }
     .More {
