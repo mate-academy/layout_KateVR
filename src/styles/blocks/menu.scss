@@ -609,6 +609,9 @@
   background-color: #191536;
   &:target {
     transform: translateX(0);
+    @include onTablet {
+      display: none;
+    }
 
     .menu_pad2 {
       display: flex;
@@ -665,6 +668,7 @@
       color: var(--Contrast-Color, #05c2df);
       font-weight: 400;
       line-height: normal;
+      padding: 0 5px;
     }
 
     .textCol {
@@ -676,7 +680,8 @@
     .titleH6 {
       display: flex;
       justify-content: left;
-      padding-bottom: 10px;
+      flex-direction: column;
+      padding-bottom: 20px;
       @include onTablet {
         justify-content: center;
         padding-bottom: 30px;
