@@ -1,0 +1,182 @@
+.about {
+  background: $color-backround-dark;
+  width: 100%;
+
+  &__content {
+    padding-bottom: 50px;
+
+    @include smartphone {
+      padding-bottom: 0;
+    }
+
+    @include smalldesktop {
+      padding-bottom: 110px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+
+    @include smalldesktop {
+      padding-top: 100px;
+      margin-bottom: 83px;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-bottom: 5px;
+
+    @include smalldesktop {
+      font-size: 36px;
+    }
+  }
+
+  &__title-2 {
+    font-weight: 200;
+    color: $color-blue;
+  }
+
+  &__subtitle {
+    color: $color-blue;
+    font-family: $font-family;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+
+    @include smalldesktop {
+      font-size: 14px;
+    }
+  }
+
+  &__boxes {
+    @include smartphone {
+      @include grid-page;
+    }
+  }
+
+  &__box {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__box1 {
+    @include smartphone {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      margin-bottom: 40px;
+    }
+
+    @include smalldesktop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__box2 {
+    @include smartphone {
+      grid-column: 4 / -1;
+      grid-row: 1;
+      margin-bottom: 40px;
+
+      @include smalldesktop {
+        grid-column: 4 / 7;
+      }
+    }
+  }
+
+  &__box3 {
+    @include smartphone {
+      grid-column: 1 / 4;
+      grid-row: 2;
+      margin-bottom: 0;
+    }
+
+    @include smalldesktop {
+      grid-column: 7 / 10;
+      grid-row: 1;
+    }
+  }
+
+  &__box4 {
+    @include smartphone {
+      grid-column: 4 / -1;
+      grid-row: 2;
+      margin-bottom: 0;
+    }
+
+    @include smalldesktop {
+      grid-column: 10 / -1;
+      grid-row: 1;
+    }
+  }
+
+  &__icon {
+    display: none;
+    cursor: pointer;
+
+    @include smartphone {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    @include smalldesktop {
+      margin-bottom: 32px;
+    }
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__name {
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-bottom: 5px;
+    cursor: pointer;
+    border-bottom: 1px solid $color-backround-dark;
+
+    &:hover {
+      color: $color-lait-blue;
+      border-bottom: 1px solid $color-lait-blue;
+    }
+
+    @include smartphone {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__name-1 {
+    font-size: 16px;
+  }
+
+  &__description {
+    color: $c0lor-grey;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+
+    @include smartphone {
+      text-align: center;
+    }
+
+    @include smalldesktop {
+      font-size: 14px;
+    }
+  }
+}

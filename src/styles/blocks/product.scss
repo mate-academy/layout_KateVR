@@ -1,0 +1,278 @@
+.product {
+  background: linear-gradient(135deg, #191536 0%, #000 100%);
+
+  &__content {
+    padding-top: 50px;
+    padding-bottom: 100px;
+
+    @include smartphone {
+      padding-top: 70px;
+      padding-bottom: 80px;
+
+      @include grid-page;
+
+      row-gap: 50px;
+    }
+
+    @include smalldesktop {
+      padding-top: 105px;
+      padding-bottom: 98px;
+    }
+  }
+
+  &__one {
+    @include smartphone {
+      grid-column: 4 / -1;
+      grid-row: 1;
+    }
+
+    @include smalldesktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+
+    @include smartphone {
+      margin-bottom: 30px;
+    }
+
+    @include smalldesktop {
+      font-size: 36px;
+      font-weight: 900;
+    }
+  }
+
+  &__span {
+    color: $color-lait-blue;
+    font-weight: 200;
+  }
+
+  &__subtitle {
+    display: none;
+
+    @include smartphone {
+      display: flex;
+      color: $c0lor-grey;
+      font-family: $font-family;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 150%;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__video1 {
+    display: none;
+    & img {
+      cursor: pointer;
+    }
+
+    @include smartphone {
+      display: flex;
+    }
+  }
+
+  &__photo1 {
+    display: none;
+  }
+
+  &__img1 {
+    width: 100%;
+  }
+
+  &__numbers {
+    display: none;
+
+    @include smalldesktop {
+      display: flex;
+      justify-content: right;
+      color: $color-blue;
+      font-family: $font-family;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: normal;
+      grid-column: 2;
+    }
+  }
+
+  &__main {
+    margin-bottom: 89px;
+
+    @include smartphone {
+      margin-bottom: 0;
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+
+    @include smalldesktop {
+      grid-column: 3 / 8;
+    }
+  }
+
+  &__photo {
+    margin-bottom: 20px;
+
+    @include smartphone {
+      height: 100%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include smartphone {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-bottom: 20px;
+
+    @include smalldesktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    background-color: $color-white;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-blue;
+    }
+  }
+
+  &__list {
+    display: none;
+
+    @include smalldesktop {
+      display: flex;
+      gap: 103px;
+    }
+  }
+
+  &__item {
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    cursor: pointer;
+    border-bottom: 1px solid inherit;
+
+    &:hover {
+      color: $c0lor-grey;
+      border-bottom: 1px solid $color-blue;
+    }
+  }
+
+  &__subtitle2 {
+    color: $c0lor-grey;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    margin-bottom: 25px;
+
+    @include smartphone {
+      display: none;
+    }
+  }
+
+  &__video {
+    @include smartphone {
+      display: none;
+    }
+  }
+
+  &__nice {
+    @include smartphone {
+      grid-column: 1 / 5;
+    }
+
+    @include smalldesktop {
+      grid-column: 1 / 6;
+      margin-top: 190px;
+    }
+  }
+
+  &__hello {
+    color: $color-blue;
+    font-family: $font-family;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: 11px;
+  }
+
+  &__title1 {
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 21px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: normal;
+    margin-bottom: 22px;
+
+    @include smalldesktop {
+      font-size: 36px;
+      margin-bottom: 32px;
+    }
+  }
+
+  &__span1 {
+    color: $color-lait-blue;
+    font-weight: 200;
+  }
+
+  &__description {
+    color: $c0lor-grey;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__four {
+    display: none;
+
+    @include smartphone {
+      display: flex;
+      height: 100%;
+      grid-column: 5 / -1;
+    }
+
+    @include smalldesktop {
+      grid-column: 8 / -1;
+      margin-top: 190px;
+      height: auto;
+    }
+  }
+
+  &__meet {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
