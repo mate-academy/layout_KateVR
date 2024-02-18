@@ -1,0 +1,375 @@
+.header {
+  background: linear-gradient(135deg, #191536 0%, #000 100%);
+  height: 100%;
+
+  @include smartphone {
+    height: 100vh;
+  }
+
+  &__content {
+    padding-top: 20px;
+    padding-bottom: 33px;
+
+    @include smartphone {
+      @include grid-page;
+
+      padding-top: 30px;
+      padding-bottom: 70px;
+    }
+
+    @include smalldesktop {
+      padding-bottom: 100px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+
+    @include smartphone {
+      grid-column: 1 / -1;
+      margin-bottom: 55px;
+    }
+
+    @include smalldesktop {
+      margin-bottom: 116px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 34px;
+  }
+
+  &__lg {
+    @include hover(transform, scale(1.2));
+
+    @include smalldesktop {
+      width: 77px;
+      height: 16px;
+    }
+  }
+
+  &__language {
+    display: none;
+
+    @include smalldesktop {
+      display: flex;
+
+      color: $color-lait-blue;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+      appearance: none;
+      position: relative;
+      cursor: pointer;
+      padding: 0 10px;
+      background: url("../images/header-icon-down.svg") no-repeat;
+      background-position: right 65%;
+      height: 18px;
+      border: none;
+    }
+
+    &:focus-visible {
+      outline: none;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__icon {
+    @include hover(transform, scale(1.2));
+
+    @include smalldesktop {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include smalldesktop {
+      display: flex;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    gap: 35px;
+    margin: auto;
+  }
+
+  &__item {
+    padding-left: 0;
+  }
+
+  &__link {
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    cursor: pointer;
+    transition: 0.5s;
+
+    &:hover {
+      color: $color-lait-blue;
+    }
+  }
+
+  &__button {
+    width: 200px;
+    height: 48px;
+    color: $color-white;
+    text-align: center;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+
+    border-radius: 4px;
+    background: $color-blue;
+    margin-left: 35px;
+    cursor: pointer;
+    transition: 0.5s all;
+
+    &:hover {
+      background-color: $color-white;
+      color: $color-blue;
+      border: 3px solid $color-blue;
+      font-weight: 900;
+    }
+  }
+
+  &__photo {
+    grid-column: 4 / -1;
+    grid-row: 2;
+    margin: auto;
+
+    @include smalldesktop {
+      grid-column: 5 / -1;
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__main {
+    grid-column: 1 / 4;
+    grid-row: 2;
+
+    @include smalldesktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__title {
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 26px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 130%;
+    margin-bottom: 17px;
+
+    @include smalldesktop {
+      font-size: 46px;
+      margin-bottom: 17px;
+    }
+  }
+
+  &__span {
+    color: $color-blue;
+    font-weight: 200;
+  }
+
+  &__subtitle {
+    margin-bottom: 8px;
+
+    @include smalldesktop {
+      max-width: 336px;
+      margin-left: 100px;
+    }
+  }
+
+  &__description {
+    color: $c0lor-grey;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+
+    @include smartphone {
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    @include smalldesktop {
+      margin-bottom: 5px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    justify-content: center;
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    margin-top: 8px;
+    margin-bottom: 26px;
+
+    @include smartphone {
+      justify-content: left;
+      margin-bottom: 23px;
+    }
+
+    @include smalldesktop {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__video {
+    height: 70px;
+    margin-bottom: 33px;
+
+    @include smartphone {
+      margin-bottom: 0;
+    }
+
+    @include smalldesktop {
+      margin-left: 100px;
+    }
+  }
+
+  &__vd {
+    height: 100%;
+  }
+
+  &__bottom {
+    display: none;
+
+    @include smalldesktop {
+      display: flex;
+      margin-top: 84px;
+      grid-column: 1 / -1;
+      justify-content: space-between;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__wrapper-1 {
+    gap: 39px;
+  }
+
+  &__wrapper-2 {
+    margin-left: 40px;
+  }
+
+  &__wrapper-3 {
+    gap: 103px;
+  }
+
+  &__faq {
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    cursor: pointer;
+    transition: 0.5s all;
+
+    &:hover {
+      color: $color-blue;
+      border-bottom: 1px solid $color-blue;
+    }
+  }
+
+  &__more {
+    color: $color-blue;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+
+    position: relative;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+
+    &::after {
+      content: "";
+      background: url("../images/header-icon-down.svg") no-repeat;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -7px;
+      width: 9px;
+      height: 6px;
+    }
+  }
+
+  &__previous {
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    cursor: pointer;
+    transition: 0.5s all;
+
+    &:hover {
+      color: $color-blue;
+      border-bottom: 1px solid $color-blue;
+    }
+  }
+
+  &__button2 {
+    width: 100%;
+    height: 40px;
+    border-radius: 4px;
+    background: $color-blue;
+    color: $color-white;
+    font-family: $font-family;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-white;
+      color: $color-blue;
+      border: 3px solid $color-blue;
+      font-weight: 900;
+    }
+
+    @include smartphone {
+      display: none;
+    }
+  }
+}
