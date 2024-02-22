@@ -1,0 +1,526 @@
+.menuPay {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  transform: translateY(-100%);
+  transition: transform 0.5s;
+  background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  &:target {
+    transform: translateX(0);
+  }
+  .menuTarget {
+    display: block;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    overflow: auto;
+
+    .header__page {
+      display: flex;
+      flex-direction: column;
+      // @include onTablet {
+      //   padding: 55px 0 60px;
+      // }
+      // @include onDesktop {
+      //   padding-top: 0;
+      // }
+    }
+    .logo {
+      display: block;
+      width: 78px;
+      height: 17px;
+      background-repeat: no-repeat;
+      transition: all 0.3s;
+      background-image: url(../images/logoD.svg);
+      &:hover {
+        transition: 0.5s;
+        transform: scale(1.07);
+      }
+    }
+    // .dispTabB {
+    //   display: flex;
+
+    // }
+    // .navTabB {
+    //   display: flex;
+    // }
+    .menu__listB {
+      display: flex;
+      justify-content: space-between;
+      margin: 0 -20px;
+      @include onTablet {
+        margin: 0 -35px;
+      }
+      @include onDesktop {
+        margin: 0 -110px;
+      }
+      @include ondesing {
+        margin: 0 -230px;
+      }
+    }
+    .menu__itemB {
+      display: flex;
+      text-decoration: none;
+      font-size: 16px;
+      line-height: 130%;
+      font-weight: 500;
+      font-style: normal;
+      color: #545454;
+      cursor: pointer;
+      justify-content: center;
+      width: 100%;
+      border-bottom: 2px solid;
+      &:hover {
+        color: #05c2df;
+        font-weight: 500;
+        opacity: 0.6;
+        -webkit-transition: opacity 0.5s ease-in-out;
+        -moz-transition: opacity 0.5s ease-in-out;
+        -ms-transition: opacity 0.5s ease-in-out;
+        -o-transition: opacity 0.5s ease-in-out;
+        transition: opacity 0.5s ease-in-out;
+        border-bottom: 2px solid;
+      }
+    }
+    .padbot {
+      padding: 16px 0 26px;
+      @include onTablet {
+        padding-bottom: 20px;
+      }
+      @include onDesktop {
+        padding-bottom: 35px;
+      }
+    }
+    .menu_pad2 {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 20px 55px;
+      @include onTablet {
+        padding: 35px 35px 40px;
+      }
+      // @include onDesktop {
+      //   display: none;
+      // }
+    }
+    .menu_logo2 {
+      display: block;
+      width: 18px;
+      height: 18px;
+      background-repeat: no-repeat;
+      transition: all 0.3s;
+      background-image: url(../images/GrEx.svg);
+      &:hover {
+        transition: 0.5s;
+        transform: scale(1.07);
+      }
+    }
+    .imgPay {
+      @include onDesktop {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+    // .header__page {
+    //   display: flex;
+    //   flex-direction: column;
+    // }
+    .pad3-4 {
+      display: none;
+      @include onTablet {
+        display: flex;
+        padding-top: 40px;
+        position: relative;
+        justify-content: center;
+        box-sizing: border-box;
+        width: 100%;
+        max-height: 290px;
+        transition: transform 0.4s;
+      }
+      @include onDesktop {
+        max-height: 340px;
+        padding-top: 100px;
+        margin-left: -50px;
+      }
+      @include ondesing {
+        max-height: 380px;
+        padding-top: 220px;
+      }
+      &:hover {
+        transform: scale(1.06);
+      }
+      &::after {
+        content: "";
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+    .img3-4 {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      position: absolute;
+      transition: all 0.3s;
+    }
+    .button_padA {
+      display: flex;
+      margin: 33px 0 0;
+      @include onTablet {
+        margin: -55px 0 0;
+        justify-content: center;
+      }
+    }
+    .abreviation {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: left;
+      padding-bottom: 12px;
+      @include onTablet {
+        justify-content: center;
+        padding-bottom: 25px;
+      }
+      @include onDesktop {
+        padding-bottom: 26px;
+      }
+    }
+    .contact-us__form {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      height: 30px;
+      border: none;
+      margin-bottom: 25px;
+      text-decoration: none;
+      background: transparent;
+      border-bottom: 1px solid #2f2f2f;
+      // transition: background-color 0.3s;
+      @include onDesktop {
+        margin-bottom: 30px;
+      }
+      &:focus {
+        outline: none;
+        background-color: transparent;
+      }
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-background-clip: $backgr;
+        -webkit-text-fill-color: #fff;
+        -webkit-box-shadow: 0 0 0 30px $backgr inset !important;
+        // transition: background-color 5000s ease-in-out 0s;
+        // box-shadow: inset 0 0 20px 20px $backgr;
+      }
+    }
+    .QaPr {
+      display: flex;
+      justify-content: space-around;
+      padding-top: 30px;
+      @include onDesktop {
+        gap: 90px;
+        padding-top: 220px;
+      }
+      .textC {
+        color: #929292;
+        padding: 0 75px 0 13px  ;
+      }
+      .textP {
+        color: #05c2df;
+        font-size: 26px;
+        padding: 0 5px 0 10px  ;
+      }
+      .qantity {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+    .contact-us__formQ {
+      display: block;
+      box-sizing: border-box;
+      width: 90px;
+      height: 41px;
+      border: none;
+      margin-bottom: 25px;
+      text-decoration: none;
+      background: #191536;
+      color: #fff;
+      padding: 0 24px;
+      // transition: background-color 0.3s;
+      @include onDesktop {
+        margin-bottom: 30px;
+      }
+      &:focus {
+        outline: none;
+        background-color: black;
+      }
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-background-clip: red;
+        -webkit-text-fill-color: red;
+        -webkit-box-shadow: 0 0 0 30px red inset !important;
+        // transition: background-color 5000s ease-in-out 0s;
+        // box-shadow: inset 0 0 20px 20px $backgr;
+      }
+    }
+
+    .page__legend {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 130%;
+      color: #929292;
+    }
+
+    .page__fieldset {
+      border: none;
+      margin-bottom: 30px;
+
+      @include onDesktop {
+        margin-bottom: 40px;
+      }
+    }
+
+    .pay__card {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      align-items: center;
+      align-content: center;
+
+      @include onTablet {
+        grid-template-columns: repeat(5, 1fr);
+        padding-top: 20px;
+      }
+    }
+
+    .pay__input {
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 130%;
+      letter-spacing: 0.2em;
+      display: block;
+      margin: auto;
+      width: 54px;
+      padding: 20px 0 10px;
+      background: none;
+      border: none;
+      outline: none;
+      color: #fff;
+      border-bottom: 2px solid #2f2f2f;
+
+      &:hover {
+        border-bottom: 2px solid #05c2df;
+      }
+
+      &:target {
+        border-bottom: 2px solid #05c2df;
+      }
+
+      &::placeholder {
+        color: #2f2f2f;
+      }
+
+      @include onTablet {
+        padding: 0 0 10px;
+      }
+
+      @include onDesktop {
+        font-size: 20px;
+        line-height: 130%;
+        width: 55px;
+      }
+
+    }
+
+    .pay__price {
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 31px;
+      color: #05c2df;
+
+      @include onDesktop {
+        margin-top: 10px;
+      }
+    }
+
+    .pay__customer-info {
+      padding: 0 20px;
+
+      @include onTablet {
+        padding: 0 154px;
+      }
+
+      @include onDesktop {
+        padding: 80px 0 0;
+        grid-column: 7 / 12;
+      }
+    }
+
+    .pay__info {
+      @include onDesktop {
+        display: grid;
+        grid-template-columns: repeat(12, 1fr);
+        grid-gap: 20px;
+        padding: 20px 110px;
+      }
+
+      .pay-place {
+        padding: 0 20px 20px;
+
+        @include onTablet {
+          padding: 0 154px 60px;
+        }
+        @include onDesktop {
+          padding: 0;
+          grid-column: 1 / 7;
+        }
+      }
+    }
+
+    .pay__top {
+      display: flex;
+      justify-content: space-between;
+      color: #929292;
+
+      @include onDesktop {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        padding-top: 30px;
+        grid-gap: 20px;
+      }
+    }
+
+    .pay__subtitle {
+      text-align: center;
+
+      @include onTablet {
+        text-align: left;
+      }
+    }
+
+    .pay__plastic-card {
+      @include onTablet {
+        display: inline;
+        background-image: url(../images/visa.svg);
+        background-repeat: no-repeat;
+        background-size: 60%;
+        background-position: right center;
+        width: 100%;
+        padding-bottom: 40%;
+      }
+    }
+    .place__input {
+      width: 100%;
+      background: none;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #2f2f2f;
+      color: #fff;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      letter-spacing: 0.2em;
+      padding-left: 5px;
+    }
+    .place__input-date {
+      display: inline-block;
+      width: 75px;
+      margin-top: 18px;
+      background: none;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #2f2f2f;
+      color: #fff;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 130%;
+      letter-spacing: 0.2em;
+
+      @include onDesktop {
+        font-size: 20px;
+        line-height: 130%;
+        width: 82px;
+      }
+
+      &::placeholder {
+        color: #2f2f2f;
+      }
+    }
+
+    .place__input-cvv {
+      display: inline-block;
+      width: 42px;
+      margin-top: 18px;
+      background: none;
+      outline: none;
+      border: none;
+      border-bottom: 1px solid #2f2f2f;
+      color: #fff;
+      font-weight: 400;
+      font-size: 18px;
+      line-height: 130%;
+      letter-spacing: 0.2em;
+
+      @include onDesktop {
+        font-size: 20px;
+        line-height: 130%;
+      }
+
+      &::placeholder {
+        color: #2f2f2f;
+      }
+    }
+    .contact-us__buttonpad {
+      display: flex;
+      position: relative;
+      top: 0;
+      padding: 5px 0 27px;
+      @include onTablet {
+        padding: 0;
+        justify-content: space-between;
+      }
+      @include onDesktop {
+        padding: 20px 0 0;
+      }
+    }
+    .contact-us__link {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      box-sizing: border-box;
+      border: 1px solid $c-button;
+      background-color: $c-button;
+      font-family: "Raleway", sans-serif;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 100%;
+      color: $grantext;
+      text-decoration: none;
+      transition: 0.5s;
+      cursor: pointer;
+      height: 40px;
+      width: 100%;
+      @include onTablet {
+        height: 48px;
+        width: 200px;
+        margin-right: 100px;
+      }
+      @include onDesktop {
+        margin-right: 200px;
+      }
+      &:hover {
+        transition: 0.5s;
+        background-color: $buttonhover;
+        border: 1px solid $buttonhover;
+        transform: scale(1.07);
+      }
+    }
+  }
+}

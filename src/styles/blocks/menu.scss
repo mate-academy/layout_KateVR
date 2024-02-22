@@ -447,6 +447,9 @@
   &:target {
     transform: translateX(0);
   }
+  @include onDesktop {
+    display: none;
+  }
   // .menuTarget {
   //   display: block;
   //   box-sizing: border-box;
@@ -457,12 +460,12 @@
   //   z-index: 1;
   //   overflow: auto;
   // }
-  .containerPad {
-    padding: 20px 21px;
-    @include onTablet {
-      padding: 35px 153px;
-    }
-  }
+  // .containerPad {
+  //   padding: 20px 21px;
+  //   @include onTablet {
+  //     padding: 35px 153px;
+  //   }
+  // }
   .menu_pad2 {
     display: flex;
     justify-content: end;
@@ -493,7 +496,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 26px;
   }
   .menu__item2 {
     display: block;
@@ -505,10 +507,19 @@
     color: $grantext;
     cursor: pointer;
     text-align: center;
+    padding: 15px 20px;
+    @include onTablet {
+      padding: 15px 150px;
+    }
     &:hover {
+      display: flex;
       color: #05c2df;
       font-weight: 500;
       opacity: 0.6;
+      background-color: black;
+      width: 100%;
+      height: 20px;
+      justify-content: flex-start;
       // -webkit-transition: opacity 0.5s ease-in-out;
       // -moz-transition: opacity 0.5s ease-in-out;
       // -ms-transition: opacity 0.5s ease-in-out;
@@ -533,15 +544,18 @@
   transform: translateY(-100%);
   transition: transform 0.5s;
   background-color: #191536;
+  @include onDesktop {
+    display: none;
+  }
   &:target {
     transform: translateX(0);
   }
-  .containerLang {
-    margin: 0 86px 20px;
-    @include onTablet {
-      margin: 0 108px 153px;
-    }
-  }
+  // .containerLang {
+  //   margin: 0 86px 20px;
+  //   @include onTablet {
+  //     margin: 0 108px 153px;
+  //   }
+  // }
   .menu_pad3 {
     display: flex;
     justify-content: start;
@@ -572,7 +586,6 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 26px;
   }
   .menu__item3 {
     display: block;
@@ -584,10 +597,19 @@
     color: $grantext;
     cursor: pointer;
     text-align: center;
+    padding: 12px 20px;
+    @include onTablet {
+      padding: 12px 150px;
+    }
     &:hover {
+      display: flex;
+      justify-content: flex-start;
       color: #05c2df;
       font-weight: 500;
       opacity: 0.6;
+      background-color: black;
+      width: 100%;
+      height: 20px;
     }
     &:focus {
       width: 100%;
@@ -597,13 +619,13 @@
   }
 }
 
-.menuHelp {
+.menuFAQ {
   z-index: 1;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  height: 570px;
+  height: 870px;
   transform: translateY(-100%);
   transition: transform 0.5s;
   background-color: #191536;
@@ -612,16 +634,17 @@
     @include onTablet {
       display: none;
     }
+    @include onDesktop {
+      display: block;
+      margin: 135px 200px;
+    }
 
-    .menu_pad2 {
+    .menu_pad2F {
       display: flex;
       justify-content: end;
       padding: 20px 20px 55px;
       @include onTablet {
         padding: 35px 35px 40px;
-      }
-      @include onDesktop {
-        display: none;
       }
     }
     .menu_logo2 {
@@ -635,14 +658,11 @@
         transition: 0.5s;
         transform: scale(1.07);
       }
-      @include onDesktop {
-        display: none;
-      }
     }
     .containerPad {
       margin: 20px 21px;
-      @include onTablet {
-        margin: 35px 153px;
+      @include onDesktop {
+        margin: 0 90px;
       }
     }
 
@@ -670,18 +690,157 @@
       line-height: normal;
       padding: 0 5px;
     }
+    .textColF {
+      color: #929292;
+      padding: 11px;
+    }
+    .h8F {
+      font-size: 12px;
+      line-height: 18px;
+      color: #545454;
+    }
+    .titleH6F {
+      display: flex;
+      justify-content: left;
+      flex-direction: column;
+      border: 1px solid #05c2df;
+      margin-bottom: 13px;
+      @include onTablet {
+        justify-content: center;
+      }
+    }
+    .paddFoot {
+      padding-bottom: 34px;
+    }
+    .flexH4mob {
+      display: flex;
+      flex-direction: column;
+      padding: 25px 0 20px;
+    }
+    .foot-cont {
+      color: #929292;
+      text-decoration: none;
+    }
+    .nav__logo {
+      display: none;
+      @include onDesktop {
+        display: flex;
+        justify-content: center;
+      }
+      .More {
+        display: block;
+        width: 41px;
+        height: 38px;
+        margin-top: 25px;
+        background-repeat: no-repeat;
+        transition: all 0.3s;
+        background-image: url(../images/More.svg);
+        &:hover {
+          transition: 0.5s;
+          transform: scale(1.07);
+        }
+      }
+    }
+  }
+}
+
+.menuHelp {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 710px;
+  transform: translateY(-100%);
+  transition: transform 0.5s;
+  background-color: #191536;
+  &:target {
+    transform: translateX(0);
+    // @include onTablet {
+    //   display: none;
+    // }
+    @include onDesktop {
+      display: block;
+      height: 570px;
+      margin: 135px 200px;
+    }
+    .menu_pad2 {
+      display: flex;
+      justify-content: end;
+      padding: 20px 20px 55px;
+      @include onDesktop {
+        padding: 35px 35px 40px;
+      }
+      .menu_logo2 {
+        display: block;
+        width: 18px;
+        height: 18px;
+        background-repeat: no-repeat;
+        transition: all 0.3s;
+        background-image: url(../images/GrEx.svg);
+        &:hover {
+          transition: 0.5s;
+          transform: scale(1.07);
+        }
+      }
+    }
+
+    .containerPad {
+      margin: 20px 21px;
+      @include onDesktop {
+        margin: 0 90px 55px;
+      }
+    }
+
+    .abreviation {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: left;
+      padding-bottom: 12px;
+      @include onDesktop {
+        justify-content: center;
+        padding-bottom: 50px;
+      }
+    }
+    .styleH2d__about {
+      font-weight: 900;
+      line-height: normal;
+    }
+    .styleH2d__about1 {
+      color: var(--Contrast-Color, #05c2df);
+      font-weight: 400;
+      line-height: normal;
+      padding: 0 5px;
+    }
 
     .textCol {
       color: #929292;
     }
+    .helpDesc {
+      display: flex;
+      flex-direction: column;
+      @include onTablet {
+        flex-direction: row;
+      }
+    }
     .textColz {
       color: #05c2df;
+    }
+    .textColHe {
+      color: #05c2df;
+      @include onTablet {
+        padding-right: 150px;
+      }
+      @include onDesktop {
+        padding-right: 65px;
+      }
     }
     .titleH6 {
       display: flex;
       justify-content: left;
       flex-direction: column;
-      padding-bottom: 20px;
+      padding-bottom: 25px;
       @include onTablet {
         justify-content: center;
         padding-bottom: 30px;
@@ -699,7 +858,19 @@
     .flexH4mob {
       display: flex;
       flex-direction: column;
-      padding: 25px 0 20px;
+      padding: 25px 0;
+      @include onTablet {
+        padding: 0;
+        gap: 17px;
+      }
+      @include onDesktop {
+        gap: 2px;
+      }
+    }
+    .pad_list {
+      @include onDesktop {
+        padding-bottom: 15px;
+      }
     }
     .foot-cont {
       color: #929292;

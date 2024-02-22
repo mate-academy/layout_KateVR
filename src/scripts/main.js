@@ -12,7 +12,9 @@
 window.addEventListener('hashchange', () => {
   if (window.location.hash === '#menuR' || window.location.hash
   === '#menuX2' || window.location.hash
-  === '#LANGUAGE' | window.location.hash === '#menuH') {
+  === '#LANGUAGE' || window.location.hash
+  === '#FAQ' || window.location.hash === '#menuH'
+  || window.location.hash === '#menuB' || window.location.hash === '#menuP') {
     document.body.classList.add('page__body--with-menu');
   } else {
     document.body.classList.remove('page__body--with-menu');
