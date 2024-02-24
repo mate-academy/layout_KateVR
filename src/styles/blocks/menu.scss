@@ -11,6 +11,9 @@
   &:target {
     transform: translateX(0);
   }
+  @include onDesktop {
+    display: none;
+  }
   .menuTarget {
     display: block;
     box-sizing: border-box;
@@ -20,7 +23,9 @@
     height: 100%;
     z-index: 1;
     overflow: auto;
-
+    @include onDesktop {
+      display: none;
+    }
     .header__page {
       display: flex;
       flex-direction: row;
@@ -156,6 +161,7 @@
     .button_padA {
       display: flex;
       margin: 33px 0 0;
+      text-decoration: none;
       @include onTablet {
         margin: -55px 0 0;
         justify-content: center;
@@ -408,7 +414,7 @@
       cursor: pointer;
       text-align: center;
       &:hover {
-        color: green;
+        color: #05c2df;
         font-weight: 500;
         opacity: 0.6;
         -webkit-transition: opacity 0.5s ease-in-out;
@@ -632,10 +638,9 @@
   &:target {
     transform: translateX(0);
     @include onTablet {
-      display: none;
+      display: block;
     }
     @include onDesktop {
-      display: block;
       margin: 135px 200px;
     }
 
@@ -673,26 +678,45 @@
       justify-content: left;
       padding-bottom: 12px;
       @include onTablet {
-        justify-content: center;
-        padding-bottom: 50px;
+        padding-bottom: 30px;
       }
       @include onDesktop {
-        padding-bottom: 26px;
+        padding-bottom: 50px;
       }
     }
     .styleH2d__about {
-      font-weight: 900;
-      line-height: normal;
+      font-weight: 400;
+      line-height: 27.3px;
+      width: 280px;
+      @include onDesktop {
+        font-weight: 900;
+        line-height: normal;
+        text-align: start;
+        width: 520px;
+      }
     }
     .styleH2d__about1 {
       color: var(--Contrast-Color, #05c2df);
       font-weight: 400;
       line-height: normal;
-      padding: 0 5px;
     }
     .textColF {
       color: #929292;
-      padding: 11px;
+      padding: 11px 12px;
+      @include onTablet {
+        padding: 11px 30px;
+      }
+    }
+    .textColzF {
+      color: #05c2df;
+      padding: 15px 12px;
+      @include onTablet {
+        padding: 12px 30px;
+      }
+      @include onDesktop {
+        padding: 16px 30px;
+      }
+
     }
     .h8F {
       font-size: 12px;
