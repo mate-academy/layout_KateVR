@@ -1,0 +1,145 @@
+@use 'sass:list';
+
+.footer {
+  padding: 45px 20px 50px;
+  background-color: black;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  &__katvr {
+    grid-row: 1 / 2;
+  }
+
+  @include on-tablet {
+    padding: 25px 35px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @include on-small-desktop {
+    padding: 43px 110px;
+  }
+
+  @include on-desktop {
+    padding-inline: 234px;
+  }
+
+  &__nav {
+    grid-row: 2 / 4;
+    grid-column: 1 / 2;
+    margin-top: 15px;
+
+    @include on-tablet {
+      margin-top: 0;
+      display: flex;
+      align-items: center;
+    }
+
+    &-list {
+      @include flex-column;
+
+      row-gap: 12px;
+      padding: 0;
+      margin: 0;
+
+      @include on-tablet {
+        flex-direction: row;
+        column-gap: 45px;
+      }
+
+      &--item {
+        list-style: none;
+      }
+
+      &--link {
+        display: block;
+        position: relative;
+        color: white;
+        text-decoration: none;
+        width: fit-content;
+        font-size: 13px;
+        line-height: 19.5px;
+        transition: color $animation-duration;
+
+        @include on-tablet {
+          font-size: 14px;
+        }
+
+        &:hover {
+          color: $light-blue;
+        }
+      }
+    }
+  }
+
+  &__contact {
+    grid-row: 2 / 3;
+    grid-column: 2 / 3;
+    margin-top: 15px;
+
+    @include on-tablet {
+      &.contact {
+        display: none;
+      }
+    }
+  }
+
+  &__icons {
+    width: 130px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    grid-row: 3 / 4;
+    grid-column: 2 / 3;
+
+    @include on-tablet {
+      width: 103px;
+
+      $dimensions: (
+        (6px, 12px),
+        (15px, 11px),
+        (14.18px, 10.8px),
+        (14px, 14px)
+      );
+
+      @for $i from 1 through length($dimensions) {
+        $width: list.nth(list.nth($dimensions, $i), 1);
+        $height: list.nth(list.nth($dimensions, $i), 2);
+
+        &-link:nth-child(#{$i}) svg {
+          width: $width;
+          height: $height;
+        }
+      }
+    }
+
+    @include on-desktop {
+      width: 160.55px;
+
+      $dimensions: (
+        (9.35px, 19.1px),
+        (23.38px, 17.5px),
+        (22.1px, 17.19px),
+        (21.82px, 22.28px)
+      );
+
+      @for $i from 1 through length($dimensions) {
+        $width: list.nth(list.nth($dimensions, $i), 1);
+        $height: list.nth(list.nth($dimensions, $i), 2);
+
+        &-link:nth-child(#{$i}) svg {
+          width: $width;
+          height: $height;
+        }
+      }
+    }
+
+    &-link svg path {
+      transition: fill $animation-duration;
+    }
+
+    &-link svg:hover path {
+      fill: $light-blue;
+    }
+  }
+}

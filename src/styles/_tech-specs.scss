@@ -1,0 +1,279 @@
+.tech-specs {
+  padding: 50px 20px;
+  background-color: $black;
+
+  @include on-tablet {
+    padding: 80px 32px;
+  }
+
+  @include on-small-desktop {
+    padding: 100px 112px;
+
+    &__title.title {
+      font-size: 36px;
+      line-height: 44px;
+      text-align: right;
+      margin-inline: auto;
+      width: 1000px;
+    }
+  }
+
+  &__img {
+    z-index: 1;
+
+    @include on-tablet {
+      width: 354.6px;
+      height: 351px;
+    }
+
+    @include on-small-desktop {
+      width: 297.9px;
+      height: 294.8px;
+    }
+  }
+
+  &__content {
+    width: 280px;
+    margin-inline: auto;
+    position: relative;
+    margin-top: 40px;
+
+    @include flex-column;
+
+    align-items: center;
+
+    @include on-small-desktop {
+      margin-top: 140px;
+    }
+  }
+
+  &__border {
+    z-index: 2;
+    position: absolute;
+
+    @include on-tablet {
+      width: 351px;
+      height: 351px;
+    }
+
+    @include on-small-desktop {
+      width: 294.8px;
+      height: 294.8px;
+    }
+  }
+
+  &__description {
+    display: none;
+    position: absolute;
+    z-index: 4;
+    padding: 10px;
+    background-color: $gradient-dark-blue;
+    border-radius: 4px;
+
+    &--vector {
+      display: none;
+      z-index: 5;
+    }
+
+    &--text {
+      margin-top: 5px;
+      font-size: 12px;
+    }
+
+    &--1 {
+      top: 28px;
+      left: 0;
+
+      @include on-tablet {
+        top: 38px;
+      }
+    }
+
+    &--2 {
+      width: 200px;
+      bottom: -124px;
+
+      @include on-tablet {
+        bottom: -65px;
+        right: -33px;
+      }
+    }
+
+    &--3 {
+      bottom: -88px;
+      left: 58px;
+
+      @include on-tablet {
+        bottom: -88px;
+        left: -33px;
+      }
+    }
+
+    @include on-small-desktop {
+      display: block;
+      background-color: transparent;
+      padding: 0;
+
+      &--title.subtitle {
+        font-size: 18px;
+        line-height: 22px;
+      }
+
+      &--text {
+        margin-top: 20px;
+        font-size: 15px;
+
+        @include on-desktop {
+          font-size: 16px;
+        }
+      }
+
+      &--1 {
+        top: -58px;
+        left: -380px;
+      }
+
+      &--2 {
+        top: -58px;
+        right: -385px;
+        width: 228px;
+
+        @include on-desktop {
+          right: -497px;
+          width: 344px;
+        }
+      }
+
+      &--3 {
+        bottom: 28px;
+        left: -385px;
+
+        @include on-desktop {
+          bottom: 24px;
+        }
+      }
+
+      &--vector {
+        display: block;
+        position: absolute;
+
+        &--1 {
+          right: 141px;
+          top: -50px;
+        }
+
+        &--2 {
+          right: -145px;
+          top: -50px;
+        }
+
+        &--3 {
+          left: -247px;
+          top: 60px;
+        }
+      }
+    }
+  }
+
+  &__curve {
+    display: none;
+
+    @include on-small-desktop {
+      display: block;
+      position: absolute;
+      left: -20px;
+      bottom: 52px;
+    }
+  }
+
+  &__plus-minus {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    z-index: 3;
+    background-color: $light-blue;
+    border: 3px solid $lighter-blue;
+    border-radius: 50%;
+    transition: all $animation-duration;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 1px;
+      background-color: white;
+      transition: transform $animation-duration;
+    }
+
+    &::before {
+      transform: $translate-minus50per;
+    }
+
+    &::after {
+      transform: $translate-minus50per rotate(90deg);
+    }
+
+    &:hover {
+      border-color: $dark-blue;
+      background-color: $darker-blue;
+      &::after {
+        transform: $translate-minus50per rotate(180deg);
+      }
+    }
+
+    &--1 {
+      top: -9px;
+      left: 96px;
+
+      @include on-tablet {
+        top: -27px;
+        left: 24px;
+      }
+    }
+
+    &--2 {
+      top: 79px;
+      right: 72px;
+
+      @include on-tablet {
+        top: 141px;
+        right: 11px;
+      }
+    }
+
+    &--3 {
+      top: 154px;
+      left: 27px;
+
+      @include on-tablet {
+        top: 270px;
+        left: -99px;
+      }
+    }
+
+    @include on-tablet {
+      width: 62px;
+      height: 62px;
+
+      &::before,
+      &::after {
+        width: 22px;
+      }
+    }
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  @for $i from 1 through 3 {
+    &__plus-minus--#{$i} {
+      &:hover + .tech-specs__description--#{$i} {
+        display: block;
+      }
+    }
+  }
+}

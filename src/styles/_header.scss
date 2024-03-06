@@ -1,0 +1,225 @@
+.header {
+  background: linear-gradient(108deg, $gradient-dark-blue 0, black 100%);
+  padding: 20px 20px 46px;
+
+  @include on-tablet {
+    padding: 30px 35px 60px;
+
+    &__content {
+      position: relative;
+      margin-top: 55px;
+      margin-inline: auto;
+      width: 698px;
+    }
+
+    &__picture {
+      pointer-events: none;
+      position: absolute;
+      right: -35px;
+    }
+  }
+
+  @include on-small-desktop {
+    padding: 64px 110px 97px;
+
+    &__content {
+      margin-top: 100px;
+      width: 1060px;
+    }
+
+    &__picture {
+      right: -110px;
+      top: -188px;
+    }
+  }
+
+  @include on-desktop {
+    padding: 47px 235px 107px;
+
+    &__content {
+      margin-top: 246px;
+      width: 1450px;
+    }
+
+    &__picture {
+      right: 0;
+      top: -12px;
+    }
+  }
+
+  &__title,
+  &__price {
+    color: white;
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 130%;
+
+    @include on-small-tablet {
+      width: 320px;
+    }
+
+    @include on-tablet {
+      width: 280px;
+    }
+
+    @include on-small-desktop {
+      font-size: 46px;
+      width: 480px;
+    }
+
+    @include on-desktop {
+      font-size: 54px;
+      line-height: 70px;
+      width: 552px;
+    }
+    
+    &-span {
+      color: $light-blue;
+      font-weight: 400;
+    }
+
+  }
+
+  &__description,
+  &__price {
+    font-weight: 500;
+  }
+
+  &__description {
+    margin-top: 17px;
+
+    @include on-small-tablet {
+      width: 381px;
+    }
+
+    @include on-tablet {
+      width: 299px;
+    }
+
+    @include on-small-desktop {
+      margin-top: 19px;
+      margin-left: 76px;
+    }
+
+    @include on-desktop {
+      margin-top: 35px;
+      margin-left: 90px;
+      font-size: 20px;
+      width: 439px;
+    }
+  }
+
+  &__price {
+    margin-top: 8px;
+    width: fit-content;
+    margin-inline: auto;
+    font-size: 18px;
+
+    @include on-small-tablet {
+      margin-inline: 0;
+      margin-top: 16px;
+    }
+
+    @include on-desktop {
+      margin-top: 30px;
+      font-size: 20px;
+      line-height: 24px;
+    }
+  }
+
+  &__play {
+    margin-top: 16px;
+
+    @include on-small-tablet {
+      margin-top: 23px;
+    }
+  }
+
+  @include on-small-desktop {
+    &__price {
+      margin-left: 76px;
+    }
+
+    &__play {
+      margin-left: 68px;
+    }
+  }
+
+  @include on-desktop {
+    &__price {
+      margin-left: 88px;
+    }
+
+    &__play {
+      margin-top: 35px;
+      margin-left: 82px;
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    margin-top: 84px;
+    display: none;
+    justify-content: space-between;
+
+    @include on-small-desktop {
+      display: flex;
+    }
+
+    @include on-desktop {
+      margin-top: 221px;
+    }
+
+    &-wrapper {
+      display: flex;
+      gap: 39px;
+    }
+
+    &-link,
+    &-more {
+      text-decoration: none;
+      font-weight: 500;
+      line-height: 24px;
+    }
+
+    &-link {
+      color: white;
+      transition: color $animation-duration;
+
+      &:hover {
+        color: $light-blue;
+      }
+    }
+
+    &-more {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      color: $light-blue;
+
+      &::after {
+        display: block;
+        content: "";
+        background-image: url('../images/polygon.svg');
+        background-repeat: no-repeat;
+        height: 6px;
+        margin-top: 7px;
+        margin-inline: auto;
+        width: 9px;
+        transition: all $animation-duration;
+      }
+
+      &:hover::after {
+        margin-top: 15px;
+      }
+
+      &:active::after {
+        margin-top: 50px;
+      }
+    }
+  }
+}
