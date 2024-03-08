@@ -13,6 +13,14 @@
   </head>
 
   <body class="body">
+    <a
+      onclick="topFunction()"
+      class="btn-scroll"
+      id="myBtn">
+      <img
+        src="./images/icons/arrow-up.svg"
+        alt="Arrow">
+    </a>
     <header class="header">
       <div class="top-bar">
         <div class="top-bar__wrap">
@@ -78,9 +86,11 @@
               </li>
             </ul>
           </nav>
-          <button class="top-bar__nav--btn">
+          <a
+            class="top-bar__nav--btn"
+            href="#order">
             Buy Now
-          </button>
+          </a>
         </div>
       </div>
       <div class="header__content">
@@ -115,10 +125,13 @@
                 src="images/icons/play-video.svg" 
                 alt="play-video">
             </a>
-            <button class="btn
-              header__btn">
-              Buy Now
-            </button>
+            <div>
+              <a class="btn
+                header__btn"
+                href="#order">
+                Buy Now
+              </a>
+            </div>
           </div>
         </div>
       </div>
@@ -409,8 +422,552 @@
       </div>
     </aside>
 
+    <aside
+      class="order"
+      id="order">
+      <div
+        class="order__top--desktop">
+        <div
+          class="order__top">
+          <a 
+            class="order__top--img"
+            href="#">
+            <img 
+              class="order__top--hover"
+              src="images/icons/Logo.svg" 
+              alt="logo">
+          </a>
+          <a 
+            href="#">
+            <img 
+              class="order__top--hover
+              order__top--close"
+              src="images/icons/close.svg"
+              alt="close">
+          </a>
+        </div>
+        <div
+          class="order__content">
+          <h4 
+            class="order__content--title">
+            Place Order
+          </h4>
+          <h4 
+            class="order__content--title--line">
+            Pay
+          </h4>
+          <h4 
+            class="order__content--title--line">
+            Complete
+          </h4>
+        </div>
+      </div>
+      <div
+        class="order__bottom">
+        <div
+          class="order__img">
+          <img 
+            class="order__img--headphones"
+            src="images/header-photo.png"
+            alt="headphones">
+        </div>
+        <div class="buy">
+          <div class="buy__quantity">
+            <h4 class="buy__quantity--title">
+              Quantity
+            </h4>
+            <form 
+              class="order__form"
+              action="#">
+              <label for="select--order">
+                <select 
+                  class="order__select"
+                  name="numbers" 
+                  id="select--order">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </label>
+            </form>
+          </div>
+          <div class="buy__price">
+            <h4 class="buy__price--title">
+              Price
+            </h4>
+            <p class="buy__price--sum">1200$</p>
+          </div>
+        </div>
+        <form 
+          class="custumer"
+          action="#"
+          method="get"
+          onsubmit="this.reset(); return false;">
+          <div
+            class="custumer__tablet">
+            <div>
+              <label 
+                class="custumer__label"
+                for="name">
+                First Name*
+              </label>
+              <input 
+                class="custumer__input"
+                id="name"
+                name="name"
+                type="text"
+                required>
+            </div>
+            <div>
+              <label 
+                class="custumer__label"
+                for="last">
+                Last Name*
+              </label>
+              <input 
+                class="custumer__input"
+                id="last"
+                name="name"
+                type="text"
+                required>
+            </div>
+          </div>
+          <div
+            class="custumer__tablet">
+            <div>
+              <label 
+                class="custumer__label"
+                for="email">
+                Email*
+              </label>
+              <input 
+                class="custumer__input"
+                id="email"
+                name="email"
+                type="email"
+                pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
+                autocomplete="email"
+                required>
+            </div>
+            <div>
+              <label 
+                class="custumer__label"
+                for="phone">
+                Phone Number*
+              </label>
+              <input 
+                class="custumer__input"
+                id="phone"
+                name="phone"
+                type="tel"
+                required>
+            </div>
+          </div>
+          <div
+            class="custumer__tablet">
+            <div>
+              <label 
+                class="custumer__label"
+                for="country">
+                Country*
+              </label>
+              <select 
+                class="custumer__country"
+                name="country"
+                id="country">
+                <option value="Ukraine">Ukraine</option>
+                <option value="Poland">Poland</option>
+                <option value="France">France</option>
+                <option value="Germany">Germany</option>
+              </select>
+            </div>
+            <div>
+              <label 
+                class="custumer__label"
+                for="city">
+                City*
+              </label>
+              <select 
+                class="custumer__country"
+                name="city"
+                id="city">
+                <option value="Kyiv">Kyiv</option>
+                <option value="Ivano-Frankivsk">Ivano-Frankivsk</option>
+                <option value="Krakow">Krakow</option>
+                <option value="Paris">Paris</option>
+                <option value="Berlin">Berlin</option>
+              </select>
+            </div>
+          </div>
+          <div
+            class="custumer__tablet">
+            <div>
+              <label 
+                class="custumer__label"
+                for="adress">
+                Shipping Adress*
+              </label>
+              <input   
+                class="custumer__input"
+                id="adress"
+                name="adress"
+                type="text"
+                required>
+            </div>
+            <div>
+              <label 
+                class="custumer__label"
+                for="adress-custumer">
+                Shipping Adress2
+              </label>
+              <input   
+                class="custumer__input"
+                id="adress-custumer"
+                name="adress"
+                type="text"
+                required>
+            </div>
+          </div>
+          <div 
+            class="btn--wrap">
+            <a
+              class="button"
+              href="#pay">
+              Purchase
+            </a>
+          </div>
+        </form>
+      </div>
+    </aside>
+
+    <aside 
+      class="pay"
+      id="pay">
+      <div
+        class="pay__top--desktop">
+        <div
+          class="pay__top">
+          <a 
+            class="pay__top--img"
+            href="#">
+            <img 
+              class="pay__top--hover"
+              src="images/icons/Logo.svg" 
+              alt="logo">
+          </a>
+          <a 
+            href="#">
+            <img 
+              class="pay__top--hover
+              pay__top--hover--close"
+              src="images/icons/close.svg"
+              alt="close">
+          </a>
+        </div>
+        <div
+          class="pay__content">
+          <h4 
+            class="pay__content--title">
+            Place Order
+          </h4>
+          <h4 
+            class="pay__content--title--active">
+            Pay
+          </h4>
+          <h4 
+            class="pay__content--title--line">
+            Complete
+          </h4>
+        </div>
+      </div>
+      <div
+        class="pay__bottom">
+        <div
+          class="pay__img">
+          <img 
+            class="pay__img--headphones"
+            src="images/header-photo.png"
+            alt="headphones">
+        </div>
+        <div class="buy">
+          <div class="buy__quantity">
+            <h4 class="buy__quantity--title">
+              Quantity
+            </h4>
+            <form 
+              class="order__form"
+              action="#"
+              method="get"
+              onsubmit="this.reset(); return false;">
+              <label for="order-select">
+                <select 
+                  class="order__select"
+                  name="numbers" 
+                  id="order-select">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </label>
+            </form>
+          </div>
+          <div class="buy__price">
+            <h4 class="buy__price--title">
+              Price
+            </h4>
+            <p class="buy__price--sum">1200$</p>
+          </div>
+        </div>
+        <div
+          class="card">
+          <div
+            class="card__number">
+            <form 
+              class="card__form"
+              action="#" 
+              method="get"
+              onsubmit="this.reset(); return false;">
+              <label
+                class="card__number--title"
+                for="numbers">
+                Card Number*
+              </label>
+              <div
+                class="card__number--tablet">
+                <input 
+                  class="card__form--input--numbers"
+                  id="numbers"
+                  type="text"
+                  placeholder="0000"
+                  maxlength="4"
+                  required>
+                <input 
+                  class="card__form--input--numbers
+                  card__form--input--numbers--other"
+                  id="card-form-input-numbers"
+                  type="text"
+                  placeholder="0000"
+                  maxlength="4"
+                  required>
+                <input 
+                  class="card__form--input--numbers
+                  card__form--input--numbers--other"
+                  id="card-numbers"
+                  type="text"
+                  placeholder="0000"
+                  maxlength="4"
+                  required>
+                <input 
+                  class="card__form--input--numbers
+                  card__form--input--numbers--other"
+                  id="card-form-numbers"
+                  type="text"
+                  placeholder="0000"
+                  maxlength="4"
+                  required>
+                <img 
+                  class="card__form--visa"
+                  src="images/icons/visa.svg" 
+                  alt="visa">
+              </div>
+            
+              <label 
+                class="card__number--title
+                card__number--title--other"
+                for="card_holder_name">
+                Card Holder Name*
+              </label>
+              <input 
+                class="card__form--input--name"
+                id="card_holder_name"
+                type="text"
+                required>
+              <div
+                class="card__number--wrap">
+                <div>
+                  <label 
+                    class="card__number--title"
+                    for="date">
+                    Expiration Date*
+                  </label>
+                  <input 
+                    class="card__form--input--date"
+                    id="date"
+                    type="text"
+                    placeholder="MM / YY"
+                    maxlength="5"
+                    required>
+                </div>
+                <div
+                  class="card__number--cvv">
+                  <label 
+                    class="card__number--title"
+                    for="cvv">
+                    CVV*
+                  </label>
+                  <input 
+                    class="card__form--input--date
+                    card__form--input--date--other"
+                    id="cvv"
+                    type="text"
+                    maxlength="3"
+                    placeholder="000"
+                    required>
+                </div>
+              </div>
+              <div
+                class="btn--wrap">
+                <a 
+                  class="button"
+                  href="#complete">
+                  Purchase
+                </a>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <aside 
+      class="complete"
+      id="complete">
+      <div
+        class="complete__top--desktop">
+        <div
+          class="complete__top">
+          <a 
+            class="complete__top--img"
+            href="#">
+            <img 
+              class="complete__top--hover"
+              src="images/icons/Logo.svg" 
+              alt="logo">
+          </a>
+          <a 
+            href="#">
+            <img 
+              class="complete__top--hover
+              complete__top--close"
+              src="images/icons/close.svg"
+              alt="close">
+          </a>
+        </div>
+
+        <div
+          class="complete__content">
+          <h4 
+            class="complete__content--title">
+            Place Order
+          </h4>
+          <h4 
+            class="complete__content--title">
+            Pay
+          </h4>
+          <h4 
+            class="complete__content--title--active">
+            Complete
+          </h4>
+        </div>
+      </div>
+      <div
+        class="complete__text">
+        <h3
+          class="complete__text--title">
+          Thank you for 
+          <span
+            class="complete__text--title--span">
+            your
+          </span>
+            order!
+        </h3>
+        <p
+          class="complete__text--prg">
+          Your order has been placed and is being processed. You will recive an email with the order details
+        </p>
+        <a
+          class="btn
+          complete__btn"
+          href="#">
+          Back to homepage
+        </a>
+      </div>
+    </aside>
+
+    <aside
+      class="FAQ"
+      id="FAQ">
+      <div class="FAQ__top">
+        <a href="#">
+          <img 
+            class="menu__close" 
+            src="images/icons/close.svg" 
+            alt="close">
+        </a>
+      </div>
+      <div class="FAQ__content">
+        <h2 class="FAQ__content--title">
+          FREQUENTLY ASKED 
+          <span class="FAQ__content--title
+            FAQ__content--title--other">
+            QUESTIONS
+          </span>
+        </h2>
+        <div
+          class="outline">
+          <p 
+            class="FAQ__content--prg--other">
+            What makes KAT loco different from other systems?
+          </p>
+          <p class="FAQ__content--prg">
+            Despite being approached from many different angles, all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution for an affordable price what makes it a perfect choice for home-use. It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!
+          </p>
+          <p class="FAQ__content--info">
+            Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+          </p>
+        </div>
+        <div
+          class="outline">
+          <p
+            class="FAQ__content--prg--other">
+            Will it decrease my motion sickness?
+          </p>
+        </div>
+        <div
+          class="outline">
+          <p
+            class="FAQ__content--prg--other">
+            Which VR headsets is it compatible with?
+          </p>
+        </div>
+        <div
+          class="outline">
+          <p
+            class="FAQ__content--prg--other">
+            Is it compatible with Oculus Quest?
+          </p>
+        </div>
+      </div>
+      <div 
+          class="FAQ__more">
+        <a 
+          class="FAQ__more--link"
+          href="#more">
+          More
+        </a>
+        <div class="FAQ__more--arrow"></div>
+      </div>
+      
+    </aside>
+
     <main class="main">
-      <div class="info">
+      <div 
+        class="info"
+        id="more">
         <div class="info__top">
           <h2 class="info__title">
             MORE THAN
@@ -745,18 +1302,18 @@
           action="#"
           method="get"
           onsubmit="this.reset(); return false;">
-          <label for="name">
+          <label for="name-footer">
             Name*
           </label>
           <input 
             class="input"
             type="text"
             name="name"
-            id="name"
+            id="name-footer"
             required>
           <label
             class="label"
-            for="email">
+            for="email-footer">
             Email*
           </label>
           <input
@@ -764,21 +1321,21 @@
             input--other"
             type="email"
             name="email"
-            id="email"
+            id="email-footer"
             autocomplete="email"
             pattern="[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$"
             required>
           <label 
             class="label"
-            for="phone">
+            for="phone-footer">
             Phone*
           </label>
           <input 
             class="input
             input--other"
+            id="phone-footer"
             type="tel"
             name="phone"
-            id="phone"
             required>
           <label
             class="label"
@@ -812,8 +1369,7 @@
           class="contact__info">
           <a 
             class="contact__info--link"
-            href="tel:+86-0571-86105373"
-            target="_blank">
+            href="tel:+86-0571-86105373">
             +86-0571-86105373
           </a>
           <a 

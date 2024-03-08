@@ -1,0 +1,166 @@
+.order {
+  position: fixed;
+  opacity: 0;
+  inset: 0;
+  pointer-events: none;
+  background: $bg-header;
+  font-weight: 500;
+  z-index: 1;
+
+  &:target {
+    opacity: 10;
+    pointer-events: all;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    @include on-tablet {
+      padding: 30px 35px;
+    }
+
+    @include on-desktop {
+      padding: 0;
+    }
+  }
+
+  &__top--desktop {
+    @include on-desktop {
+      padding: 65px 254px 102px 110px;
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+    }
+
+    @include on-large {
+      padding: 65px 477px 265px 235px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 37px;
+
+    @include on-tablet {
+      padding-inline: 88px;
+    }
+
+    @include on-desktop {
+      width: 647px;
+      padding: 0;
+      margin-left: 191px;
+    }
+  }
+
+  &__content--title {
+    font-weight: 400;
+    color: $color-blue;
+    position: relative;
+
+    &::after {
+      content: "";
+      width: 112px;
+      height: 1px;
+      position: absolute;
+      right: 0;
+      bottom: -10px;
+      background-color: $color-blue;
+      z-index: 1;
+
+      @include on-tablet {
+        width: 256px;
+        right: -55px;
+      }
+
+      @include on-desktop {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        right: 50%;
+      }
+    }
+  }
+
+  &__content--title--line {
+    font-weight: 400;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      background-color: $input-line;
+      left: 0;
+      bottom: 27px;
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__form {
+    margin-top: 10px;
+
+    @include on-tablet {
+      margin-top: 20px;
+    }
+  }
+
+  &__select {
+    padding: 7px 30px;
+    background: $bg-menu;
+    color: $color-white;
+    border: none;
+
+    @include on-desktop {
+      height: 47px;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+    }
+
+    @include on-desktop {
+      margin-left: 54px;
+      grid-column: 1/-2;
+      justify-content: left;
+    }
+  }
+
+  &__img--headphones {
+    width: 100%;
+  }
+
+  &__top--hover {
+    @include hover (transform, scale(1.1));
+
+    @include on-desktop {
+      width: 78px;
+    }
+  }
+
+  &__top--close {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    @include on-desktop {
+      padding-right: 110px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 279px 1fr;
+    }
+  }
+}

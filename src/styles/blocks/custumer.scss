@@ -1,0 +1,92 @@
+.custumer {
+  padding: 30px 20px 40px;
+
+  @include on-tablet {
+    padding: 48px 35px;
+  }
+
+  @include on-desktop {
+    width: 520px;
+    padding: 0;
+    grid-column: -2/-1;
+    grid-row: 1/-1;
+    justify-self: center;
+  }
+
+  @include on-large {
+    width: 716px;
+  }
+
+  &__input {
+    margin-bottom: 30px;
+    padding-top: 5px;
+    width: 100%;
+    font-weight: 500;
+    font-size: 16px;
+    background: $bg-menu;
+    color: $color-white;
+    border: none;
+    border-bottom: 1px solid $color-main;
+    outline: none;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $color-white;
+      background-color: transparent;
+      transition: background-color 5000s ease-in-out;
+    }
+
+    @include on-tablet {
+      width: 340px;
+    }
+
+    @include on-desktop {
+      width: 250px;
+    }
+
+    @include on-large {
+      margin-bottom: 40px;
+      width: 346px;
+    }
+  }
+
+  &__label {
+    font-weight: 400;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__country {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    width: 100%;
+    padding: 13px 24px;
+    color: $color-white;
+    background: $bg-menu;
+    font-size: 16px;
+    border: none;
+    outline: none;
+
+    @include on-tablet {
+      width: 340px;
+    }
+
+    @include on-desktop {
+      width: 250px;
+    }
+
+    @include on-large {
+      width: 346px;
+    }
+  }
+
+  &__tablet {
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+}

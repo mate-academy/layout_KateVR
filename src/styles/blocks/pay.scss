@@ -1,0 +1,158 @@
+.pay {
+  position: fixed;
+  opacity: 0;
+  inset: 0;
+  pointer-events: none;
+  background: $bg-header;
+  font-weight: 500;
+  z-index: 1;
+
+  &:target {
+    opacity: 10;
+    pointer-events: all;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+
+    @include on-tablet {
+      padding: 30px 35px;
+    }
+
+    @include on-desktop {
+      padding: 0;
+    }
+  }
+
+  &__content {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px 37px;
+
+    @include on-desktop {
+      padding: 0;
+    }
+
+    @include on-desktop {
+      width: 647px;
+    }
+  }
+
+  &__content--title {
+    font-weight: 400;
+    color: $color-white;
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 1px;
+      position: absolute;
+      right: 0;
+      bottom: 27px;
+      background-color: $input-line;
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__content--title--active {
+    position: relative;
+    color: $color-blue;
+    font-weight: 400;
+
+    &::after {
+      content: "";
+      width: 106px;
+      height: 1px;
+      position: absolute;
+      right: -40px;
+      bottom: -10px;
+      background-color: $color-blue;
+      z-index: 1;
+
+      @include on-tablet {
+        width: 256px;
+        right: -105px;
+      }
+
+      @include on-desktop {
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        right: 50%;
+      }
+    }
+  }
+
+  &__content--title--line {
+    color: $nonactive-color;
+    font-weight: 400;
+  }
+
+  &__img {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / -2;
+      justify-content: left;
+      margin-left: 54px;
+    }
+
+    @include on-large {
+      margin-left: 135px;
+    }
+  }
+
+  &__img--headphones {
+    width: 100%;
+  }
+
+  &__top--hover {
+    @include hover (transform, scale(1.1));
+
+    @include on-desktop {
+      width: 78px;
+    }
+  }
+
+  &__top--hover--close {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__top--desktop {
+    @include on-desktop {
+      padding: 65px 254px 135px 110px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    @include on-large {
+      padding: 65px 477px 265px 235px;
+    }
+  }
+
+  &__bottom {
+    @include on-desktop {
+      display: grid;
+      grid-template-rows: 279px 1fr;
+      grid-template-columns: repeat(2, 1fr);
+      padding-right: 110px;
+    }
+
+    @include on-large {
+      padding-right: 418px;
+    }
+  }
+}

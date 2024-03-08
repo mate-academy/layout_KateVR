@@ -1,0 +1,103 @@
+.FAQ {
+  padding: 20px;
+  font-size: 16px;
+  inset: 0;
+  position: fixed;
+  pointer-events: none;
+  opacity: 0;
+  background-color: $bg-menu;
+  z-index: 1;
+  line-height: 24px;
+
+  &:target {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  @include on-tablet {
+    padding: 34px;
+  }
+
+  @include on-desktop {
+    padding: 18px;
+  }
+
+  &__close {
+    cursor: pointer;
+
+    @include hover (transform, scale(1.1));
+  }
+
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  &__content {
+    margin-top: 30px;
+
+    @include on-tablet {
+      padding-inline: 56px;
+    }
+
+    @include on-desktop {
+      margin-top: 25px;
+      padding-inline: 90px;
+    }
+  }
+
+  &__content--title {
+    color: $color-white;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 130%;
+
+    @include on-tablet {
+      width: 280px;
+    }
+  }
+
+  &__content--title--other {
+    color: $color-blue;
+    font-weight: 400;
+  }
+
+  &__content--prg--other {
+    color: $color-blue;
+  }
+
+  &__content--prg {
+    margin-top: 18px;
+  }
+
+  &__content--info {
+    margin-top: 20px;
+    color: $nonactive-color;
+    font-size: 12px;
+    line-height: 18px;
+    letter-spacing: 0;
+  }
+
+  &__more {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include hover (transform, scale(1.1));
+  }
+
+  &__more--link {
+    color: $color-blue;
+  }
+
+  &__more--arrow {
+    @include on-tablet {
+      background-image: url(../images/icons/arrow-down.svg);
+      background-position: 100%;
+      width: 9px;
+      height: 6px;
+      margin-top: 7px;
+    }
+  }
+}

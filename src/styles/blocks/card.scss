@@ -1,0 +1,134 @@
+.card {
+  padding: 50px 20px;
+
+  @include on-tablet {
+    padding: 60px 154px;
+  }
+
+  @include on-desktop {
+    grid-area: 1 / -2 / -1 / -1;
+    justify-self: center;
+    width: 430px;
+    padding: 0;
+  }
+
+  @include on-large {
+    width: 536px;
+  }
+
+  &__form--input--numbers {
+    width: 54px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    font-size: 18px;
+    letter-spacing: .2em;
+    line-height: 23px;
+    color: $color-white;
+    background: $bg-menu;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $input-line;
+
+    &::placeholder {
+      background: 0000;
+    }
+
+    @include on-large {
+      width: 54px;
+    }
+  }
+
+  &__form--input--numbers--other {
+    margin-left: 10px;
+
+    @include on-desktop {
+      margin-left: 38px;
+    }
+
+    @include on-large {
+      margin-left: 70px;
+    }
+  }
+
+  &__number--title {
+    display: block;
+    font-weight: 400;
+  }
+
+  &__form--input--name {
+    width: 100%;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    font-size: 18px;
+    letter-spacing: .2em;
+    line-height: 23px;
+    color: $color-white;
+    background: $bg-menu;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $input-line;
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $color-white;
+      background-color: transparent;
+      transition: background-color 5000s ease-in-out;
+    }
+  }
+
+  &__number--title--other {
+    margin-top: 30px;
+  }
+
+  &__form--input--date {
+    width: 90px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    font-size: 18px;
+    letter-spacing: .2em;
+    line-height: 23px;
+    color: $color-white;
+    background: $bg-menu;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $input-line;
+  }
+
+  &__number--wrap {
+    margin-top: 30px;
+    display: flex;
+  }
+
+  &__number--cvv {
+    margin-left: 30px;
+
+    @include on-tablet {
+      margin-left: 50px;
+    }
+  }
+
+  &__form--input--date--other {
+    width: 50px;
+  }
+
+  &__form--visa {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      margin-left: 30px;
+    }
+
+    @include on-large {
+      margin-left: 50px;
+    }
+  }
+
+  &__number--tablet {
+    @include on-tablet {
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+}

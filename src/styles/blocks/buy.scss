@@ -1,0 +1,45 @@
+.buy {
+  display: flex;
+  margin-left: 34px;
+
+  @include on-tablet {
+    justify-content: flex-start;
+  }
+
+  @include on-desktop {
+    margin-top: 32px;
+    padding-inline-start: 110px;
+    grid-column: 1/-2;
+  }
+
+  @include on-large {
+    padding-inline-start: 210px;
+  }
+
+  &__quantity--title,
+  &__price--title {
+    font-weight: 400;
+  }
+
+  &__price--sum {
+    margin-top: 10px;
+    font-weight: 500;
+    color: $color-blue;
+
+    @include on-tablet {
+      margin-top: 20px;
+    }
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__price {
+    margin-left: 75px;
+
+    @include on-tablet {
+      margin-left: 148px;
+    }
+  }
+}
