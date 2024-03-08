@@ -1,0 +1,87 @@
+.menu {
+  background: rgb(25, 21, 54);
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-height: 100vh;
+  width: 100%;
+  z-index: 99;
+
+  transform: translateX(-100%);
+  transition: all 0.8s;
+
+  &:target {
+    transform: translateX(0);
+
+    @include desktop {
+      transform: translate(-100%);
+    }
+  }
+
+  &__nav {
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include tablet {
+      padding: 24px 0;
+    }
+  }
+
+  &__prev {
+    padding: 10px 10px 10px 0;
+  }
+
+  &__close {
+    padding: 10px 0 10px 10px;
+
+    & span {
+      display: block;
+      width: 23px;
+      height: 1px;
+      background: $white;
+      transition: all 0.5s;
+
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &:hover span {
+      &:nth-child(1) {
+        transform: rotate(-135deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate(+135deg);
+      }
+    }
+  }
+
+  &--no-visible {
+    visibility: hidden;
+  }
+
+  &__link {
+    display: inline-block;
+    width: 100%;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 130%;
+    padding: 11px 22px;
+
+    &--active,
+    &:active,
+    &:focus {
+      color: $blue;
+
+      background: rgb(17, 14, 37);
+    }
+  }
+}
