@@ -2,10 +2,18 @@
   background-color: $gradient-dark-blue;
   padding-top: 20px;
 
+  @include on-tablet {
+    padding-top: 30px;
+  }
+
   &__symbols {
     display: flex;
     justify-content: space-between;
     margin-inline: 20px;
+
+    @include on-tablet {
+      margin-inline: 35px
+    }
   }
 
   &__back {
@@ -50,6 +58,10 @@
         padding-block: 11px;
         padding-left: 20px;
         text-decoration: none;
+
+        @include on-tablet {
+          padding-left: 35px;
+        }
       }
 
       &--item {
@@ -67,11 +79,11 @@
     }
   }
 
-  // #language {
-  //   display: none;
-  // }
+  &__nav--language {
+    display: none;
+  }
 
-  // #language:target {
-  //   display: block;
-  // }
+  &__nav--language:target {
+    display: block;
+  }
 }
