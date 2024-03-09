@@ -1,0 +1,89 @@
+.menu {
+  background-color: $gradient-dark-blue;
+  padding-top: 20px;
+
+  @include on-tablet {
+    padding-top: 30px;
+  }
+
+  &__symbols {
+    display: flex;
+    justify-content: space-between;
+    margin-inline: 20px;
+
+    @include on-tablet {
+      margin-inline: 35px
+    }
+  }
+
+  &__back {
+    width: 19px;
+    height: 19px;
+  }
+
+  &__back,
+  &__cross {
+    display: flex;
+
+    path,
+    line {
+      transition: stroke $animation-duration;
+    }
+
+    &:hover {
+      path,
+      line {
+        stroke: $light-blue;
+      }
+    }
+  }
+
+  &__nav {
+    margin-top: 37.78px;
+
+    &-list {
+      margin: 0;
+      padding: 0;
+
+      @include flex-column;
+
+      &--link {
+        display: block;
+        color: white;
+        font-size: 21px;
+        font-weight: 500;
+        line-height: 130%;
+        width: 100%;
+        height: 100%;
+        padding-block: 11px;
+        padding-left: 20px;
+        text-decoration: none;
+
+        @include on-tablet {
+          padding-left: 35px;
+        }
+      }
+
+      &--item {
+        list-style: none;
+        height: 49px;
+
+        &:hover {
+          background-color: $background-item;
+
+          .menu__nav-list--link {
+            color: $light-blue;
+          }
+        }
+      }
+    }
+  }
+
+  &__nav--language {
+    display: none;
+  }
+
+  &__nav--language:target {
+    display: block;
+  }
+}

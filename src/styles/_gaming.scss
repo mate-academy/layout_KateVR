@@ -1,0 +1,130 @@
+.gaming {
+  padding: 50px 20px;
+  background-color: $black;
+
+  @include on-tablet {
+    padding: 70px 34px;
+  }
+
+  &__subtitle {
+    margin-top: 12px;
+  }
+
+  @include on-small-tablet {
+    &__title.title,
+    &__subtitle.blue-subtitle {
+      width: fit-content;
+      margin-inline: auto;
+    }
+  }
+
+  @include on-small-desktop {
+    padding: 100px 110px;
+
+    &__title.title {
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    &__subtitle.blue-subtitle {
+      margin-top: 16px;
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__content {
+    margin-top: 45px;
+
+    @include flex-column;
+
+    gap: 20px;
+
+    @include on-small-tablet {
+      align-items: center;
+
+      &-block {
+        width: 400px;
+
+        @include flex-column;
+
+        align-items: center;
+
+      }
+    }
+
+    @include on-tablet {
+      margin-top: 48px;
+      margin-inline: auto;
+      width: 700px;
+      flex-flow: wrap;
+      flex-direction: row;
+      row-gap: 40px;
+
+      &-title.subtitle {
+        margin-top: 30px;
+      }
+
+      &-block {
+        width: 340px;
+      }
+    }
+
+    @include on-small-desktop {
+      margin-top: 80px;
+      width: 1060px;
+      align-items: baseline;
+
+      &-block {
+        width: 250px;
+      }
+    }
+
+    @include on-desktop {
+      width: 1452px;
+
+      &-block {
+        width: 348px;
+      }
+    }
+
+    &-img {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        transition: transform $animation-duration;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+      }
+    }
+
+    &-text {
+      margin-top: 11px;
+
+      .additional-text {
+        display: none;
+      }
+
+      @include on-small-tablet {
+        .text-dots {
+          display: none;
+        }
+
+        .additional-text {
+          display: inline;
+        }
+      }
+
+      @include on-small-tablet {
+        text-align: center;
+      }
+
+      @include on-tablet {
+        margin-top: 20px;
+      }
+    }
+  }
+}

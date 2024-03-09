@@ -1,0 +1,223 @@
+@use 'sass:list';
+
+.contact-us {
+  padding: 50px 20px;
+  background-color: $black;
+
+  @include on-tablet {
+    padding: 70px 34px 130px;
+
+    &__container {
+      width: 700px;
+      margin-inline: auto;
+    }
+
+    &__content {
+      display: flex;
+      gap: 22px;
+    }
+
+    &__content &__form {
+      order: 1;
+      margin-top: -51px;
+
+      @include on-small-desktop {
+        margin-top: -74px;
+      }
+    }
+
+    &__contact {
+      order: 0;
+    }
+
+    &__buttons-container {
+      @include space-between-center;
+
+      padding-top: 23px;
+
+      svg {
+        transition: all $animation-duration;
+        fill: $black;
+
+        &:hover,
+        &:active {
+          path:last-child {
+            stroke: white;
+          }
+        }
+
+        &:hover {
+          fill: $light-blue;
+        }
+
+        &:active {
+          fill: white;
+
+          path:last-child {
+            stroke: $light-blue;
+          }
+        }
+      }
+    }
+  }
+
+  @include on-small-desktop {
+    padding: 100px 110px;
+
+    &__container {
+      width: 1060px;
+
+      @include on-desktop {
+        width: 1460px;
+      }
+    }
+
+    &__content {
+      gap: 0;
+      justify-content: space-between;
+    }
+
+    &__title.title {
+      font-size: 36px;
+      line-height: 44px;
+    }
+  }
+
+  @include on-desktop {
+    padding: 156px 230px 200px;
+  }
+
+  &__subtitle,
+  &__form {
+    width: fit-content;
+  }
+
+  &__subtitle {
+    margin-bottom: 11px;
+  }
+
+  &__form {
+    margin-top: 32px;
+
+    @include flex-column;
+
+    row-gap: 25px;
+
+    &-textarea {
+      padding-bottom: 67px;
+      height: 88px;
+    }
+
+    &-textarea,
+    &-input {
+      font-size: 14px;
+      padding: 0;
+      padding-bottom: 19px;
+      height: 40px;
+      background-color: inherit;
+      border: none;
+      color: $text;
+      border-bottom: 1px solid $border-bottom;
+      font-family: Inter, sans-serif;
+      width: 280px;
+      outline: none;
+      resize: none;
+
+      &:focus {
+        border-color: $light-blue;
+
+        &::placeholder {
+          color: transparent;
+        }
+      }
+
+      @include on-small-tablet {
+        width: 340px;
+      }
+
+      @include on-small-desktop {
+        width: 520px;
+      }
+
+      @include on-desktop {
+        width: 716px;
+      }
+    }
+
+    &-label {
+      position: relative;
+
+      &:focus-within::before {
+        content: '';
+        position: absolute;
+        color: $light-blue;
+        font-size: 14px;
+        top: -15px;
+      }
+
+      $labels: 'Name*', 'Email*', 'Phone*', 'Message';
+
+      @for $i from 1 through 4 {
+        $word: list.nth($labels, $i);
+
+        &--#{$i}:focus-within::before {
+          content: $word;
+        }
+      }
+    }
+
+
+    &-button.button {
+      width: 280px;
+      padding: 0;
+      font-family: Inter, sans-serif;
+      border-style: none;
+
+      @include on-small-tablet {
+        width: 340px;
+      }
+
+      @include on-tablet {
+        width: 200px;
+        height: 48px;
+        font-size: 16px;
+      }
+    }
+
+    &-scroll {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+      }
+    }
+  }
+
+  &__reply {
+    margin-top: 27px;
+    font-size: 12px;
+
+    @include on-tablet {
+      font-size: 16px;
+      margin-top: 50px;
+    }
+
+    @include on-small-tablet {
+      margin-top: 26px;
+    }
+  }
+
+  &__contact.contact {
+    display: none;
+    height: fit-content;
+
+    @include on-tablet {
+      display: flex;
+      margin-top: 76px;
+
+      &-link.contact__link {
+        font-size: 16px;
+      }
+    }
+  }
+}

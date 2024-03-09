@@ -1,0 +1,322 @@
+@import './utils/variables';
+@import './utils/mixins';
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  transition: background-color 9999s ease-in-out 0s;
+  -webkit-text-fill-color: $text;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px $gradient-dark-blue;
+  background-color: $gradient-dark-blue;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #05c2df;
+  border-radius: 5px;
+}
+
+.page {
+  &:has(.page__menu:target),
+  &:has(.youtube-video:target) {
+    overflow: hidden;
+  } // don't forget about languages
+
+  position: relative;
+  margin: 0;
+  font-family: Inter, sans-serif;
+
+  .top-bar {
+    .burger-menu {
+      display: flex;
+
+      svg line {
+        transition: all $animation-duration;
+      }
+
+      &:hover {
+        svg line {
+          stroke: $light-blue;
+        }
+
+        .line-3 {
+          transform: translateX(19%);
+        }
+      }
+
+      &:focus {
+        .line-3 {
+          transform: translateX(100%);
+        }
+      }
+
+      @include on-small-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &__menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    opacity: 0;
+    transition: all $animation-duration;
+    transform: translateY(-100%);
+    pointer-events: none;
+    height: 100vh;
+    overflow-y: auto;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  .katvr {
+    display: flex;
+    position: relative;
+    width: fit-content;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: calc(100% + $katvr-border-margin * -1 * 2);
+      height: calc(100% + $katvr-border-margin * -1 * 2);
+      background-color: transparent;
+      transition: all $animation-duration ease-out;
+      transform: scaleX(0) scaleY(0);
+      margin: $katvr-border-margin;
+    }
+
+    &::before {
+      top: $katvr-border-thickness / 2 * -1;
+      left: $katvr-border-thickness / 2 * -1;
+      border-top: $katvr-border-thickness $katvr-border;
+      border-left: $katvr-border-thickness $katvr-border;
+      transform-origin: top left;
+    }
+
+    &::after {
+      bottom: $katvr-border-thickness / 2 * -1;
+      right: $katvr-border-thickness / 2 * -1;
+      border-bottom: $katvr-border-thickness $katvr-border;
+      border-right: $katvr-border-thickness $katvr-border;
+      transform-origin: bottom right;
+    }
+
+    &:hover::before,
+    &:hover::after {
+      transform: scaleX(100%) scaleY(100%);
+    }
+
+    &__logo {
+      width: 67px;
+
+      @include on-large-tablet {
+        width: 77.5px;
+      }
+    }
+  }
+
+  .picture {
+    display: flex;
+    justify-content: center;
+  }
+
+  .shadow {
+    z-index: 10;
+    padding-inline: 20px;
+
+    @include space-between-center;
+
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(4, 4, 4, 0.59) 23.44%, $gradient-black 100%);
+    position: fixed;
+    height: 104px;
+    width: 100%;
+    bottom: 0;
+
+    &__button {
+      width: 100%;
+      margin-inline: auto;
+
+      @include on-small-tablet {
+        width: 400px;
+      }
+
+      @include on-tablet {
+        width: 458px;
+      }
+    }
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  .button {
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+    line-height: 40px;
+    display: block;
+    text-decoration: none;
+    color: white;
+    background-color: $light-blue;
+    border-radius: 4px;
+    transition: all $animation-duration;
+
+    &:hover {
+      background-color: $dark-blue;
+    }
+
+    &:focus {
+      background-color: white;
+      color: $light-blue;
+    }
+
+    &--bar {
+      width: 200px;
+      height: 48px;
+      line-height: 48px;
+      font-size: 16px;
+    }
+  }
+
+  .title,
+  .subtitle {
+    margin: 0;
+    color: white;
+    font-weight: 900;
+  }
+
+  .title {
+    font-size: 21px;
+
+    &__span {
+      font-weight: 400;
+      color: $light-blue;
+    }
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .blue-subtitle {
+    color: $light-blue;
+    font-size: 12px;
+  }
+
+  .gray-text {
+    color: $text;
+    line-height: 150%;
+  }
+
+  .play {
+    text-decoration: none;
+    position: relative;
+    display: grid;
+    height: 69.5px;
+    width: 280px;
+
+    svg {
+      position: absolute;
+
+      path {
+        transition: fill $animation-duration;
+      }
+    }
+
+    &-container {
+      left: 86.8px;
+      top: 12px;
+      position: absolute;
+      display: grid;
+      row-gap: 42.4px;
+    }
+
+    &-dots {
+      height: 1.6px;
+      width: 135px;
+
+      @include on-tablet {
+        width: 162px;
+      }
+    }
+
+    &-text {
+      position: relative;
+      place-self: center;
+      color: white;
+      font-weight: 500;
+      line-height: 130%;
+
+      &::after {
+        bottom: -1.5px;
+        content: "";
+        display: block;
+        height: 1.5px;
+        position: absolute;
+        background-color: white;
+        transition: width $animation-duration ease 0s;
+        width: 0;
+      }
+    }
+
+    &:hover {
+      .play-text::after {
+        width: 100%;
+      }
+
+      .Polygon {
+        fill: white;
+      }
+    }
+
+
+  }
+
+  .contact {
+    height: 72px;
+
+    @include flex-column;
+
+    row-gap: 12px;
+
+    &__link {
+      text-decoration: none;
+      color: $text;
+      font-size: 13px;
+      width: fit-content;
+      transition: color $animation-duration;
+
+      &:hover {
+        color: $light-blue;
+      }
+    }
+  }
+}

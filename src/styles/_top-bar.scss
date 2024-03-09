@@ -1,0 +1,79 @@
+.top-bar {
+  @include space-between-center;
+
+  &__wrapper--small-desktop {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+
+    &--1 {
+      .top-bar__language {
+        position: relative;
+        display: none;
+
+        @include on-small-desktop {
+          display: block;
+        }
+
+        &::after {
+          position: absolute;
+          content: "";
+          background-image: url('../images/polygon.svg');
+          background-repeat: no-repeat;
+          height: 6px;
+          width: 9px;
+          bottom: 2px;
+          right: 0;
+        }
+
+        &--select {
+          position: relative;
+          padding: 0;
+          background: inherit;
+          border: none;
+          outline: none;
+          color: $light-blue;
+          font-size: 16px;
+          appearance: none;
+          width: 34px;
+        }
+
+        &--item {
+          color: $light-blue;
+        }
+      }
+    }
+
+    &--2 {
+      display: none;
+
+      @include on-small-desktop {
+        display: flex;
+      }
+    }
+  }
+
+  .nav {
+    &__list {
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 36px;
+
+      &-item {
+        list-style: none;
+      }
+
+      &-link {
+        text-decoration: none;
+        color: white;
+        transition: color $animation-duration;
+        font-weight: 500;
+
+        &:hover {
+          color: $light-blue;
+        }
+      }
+    }
+  }
+}
