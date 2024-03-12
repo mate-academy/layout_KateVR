@@ -7,10 +7,25 @@
     font-weight: 500;
     font-size: 16px;
     line-height: 130%;
-  }
 
-  &__svg--rotate {
-    transform: rotate(180deg);
+    &::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 9px;
+      height: 6px;
+      background: url('../images/svg/drop-menu-open.svg') no-repeat center;
+
+      bottom: 4px;
+      right: -13px;
+    }
+
+    &--active {
+      &::after {
+        content: '';
+        background: url('../images/svg/drop-menu-close.svg') no-repeat center;
+      }
+    }
   }
 
   &__menu {
@@ -30,5 +45,9 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 130%;
+
+    &--active {
+      display: none;
+    }
   }
 }

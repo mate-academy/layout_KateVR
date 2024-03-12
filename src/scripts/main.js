@@ -1,24 +1,48 @@
 'use strict';
 
 // dropdown menu
-const dropdown = document.querySelector('.dropdown');
-const dropdownButton = dropdown.querySelector('.dropdown__button');
-const dropdownMenu = dropdown.querySelector('.dropdown__menu');
-const dropdownSvg = dropdown.querySelector('.dropdown__svg');
+const dropdown = () => {
+  const dropdownButton = document.querySelector('.dropdown__button');
+  const dropdownMenu = document.querySelector('.dropdown__menu');
 
-dropdownButton.addEventListener('click', (event) => {
-  event.preventDefault();
+  const selectLang = () => {
+    const htmlLang = document.querySelector('.html');
+    const elementLang = document.querySelectorAll('.dropdown__list');
 
-  dropdownMenu.classList.toggle('dropdown__menu--active');
-  dropdownSvg.classList.toggle('dropdown__svg--rotate');
-});
+    for (let i = 0; i < elementLang.length; i++) {
+      const langHref = elementLang[i].children[0].href.match(/#(.*)/)[1];
+      const langName = elementLang[i].children[0].textContent;
 
-document.addEventListener('click', (event) => {
-  if (!event.target.classList.contains('dropdown__button')) {
-    dropdownMenu.classList.remove('dropdown__menu--active');
-    dropdownSvg.classList.remove('dropdown__svg--rotate');
-  }
-});
+      if (langHref !== htmlLang.lang) {
+        elementLang[i].classList.remove('dropdown__list--active');
+      }
+
+      elementLang[i].addEventListener('click', (event) => {
+        htmlLang.lang = langHref;
+        dropdownButton.textContent = langName;
+        elementLang[i].classList.add('dropdown__list--active');
+      });
+    }
+  };
+
+  dropdownButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    dropdownMenu.classList.toggle('dropdown__menu--active');
+    dropdownButton.classList.toggle('dropdown__button--active');
+
+    selectLang();
+  });
+
+  document.addEventListener('click', (event) => {
+    if (!event.target.classList.contains('dropdown__button')) {
+      dropdownMenu.classList.remove('dropdown__menu--active');
+      dropdownButton.classList.remove('dropdown__button--active');
+    }
+  });
+};
+
+dropdown();
 
 // disable scrolling when the menu is open
 window.onhashchange = (e) => {
