@@ -248,7 +248,6 @@ aboutButton.addEventListener('click', () => {
 });
 
 iconClose.addEventListener('click', () => {
-  video.classList.remove('display-block');
-  iconClose.classList.remove('display-block');
-  body.classList.remove('page-body');
+  video.currentTime = 0;
+  video.pause();
 });

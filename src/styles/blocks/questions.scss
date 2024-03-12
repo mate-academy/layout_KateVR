@@ -85,13 +85,19 @@
     font-weight: 400;
     line-height: 150%;
     width: 100%;
+    border: 1px solid  rgba(47, 47, 47, 0);
     border-bottom: 1px solid rgb(47, 47, 47);
-    transition: background-color 5000s ease-in-out;
+    transition: background-color 5000s ease-in-out, border 0.3s linear;
     -webkit-text-fill-color: $gray;
 
     &::placeholder {
       font-size: 14px;
       line-height: 150%;
+    }
+
+    &:focus {
+      color: $white;
+      border: 1px solid rgba(47, 47, 47, 1);
     }
 
     &--text {
