@@ -1,0 +1,162 @@
+@import '../utils';
+
+
+.questions {
+  background: $main-black;
+  padding: 50px 0;
+
+  &__container {
+    @include grid;
+
+    row-gap: 32px   ;
+  }
+
+  &__main,
+  &__content {
+    grid-column: 1 / -1;
+  }
+
+  &__main,
+  &__name,
+  &__content,
+  &__text,
+  &__list {
+    @include column-flex;
+  }
+
+  &__content {
+    gap: 24px;
+  }
+
+  &__name {
+    gap: 11px;
+  }
+
+  &__main {
+    gap: 50px;
+  }
+
+  &__text {
+    gap: 76px;
+  }
+
+  &__list {
+    gap: 15px;
+  }
+
+  &__link {
+    transition: $all-transition;
+
+    &:hover {
+      opacity: 0.5;
+    }
+    &::after {
+      background-color: $gray;
+    }
+  }
+
+  &__help {
+    color: $blue;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+  }
+
+  &__title {
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 25px;
+    color: $white;
+
+    &--blue {
+      color: $blue;
+      font-weight: 400;
+    }
+  }
+
+  &__input:not(:last-child) {
+    padding-bottom: 19px;
+  }
+
+  &__input {
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 150%;
+    width: 100%;
+    border-bottom: 1px solid rgb(47, 47, 47);
+    transition: background-color 5000s ease-in-out;
+    -webkit-text-fill-color: $gray;
+
+    &::placeholder {
+      font-size: 14px;
+      line-height: 150%;
+    }
+
+    &--text {
+      resize: none;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    margin-top: 10px;
+    padding: 11px 0;
+    width: 100%;
+    background-color: $blue;
+    color: $white;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 130%;
+    border-radius: 4px;
+    transition: $all-transition;
+    border: 1px solid transparent;
+
+    &:hover {
+      transform: translateY(-5px);
+      background-color: $white;
+      color: $blue;
+      border: 1px solid $blue;
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  &__button-top {
+    display: none;
+    background-image: url(../images/questions/Polygon.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 1px solid $blue;
+    transition: $all-transition;
+
+    &:hover {
+      background-color: $white;
+      transform: scale(1.1);
+    }
+  }
+
+  &__manager {
+    color: $gray;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__navigation {
+    color: $gray;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19px;
+  }
+}

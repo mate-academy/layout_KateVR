@@ -1,0 +1,64 @@
+@import '../utils';
+
+.swiper {
+  width: 280px;
+  height: 210px;
+  overflow: hidden;
+
+  @include column-flex;
+  gap: 14px;
+
+  &__wrapper {
+    display: flex;
+  }
+
+  &__slide {
+    min-width: 100%;
+    height: 190px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    transition: $all-transition;
+
+    &--1 {
+      background-image: url(../images/about/1.png);
+    }
+
+    &--2 {
+      background-image: url(../images/about/2.png);
+    }
+
+    &--3 {
+      background-image: url(../images/about/3.png);
+    }
+
+    &--4 {
+      background-image: url(../images/about/4.png);
+    }
+
+    &--5 {
+      background-image: url(../images/about/5.png);
+    }
+  }
+
+  &__pagination {
+    display: flex;
+    gap: 6px;
+    align-self: center;
+  }
+
+  &__pagination-bullet {
+    width: 5px;
+    height: 5px;
+    background-color: $gray;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: $all-transition;
+
+    &:active {
+      background-color: $white;
+      transform: scale(1.2);
+    }
+
+  }
+}

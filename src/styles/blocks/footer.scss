@@ -1,0 +1,120 @@
+@import '../utils';
+
+.footer {
+  background: $main-black;
+  padding: 50px 0;
+
+  &__container {
+    @include grid;
+
+    row-gap: 15px;
+  }
+
+  &__logo {
+    grid-column: 1 / -1;
+  }
+
+
+
+  &__icon {
+    fill: #FFFFFF;
+    transition: $all-transition;
+
+    &:hover {
+      fill: $blue;
+    }
+  }
+
+  &__logo {
+    background-image: url(../images/header/Logo.svg);
+    display: block;
+    height: 14px;
+    width: 69px;
+    background-position: center;
+    background-size: cover;
+    transition: $all-transition;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &:active {
+      opacity: 0.5;
+    }
+  }
+
+  &__navigation {
+    font-size: 13px;
+
+    &--page {
+      color: rgb(255, 255, 255);
+      line-height: 150%;
+      grid-column: 1 / 2;
+    }
+
+    &--contacts,
+    &--icons {
+      grid-column: 2 / 3;
+      grid-row: 2 / 3;
+    }
+
+    &--contacts {
+      color: rgb(146, 146, 146);
+      line-height: 16px;
+    }
+
+    &--icons {
+      align-self: flex-end;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 12px;
+
+    &--page {
+      flex-direction: column;
+    }
+
+    &--contacts {
+      flex-direction: column;
+    }
+
+    &--icons {
+      gap: 23px;
+    }
+  }
+
+  &__item {
+    &--icons {
+      transition: $all-transition;
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  &__link {
+    transition: $all-transition;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &::after {
+      background: $white;
+    }
+
+    &--contacts {
+      &::after {
+        background: $gray;
+      }
+    }
+
+    &--icons {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+}

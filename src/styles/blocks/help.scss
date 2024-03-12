@@ -1,0 +1,119 @@
+@import '../utils';
+
+.help {
+  position: fixed;
+  z-index: 7;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(25, 21, 54);
+  height: 100vh;
+  transform: translateX(100%);
+  transition: $all-transition;
+
+  &__container {
+    @include grid;
+    row-gap: 30px;
+  }
+
+  &__top-bar {
+    grid-column: 2 / 3;
+    justify-self: end;
+    height: 44px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__title,
+  &__text,
+  &__instruction,
+  &__contact {
+    grid-column: 1 / -1;
+  }
+
+  &__icon-close {
+    position: relative;
+    width: 20px;
+    height: 17px;
+    display: block;
+    transition: $all-transition;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      background-color: $white;
+      width: 23px;
+      height: 1px;
+    }
+
+    &::before {
+      top: calc(50% - 1px);
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+      bottom: calc(50%);
+    }
+  }
+
+
+  &__title {
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 130%;
+    color: $white;
+
+    &--blue {
+      color: $blue;
+    }
+  }
+
+  &__text {
+    color: $gray;
+
+    &--blue {
+      color: $blue;
+      transition: $all-transition;
+
+      &:hover {
+        opacity: 0.5
+      }
+    }
+  }
+
+  &__list {
+    @include column-flex;
+
+    gap: 11px;
+
+    &--instruction {
+      gap: 20px;
+    }
+  }
+
+  &__link {
+    color: $gray;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    transition: $all-transition;
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &::after {
+      background-color: $white;
+    }
+
+    &--blue {
+      color: $blue;
+    }
+  }
+}
