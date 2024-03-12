@@ -249,5 +249,19 @@ aboutButton.addEventListener('click', () => {
 
 iconClose.addEventListener('click', () => {
   video.currentTime = 0;
-  video.pause();
+  // video.pause();
+  controlVideo('pauseVideo');
+
+  iconClose.classList.remove('display-block');
+  body.classList.remove('page-body');
+  video.classList.remove('display-block');
 });
+
+function controlVideo(vidFunc) {
+  const iframe = document.getElementsByTagName('iframe')[0].contentWindow;
+
+  iframe.postMessage(
+    '{"event":"command","func":"' + vidFunc + '","args":""}',
+    '*',
+  );
+}
