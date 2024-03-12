@@ -9,4 +9,21 @@
   &:has(.menu:target) {
     overflow: hidden;
   }
+
+  &__button {
+    position: fixed;
+    bottom: 10px;
+    padding: 0 20px;
+    width: 100%;
+
+    @include tablet {
+      max-width: 458px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
 }

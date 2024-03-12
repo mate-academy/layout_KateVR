@@ -42,13 +42,21 @@ const dropdown = () => {
   });
 };
 
+// header navigation
+const navigation = () => {
+  const link = document.querySelectorAll('.header__right-link');
+
+  for (let i = 0; i < link.length; i++) {
+    link[i].addEventListener('click', (event) => {
+      event.preventDefault();
+
+      for (let j = 0; j < link.length; j++) {
+        link[j].classList.remove('header__right-link--active');
+      }
+      link[i].classList.add('header__right-link--active');
+    });
+  }
+};
+
 dropdown();
-
-// disable scrolling when the menu is open
-// window.onhashchange = (e) => {
-//   const menu = e.newURL.includes('#menu')
-//     ? document.body.classList.add('page--overflow')
-//     : document.body.classList.remove('page--overflow');
-
-//   return menu;
-// };
+navigation();
