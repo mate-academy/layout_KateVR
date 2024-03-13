@@ -265,3 +265,53 @@ function controlVideo(vidFunc) {
     '*',
   );
 }
+
+const labelName = document.querySelector('.questions__label--1');
+const labelEmail = document.querySelector('.questions__label--2');
+const labelPhone = document.querySelector('.questions__label--3');
+const labelMessage = document.querySelector('.questions__label--4');
+
+const inputName = document.querySelector('.questions__input--1');
+const inputEmail = document.querySelector('.questions__input--2');
+const inputPhone = document.querySelector('.questions__input--3');
+const inputMessage = document.querySelector('.questions__input--text');
+
+labelName.addEventListener('focusin', () => {
+  labelName.classList.toggle('input-before');
+  inputName.setAttribute('placeholder', '');
+});
+
+labelEmail.addEventListener('focusin', () => {
+  labelEmail.classList.toggle('input-before');
+  inputEmail.setAttribute('placeholder', '');
+});
+
+labelPhone.addEventListener('focusin', () => {
+  labelPhone.classList.toggle('input-before');
+  inputPhone.setAttribute('placeholder', '');
+});
+
+labelMessage.addEventListener('focusin', () => {
+  labelMessage.classList.toggle('input-before');
+  inputMessage.setAttribute('placeholder', '');
+});
+
+labelName.addEventListener('focusout', () => {
+  labelName.classList.toggle('input-before');
+  inputName.setAttribute('placeholder', 'Name*');
+});
+
+labelEmail.addEventListener('focusout', () => {
+  labelEmail.classList.toggle('input-before');
+  inputEmail.setAttribute('placeholder', 'Email*');
+});
+
+labelPhone.addEventListener('focusout', () => {
+  labelPhone.classList.toggle('input-before');
+  inputPhone.setAttribute('placeholder', 'Phone*');
+});
+
+labelMessage.addEventListener('focusout', () => {
+  labelMessage.classList.toggle('input-before');
+  inputMessage.setAttribute('placeholder', 'Message*');
+});

@@ -74,12 +74,55 @@
     }
   }
 
-  &__input:not(:last-child) {
-    padding-bottom: 19px;
+  &__label:not(:nth-child(4)) {
+    height: 40px;
+  }
+
+  &__label {
+    position: relative;
+
+    &::before {
+      top: -15px;
+      transform: scale(0);
+    }
+
+    &--1 {
+      &::before {
+        content: 'Name*';
+        position: absolute;
+        color: $blue;
+      }
+    }
+
+    &--2 {
+      &::before {
+        content: 'Email*';
+        position: absolute;
+        color: $blue;
+      }
+    }
+
+    &--3 {
+      &::before {
+        content: 'Phone*';
+        position: absolute;
+        color: $blue;
+      }
+    }
+
+    &--4 {
+      &::before {
+        content: 'Message*';
+        position: absolute;
+        color: $blue;
+      }
+    }
   }
 
   &__input {
     background: transparent;
+    height: 100%;
+    position: relative;
     outline: none;
     font-size: 14px;
     font-weight: 400;
@@ -97,8 +140,18 @@
 
     &:focus {
       color: $white;
-      border: 1px solid rgba(47, 47, 47, 1);
+      border-bottom: 1px solid $blue;
+
     }
+
+    &:invalid {
+      border-bottom: 1px solid rgb(134, 4, 4);
+    }
+
+    &:not(::placeholder) {
+      border-bottom: 1px solid rgb(47, 47, 47);
+    }
+
 
     &--text {
       resize: none;
