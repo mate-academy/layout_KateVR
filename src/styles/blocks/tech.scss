@@ -1,0 +1,160 @@
+@import '../utils';
+
+.tech {
+  background: $main-black;
+  padding: 50px 0;
+
+  &__container {
+    @include grid;
+
+    row-gap: 30px;
+  }
+
+  &__main,
+  &__title {
+    grid-column: 1 / -1;
+  }
+
+
+  &__main {
+    @include grid;
+
+    position: relative;
+  }
+
+  &__title {
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 25px;
+    color: $white;
+
+    &--blue {
+      color: $blue;
+      font-weight: 400;
+    }
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+    width: 197px;
+    height: 197px;
+    background-image: url(../images/tech/main.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    justify-self: center;
+    border-radius: 50%;
+    border: 4px solid rgb(14, 12, 30);
+  }
+
+
+  &__subtitle {
+    color: $white;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 22px;
+  }
+
+  &__text {
+    color: $gray;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__blocks {
+    grid-column: 1 / -1;
+  }
+
+  &__item {
+    display: none;
+
+    flex-direction: column;
+    padding: 20px 10px;
+    gap: 15px;
+    border-radius: 4px;
+    background: rgb(25, 21, 54);
+    position: absolute;
+    height: 170px;
+    width: 280px;
+    top: -180px;
+    left: 0;
+  }
+
+  &__buttons {
+    position: absolute;
+  }
+
+  &__button {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: $blue;
+    position: relative;
+    transition: $all-transition;
+    border: 1px solid transparent;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: 34%;
+      height: 1px;
+      background-color: $white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    &--1 {
+      top: -10px;
+      left: 50px;
+    }
+
+    &--2 {
+      top: 155px;
+      left: -65px;
+    }
+
+    &--3 {
+      top: 80px;
+      left: 50px;
+    }
+  }
+
+  &__links {
+    position: absolute;
+    display: none;
+  }
+
+  &__link {
+    position: absolute;
+    &--1 {
+      top: -55px;
+      left: -289px;
+    }
+
+    &--2 {
+      width: 134px;
+      height: 113px;
+      top: 70px;
+      left: -150px;
+    }
+
+    &--3 {
+      top: -50px;
+      left: 140px;
+      width: 180px;
+      height: 244px;
+    }
+  }
+
+}
