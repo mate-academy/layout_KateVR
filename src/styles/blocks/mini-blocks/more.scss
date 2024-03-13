@@ -1,0 +1,33 @@
+.more {
+  position: relative;
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  color: $blue;
+  display: block;
+  padding: 0 10px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: block;
+    background: url('../images/svg/drop-menu-open.svg') no-repeat center;
+    width: 9px;
+    height: 6px;
+    left: 50%;
+
+    transform: translateX(-50%) translateY(10px);
+    transition: all 0.3s;
+  }
+
+  &:hover {
+    &::after {
+      transform: translateX(-50%) translateY(15px) scale(1.5);
+    }
+  }
+
+  &--disabled {
+    opacity: 0.3;
+  }
+}

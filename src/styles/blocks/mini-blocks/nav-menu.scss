@@ -1,0 +1,48 @@
+.nav-menu {
+  padding: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include tablet {
+    padding: 24px 0;
+  }
+
+  &__prev {
+    padding: 10px 10px 10px 0;
+  }
+
+  &__close {
+    padding: 10px 0 10px 10px;
+
+    & span {
+      display: block;
+      width: 23px;
+      height: 1px;
+      background: $white;
+      transition: all 0.5s;
+
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &:hover span {
+      &:nth-child(1) {
+        transform: rotate(-135deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate(+135deg);
+      }
+    }
+  }
+
+  &--no-visible {
+    visibility: hidden;
+  }
+}
