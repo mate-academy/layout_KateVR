@@ -1,0 +1,35 @@
+.step {
+  display: none;
+
+  @media (min-width: $desktop-min-width) {
+    width: 207px;
+    display: flex;
+    gap: 103px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #212121;
+  }
+
+  &-prev {
+    color: $text-color;
+    position: relative;
+    cursor: default;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 105%;
+      height: 1px;
+      bottom: -11px;
+      background-color: $contrast-color;
+    }
+  }
+
+  &-next {
+    color: $white-color;
+
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+}

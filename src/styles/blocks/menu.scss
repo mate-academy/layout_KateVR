@@ -1,0 +1,55 @@
+.menu {
+  height: 100vh;
+  background-color: #191536;
+  overflow: auto;
+
+  @media (min-width: $desktop-min-width) {
+    display: none;
+  }
+
+  &__container {
+    padding-inline: 0;
+  }
+
+  &__content {
+    position: relative;
+  }
+
+  &__nav {
+    padding-top: 75px;
+
+    @media (min-width: $tablet-min-width) {
+      padding-block: 97px 120px;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav-link {
+    padding-block: 11px;
+    padding-left: 22px;
+
+    @media (min-width: $tablet-min-width) {
+      padding-left: 153px;
+    }
+
+    &:hover {
+      background-color: #110E25;
+    }
+  }
+
+  &__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100vh;
+    background-color: #191536;
+    opacity: .5;
+    z-index: -1
+  }
+}
