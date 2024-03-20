@@ -238,7 +238,7 @@ const buy = () => {
 
   // format date card-number
   document.getElementById('card-cvv').addEventListener('input', (e) => {
-    e.target.value = e.target.value.substring(0, 3);
+    e.target.value = e.target.value.replace(/\D/g, '').substring(0, 3);
   });
 
   blockInput();

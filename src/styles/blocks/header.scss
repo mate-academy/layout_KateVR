@@ -234,4 +234,71 @@
       display: none;
     }
   }
+
+  &__video {
+    position: relative;
+    position: fixed;
+    z-index: 20;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+
+    @include tablet {
+      width: 90%;
+      height: 80%;
+    }
+
+    @include desktop {
+      width: 80%;
+      height: 70%;
+    }
+
+    transform: translateX(-50%) translateY(-200%);
+
+    transition: transform 0.3s;
+
+    &:target {
+      transform: translateX(-50%) translateY(-50%);
+    }
+  }
+
+  &__video-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 20px 10px 20px 20px;
+
+    & span {
+      display: block;
+      width: 23px;
+      height: 1px;
+      background: $white;
+      transition: all 0.5s;
+
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+    }
+
+    &:hover span {
+      &:nth-child(1) {
+        transform: rotate(-135deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate(+135deg);
+      }
+    }
+  }
+
+  &__video-link {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
 }

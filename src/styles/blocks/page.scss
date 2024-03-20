@@ -5,6 +5,7 @@
 .page {
   color: $white;
   position: relative;
+  background: $bg-gradient;
 
   &__bg {
     position: fixed;
@@ -18,7 +19,8 @@
     z-index: -5;
   }
 
-  &:has(.menu:target) {
+  &:has(.menu:target),
+  &:has(.header__video:target) {
     overflow: hidden;
 
     .page__bg {
