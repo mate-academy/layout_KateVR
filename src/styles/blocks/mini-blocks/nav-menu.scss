@@ -8,6 +8,20 @@
     padding: 24px 0;
   }
 
+  &__logo {
+    padding: 10px 10px 10px 0;
+
+    & img {
+      width: 58px;
+      height: 12px;
+
+      @include tablet {
+        width: 67px;
+        height: 14px;
+      }
+    }
+  }
+
   &__prev {
     padding: 10px 10px 10px 0;
   }
@@ -44,5 +58,11 @@
 
   &--no-visible {
     visibility: hidden;
+  }
+
+  &--no-visible-desktop {
+    @include desktop {
+      visibility: hidden;
+    }
   }
 }

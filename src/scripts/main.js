@@ -2,9 +2,10 @@
 
 // language menu
 const lang = () => {
+  const home = document.querySelector('#home');
   const htmlLang = document.querySelector('.html');
-  const dropdownButton = document.querySelector('.dropdown__button');
-  const dropdownList = document.querySelectorAll('.dropdown__list');
+  const dropdownButton = home.querySelector('.dropdown__button');
+  const dropdownList = home.querySelectorAll('.dropdown__list');
   const menuList = document.querySelectorAll('.menu__lang-link');
 
   let langHref = 'en';
@@ -82,8 +83,6 @@ const lang = () => {
   selectLangInMenu();
 };
 
-lang();
-
 // header navigation
 const navigation = () => {
   const link = document.querySelectorAll('.header__right-link');
@@ -100,16 +99,12 @@ const navigation = () => {
   }
 };
 
-navigation();
-
 // block faq
 const faq = () => {
   const questions = document.querySelectorAll('.faq__question');
   const questionsLink = document.querySelectorAll('.faq__question-name');
   const main = document.querySelectorAll('.faq__question-main');
   const more = document.querySelector('.faq__more-button');
-  // const background = document.getElementById('#background');
-  // background.classList.add('page__bg');
 
   // close other questions
   const closeAll = (notThis) => {
@@ -142,4 +137,115 @@ const faq = () => {
   });
 };
 
+// block buy
+const buy = () => {
+  const button = document.querySelectorAll('.buy__button');
+  let globalQuantity = 1;
+
+  const flkty = new window.Flickity('.buy__carousel', {
+    contain: true,
+    draggable: false,
+    pageDots: false,
+    prevNextButtons: false,
+    button: false,
+    wrapAround: true,
+    adaptiveHeight: true,
+  });
+
+  const disabledAll = (notThis) => {
+    for (let i = 0; i < button.length; i++) {
+      if (i !== notThis) {
+        button[i].classList.remove('buy__button--active');
+      }
+    }
+  };
+
+  const quantity = () => {
+    const quantityBlock = document.querySelector('.is-selected');
+    const toggle = quantityBlock.querySelector('.quantity__quantity-toggle');
+    const value = quantityBlock.querySelector('.quantity__quantity-value');
+    const value2 = document.querySelector('#quantity2');
+    const price = quantityBlock.querySelector('.quantity__price-input');
+    const price2 = document.querySelector('#price2');
+    const plus = quantityBlock.querySelector(
+      '.quantity__quantity-button--plus',
+    );
+    const minus = quantityBlock.querySelector(
+      '.quantity__quantity-button--minus',
+    );
+
+    value.value = globalQuantity;
+    value2.value = globalQuantity;
+
+    toggle.addEventListener('click', (event) => {
+      if (event.target === plus) {
+        globalQuantity++;
+      } else if (event.target === minus) {
+        globalQuantity -= globalQuantity <= 1 ? 0 : 1;
+      }
+
+      value.value = globalQuantity;
+      value2.value = globalQuantity;
+      price.value = globalQuantity * 1200 + '$';
+      price2.value = globalQuantity * 1200 + '$';
+      price.size = price.value.length - 4;
+      price2.size = price.value.length - 4;
+    });
+  };
+
+  const blockInput = () => {
+    const inputs = document.querySelectorAll('.input-block__input');
+
+    inputs.forEach((input) => {
+      input.addEventListener('input', () => {
+        if (input.value.length > 0) {
+          input.classList.add('input-block__input--true');
+        } else {
+          input.classList.remove('input-block__input--true');
+        }
+      });
+    });
+  };
+
+  for (let i = 0; i < button.length; i++) {
+    button[i].addEventListener('click', (event) => {
+      event.preventDefault();
+
+      flkty.select(i);
+      disabledAll(i);
+      button[i].classList.add('buy__button--active');
+    });
+  }
+
+  // format card-number
+  document.getElementById('card-number').addEventListener('input', (e) => {
+    const input = e.target.value.replace(/\D/g, '').substring(0, 16);
+    const formattedInput = input.replace(
+      /(\d{4})(\d{4})(\d{4})(\d{4})/,
+      '$1 $2 $3 $4',
+    );
+
+    e.target.value = formattedInput;
+  });
+
+  // format date card-number
+  document.getElementById('card-date').addEventListener('input', (e) => {
+    const input = e.target.value.replace(/[^0-9/]/g, '').substring(0, 5);
+    const formattedInput = input.replace(/(\d{2})(\d{2})/, '$1/$2');
+
+    e.target.value = formattedInput;
+  });
+
+  // format date card-number
+  document.getElementById('card-cvv').addEventListener('input', (e) => {
+    e.target.value = e.target.value.substring(0, 3);
+  });
+
+  blockInput();
+  quantity();
+};
+
+lang();
+navigation();
 faq();
+buy();

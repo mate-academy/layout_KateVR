@@ -171,7 +171,7 @@
 
             <li class="nav__menu-item">
               <a
-                href="#"
+                href="#buy"
                 class="nav__menu-button button"
               >
                 Buy Now
@@ -423,7 +423,7 @@
 
       <!-- help -->
       <div
-        class="menu menu__help help"
+        class="menu help"
         id="menu-help"
       >
         <div class="help__content">
@@ -555,7 +555,7 @@
 
       <!-- faq -->
       <div
-        class="menu menu__faq faq"
+        class="menu faq"
         id="faq"
       >
         <div class="faq__container">
@@ -563,7 +563,7 @@
             <div class="faq__nav nav-menu">
               <a
                 href="#menu"
-                class="nav-menu__prev faq__prev"
+                class="nav-menu__prev nav-menu--no-visible-desktop"
               >
                 <svg
                   width="10"
@@ -717,7 +717,480 @@
         </div>
       </div>
 
-      <div id="background" class="page__bg"></div>
+      <!-- buy pay complete-->
+      <div
+        class="menu buy"
+        id="buy"
+      >
+        <div class="buy__container">
+          <div class="buy__content">
+            <div class="buy__nav-menu nav-menu">
+              <a
+                href="#"
+                class="nav-menu__logo"
+              >
+                <img
+                  src="images/svg/logo.svg"
+                  alt="logo"
+                />
+              </a>
+
+              <a
+                href="#home"
+                class="nav-menu__close"
+              >
+                <span></span>
+                <span></span>
+              </a>
+            </div>
+
+            <div class="buy__button-group">
+              <button
+                class="buy__button buy__button--place buy__button--active"
+              >
+                Place Order
+              </button>
+
+              <button class="buy__button buy__button--pay">Pay</button>
+
+              <button class="buy__button buy__button--complete">
+                Complete
+              </button>
+            </div>
+
+            <!-- carousel place pay complete-->
+            <div class="buy__carousel">
+              <div class="buy__cell buy__cell--place place">
+                <div class="place__cell-content">
+                  <form
+                    action="#"
+                    method="post"
+                    onsubmit="this.reset(); return false;"
+                    class="place__form place__form--grid"
+                  >
+                    <div class="place__background"></div>
+
+                    <div class="place__quantity quantity">
+                      <div class="quantity__content">
+                        <label
+                          for="quantity"
+                          class="quantity__quantity-name form-label-name"
+                        >
+                          Quantity
+                        </label>
+
+                        <div class="quantity__quantity-input">
+                          <input
+                            class="quantity__quantity-value"
+                            type="text"
+                            value="1"
+                            readonly
+                            name="quantity"
+                            id="quantity"
+                          />
+
+                          <div class="quantity__quantity-toggle">
+                            <div
+                              class="quantity__quantity-button quantity__quantity-button--plus"
+                            ></div>
+
+                            <div
+                              class="quantity__quantity-button quantity__quantity-button--minus"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="quantity__price">
+                        <label
+                          for="price"
+                          class="form-label-name"
+                        >
+                          Price
+                        </label>
+
+                        <input
+                          type="text"
+                          class="quantity__price-input"
+                          name="price"
+                          id="price"
+                          readonly
+                          value="1200$"
+                          size="1"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- first neme -->
+                    <div class="place__first-name input-block">
+                      <input
+                        type="text"
+                        name="first-name"
+                        id="first-name"
+                        required
+                        class="input-block__input"
+                      />
+
+                      <label
+                        for="first-name"
+                        class="input-block__label"
+                      >
+                        First Name*
+                      </label>
+
+                      <div class="input-block__under"></div>
+                    </div>
+
+                    <!-- last name -->
+                    <div class="place__last-name input-block">
+                      <input
+                        type="text"
+                        name="last-name"
+                        id="last-name"
+                        required
+                        class="input-block__input"
+                      />
+
+                      <label
+                        for="last-name"
+                        class="input-block__label"
+                      >
+                        Last Name*
+                      </label>
+
+                      <div class="input-block__under"></div>
+                    </div>
+
+                    <!-- email -->
+                    <div class="place__email input-block">
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        required
+                        class="input-block__input"
+                      />
+
+                      <label
+                        for="email"
+                        class="input-block__label"
+                      >
+                        Email*
+                      </label>
+
+                      <div class="input-block__under"></div>
+                    </div>
+
+                    <!-- phone number -->
+                    <div class="place__number input-block">
+                      <input
+                        type="phone"
+                        name="phone"
+                        id="phone"
+                        required
+                        class="input-block__input"
+                      />
+
+                      <label
+                        for="phone"
+                        class="input-block__label"
+                      >
+                        Phone Number*
+                      </label>
+
+                      <div class="input-block__under"></div>
+                    </div>
+
+                    <!-- country -->
+                    <div class="place__country input-block">
+                      <select
+                        name="country"
+                        id="country"
+                        required
+                        class="input-block__dropdown"
+                      >
+                        <option
+                          value="ukraine"
+                          selected
+                        >
+                          Ukraine
+                        </option>
+                        <option value="france">France</option>
+                        <option value="spain">Spain</option>
+                        <option value="us">United States</option>
+                        <option value="china">China</option>
+                        <option value="italy">Italy</option>
+                        <option value="turkey">Turkey</option>
+                      </select>
+
+                      <label
+                        for="country"
+                        class="input-block__label input-block__label--upper"
+                      >
+                        Country
+                      </label>
+                    </div>
+
+                    <!-- city -->
+                    <div class="place__city input-block">
+                      <select
+                        name="city"
+                        id="city"
+                        required
+                        class="input-block__dropdown"
+                      >
+                        <option
+                          value="none"
+                          selected
+                          hidden
+                        ></option>
+                        <option value="Kyiv">Kyiv</option>
+                        <option value="france">Zaporizhia</option>
+                        <option value="spain">Kharkiv</option>
+                        <option value="us">Odessa</option>
+                        <option value="china">Dnipro</option>
+                        <option value="italy">Donetsk</option>
+                        <option value="turkey">Mykolaiv</option>
+                      </select>
+
+                      <label
+                        for="city"
+                        class="input-block__label input-block__label--upper"
+                      >
+                        City*
+                      </label>
+                    </div>
+
+                    <!-- adress -->
+                    <div class="place__adress-one input-block">
+                      <input
+                        type="text"
+                        name="adress"
+                        id="adress"
+                        required
+                        class="input-block__input"
+                      />
+
+                      <label
+                        for="adress"
+                        class="input-block__label"
+                      >
+                        Shopping Adress*
+                      </label>
+
+                      <div class="input-block__under"></div>
+                    </div>
+
+                    <!-- adress 2 -->
+                    <div class="place__adress-two input-block">
+                      <input
+                        type="text"
+                        name="adress2"
+                        id="adress2"
+                        class="input-block__input"
+                      />
+
+                      <label
+                        for="adress2"
+                        class="input-block__label"
+                      >
+                        Shopping Adress 2
+                      </label>
+
+                      <div class="input-block__under"></div>
+                    </div>
+
+                    <button
+                      href="#buy"
+                      class="place__purchase button"
+                      type="onsubmit"
+                    >
+                      Purchase
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              <div class="buy__cell buy__cell--pay pay">
+                <form
+                  action="#"
+                  method="post"
+                  onsubmit="this.reset(); return false;"
+                  class="pay__form pay__form--grid"
+                >
+                  <div class="pay__background"></div>
+
+                  <div class="pay__quantity quantity">
+                    <div class="quantity__content">
+                      <label
+                        for="quantity"
+                        class="quantity__quantity-name form-label-name"
+                      >
+                        Quantity
+                      </label>
+
+                      <div class="quantity__quantity-input">
+                        <input
+                          class="quantity__quantity-value"
+                          type="text"
+                          value="1"
+                          readonly
+                          name="quantity"
+                          id="quantity2"
+                        />
+                      </div>
+                    </div>
+
+                    <div class="quantity__price">
+                      <label
+                        for="price"
+                        class="form-label-name"
+                      >
+                        Price
+                      </label>
+
+                      <input
+                        type="text"
+                        class="quantity__price-input"
+                        name="price"
+                        id="price2"
+                        readonly
+                        value="1200$"
+                        size="1"
+                      />
+                    </div>
+                  </div>
+
+                  <!-- card number -->
+                  <div class="pay__card-number input-block">
+                    <input
+                      type="text"
+                      name="card-number"
+                      id="card-number"
+                      required
+                      class="input-block__input"
+                      placeholder="000 000 000 000"
+                      title="Please enter valid card numer N*16"
+                    />
+
+                    <label
+                      for="card-number"
+                      class="input-block__label input-block__label--upper"
+                    >
+                      Card Number*
+                    </label>
+
+                    <div class="input-block__under"></div>
+                  </div>
+
+                  <!-- card name -->
+                  <div class="pay__card-name input-block">
+                    <input
+                      type="text"
+                      name="card-name"
+                      id="card-name"
+                      required
+                      class="input-block__input"
+                      title="Please enter card holder name"
+                    />
+
+                    <label
+                      for="card-name"
+                      class="input-block__label"
+                    >
+                      Card Holder Name*
+                    </label>
+
+                    <div class="input-block__under"></div>
+                  </div>
+
+                  <div class="pay__date-cvv">
+                    <!-- card date -->
+                    <div class="pay__card-date input-block">
+                      <input
+                        type="text"
+                        name="card-date"
+                        id="card-date"
+                        required
+                        class="input-block__input"
+                        title="Please enter card holder name"
+                        placeholder="MM / YY"
+                      />
+
+                      <label
+                        for="card-date"
+                        class="input-block__label input-block__label--upper"
+                      >
+                        Expiration Date*
+                      </label>
+
+                      <div class="input-block__under"></div>
+                    </div>
+
+                    <!-- cvv number -->
+                    <div class="pay__card-cvv input-block">
+                      <input
+                        type="number"
+                        name="card-cvv"
+                        id="card-cvv"
+                        required
+                        class="input-block__input"
+                        title="Please enter card CVV"
+                        placeholder="000"
+                      />
+
+                      <label
+                        for="card-cvv"
+                        class="input-block__label input-block__label--upper"
+                      >
+                        CVV*
+                      </label>
+
+                      <div class="input-block__under"></div>
+                    </div>
+                  </div>
+
+                  <button
+                    href="#buy"
+                    class="pay__purchase button"
+                    type="onsubmit"
+                  >
+                    Purchase
+                  </button>
+                </form>
+              </div>
+
+              <div class="buy__cell buy__cell--complete complete">
+                <div class="complete__content">
+                  <h2 class="complete__title">
+                    Thank you for
+                    <span>your</span>
+                    order!
+                  </h2>
+
+                  <div class="complete__description">
+                    Your order has been placed and is being processed. You will
+                    recive an email with the order details
+                  </div>
+
+                  <button
+                    href="#home"
+                    class="complete__back button"
+                    type="onsubmit"
+                  >
+                    Back to homepage
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div
+        id="background"
+        class="page__bg"
+      ></div>
     </menu>
 
     <header class="page__header header">
@@ -791,19 +1264,32 @@
       </div>
 
       <div class="header__button">
-        <button class="button">buy now</button>
+        <a
+          href="#buy"
+          class="button"
+        >
+          buy now
+        </a>
       </div>
     </header>
 
     <main class="page__main main">
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. At eum molestiae
-      consequuntur tempora dolorum officia? Ab quidem modi hic deleniti ex
-      fugiat temporibus assumenda rerum quibusdam qui veniam, amet obcaecati
-      illum perferendis numquam, labore quasi cumque non atque ipsum quis
-      expedita impedit in! Reprehenderit minus officiis ad nam ipsam quibusdam.
+      <input
+        type="text"
+        value="Текст"
+      />
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed quod nam at
+      sequi necessitatibus consequuntur saepe vitae impedit, blanditiis
+      cupiditate porro in iure laboriosam ab dolorum? Aliquam maxime magni ab
+      incidunt officia itaque, molestiae et minus dignissimos reiciendis
+      deleniti veritatis quasi quisquam iusto quo quidem iure tenetur sed
+      accusantium voluptatum delectus illo vel necessitatibus asperiores. Autem
+      quia animi laudantium assumenda aperiam quod veniam. Eius, mollitia quis.
     </main>
 
     <footer class="pager__footer footer"></footer>
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 
     <script src="scripts/main.js"></script>
   </body>

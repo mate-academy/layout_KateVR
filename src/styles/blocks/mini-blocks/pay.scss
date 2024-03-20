@@ -1,0 +1,65 @@
+.pay {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    &--grid {
+      @include tablet {
+        display: grid;
+        row-gap: 30px;
+      }
+    }
+  }
+
+  &__background {
+    display: none;
+
+    @include tablet {
+      display: block;
+      background: url('../images/buy-image.png') center no-repeat;
+      background-size: contain;
+      grid-area: 1 / 1 / 2 / 7;
+      padding-bottom: 40%;
+    }
+
+    @include desktop {
+      background-position: center left -50px;
+      grid-area: 1 / 1 / 5 / 7;
+    }
+  }
+
+  &__card-number,
+  &__card-name,
+  &__purchase {
+    grid-area: auto / 2 / auto / 6;
+  }
+
+  &__quantity {
+    grid-area: 2 / 1 / 3 / 7;
+  }
+
+  &__date-cvv {
+    display: flex;
+    gap: 20px;
+
+    @include tablet {
+      gap: 100px;
+      grid-area: auto / 2 / auto / 5;
+    }
+  }
+
+  &__card-date,
+  &__card-cvv {
+    width: 50%;
+  }
+
+  &__purchase {
+    width: 100%;
+    margin-top: 40px;
+
+    @include tablet {
+      margin: 0;
+    }
+  }
+}

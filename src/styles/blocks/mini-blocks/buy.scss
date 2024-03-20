@@ -1,0 +1,87 @@
+.buy {
+  overflow-x: hidden;
+  background: $bg-gradient;
+
+  &__container {
+    position: relative;
+  }
+
+  &__carousel {
+    margin-top: 4px;
+    padding: 30px 0;
+  }
+
+  &__cell {
+    width: 100%;
+  }
+
+  &__button-group {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: -20px;
+      width: 120%;
+      height: 1%;
+      background: $dark-gray;
+
+      @include tablet {
+        left: -45px;
+      }
+    }
+  }
+
+  &__button {
+    position: relative;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 130%;
+    color: rgb(84, 84, 84);
+    background: transparent;
+
+    @include tablet {
+      font-size: 14px;
+    }
+
+    &:focus,
+    &--active {
+      color: $blue;
+    }
+
+    &--active::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 50%;
+      width: 106px;
+      height: 1%;
+      background: $blue;
+      z-index: 5;
+
+      transform: translateX(-50%);
+
+      @include tablet {
+        width: 256px;
+      }
+    }
+  }
+
+  &__input-block {
+    margin-top: 10px;
+  }
+}
+
+.form-label-name {
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: $light-gray;
+}
