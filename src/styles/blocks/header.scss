@@ -86,52 +86,13 @@
   }
 
   &__play {
-    display: block;
-    font-family: Inter, sans-serif;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 130%;
-    text-align: center;
-    padding: 22px 0;
-
-    transition: all 0.3s;
-
     @include tablet {
       grid-area: 4/1/5/3;
       text-align: left;
-      padding: 22px 0 22px 85px;
     }
 
     @include desktop {
       grid-area: 4/2/5/7;
-    }
-
-    & span {
-      position: relative;
-
-      &::before {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 210px;
-        height: 50px;
-        background: url('../images/svg/paly.svg') no-repeat;
-        background-position: center center;
-        background-size: contain;
-        top: 50%;
-        right: -50%;
-
-        transform: translateY(-50%) scale(1.3);
-        transition: all 0.3s;
-      }
-    }
-
-    &:hover {
-      color: $blue;
-
-      & span::before {
-        transform: translateY(-50%) scale(1.35);
-      }
     }
   }
 

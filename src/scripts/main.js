@@ -245,7 +245,35 @@ const buy = () => {
   quantity();
 };
 
+// block product
+const aboutSlider = () => {
+  const flkty = new window.Flickity('.product__carousel', {
+    contain: true,
+    prevNextButtons: true,
+    setGallerySize: false,
+  });
+  const totalSlides = document.querySelector('.product__carousel-index-total');
+  const activerSlide = document.querySelector(
+    '.product__carousel-index-active',
+  );
+
+  totalSlides.textContent = flkty.cells.length;
+
+  document.querySelector('#prev').addEventListener('click', (e) => {
+    e.preventDefault();
+    flkty.previous(true);
+    activerSlide.textContent = flkty.selectedIndex + 1;
+  });
+
+  document.querySelector('#next').addEventListener('click', (e) => {
+    e.preventDefault();
+    flkty.next(true);
+    activerSlide.textContent = flkty.selectedIndex + 1;
+  });
+};
+
 lang();
 navigation();
 faq();
 buy();
+aboutSlider();

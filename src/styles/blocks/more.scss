@@ -1,0 +1,125 @@
+.more {
+  background: $black;
+  padding: 50px 0;
+
+  @include tablet {
+    padding: 70px 0;
+  }
+
+  @include desktop {
+    padding: 100px 0;
+  }
+
+  &__title {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    text-align: center;
+    margin-bottom: 12px;
+
+    transition: letter-spacing 0.3s;
+
+    @include desktop {
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+
+    & span {
+      color: $blue;
+      font-weight: 400;
+    }
+
+    &:hover {
+      letter-spacing: 2px;
+    }
+  }
+
+  &__description {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    color: $blue;
+    text-align: center;
+    margin-bottom: 45px;
+
+    @include tablet {
+      margin-bottom: 52px;
+    }
+
+    @include desktop {
+      margin-bottom: 83px;
+      font-size: 14px;
+    }
+  }
+
+  &__block {
+    @include tablet {
+      grid-column: span 3;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+
+      @include tablet {
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+.more-block {
+  &__image {
+    display: none;
+    transition: transform 0.3s;
+
+    @for $i from 1 to 5 {
+      &--#{$i} {
+        background: url('../images/svg/more-#{$i}.svg') no-repeat center;
+        background-size: contain;
+      }
+    }
+
+    @include tablet {
+      display: block;
+      padding-bottom: 32%;
+      margin-bottom: 22px;
+    }
+
+    @include desktop {
+      margin-bottom: 32px;
+    }
+
+    &:hover {
+      transform: scale(1.05);
+    }
+  }
+
+  &__name {
+    display: block;
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    text-align: center;
+    margin-bottom: 11px;
+    text-transform: uppercase;
+
+    transition: transform 0.3s;
+
+    @include tablet {
+      margin-bottom: 20px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__description {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+    color: rgb(146, 146, 146);
+  }
+}

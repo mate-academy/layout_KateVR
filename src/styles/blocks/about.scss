@@ -1,0 +1,312 @@
+.about {
+  background: $bg-gradient-diagonal;
+  padding: 50px 0;
+
+  @include tablet {
+    padding: 70px 0;
+  }
+
+  @include desktop {
+    padding: 100px 0;
+  }
+}
+
+.product {
+  &__title {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+
+    transition: all 0.3s;
+
+    & span {
+      color: $blue;
+      font-weight: 400;
+    }
+
+    @include tablet {
+      grid-area: 1 / 4 / 2 / 7;
+      margin-bottom: 30px;
+    }
+
+    @include desktop {
+      font-size: 36px;
+      grid-area: 1 / 9 / 2 / 13;
+    }
+
+    &:hover {
+      letter-spacing: 2px;
+    }
+  }
+
+  &__description {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: rgb(146, 146, 146);
+    margin-bottom: 45px;
+
+    @include tablet {
+      grid-area: 2 / 4 / 3 / 7;
+      margin-bottom: 30px;
+    }
+
+    @include desktop {
+      grid-area: 2 / 9 / 3 / 13;
+    }
+  }
+
+  &__play {
+    @include tablet {
+      text-align: left;
+      grid-area: 3 / 4 / 4 / 7;
+    }
+
+    @include desktop {
+      grid-area: 3 / 9 / 4 / 13;
+    }
+  }
+
+  &__carousel {
+    height: 189px;
+    width: 100%;
+    margin-bottom: 30px;
+
+    @include tablet {
+      margin: 0;
+      height: 100%;
+      grid-area: 1 / 1 / 4 / 4;
+    }
+
+    @include desktop {
+      grid-area: 1 / 3 / 4 / 8;
+    }
+  }
+
+  &__cell {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__cell-image {
+    height: 100%;
+
+    @for $i from 1 to 6 {
+      &--#{$i} {
+        background: url('../images/about-slider-#{$i}.png') no-repeat center;
+        background-size: cover;
+      }
+    }
+  }
+
+  &__carousel-nav {
+    display: none;
+
+    @include desktop {
+      position: relative;
+      display: flex;
+      gap: 103px;
+      width: max-content;
+      grid-area: 5 / 3 / 7 / 6;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: rgb(33, 33, 33);
+        bottom: -5px;
+        left: 0;
+      }
+    }
+  }
+
+  &__carousel-nav-link {
+    font-family: Inrer, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    padding: 10px 0;
+
+    transition: all 0.3s;
+
+    &:hover {
+      color: $light-gray;
+    }
+
+    &:focus {
+      position: relative;
+      color: $light-gray;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 1px;
+        background: $blue;
+        bottom: -5px;
+        left: 0;
+        z-index: 2;
+      }
+    }
+  }
+
+  &__carousel-index {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      grid-area: 1 / 2 / 2 / 3;
+      justify-self: flex-end;
+    }
+  }
+}
+
+.hello {
+  margin: 77px 0;
+
+  @include tablet {
+    margin: 83px 0 50px;
+  }
+
+  @include desktop {
+    margin: 183px 0 98px;
+  }
+
+  &__title {
+    margin-bottom: 22px;
+
+    @include tablet {
+      margin-bottom: 32px;
+      padding-top: 24px;
+      grid-area: 1 / 1 / 2 / 5;
+    }
+
+    @include desktop {
+      padding-top: 48px;
+      grid-area: 1 / 1 / 2 / 7;
+    }
+  }
+
+  &__hi {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: $blue;
+    margin-bottom: 11px;
+
+    @include desktop {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__hice-to-meet {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+
+    transition: all 0.3s;
+
+    & span {
+      color: $blue;
+      font-weight: 400;
+    }
+
+    @include desktop {
+      font-size: 36px;
+    }
+
+    &:hover {
+      letter-spacing: 2px;
+    }
+  }
+
+  &__description {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $light-gray;
+
+    @include tablet {
+      grid-area: 2 / 1 / 3 / 5;
+      padding-bottom: 22px;
+    }
+
+    @include desktop {
+      grid-area: 2 / 1 / 3 / 6;
+      padding-bottom: 58px;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include tablet {
+      display: block;
+      grid-area: 1 / 5 / 3 / 7;
+    }
+
+    @include desktop {
+      display: block;
+      grid-area: 1 / 7 / 3 / 13;
+    }
+  }
+
+  &__logo-text {
+    position: absolute;
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 48px;
+    line-height: 130%;
+    text-wrap: nowrap;
+    color: transparent;
+    -webkit-text-stroke: 1px $blue;
+
+    transition: all 0.3s;
+
+    @include desktop {
+      font-size: 64px;
+    }
+
+    &:nth-child(2n - 1) {
+      transform-origin: top left;
+    }
+
+    &:nth-child(2n) {
+      transform-origin: top right;
+    }
+
+    // 1 element
+    &--1 {
+      transform: rotate(90deg) translateY(-100%);
+    }
+
+    // 2 element
+    &--4 {
+      transform: rotate(-90deg) translateY(-300%);
+      opacity: 0.5;
+    }
+
+    // 3 element
+    &--3 {
+      transform: rotate(90deg) translateY(-300%);
+      opacity: 0.2;
+    }
+
+    // 4 element
+    &--2 {
+      transform: rotate(-90deg) translateY(-100%);
+      opacity: 0.1;
+    }
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
