@@ -272,8 +272,41 @@ const aboutSlider = () => {
   });
 };
 
+// block tech
+const techButton = () => {
+  const button = document.querySelectorAll('.tech__button');
+  const block = document.querySelectorAll('.tech__block');
+
+  const disabledAll = (notThis) => {
+    for (let i = 0; i < button.length; i++) {
+      if (i !== notThis) {
+        button[i].classList.remove('tech__button--active');
+        block[i].classList.remove('tech__block--active');
+      }
+    }
+  };
+
+  for (let i = 0; i < button.length; i++) {
+    button[i].addEventListener('click', (event) => {
+      event.preventDefault();
+      disabledAll(i);
+
+      button[i].classList.toggle('tech__button--active');
+      block[i].classList.toggle('tech__block--active');
+    });
+
+    document.addEventListener('click', (event) => {
+      if (!event.target.classList.contains('tech__button')) {
+        button[i].classList.remove('tech__button--active');
+        block[i].classList.remove('tech__block--active');
+      }
+    });
+  }
+};
+
 lang();
 navigation();
 faq();
 buy();
 aboutSlider();
+techButton();
