@@ -1,0 +1,110 @@
+.benefits {
+  background: $bg-gradient;
+  padding: 50px 0;
+
+  @include tablet {
+    padding: 80px 0;
+  }
+
+  @include desktop {
+    padding: 100px 0;
+  }
+
+  &__title {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+
+    transition: all .3s;
+
+    & span {
+      color: $blue;
+      font-weight: 400;
+    }
+
+    @include tablet {
+      font-size: 21px;
+    }
+
+    @include desktop {
+      text-align: center;
+      margin-bottom: 82px;
+      font-size: 36px;
+    }
+
+    &:hover {
+      letter-spacing: 2px;
+    }
+  }
+
+  &__block {
+    grid-area: auto / span 2;
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+
+    @include desktop {
+      grid-area: auto / span 4;
+    }
+  }
+
+  &__block-img {
+    display: none;
+    transition: all .3s;
+
+    @include tablet {
+      display: block;
+      padding-bottom: 33%;
+      margin-bottom: 23px;
+
+      @for $i from 1 to 4 {
+        &--#{$i} {
+          background: url('../images/svg/benefits-#{$i}.svg') no-repeat center;
+          background-size: contain;
+        }
+      }
+
+      &:hover {
+        transform: scale(1.05);
+      }
+    }
+
+    @include desktop {
+      margin-bottom: 34px;
+    }
+  }
+
+  &__block-name {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    margin-bottom: 11px;
+    text-align: center;
+
+    transition: all .3s;
+
+    @include tablet {
+      margin-bottom: 27px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+      cursor: pointer;
+    }
+  }
+
+  &__block-description {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: $light-gray;
+    text-align: center;
+  }
+}
+
+
+
