@@ -1,4 +1,5 @@
 .header {
+  position: relative;
   background: url(../images/header/bg-m.png) no-repeat center 55px,
   linear-gradient(107.56deg, #191536 0%, #000 100%);
 
@@ -32,7 +33,7 @@
     }
 
     @media (min-width: $desktop-lg-min-width) {
-      padding-block: 185px 107px;
+      padding-block: 185px 212px;
     }
   }
 
@@ -72,7 +73,7 @@
     margin-bottom: 8px;
 
     @media (min-width: $tablet-min-width) {
-      margin-bottom: 10px;
+      margin-bottom: 20px;
       grid-column: 1 / 4;
     }
 
@@ -147,5 +148,29 @@
         color: $contrast-color;
       }
     }
+  }
+
+  &__btn {
+    display: block;
+    width: 280px;
+    position: absolute;
+    bottom: -20px;
+
+    @media (min-width: $tablet-min-width) {
+      width: 458px;
+      left: 50%;
+      transform: translate(-50%);
+    }
+
+    @media (min-width: $desktop-min-width) {
+      display: none;
+    }
+  }
+
+  &__more-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
   }
 }

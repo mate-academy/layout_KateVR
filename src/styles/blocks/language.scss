@@ -3,52 +3,44 @@
   background-color: #191536;
   overflow: auto;
 
+  @media (min-width: $tablet-min-width) {
+    height: auto;
+  }
+
   @media (min-width: $desktop-min-width) {
     display: none;
   }
 
-  &__content {
-    position: relative;
+  &__top-bar {
+    padding-block: 20px;
+    display: flex;
+    margin-bottom: 18px;
+
+    @media (min-width: $tablet-min-width) {
+      padding-block: 32px;
+    }
   }
 
   &__list {
-    padding-block: 75px 30px;
     display: flex;
     flex-direction: column;
-
-    @media (min-width: $tablet-min-width) {
-      padding-block: 97px 120px;
-    }
+    padding-bottom: 20px;
   }
 
   &__link {
     padding-block: 11px;
-    padding-left: 22px;
     display: block;
     font-size: 21px;
     font-weight: 500;
     line-height: 27px;
     color: $white-color;
 
+    @media (min-width: $tablet-min-width) {
+      padding-left: 150px;
+    }
+
     &:hover {
-      background-color: #110E25;
       color: $contrast-color;
     }
-
-    @media (min-width: $tablet-min-width) {
-      padding-left: 153px;
-    }
-  }
-
-  &__overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100vh;
-    background-color: #191536;
-    opacity: .5;
-    z-index: -1
   }
 }

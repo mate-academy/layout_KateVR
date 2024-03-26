@@ -17,6 +17,8 @@
   &__content {
     @media (min-width: $tablet-min-width) {
       @include create-page-grid;
+
+      position: relative;
     }
   }
 
@@ -76,14 +78,24 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
-    background-color: transparent;
+    color: $white-color;
     padding-bottom: 19px;
+    background-color: transparent;
     width: 100%;
     border: none;
     border-bottom: 1px solid #2F2F2F;
 
+    &:hover::placeholder {
+      color: $contrast-color;
+      transition: .3s;
+    }
+
     &:focus {
       outline: none;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
     }
   }
 
@@ -92,14 +104,25 @@
     font-size: 14px;
     font-weight: 400;
     line-height: 21px;
+    color: $white-color;
+    padding-bottom: 6px;
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #2F2F2F;
     height: 88px;
     resize: none;
 
+    &:hover::placeholder {
+      color: $contrast-color;
+      transition: .3s;
+    }
+
     &:focus {
       outline: none;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
     }
   }
 
@@ -113,6 +136,7 @@
     @media (min-width: $tablet-min-width) {
       margin-bottom: 0;
       margin-top: 24px;
+      padding-block: 12px 14px;
       width: 200px;
       grid-column: 4 / 6;
       grid-row: 5;
@@ -165,5 +189,29 @@
 
   &__link {
     color: $text-color;
+
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+
+  &__arrow {
+    display: none;
+
+    @media (min-width: $tablet-min-width) {
+      background-image: url(../images/contact/arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+      width: 49px;
+      height: 49px;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
 }

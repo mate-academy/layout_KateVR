@@ -1,12 +1,14 @@
 'use strict';
 
-const dropdown = document.querySelector('.dropdown');
-const trigger = document.querySelector('.dropdown__trigger');
+const dropdown = document.querySelectorAll('.dropdown');
+const trigger = document.querySelectorAll('.dropdown__trigger');
 const inProcess = document.querySelectorAll('.in-process');
 
-trigger.addEventListener('click', () => {
-  dropdown.classList.toggle('dropdown--active');
-});
+for (let i = 0; i < trigger.length; i++) {
+  trigger[i].addEventListener('click', () => {
+    dropdown[i].classList.toggle('dropdown--active');
+  });
+}
 
 for (let i = 0; i < inProcess.length; i++) {
   inProcess[i].addEventListener('click', () => {
