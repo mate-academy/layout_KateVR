@@ -1,0 +1,110 @@
+// .video {
+//   display: none;
+//   justify-content: center;
+//   align-items: center;
+//   position: fixed;
+//   z-index: 9999;
+//   left: 0;
+//   top: 0;
+//   width: 100%;
+//   height: 100%;
+//   overflow: auto;
+//   background-color: rgba(0, 0, 0, .8);
+//   .video-content {
+//     display: flex;
+//     flex-direction: column;
+//     margin: auto;
+//     padding: 20px;
+//     width: 80%;
+//     height: 50%;
+//     max-width: 800px;
+//     background-color: #fefefe;
+//     border-radius: 5px;
+//     text-align: center;
+//     .close {
+//       position: absolute;
+//       top: 10px;
+//       right: 20px;
+//       color: #aaa;
+//       font-size: 28px;
+//       font-weight: 700;
+//       cursor: pointer;
+//     }
+//   }
+// }
+.video {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  transform: translateY(-100%);
+  transition: transform 0.5s;
+  background-color: rgba(0, 0, 0, 0.8);
+  &:target {
+    transform: translateX(0);
+  }
+  .menuTarget {
+    display: block;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    z-index: 1;
+    overflow: auto;
+  }
+  .video__link {
+    display: block;
+    height: 70px;
+    // background-image: url(../images/play_button.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 0 24px;
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: scale(110%);
+      // background-image: url(../images/play_button-hover.svg);
+    }
+
+    @include onTablet {
+      margin-bottom: 0;
+      background-position: left;
+    }
+  }
+  .video-content {
+    display: flex;
+    flex-direction: column;
+    margin: 10% auto;
+    padding: 20px;
+    width: 80%;
+    height: 50%;
+    max-width: 800px;
+    background-color: #fefefe;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .video__iframe {
+    width: 100%;
+    height: 100%;
+  }
+
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+  .close:hover,
+  .close:focus {
+    color: $c-button;
+    cursor: pointer;
+  }
+}

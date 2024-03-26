@@ -20,3 +20,26 @@ window.addEventListener('hashchange', () => {
     document.body.classList.remove('page__body--with-menu');
   }
 });
+
+const input = document.getElementById('counter');
+const priceElement = document.getElementById('price');
+
+input.addEventListener('input', function() {
+  const value = this.value;
+  const price = calculatePrice(value);
+
+  priceElement.textContent = price;
+});
+
+function calculatePrice(value) {
+  const basePrice = 1200;
+  const totalPrice = basePrice * value;
+
+  return totalPrice + '$';
+}
+
+document.querySelector('.purchase__form')
+  .addEventListener('submit', function(event) {
+    event.preventDefault();
+    this.reset();
+  });

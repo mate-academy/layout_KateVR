@@ -42,13 +42,6 @@
         transform: scale(1.07);
       }
     }
-    // .dispTabB {
-    //   display: flex;
-
-    // }
-    // .navTabB {
-    //   display: flex;
-    // }
     .menu__listB {
       display: flex;
       justify-content: space-between;
@@ -77,15 +70,10 @@
       border-bottom: 2px solid;
       &:hover {
         color: #05c2df;
-        font-weight: 500;
-        opacity: 0.6;
-        -webkit-transition: opacity 0.5s ease-in-out;
-        -moz-transition: opacity 0.5s ease-in-out;
-        -ms-transition: opacity 0.5s ease-in-out;
-        -o-transition: opacity 0.5s ease-in-out;
-        transition: opacity 0.5s ease-in-out;
-        border-bottom: 2px solid;
       }
+      // &:active {
+      //   color: red;
+      //   }
     }
     .padbot {
       padding: 16px 0 26px;
@@ -122,13 +110,9 @@
     .imgBuy {
       @include onDesktop {
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
       }
     }
-    // .header__page {
-    //   display: flex;
-    //   flex-direction: column;
-    // }
     .pad3-4 {
       display: none;
       @include onTablet {
@@ -142,17 +126,17 @@
         transition: transform 0.4s;
       }
       @include onDesktop {
-        max-height: 340px;
+        max-height: 300px;
         padding-top: 100px;
         margin-left: -90px;
       }
       @include ondesing {
         max-height: 380px;
-        padding-top: 220px;
+        padding-top: 80px;
       }
-      &:hover {
-        transform: scale(1.06);
-      }
+      // &:hover {
+      //   transform: scale(1.06);
+      // }
       &::after {
         content: "";
         display: block;
@@ -198,11 +182,12 @@
         padding-bottom: 26px;
       }
     }
+
     .contact-us__form {
       display: block;
       box-sizing: border-box;
       width: 100%;
-      height: 30px;
+      height: 40px;
       border: none;
       margin-bottom: 25px;
       color: white;
@@ -211,7 +196,7 @@
       border-bottom: 1px solid #2f2f2f;
       // transition: background-color 0.3s;
       @include onDesktop {
-        margin-bottom: 30px;
+        margin-bottom: 40px;
       }
       &:focus {
         outline: none;
@@ -234,11 +219,20 @@
       padding-top: 30px;
       @include onDesktop {
         gap: 90px;
-        padding-top: 250px;
+        padding-top: 245px;
       }
+      @include ondesing {
+        gap: 90px;
+        padding-top: 180px;
+      }
+      .myForm {
+        display: flex;
+        flex-direction: row;
+      }
+
       .textC {
         color: #929292;
-        padding: 0 75px 0 13px  ;
+        padding: 0 75px 0 13px;
       }
       .textC__CY {
         color: #929292;
@@ -253,42 +247,128 @@
         flex-direction: column;
       }
     }
-    .reset {
-      display: flex;
-      flex-direction: column;
-      padding-top: 50px;
+    .flexForm {
+      padding-top: 140px;
       @include onDesktop {
-        padding-top: 100px;
+        width: 500px;
+      }
+      .textCX {
+        padding-bottom: 10px;
+        color: #929292;
       }
     }
+    .reset {
+      @include onTablet {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .purchase__form-first {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 15px;
+
+      @include onTablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+      }
+
+      @include onDesktop {
+        grid-area: 3 / 1 / 4 / 6;
+      }
+    }
+    .purchase__form {
+      width: 100%;
+
+      @include onTablet {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 10px;
+      }
+
+      @include onDesktop {
+        justify-content: center;
+      }
+    }
+
+    .purchase__input-text {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 130%;
+      color: gray;
+      padding-bottom: 10px;
+    }
+    .purchase__select {
+      width: 90px;
+      height: 41px;
+      border: none;
+      outline: none;
+      background-color: #191536;
+      display: flex;
+      text-align: center;
+      color: white;
+    }
+
+    .purchase__price-wrapper {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .purchase__price {
+      font-weight: 500;
+      font-size: 26px;
+      line-height: 31px;
+      color: blue;
+    }
+
+    .purchase__label {
+      display: block;
+      text-align: left;
+      width: 100%;
+
+      @include onDesktop {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
     .contact-us__formQ {
       display: block;
       box-sizing: border-box;
       width: 90px;
       height: 41px;
       border: none;
-      margin-bottom: 25px;
+      margin: 15px 0 25px;
       text-decoration: none;
       background: #191536;
       color: #fff;
       padding: 0 24px;
-      // transition: background-color 0.3s;
       @include onDesktop {
-        margin-bottom: 30px;
+        margin: 18px 0 25px;
       }
       &:focus {
         outline: none;
         background-color: black;
       }
-      &:-webkit-autofill,
-      &:-webkit-autofill:hover,
-      &:-webkit-autofill:focus,
-      &:-webkit-autofill:active {
-        -webkit-background-clip: red;
-        -webkit-text-fill-color: red;
-        -webkit-box-shadow: 0 0 0 30px red inset !important;
-        // transition: background-color 5000s ease-in-out 0s;
-        // box-shadow: inset 0 0 20px 20px $backgr;
+    }
+    .contact-us__formIn {
+      display: block;
+      box-sizing: border-box;
+      width: 90px;
+      height: 41px;
+      border: none;
+      margin: 15px 0 25px;
+      text-decoration: none;
+      background: transparent;
+      padding: 5px 10px;
+      color: #05c2df;
+      font-size: 26px;
+      @include onDesktop {
+        margin: 18px 0 25px;
       }
     }
     .contact-us__formC {
@@ -337,6 +417,7 @@
       }
       @include onDesktop {
         padding: 20px 0 0;
+        justify-content: start;
       }
     }
     .contact-us__link {
@@ -346,6 +427,7 @@
       text-transform: uppercase;
       box-sizing: border-box;
       border: 1px solid $c-button;
+      border-radius: 4px;
       background-color: $c-button;
       font-family: "Raleway", sans-serif;
       font-weight: 600;
@@ -363,10 +445,10 @@
       }
       @include onDesktop {
         width: 220px;
-        margin-right: 200px;
       }
       &:hover {
         transition: 0.5s;
+        color: #05c2df;
         background-color: $buttonhover;
         border: 1px solid $buttonhover;
         transform: scale(1.07);

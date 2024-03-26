@@ -1,444 +1,445 @@
-.menu {
-  z-index: 1;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  transform: translateY(-100%);
-  transition: transform 0.5s;
-  background-color: #191536;
-  &:target {
-    transform: translateX(0);
-  }
-  @include onDesktop {
-    display: none;
-  }
-  .menuTarget {
-    display: block;
-    box-sizing: border-box;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
-    z-index: 1;
-    overflow: auto;
-    @include onDesktop {
-      display: none;
-    }
-    .header__page {
-      display: flex;
-      flex-direction: row;
-      padding: 5px 0 50px;
-      @include onTablet {
-        padding: 55px 0 60px;
-      }
-      @include onDesktop {
-        padding-top: 0;
-      }
-      .header__title {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        padding-top: 16px;
-        @include onDesktop {
-          padding-top: 115px;
-        }
-        @include ondesing {
-          padding-top: 245px;
-        }
-      }
-    }
-    .styleH1d {
-      color: $c-button;
-      font-weight: 400;
-    }
-    .flexH4 {
-      display: flex;
-      justify-content: end;
-      flex-direction: column;
-      width: 400px;
-      @include onTablet {
-        padding: 20px 0 0;
-      }
-      @include onDesktop {
-        padding: 35px 0 0 90px;
-      }
-    }
-    .padbot {
-      padding: 16px 0 26px;
-      @include onTablet {
-        padding-bottom: 20px;
-      }
-      @include onDesktop {
-        padding-bottom: 35px;
-      }
-    }
-    .manyPad {
-      display: flex;
-      justify-content: center;
-      padding-bottom: 20px;
-      @include onTablet {
-        padding-bottom: 25px;
-        justify-content: left;
-      }
-      @include onDesktop {
-        padding-bottom: 40px;
-      }
-    }
-    .buttonLogo {
-      display: flex;
-      width: 200px;
-      height: 70px;
-      background-repeat: no-repeat;
-      transition: all 0.3s;
-      background-image: url(../images/buttonVideo.png);
-      &:hover {
-        transition: 0.5s;
-        transform: scale(1.07);
-      }
-      &:focus {
-        background-image: url(../images/buttonVideoH.png);
-      }
-    }
-    .pad3-4A {
-      display: flex;
-      justify-content: center;
-      position: relative;
-      box-sizing: border-box;
-      width: 100%;
-      height: 240px;
-      transition: transform 0.4s;
-      @include onTablet {
-        display: none;
-      }
-      &:hover {
-        transform: scale(1.06);
-      }
-      &::after {
-        content: "";
-        display: block;
-        padding-bottom: 100%;
-      }
-    }
-    .pad3-4 {
-      display: none;
-      @include onTablet {
-        display: flex;
-        position: relative;
-        box-sizing: border-box;
-        width: 100%;
-        max-height: 270px;
-        transition: transform 0.4s;
-        margin-left: -220px;
-      }
-      @include onDesktop {
-        max-height: 340px;
-        padding-top: 100px;
-        margin-left: -325px;
-      }
-      @include ondesing {
-        max-height: 380px;
-        padding-top: 240px;
-        margin-left: -330px;
-      }
-      &:hover {
-        transform: scale(1.06);
-      }
-      &::after {
-        content: "";
-        display: block;
-        padding-bottom: 100%;
-      }
-    }
-    .img3-4 {
-      height: 100%;
-      object-fit: cover;
-      object-position: center;
-      position: absolute;
-      transition: all 0.3s;
-    }
-    .button_padA {
-      display: flex;
-      margin: 33px 0 0;
-      text-decoration: none;
-      @include onTablet {
-        margin: -55px 0 0;
-        justify-content: center;
-      }
-    }
-    .header__link-shop {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-sizing: border-box;
-      border: 1px solid black;
-      background-color: $c-button;
-      font-family: inherit;
-      font-style: normal;
-      font-weight: 500;
-      font-size: 16px;
-      line-height: 130%;
-      color: $grantext;
-      text-decoration: none;
-      cursor: pointer;
-      height: 38px;
-      width: 100%;
-      transition: 0.5s;
-      @include onTablet {
-        height: 48px;
-        width: 458px;
-        margin: 0;
-      }
-      @include onDesktop {
-        height: 48px;
-        width: 200px;
-        margin: 0;
-      }
-      &:hover {
-        @extend %btnH-hover;
-      }
-      &:focus {
-        @extend %btnH-focus;
-      }
-    }
-    .padCol {
-      background: #05040b;
-      padding: 50px 0 10px;
-      @include onTablet {
-        padding: 60px 0 15px;
-      }
-      @include onDesktop {
-        display: none;
-      }
-    }
-    .gamingM {
-      @include onTablet {
-        padding-bottom: 30px;
-      }
-    }
-    .abreviation {
-      display: flex;
-      flex-direction: row;
-      align-items: baseline;
-      justify-content: left;
-      padding-bottom: 12px;
-      @include onTablet {
-        justify-content: center;
-        padding-bottom: 25px;
-      }
-      @include onDesktop {
-        padding-bottom: 26px;
-      }
-    }
-    .styleH2d__about {
-      font-weight: 900;
-      line-height: normal;
-    }
-    .styleH2d__about1 {
-      color: var(--Contrast-Color, #05c2df);
-      font-weight: 400;
-      line-height: normal;
-    }
-  }
-  .titleH6 {
-    display: flex;
-    justify-content: left;
-    padding-bottom: 10px;
-    @include onTablet {
-      justify-content: center;
-      padding-bottom: 30px;
-    }
-    @include onDesktop {
-      padding-bottom: 70px;
-    }
-    @include ondesing {
-      padding-bottom: 73px;
-    }
-  }
-  .title-disp1 {
-    display: none;
-    @include onTablet {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-  }
-  .gaming__title {
-    padding-bottom: 3px;
-    @include onTablet {
-      padding-bottom: 18px;
-    }
-  }
-  .padGrid {
-    @include onTablet {
-      padding-bottom: 65px;
-    }
-    @include onDesktop {
-      padding-bottom: 0;
-    }
-  }
-  .ab1 {
-    padding-bottom: 20px;
-    @include onTablet {
-      padding-bottom: 25px;
-    }
-    @include onDesktop {
-      padding-bottom: 32px;
-    }
-  }
-  .svg1 {
-    display: none;
-    @include onTablet {
-      display: flex;
-      overflow: hidden;
-      width: 100px;
-      height: 83px;
-      object-fit: contain;
-      object-position: center;
-      position: relative;
-      background-repeat: no-repeat;
-      transition: all 0.3s;
-      background-image: url(../images/Vector1.svg);
-    }
-    &:hover {
-      transform: scale(1.07);
-    }
-  }
-  .svg2 {
-    display: none;
-    @include onTablet {
-      display: flex;
-      overflow: hidden;
-      width: 100px;
-      height: 83px;
-      object-fit: contain;
-      object-position: center;
-      position: relative;
-      background-repeat: no-repeat;
-      transition: all 0.3s;
-      background-image: url(../images/Vector2.svg);
-    }
-    &:hover {
-      transform: scale(1.07);
-    }
-  }
-  .svg3 {
-    display: none;
-    @include onTablet {
-      display: flex;
-      overflow: hidden;
-      width: 100px;
-      height: 83px;
-      object-fit: contain;
-      object-position: center;
-      position: relative;
-      background-repeat: no-repeat;
-      transition: all 0.3s;
-      background-image: url(../images/Vector3.svg);
-    }
-    &:hover {
-      transform: scale(1.07);
-    }
-  }
-  .svg4 {
-    display: none;
-    @include onTablet {
-      display: flex;
-      overflow: hidden;
-      width: 100px;
-      height: 83px;
-      object-fit: contain;
-      object-position: center;
-      position: relative;
-      background-repeat: no-repeat;
-      transition: all 0.3s;
-      background-image: url(../images/Vector4.svg);
-    }
-    &:hover {
-      transform: scale(1.07);
-    }
-  }
-  .navBott {
-    display: none;
-    @include onDesktop {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 80px 0 100px;
-    }
-    @include ondesing {
-      padding: 90px 0 100px;
-    }
-    .dispTab {
-      display: flex;
-      align-items: center;
-      gap: 37px;
-    }
-    .nav__logo {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 35px;
-    }
-    .logo {
-      display: block;
-      width: 78px;
-      height: 17px;
-      background-repeat: no-repeat;
-      transition: all 0.3s;
-      background-image: url(../images/logoD.svg);
-      &:hover {
-        transition: 0.5s;
-        transform: scale(1.07);
-      }
-    }
-    .navTab {
-      display: flex;
-      align-items: center;
-    }
-    .menu__list1 {
-      display: flex;
-      flex-direction: row;
-      justify-content: center;
-      gap: 36px;
-    }
-    .menu__item1 {
-      display: block;
-      text-decoration: none;
-      font-size: 16px;
-      line-height: 130%;
-      font-weight: 500;
-      font-style: normal;
-      color: $grantext;
-      cursor: pointer;
-      text-align: center;
-      &:hover {
-        color: #05c2df;
-        font-weight: 500;
-        opacity: 0.6;
-        -webkit-transition: opacity 0.5s ease-in-out;
-        -moz-transition: opacity 0.5s ease-in-out;
-        -ms-transition: opacity 0.5s ease-in-out;
-        -o-transition: opacity 0.5s ease-in-out;
-        transition: opacity 0.5s ease-in-out;
-      }
-    }
-    .More {
-      display: block;
-      width: 41px;
-      height: 38px;
-      margin-top: 25px;
-      background-repeat: no-repeat;
-      transition: all 0.3s;
-      background-image: url(../images/More.svg);
-      &:hover {
-        transition: 0.5s;
-        transform: scale(1.07);
-      }
-    }
-  }
-}
+// .menu {
+//   z-index: 1;
+//   position: fixed;
+//   top: 0;
+//   left: 0;
+//   right: 0;
+//   height: 100%;
+//   transform: translateY(-100%);
+//   transition: transform 0.5s;
+//   background-color: #191536;
+//   &:target {
+//     transform: translateX(0);
+//   }
+//   @include onDesktop {
+//     display: none;
+//   }
+//   .menuTarget {
+//     display: block;
+//     box-sizing: border-box;
+//     top: 0;
+//     left: 0;
+//     right: 0;
+//     height: 100%;
+//     z-index: 1;
+//     overflow: auto;
+//     @include onDesktop {
+//       display: none;
+//     }
+//     .header__page {
+//       display: flex;
+//       flex-direction: row;
+//       padding: 5px 0 50px;
+//       @include onTablet {
+//         padding: 55px 0 60px;
+//       }
+//       @include onDesktop {
+//         padding-top: 0;
+//       }
+//       .header__title {
+//         display: flex;
+//         flex-direction: column;
+//         width: 100%;
+//         padding-top: 16px;
+//         @include onDesktop {
+//           padding-top: 115px;
+//         }
+//         @include ondesing {
+//           padding-top: 245px;
+//         }
+//       }
+//     }
+//     .styleH1d {
+//       color: $c-button;
+//       font-weight: 400;
+//     }
+//     .flexH4 {
+//       display: flex;
+//       justify-content: end;
+//       flex-direction: column;
+//       width: 400px;
+//       @include onTablet {
+//         padding: 20px 0 0;
+//       }
+//       @include onDesktop {
+//         padding: 35px 0 0 90px;
+//       }
+//     }
+//     .padbot {
+//       padding: 16px 0 26px;
+//       @include onTablet {
+//         padding-bottom: 20px;
+//       }
+//       @include onDesktop {
+//         padding-bottom: 35px;
+//       }
+//     }
+//     .manyPad {
+//       display: flex;
+//       justify-content: center;
+//       padding-bottom: 20px;
+//       @include onTablet {
+//         padding-bottom: 25px;
+//         justify-content: left;
+//       }
+//       @include onDesktop {
+//         padding-bottom: 40px;
+//       }
+//     }
+//     .buttonLogo {
+//       display: flex;
+//       width: 200px;
+//       height: 70px;
+//       background-repeat: no-repeat;
+//       transition: all 0.3s;
+//       background-image: url(../images/buttonVideo.png);
+//       &:hover {
+//         transition: 0.5s;
+//         transform: scale(1.07);
+//       }
+//       &:focus {
+//         background-image: url(../images/buttonVideoH.png);
+//       }
+//     }
+//     .pad3-4A {
+//       display: flex;
+//       justify-content: center;
+//       position: relative;
+//       box-sizing: border-box;
+//       width: 100%;
+//       height: 240px;
+//       transition: transform 0.4s;
+//       @include onTablet {
+//         display: none;
+//       }
+//       &:hover {
+//         transform: scale(1.06);
+//       }
+//       &::after {
+//         content: "";
+//         display: block;
+//         padding-bottom: 100%;
+//       }
+//     }
+//     .pad3-4 {
+//       display: none;
+//       @include onTablet {
+//         display: flex;
+//         position: relative;
+//         box-sizing: border-box;
+//         width: 100%;
+//         max-height: 270px;
+//         transition: transform 0.4s;
+//         margin-left: -220px;
+//       }
+//       @include onDesktop {
+//         max-height: 340px;
+//         padding-top: 100px;
+//         margin-left: -325px;
+//       }
+//       @include ondesing {
+//         max-height: 380px;
+//         padding-top: 240px;
+//         margin-left: -330px;
+//       }
+//       &:hover {
+//         transform: scale(1.06);
+//       }
+//       &::after {
+//         content: "";
+//         display: block;
+//         padding-bottom: 100%;
+//       }
+//     }
+//     .img3-4 {
+//       height: 100%;
+//       object-fit: cover;
+//       object-position: center;
+//       position: absolute;
+//       transition: all 0.3s;
+//     }
+//     .button_padA {
+//       display: flex;
+//       margin: 33px 0 0;
+//       text-decoration: none;
+//       @include onTablet {
+//         margin: -55px 0 0;
+//         justify-content: center;
+//       }
+//     }
+//     .header__link-shop {
+//       display: flex;
+//       justify-content: center;
+//       align-items: center;
+//       box-sizing: border-box;
+//       border: 1px solid black;
+//       border-radius: 4px;
+//       background-color: $c-button;
+//       font-family: inherit;
+//       font-style: normal;
+//       font-weight: 500;
+//       font-size: 16px;
+//       line-height: 130%;
+//       color: $grantext;
+//       text-decoration: none;
+//       cursor: pointer;
+//       height: 38px;
+//       width: 100%;
+//       transition: 0.5s;
+//       @include onTablet {
+//         height: 48px;
+//         width: 458px;
+//         margin: 0;
+//       }
+//       @include onDesktop {
+//         height: 48px;
+//         width: 200px;
+//         margin: 0;
+//       }
+//       &:hover {
+//         @extend %btnH-hover;
+//       }
+//       &:focus {
+//         @extend %btnH-focus;
+//       }
+//     }
+//     .padCol {
+//       background: #05040b;
+//       padding: 50px 0 10px;
+//       @include onTablet {
+//         padding: 60px 0 15px;
+//       }
+//       @include onDesktop {
+//         display: none;
+//       }
+//     }
+//     .gamingM {
+//       @include onTablet {
+//         padding-bottom: 30px;
+//       }
+//     }
+//     .abreviation {
+//       display: flex;
+//       flex-direction: row;
+//       align-items: baseline;
+//       justify-content: left;
+//       padding-bottom: 12px;
+//       @include onTablet {
+//         justify-content: center;
+//         padding-bottom: 25px;
+//       }
+//       @include onDesktop {
+//         padding-bottom: 26px;
+//       }
+//     }
+//     .styleH2d__about {
+//       font-weight: 900;
+//       line-height: normal;
+//     }
+//     .styleH2d__about1 {
+//       color: var(--Contrast-Color, #05c2df);
+//       font-weight: 400;
+//       line-height: normal;
+//     }
+//   }
+//   .titleH6 {
+//     display: flex;
+//     justify-content: left;
+//     padding-bottom: 10px;
+//     @include onTablet {
+//       justify-content: center;
+//       padding-bottom: 30px;
+//     }
+//     @include onDesktop {
+//       padding-bottom: 70px;
+//     }
+//     @include ondesing {
+//       padding-bottom: 73px;
+//     }
+//   }
+//   .title-disp1 {
+//     display: none;
+//     @include onTablet {
+//       display: flex;
+//       flex-direction: column;
+//       align-items: center;
+//     }
+//   }
+//   .gaming__title {
+//     padding-bottom: 3px;
+//     @include onTablet {
+//       padding-bottom: 18px;
+//     }
+//   }
+//   .padGrid {
+//     @include onTablet {
+//       padding-bottom: 65px;
+//     }
+//     @include onDesktop {
+//       padding-bottom: 0;
+//     }
+//   }
+//   .ab1 {
+//     padding-bottom: 20px;
+//     @include onTablet {
+//       padding-bottom: 25px;
+//     }
+//     @include onDesktop {
+//       padding-bottom: 32px;
+//     }
+//   }
+//   .svg1 {
+//     display: none;
+//     @include onTablet {
+//       display: flex;
+//       overflow: hidden;
+//       width: 100px;
+//       height: 83px;
+//       object-fit: contain;
+//       object-position: center;
+//       position: relative;
+//       background-repeat: no-repeat;
+//       transition: all 0.3s;
+//       background-image: url(../images/Vector1.svg);
+//     }
+//     &:hover {
+//       transform: scale(1.07);
+//     }
+//   }
+//   .svg2 {
+//     display: none;
+//     @include onTablet {
+//       display: flex;
+//       overflow: hidden;
+//       width: 100px;
+//       height: 83px;
+//       object-fit: contain;
+//       object-position: center;
+//       position: relative;
+//       background-repeat: no-repeat;
+//       transition: all 0.3s;
+//       background-image: url(../images/Vector2.svg);
+//     }
+//     &:hover {
+//       transform: scale(1.07);
+//     }
+//   }
+//   .svg3 {
+//     display: none;
+//     @include onTablet {
+//       display: flex;
+//       overflow: hidden;
+//       width: 100px;
+//       height: 83px;
+//       object-fit: contain;
+//       object-position: center;
+//       position: relative;
+//       background-repeat: no-repeat;
+//       transition: all 0.3s;
+//       background-image: url(../images/Vector3.svg);
+//     }
+//     &:hover {
+//       transform: scale(1.07);
+//     }
+//   }
+//   .svg4 {
+//     display: none;
+//     @include onTablet {
+//       display: flex;
+//       overflow: hidden;
+//       width: 100px;
+//       height: 83px;
+//       object-fit: contain;
+//       object-position: center;
+//       position: relative;
+//       background-repeat: no-repeat;
+//       transition: all 0.3s;
+//       background-image: url(../images/Vector4.svg);
+//     }
+//     &:hover {
+//       transform: scale(1.07);
+//     }
+//   }
+//   .navBott {
+//     display: none;
+//     @include onDesktop {
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+//       padding: 80px 0 100px;
+//     }
+//     @include ondesing {
+//       padding: 90px 0 100px;
+//     }
+//     .dispTab {
+//       display: flex;
+//       align-items: center;
+//       gap: 37px;
+//     }
+//     .nav__logo {
+//       display: flex;
+//       align-items: center;
+//       justify-content: space-between;
+//       gap: 35px;
+//     }
+//     .logo {
+//       display: block;
+//       width: 78px;
+//       height: 17px;
+//       background-repeat: no-repeat;
+//       transition: all 0.3s;
+//       background-image: url(../images/logoD.svg);
+//       &:hover {
+//         transition: 0.5s;
+//         transform: scale(1.07);
+//       }
+//     }
+//     .navTab {
+//       display: flex;
+//       align-items: center;
+//     }
+//     .menu__list1 {
+//       display: flex;
+//       flex-direction: row;
+//       justify-content: center;
+//       gap: 36px;
+//     }
+//     .menu__item1 {
+//       display: block;
+//       text-decoration: none;
+//       font-size: 16px;
+//       line-height: 130%;
+//       font-weight: 500;
+//       font-style: normal;
+//       color: $grantext;
+//       cursor: pointer;
+//       text-align: center;
+//       &:hover {
+//         color: #05c2df;
+//         font-weight: 500;
+//         opacity: 0.6;
+//         -webkit-transition: opacity 0.5s ease-in-out;
+//         -moz-transition: opacity 0.5s ease-in-out;
+//         -ms-transition: opacity 0.5s ease-in-out;
+//         -o-transition: opacity 0.5s ease-in-out;
+//         transition: opacity 0.5s ease-in-out;
+//       }
+//     }
+//     .More {
+//       display: block;
+//       width: 41px;
+//       height: 38px;
+//       margin-top: 25px;
+//       background-repeat: no-repeat;
+//       transition: all 0.3s;
+//       background-image: url(../images/More.svg);
+//       &:hover {
+//         transition: 0.5s;
+//         transform: scale(1.07);
+//       }
+//     }
+//   }
+// }
 
 .menu2 {
   z-index: 1;

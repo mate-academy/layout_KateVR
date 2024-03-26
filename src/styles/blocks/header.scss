@@ -4,10 +4,10 @@ header {
     flex-direction: row;
     padding-top: 5px;
     @include onTablet {
-      padding: 55px 0;
+      padding: 72px 0;
     }
     @include onDesktop {
-      padding-top: 0;
+      padding: 0 0 120px;
     }
     // @include ondesing {
     //   padding-top: 215px;
@@ -76,6 +76,12 @@ header {
     &:focus {
       background-image: url(../images/buttonVideoH.png);
     }
+    @include onTablet {
+      padding-bottom: 70px;
+    }
+    @include onDesktop {
+      padding-bottom: 0;
+    }
   }
   .pad3-4A {
     display: flex;
@@ -88,9 +94,9 @@ header {
     @include onTablet {
       display: none;
     }
-    &:hover {
-      transform: scale(1.06);
-    }
+    // &:hover {
+    //   transform: scale(1.0);
+    // }
     &::after {
       content: "";
       display: block;
@@ -119,9 +125,9 @@ header {
       padding-top: 240px;
       margin-left: -330px;
     }
-    &:hover {
-      transform: scale(1.06);
-    }
+    // &:hover {
+    //   transform: scale(1.0);
+    // }
     &::after {
       content: "";
       display: block;
@@ -152,6 +158,7 @@ header {
     align-items: center;
     box-sizing: border-box;
     border: 1px solid black;
+    border-radius: 4px;
     background-color: $c-button;
     font-family: inherit;
     font-style: normal;
@@ -168,6 +175,57 @@ header {
       height: 48px;
       width: 200px;
       margin: 0;
+    }
+    &:hover {
+      @extend %btnH-hover;
+    }
+    &:focus {
+      @extend %btnH-focus;
+    }
+  }
+  .button_padS {
+    display: flex;
+    @include onTablet {
+      text-decoration: none;
+      margin: -55px 0 0;
+      justify-content: center;
+    }
+    @include onDesktop {
+      display: none;
+    }
+  }
+  .header__link-shopS {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 4px;
+    background-color: $c-button;
+    font-family: inherit;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+    color: $grantext;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.5s;
+    margin: 0;
+    &:first-of-type {
+      display: block;
+      width: 100%;
+      height: 48px;
+      position: fixed;
+      margin: 30px auto;
+      bottom: 0;
+      z-index: 1;
+      text-align: center;
+      @include onTablet {
+        padding: 10px;
+        width: 50%;
+        right: 25%;
+      }
     }
     &:hover {
       @extend %btnH-hover;
