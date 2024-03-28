@@ -1,0 +1,247 @@
+.about {
+  height: 100%;
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr ;
+    grid-template-rows: 1fr 3rem;
+    min-width: 0;
+    position: relative;
+    column-gap: 1rem;
+
+    &-text {
+      grid-column: 3/-1;
+      grid-row: 1;
+
+      @include on-mobile {
+        order: 3;
+      }
+    }
+
+    @include on-mobile {
+      display: flex;
+      flex-direction: column;
+
+      row-gap: 1rem;
+    }
+  }
+
+  &__title {
+    text-align: left;
+    padding-bottom: 1.31rem;
+
+    @include on-mobile {
+      display: none;
+      order: 3;
+    }
+    &--mobile {
+      display: none;
+
+      @include on-mobile {
+        display: block;
+        order: 1;
+      }
+    }
+  }
+
+  &__paragraph {
+    color: $text-color;
+    width: 20.75rem;
+    margin-bottom: 1.31rem;
+
+    @include on-mobile {
+      width: 100%;
+    }
+  }
+
+  &__bottom {
+    margin-top: 12rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      margin-top: 6rem;
+    }
+
+    &-span {
+      color: $contrast-color;
+    }
+
+    &-title {
+      padding-block: 1.5rem;
+    }
+
+    &-paragraph {
+      text-align: left;
+      color: $text-color;
+    }
+
+    &-images {
+      display: flex;
+      height: 21rem;
+
+      @include on-mobile {
+        display: none;
+      }
+    }
+    
+    &-image-span {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      place-items: center;
+      width: 15vh;
+      white-space: pre;
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 130%;
+      color: transparent;
+      -webkit-text-stroke: 0.1rem $contrast-color;
+      transform: rotate(90deg);
+
+      transition: opacity 0.3s ease;
+
+      &:nth-child(2n) {
+        transform: rotate(270deg);
+      }
+
+      $total-images: 5;
+      $opacity-step: 0.3;
+
+      @for $i from 1 through $total-images {
+        &:nth-child(#{$i}) {
+          opacity: 1 - $opacity-step * ($i - 1);
+        }
+      }
+
+      &:hover {
+        opacity: 1;
+      }
+
+      @include on-large-tablet {
+        &:nth-child(n + 5) {
+          display: none;
+        }
+      }
+
+      @include on-tablet {
+        &:nth-child(n + 4) {
+          display: none;
+        }
+
+        font-size: 3rem;
+      }
+
+      @media (max-width:650px) {
+        &:nth-child(n + 3) {
+          display: none;
+        }
+      }
+
+      @media (max-width:550px) {
+        &:nth-child(n + 2) {
+          display: none;
+        }
+      }
+    }
+
+  }
+}
+
+// SLIDER
+
+.slider-pagination__fraction {
+  color: $contrast-color;
+  display: flex;
+  z-index: 3;
+  grid-row: 1;
+  justify-self: end;
+
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.about-swiper {
+  position: relative;
+  height: 35vw;
+  width: 35vw;
+  grid-column: 2;
+
+  max-height: 18.13rem;
+
+  @include on-mobile {
+    order: 2;
+    width: 17.5rem;
+    height: 11.81rem;
+  }
+}
+
+.about__top-swipper-slide {
+  display: flex;
+}
+
+.about__top-swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+
+  @include on-tablet {
+    object-fit: cover;
+  }
+
+}
+
+.about-progressbar.swiper-pagination-horizontal {
+  height: 1px;
+  width: 200px;
+  top: 100%;
+
+  overflow: hidden;
+}
+
+.about-progressbar.swiper-pagination-horizontal span {
+  background-color: $contrast-color;
+}
+
+.about__top-navigation-slider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  color: #fff;
+  cursor: pointer;
+  grid-column: 2;
+
+  @include on-large-tablet {
+    display: none;
+  }
+}
+
+.about-swiper ~ .swiper-about-bullets {
+  display: none;
+  justify-content: center;
+  order: 3;
+
+  position: static;
+  z-index: 2;
+
+  @include on-large-tablet {
+    grid-column: 2;
+    display: flex;
+    align-self: center;
+  }
+}
+
+.swiper-pagination-bullet {
+  background-color: $white;
+
+  @include on-mobile {
+    height: 0.25rem;
+    width: 0.25rem;
+  }
+}
+

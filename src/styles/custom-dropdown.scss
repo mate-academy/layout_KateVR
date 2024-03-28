@@ -1,0 +1,149 @@
+.custom-dropdown {
+  padding-inline: 1rem;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+
+  &--m {
+    padding: 0;
+  }
+
+  &--l {
+    padding: 0;
+    width: 100%;
+    margin-inline: 0.5rem;
+
+    padding-top: 0.5rem;
+  }
+}
+
+.selected-option {
+  color: $contrast-color;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+
+  font: inherit;
+  background: none;
+
+  width: 2.81rem;
+
+  &::after {
+    content: "";
+    background-image: url(../images/icon/dropdown.svg);
+    width: 10px;
+    height: 10px;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    padding-top: 8px;
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    left: 50;
+    bottom: 1.25rem;
+    display: block;
+    width: 45%;
+    height: 0.13rem;
+    background-color: $white;
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+    transform: scale(0);
+  }
+
+  &:hover::before {
+    transform: scale(1);
+  }
+
+  &--m {
+    width: 5.63rem;
+    height: 2.94rem;
+
+    color: $white;
+    background-color: $dropdown-background-color;
+
+    &::before {
+      opacity: 0;
+    }
+  }
+
+  &--l {
+    max-width: 21.63rem;
+    width: 100%;
+    height: 2.94rem;
+
+    justify-content: space-between;
+    padding-inline: 1.3rem;
+    color: $white;
+    background-color: $dropdown-background-color;
+
+    &::before {
+      opacity: 0;
+    }
+
+  }
+}
+
+.options {
+  // Modify default scrollbar
+  &::-webkit-scrollbar {
+    width: 0.1rem;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $contrast-color;
+  }
+
+  margin-top: 0.13rem;
+  height: 10vh;
+  overflow-y: scroll;
+  color: $white;
+  border-radius: 4px;
+
+  position: absolute;
+  top: 100%;
+  display: none;
+  background-color: $dropdown-background-color;
+
+  &--m {
+    width: 100%;
+
+    @include onMobile {
+      z-index: 2;
+    }
+  }
+
+  &--l {
+    height: 15vh;
+    width: 100%;
+
+    @include onMobile {
+      z-index: 2;
+    }
+  }
+}
+
+.option {
+  padding: 0.4rem;
+  cursor: pointer;
+  text-align: center;
+
+  &--m {
+    padding: 1rem;
+  }
+
+  &--l {
+    padding-inline: 1.3rem;
+    text-align: left;
+  }
+}
+
+.option:hover {
+  color: $contrast-color;
+}

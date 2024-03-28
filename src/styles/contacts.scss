@@ -1,0 +1,107 @@
+.contacts {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+
+  @include on-mobile {
+    flex-direction: column-reverse;
+  }
+
+  &__span--mobile,
+  &__title--mobile {
+    display: none;
+
+    @include on-mobile {
+      display: inline-block;
+      align-self: start;
+      margin-left: 2.5rem;
+      padding-block: 0;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+
+    & > *:not(.contacts__left-paragraph) {
+      @include on-mobile {
+        display: none;
+      }
+    }
+
+    &-title {
+      padding-block: 0.81rem  1.63rem;
+    }
+
+    &-paragraph {
+      color: $text-color;
+    }
+
+    &-list {
+      padding-block: 4.75rem;
+      list-style: none;
+    }
+
+    &-item {
+      padding-block: 0.26rem;
+    }
+    &-link {
+      position: relative;
+      color: $text-color;
+      overflow: hidden;
+      background: linear-gradient(to right,
+      $contrast-color 0%,
+      $contrast-color 50%,
+      $text-color 50%,
+      $text-color 50%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-size: 200% 100%;
+      background-position: 100%;
+      transition: background-position 500ms ease;
+      &:hover {
+        background-position: 0 100%;
+      }
+    }
+  }
+
+  &__button {
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 0.06rem solid $contrast-color;
+    display: none;
+
+    position: fixed;
+    top: 70%;
+    right: 10%;
+    z-index: 4;
+    cursor: pointer;
+
+    transition: background-color 0.3s ease;
+    &::before {
+      content: "";
+      display: inline-block;
+      margin-top: 0.5rem;
+      width: 0.81rem;
+      height: 0.81rem;
+      border-top: 0.1rem solid $contrast-color;
+      border-right: 0.1rem solid $contrast-color;
+      transform: rotate(315deg);
+
+      transition: border-top 0.3s ease, border-right 0.3s ease;
+    }
+
+    &:hover {
+      background-color: $contrast-color;
+
+    }
+    &:hover::before {
+      border-top: 0.1rem solid $white;
+      border-right: 0.1rem solid $white;
+    }
+  }
+
+}

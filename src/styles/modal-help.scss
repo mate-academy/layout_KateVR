@@ -1,0 +1,42 @@
+.modal-help {
+
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: repeat(3,1fr);
+
+    @include on-mobile {
+      display: flex;
+      align-items: flex-start;
+    }
+  }
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & a {
+      color: $contrast-color;
+    }
+  }
+  & a.modal-faq-btn {
+    text-decoration: none;
+    color: $contrast-color;
+  }
+  &__text {
+    grid-column: span 2;
+  }
+  &__description {
+    color: $text-color;
+
+    &:nth-child(2) {
+      margin-block: 1.25rem;
+
+    }
+  }
+}
