@@ -10,6 +10,7 @@
     height: unset;
   }
 
+  
   &__content {
     max-height: 100vh;
 
@@ -26,6 +27,7 @@
 
   &__top {
     @include page-grid;
+
 
     &-left {
       grid-column: 1;
@@ -57,7 +59,7 @@
     transition: transform 0.3s ease;
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(0.9);
     }
   }
 
@@ -101,7 +103,7 @@
     }
 
     &:hover {
-      transform: scale(1.1);
+      transform: scale(1.2);
     }
   }
 
@@ -131,6 +133,7 @@
         position: absolute;
         width: 0.23rem;
         height: 0.13rem;
+        overflow-y: hidden;
         background-color: $contrast-secondary-color;
       }
     }
@@ -201,9 +204,12 @@
     text-align: left;
     color: $white;
     white-space: nowrap;
+    font-weight: 900;
+    margin-top: 20px;
 
     &--span {
       color: $contrast-color;
+      font-weight: 400;
 
       @include on-tablet {
         font-weight: 400;
