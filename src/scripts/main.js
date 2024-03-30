@@ -1,6 +1,6 @@
 'use strict';
 
-document.addEventListener('scroll', function(e) {
+document.addEventListener('scroll', function (e) {
   const body = document.getElementsByTagName('body')[0];
   const topBtn = document.getElementsByClassName('main__to-top')[0];
 
@@ -17,7 +17,7 @@ connectEvents('buy');
 const langs = document.getElementsByClassName('menu__link--lang')[0];
 const back = document.getElementsByClassName('menu__back')[0];
 
-langs.addEventListener('click', function(e) {
+langs.addEventListener('click', function (e) {
   const icon = document.getElementsByClassName('menu__close')[0];
 
   icon.classList.add('menu__close--hidden');
@@ -25,7 +25,7 @@ langs.addEventListener('click', function(e) {
   back.classList.add('menu__back--show');
 });
 
-back.addEventListener('click', function(e) {
+back.addEventListener('click', function (e) {
   const icon = document.getElementsByClassName('menu__close')[0];
 
   icon.classList.remove('menu__close--hidden');
@@ -36,7 +36,7 @@ back.addEventListener('click', function(e) {
 const faqAdds = document.getElementsByClassName('faq__question-title');
 
 for (const faqAdd of faqAdds) {
-  faqAdd.addEventListener('click', function(e) {
+  faqAdd.addEventListener('click', function (e) {
     e.preventDefault();
     e.stopPropagation();
 
@@ -65,7 +65,7 @@ function connectEvents(className) {
   const formItems = document.getElementsByClassName(className + '__form-input');
 
   for (const formItem of formItems) {
-    formItem.addEventListener('focus', function(e) {
+    formItem.addEventListener('focus', function (e) {
       const item = e.target;
 
       let placeholder = item
@@ -75,13 +75,16 @@ function connectEvents(className) {
       const plac = item.closest('.buy__form-cvv');
 
       if (plac) {
-        placeholder = plac
-          .querySelector('.' + className + '__form-placeholder');
+        placeholder = plac.querySelector(
+          '.' + className + '__form-placeholder',
+        );
       }
 
       if (
-        placeholder.classList.contains(className + '__form-placeholder--error')
-        && item.classList.contains(className + '__form-input--error')
+        placeholder.classList.contains(
+          className + '__form-placeholder--error',
+        ) &&
+        item.classList.contains(className + '__form-input--error')
       ) {
         placeholder.classList.remove(className + '__form-placeholder--error');
         item.classList.remove(className + '__form-input--error');
@@ -91,7 +94,7 @@ function connectEvents(className) {
       item.classList.add(className + '__form-input--focus');
     });
 
-    formItem.addEventListener('blur', function(e) {
+    formItem.addEventListener('blur', function (e) {
       const item = e.target;
 
       let placeholder = item
@@ -101,8 +104,9 @@ function connectEvents(className) {
       const plac = item.closest('.buy__form-cvv');
 
       if (plac) {
-        placeholder = plac
-          .querySelector('.' + className + '__form-placeholder');
+        placeholder = plac.querySelector(
+          '.' + className + '__form-placeholder',
+        );
       }
 
       placeholder.classList.remove(className + '__form-placeholder--top');
@@ -110,11 +114,12 @@ function connectEvents(className) {
     });
   }
 
-  const formArea = document.getElementsByClassName(className
-    + '__form-area')[0];
+  const formArea = document.getElementsByClassName(
+    className + '__form-area',
+  )[0];
 
   if (formArea) {
-    formArea.addEventListener('focus', function(e) {
+    formArea.addEventListener('focus', function (e) {
       const item = e.target;
 
       const placeholder = item
@@ -122,8 +127,10 @@ function connectEvents(className) {
         .querySelector('.' + className + '__area-placeholder');
 
       if (
-        placeholder.classList.contains(className + '__area-placeholder--error')
-        && item.classList.contains(className + '__form-area--error')
+        placeholder.classList.contains(
+          className + '__area-placeholder--error',
+        ) &&
+        item.classList.contains(className + '__form-area--error')
       ) {
         placeholder.classList.remove(className + '__area-placeholder--error');
         item.classList.remove(className + '__form-area--error');
@@ -133,7 +140,7 @@ function connectEvents(className) {
       item.classList.add(className + '__form-area--focus');
     });
 
-    formArea.addEventListener('blur', function(e) {
+    formArea.addEventListener('blur', function (e) {
       const item = e.target;
 
       const placeholder = item
@@ -154,15 +161,17 @@ function connectEvents(className) {
 }
 
 function connectToTheSubmit(form, className) {
-  form.addEventListener('submit', function(e) {
+  form.addEventListener('submit', function (e) {
     e.preventDefault();
     e.stopPropagation();
 
     const inputs = document.getElementsByClassName(className + '__form-input');
 
     for (const input of inputs) {
-      if (input.value === '' && (input.closest('.buy__show')
-      || input.closest('#main-form'))) {
+      if (
+        input.value === '' &&
+        (input.closest('.buy__show') || input.closest('#main-form'))
+      ) {
         const placeholder = input
           .closest('.' + className + '__form-instance')
           .querySelector('.' + className + '__form-placeholder');
@@ -171,9 +180,11 @@ function connectToTheSubmit(form, className) {
           placeholder.classList.add(className + '__form-placeholder--error');
           input.classList.add(className + '__form-input--error');
 
-          placeholder.scrollIntoView({ behavior: 'smooth',
+          placeholder.scrollIntoView({
+            behavior: 'smooth',
             block: 'start',
-            inline: 'nearest' });
+            inline: 'nearest',
+          });
         }
 
         return;
@@ -182,10 +193,12 @@ function connectToTheSubmit(form, className) {
           .closest('.' + className + '__form-instance')
           .querySelector('.' + className + '__form-placeholder');
 
-        if (placeholder
-         && placeholder.classList.contains(className
-            + '__form-placeholder--error')
-          && input.classList.contains(className + '__form-input--error')
+        if (
+          placeholder &&
+          placeholder.classList.contains(
+            className + '__form-placeholder--error',
+          ) &&
+          input.classList.contains(className + '__form-input--error')
         ) {
           placeholder.classList.remove(className + '__form-placeholder--error');
           input.classList.remove(className + '__form-input--error');
@@ -196,12 +209,13 @@ function connectToTheSubmit(form, className) {
     const quantity = document.getElementsByClassName('buy__form-quantity')[0];
     const tab = document.getElementsByClassName('buy__tab');
     const tabPC = document.getElementsByClassName('buy__nav-tab-item');
-    const productImage = document
-      .getElementsByClassName('buy__product-wrapper')[0];
+    const productImage = document.getElementsByClassName(
+      'buy__product-wrapper',
+    )[0];
 
     if (e.target.classList.contains('buy__form--first')) {
-      const secondForm = document
-        .getElementsByClassName('buy__form--second')[0];
+      const secondForm =
+        document.getElementsByClassName('buy__form--second')[0];
 
       quantity.classList.add('buy__form-quantity--grid');
 
@@ -216,8 +230,7 @@ function connectToTheSubmit(form, className) {
     }
 
     if (e.target.classList.contains('buy__form--second')) {
-      const thirdForm = document
-        .getElementsByClassName('buy__form--third')[0];
+      const thirdForm = document.getElementsByClassName('buy__form--third')[0];
 
       e.target.classList.remove('buy__show');
       thirdForm.classList.add('buy__show');
@@ -235,8 +248,7 @@ function connectToTheSubmit(form, className) {
     }
 
     if (e.target.classList.contains('buy__form--third')) {
-      const firstForm = document
-        .getElementsByClassName('buy__form--first')[0];
+      const firstForm = document.getElementsByClassName('buy__form--first')[0];
 
       e.target.classList.remove('buy__show');
       firstForm.classList.add('buy__show');
@@ -274,8 +286,8 @@ function connectToTheSubmit(form, className) {
         if (
           placeholder.classList.contains(
             className + '__area-placeholder--error',
-          )
-          && area.classList.contains(className + '__form-area--error')
+          ) &&
+          area.classList.contains(className + '__form-area--error')
         ) {
           placeholder.classList.remove(className + '__area-placeholder--error');
           area.classList.remove(className + '__form-area--error');
@@ -304,7 +316,7 @@ function removeAllFields() {
 const informs = document.getElementsByClassName('main__inform-btn');
 
 for (const inform of informs) {
-  inform.addEventListener('click', function(e) {
+  inform.addEventListener('click', function (e) {
     if (window.innerWidth <= 1280) {
       const infHidden = inform.querySelector('.main__inform-hidden');
 
@@ -322,7 +334,7 @@ for (const inform of informs) {
 const selects = document.getElementsByClassName('buy__select');
 
 for (const select of selects) {
-  select.addEventListener('click', function(e) {
+  select.addEventListener('click', function (e) {
     let target = e.target.closest('.buy__form-instance');
 
     if (!target) {
@@ -342,7 +354,7 @@ for (const select of selects) {
 const options = document.getElementsByClassName('buy__select-option');
 
 for (const option of options) {
-  option.addEventListener('click', function(e) {
+  option.addEventListener('click', function (e) {
     let active = e.target.closest('.buy__form-instance');
 
     if (!active) {
@@ -367,7 +379,7 @@ for (const option of options) {
 }
 
 function sort() {
-  const numbers = document.querySelectorAll('[data-type=\'number\']');
+  const numbers = document.querySelectorAll("[data-type='number']");
 
   for (let i = 0; i < numbers.length; i++) {
     let minIndex = i;
@@ -390,8 +402,9 @@ function sort() {
 
 const langNav = document.getElementsByClassName('header__lang')[0];
 
-langNav.addEventListener('click', function(e) {
-  const target = e.target.closest('.header__logo-lang')
+langNav.addEventListener('click', function (e) {
+  const target = e.target
+    .closest('.header__logo-lang')
     .querySelector('.header__select-options');
 
   if (target.classList.contains('header__select-options--active')) {
@@ -404,8 +417,9 @@ langNav.addEventListener('click', function(e) {
 const langOpts = document.getElementsByClassName('header__select-option');
 
 for (const option of langOpts) {
-  option.addEventListener('click', function(e) {
-    const active = e.target.closest('.header__lang-tool-item')
+  option.addEventListener('click', function (e) {
+    const active = e.target
+      .closest('.header__lang-tool-item')
       .querySelector('.header__lang-title');
 
     const activeInner = active.innerHTML;
