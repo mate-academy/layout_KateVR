@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable no-shadow */
 /* eslint-disable no-unused-vars */
 'use strict';
 
@@ -483,3 +485,89 @@ for (const option of langOpts) {
     opts.classList.remove('header__select-options--active');
   });
 }
+// Function to validate card number input fields
+
+function validateCardNumber() {
+  const cardNumberInputs = document.querySelectorAll('.buy__form-input--card');
+  let cardNumber = '';
+
+  cardNumberInputs.forEach((input) => {
+    cardNumber += input.value;
+  });
+
+  // Check if card number is 16 digits
+  if (cardNumber.length !== 16 || isNaN(cardNumber)) {
+    document.getElementById('cardNumberValidation').textContent =
+      'Please enter a valid 16-digit card number.';
+
+    return false;
+  } else {
+    document.getElementById('cardNumberValidation').textContent = '';
+
+    return true;
+  }
+}
+
+// Function to validate expiration date input field
+function validateExpirationDate() {
+  const expirationDateInput = document.querySelector('input[name="date"]');
+  const expirationDate = expirationDateInput.value;
+
+  // Check if expiration date is in MM / YY format
+  const dateRegex = /^(0[1-9]|1[0-2]) \/ (2[2-9]|3[0-9])$/;
+
+  if (!dateRegex.test(expirationDate)) {
+    document.getElementById('expirationDateValidation').textContent =
+      'Please enter a valid expiration date in MM / YY format.';
+
+    return false;
+  } else {
+    document.getElementById('expirationDateValidation').textContent = '';
+
+    return true;
+  }
+}
+
+// Function to enable or disable the submit button based on validation
+function updateSubmitButton() {
+  const isValidCardNumber = validateCardNumber();
+  const isValidExpirationDate = validateExpirationDate();
+
+  const submitButton = document.getElementById('submitButtonn');
+
+  submitButton.disabled = !(isValidCardNumber && isValidExpirationDate);
+}
+
+// Function to validate the entire form
+function validateForm(event) {
+  // Prevent the form from being submitted initially
+  event.preventDefault();
+
+  // Clear previous validation messages
+  document.querySelectorAll('.validation-message').forEach((message) => {
+    message.textContent = '';
+  });
+
+  // Validate each input field
+  const isValidCardNumber = validateCardNumber();
+  const isValidExpirationDate = validateExpirationDate();
+
+  // Submit the form if all validations pass
+  if (isValidCardNumber && isValidExpirationDate) {
+    event.target.submit();
+  }
+}
+
+// Add event listeners to input fields to update submit button state
+const cardInputs = document.querySelectorAll('.buy__form-input--card');
+
+cardInputs.forEach((input) => {
+  input.addEventListener('input', updateSubmitButton);
+});
+
+const expirationDateInput = document.querySelector('input[name="date"]');
+
+expirationDateInput.addEventListener('input', updateSubmitButton);
+
+// Ensure the submit button is properly initialized
+updateSubmitButton();

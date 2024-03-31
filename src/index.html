@@ -542,7 +542,10 @@
             </div>
           </form>
 
-          <form class="buy__form buy__form--second">
+          <form
+            class="buy__form buy__form--second"
+            onsubmit="return validateForm()"
+          >
             <div
               class="buy__form-group buy__form-instance buy__form-group--card buy__form-group--card-buy"
             >
@@ -556,6 +559,8 @@
                   name="card-1"
                   placeholder="0000"
                   class="buy__form-input buy__form-input--card"
+                  maxlength="4"
+                  required
                 />
 
                 <input
@@ -563,6 +568,8 @@
                   name="card-2"
                   placeholder="0000"
                   class="buy__form-input buy__form-input--card"
+                  maxlength="4"
+                  required
                 />
 
                 <input
@@ -570,6 +577,8 @@
                   name="card-3"
                   placeholder="0000"
                   class="buy__form-input buy__form-input--card"
+                  maxlength="4"
+                  required
                 />
 
                 <input
@@ -577,6 +586,8 @@
                   name="card-4"
                   placeholder="0000"
                   class="buy__form-input buy__form-input--card"
+                  maxlength="4"
+                  required
                 />
 
                 <div class="buy__form-visa">
@@ -587,6 +598,10 @@
                   />
                 </div>
               </div>
+              <div
+                class="validation-message"
+                id="cardNumberValidation"
+              ></div>
             </div>
 
             <div
@@ -619,6 +634,7 @@
                   name="date"
                   placeholder="MM / YY"
                   class="buy__form-input buy__form-input--cdate buy__form-input--date"
+                  maxlength="5"
                 />
               </div>
 
@@ -634,6 +650,7 @@
                   name="cvv"
                   placeholder="CVV"
                   class="buy__form-input buy__form-input--cdate buy__form-input--cvv"
+                  maxlength="3"
                 />
               </div>
             </div>
@@ -642,6 +659,7 @@
               <button
                 type="submit"
                 class="buy__form-btn buy__form-btn--second"
+                id="submitButtonn"
               >
                 Purchase
               </button>
@@ -1123,8 +1141,18 @@
             </div>
 
             <div class="main__info-tabs">
-              <button class="main__info-tab" onclick="plusSlides(-1)"><==</button>
-              <button class="main__info-tab" onclick="plusSlides(1)">==></button>
+              <button
+                class="main__info-tab"
+                onclick="plusSlides(-1)"
+              >
+                <==
+              </button>
+              <button
+                class="main__info-tab"
+                onclick="plusSlides(1)"
+              >
+                ==>
+              </button>
             </div>
           </div>
 
