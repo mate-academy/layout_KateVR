@@ -390,6 +390,45 @@ function calculateTotal() {
   document.getElementById('totalPrice').innerText = totalPrice.toFixed(0) + '$';
 }
 
+let slideIndex = 1;
+
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides((slideIndex += n));
+}
+
+function currentSlide(n) {
+  showSlides((slideIndex = n));
+}
+
+function showSlides(n) {
+  let i;
+  const slides = document.getElementsByClassName('main__img-item');
+  const dots = document.getElementsByClassName('main__img-dot');
+  const number = document.querySelector('.main__img-number');
+
+  if (n > slides.length) {
+    slideIndex = 1;
+  }
+
+  if (n < 1) {
+    slideIndex = slides.length;
+  }
+
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = 'none';
+  }
+
+  for (i = 0; i < dots.length; i++) {
+    dots[i].classList.remove('main__img-dot--active');
+  }
+
+  slides[slideIndex - 1].style.display = 'block';
+  dots[slideIndex - 1].classList.add('main__img-dot--active');
+  number.innerHTML = slideIndex + '/' + slides.length;
+}
+
 function sort() {
   const numbers = document.querySelectorAll("[data-type='number']");
 
