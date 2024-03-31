@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 'use strict';
 
 document.addEventListener('scroll', function (e) {
@@ -376,6 +377,17 @@ for (const option of options) {
       sort();
     }
   });
+}
+
+document.getElementById('quantity').addEventListener('change', calculateTotal);
+
+function calculateTotal() {
+  const quantity = parseInt(document.getElementById('quantity').value);
+  const pricePerUnit = 1200;
+
+  const totalPrice = quantity * pricePerUnit;
+
+  document.getElementById('totalPrice').innerText = totalPrice.toFixed(0) + '$';
 }
 
 function sort() {
