@@ -406,30 +406,53 @@ function currentSlide(n) {
 
 function showSlides(n) {
   let i;
+  // Get all slides including the big one
   const slides = document.getElementsByClassName('main__img-item');
+  // Filter out the big slide from the slides list to manage display correctly
+  const regularSlides = Array.from(slides).filter(
+    (slide) => !slide.classList.contains('main__img-item--big'),
+  );
   const dots = document.getElementsByClassName('main__img-dot');
   const number = document.querySelector('.main__img-number');
 
-  if (n > slides.length) {
+  if (n > regularSlides.length) {
     slideIndex = 1;
   }
 
   if (n < 1) {
-    slideIndex = slides.length;
+    slideIndex = regularSlides.length;
   }
 
+  // Initially hide all slides
   for (i = 0; i < slides.length; i++) {
     slides[i].style.display = 'none';
   }
 
+  // Remove the active class from all dots
   for (i = 0; i < dots.length; i++) {
     dots[i].classList.remove('main__img-dot--active');
   }
 
-  slides[slideIndex - 1].style.display = 'block';
+  // Display the correct slide
+  regularSlides[slideIndex - 1].style.display = 'block';
+  // Activate the correct dot
   dots[slideIndex - 1].classList.add('main__img-dot--active');
-  number.innerHTML = slideIndex + '/' + slides.length;
+  // Adjust the display of the current number/total correctly
+  number.innerHTML = `${slideIndex}/${regularSlides.length}`;
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+  const prevButton = document.querySelector('.main__info-tab:first-child');
+  const nextButton = document.querySelector('.main__info-tab:last-child');
+
+  prevButton.addEventListener('click', function () {
+    plusSlides(-1);
+  });
+
+  nextButton.addEventListener('click', function () {
+    plusSlides(1);
+  });
+});
 
 function sort() {
   const numbers = document.querySelectorAll("[data-type='number']");
@@ -485,7 +508,6 @@ for (const option of langOpts) {
     opts.classList.remove('header__select-options--active');
   });
 }
-// Function to validate card number input fields
 
 function validateCardNumber() {
   const cardNumberInputs = document.querySelectorAll('.buy__form-input--card');
@@ -495,7 +517,6 @@ function validateCardNumber() {
     cardNumber += input.value;
   });
 
-  // Check if card number is 16 digits
   if (cardNumber.length !== 16 || isNaN(cardNumber)) {
     document.getElementById('cardNumberValidation').textContent =
       'Please enter a valid 16-digit card number.';
@@ -508,12 +529,10 @@ function validateCardNumber() {
   }
 }
 
-// Function to validate expiration date input field
 function validateExpirationDate() {
   const expirationDateInput = document.querySelector('input[name="date"]');
   const expirationDate = expirationDateInput.value;
 
-  // Check if expiration date is in MM / YY format
   const dateRegex = /^(0[1-9]|1[0-2]) \/ (2[2-9]|3[0-9])$/;
 
   if (!dateRegex.test(expirationDate)) {
@@ -528,7 +547,6 @@ function validateExpirationDate() {
   }
 }
 
-// Function to enable or disable the submit button based on validation
 function updateSubmitButton() {
   const isValidCardNumber = validateCardNumber();
   const isValidExpirationDate = validateExpirationDate();
@@ -538,27 +556,21 @@ function updateSubmitButton() {
   submitButton.disabled = !(isValidCardNumber && isValidExpirationDate);
 }
 
-// Function to validate the entire form
 function validateForm(event) {
-  // Prevent the form from being submitted initially
   event.preventDefault();
 
-  // Clear previous validation messages
   document.querySelectorAll('.validation-message').forEach((message) => {
     message.textContent = '';
   });
 
-  // Validate each input field
   const isValidCardNumber = validateCardNumber();
   const isValidExpirationDate = validateExpirationDate();
 
-  // Submit the form if all validations pass
   if (isValidCardNumber && isValidExpirationDate) {
     event.target.submit();
   }
 }
 
-// Add event listeners to input fields to update submit button state
 const cardInputs = document.querySelectorAll('.buy__form-input--card');
 
 cardInputs.forEach((input) => {
@@ -569,5 +581,4 @@ const expirationDateInput = document.querySelector('input[name="date"]');
 
 expirationDateInput.addEventListener('input', updateSubmitButton);
 
-// Ensure the submit button is properly initialized
 updateSubmitButton();
