@@ -1,0 +1,96 @@
+* {
+  font-family: Inter, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  transition: 0.3s;
+}
+
+.page {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: $text-color;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target),
+  &:has(.page__language:target),
+  &:has(.page__faq:target),
+  &:has(.page__help:target),
+  &:has(.page__order:target),
+  &:has(.page__complete:target),
+  &:has(.page__pay:target) {
+    overflow: hidden;
+  }
+
+  &__container {
+    @include content-padding-inline;
+  }
+
+  &__section {
+    padding-block: 50px;
+
+    @include on-tablet {
+      padding-block: 70px;
+    }
+
+    @include on-desktop {
+      padding-block: 100px;
+    }
+
+    @include on-large-desktop {
+      padding-block: 160px;
+    }
+  }
+
+  &__body {
+    min-width: 320px;
+    background: linear-gradient(107.56deg, #191536 0%, #000 100%);
+  }
+
+  &__menu,
+  &__language,
+  &__faq,
+  &__help,
+  &__order,
+  &__complete,
+  &__pay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    transform: translateX(-100%);
+    pointer-events: none;
+    transition: all 0.5;
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+
+  &__title {
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 1.2;
+    color: $white-color;
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+
+    &--accent {
+      font-weight: 400;
+      color: $accent-color;
+    }
+  }
+}
+
+.red {
+  border: 1px solid green;
+}
