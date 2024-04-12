@@ -23,13 +23,16 @@
     }
   }
 
-  &__descr {
+  &__description {
     grid-column: 1 / -1;
     text-align: center;
     position: relative;
+    height: 355px;
 
     @include on-desktop {
       @include page-grid;
+
+      grid-template-rows: 60px repeat(2, 1fr);
     }
   }
 
@@ -37,9 +40,7 @@
     width: 197px;
     height: 195px;
 
-    &:hover {
-      transform: scale(1.01) rotate(5deg);
-    }
+    @include hover(transform, rotate(15deg));
 
     @include on-tablet {
       width: 358px;
@@ -49,10 +50,8 @@
     @include on-desktop {
       width: 297px;
       height: 294px;
-      margin-top: 50px;
-      margin-left: 10px;
       grid-column: 5 / 9;
-      grid-row: 1 / 4;
+      grid-row: 2 / -1;
     }
 
     @include on-large-desktop {
@@ -61,9 +60,10 @@
   }
 
   &__dot {
-    display: block;
     width: 34px;
     height: 34px;
+    border-radius: 50%;
+    border: none;
     background-image: url(../images/tech/dot.svg);
     background-repeat: no-repeat;
     background-size: 34px;
@@ -90,15 +90,6 @@
     }
 
     &--2 {
-      bottom: 15px;
-      left: 30px;
-
-      @include on-tablet {
-        left: 110px;
-      }
-    }
-
-    &--3 {
       top: 80px;
       right: 60px;
 
@@ -107,18 +98,39 @@
         right: 220px;
       }
     }
+
+    &--3 {
+      bottom: 15px;
+      left: 30px;
+
+      @include on-tablet {
+        left: 110px;
+      }
+    }
   }
 
-  &__block {
+  &__info {
     display: none;
+    text-align: left;
 
     @include on-desktop {
       display: block;
-      text-align: left;
+    }
+
+    &-title {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+      }
     }
 
     &--1 {
+      position: absolute;
+      top: 0;
+
       @include on-desktop {
+        position: static;
         grid-column: 1 / 4;
       }
 
@@ -128,9 +140,12 @@
     }
 
     &--2 {
+      position: absolute;
+      top: 210px;
+
       @include on-desktop {
-        grid-column: 9 / 13;
-        margin-bottom: 20px;
+        position: static;
+        grid-column: 9 / -1;
       }
 
       @include on-large-desktop {
@@ -139,13 +154,35 @@
     }
 
     &--3 {
+      position: absolute;
+      bottom: 0;
+      left: 190px;
+
       @include on-desktop {
+        position: static;
         grid-column: 2 / 5;
+        grid-row: 3 / -1;
       }
 
       @include on-large-desktop {
         grid-column: 3 / 6;
       }
+    }
+
+    &--visible {
+      display: block;
+      width: max-content;
+    }
+  }
+
+  &__params {
+    padding: 20px 10px;
+    background: #191536;
+    border-radius: 4px;
+
+    @include on-desktop {
+      padding: 0;
+      background: inherit;
     }
   }
 
@@ -157,24 +194,24 @@
       display: block;
     }
 
-    &--sensor {
+    &--1 {
       @include on-desktop {
         background-image: url(../images/tech/sensor.png);
         width: 403px;
         height: 65px;
-        top: 5px;
-        left: 115px;
+        top: 12px;
+        left: 104px;
       }
 
       @include on-large-desktop {
         background-image: url(../images/tech/sensor-lg.png);
         width: 431px;
         height: 65px;
-        left: 278px;
+        left: 269px;
       }
     }
 
-    &--batterries {
+    &--2 {
       @include on-desktop {
         background-image: url(../images/tech/batteries.png);
         width: 192px;
@@ -191,7 +228,7 @@
       }
     }
 
-    &--connection {
+    &--3 {
       @include on-desktop {
         background-image: url(../images/tech/connection.png);
         width: 134px;
@@ -209,17 +246,17 @@
       }
     }
 
-    &--half {
+    &--semi-circle {
       @include on-desktop {
         background-image: url(../images/tech/half.png);
         width: 40px;
         height: 201px;
-        top: 90px;
-        left: 360px;
+        top: 100px;
+        left: 350px;
       }
 
       @include on-large-desktop {
-        left: 550px;
+        left: 540px;
       }
     }
   }
