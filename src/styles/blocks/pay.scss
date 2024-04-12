@@ -3,6 +3,7 @@
   height: 100vh;
   overflow: auto;
   padding-bottom: 37px;
+  z-index: 1;
 
   @include on-tablet {
     padding-bottom: 43px;
@@ -18,45 +19,11 @@
 
   &__content {
     position: relative;
-
-    @include on-tablet {
-      @include page-grid;
-    }
+    @include page-grid;
   }
 
-  &__img {
-    @include on-tablet {
-      position: absolute;
-      width: 524px;
-      height: 277px;
-      background-image: url(../images/order/order-t.png);
-      top: 150px;
-      left: 80px;
-    }
-
-    @include on-desktop {
-      width: 701px;
-      height: 279px;
-      background-image: url(../images/order/order-d.png);
-      top: 250px;
-      left: -110px;
-    }
-
-    @include on-large-desktop {
-      width: 961px;
-      height: 447px;
-      background-image: url(../images/order/order-d-lg.png);
-      top: 330px;
-      left: -250px;
-    }
-  }
-
-  &__top-bar {
-    margin-bottom: 13px;
-
-    @include on-tablet {
-      grid-column: span 6;
-    }
+  &__top {
+    grid-column: 1 / -1;
 
     @include on-desktop {
       display: block;
@@ -67,11 +34,11 @@
     }
   }
 
-  &__stepper {
+  &__tabs {
+    grid-column: 1 / -1;
     margin-bottom: 30px;
 
     @include on-tablet {
-      margin-bottom: 317px;
       grid-column: span 6;
     }
 
@@ -88,13 +55,44 @@
     }
   }
 
+  &__img {
+    grid-column: 1 / -1;
+    background-image: url(../images/order/order-t.png);
+
+    @include on-tablet {
+      justify-self: center;
+      width: 524px;
+      height: 277px;
+      top: 150px;
+      left: 80px;
+    }
+
+    @include on-desktop {
+      position: absolute;
+      top: 250px;
+      left: -110px;
+      width: 701px;
+      height: 279px;
+      background-image: url(../images/order/order-d.png);
+    }
+
+    @include on-large-desktop {
+      width: 961px;
+      height: 447px;
+      background-image: url(../images/order/order-d-lg.png);
+      top: 330px;
+      left: -234px;
+    }
+  }
+
   &__price-block {
+    grid-column: 1 / -1;
     margin-bottom: 53px;
     align-items: center;
 
     @include on-tablet {
-      margin-bottom: 60px;
       grid-column: 2 / 6;
+      margin-bottom: 60px;
     }
 
     @include on-desktop {
@@ -105,6 +103,8 @@
   }
 
   &__form {
+    grid-column: 1 / -1;
+
     @include on-tablet {
       grid-column: 2 / 6;
     }
