@@ -24,10 +24,19 @@ const techInfo1 = document.querySelector('.tech__info--1');
 const techInfo2 = document.querySelector('.tech__info--2');
 const techInfo3 = document.querySelector('.tech__info--3');
 
-function toggleClassName(el) {
-  el.classList.toggle('tech__info--visible');
+function toggleClassName(el, className) {
+  el.classList.toggle(className);
 }
 
-tech1.addEventListener('click', () => toggleClassName(techInfo1));
-tech2.addEventListener('click', () => toggleClassName(techInfo2));
-tech3.addEventListener('click', () => toggleClassName(techInfo3));
+tech1.addEventListener('click', () => {
+  toggleClassName(tech1, 'tech__dot--open');
+  toggleClassName(techInfo1, 'tech__info--visible');
+});
+tech2.addEventListener('click', () => {
+  toggleClassName(tech2, 'tech__dot--open');
+  toggleClassName(techInfo2, 'tech__info--visible');
+});
+tech3.addEventListener('click', () => {
+  toggleClassName(techInfo3, 'tech__info--visible');
+  toggleClassName(tech3, 'tech__dot--open');
+});

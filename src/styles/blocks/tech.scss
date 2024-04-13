@@ -27,11 +27,11 @@
     grid-column: 1 / -1;
     text-align: center;
     position: relative;
-    height: 355px;
 
     @include on-desktop {
       @include page-grid;
 
+      height: 355px;
       grid-template-rows: 60px repeat(2, 1fr);
     }
   }
@@ -64,10 +64,14 @@
     height: 34px;
     border-radius: 50%;
     border: none;
-    background-image: url(../images/tech/dot.svg);
+    background-image: url(../images/tech/closed-btn.svg);
     background-repeat: no-repeat;
     background-size: 34px;
     position: absolute;
+
+    &--open {
+      background-image: url(../images/tech/open-btn.svg);
+    }
 
     @include on-tablet {
       width: 62px;
