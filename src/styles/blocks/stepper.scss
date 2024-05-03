@@ -1,0 +1,77 @@
+.stepper {
+  padding-bottom: 17px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  @media (min-width: $desktop-min-width) {
+    border: none;
+  }
+
+  @media (min-width: $desktop-lg-min-width) {
+    justify-content: space-around;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 320px;
+    height: 1px;
+    background-color: #2F2F2F;
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+
+    @media (min-width: $tablet-min-width) {
+      width: 768px;
+      left: -34px;
+    }
+
+    @media (min-width: $desktop-min-width) {
+      display: none;
+    }
+  }
+
+  &__link {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15.6px;
+    color: #545454;
+
+    @media (min-width: $tablet-min-width) {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &--active {
+      color: $contrast-color;
+      position: relative;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 106px;
+        height: 1px;
+        bottom: -17px;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: $contrast-color;
+        z-index: 2;
+
+        @media (min-width: $tablet-min-width) {
+          width: 256px;
+        }
+
+        @media (min-width: $desktop-min-width) {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          bottom: -7px;
+          left: 50%;
+          transform: translate(-50%);
+        }
+      }
+    }
+  }
+}
