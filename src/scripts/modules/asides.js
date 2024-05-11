@@ -4,16 +4,22 @@ export const asides = (
   closeButtonRef,
   classOnOpenRef,
 ) => {
-  const languageSwitcher = document.querySelector(`.${switcherRef}`);
-  const languageBody = document.querySelector(`.${bodyRef}`);
-  const languageClose = document.querySelector(`.${closeButtonRef}`);
+  const switcherElement = document.querySelector(`.${switcherRef}`);
+  const contentBody = document.querySelector(`.${bodyRef}`);
+  const closeBtn = document.querySelector(`.${closeButtonRef}`);
   const bodyElem = document.querySelector('body');
-  languageSwitcher.addEventListener('click', () => {
-    languageBody.classList.add(classOnOpenRef);
+  switcherElement.addEventListener('click', () => {
+    if (!bodyElem.classList.contains('page__body--lock')) {
+      bodyElem.classList.add('page__body--lock');
+    }
+    contentBody.classList.add(classOnOpenRef);
   });
-  languageClose.addEventListener('click', () => {
-    if (languageBody.classList.contains(classOnOpenRef)) {
-      languageBody.classList.remove(classOnOpenRef);
+  closeBtn.addEventListener('click', () => {
+    if (bodyElem.classList.contains('page__body--lock')) {
+      bodyElem.classList.remove('page__body--lock');
+    }
+    if (contentBody.classList.contains(classOnOpenRef)) {
+      contentBody.classList.remove(classOnOpenRef);
     }
   });
 };

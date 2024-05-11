@@ -7,6 +7,11 @@ export const burgerFunctionality = () => {
     burger_btn.addEventListener('click', () => {
       burger_btn.classList.toggle('header-burger__btn--open');
       bodyElem.classList.toggle('page__body--lock');
+      if (bodyElem.classList.contains('page__body--lock')) {
+        bodyElem.classList.remove('page__body--lock');
+      } else {
+        bodyElem.classList.add('page__body--lock');
+      }
       header_menu.classList.toggle('header__menu--open');
       header_menu_line.classList.toggle('header-burger__line--open');
     });

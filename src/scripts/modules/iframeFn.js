@@ -6,14 +6,18 @@ export const iframeFn = () => {
   const bodyElem = document.querySelector('body');
   opensButtonPopup.forEach((openBtn) => {
     openBtn.addEventListener('click', () => {
-      bodyElem.classList.add('page__body--lock');
+      if (!bodyElem.classList.contains('page__body--lock')) {
+        bodyElem.classList.add('page__body--lock');
+      }
       popup.classList.add('popup--shown');
       iframe.src =
         'https://www.youtube.com/embed/Cl_eHeom-RI?si=eheZvOS9j3TfBt70?rel=0?autoplay=1';
     });
   });
   closePopup.addEventListener('click', () => {
-    bodyElem.classList.remove('page__body--lock');
+    if (bodyElem.classList.contains('page__body--lock')) {
+      bodyElem.classList.remove('page__body--lock');
+    }
     popup.classList.remove('popup--shown');
     iframe.src = '';
   });
