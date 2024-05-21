@@ -1,0 +1,30 @@
+.main-button {
+  height: 48px;
+  width: 200px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+  font-size: 16px;
+  text-align: center;
+  background-color: $contrast-color;
+  color: $white;
+
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $white;
+    color: $contrast-color;
+  }
+
+  &--tablet {
+    @include on-tablet {
+      display: block;
+      width: 60vw;
+      position: fixed;
+      left: 20vw;
+      bottom: 5vw;
+      z-index: 8;
+    }
+  }
+}

@@ -1,0 +1,289 @@
+.order {
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+  transform: translateY(-100%);
+
+  transition: transform 0.3s ease-in;
+
+  &[style*="display: block"] {
+    transform: translateY(0);
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: $background-gradient;
+    padding-block: 2.3rem;
+    width: 100%;
+    height: 100%;
+    padding-inline: 5rem;
+
+    @include on-large-tablet {
+      overflow: auto hidden;
+      padding-inline: 2.3rem;
+    }
+  }
+
+  &__body {
+    @include on-mobile {
+      width: 100%;
+    }
+  }
+
+  &__nav {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-transform: capitalize;
+
+    @include on-large-tablet {
+      position: relative;
+      & > .page__logo ,
+      & > .modal__close {
+        display: none;
+      }
+      width: 100vw;
+      justify-content: space-around;
+      margin-top: 1rem;
+      border-bottom: 0.06rem solid $text-color;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-large-tablet {
+        display: flex;
+        align-items: baseline;
+        width: 100%;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &__item {
+    text-decoration: none;
+    color: $text-color;
+    position: relative;
+
+    @include on-large-tablet {
+      flex: 0 1 33.33%;
+      text-align: center;
+    }
+
+    &::after {
+      content: "";
+      height: 0.25rem;
+      width: 0.25rem;
+      background-color: $contrast-color;
+      border-radius: 50%;
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: -30%;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+
+      @include on-large-tablet {
+        display: none;
+      }
+    }
+
+    &.active {
+      color: $contrast-color;
+
+      @include on-large-tablet {
+        border-bottom: 0.06rem solid $contrast-color;
+      }
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__tab {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: $white;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease,
+      visibility 0.3s ease,
+      transform 0.5s ease-in-out;
+    transform: translateX(100%);
+
+    &.active {
+      transform: translateX(0);
+      position: unset;
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+
+  &__close {
+    color: $white;
+    font-size: 1.4rem;
+    cursor: pointer;
+  }
+}
+
+.place-order {
+  height: 80vh;
+  display: grid;
+  grid-template-columns: 50% 50%;
+
+  align-items: center;
+  place-content: center;
+  gap: 3.13rem;
+
+  @include on-large-tablet {
+    grid-template-columns: unset;
+    height: 100vh;
+    place-content: unset;
+  }
+
+  @include on-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: stretch;
+    height: 100%;
+  }
+
+  &__left {
+    grid-column: 1/2;
+
+    @include on-mobile {
+      margin-block: 2rem;
+    }
+  }
+  &__right {
+    grid-column: 2/-1;
+
+    &-form {
+      .form__input:nth-of-type(2n+2) {
+        grid-column: 2/-1;
+      }
+    }
+  }
+}
+
+.quantity {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: $text-color;
+
+}
+
+.price {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  color: $text-color;
+
+  &__amount {
+    color: $contrast-color;
+    font-size: 2.25rem;
+  }
+}
+
+.order-product-block {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__image {
+    position: relative;
+    max-width: 60rem;
+    max-height: 32rem;
+    object-fit: cover;
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+
+    @include on-mobile {
+      justify-content: space-between;
+    }
+  }
+}
+
+.pay {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  place-content: center;
+  place-items: center;
+  height: 80vh;
+
+  @include on-large-tablet {
+    grid-template-columns: unset;
+    gap: 3.13rem;
+    place-content: unset;
+  }
+
+  @include on-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  &__block {
+    @include on-mobile {
+      margin-block: 2rem;
+    }
+  }
+}
+
+.order-complete {
+  display: grid;
+  place-items: center;
+  height: 30vh;
+  margin-top: 8rem;
+
+  &__span {
+    color: $contrast-color;
+  }
+
+  @include on-large-tablet {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include on-mobile {
+    gap: 1.5rem;
+  }
+
+  &__title {
+    @include on-mobile {
+      font-size: 1.62rem;
+      text-align: center;
+    }
+  }
+
+  &__paragraph {
+    text-align: center;
+  }
+
+  & > button {
+    @include on-mobile {
+      margin: 0;
+    }
+  }
+}
