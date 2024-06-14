@@ -22,6 +22,7 @@ export const sliders = () => {
       nextEl: '.about-slider__navigation--next',
       prevEl: '.about-slider__navigation--prev',
     },
+    autoHeight: true,
     pagination: {
       el: '.about-slider__progressbar',
       type: 'progressbar',
@@ -34,6 +35,7 @@ export const sliders = () => {
   });
   const aboutSwiperMobile = new Swiper('.about-slider__swiper--mobile', {
     effect: 'fade',
+    autoHeight: true,
     pagination: {
       el: '.about-slider__pagination',
     },
