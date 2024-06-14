@@ -1,0 +1,37 @@
+.video {
+  &__container {
+    @include content-min-width;
+
+    position: relative;
+  }
+
+  &__background {
+    @include grid-container;
+
+    opacity: 0.9;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: $darkColor;
+    overflow: auto;
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+  }
+
+  &__youtube-wrapper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include grid-container;
+  }
+
+  &__youtube {
+    grid-column: 1 / -1;
+
+    border: none;
+  }
+}

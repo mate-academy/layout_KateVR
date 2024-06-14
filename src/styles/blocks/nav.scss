@@ -1,0 +1,45 @@
+.nav {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    font-size: 13px;
+    line-height: 19.5px;
+
+    &--menu {
+      gap: 0;
+
+      font-weight: 500;
+      font-size: 21px;
+      line-height: 27.3px;
+    }
+  }
+
+  &__item--menu {
+    @include grid-container;
+    @include on-hover(background-color, $extraDarkColor);
+  }
+
+  &__link {
+    display: inline-block;
+
+    text-decoration: none;
+    color: $whiteColor;
+
+    @include pointer-cursor;
+    @include on-hover(color, $contrastColor);
+
+    &--menu {
+      grid-column: 1 / -1;
+
+      display: flex;
+      align-items: center;
+      height: 49px;
+    }
+  }
+}

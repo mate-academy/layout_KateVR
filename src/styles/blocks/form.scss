@@ -1,0 +1,55 @@
+.form {
+  &__label {
+    display: block;
+    height: 16px;
+
+    font-size: 14px;
+    line-height: 1em;
+
+    &:has(+ .get-in-touch__input:focus) {
+      color: $contrastColor;
+    }
+  }
+
+  &__input {
+    display: block;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    padding: 0;
+
+    width: 100%;
+    height: 24px;
+
+    margin-bottom: 24px;
+
+    background-color: transparent;
+    border-bottom: 1px solid $darkGreyColor;
+
+    font: inherit;
+    font-size: 16px;
+    line-height: 24px;
+    color: $whiteColor;
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $whiteColor;
+      -webkit-box-shadow: 0 0 0 50px $backgroundBlackColor inset;
+    }
+
+    &:focus {
+      border-color: $contrastColor;
+    }
+
+    &--textarea {
+      resize: none;
+      height: 72px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__contact-btn {
+    border: none;
+    outline: none;
+    padding: 0;
+  }
+}

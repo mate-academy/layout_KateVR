@@ -1,0 +1,74 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 0 14px;
+
+  &--close {
+    justify-content: flex-end;
+    padding: 20px 0 38px;
+  }
+
+  &--language {
+    justify-content: flex-start;
+    padding: 20px 0 38px;
+  }
+
+  &--order {
+    padding: 19px 0 31.2px;
+  }
+
+  &__icon {
+    display: block;
+    width: 20px;
+    height: 10px;
+
+    background-image: url(../images/icons/menu-icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include pointer-cursor;
+    @include on-hover(transform, scale(1.25));
+    @include on-hover(
+      background-image,
+      url(../images/icons/menu-icon-hover.svg)
+    );
+
+    &--close {
+      width: 17px;
+      height: 17.22px;
+      background-image: url(../images/icons/close-icon.svg);
+
+      @include on-hover(
+        background-image,
+        url(../images/icons/close-icon-hover.svg)
+      );
+    }
+
+    &--order-close {
+      width: 14.61px;
+      height: 14.8px;
+      background-image: url(../images/icons/close-icon.svg);
+
+      @include on-hover(transform, scale(1.35));
+      @include on-hover(
+        background-image,
+        url(../images/icons/close-icon-hover.svg)
+      );
+    }
+
+    &--back {
+      width: 8.5px;
+      height: 17px;
+      background-image: url(../images/icons/back-icon.svg);
+
+      @include on-hover(transform, scale(1.35));
+      @include on-hover(
+        background-image,
+        url(../images/icons/back-icon-hover.svg)
+      );
+    }
+  }
+}

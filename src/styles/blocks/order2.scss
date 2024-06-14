@@ -1,0 +1,149 @@
+.order2 {
+  &__content {
+    @include content-min-width;
+
+    width: 100vw;
+    height: 100vh;
+    background: $gradient;
+    overflow: auto;
+  }
+
+  &__top-bar-wrapper {
+    @include grid-container;
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+  }
+
+  &__order-stage {
+    margin-bottom: 30px;
+  }
+
+  &__qty-price {
+    margin-inline: auto;
+    margin-bottom: 53px;
+  }
+
+  &__inputs-container {
+    @include grid-container;
+
+    margin-bottom: 40px;
+  }
+
+  &__card-num {
+    grid-column: span 2;
+    margin-bottom: 16px;
+
+    width: 100%;
+    height: 81px;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 17px;
+
+    font-size: 14px;
+    line-height: 18.2px;
+
+    &--holder {
+      margin-bottom: 0;
+      line-height: 1em;
+    }
+
+    &--cvv {
+      margin-bottom: 12px;
+    }
+
+    &:has(+ .order2__input:focus),
+    &:has(+ .order2__card-num-inputs > .order2__input:focus) {
+      color: $contrastColor;
+    }
+  }
+
+  &__card-num-inputs {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__input {
+    display: block;
+    box-sizing: border-box;
+    padding: 0;
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid $darkGreyColor;
+
+    font: inherit;
+    font-size: 18px;
+    line-height: 23.4px;
+    color: $whiteColor;
+
+    &::placeholder {
+      color: $darkGreyColor;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $whiteColor;
+      -webkit-box-shadow: 0 0 0 50px $backgroundBlackColor inset;
+    }
+
+    &:focus {
+      border-color: $contrastColor;
+    }
+
+    &--card-num {
+      width: 56px;
+      height: 32px;
+      padding-bottom: 8px;
+      letter-spacing: 0.1em;
+    }
+
+    &--holder-name {
+      font: inherit;
+      line-height: 22px;
+    }
+
+    &--expiration-date {
+      width: 90px;
+      height: 31px;
+      padding-bottom: 6px;
+      letter-spacing: 0.1em;
+    }
+
+    &--cvv {
+      width: 41px;
+      height: 31px;
+      padding-bottom: 7px;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  &__holder-name {
+    grid-column: span 2;
+
+    margin-bottom: 30px;
+    width: 100%;
+    height: 37px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__expiration-date {
+    grid-column: span 1;
+  }
+
+  &__cvv {
+    grid-column: span 1;
+    align-self: end;
+  }
+
+  &__purchase-btn {
+    margin-inline: auto;
+    margin-bottom: 37px;
+  }
+}

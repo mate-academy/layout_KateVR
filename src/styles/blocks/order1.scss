@@ -1,0 +1,198 @@
+.order1 {
+  &__content {
+    @include content-min-width;
+
+    width: 100vw;
+    height: 100vh;
+    background: $gradient;
+    overflow: auto;
+  }
+
+  &__top-bar-wrapper {
+    @include grid-container;
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+  }
+
+  &__order-stage {
+    margin-bottom: 30px;
+  }
+
+  &__qty-price {
+    margin-inline: auto;
+    margin-bottom: 30px;
+  }
+
+  &__inputs-container {
+    @include grid-container;
+
+    margin-bottom: 40px;
+  }
+
+  &__input-wrapper {
+    grid-column: 1 / -1;
+
+    margin-bottom: 30px;
+
+    width: 100%;
+    height: 37px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    line-height: 1em;
+
+    &:has(+ .order1__input:focus) {
+      color: $contrastColor;
+    }
+  }
+
+  &__input {
+    display: block;
+    box-sizing: border-box;
+    padding: 0;
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $darkGreyColor;
+    width: 100%;
+    background-color: transparent;
+
+    font: inherit;
+    line-height: 22px;
+    color: $whiteColor;
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $whiteColor;
+      -webkit-box-shadow: 0 0 0 50px $backgroundBlackColor inset;
+    }
+
+    &:focus {
+      border-color: $contrastColor;
+    }
+  }
+
+  &__select-field {
+    grid-column: 1 / -1;
+    margin-bottom: 30px;
+
+    width: 100%;
+    height: 78px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__select-name {
+    font-size: 14px;
+    line-height: 18.2px;
+  }
+
+  &__select-wrapper {
+    position: relative;
+    width: 100%;
+    height: 47px;
+    border-radius: 4px;
+    background-color: $darkColor;
+    background-image: url(../images/icons/select-icon.svg);
+    background-repeat: no-repeat;
+    background-position: 254px center;
+
+    text-align: left;
+    line-height: 20.8px;
+    color: $whiteColor;
+  }
+
+  &__select-value {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding-left: 24px;
+
+    display: flex;
+    align-items: center;
+
+    @include pointer-cursor;
+    @include on-hover(color, $contrastColor);
+  }
+
+  &__select-list {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    width: 100%;
+    border-radius: 4px;
+    background-color: $darkColor;
+
+    transition: opacity 0.3s;
+    opacity: 0;
+    pointer-events: none;
+
+    &--visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      right: 0;
+      display: block;
+      width: 1px;
+      background-color: $lightBlueColor;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: 0;
+      display: block;
+      width: 1px;
+      height: 22px;
+      background-color: $contrastColor;
+    }
+  }
+
+  &__select-ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    padding: 13px 0 15px 24px;
+
+    box-sizing: border-box;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  &__select-li {
+    width: 100%;
+
+    @include pointer-cursor;
+    @include on-hover(color, $contrastColor);
+
+    &--selected {
+      display: none;
+    }
+  }
+
+  &__purchase-btn {
+    margin-inline: auto;
+    margin-bottom: 37px;
+  }
+}

@@ -1,0 +1,60 @@
+.order3 {
+  &__content {
+    @include content-min-width;
+
+    width: 100vw;
+    height: 100vh;
+    background: $gradient;
+    overflow: auto;
+  }
+
+  &__top-bar-wrapper {
+    @include grid-container;
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+  }
+
+  &__order-stage {
+    margin-bottom: 90px;
+  }
+
+  &__info {
+    @include grid-container;
+
+    justify-items: center;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin: 0;
+    margin-bottom: 16px;
+
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 33.8px;
+    color: $whiteColor;
+
+    & > span {
+      font-weight: 400;
+      color: $contrastColor;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    margin: 0;
+    margin-bottom: 30px;
+
+    text-align: center;
+    line-height: 20.8px;
+    color: $whiteColor;
+  }
+
+  &__home-btn {
+    margin-inline: auto;
+  }
+}

@@ -1,0 +1,79 @@
+.help {
+  &__content {
+    @include content-min-width;
+    @include grid-container;
+
+    width: 100vw;
+    height: 100vh;
+    background-color: $darkColor;
+    overflow: auto;
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-bottom: 30px;
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-bottom: 30px;
+  }
+
+  &__links {
+    grid-column: 1 / -1;
+  }
+
+  &__link {
+    display: inline-block;
+
+    text-decoration: none;
+    color: $contrastColor;
+
+    margin-bottom: 20px;
+
+    @include pointer-cursor;
+    @include on-hover(color, $whiteColor);
+
+    &:last-child {
+      margin-bottom: 30px;
+    }
+
+    &--in-description {
+      display: inline;
+      margin: 0;
+    }
+  }
+
+  &__contacts {
+    grid-column: 1 / -1;
+  }
+
+  &__contact-link {
+    display: inline-block;
+    text-decoration: none;
+    color: $textColor;
+
+    line-height: 19.36px;
+
+    margin-bottom: 11px;
+
+    @include pointer-cursor;
+    @include on-hover(color, $whiteColor);
+
+    &--email-1 {
+      margin-bottom: 8px;
+    }
+
+    &--email-2 {
+      margin-bottom: 30px;
+    }
+  }
+}
