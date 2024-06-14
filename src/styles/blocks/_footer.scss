@@ -1,0 +1,120 @@
+.footer {
+  &__wrapper {
+    padding-block: 45px;
+    background-color: $black;
+  }
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 20px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+      gap: 0 15px;
+      align-items: center;
+    }
+  }
+  &__contact-link {
+    font-size: 13px;
+    font-weight: 400;
+    color: $grey;
+    line-height: 1.21;
+  }
+  &__logo {
+    grid-column: 1/-1;
+    margin-bottom: 15px;
+    img {
+      width: 69px;
+      display: block;
+
+      @include on-laptop {
+        width: 72px;
+      }
+    }
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      margin-bottom: 0;
+    }
+  }
+  &__menu {
+    grid-row: 2 / 4;
+    grid-column: 1 / 2;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      grid-row: auto;
+    }
+  }
+  &__info {
+    grid-row: 2 / 3;
+    grid-column: 2 / -1;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+  &__social-item {
+    img {
+      display: block;
+    }
+  }
+  &__social-links {
+    grid-row: 3 / 4;
+    grid-column: 2 / -1;
+    margin-top: 18px;
+
+    @include on-tablet {
+      grid-row: auto;
+      grid-column: 6 / -1;
+      margin-top: 0;
+    }
+  }
+  &__social-list {
+    display: flex;
+    gap: 15px;
+
+    @include on-tablet {
+      justify-content: flex-end;
+      align-items: center;
+    }
+  }
+  &__contact-info {
+    & + & {
+      margin-top: 8px;
+    }
+  }
+}
+
+.footer-menu {
+  &__list {
+    display: block;
+
+    @include on-tablet {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+    }
+  }
+  &__link {
+    color: $white;
+    font-size: 13px;
+    transition: color 0.3s ease-in-out;
+    &:hover {
+      color: $main;
+    }
+
+    @include on-tablet {
+      font-size: 16px;
+    }
+  }
+  &__item {
+    & + & {
+      margin-top: 13px;
+
+      @include on-tablet {
+        margin-top: 0;
+      }
+    }
+  }
+}

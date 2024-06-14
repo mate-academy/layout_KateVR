@@ -1,0 +1,162 @@
+.hero {
+  background: $gradient;
+  padding-bottom: 40px;
+
+  @include on-laptop {
+    padding-bottom: 90px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include on-tablet {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      gap: 25px;
+    }
+  }
+  &__title {
+    display: block;
+    color: $white;
+    margin-bottom: 20px;
+    &--highlighted {
+      font-weight: 400;
+      color: $main;
+    }
+  }
+  &__text {
+    font-weight: 500;
+    color: $grey;
+    margin-bottom: 10px;
+  }
+  &__price {
+    color: $white;
+    text-align: center;
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+  }
+  &__image {
+    margin-bottom: 25px;
+
+    @include on-tablet {
+      max-width: 400px;
+    }
+
+    @include on-laptop {
+      max-width: 540px;
+    }
+
+    @include on-desktop {
+      max-width: 670px;
+    }
+  }
+  &__information {
+    max-width: 480px;
+
+    @include on-desktop {
+      max-width: 540px;
+    }
+  }
+  &__play-column {
+    max-width: 340px;
+    margin-left: auto;
+
+    @include on-laptop {
+      max-width: 360px;
+    }
+  }
+  &__top {
+    margin-bottom: 0;
+
+    @include on-laptop {
+      margin-bottom: 90px;
+    }
+  }
+}
+
+.hero-bottom {
+  display: none;
+  &__link--help {
+    cursor: pointer;
+  }
+}
+
+@include on-laptop {
+  .hero-bottom {
+    display: block;
+    &__wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &__actions {
+      display: flex;
+      max-width: 100px;
+      width: 100%;
+      justify-content: space-between;
+    }
+    &__link {
+      color: $white;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        color: $main;
+      }
+    }
+    &__more-link {
+      color: $main;
+      position: relative;
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -12px;
+        left: 50%;
+        transform: translateX(-50%);
+        background-image: url('./../images/vector/arrow-down.svg');
+        width: 9px;
+        height: 6px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transition: bottom 0.3s ease-in-out;
+      }
+      &:hover {
+        &::after {
+          bottom: -17px;
+        }
+      }
+    }
+    &__navigate {
+      color: $white;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      &.swiper-button-disabled {
+        color: $grey;
+      }
+      &:disabled {
+        cursor: default;
+      }
+      &:hover:not(:disabled) {
+        color: $main;
+      }
+    }
+    &__controls {
+      display: flex;
+      gap: 75px;
+      position: relative;
+    }
+  }
+}
+
+.hero-bottom__line.swiper-pagination-progressbar.swiper-pagination-horizontal {
+  top: auto;
+  bottom: -10px;
+  height: 1px;
+  background-color: $progressBar;
+  .swiper-pagination-progressbar-fill {
+    background-color: $main;
+  }
+}

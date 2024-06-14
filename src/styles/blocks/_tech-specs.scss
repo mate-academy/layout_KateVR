@@ -1,0 +1,342 @@
+.tech-item {
+  &__title {
+    display: none;
+
+    @include on-laptop {
+      display: block;
+      color: $white;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+  }
+  &__plus {
+    border-radius: 50%;
+    width: 34px;
+    height: 34px;
+    background-color: $main;
+    cursor: pointer;
+    position: relative;
+
+    @include on-tablet {
+      width: 62px;
+      height: 62px;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 1px;
+      width: 12px;
+      background-color: $white;
+      display: block;
+      transform: translate(-50%, -50%);
+
+      @include on-tablet {
+        width: 22px;
+      }
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      height: 12px;
+      width: 1px;
+      background-color: $white;
+      display: block;
+      transition: all 0.3s ease-in-out;
+      transform: translate(-50%, -50%);
+
+      @include on-tablet {
+        height: 22px;
+      }
+    }
+    &--active {
+      background-color: #07798b;
+      &::before {
+        height: 0;
+      }
+    }
+
+    @include on-laptop {
+      display: none;
+    }
+  }
+  &__content {
+    background-color: $secondary;
+    border-radius: 4px;
+    padding-inline: 12px;
+    padding-block: 15px;
+    text-align: left;
+    position: absolute;
+    width: 165px;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
+    transition: all 0.3s ease-in-out;
+
+    @include on-tablet {
+      width: 190px;
+    }
+
+    @include on-laptop {
+      background-color: unset;
+      width: 250px;
+    }
+
+    &--open {
+      transform: translateY(0);
+      pointer-events: all;
+      opacity: 1;
+    }
+    &--first {
+      left: -95px;
+      top: 40px;
+
+      @include on-tablet {
+        top: 75px;
+      }
+
+      @include on-laptop {
+        top: -70px;
+        left: 10px;
+      }
+
+      @include on-desktop {
+        left: 190px;
+      }
+    }
+    &--second {
+      left: -70px;
+      top: 40px;
+
+      @include on-tablet {
+        top: 70px;
+        left: -190px;
+        width: 380px;
+      }
+
+      @include on-laptop {
+        top: -72px;
+        right: -9px;
+        left: auto;
+        width: 340px;
+      }
+    }
+    &--third {
+      top: -30px;
+      left: 40px;
+
+      @include on-tablet {
+        left: 80px;
+      }
+
+      @include on-laptop {
+        left: 100px;
+        top: auto;
+        bottom: 10px;
+      }
+
+      @include on-desktop {
+        left: 300px;
+      }
+    }
+
+    @include on-laptop {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+  }
+  &__text {
+    color: $grey;
+    font-size: 12px;
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+
+    @include on-laptop {
+      font-size: 16px;
+    }
+  }
+}
+
+.tech-specs {
+  &__title {
+    color: $white;
+    text-align: right;
+    margin-bottom: 30px;
+
+    @include on-laptop {
+      margin-bottom: 90px;
+    }
+    &--highlited {
+      color: $main;
+      font-weight: 400;
+    }
+  }
+  &__sensor {
+    display: none;
+
+    @include on-laptop {
+      display: block;
+      position: absolute;
+      width: 38.5%;
+      height: 25%;
+      top: -45px;
+      left: 11.5%;
+      z-index: 1;
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-image: url('./../images/vector/sensor.svg');
+    }
+
+    @include on-desktop {
+      left: 20%;
+    }
+  }
+  &__batteries {
+    display: none;
+
+    @include on-laptop {
+      z-index: 1;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 18.5%;
+      height: 80%;
+      display: block;
+      position: absolute;
+      top: -15%;
+      left: 48%;
+      background-image: url('./../images/vector/batteries.svg');
+    }
+
+    @include on-desktop {
+      left: 56%;
+    }
+  }
+  &__connection {
+    display: none;
+
+    @include on-laptop {
+      z-index: 1;
+      background-repeat: no-repeat;
+      background-size: contain;
+      width: 12.5%;
+      height: 38%;
+      display: block;
+      position: absolute;
+      right: auto;
+      top: 22%;
+      left: 24%;
+      background-image: url('./../images/vector/connection.svg');
+    }
+
+    @include on-desktop {
+      left: 30.5%;
+    }
+  }
+  &__wrapper {
+    text-align: center;
+    padding-block: 50px;
+
+    @include on-laptop {
+      padding-block: 100px;
+    }
+  }
+  &__image {
+    text-align: center;
+
+    @include on-laptop {
+      position: relative;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 48%;
+        left: -10px;
+        background-image: url('./../images/vector/ellipse.svg');
+        width: 50px;
+        height: 224px;
+        background-size: contain;
+        background-repeat: no-repeat;
+        transform: translateY(-50%);
+      }
+    }
+  }
+  &__inner {
+    display: inline-flex;
+    position: relative;
+
+    @include on-laptop {
+      display: flex;
+      justify-content: center;
+    }
+  }
+  &__item {
+    position: absolute;
+    &--first {
+      top: -8px;
+      left: 62px;
+
+      @include on-tablet {
+        top: -25px;
+        left: 68px;
+      }
+
+      @include on-laptop {
+        top: 0;
+        left: 0;
+      }
+    }
+    &--second {
+      top: 50%;
+      right: 27px;
+      transform: translateY(-50%);
+
+      @include on-tablet {
+        right: 52px;
+      }
+
+      @include on-laptop {
+        top: 0;
+        right: 0;
+      }
+
+      @include on-desktop {
+        right: 100px;
+      }
+    }
+    &--third {
+      bottom: 12px;
+      left: -15px;
+
+      @include on-tablet {
+        bottom: 27px;
+        left: -55px;
+      }
+
+      @include on-laptop {
+        bottom: 0;
+        left: 0;
+      }
+    }
+  }
+  &__picture {
+    width: 197px;
+
+    @include on-tablet {
+      width: 365px;
+    }
+
+    @include on-laptop {
+      width: 300px;
+    }
+
+    @include on-desktop {
+      width: 310px;
+    }
+  }
+}

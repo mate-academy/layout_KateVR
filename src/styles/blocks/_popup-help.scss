@@ -1,0 +1,147 @@
+.popup-help {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
+  background-color: $secondary;
+  z-index: 6;
+  transition: all 0.3s ease-in-out;
+  overflow: hidden auto;
+  &__content {
+    position: relative;
+    background-color: $secondary;
+    max-width: 880px;
+    margin: 0 auto;
+    transition: all 0.8s ease-in-out;
+
+    @include on-laptop {
+      opacity: 0;
+      transform: perspective(600px) translate(0, -100%) rotateX(45deg);
+      padding: 35px 25px;
+    }
+  }
+
+  @include on-laptop {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.8s ease-in-out;
+    left: 0;
+    background-color: #000000d6;
+  }
+  &.popup-help--open {
+    left: 0;
+
+    @include on-laptop {
+      opacity: 1;
+      visibility: visible;
+    }
+    .popup-help__content {
+      @include on-laptop {
+        opacity: 1;
+        transform: perspective(600px) translate(0, 0) rotateX(0deg);
+      }
+    }
+  }
+
+  &__title {
+    color: #fff;
+    margin-bottom: 30px;
+    &--highlited {
+      color: $main;
+    }
+
+    @include on-laptop {
+      margin-bottom: 30px;
+    }
+  }
+  &__text {
+    color: $grey;
+    & + & {
+      margin-top: 20px;
+    }
+  }
+  &__inline-link {
+    color: $main;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  &__inner {
+    position: relative;
+    padding-top: 75px;
+    padding-bottom: 20px;
+    background-color: $secondary;
+    padding-inline: 15px;
+    overflow: auto;
+
+    @include on-laptop {
+      padding-top: 50px;
+    }
+  }
+  &__url {
+    color: $main;
+    &:hover {
+      text-decoration: underline;
+    }
+    &--grey {
+      color: $grey;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  &__link {
+    margin-top: 25px;
+    & + & {
+      margin-top: 10px;
+    }
+  }
+  &__close-btn {
+    cursor: pointer;
+  }
+  &__close-button {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    width: 19px;
+    height: 19px;
+
+    @include on-laptop {
+      top: 15px;
+      right: 15px;
+      left: auto;
+    }
+
+    &:hover {
+      transform: rotate(180deg);
+    }
+  }
+  &__item {
+    padding-block: 11px;
+    padding-left: 22px;
+    &--active {
+      background-color: $link;
+    }
+  }
+  &__lang {
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: $white;
+    display: block;
+  }
+  &__body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 70px 20px 30px;
+
+    @include on-laptop {
+      min-height: 100%;
+      padding: 30px 10px;
+    }
+  }
+}

@@ -1,0 +1,196 @@
+.about {
+  background: $gradient;
+  padding: 50px 0;
+  &__slider {
+    margin-bottom: 30px;
+
+    @include on-laptop {
+      margin-bottom: 190px;
+    }
+  }
+
+  @include on-laptop {
+    padding: 105px 0;
+  }
+  &__slider--desktop {
+    display: none;
+  }
+}
+
+.about-info {
+  &__wrapper {
+    display: grid;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include on-laptop {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+  &__content {
+    grid-column: 1/5;
+
+    @include on-laptop {
+      grid-column: span 5;
+    }
+  }
+  &__image {
+    grid-column: 5/-1;
+
+    @include on-laptop {
+      grid-column: 7/-1;
+    }
+  }
+  &__picture {
+    width: 100%;
+  }
+  &__text {
+    color: $grey;
+  }
+  &__title {
+    color: $white;
+  }
+  &__highlited {
+    font-weight: 400;
+    color: $main;
+  }
+  &__pretitle {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.21;
+    color: $main;
+    margin-bottom: 15px;
+  }
+}
+
+.about-slider {
+  &__progressbar.swiper-pagination-progressbar.swiper-pagination-horizontal {
+    top: auto;
+    bottom: -15px;
+  }
+  &__fraction {
+    color: $main;
+    display: none;
+    font-size: 14px;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    @include on-laptop {
+      display: block;
+    }
+  }
+  &__navigation {
+    color: $white;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      color: $main;
+    }
+    &.swiper-button-disabled {
+      color: $grey;
+    }
+  }
+  &__controls {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    @include on-laptop {
+      max-width: 207px;
+      margin-bottom: 0;
+    }
+    .swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+      background-color: $main;
+      height: 1px;
+    }
+  }
+  &__title--mobile {
+    @include on-tablet {
+      display: none;
+    }
+  }
+  &__title--desktop {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+  &__swiper {
+    padding-left: 0;
+    padding-bottom: 20px;
+    position: relative;
+    min-width: 0;
+    grid-column: span 1;
+    overflow: hidden;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+    &--desktop {
+      display: none;
+
+      @include on-laptop {
+        display: block;
+      }
+    }
+    &--mobile {
+      @include on-laptop {
+        display: none;
+      }
+    }
+
+    @include on-laptop {
+      padding-left: 40px;
+    }
+  }
+  &__title {
+    color: $white;
+    margin-bottom: 50px;
+    &--highlighted {
+      font-weight: 400;
+      color: $main;
+    }
+  }
+  &__text {
+    color: $grey;
+    margin-bottom: 25px;
+  }
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+    @include on-tablet {
+      column-gap: 20px;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+  &__content {
+    grid-column: span 1;
+
+    @include on-tablet {
+      grid-column: 5/ -1;
+    }
+  }
+  &__picture {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+
+    @include on-laptop {
+      height: 100%;
+    }
+  }
+  &__slides {
+    margin-bottom: 20px;
+  }
+}
