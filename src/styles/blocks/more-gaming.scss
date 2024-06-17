@@ -1,0 +1,159 @@
+.more-gaming {
+  &__content {
+    @include grid-container;
+
+    box-sizing: border-box;
+    padding-block: 50px;
+
+    @include on-tablet {
+      padding-block: 70px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-bottom: 12px;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      grid-row: 1 / 2;
+      text-align: center;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-bottom: 30px;
+    height: 30px;
+
+    font-size: 12px;
+    line-height: 14.52px;
+    color: $contrastColor;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      grid-row: 2 / 3;
+      text-align: center;
+    }
+  }
+
+  &__article {
+    grid-column: 1 / -1;
+
+    margin-bottom: 20px;
+
+    width: 100%;
+    height: 82px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    @include on-tablet {
+      grid-column: span 3;
+      margin-bottom: 40px;
+
+      align-items: center;
+
+      &:nth-of-type(n + 3) {
+        margin-bottom: 0;
+      }
+
+      &--education {
+        grid-row: 3 / 4;
+        height: 230px;
+      }
+
+      &--real-estate {
+        grid-row: 3 / 4;
+        height: 230px;
+      }
+
+      &--fitness {
+        grid-row: 4 / 5;
+        height: 227px;
+      }
+
+      &--social-interactions {
+        grid-row: 4 / 5;
+        height: 235px;
+      }
+    }
+  }
+
+  &__article-icon {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 98px;
+      height: 81px;
+
+      background-image: url(../images/more-gaming/education.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      &--real-estate {
+        width: 84px;
+        height: 84px;
+        background-image: url(../images/more-gaming/real-estate.svg);
+      }
+
+      &--fitness {
+        width: 110px;
+        height: 80.44px;
+        background-image: url(../images/more-gaming/fitness.svg);
+      }
+
+      &--social-interactions {
+        width: 83px;
+        height: 83px;
+        background-image: url(../images/more-gaming/social-interactions.svg);
+      }
+    }
+  }
+
+  &__article-title {
+    margin: 0;
+
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 21.78px;
+    color: $whiteColor;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      text-align: center;
+    }
+
+    &--education {
+      font-size: 16px;
+      line-height: 19.36px;
+    }
+  }
+
+  &__article-description {
+    margin: 0;
+
+    &--full {
+      display: none;
+    }
+
+    @include on-tablet {
+      display: none;
+
+      &--full {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}

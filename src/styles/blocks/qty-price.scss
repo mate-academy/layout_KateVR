@@ -5,12 +5,21 @@
   display: flex;
   justify-content: space-between;
 
+  @include on-tablet {
+    width: 347px;
+    height: 88px;
+  }
+
   &__quantity-wrapper {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    @include on-tablet {
+      align-items: flex-start;
+    }
   }
 
   &__quantity-label {
@@ -31,6 +40,10 @@
     font-size: 20px;
     line-height: 26px;
     color: $whiteColor;
+
+    @include on-tablet {
+      height: 47px;
+    }
   }
 
   &__select-value {
@@ -69,6 +82,10 @@
     transition: opacity 0.3s;
     opacity: 0;
     pointer-events: none;
+
+    @include on-tablet {
+      top: 50px;
+    }
 
     &--visible {
       opacity: 1;
@@ -128,14 +145,28 @@
     width: 85px;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    gap: 10px;
+
+    @include on-tablet {
+      width: 109px;
+      align-items: flex-start;
+    }
   }
 
   &__price-value {
+    margin-bottom: 10px;
+
     font-weight: 500;
     font-size: 26px;
     line-height: 31.47px;
     color: $contrastColor;
+
+    @include on-tablet {
+      margin-bottom: 3px;
+
+      font-size: 36px;
+      line-height: 43.57px;
+    }
   }
 }

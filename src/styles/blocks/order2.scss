@@ -18,41 +18,85 @@
 
   &__order-stage {
     margin-bottom: 30px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__main-content {
+    @include grid-container;
+
+    justify-items: center;
+  }
+
+  &__img {
+    display: none;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+
+      display: block;
+      width: 524px;
+      height: 277px;
+
+      object-fit: contain;
+      object-position: center;
+    }
   }
 
   &__qty-price {
-    margin-inline: auto;
+    grid-column: 1 / -1;
     margin-bottom: 53px;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      justify-self: start;
+      margin-bottom: 60px;
+    }
   }
 
   &__inputs-container {
-    @include grid-container;
-
+    grid-column: 1 / -1;
+    width: 100%;
     margin-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      margin-bottom: 104px;
+    }
   }
 
-  &__card-num {
-    grid-column: span 2;
-    margin-bottom: 16px;
-
+  &__card-num-wrapper {
     width: 100%;
-    height: 81px;
+    height: 67px;
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include on-tablet {
+      height: 68px;
+      margin-bottom: 38px;
+    }
   }
 
   &__label {
     display: block;
-    margin-bottom: 17px;
+    height: 18px;
+
+    align-self: flex-start;
 
     font-size: 14px;
-    line-height: 18.2px;
+    line-height: 18px;
 
     &--holder {
-      margin-bottom: 0;
+      height: 14px;
       line-height: 1em;
-    }
-
-    &--cvv {
-      margin-bottom: 12px;
     }
 
     &:has(+ .order2__input:focus),
@@ -61,9 +105,26 @@
     }
   }
 
-  &__card-num-inputs {
+  &__card-num-inputs-wrapper {
     display: flex;
     justify-content: space-between;
+  }
+
+  &__visa-icon {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 54px;
+      height: 33.7px;
+
+      align-self: flex-end;
+
+      background-image: url(../images/icons/visa-icon.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
   }
 
   &__input {
@@ -81,13 +142,19 @@
     line-height: 23.4px;
     color: $whiteColor;
 
+    @include on-tablet {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
     &::placeholder {
       color: $darkGreyColor;
+      text-align: center;
     }
 
     &:-webkit-autofill {
       -webkit-text-fill-color: $whiteColor;
-      -webkit-box-shadow: 0 0 0 50px $backgroundBlackColor inset;
+      -webkit-box-shadow: 0 0 0 70px $backgroundBlackColor inset;
     }
 
     &:focus {
@@ -97,8 +164,14 @@
     &--card-num {
       width: 56px;
       height: 32px;
-      padding-bottom: 8px;
+      padding-bottom: 9px;
       letter-spacing: 0.1em;
+
+      @include on-tablet {
+        width: 70px;
+        padding-bottom: 6px;
+        letter-spacing: 0.2em;
+      }
     }
 
     &--holder-name {
@@ -109,41 +182,78 @@
     &--expiration-date {
       width: 90px;
       height: 31px;
-      padding-bottom: 6px;
+      padding-bottom: 7px;
       letter-spacing: 0.1em;
     }
 
     &--cvv {
       width: 41px;
       height: 31px;
-      padding-bottom: 7px;
+      padding-bottom: 8px;
       letter-spacing: 0.1em;
+
+      @include on-tablet {
+        width: 49px;
+        padding-bottom: 5px;
+      }
     }
   }
 
-  &__holder-name {
-    grid-column: span 2;
-
-    margin-bottom: 30px;
+  &__holder-name-wrapper {
     width: 100%;
     height: 37px;
+    margin-bottom: 30px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include on-tablet {
+      height: 44px;
+      margin-bottom: 40px;
+    }
+  }
+
+  &__date-and-cvv {
+    display: flex;
   }
 
   &__expiration-date {
-    grid-column: span 1;
+    width: 150px;
+    height: 66px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include on-tablet {
+      width: 240px;
+    }
   }
 
   &__cvv {
-    grid-column: span 1;
+    width: 130px;
+    height: 61px;
     align-self: end;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include on-tablet {
+      width: 220px;
+    }
   }
 
   &__purchase-btn {
-    margin-inline: auto;
+    grid-column: 1 / -1;
+
     margin-bottom: 37px;
+
+    @include on-tablet {
+      margin-bottom: 43px;
+    }
   }
 }

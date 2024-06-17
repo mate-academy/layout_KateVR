@@ -1,5 +1,5 @@
 @mixin on-tablet {
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     @content;
   }
 }
@@ -11,7 +11,7 @@
 }
 
 @mixin on-desktop {
-  @media (min-width: 1440px) {
+  @media (min-width: 1920px) {
     @content;
   }
 }
@@ -25,6 +25,10 @@
   grid-template-columns: repeat(2, 130px);
   column-gap: 20px;
   place-content: start center;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 100px);
+  }
 }
 
 @mixin on-hover($_property, $_toValue) {

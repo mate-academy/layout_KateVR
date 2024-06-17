@@ -18,21 +18,59 @@
 
   &__order-stage {
     margin-bottom: 30px;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__main-content {
+    @include grid-container;
+
+    justify-items: center;
+  }
+
+  &__img {
+    display: none;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+
+      display: block;
+      width: 100%;
+      height: 277px;
+
+      object-fit: contain;
+      object-position: center;
+    }
   }
 
   &__qty-price {
-    margin-inline: auto;
+    grid-column: 1 / -1;
+
     margin-bottom: 30px;
+
+    @include on-tablet {
+      justify-self: start;
+
+      margin-bottom: 48px;
+    }
   }
 
   &__inputs-container {
+    grid-column: 1 / -1;
+
     @include grid-container;
 
     margin-bottom: 40px;
+
+    @include on-tablet {
+      margin-bottom: 58px;
+    }
   }
 
   &__input-wrapper {
-    grid-column: 1 / -1;
+    grid-column: span 2;
 
     margin-bottom: 30px;
 
@@ -42,13 +80,25 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-start;
 
     &:last-of-type {
       margin-bottom: 0;
     }
+
+    @include on-tablet {
+      grid-column: span 3;
+
+      margin-bottom: 40px;
+
+      &:nth-of-type(7) {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__label {
+    height: 14px;
     font-size: 14px;
     line-height: 1em;
 
@@ -60,15 +110,18 @@
   &__input {
     display: block;
     box-sizing: border-box;
+    width: 100%;
+    height: 23px;
+
     padding: 0;
     outline: none;
     border: none;
-    border-bottom: 1px solid $darkGreyColor;
-    width: 100%;
+
     background-color: transparent;
+    border-bottom: 1px solid $darkGreyColor;
 
     font: inherit;
-    line-height: 22px;
+    line-height: 23px;
     color: $whiteColor;
 
     &:-webkit-autofill {
@@ -82,7 +135,7 @@
   }
 
   &__select-field {
-    grid-column: 1 / -1;
+    grid-column: span 2;
     margin-bottom: 30px;
 
     width: 100%;
@@ -91,6 +144,11 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
+    @include on-tablet {
+      grid-column: span 3;
+      margin-bottom: 40px;
+    }
   }
 
   &__select-name {
@@ -107,6 +165,10 @@
     background-image: url(../images/icons/select-icon.svg);
     background-repeat: no-repeat;
     background-position: 254px center;
+
+    @include on-tablet {
+      background-position: 315px center;
+    }
 
     text-align: left;
     line-height: 20.8px;
@@ -192,7 +254,12 @@
   }
 
   &__purchase-btn {
-    margin-inline: auto;
+    grid-column: 1 / -1;
+
     margin-bottom: 37px;
+
+    @include on-tablet {
+      margin-bottom: 43px;
+    }
   }
 }

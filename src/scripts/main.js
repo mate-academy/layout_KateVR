@@ -1,5 +1,6 @@
 'use strict';
 
+// #region aboutSlider
 // About Slider
 
 const slider = document.querySelector('.slider');
@@ -44,12 +45,16 @@ function addActiveClass(item) {
   sliderPoints[item].classList.add('slider__point--active');
 }
 
+// #endregion
+
+// #region techSpecsButtons
 // Tech Specs Buttons
 
-const techSpecsDetails = document.querySelector('.tech-specs__details');
-const techSpecsButtons = techSpecsDetails.querySelectorAll('.tech-specs__btn');
+const techSpecsImgWrapper = document.querySelector('.tech-specs__img-wrapper');
+const techSpecsButtons =
+  techSpecsImgWrapper.querySelectorAll('.tech-specs__btn');
 
-techSpecsDetails.addEventListener('click', (e) => {
+techSpecsImgWrapper.addEventListener('click', (e) => {
   const pressedBtn = e.target.closest('.tech-specs__btn');
 
   if (!pressedBtn) {
@@ -73,6 +78,9 @@ for (const techSpecsButton of techSpecsButtons) {
   });
 }
 
+// #endregion
+
+// #region formValidation
 // Get In Touch / Form Validation
 
 const form = document.querySelector('.form');
@@ -251,6 +259,9 @@ function setColor(label, input, labelColor, inputBorderColor) {
   input.style.borderColor = inputBorderColor;
 }
 
+// #endregion
+
+// #region scrollBuyNowLink
 // Scroll Buy Now Link
 
 const buyNowLink = document.querySelector('.page__buy-now-btn');
@@ -268,11 +279,16 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// FAQ
+// #endregion
 
-const faq = document.getElementById('faq');
+// #region faqSelectQuestion
+// FAQ Select Question
 
-faq.addEventListener('click', (e) => {
+const faqSection = document.getElementById('faq');
+const faqMoreBtn = faqSection.querySelector('.faq__more-btn');
+const questions = faqSection.querySelectorAll('.faq__question');
+
+faqSection.addEventListener('click', (e) => {
   const question = e.target.closest('.faq__question');
 
   if (!question) {
@@ -280,8 +296,41 @@ faq.addEventListener('click', (e) => {
   }
 
   question.classList.toggle('faq__question--selected');
+
+  let isMoreBtnDisabled = true;
+
+  for (const question of questions) {
+    if (!question.classList.contains('faq__question--selected')) {
+      isMoreBtnDisabled = false;
+
+      break;
+    }
+  }
+
+  faqMoreBtn.disabled = isMoreBtnDisabled;
 });
 
+faqMoreBtn.addEventListener('click', () => {
+  for (const question of questions) {
+    if (!question.classList.contains('faq__question--selected')) {
+      question.classList.add('faq__question--selected');
+
+      break;
+    }
+  }
+
+  const selectedQuestions = faqSection.querySelectorAll(
+    '.faq__question--selected',
+  );
+
+  if (questions.length === selectedQuestions.length) {
+    faqMoreBtn.disabled = true;
+  }
+});
+
+// #endregion
+
+// #region videoClosing
 // Closing The Video In The Correct Section
 
 const headerPlayVideoBtn = document.querySelector('.header__play-video');
@@ -297,6 +346,9 @@ aboutPlayVideoBtn.addEventListener('click', () => {
   videoCloseIcon.setAttribute('href', '#about');
 });
 
+// #endregion
+
+// #region selectQuantity
 // Select Quantity
 
 const qtyPriceSection1 = document.querySelector('.order1__qty-price');
@@ -384,6 +436,9 @@ function handleClickQtySelList(
   li.classList.add('qty-price__select-li--selected');
 }
 
+// #endregion
+
+// #region selectCountry/City
 // Select Country/City
 
 const countrySelect = document.querySelector(
@@ -454,3 +509,76 @@ function handleClickSelectList(event, selectField, selectValue) {
 
   selectedLi.classList.remove('order1__select-li--selected');
 }
+
+// #endregion
+
+// #region setOrder2Quantity
+// Set Order 2 Quantity After Click On Order 1 Purchase Button
+
+const order1PurchaseBtn = document.querySelector('.order1__purchase-btn');
+
+order1PurchaseBtn.addEventListener('click', () => {
+  const currQtyTxt = quantitySelectValue1.innerText;
+  const currQty = +currQtyTxt;
+
+  price2.textContent = `${currQty * 1200}$`;
+
+  quantitySelectValue2.textContent = currQtyTxt;
+  quantitySelectValue2.classList.toggle(
+    'qty-price__select-value--changed',
+    currQty !== 1,
+  );
+
+  const order2LiCollection = qtyPriceSection2.querySelectorAll(
+    '.qty-price__select-li',
+  );
+  const order2LiArr = [...order2LiCollection];
+
+  const order2PrevSelectedLi = order2LiArr.find((li) => {
+    return li.classList.contains('qty-price__select-li--selected');
+  });
+
+  const order2NextSelectedLi = order2LiArr.find((li) => {
+    return li.innerText === currQtyTxt;
+  });
+
+  if (order2NextSelectedLi !== order2PrevSelectedLi) {
+    order2NextSelectedLi.classList.add('qty-price__select-li--selected');
+    order2PrevSelectedLi.classList.remove('qty-price__select-li--selected');
+  }
+});
+
+// #endregion
+
+// #region numInputs
+// Order 2 Card Number & CVV Inputs Validation
+
+const cardNumInputs = document.querySelectorAll('.order2__input--card-num');
+const cvvInput = document.querySelector('.order2__input--cvv');
+
+for (const cardNumInput of cardNumInputs) {
+  cardNumInput.addEventListener('input', (e) => {
+    handleNumInputValidation(e, cardNumInput, 4);
+  });
+}
+
+cvvInput.addEventListener('input', (e) => {
+  handleNumInputValidation(e, cvvInput, 3);
+});
+
+function handleNumInputValidation(event, input, length) {
+  const inputValue = event.target.value.trim();
+
+  if (!isNaN(+inputValue)) {
+    input.value = inputValue.slice(0, length);
+  } else {
+    const inputCharsArr = inputValue.split('');
+    const inputNumCharsArr = inputCharsArr.filter((char) => {
+      return numbers.includes(char);
+    });
+
+    input.value = inputNumCharsArr.join('').slice(0, length);
+  }
+}
+
+// #endregion

@@ -11,18 +11,14 @@
     font-size: 13px;
     line-height: 19.5px;
 
-    &--menu {
-      gap: 0;
+    @include on-tablet {
+      width: 306px;
+      flex-direction: row;
+      justify-content: space-between;
 
-      font-weight: 500;
-      font-size: 21px;
-      line-height: 27.3px;
+      font-size: 14px;
+      line-height: 22px;
     }
-  }
-
-  &__item--menu {
-    @include grid-container;
-    @include on-hover(background-color, $extraDarkColor);
   }
 
   &__link {
@@ -33,13 +29,5 @@
 
     @include pointer-cursor;
     @include on-hover(color, $contrastColor);
-
-    &--menu {
-      grid-column: 1 / -1;
-
-      display: flex;
-      align-items: center;
-      height: 49px;
-    }
   }
 }

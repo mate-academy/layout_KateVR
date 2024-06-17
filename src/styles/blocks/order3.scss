@@ -18,9 +18,13 @@
 
   &__order-stage {
     margin-bottom: 90px;
+
+    @include on-tablet {
+      margin-bottom: 180px;
+    }
   }
 
-  &__info {
+  &__main-content {
     @include grid-container;
 
     justify-items: center;
@@ -38,6 +42,13 @@
     line-height: 33.8px;
     color: $whiteColor;
 
+    @include on-tablet {
+      margin-bottom: 20px;
+
+      font-size: 46px;
+      line-height: 60px;
+    }
+
     & > span {
       font-weight: 400;
       color: $contrastColor;
@@ -52,9 +63,17 @@
     text-align: center;
     line-height: 20.8px;
     color: $whiteColor;
+
+    @include on-tablet {
+      margin-bottom: 50px;
+
+      font-size: 18px;
+      line-height: 23.4px;
+    }
   }
 
   &__home-btn {
-    margin-inline: auto;
+    grid-column: 1 / -1;
+    margin-bottom: 50px;
   }
 }
