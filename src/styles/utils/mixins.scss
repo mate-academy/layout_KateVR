@@ -29,10 +29,15 @@
   @include on-tablet {
     grid-template-columns: repeat(6, 100px);
   }
+
+  @include on-laptop {
+    grid-template-columns: repeat(12, 70px);
+  }
 }
 
 @mixin on-hover($_property, $_toValue) {
-  transition: all 0.3s;
+  transition: all $transitionDuration;
+
   &:hover {
     #{$_property}: $_toValue;
   }

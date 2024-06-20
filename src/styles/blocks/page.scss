@@ -21,7 +21,7 @@
     top: 0;
     z-index: 3;
 
-    transition: all 0.3s;
+    transition: all $transitionDuration;
     transform: translateX(100%);
     opacity: 0;
     pointer-events: none;
@@ -33,19 +33,38 @@
     }
   }
 
-  &__buy-now-btn {
+  &__nav {
+    position: fixed;
+    top: 0;
+    z-index: 2;
+
+    visibility: hidden;
+    pointer-events: none;
+
+    @include on-laptop {
+      visibility: visible;
+      pointer-events: all;
+    }
+  }
+
+  &__buy-now {
     position: fixed;
     z-index: 2;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
 
-    transition: opacity 0.3s;
+    transition: opacity $transitionDuration;
     opacity: 1;
     pointer-events: all;
 
     @include on-tablet {
       bottom: 31px;
+    }
+
+    @include on-laptop {
+      visibility: hidden;
+      pointer-events: none;
     }
 
     &--hidden {

@@ -3,6 +3,7 @@
     @include content-min-width;
     @include grid-container;
 
+    box-sizing: border-box;
     width: 100%;
     height: 100vh;
     min-height: 554px;
@@ -11,6 +12,12 @@
     @include on-tablet {
       min-height: 445px;
     }
+
+    @include on-laptop {
+      min-height: 740px;
+
+      padding-top: 196px;
+    }
   }
 
   &__top-bar {
@@ -18,6 +25,10 @@
 
     @include on-tablet {
       grid-row: 1 / 2;
+    }
+
+    @include on-laptop {
+      display: none;
     }
   }
 
@@ -28,17 +39,32 @@
     width: 100%;
     height: 172px;
 
-    background-image: url(../images/main-img/main-img.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    object-fit: cover;
+    object-position: center;
 
     @include on-tablet {
       grid-column: 4 / -1;
       grid-row: 2 / 6;
 
       height: 100%;
-      background-size: contain;
+      object-fit: contain;
+    }
+
+    @include on-laptop {
+      display: none;
+    }
+  }
+
+  &__slider {
+    display: none;
+
+    @include on-laptop {
+      display: block;
+
+      grid-column: 7 / -1;
+      grid-row: 1 / 5;
+
+      margin-bottom: 84px;
     }
   }
 
@@ -63,6 +89,16 @@
       grid-column: span 3;
       grid-row: 2 / 3;
     }
+
+    @include on-laptop {
+      grid-column: span 6;
+      grid-row: 1 / 2;
+
+      margin-bottom: 19px;
+
+      font-size: 46px;
+      line-height: 60px;
+    }
   }
 
   &__description {
@@ -78,6 +114,14 @@
       grid-row: 3 / 4;
 
       margin-bottom: 16px;
+    }
+
+    @include on-laptop {
+      grid-column: 2 / 6;
+      grid-row: 2 / 3;
+
+      height: 87px;
+      margin-bottom: 5px;
     }
   }
 
@@ -101,6 +145,13 @@
 
       text-align: left;
     }
+
+    @include on-laptop {
+      grid-column: 2 / 4;
+      grid-row: 3 / 4;
+
+      margin-bottom: 20px;
+    }
   }
 
   &__play-video {
@@ -113,6 +164,56 @@
       grid-row: 5 / 6;
 
       margin-bottom: 0;
+    }
+
+    @include on-laptop {
+      grid-column: 2 / 5;
+      grid-row: 4 / 5;
+
+      margin-bottom: 84px;
+    }
+  }
+
+  &__bottom-bar {
+    display: none;
+
+    @include on-laptop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      grid-column: 1 / -1;
+      grid-row: 5 / 6;
+
+      margin-bottom: 84px;
+    }
+  }
+
+  &__faq-help-links {
+    align-self: flex-start;
+    width: 207px;
+    height: 24px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 39px;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: 500;
+    color: $whiteColor;
+
+    @include pointer-cursor;
+    @include on-hover(color, $contrastColor);
+  }
+
+  &__prev-next {
+    display: none;
+
+    @include on-laptop {
+      display: block;
     }
   }
 }

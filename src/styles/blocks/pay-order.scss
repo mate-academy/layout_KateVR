@@ -1,77 +1,18 @@
-.order2 {
-  &__content {
-    @include content-min-width;
+.pay-order {
+  @include grid-container;
 
-    width: 100vw;
-    height: 100vh;
-    background: $gradient;
-    overflow: auto;
+  @include on-tablet {
+    grid-template-columns: repeat(4, 100px);
   }
 
-  &__top-bar-wrapper {
-    @include grid-container;
-  }
-
-  &__top-bar {
-    grid-column: 1 / -1;
-  }
-
-  &__order-stage {
-    margin-bottom: 30px;
-
-    @include on-tablet {
-      margin-bottom: 40px;
-    }
-  }
-
-  &__main-content {
-    @include grid-container;
-
-    justify-items: center;
-  }
-
-  &__img {
-    display: none;
-
-    @include on-tablet {
-      grid-column: 1 / -1;
-
-      display: block;
-      width: 524px;
-      height: 277px;
-
-      object-fit: contain;
-      object-position: center;
-    }
-  }
-
-  &__qty-price {
-    grid-column: 1 / -1;
-    margin-bottom: 53px;
-
-    @include on-tablet {
-      grid-column: 2 / -2;
-      justify-self: start;
-      margin-bottom: 60px;
-    }
-  }
-
-  &__inputs-container {
-    grid-column: 1 / -1;
-    width: 100%;
-    margin-bottom: 40px;
-
-    display: flex;
-    flex-direction: column;
-
-    @include on-tablet {
-      grid-column: 2 / -2;
-      margin-bottom: 104px;
-    }
+  @include on-laptop {
+    grid-template-columns: repeat(5, 70px);
   }
 
   &__card-num-wrapper {
-    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+
     height: 67px;
     margin-bottom: 30px;
 
@@ -82,6 +23,11 @@
     @include on-tablet {
       height: 68px;
       margin-bottom: 38px;
+    }
+
+    @include on-laptop {
+      height: 67px;
+      margin-bottom: 40px;
     }
   }
 
@@ -99,8 +45,8 @@
       line-height: 1em;
     }
 
-    &:has(+ .order2__input:focus),
-    &:has(+ .order2__card-num-inputs > .order2__input:focus) {
+    &:has(+ .pay-order__input:focus),
+    &:has(+ .pay-order__card-num-inputs-wrapper > .pay-order__input:focus) {
       color: $contrastColor;
     }
   }
@@ -200,7 +146,9 @@
   }
 
   &__holder-name-wrapper {
-    width: 100%;
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+
     height: 37px;
     margin-bottom: 30px;
 
@@ -214,13 +162,12 @@
     }
   }
 
-  &__date-and-cvv {
-    display: flex;
-  }
-
   &__expiration-date {
-    width: 150px;
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+
     height: 66px;
+    margin-bottom: 40px;
 
     display: flex;
     flex-direction: column;
@@ -228,14 +175,23 @@
     align-items: flex-start;
 
     @include on-tablet {
-      width: 240px;
+      grid-column: 1 / 3;
+      margin-bottom: 104px;
+    }
+
+    @include on-laptop {
+      margin-bottom: 90px;
     }
   }
 
   &__cvv {
-    width: 130px;
-    height: 61px;
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+
     align-self: end;
+
+    height: 61px;
+    margin-bottom: 40px;
 
     display: flex;
     flex-direction: column;
@@ -243,17 +199,23 @@
     align-items: flex-start;
 
     @include on-tablet {
-      width: 220px;
+      grid-column: 3 / 5;
+      margin-bottom: 104px;
+    }
+
+    @include on-laptop {
+      margin-bottom: 90px;
     }
   }
 
-  &__purchase-btn {
+  &__purchase-btn-wrapper {
     grid-column: 1 / -1;
+    grid-row: 4 / 5;
 
-    margin-bottom: 37px;
+    justify-self: center;
 
-    @include on-tablet {
-      margin-bottom: 43px;
+    @include on-laptop {
+      justify-self: start;
     }
   }
 }

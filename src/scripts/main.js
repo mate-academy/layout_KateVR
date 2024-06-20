@@ -1,48 +1,124 @@
 'use strict';
 
-// #region aboutSlider
+// #region sliders
 // About Slider
 
-const slider = document.querySelector('.slider');
-const slides = slider.querySelector('.slider__slides');
-const sliderPoints = slider.querySelectorAll('.slider__point');
-const sliderWidth = slides.offsetWidth;
+const about = document.getElementById('about');
+const aboutSliderNumber = about.querySelector('.about__slider-number');
 
-slides.addEventListener('scroll', () => {
-  for (const point of sliderPoints) {
-    if (point.classList.contains('slider__point--active')) {
-      point.classList.remove('slider__point--active');
-    }
-  }
+const aboutSlides = about.querySelector('.slider__slides');
+const aboutSliderPoints = about.querySelectorAll('.slider__point');
 
-  switch (slides.scrollLeft) {
+const aboutSliderUnderlines = about.querySelectorAll('.prev-next__underline');
+const aboutPrevSlideBtn = about.querySelector('.prev-next__btn--prev');
+const aboutNextSlideBtn = about.querySelector('.prev-next__btn--next');
+
+const aboutSlideWidth = aboutSlides.getBoundingClientRect().width;
+
+let aboutTimerId = 0;
+
+aboutSlides.addEventListener('scroll', () => {
+  window.clearTimeout(aboutTimerId);
+
+  aboutTimerId = window.setTimeout(() => {
+    scrollSlider(aboutSlides, aboutSlideWidth, updateAboutSlider);
+  }, 300);
+});
+
+aboutNextSlideBtn.addEventListener('click', () => {
+  aboutSlides.scrollLeft += aboutSlideWidth;
+});
+
+aboutPrevSlideBtn.addEventListener('click', () => {
+  aboutSlides.scrollLeft -= aboutSlideWidth;
+});
+
+function updateAboutSlider(slideIndex) {
+  aboutPrevSlideBtn.disabled = slideIndex === 0;
+  aboutNextSlideBtn.disabled = slideIndex === 4;
+  aboutSliderNumber.textContent = `${slideIndex + 1}/5`;
+
+  const activeUnderline = about.querySelector('.prev-next__underline--active');
+
+  activeUnderline.classList.remove('prev-next__underline--active');
+  aboutSliderUnderlines[slideIndex].classList.add(
+    'prev-next__underline--active',
+  );
+
+  const activePoint = about.querySelector('.slider__point--active');
+
+  activePoint.classList.remove('slider__point--active');
+  aboutSliderPoints[slideIndex].classList.add('slider__point--active');
+}
+
+// Header Slider
+
+const header = document.querySelector('.header');
+
+const headerSlides = header.querySelector('.slider__slides--header');
+const headerSliderUnderlines = header.querySelectorAll('.prev-next__underline');
+const headerPrevSlideBtn = header.querySelector('.prev-next__btn--prev');
+const headerNextSlideBtn = header.querySelector('.prev-next__btn--next');
+
+const headerSlideWidth = headerSlides.getBoundingClientRect().width;
+
+let headerTimerId = 0;
+
+headerSlides.addEventListener('scroll', () => {
+  window.clearTimeout(headerTimerId);
+
+  headerTimerId = window.setTimeout(() => {
+    scrollSlider(headerSlides, headerSlideWidth, updateHeaderSlider);
+  }, 300);
+});
+
+headerNextSlideBtn.addEventListener('click', () => {
+  headerSlides.scrollLeft += headerSlideWidth;
+});
+
+headerPrevSlideBtn.addEventListener('click', () => {
+  headerSlides.scrollLeft -= headerSlideWidth;
+});
+
+function updateHeaderSlider(slideIndex) {
+  headerPrevSlideBtn.disabled = slideIndex === 0;
+  headerNextSlideBtn.disabled = slideIndex === 4;
+
+  const activeUnderline = header.querySelector('.prev-next__underline--active');
+
+  activeUnderline.classList.remove('prev-next__underline--active');
+  headerSliderUnderlines[slideIndex].classList.add(
+    'prev-next__underline--active',
+  );
+}
+
+function scrollSlider(slides, slideWidth, updateSlider) {
+  const scrollLeft = Math.floor(slides.scrollLeft);
+
+  switch (scrollLeft) {
     case 0:
-      addActiveClass(0);
+      updateSlider(0);
       break;
 
-    case sliderWidth:
-      addActiveClass(1);
+    case slideWidth:
+      updateSlider(1);
       break;
 
-    case 2 * sliderWidth:
-      addActiveClass(2);
+    case slideWidth * 2:
+      updateSlider(2);
       break;
 
-    case 3 * sliderWidth:
-      addActiveClass(3);
+    case slideWidth * 3:
+      updateSlider(3);
       break;
 
-    case 4 * sliderWidth:
-      addActiveClass(4);
+    case slideWidth * 4:
+      updateSlider(4);
       break;
 
     default:
       break;
   }
-});
-
-function addActiveClass(item) {
-  sliderPoints[item].classList.add('slider__point--active');
 }
 
 // #endregion
@@ -264,7 +340,7 @@ function setColor(label, input, labelColor, inputBorderColor) {
 // #region scrollBuyNowLink
 // Scroll Buy Now Link
 
-const buyNowLink = document.querySelector('.page__buy-now-btn');
+const buyNowLink = document.querySelector('.page__buy-now');
 const getInTouchSection = document.getElementById('contact');
 const getInTouchTop = getInTouchSection.offsetTop;
 const windowHeight = window.innerHeight;
@@ -273,9 +349,9 @@ window.addEventListener('scroll', () => {
   const scrollY = window.scrollY;
 
   if (scrollY > getInTouchTop - windowHeight) {
-    buyNowLink.classList.add('page__buy-now-btn--hidden');
+    buyNowLink.classList.add('page__buy-now--hidden');
   } else {
-    buyNowLink.classList.remove('page__buy-now-btn--hidden');
+    buyNowLink.classList.remove('page__buy-now--hidden');
   }
 });
 
@@ -285,7 +361,7 @@ window.addEventListener('scroll', () => {
 // FAQ Select Question
 
 const faqSection = document.getElementById('faq');
-const faqMoreBtn = faqSection.querySelector('.faq__more-btn');
+const faqMoreBtn = faqSection.querySelector('.more-btn');
 const questions = faqSection.querySelectorAll('.faq__question');
 
 faqSection.addEventListener('click', (e) => {
@@ -348,111 +424,76 @@ aboutPlayVideoBtn.addEventListener('click', () => {
 
 // #endregion
 
-// #region selectQuantity
+// #region selectFields
 // Select Quantity
 
-const qtyPriceSection1 = document.querySelector('.order1__qty-price');
-const price1 = qtyPriceSection1.querySelector('.qty-price__price-value');
-const quantitySelect1 = qtyPriceSection1.querySelector(
-  '.qty-price__select-wrapper',
-);
-const quantitySelectValue1 = quantitySelect1.querySelector(
-  '.qty-price__select-value',
-);
-const quantitySelectList1 = quantitySelect1.querySelector(
-  '.qty-price__select-list',
-);
+const orderPlace = document.getElementById('order-place');
+const orderPay = document.getElementById('order-pay');
 
-const qtyPriceSection2 = document.querySelector('.order2__qty-price');
-const price2 = qtyPriceSection2.querySelector('.qty-price__price-value');
-const quantitySelect2 = qtyPriceSection2.querySelector(
-  '.qty-price__select-wrapper',
-);
-const quantitySelectValue2 = quantitySelect2.querySelector(
-  '.qty-price__select-value',
-);
-const quantitySelectList2 = quantitySelect2.querySelector(
-  '.qty-price__select-list',
-);
+const price1 = orderPlace.querySelector('.qty-price__price-value');
+const qtySelect1 = orderPlace.querySelector('.select-qty');
+const qtySelectValue1 = orderPlace.querySelector('.select-qty__current-value');
+const qtySelectList1 = orderPlace.querySelector('.select-qty__list-wrapper');
 
-quantitySelect1.addEventListener('click', () => {
-  quantitySelectList1.classList.toggle('qty-price__select-list--visible');
+const price2 = orderPay.querySelector('.qty-price__price-value');
+const qtySelect2 = orderPay.querySelector('.select-qty');
+const qtySelectValue2 = orderPay.querySelector('.select-qty__current-value');
+const qtySelectList2 = orderPay.querySelector('.select-qty__list-wrapper');
+
+qtySelect1.addEventListener('click', () => {
+  qtySelectList1.classList.toggle('select-qty__list-wrapper--visible');
 });
 
-quantitySelectList1.addEventListener('click', (e) => {
-  handleClickQtySelList(e, quantitySelect1, quantitySelectValue1, price1);
+qtySelectList1.addEventListener('click', (e) => {
+  handleClickQuantityList(e, qtySelect1, qtySelectValue1, price1);
 });
 
-quantitySelect2.addEventListener('click', () => {
-  quantitySelectList2.classList.toggle('qty-price__select-list--visible');
+qtySelect2.addEventListener('click', () => {
+  qtySelectList2.classList.toggle('select-qty__list-wrapper--visible');
 });
 
-quantitySelectList2.addEventListener('click', (e) => {
-  handleClickQtySelList(e, quantitySelect2, quantitySelectValue2, price2);
+qtySelectList2.addEventListener('click', (e) => {
+  handleClickQuantityList(e, qtySelect2, qtySelectValue2, price2);
 });
 
-document.addEventListener('click', (e) => {
-  handleClickOutsideQtySelList(e, quantitySelectList1);
-  handleClickOutsideQtySelList(e, quantitySelectList2);
-});
-
-function handleClickOutsideQtySelList(event, quantitySelectList) {
-  if (
-    !event.target.closest('.qty-price__select-wrapper') &&
-    quantitySelectList.classList.contains('qty-price__select-list--visible')
-  ) {
-    quantitySelectList.classList.remove('qty-price__select-list--visible');
-  }
-}
-
-function handleClickQtySelList(
-  event,
-  quantitySelect,
-  quantitySelectValue,
-  price,
-) {
-  const li = event.target.closest('.qty-price__select-li');
+function handleClickQuantityList(event, qtySelect, qtySelectValue, price) {
+  const li = event.target.closest('.select-qty__item');
 
   if (!li) {
     return;
   }
 
   const liText = li.innerText;
-  const selectedQuantity = +liText;
+  const selectedQty = +liText;
 
-  price.textContent = `${selectedQuantity * 1200}$`;
+  price.textContent = `${selectedQty * 1200}$`;
 
-  quantitySelectValue.textContent = liText;
-  quantitySelectValue.classList.toggle(
-    'qty-price__select-value--changed',
+  qtySelectValue.textContent = liText;
+  qtySelectValue.classList.toggle(
+    'select-qty__current-value--changed',
     li.innerText !== '1',
   );
 
-  const selectedLi = quantitySelect.querySelector(
-    '.qty-price__select-li--selected',
-  );
+  const selectedLi = qtySelect.querySelector('.select-qty__item--selected');
 
-  selectedLi.classList.remove('qty-price__select-li--selected');
-  li.classList.add('qty-price__select-li--selected');
+  selectedLi.classList.remove('select-qty__item--selected');
+  li.classList.add('select-qty__item--selected');
 }
 
-// #endregion
+// Select Country / City
 
-// #region selectCountry/City
-// Select Country/City
-
-const countrySelect = document.querySelector(
-  '.order1__select-wrapper--country',
+const countrySelect = document.querySelector('.select--country');
+const countrySelectValue = countrySelect.querySelector(
+  '.select__current-value',
 );
-const countrySelectValue = countrySelect.querySelector('.order1__select-value');
-const countrySelectList = countrySelect.querySelector('.order1__select-list');
+const countrySelectList = countrySelect.querySelector('.select__list-wrapper');
 
-const citySelect = document.querySelector('.order1__select-wrapper--city');
-const citySelectValue = citySelect.querySelector('.order1__select-value');
-const citySelectList = citySelect.querySelector('.order1__select-list');
+const citySelect = document.querySelector('.select--city');
+const citySelectValue = citySelect.querySelector('.select__current-value');
+const citySelectList = citySelect.querySelector('.select__list-wrapper');
 
 countrySelect.addEventListener('click', () => {
-  countrySelectList.classList.toggle('order1__select-list--visible');
+  countrySelectList.classList.toggle('select__list-wrapper--visible');
 });
 
 countrySelectList.addEventListener('click', (e) => {
@@ -460,38 +501,15 @@ countrySelectList.addEventListener('click', (e) => {
 });
 
 citySelect.addEventListener('click', () => {
-  citySelectList.classList.toggle('order1__select-list--visible');
+  citySelectList.classList.toggle('select__list-wrapper--visible');
 });
 
 citySelectList.addEventListener('click', (e) => {
   handleClickSelectList(e, citySelect, citySelectValue);
 });
 
-document.addEventListener('click', (e) => {
-  handleClickOutsideSelectList(
-    e,
-    '.order1__select-wrapper--country',
-    countrySelectList,
-  );
-
-  handleClickOutsideSelectList(
-    e,
-    '.order1__select-wrapper--city',
-    citySelectList,
-  );
-});
-
-function handleClickOutsideSelectList(event, selector, selectList) {
-  if (
-    !event.target.closest(selector) &&
-    selectList.classList.contains('order1__select-list--visible')
-  ) {
-    selectList.classList.remove('order1__select-list--visible');
-  }
-}
-
 function handleClickSelectList(event, selectField, selectValue) {
-  const li = event.target.closest('.order1__select-li');
+  const li = event.target.closest('.select__item');
 
   if (!li) {
     return;
@@ -499,43 +517,121 @@ function handleClickSelectList(event, selectField, selectValue) {
 
   selectValue.innerText = li.innerText;
 
-  const selectedLi = selectField.querySelector('.order1__select-li--selected');
+  const selectedLi = selectField.querySelector('.select__item--selected');
 
-  li.classList.add('order1__select-li--selected');
+  li.classList.add('select__item--selected');
 
   if (!selectedLi) {
     return;
   }
 
-  selectedLi.classList.remove('order1__select-li--selected');
+  selectedLi.classList.remove('select__item--selected');
+}
+
+// Select Language
+
+const langSelect = document.querySelector('.select-lang');
+
+const langSelectValue = langSelect.querySelector('.select-lang__current-value');
+const langSelectList = langSelect.querySelector('.select-lang__list-wrapper');
+
+langSelect.addEventListener('click', () => {
+  langSelectList.classList.toggle('select-lang__list-wrapper--visible');
+});
+
+langSelectList.addEventListener('click', (e) => {
+  handleClickLangList(e, langSelect, langSelectValue);
+});
+
+function handleClickLangList(event, selectField, selectValue) {
+  const li = event.target.closest('.select-lang__item');
+
+  if (!li) {
+    return;
+  }
+
+  selectValue.innerText = li.innerText;
+
+  const selectedLi = selectField.querySelector('.select-lang__item--selected');
+
+  li.classList.add('select-lang__item--selected');
+
+  if (!selectedLi) {
+    return;
+  }
+
+  selectedLi.classList.remove('select-lang__item--selected');
+}
+
+document.addEventListener('click', (e) => {
+  handleClickOutsideSelectList(
+    e,
+    '.select-qty',
+    qtySelectList1,
+    'select-qty__list-wrapper--visible',
+  );
+  handleClickOutsideSelectList(
+    e,
+    '.select-qty',
+    qtySelectList2,
+    'select-qty__list-wrapper--visible',
+  );
+
+  handleClickOutsideSelectList(
+    e,
+    '.select--country',
+    countrySelectList,
+    'select__list-wrapper--visible',
+  );
+
+  handleClickOutsideSelectList(
+    e,
+    '.select--city',
+    citySelectList,
+    'select__list-wrapper--visible',
+  );
+
+  handleClickOutsideSelectList(
+    e,
+    '.select-lang',
+    langSelectList,
+    'select-lang__list-wrapper--visible',
+  );
+});
+
+function handleClickOutsideSelectList(event, selector, selectList, className) {
+  if (
+    !event.target.closest(selector) &&
+    selectList.classList.contains(className)
+  ) {
+    selectList.classList.remove(className);
+  }
 }
 
 // #endregion
 
-// #region setOrder2Quantity
-// Set Order 2 Quantity After Click On Order 1 Purchase Button
+// #region setQuantityInOrderPaySection
+// Set Order Pay Quantity After Click On Order Place Purchase Button
 
-const order1PurchaseBtn = document.querySelector('.order1__purchase-btn');
+const orderPurchaseBtn = orderPlace.querySelector('.place-order__purchase-btn');
 
-order1PurchaseBtn.addEventListener('click', () => {
-  const currQtyTxt = quantitySelectValue1.innerText;
+orderPurchaseBtn.addEventListener('click', () => {
+  const currQtyTxt = qtySelectValue1.innerText;
   const currQty = +currQtyTxt;
 
   price2.textContent = `${currQty * 1200}$`;
 
-  quantitySelectValue2.textContent = currQtyTxt;
-  quantitySelectValue2.classList.toggle(
-    'qty-price__select-value--changed',
+  qtySelectValue2.textContent = currQtyTxt;
+  qtySelectValue2.classList.toggle(
+    'select-qty__current-value--changed',
     currQty !== 1,
   );
 
-  const order2LiCollection = qtyPriceSection2.querySelectorAll(
-    '.qty-price__select-li',
-  );
+  const order2LiCollection = orderPay.querySelectorAll('.select-qty__item');
   const order2LiArr = [...order2LiCollection];
 
   const order2PrevSelectedLi = order2LiArr.find((li) => {
-    return li.classList.contains('qty-price__select-li--selected');
+    return li.classList.contains('select-qty__item--selected');
   });
 
   const order2NextSelectedLi = order2LiArr.find((li) => {
@@ -543,41 +639,36 @@ order1PurchaseBtn.addEventListener('click', () => {
   });
 
   if (order2NextSelectedLi !== order2PrevSelectedLi) {
-    order2NextSelectedLi.classList.add('qty-price__select-li--selected');
-    order2PrevSelectedLi.classList.remove('qty-price__select-li--selected');
+    order2NextSelectedLi.classList.add('select-qty__item--selected');
+    order2PrevSelectedLi.classList.remove('select-qty__item--selected');
   }
 });
 
 // #endregion
 
-// #region numInputs
-// Order 2 Card Number & CVV Inputs Validation
+// #region numberInputs
+// Card Number & CVV Number Inputs
 
-const cardNumInputs = document.querySelectorAll('.order2__input--card-num');
-const cvvInput = document.querySelector('.order2__input--cvv');
+const cardNumInputs = orderPay.querySelectorAll('.pay-order__input--card-num');
+const cvvInput = orderPay.querySelector('.pay-order__input--cvv');
 
 for (const cardNumInput of cardNumInputs) {
   cardNumInput.addEventListener('input', (e) => {
-    handleNumInputValidation(e, cardNumInput, 4);
+    handleNumInputValidation(e, cardNumInput);
   });
 }
 
 cvvInput.addEventListener('input', (e) => {
-  handleNumInputValidation(e, cvvInput, 3);
+  handleNumInputValidation(e, cvvInput);
 });
 
-function handleNumInputValidation(event, input, length) {
-  const inputValue = event.target.value.trim();
+function handleNumInputValidation(event, input) {
+  const inputValue = event.target.value;
 
-  if (!isNaN(+inputValue)) {
-    input.value = inputValue.slice(0, length);
-  } else {
-    const inputCharsArr = inputValue.split('');
-    const inputNumCharsArr = inputCharsArr.filter((char) => {
-      return numbers.includes(char);
-    });
-
-    input.value = inputNumCharsArr.join('').slice(0, length);
+  for (const ch of inputValue) {
+    if (!numbers.includes(ch)) {
+      input.value = '';
+    }
   }
 }
 

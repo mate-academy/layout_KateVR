@@ -1,0 +1,106 @@
+.card-more {
+  width: 100%;
+  height: 82px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include on-tablet {
+    align-items: center;
+    height: 230px;
+
+    @include on-hover(transform, scale(1.05));
+
+    &--fitness {
+      height: 227px;
+    }
+
+    &--social-interactions {
+      height: 235px;
+    }
+  }
+
+  @include on-laptop {
+    height: 262px;
+
+    &--social-interactions {
+      height: 238px;
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 98px;
+      height: 81px;
+
+      background-image: url(../images/more-gaming/education.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      &--real-estate {
+        width: 84px;
+        height: 84px;
+        background-image: url(../images/more-gaming/real-estate.svg);
+      }
+
+      &--fitness {
+        width: 110px;
+        height: 80.44px;
+        background-image: url(../images/more-gaming/fitness.svg);
+      }
+
+      &--social-interactions {
+        width: 83px;
+        height: 83px;
+        background-image: url(../images/more-gaming/social-interactions.svg);
+      }
+    }
+
+    @include on-laptop {
+      &--fitness {
+        width: 113px;
+        height: 82.63px;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0;
+
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 21.78px;
+    color: $whiteColor;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      text-align: center;
+    }
+
+    &--education {
+      font-size: 16px;
+      line-height: 19.36px;
+    }
+  }
+
+  &__description {
+    margin: 0;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &--full {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        text-align: center;
+      }
+    }
+  }
+}

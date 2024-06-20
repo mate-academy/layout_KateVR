@@ -5,21 +5,15 @@
 
     width: 100vw;
     height: 100vh;
-    background-color: $darkColor;
+    background-color: #191536e6;
     overflow: auto;
-
-    @include on-tablet {
-      background-color: #191536e6;
-    }
   }
 
   &__top-bar {
     grid-column: 1 / -1;
 
-    margin-bottom: 150px;
-
-    @include on-tablet {
-      margin-bottom: 30px;
+    @include on-laptop {
+      grid-column: 2 / -2;
     }
   }
 
@@ -29,7 +23,12 @@
 
     position: relative;
     width: 100%;
-    padding-bottom: 56.3%;
+    padding-bottom: 56%;
+
+    @include on-laptop {
+      grid-column: 2 / -2;
+      margin-bottom: 70px;
+    }
   }
 
   &__youtube {

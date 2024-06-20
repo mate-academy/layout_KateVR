@@ -16,19 +16,35 @@
   line-height: 18.2px;
   color: $whiteColor;
 
-  @include pointer-cursor;
-  @include on-hover(background-color, $whiteColor);
-  @include on-hover(color, $contrastColor);
-
   @include on-tablet {
     width: 458px;
     height: 48px;
 
     font-size: 16px;
     line-height: 20.8px;
+  }
 
-    &--small {
+  @include pointer-cursor;
+  @include on-hover(background-color, $whiteColor);
+  @include on-hover(color, $contrastColor);
+
+  &--small {
+    @include on-tablet {
       width: 200px;
+      height: 48px;
+    }
+  }
+
+  &--order {
+    @include on-laptop {
+      width: 200px;
+      height: 48px;
+    }
+  }
+
+  &--back-home {
+    @include on-laptop {
+      width: 218px;
       height: 48px;
     }
   }
