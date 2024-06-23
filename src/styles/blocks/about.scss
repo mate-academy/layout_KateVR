@@ -11,6 +11,10 @@
     @include on-laptop {
       padding: 100px 0 98px;
     }
+
+    @include on-desktop {
+      padding: 147px 0 156px;
+    }
   }
 
   &__top {
@@ -24,6 +28,10 @@
 
     @include on-laptop {
       margin-bottom: 183px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 175px;
     }
   }
 
@@ -47,9 +55,15 @@
 
     @include on-laptop {
       grid-column: -5 / -1;
-      grid-row: 1 / 2;
 
       height: 45px;
+    }
+
+    @include on-desktop {
+      grid-column: -6 / -1;
+
+      height: 72px;
+      margin-bottom: 32px;
     }
 
     &--nice-to-meet {
@@ -66,6 +80,12 @@
       @include on-laptop {
         grid-column: 1 / 6;
         grid-row: 2 / 3;
+      }
+
+      @include on-desktop {
+        grid-column: 2 / 7;
+        height: 46px;
+        margin-bottom: 30px;
       }
     }
   }
@@ -85,6 +105,10 @@
 
     @include on-laptop {
       grid-column: 3 / 8;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 11;
     }
   }
 
@@ -127,23 +151,39 @@
       height: 128px;
     }
 
+    @include on-desktop {
+      grid-column: -6 / -1;
+
+      width: 435px;
+      height: 105px;
+      margin-bottom: 33px;
+    }
+
     &--nice-to-meet {
       margin-bottom: 0;
+      width: auto;
       height: 218px;
 
       @include on-tablet {
         grid-column: 1 / 5;
         grid-row: 3 / 4;
 
-        margin-bottom: 22px;
         height: 128px;
+        margin-bottom: 22px;
       }
 
       @include on-laptop {
         grid-column: 1 / 6;
 
-        margin-bottom: 38px;
         height: 157px;
+        margin-bottom: 38px;
+      }
+
+      @include on-desktop {
+        grid-column: 2 / 8;
+
+        height: 128px;
+        margin-bottom: 69px;
       }
     }
   }
@@ -160,6 +200,11 @@
     @include on-laptop {
       grid-column: -5 / -1;
       margin-bottom: 46px;
+    }
+
+    @include on-desktop {
+      grid-column: -6 / -1;
+      margin-bottom: 45px;
     }
   }
 
@@ -183,6 +228,11 @@
       margin-top: 43px;
       margin-bottom: 15px;
     }
+
+    @include on-desktop {
+      grid-column: 2 / 4;
+      margin-top: 45px;
+    }
   }
 
   &__background {
@@ -202,6 +252,12 @@
 
     @include on-laptop {
       grid-column: 7 / -1;
+
+      background-image: url(../images/about/about-bg-laptop.svg);
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
     }
   }
 }

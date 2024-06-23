@@ -1,6 +1,5 @@
 'use strict';
 
-// #region sliders
 // About Slider
 
 const about = document.getElementById('about');
@@ -13,23 +12,26 @@ const aboutSliderUnderlines = about.querySelectorAll('.prev-next__underline');
 const aboutPrevSlideBtn = about.querySelector('.prev-next__btn--prev');
 const aboutNextSlideBtn = about.querySelector('.prev-next__btn--next');
 
-const aboutSlideWidth = aboutSlides.getBoundingClientRect().width;
-
 let aboutTimerId = 0;
 
 aboutSlides.addEventListener('scroll', () => {
-  window.clearTimeout(aboutTimerId);
+  const aboutSlideWidth = aboutSlides.getBoundingClientRect().width;
 
+  window.clearTimeout(aboutTimerId);
   aboutTimerId = window.setTimeout(() => {
     scrollSlider(aboutSlides, aboutSlideWidth, updateAboutSlider);
-  }, 300);
+  }, 100);
 });
 
 aboutNextSlideBtn.addEventListener('click', () => {
+  const aboutSlideWidth = aboutSlides.getBoundingClientRect().width;
+
   aboutSlides.scrollLeft += aboutSlideWidth;
 });
 
 aboutPrevSlideBtn.addEventListener('click', () => {
+  const aboutSlideWidth = aboutSlides.getBoundingClientRect().width;
+
   aboutSlides.scrollLeft -= aboutSlideWidth;
 });
 
@@ -60,23 +62,26 @@ const headerSliderUnderlines = header.querySelectorAll('.prev-next__underline');
 const headerPrevSlideBtn = header.querySelector('.prev-next__btn--prev');
 const headerNextSlideBtn = header.querySelector('.prev-next__btn--next');
 
-const headerSlideWidth = headerSlides.getBoundingClientRect().width;
-
 let headerTimerId = 0;
 
 headerSlides.addEventListener('scroll', () => {
-  window.clearTimeout(headerTimerId);
+  const headerSlideWidth = headerSlides.getBoundingClientRect().width;
 
+  window.clearTimeout(headerTimerId);
   headerTimerId = window.setTimeout(() => {
     scrollSlider(headerSlides, headerSlideWidth, updateHeaderSlider);
-  }, 300);
+  }, 100);
 });
 
 headerNextSlideBtn.addEventListener('click', () => {
+  const headerSlideWidth = headerSlides.getBoundingClientRect().width;
+
   headerSlides.scrollLeft += headerSlideWidth;
 });
 
 headerPrevSlideBtn.addEventListener('click', () => {
+  const headerSlideWidth = headerSlides.getBoundingClientRect().width;
+
   headerSlides.scrollLeft -= headerSlideWidth;
 });
 
@@ -93,7 +98,7 @@ function updateHeaderSlider(slideIndex) {
 }
 
 function scrollSlider(slides, slideWidth, updateSlider) {
-  const scrollLeft = Math.floor(slides.scrollLeft);
+  const scrollLeft = Math.round(slides.scrollLeft);
 
   switch (scrollLeft) {
     case 0:
@@ -121,9 +126,6 @@ function scrollSlider(slides, slideWidth, updateSlider) {
   }
 }
 
-// #endregion
-
-// #region techSpecsButtons
 // Tech Specs Buttons
 
 const techSpecsImgWrapper = document.querySelector('.tech-specs__img-wrapper');
@@ -154,9 +156,6 @@ for (const techSpecsButton of techSpecsButtons) {
   });
 }
 
-// #endregion
-
-// #region formValidation
 // Get In Touch / Form Validation
 
 const form = document.querySelector('.form');
@@ -335,9 +334,6 @@ function setColor(label, input, labelColor, inputBorderColor) {
   input.style.borderColor = inputBorderColor;
 }
 
-// #endregion
-
-// #region scrollBuyNowLink
 // Scroll Buy Now Link
 
 const buyNowLink = document.querySelector('.page__buy-now');
@@ -355,9 +351,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// #endregion
-
-// #region faqSelectQuestion
 // FAQ Select Question
 
 const faqSection = document.getElementById('faq');
@@ -404,9 +397,6 @@ faqMoreBtn.addEventListener('click', () => {
   }
 });
 
-// #endregion
-
-// #region videoClosing
 // Closing The Video In The Correct Section
 
 const headerPlayVideoBtn = document.querySelector('.header__play-video');
@@ -422,9 +412,6 @@ aboutPlayVideoBtn.addEventListener('click', () => {
   videoCloseIcon.setAttribute('href', '#about');
 });
 
-// #endregion
-
-// #region selectFields
 // Select Quantity
 
 const orderPlace = document.getElementById('order-place');
@@ -608,9 +595,29 @@ function handleClickOutsideSelectList(event, selector, selectList, className) {
   }
 }
 
-// #endregion
+// Card Number & CVV Number Inputs
 
-// #region setQuantityInOrderPaySection
+const cardNumInputs = orderPay.querySelectorAll('.pay-order__input--card-num');
+const cvvInput = orderPay.querySelector('.pay-order__input--cvv');
+
+for (const cardNumInput of cardNumInputs) {
+  cardNumInput.addEventListener('input', (e) => {
+    handleNumInputValidation(e, cardNumInput);
+  });
+}
+
+cvvInput.addEventListener('input', (e) => {
+  handleNumInputValidation(e, cvvInput);
+});
+
+function handleNumInputValidation(event, input) {
+  for (const ch of event.target.value) {
+    if (!numbers.includes(ch)) {
+      input.value = '';
+    }
+  }
+}
+
 // Set Order Pay Quantity After Click On Order Place Purchase Button
 
 const orderPurchaseBtn = orderPlace.querySelector('.place-order__purchase-btn');
@@ -643,33 +650,3 @@ orderPurchaseBtn.addEventListener('click', () => {
     order2PrevSelectedLi.classList.remove('select-qty__item--selected');
   }
 });
-
-// #endregion
-
-// #region numberInputs
-// Card Number & CVV Number Inputs
-
-const cardNumInputs = orderPay.querySelectorAll('.pay-order__input--card-num');
-const cvvInput = orderPay.querySelector('.pay-order__input--cvv');
-
-for (const cardNumInput of cardNumInputs) {
-  cardNumInput.addEventListener('input', (e) => {
-    handleNumInputValidation(e, cardNumInput);
-  });
-}
-
-cvvInput.addEventListener('input', (e) => {
-  handleNumInputValidation(e, cvvInput);
-});
-
-function handleNumInputValidation(event, input) {
-  const inputValue = event.target.value;
-
-  for (const ch of inputValue) {
-    if (!numbers.includes(ch)) {
-      input.value = '';
-    }
-  }
-}
-
-// #endregion

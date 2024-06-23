@@ -10,6 +10,11 @@
     line-height: 43.57px;
   }
 
+  & > span {
+    font-weight: 400;
+    color: $contrastColor;
+  }
+
   &--aside {
     line-height: 27.3px;
 
@@ -18,8 +23,48 @@
     }
   }
 
-  & > span {
-    font-weight: 400;
-    color: $contrastColor;
+  &--more-gaming {
+    @include on-laptop {
+      background-image: url(../images/titles/more-gaming-title.svg);
+      background-position: center;
+    }
+  }
+
+  &--nice-to-meet {
+    @include on-laptop {
+      background-image: url(../images/titles/nice-to-meet-title.svg);
+      background-position: left center;
+    }
+  }
+
+  &--why-kat {
+    @include on-laptop {
+      background-image: url(../images/titles/why-kat-title.svg);
+      background-position: center;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  &--get-in-touch {
+    @include on-laptop {
+      background-image: url(../images/titles/get-in-touch-title.svg);
+      background-position: left center;
+    }
+  }
+
+  &--more-gaming,
+  &--nice-to-meet,
+  &--why-kat,
+  &--get-in-touch {
+    @include on-laptop {
+      width: 100%;
+      color: transparent;
+
+      & > span {
+        color: transparent;
+      }
+
+      background-repeat: no-repeat;
+    }
   }
 }

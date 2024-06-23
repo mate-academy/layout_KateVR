@@ -5,6 +5,10 @@
     grid-template-columns: repeat(6, 70px);
   }
 
+  @include on-desktop {
+    grid-template-columns: repeat(8, 72px);
+  }
+
   &__input-wrapper {
     grid-column: span 2;
 
@@ -43,6 +47,18 @@
 
       &--adress-2 {
         margin-bottom: 68px;
+      }
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+
+      &--adress {
+        margin-bottom: 102px;
+      }
+
+      &--adress-2 {
+        margin-bottom: 102px;
       }
     }
   }
@@ -98,6 +114,10 @@
     @include on-tablet {
       grid-column: span 3;
       margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
     }
   }
 

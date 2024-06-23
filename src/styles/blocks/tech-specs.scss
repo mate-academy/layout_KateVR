@@ -12,6 +12,10 @@
     @include on-laptop {
       padding: 100px 0 101px;
     }
+
+    @include on-desktop {
+      padding-block: 160px;
+    }
   }
 
   &__title {
@@ -24,15 +28,17 @@
     @include on-tablet {
       grid-column: span 3;
       grid-row: 1 / 2;
-
       margin-bottom: 57px;
     }
 
     @include on-laptop {
       grid-column: -5 / -1;
       height: 45px;
-
       margin-bottom: 141px;
+    }
+
+    @include on-desktop {
+      grid-column: -6 / -1;
     }
   }
 
@@ -109,6 +115,26 @@
         margin-right: 30px;
       }
     }
+
+    @include on-desktop {
+      &--sensor {
+        top: -58px;
+        margin-right: 125px;
+      }
+
+      &--batteries {
+        top: -60px;
+
+        width: 344px;
+        height: 207px;
+
+        margin-left: 158px;
+      }
+
+      &--connection {
+        margin-right: 134px;
+      }
+    }
   }
 
   &__details-name {
@@ -128,8 +154,8 @@
 
   &__sensor-line {
     position: absolute;
-    top: 12px;
-    left: 102px;
+    top: 11px;
+    left: 101px;
 
     width: 403px;
     height: 72px;
@@ -139,18 +165,11 @@
     background-size: contain;
     background-position: center;
 
-    &::before {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 6px;
-      height: 6px;
-      top: -1px;
-      left: 0;
-
-      background-image: url(../images/icons/blue-point.svg);
-      background-repeat: no-repeat;
-      background-position: center;
+    @include on-desktop {
+      top: 8px;
+      left: 91px;
+      width: 431px;
+      background-image: url(../images/tech-specs/sensor-line-desktop.svg);
     }
   }
 
@@ -159,8 +178,8 @@
     top: 0;
     right: 100%;
 
-    width: 185px;
-    height: 241px;
+    width: 192px;
+    height: 245px;
 
     margin-right: 21px;
 
@@ -169,34 +188,10 @@
     background-size: contain;
     background-position: center;
 
-    &::before {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 6px;
-      height: 6px;
-      top: -1px;
-      right: -3px;
-
-      background-image: url(../images/icons/blue-point.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
-    }
-
-    &::after {
-      content: '';
-      position: absolute;
-      display: block;
-      width: 6px;
-      height: 6px;
-      bottom: -2px;
-      left: 0;
-
-      background-image: url(../images/icons/blue-point.svg);
-      background-repeat: no-repeat;
-      background-size: contain;
-      background-position: center;
+    @include on-desktop {
+      top: 7px;
+      width: 283px;
+      background-image: url(../images/tech-specs/batteries-line-desktop.svg);
     }
   }
 
@@ -212,6 +207,13 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+
+    @include on-desktop {
+      left: 137px;
+      width: 241px;
+      height: 113px;
+      background-image: url(../images/tech-specs/connection-line-desktop.svg);
+    }
   }
 
   &__connection-arc {
@@ -228,6 +230,10 @@
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+
+    @include on-desktop {
+      margin-left: 118px;
+    }
   }
 
   &__btn-wrapper {
