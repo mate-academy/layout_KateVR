@@ -1,0 +1,30 @@
+.order-stage {
+  box-sizing: border-box;
+  width: 100%;
+  height: 33px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 0;
+
+  &__stage {
+    width: 33.33%;
+    border-bottom: 1px solid $darkGreyColor;
+
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15.6px;
+    color: $lightGreyColor;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 18.2px;
+    }
+
+    &--active {
+      color: $contrastColor;
+      border-bottom: 1px solid $contrastColor;
+    }
+  }
+}

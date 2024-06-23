@@ -1,0 +1,30 @@
+.menu {
+  @include content-min-width;
+
+  width: 100vw;
+  height: 100vh;
+  background-color: #191536b3;
+  overflow: auto;
+
+  &__content {
+    width: 100%;
+    min-height: 100%;
+    background-color: $darkColor;
+
+    @include on-tablet {
+      min-height: 568px;
+
+      &--language {
+        min-height: 596px;
+      }
+    }
+  }
+
+  &__top-bar-wrapper {
+    @include grid-container;
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+  }
+}

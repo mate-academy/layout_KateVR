@@ -1,0 +1,134 @@
+.help {
+  @include content-min-width;
+
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background-color: #191536b3;
+  overflow: auto;
+
+  @include on-laptop {
+    padding-top: 134px;
+  }
+
+  @include on-desktop {
+    padding-top: 287px;
+  }
+
+  &__content {
+    @include grid-container;
+
+    width: 100%;
+    min-height: 100%;
+    background-color: $darkColor;
+
+    @include on-tablet {
+      min-height: 596px;
+    }
+
+    @include on-laptop {
+      grid-template-columns: repeat(10, 70px);
+      width: 880px;
+      min-height: 550px;
+      border-radius: 4px;
+
+      margin-inline: auto;
+      margin-bottom: 127px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, 72px);
+      width: 1084px;
+      min-height: 518px;
+      margin-bottom: 275px;
+    }
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+
+    margin: 0;
+    margin-bottom: 30px;
+
+    @include on-laptop {
+      grid-column: 2 / -2;
+
+      height: 61px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    grid-row: 3 / 4;
+
+    margin: 0;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      height: 179px;
+      margin-bottom: 20px;
+    }
+
+    @include on-laptop {
+      grid-column: 2 / -2;
+      height: 173px;
+    }
+
+    @include on-desktop {
+      height: 133px;
+    }
+  }
+
+  &__links {
+    grid-column: 1 / -1;
+    grid-row: 4 / 5;
+
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: flex-start;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-bottom: 0;
+    }
+
+    @include on-laptop {
+      grid-column: 2 / 5;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $contrastColor;
+
+    @include pointer-cursor;
+    @include on-hover(color, $whiteColor);
+  }
+
+  &__contacts {
+    grid-column: 1 / -1;
+    grid-row: 5 / 6;
+
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 4 / 5;
+      margin-bottom: 0;
+    }
+
+    @include on-laptop {
+      grid-column: 5 / 8;
+    }
+  }
+}

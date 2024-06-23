@@ -1,0 +1,68 @@
+.top-order-laptop {
+  box-sizing: border-box;
+  padding-top: 64px;
+
+  display: flex;
+  justify-content: space-between;
+
+  @include on-desktop {
+    padding-top: 58px;
+  }
+
+  &__stages {
+    width: 647px;
+    height: 29px;
+
+    display: flex;
+    justify-content: space-between;
+
+    @include on-desktop {
+      width: 842px;
+    }
+  }
+
+  &__stage {
+    font-weight: 500;
+    line-height: 18.2px;
+    color: $lightGreyColor;
+
+    &--active {
+      position: relative;
+
+      color: $contrastColor;
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        display: block;
+        width: 4px;
+        height: 4px;
+        background-image: url(../images/icons/blue-point.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+    }
+  }
+
+  &__close {
+    display: block;
+    width: 17px;
+    height: 17.22px;
+
+    background-image: url(../images/icons/close-icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include pointer-cursor;
+    @include on-hover(transform, scale(1.25));
+    @include on-hover(
+      background-image,
+      url(../images/icons/close-icon-hover.svg)
+    );
+  }
+}

@@ -1,0 +1,57 @@
+.prev-next {
+  width: 207px;
+  height: 34px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__buttons {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__btn {
+    display: block;
+
+    border: none;
+    outline: none;
+    padding: 0;
+    background-color: transparent;
+
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+    color: $whiteColor;
+
+    @include pointer-cursor;
+    @include on-hover(color, $contrastColor);
+
+    &:disabled {
+      color: $textColor;
+    }
+  }
+
+  &__underlines {
+    width: 100%;
+    height: 1px;
+
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  &__underline {
+    flex-shrink: 0;
+    width: 20%;
+    height: 1px;
+    background-color: $extraGreyColor;
+
+    transition: background-color $transitionDuration;
+
+    &--active {
+      background-color: $contrastColor;
+    }
+  }
+}
