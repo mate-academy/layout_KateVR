@@ -1,0 +1,78 @@
+.purchase-tabs {
+  padding-bottom: 17px;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+
+  @include on-desktop {
+    border: none;
+  }
+
+  @include on-large-desktop {
+    justify-content: space-around;
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 320px;
+    height: 1px;
+    background-color: #2f2f2f;
+    position: absolute;
+    bottom: 0;
+    left: -20px;
+
+    @include on-tablet {
+      left: -34px;
+      width: $tablet-width;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 15.6px;
+    color: #545454;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 18px;
+    }
+
+    &--active {
+      color: $accent-color;
+      position: relative;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 106px;
+        height: 1px;
+        bottom: -17px;
+        left: 50%;
+        transform: translate(-50%);
+        background-color: $accent-color;
+        z-index: 2;
+
+        @include on-tablet {
+          width: 256px;
+        }
+
+        @include on-desktop {
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          bottom: -7px;
+          left: 50%;
+          transform: translate(-50%);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,46 @@
+.language {
+  height: 100vh;
+  background-color: #191536;
+  overflow: auto;
+
+  @include on-tablet {
+    height: auto;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 20px;
+  }
+
+  &__top {
+    display: flex;
+    padding-block: 32px;
+    grid-column: 1 / -1;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 2 / -1;
+    }
+  }
+
+  &__link {
+    padding-block: 11px;
+    display: block;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: $white-color;
+
+    @include hover(color, $accent-color);
+  }
+}

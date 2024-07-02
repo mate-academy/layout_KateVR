@@ -1,0 +1,40 @@
+.card {
+  &__img {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      height: 81px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 19px;
+    color: $white-color;
+    margin-bottom: 11px;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      text-align: center;
+    }
+
+    &--mobile {
+      display: block;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+}

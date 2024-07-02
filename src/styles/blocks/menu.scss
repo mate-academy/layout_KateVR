@@ -1,0 +1,32 @@
+.menu {
+  height: 100vh;
+  overflow: auto;
+
+  @include on-tablet {
+    height: auto;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 20px;
+    padding-bottom: 130px;
+  }
+
+  &__top {
+    display: flex;
+    justify-content: flex-end;
+    padding-block: 32px;
+    grid-column: 1 / -1;
+  }
+
+  &__bottom {
+    @include on-tablet {
+      grid-column: 2 / -1;
+    }
+  }
+}
