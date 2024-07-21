@@ -1,0 +1,106 @@
+.help {
+  box-sizing: border-box;
+
+  &__wrapper {
+    background-color: $menu-bg-color;
+    min-height: 100vh;
+    height: auto;
+    position: relative;
+
+    @include tablet {
+      min-height: auto;
+    }
+
+    @include desktop {
+      width: 880px;
+      margin: 100px auto;
+    }
+  }
+
+  &__container {
+    @include container;
+
+    padding-top: 20px;
+    padding-bottom: 10px;
+
+    @include tablet {
+      padding-top: 34px;
+      padding-bottom: 130px;
+    }
+
+    @include desktop {
+      padding-inline: 90px;
+      padding-bottom: 80px;
+    }
+  }
+
+  &__title {
+    padding-top: 48px;
+
+    @include tablet {
+      padding-top: 68px;
+    }
+
+    @include desktop {
+      padding-top: 24px;
+      padding-bottom: 50px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey-text-color;
+    padding-top: 30px;
+
+    &--blue {
+      color: $blue-color;
+    }
+
+    @include desktop {
+      padding-top: 0;
+      padding-bottom: 20px;
+    }
+  }
+
+  &__footer {
+    @include tablet {
+      display: flex;
+      gap: 150px;
+      padding-top: 20px;
+    }
+
+    @include desktop {
+      padding-top: 0;
+    }
+  }
+
+  &__links {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include tablet {
+      padding-top: 0;
+    }
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: 150%;
+    color: $blue-color;
+  }
+
+  &__contact {
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    @include tablet {
+      padding-top: 0;
+      gap: 25px;
+    }
+  }
+}
