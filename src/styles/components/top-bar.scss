@@ -1,0 +1,136 @@
+.top-bar {
+  @include flex(row, 10px) {
+    justify-content: space-between;
+  }
+
+  &__logo {
+    @include flex(row, 2px);
+
+    &--letter {
+      @extend %animation-bounce;
+
+      &:nth-child(3) {
+        margin-left: -3px;
+      }
+    }
+
+    @include hover(transform, $scale, $time_average);
+  }
+
+  &__btn {
+    position: fixed;
+    right: $retreat;
+    left: $retreat;
+    bottom: 20px;
+    z-index: 1;
+
+    border-radius: 4px;
+    background-color: $aqua;
+
+    @extend %animation-bounce;
+
+    &--title {
+      text-align: center;
+      color: $white;
+    }
+
+    @include hover(box-shadow, 0 0 10px $aqua, $time-fast) {
+      & > h5 {
+        text-shadow: 0 0 10px $white;
+      }
+    }
+
+    @include active(transform, scale(0.98)) {
+      box-shadow: inset 0 0 5px $black;
+      background-color: rgba($color: $aqua, $alpha: 0.5);
+    }
+  }
+
+  &__menu {
+    position: relative;
+
+    width: 25px;
+    height: 18px;
+
+    @extend %animation-bounce;
+
+    &--icon {
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      transition:
+        $time-fast $time-fast,
+        transform $time-fast cubic-bezier(0.23, 1, 0.32, 1);
+
+      border-radius: 5px;
+      background-color: $white;
+
+      &:first-child {
+        top: 0;
+      }
+
+      &:nth-child(2) {
+        top: 47%;
+        left: -10px;
+      }
+
+      &:last-child {
+        bottom: 0;
+      }
+    }
+
+    @include hover(transform, $scale, $time-fast) {
+      .top-bar__menu--icon {
+        box-shadow: $shadow-white;
+
+        &:first-child {
+          top: -3px;
+        }
+
+        &:nth-child(2) {
+          left: 0;
+        }
+
+        &:last-child {
+          bottom: -3px;
+        }
+      }
+    }
+
+    &--active {
+      .top-bar__menu--icon {
+        box-shadow: $shadow-white;
+
+        &:first-child {
+          top: 8px;
+        }
+
+        &:nth-child(2) {
+          left: 0;
+        }
+
+        &:last-child {
+          bottom: 8px;
+        }
+      }
+
+      &:hover {
+        .top-bar__menu--icon {
+          box-shadow: $shadow-white;
+
+          &:first-child {
+            top: 8px;
+          }
+
+          &:nth-child(2) {
+            left: 0;
+          }
+
+          &:last-child {
+            bottom: 8px;
+          }
+        }
+      }
+    }
+  }
+}

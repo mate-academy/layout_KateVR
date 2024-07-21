@@ -1,0 +1,176 @@
+.header {
+  @include grid(2);
+
+  padding: 20px;
+  background: $gradient;
+
+  &__top {
+    grid-column: 1 / -1;
+  }
+
+  &__content {
+    @include grid(2);
+
+    grid-column: 1 / -1;
+    padding-bottom: 14%;
+  }
+
+  &__image {
+    grid-column: 1 / -1;
+  }
+
+  &__wrapper {
+    @include grid(2) {
+      row-gap: 20px;
+    }
+
+    grid-column: 1 / -1;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    &--span {
+      font-weight: 400;
+      color: $aqua;
+    }
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+  }
+
+  &__text-price {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  &__btn {
+    grid-column: 1 / -1;
+  }
+
+  &__link-video {
+    grid-column: 1 / -1;
+
+    @include flex(row, 3px) {
+      align-items: center;
+    }
+
+    @include hover(transform, $small-scale, $time-fast) {
+      .header__link-video--arrow {
+        transform: $scale;
+      }
+
+      .header__link-video--title {
+        color: $aqua;
+        text-shadow: $shadow-click;
+      }
+    }
+
+    @include active(transform, $click-scale) {
+      gap: 20px;
+      transition: $time_fast;
+
+      .header__link-video--arrow {
+        box-shadow:
+          inset $shadow-click,
+          $shadow-click;
+
+        &::before {
+          border: 2px solid $aqua;
+          box-shadow: $shadow-click, $shadow-click;
+        }
+
+        .header__link-video--dots {
+          border: 2px solid $aqua;
+          box-shadow: $shadow-click;
+        }
+      }
+    }
+
+    &--arrow {
+      position: relative;
+      width: 53px;
+      height: 53px;
+
+      border: 2px solid $aqua;
+      border-radius: 50%;
+      transition: $time_fast;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -10px;
+        left: -10px;
+
+        width: 70px;
+        height: 70px;
+
+        border-radius: inherit;
+        border: 2px solid rgba($color: $aqua, $alpha: 0.45);
+        border-right: none;
+        border-top: none;
+        transition: $time_fast;
+        transform: rotate(45deg);
+
+        @extend %animation-rotate;
+      }
+    }
+
+    &--icon {
+      position: absolute;
+      top: 16px;
+      left: 20px;
+      width: 23px;
+      height: 23px;
+
+      @extend %animation-scaling;
+    }
+
+    &--title {
+      text-align: center;
+      transition: $time_average;
+    }
+
+    &--lines {
+      position: relative;
+      width: 70%;
+      overflow: hidden;
+
+      &::before,
+      &::after {
+        position: absolute;
+        content: '';
+
+        width: 20%;
+        height: 2px;
+        background-color: rgba($color: $aqua, $alpha: 0.45);
+      }
+
+      &::before {
+        top: 0;
+      }
+
+      &::after {
+        bottom: 0;
+      }
+    }
+
+    &--dots {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      margin-left: 20%;
+      background-color: rgba($color: $aqua, $alpha: 0.45);
+
+      @keyframes moving-dots {
+        0% {
+          transform: translateX(0%);
+        }
+        100% {
+          transform: translateX(500%);
+        }
+      }
+    }
+  }
+}

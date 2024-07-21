@@ -1,4 +1,56 @@
-%h1 {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
+%font-family {
+  font-family: Inter, sans-serif;
+}
+
+%animation-bounce {
+  animation-name: bounce;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-delay: calc(0.2s * var(--index));
+
+  @keyframes bounce {
+    0% {
+      transform: scale(1) translateY(0);
+    }
+    100% {
+      transform: scale(1.05) translateY(-5px);
+    }
+  }
+}
+
+%animation-scaling {
+  animation-name: scaling;
+  animation-duration: 1.8s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+
+  @keyframes scaling {
+    0% {
+      transform: scale(1);
+    }
+    100% {
+      transform: $scale;
+    }
+  }
+}
+
+%animation-rotate {
+  animation-name: rotate;
+  animation-duration: 1.8s;
+  animation-direction: alternate;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(65deg);
+    }
+    50% {
+      transform: rotate(45deg);
+    }
+    100% {
+      transform: rotate(30deg);
+    }
+  }
 }
