@@ -1,71 +1,32 @@
-@import 'utils';
-@import 'fonts';
-@import 'typography';
-@import 'blocks/header';
-@import 'blocks/body-main';
-@import 'blocks/footer';
-
-.page {
-  margin: 0;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
-
-  &__body {
-    margin: 0;
-  }
-}
-
-.page:has(.header__help:target) {
-  overflow: hidden;
-}
-
-.page:has(.header__top--nav:target) {
-  overflow: hidden;
-}
-
-@include on-desktop {
-  .page:has(.header__faq:target) {
-    overflow: hidden;
-  }
-}
-
-@include on-tablet {
-  .page:has(.header__faq:target) {
-    overflow: hidden;
-  }
-}
-
-@include on-phone {
-  .page:has(.header__faq:target) .main {
-    display: none;
-  }
-
-  .page:has(.header__faq:target) .footer {
-    display: none;
-  }
-}
-
-.page:has(.header__buy:target) .main {
-  display: none;
-}
-
-.page:has(.header__buy:target) .footer {
-  display: none;
-}
-
-.page:has(.header__lang:target) {
-  overflow: hidden;
-}
-
-input:-webkit-autofill,
-input:-webkit-autofill:hover,
-input:-webkit-autofill:focus,
-textarea:-webkit-autofill,
-textarea:-webkit-autofill:hover,
-textarea:-webkit-autofill:focus,
-select:-webkit-autofill,
-select:-webkit-autofill:hover,
-select:-webkit-autofill:focus {
-  -webkit-text-fill-color: $white-color;
-  -webkit-box-shadow: 0 0 0 1000px $background-black inset;
-}
+@import './utils/vars';
+@import './utils/mixins';
+@import './blocks/page';
+@import './blocks/container';
+@import './blocks/header';
+@import './blocks/top-bar';
+@import './blocks/icon';
+@import './blocks/dropdown';
+@import './blocks/nav';
+@import './blocks/btn';
+@import './blocks/play-btn';
+@import './blocks/menu';
+@import './blocks/language';
+@import './blocks/faq';
+@import './blocks/help';
+@import './blocks/more';
+@import './blocks/card';
+@import './blocks/page-title';
+@import './blocks/about';
+@import './blocks/step';
+@import './blocks/more-link';
+@import './blocks/tech';
+@import './blocks/benefits';
+@import './blocks/contact';
+@import './blocks/footer';
+@import './blocks/socials';
+@import './blocks/order';
+@import './blocks/stepper';
+@import './blocks/price-block';
+@import './blocks/complete';
+@import './blocks/pay';
+@import './blocks/overlay';

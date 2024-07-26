@@ -1,162 +1,81 @@
-@include on-desktop {
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px 110px;
-    background-color: $background-black;
+.footer {
+  padding-block: 45px 80px;
+  background-color: #000;
 
-    &__logo {
-      @include hover(transform, scale(1.1));
-    }
+  @media (min-width: $tablet-min-width) {
+    padding-block: 81px;
+  }
 
-    &__contact {
-      display: none;
-    }
+  @media (min-width: $desktop-min-width) {
+    padding-block: 39px;
+  }
 
-    &__nav {
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 20px;
+
+    @media (min-width: $tablet-min-width) {
       display: flex;
-      flex-direction: row;
-      gap: 45px;
-
-      &--link {
-        color: $white-color;
-        text-decoration: none;
-        font-size: 14px;
-        font-family: Inter, sans-serif;
-        transition: all $transition-duration;
-
-        &:hover {
-          transform: scale(1.1);
-          color: $blue-color;
-        }
-      }
-    }
-
-    &__socials {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-
-      &--link {
-        @include hover(transform, scale(2.1));
-
-        &--pic {
-          @include hover(transform, scale(1.5));
-        }
-      }
+      justify-content: space-between;
     }
   }
-}
 
-@include on-tablet {
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    padding: 50px 110px;
-    background-color: $background-black;
+  &__link {
+    grid-column: 1 / 2;
+    grid-row: 1;
+  }
 
-    &__logo {
-      @include hover(transform, scale(1.1));
+  &__img {
+    margin-bottom: 15px;
+
+    &:hover {
+      transform: scale(1.1);
     }
 
-    &__contact {
-      display: none;
-    }
-
-    &__nav {
-      display: flex;
-      flex-direction: row;
-      gap: 45px;
-
-      &--link {
-        color: $white-color;
-        text-decoration: none;
-        font-size: 14px;
-        font-family: Inter, sans-serif;
-        transition: all $transition-duration;
-
-        &:hover {
-          transform: scale(1.1);
-          color: $blue-color;
-        }
-      }
-    }
-
-    &__socials {
-      display: flex;
-      flex-direction: row;
-      gap: 20px;
-
-      &--link {
-        @include hover(transform, scale(2.1));
-
-        &--pic {
-          @include hover(transform, scale(1.5));
-        }
-      }
+    @media (min-width: $tablet-min-width) {
+      margin-bottom: 0;
     }
   }
-}
 
-@include on-phone {
-  .footer {
-    @include page-grid;
+  &__nav {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+  }
 
-    row-gap: 22px;
-    padding: 50px 20px;
-    background-color: $background-black;
+  &__nav-list {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 19.5px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
 
-    &__logo {
-      @include hover(transform, scale(1.1));
-
-      grid-column: 1/-1;
-    }
-
-    &__contact {
-      height: auto;
-
-      &--link {
-        margin-bottom: 15px;
-        text-decoration: none;
-        color: $text-color;
-        transform-origin: top;
-
-        @include hover(transform, scale(1.05));
-      }
-    }
-
-    &__nav {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      grid-column: 1/2;
-      grid-row: 2/4;
-      &--link {
-        color: $white-color;
-        text-decoration: none;
-        font-size: 14px;
-        font-family: Inter, sans-serif;
-        transition: all $transition-duration;
-
-        &:hover {
-          transform: scale(1.1);
-          color: $blue-color;
-        }
-      }
-    }
-
-    &__socials {
-      display: flex;
+    @media (min-width: $tablet-min-width) {
       flex-direction: row;
-      gap: 20px;
-
-      &--link {
-        @include hover(transform, scale(2.1));
-
-        &--pic {
-          @include hover(transform, scale(1.5));
-        }
-      }
+      gap: 43px;
+      font-size: 14px;
+      line-height: 21px;
     }
+  }
+
+  &__contacts {
+    font-size: 13px;
+    line-height: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 22px;
+    grid-column: 2 / 3;
+    grid-row: 2;
+
+    @media (min-width: $tablet-min-width) {
+      display: none;
+    }
+  }
+
+  &__socials {
+    grid-column: 2 / 3;
+    grid-row: 3;
   }
 }
