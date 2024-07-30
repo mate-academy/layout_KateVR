@@ -1,0 +1,241 @@
+.pay-order {
+  @include grid-container;
+
+  @include on-tablet {
+    grid-template-columns: repeat(4, 100px);
+  }
+
+  @include on-laptop {
+    grid-template-columns: repeat(5, 70px);
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(6, 72px);
+  }
+
+  &__card-num-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+
+    height: 67px;
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include on-tablet {
+      height: 68px;
+      margin-bottom: 38px;
+    }
+
+    @include on-laptop {
+      height: 67px;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 68px;
+    }
+  }
+
+  &__label {
+    display: block;
+    height: 18px;
+
+    align-self: flex-start;
+
+    font-size: 14px;
+    line-height: 18px;
+
+    &--holder {
+      height: 14px;
+      line-height: 1em;
+    }
+
+    &:has(+ .pay-order__input:focus),
+    &:has(+ .pay-order__card-num-inputs-wrapper > .pay-order__input:focus) {
+      color: $contrastColor;
+    }
+  }
+
+  &__card-num-inputs-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__visa-icon {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 54px;
+      height: 33.7px;
+
+      align-self: flex-end;
+
+      background-image: url(../images/icons/visa-icon.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+  }
+
+  &__input {
+    display: block;
+    box-sizing: border-box;
+    padding: 0;
+    outline: none;
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    border-bottom: 1px solid $darkGreyColor;
+
+    font: inherit;
+    font-size: 18px;
+    line-height: 23.4px;
+    color: $whiteColor;
+
+    @include on-tablet {
+      font-size: 20px;
+      line-height: 26px;
+    }
+
+    &::placeholder {
+      color: $darkGreyColor;
+      text-align: center;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $whiteColor;
+      -webkit-box-shadow: 0 0 0 70px $backgroundBlackColor inset;
+    }
+
+    &:focus {
+      border-color: $contrastColor;
+    }
+
+    &--card-num {
+      width: 56px;
+      height: 32px;
+      padding-bottom: 9px;
+      letter-spacing: 0.1em;
+
+      @include on-tablet {
+        width: 70px;
+        padding-bottom: 6px;
+        letter-spacing: 0.2em;
+      }
+    }
+
+    &--holder-name {
+      font: inherit;
+      line-height: 22px;
+    }
+
+    &--expiration-date {
+      width: 90px;
+      height: 31px;
+      padding-bottom: 7px;
+      letter-spacing: 0.1em;
+    }
+
+    &--cvv {
+      width: 41px;
+      height: 31px;
+      padding-bottom: 8px;
+      letter-spacing: 0.1em;
+
+      @include on-tablet {
+        width: 49px;
+        padding-bottom: 5px;
+      }
+    }
+  }
+
+  &__holder-name-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 2 / 3;
+
+    height: 37px;
+    margin-bottom: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include on-tablet {
+      height: 44px;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__expiration-date {
+    grid-column: 1 / 2;
+    grid-row: 3 / 4;
+
+    height: 66px;
+    margin-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include on-tablet {
+      grid-column: 1 / 3;
+      margin-bottom: 104px;
+    }
+
+    @include on-laptop {
+      margin-bottom: 90px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 125px;
+    }
+  }
+
+  &__cvv {
+    grid-column: 2 / 3;
+    grid-row: 3 / 4;
+
+    align-self: end;
+
+    height: 61px;
+    margin-bottom: 40px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    @include on-tablet {
+      grid-column: 3 / 5;
+      margin-bottom: 104px;
+    }
+
+    @include on-laptop {
+      margin-bottom: 90px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 125px;
+    }
+  }
+
+  &__purchase-btn-wrapper {
+    grid-column: 1 / -1;
+    grid-row: 4 / 5;
+
+    justify-self: center;
+
+    @include on-laptop {
+      justify-self: start;
+    }
+  }
+}

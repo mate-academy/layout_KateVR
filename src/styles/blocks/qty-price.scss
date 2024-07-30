@@ -1,0 +1,65 @@
+.qty-price {
+  width: 244px;
+  height: 72px;
+
+  display: flex;
+  justify-content: space-between;
+
+  @include on-tablet {
+    width: 347px;
+    height: 88px;
+  }
+
+  @include on-laptop {
+    width: 285px;
+  }
+
+  @include on-desktop {
+    width: 293px;
+  }
+
+  &__label {
+    line-height: 20.8px;
+  }
+
+  &__quantity-wrapper {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      align-items: flex-start;
+    }
+  }
+
+  &__price-wrapper {
+    width: 85px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      width: 109px;
+      align-items: flex-start;
+    }
+  }
+
+  &__price-value {
+    margin-bottom: 10px;
+
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31.47px;
+    color: $contrastColor;
+
+    @include on-tablet {
+      margin-bottom: 3px;
+
+      font-size: 36px;
+      line-height: 43.57px;
+    }
+  }
+}

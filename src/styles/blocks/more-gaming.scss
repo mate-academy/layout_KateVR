@@ -1,0 +1,109 @@
+.more-gaming {
+  &__content {
+    @include grid-container;
+
+    box-sizing: border-box;
+    padding-block: 50px;
+
+    @include on-tablet {
+      padding-block: 70px;
+    }
+
+    @include on-laptop {
+      padding-block: 100px;
+    }
+
+    @include on-desktop {
+      padding-block: 158px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-bottom: 12px;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      grid-row: 1 / 2;
+      text-align: center;
+    }
+
+    @include on-laptop {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-bottom: 30px;
+    height: 30px;
+
+    font-size: 12px;
+    line-height: 14.52px;
+    color: $contrastColor;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      grid-row: 2 / 3;
+      text-align: center;
+    }
+
+    @include on-laptop {
+      height: 17px;
+      margin-bottom: 83px;
+
+      font-size: 14px;
+      line-height: 16.94px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__article {
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+
+    &--social-interactions {
+      margin-bottom: 0;
+    }
+
+    @include on-tablet {
+      grid-column: span 3;
+      margin-bottom: 40px;
+
+      &--education {
+        grid-row: 3 / 4;
+      }
+
+      &--real-estate {
+        grid-row: 3 / 4;
+      }
+
+      &--fitness {
+        grid-row: 4 / 5;
+        margin-bottom: 0;
+      }
+
+      &--social-interactions {
+        grid-row: 4 / 5;
+        margin-bottom: 0;
+      }
+    }
+
+    @include on-laptop {
+      grid-column: span 3;
+      grid-row: 3 / 4;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+}
