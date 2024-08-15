@@ -72,7 +72,26 @@
   }
 }
 
+%mouse-pointer {
+  cursor: url('../icon/mouse_pointer.svg'), pointer;
+}
+
 %icon-close {
+  position: relative;
+
+  @extend %mouse-pointer;
+
+  width: 24px;
+  height: 37px;
+
+  @include hover(transform, $scale, $time-average) {
+    & > span {
+      box-shadow: $shadow-white;
+    }
+  }
+}
+
+%icon-close-element {
   position: absolute;
   top: 10px;
 
@@ -91,6 +110,32 @@
   }
 }
 
-%mouse-pointer {
-  cursor: url('../icon/mouse_pointer.svg'), pointer;
+%top-bar-style {
+  @include flex(row, 0) {
+    justify-content: flex-end;
+  }
+
+  padding: $retreat;
+
+  @include breakpoint($tablet) {
+    padding: 34px;
+  }
+}
+
+%drop-down-window {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+
+  transition: 1.2s ease-out;
+  transform: scale(0);
+  transform-origin: top right;
+
+  background-color: $dark-purple;
+}
+
+%drop-down-window-active {
+  transform: scale(1);
+  transform-origin: bottom;
 }

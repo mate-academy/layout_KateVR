@@ -2,16 +2,14 @@
 
 import {
   query,
-  queryAll,
   queryID,
-  classHtml,
+  queryAll,
   resizingWindow,
-  breakpoint,
   changePositionItem,
   changePositionElement,
 } from './utils.js';
 
-import { eventProcessing, movingDots } from './buttons.js';
+import { eventProcessing, movingDots, openMenu, openWindow } from './buttons.js';
 import { navigation } from './slider.js';
 
 // #region animate logo
@@ -42,27 +40,23 @@ import { navigation } from './slider.js';
 // #endregion
 
 // #region icon open menu
-  query('.top-bar__menu').addEventListener('click', () => {
-    classHtml('.top-bar__menu', 'add', '--active');
-    classHtml('.drop-down-menu', 'add', '__active');
-    classHtml('.body', 'add', '__lock');
-
-    // queryAll('top-bar__menu--icon').forEach((item) => {
-      //   item.classList.add('top-bar__menu--active');
-      // });
-  });
+  openMenu('.top-bar__menu', 'add', '.top-bar__menu');
+  openMenu('.drop-down-menu__icon', 'remove', '.top-bar__menu');
 // #endregion
 
-// #region icon close menu
-  query('.drop-down-menu__icon').addEventListener('click', () => {
-    classHtml('.top-bar__menu', 'remove', '--active');
-    classHtml('.drop-down-menu', 'remove', '__active');
-    classHtml('.body', 'remove', '__lock');
+// #region window "language"
+  openWindow('.link-language', 'add', '.language-page');
+  openWindow('.language-page__icon', 'remove', '.language-page');
+// #endregion
 
-    //  queryAll('top-bar__menu--icon').forEach((item) => {
-    //   item.classList.remove('top-bar__menu--active');
-    //  });
-  });
+// #region window "FAQ"
+  openWindow('.link-faq', 'add', '.faq-page');
+  openWindow('.faq-page__icon', 'remove', '.faq-page');
+// #endregion
+
+// #region window "help"
+  openWindow('.link-help', 'add', '.help-page');
+  openWindow('.help-page__icon', 'remove', '.help-page');
 // #endregion
 
 // #region button "play-video"
@@ -70,9 +64,9 @@ import { navigation } from './slider.js';
   movingDots('.header__link-video--lines', 'dots', 'bottom');
 
   eventProcessing('.header__link-video', 'add', '--active', 'https://www.youtube.com/embed/SvTbB19bvIw?si=C6jgLg3OL_VWxo8Y');
-  eventProcessing('.header__video-link--icon-close', 'remove', '--active', '');
+  eventProcessing('.video-link--icon-close', 'remove', '--active', '');
 
-  resizingWindow('.header__video-link', '.header__video-link--resizer');
+  resizingWindow('.video-link', '.video-link--resizer');
 //#endregion
 
 // #region changing the position of elements

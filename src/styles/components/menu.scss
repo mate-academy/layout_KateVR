@@ -1,48 +1,20 @@
 .drop-down-menu {
-  position: fixed;
-  inset: 0;
-  z-index: 1;
-  overflow: hidden;
-
-  transition: 1.2s ease-out;
-  transform: scale(0);
-  transform-origin: top right;
-
-  background-color: $dark-purple;
+  @extend %drop-down-window;
 
   &__active {
-    transform: scale(1);
-    transform-origin: bottom;
+    @extend %drop-down-window-active;
   }
 
   &__top-bar {
-    @include flex(row, 0) {
-      justify-content: flex-end;
-    }
-
-    padding: $retreat;
-
-    @include breakpoint($tablet) {
-      padding: 34px;
-    }
+    @extend %top-bar-style;
   }
 
-  .drop-down-menu__icon {
+  &__icon {
     @extend %mouse-pointer;
-
-    position: relative;
-
-    width: 24px;
-    height: 37px;
+    @extend %icon-close;
 
     &--element {
-      @extend %icon-close;
-    }
-
-    @include hover(transform, $scale, $time-average) {
-      & > span {
-        box-shadow: $shadow-white;
-      }
+      @extend%icon-close-element;
     }
   }
 }

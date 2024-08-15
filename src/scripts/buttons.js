@@ -28,12 +28,37 @@ import { classHtml, query, trimString } from "./utils.js";
   // click event processing
     export function eventProcessing(nameClass, event, newClass, source) {
       query(nameClass).addEventListener('click', function() {
-        classHtml('.header__video-link', event, newClass);
+        classHtml('.video-link', event, newClass);
         classHtml('.body', event, '__lock');
         classHtml('.header__container', event, '--blurred-screen');
-        query('.header__video-link--iframe').src = source;
+        query('.video-link--iframe').src = source;
       });
     };
 //#endregion
+
+// #region window opening
+
+// open window menu
+  export function openMenu(menu, event, nameblock) {
+    const item = query(menu);
+
+    item.addEventListener('click', function() {
+      classHtml(nameblock, [event], '--active');
+      classHtml('.drop-down-menu', [event], '__active');
+      classHtml('.body', [event], '__lock');
+    });
+  };
+
+// opening the menu window
+    export function openWindow(name, event, nameblock) {
+      const item = query(name);
+
+      item.addEventListener('click', function() {
+        classHtml(nameblock, [event], '__active');
+        classHtml('.body', [event], '__lock');
+        classHtml('.body', [event], '--active');
+      });
+    };
+// #endregion
 
 

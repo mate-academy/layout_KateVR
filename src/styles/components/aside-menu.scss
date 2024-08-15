@@ -1,0 +1,145 @@
+.video-link {
+  position: fixed;
+  inset: 30% 10% 0;
+
+  z-index: 1;
+  height: 240px;
+  border-radius: 20px;
+  border: 3px solid $aqua;
+  box-shadow: $shadow-click;
+
+  transition: $time-average;
+  transform: rotateX(90deg);
+
+  &--active {
+    pointer-events: all;
+    transform: rotateX(0);
+  }
+
+  @include breakpoint($tablet) {
+    inset: 18% 20% 0;
+    height: 300px;
+  }
+
+  @include breakpoint($desktop) {
+    height: 400px;
+  }
+
+  &--icon-close {
+    position: absolute;
+    right: -24px;
+    top: -24px;
+    width: 30px;
+    height: 30px;
+
+    @extend %mouse-pointer;
+
+    border-radius: 50%;
+    box-shadow: $shadow-click;
+    background-color: $aqua;
+
+    &--element {
+      @extend %icon-close-element;
+
+      top: 14px;
+    }
+
+    @include hover(transform, $scale, $time-average) {
+      box-shadow: $shadow-click;
+
+      & > span {
+        box-shadow: $shadow-white;
+      }
+    }
+  }
+
+  &--iframe {
+    width: 100%;
+    height: inherit;
+    border-radius: inherit;
+    border: none;
+  }
+
+  &--resizer {
+    position: absolute;
+    cursor: se-resize;
+
+    right: -10px;
+    bottom: -10px;
+    width: 20px;
+    height: 20px;
+
+    border-bottom-right-radius: 10px;
+    border: 3px solid $aqua;
+    border-top: none;
+    border-left: none;
+
+    @include hover(transform, $scale, $time-fast);
+  }
+}
+
+.language-page {
+  @extend %drop-down-window;
+
+  z-index: 2;
+
+  &__active {
+    @extend %drop-down-window-active;
+  }
+
+  &__top {
+    @extend %top-bar-style;
+  }
+
+  &__icon {
+    @extend %icon-close;
+
+    &--element {
+      @extend%icon-close-element;
+    }
+  }
+}
+
+.faq-page {
+  @extend %drop-down-window;
+
+  z-index: 2;
+
+  &__active {
+    @extend %drop-down-window-active;
+  }
+
+  &__top {
+    @extend %top-bar-style;
+  }
+
+  &__icon {
+    @extend %icon-close;
+
+    &--element {
+      @extend%icon-close-element;
+    }
+  }
+}
+
+.help-page {
+  @extend %drop-down-window;
+
+  z-index: 2;
+
+  &__active {
+    @extend %drop-down-window-active;
+  }
+
+  &__top {
+    @extend %top-bar-style;
+  }
+
+  &__icon {
+    @extend %icon-close;
+
+    &--element {
+      @extend%icon-close-element;
+    }
+  }
+}
