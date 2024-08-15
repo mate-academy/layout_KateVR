@@ -1,7 +1,8 @@
 .drop-down-menu {
   position: fixed;
-  overflow: hidden;
+  inset: 0;
   z-index: 1;
+  overflow: hidden;
 
   transition: 1.2s ease-out;
   transform: scale(0);
@@ -10,9 +11,8 @@
   background-color: $dark-purple;
 
   &__active {
-    inset: 0;
     transform: scale(1);
-    transform-origin: bottom left;
+    transform-origin: bottom;
   }
 
   &__top-bar {
@@ -21,32 +21,22 @@
     }
 
     padding: $retreat;
+
+    @include breakpoint($tablet) {
+      padding: 34px;
+    }
   }
 
   .drop-down-menu__icon {
+    @extend %mouse-pointer;
+
     position: relative;
-    cursor: pointer;
 
     width: 24px;
     height: 37px;
 
     &--element {
-      position: absolute;
-      top: 10px;
-
-      width: 100%;
-      height: 2px;
-
-      border-radius: 5px;
-      background-color: $white;
-
-      &:first-child {
-        transform: rotate(45deg);
-      }
-
-      &:last-child {
-        transform: rotate(-45deg);
-      }
+      @extend %icon-close;
     }
 
     @include hover(transform, $scale, $time-average) {
@@ -58,7 +48,22 @@
 }
 
 .menu {
+  user-select: none;
+  width: 100%;
+
+  &__list {
+    @include flex(column, 0);
+
+    @include breakpoint($desktop) {
+      justify-content: flex-end;
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+
   &__item {
+    @extend %mouse-pointer;
+
     @include hover(background-color, $bark-dark-purple, $time-average) {
       & > a {
         color: $aqua;
@@ -68,8 +73,17 @@
 
   &__link {
     @extend %h2;
+    @extend %mouse-pointer;
 
     padding: $retreat;
     transition: $time-average;
+
+    @include breakpoint($tablet) {
+      padding: 108px 0 0 156px;
+    }
+
+    @include breakpoint($desktop) {
+      padding: 0;
+    }
   }
 }
