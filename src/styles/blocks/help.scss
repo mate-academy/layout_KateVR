@@ -1,0 +1,86 @@
+.help-page {
+  padding-top: 20px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: $background-menu;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s;
+
+  &:target {
+    overflow-y: scroll;
+    transform: translateX(0);
+    z-index: 100;
+    opacity: 1;
+  }
+}
+
+.help-page__top {
+  display: flex;
+  justify-content: end;
+}
+
+.help-page__close-button {
+  width: 17px;
+  height: 17px;
+  background-image: url('../images/icons/cross-icon.svg');
+  transition: transform 0.3s;
+  
+  &:hover {
+    transform: rotate(180deg);
+  }
+}
+
+.help-page__content {
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.help-page__title {
+  margin-bottom: 10px;
+  color: $white;
+
+  span {
+    color: $blue;
+    font-weight: 400;
+  }
+}
+
+.help-page__article {
+  font-weight: 400;
+  line-height: 150%;
+  color: $grey;
+
+  a {
+    color: $blue;
+  }
+}
+
+.help-page-links__list {
+  padding-block: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.help-page-links__link {
+  color: $blue;
+  line-height: 150%;
+}
+
+.help-page__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.help-page__contact {
+  color: $grey;
+  font-size: 16px;
+  font-weight: 400;
+}
