@@ -7,9 +7,10 @@ import {
   resizingWindow,
   changePositionItem,
   changePositionElement,
+  classHtml
 } from './utils.js';
 
-import { eventProcessing, movingDots, openMenu, openWindow } from './buttons.js';
+import { eventProcessing, movingDots, openMenu, openWindow, clickToggle, clickClass } from './buttons.js';
 import { navigation } from './slider.js';
 
 // #region animate logo
@@ -52,11 +53,28 @@ import { navigation } from './slider.js';
 // #region window "FAQ"
   openWindow('.link-faq', 'add', '.faq-page');
   openWindow('.faq-page__icon', 'remove', '.faq-page');
-// #endregion
 
-// #region window "help"
+  openWindow('.help-page__text--span', 'add', '.faq-page');
+  openWindow('.faq-page__icon', 'remove', '.faq-page');
+  openWindow('.faq-page__link', 'remove', '.faq-page');
+
+  clickToggle('.faq-page__block');
+
+  query('.faq-page__link').innerHTML = query('.header__bottom__link').innerHTML;
+
+  clickClass('.link-faq', '.header__container', 'add', '--blurred-screen');
+  clickClass('.faq-page__icon', '.header__container', 'remove', '--blurred-screen');
+  clickClass('.faq-page__link', '.header__container', 'remove', '--blurred-screen');
+  // #endregion
+
+  // #region window "help"
   openWindow('.link-help', 'add', '.help-page');
   openWindow('.help-page__icon', 'remove', '.help-page');
+
+  clickClass('.link-help', '.header__container', 'add', '--blurred-screen');
+  clickClass('.help-page__icon', '.header__container', 'remove', '--blurred-screen');
+
+
 // #endregion
 
 // #region button "play-video"

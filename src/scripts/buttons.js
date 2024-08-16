@@ -1,5 +1,5 @@
 'use strict';
-import { classHtml, query, trimString } from "./utils.js";
+import { classHtml, query, queryAll, trimString } from "./utils.js";
 
 // #region All for the 'play-video' button
 
@@ -61,4 +61,24 @@ import { classHtml, query, trimString } from "./utils.js";
     };
 // #endregion
 
+// #region click toggle
+export function clickToggle(name) {
+  const items = queryAll(name);
+
+  items.forEach(item => {
+    item.addEventListener('click', function() {
+      item.classList.toggle(`${trimString(name, 1)}--active`);
+    });
+  }) ;
+};
+// #endregion
+
+// #region click with add class
+  export function clickClass(name, className, event, nameClass) {
+    const item = query(name);
+
+    item.addEventListener('click', function() {
+      classHtml(className, [event], nameClass);
+    });
+  };
 

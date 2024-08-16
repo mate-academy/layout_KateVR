@@ -126,9 +126,9 @@
   position: fixed;
   inset: 0;
   z-index: 1;
-  overflow: hidden;
+  overflow-y: auto;
 
-  transition: 1.2s ease-out;
+  transition: 1s ease-out;
   transform: scale(0);
   transform-origin: top right;
 
@@ -138,4 +138,20 @@
 %drop-down-window-active {
   transform: scale(1);
   transform-origin: bottom;
+}
+
+%link-more-style {
+  user-select: none;
+
+  @extend %mouse-pointer;
+
+  @include flex(column, 10px) {
+    align-items: center;
+  }
+
+  @include hover(transform, $scale, $time-fast) {
+    & > img {
+      transform: rotate(90deg) $large-scale;
+    }
+  }
 }

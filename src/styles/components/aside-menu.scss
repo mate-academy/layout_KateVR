@@ -103,14 +103,21 @@
 .faq-page {
   @extend %drop-down-window;
 
-  z-index: 2;
+  z-index: 3;
+  overflow-x: hidden;
+
+  @include breakpoint($desktop) {
+    width: 880px;
+    height: 550px;
+  }
 
   &__active {
     @extend %drop-down-window-active;
-  }
 
-  &__top {
-    @extend %top-bar-style;
+    @include breakpoint($desktop) {
+      left: 20%;
+      top: 10%;
+    }
   }
 
   &__icon {
@@ -119,6 +126,97 @@
     &--element {
       @extend%icon-close-element;
     }
+  }
+
+  &__top {
+    @extend %top-bar-style;
+    @include content-centering($mobile);
+
+    @include breakpoint($tablet) {
+      @include content-centering($tablet);
+
+      padding: $retreat 34px 0 34px;
+    }
+  }
+
+  &__container {
+    @include flex(column, 30px);
+    @include content-centering($mobile);
+
+    padding: $retreat $retreat 50px $retreat;
+
+    @include breakpoint($tablet) {
+      @include content-centering($tablet);
+    }
+
+    @include breakpoint($desktop) {
+      @include content-centering($desktop);
+
+      gap: 20px;
+      padding: 34px;
+    }
+  }
+
+  &__content {
+    @include flex(column, 20px);
+  }
+
+  &__title {
+    &--span {
+      @include font-style(400, 21px, 27px);
+
+      color: $aqua;
+
+      @include breakpoint($desktop) {
+        @include breakpoint-font-style(36px, 47px);
+      }
+    }
+
+    @include breakpoint($desktop) {
+      @include breakpoint-font-style(36px, 47px);
+    }
+  }
+
+  &__block {
+    @extend %mouse-pointer;
+    @include flex(column, 40px);
+
+    border: 1px solid $aqua;
+    padding: 10px;
+
+    height: 50px;
+    overflow: hidden;
+    transition: $time-average;
+
+    &--active {
+      height: 100vh;
+    }
+
+    &:hover {
+      box-shadow: $shadow-click;
+    }
+
+    @include breakpoint($tablet) {
+      height: 25px;
+
+      &--active {
+        height: 50vh;
+      }
+    }
+  }
+
+  &__question {
+    color: $aqua;
+  }
+
+  &__updated {
+    @include font-style(400, 12px, 18px);
+
+    color: $grayish;
+  }
+
+  &__link {
+    @extend %link-more-style;
   }
 }
 
@@ -127,12 +225,18 @@
 
   z-index: 2;
 
-  &__active {
-    @extend %drop-down-window-active;
+  @include breakpoint($desktop) {
+    width: 880px;
+    height: 550px;
   }
 
-  &__top {
-    @extend %top-bar-style;
+  &__active {
+    @extend %drop-down-window-active;
+
+    @include breakpoint($desktop) {
+      left: 20%;
+      top: 10%;
+    }
   }
 
   &__icon {
@@ -141,5 +245,98 @@
     &--element {
       @extend%icon-close-element;
     }
+  }
+
+  &__container {
+    @include flex(column, 30px);
+    @include content-centering($mobile);
+
+    padding: $retreat;
+
+    @include breakpoint($tablet) {
+      @include content-centering($tablet);
+
+      padding: 0 34px;
+    }
+
+    @include breakpoint($desktop) {
+      @include content-centering($desktop);
+
+      padding: 0 88px;
+    }
+  }
+
+  &__top {
+    @extend %top-bar-style;
+    @include content-centering($mobile);
+
+    @include breakpoint($tablet) {
+      @include content-centering($tablet);
+    }
+  }
+
+  &__content {
+    @include flex(column, 30px);
+  }
+
+  &__title {
+    &--span {
+      @include font-style(400, 21px, 27px);
+
+      color: $aqua;
+
+      @include breakpoint($desktop) {
+        @include breakpoint-font-style(36px, 47px);
+      }
+    }
+
+    @include breakpoint($desktop) {
+      @include breakpoint-font-style(36px, 47px);
+    }
+  }
+
+  &__text {
+    &--span {
+      @extend %mouse-pointer;
+
+      color: $aqua;
+    }
+  }
+
+  &__bottom {
+    @include flex(column, 30px);
+
+    @include breakpoint($tablet) {
+      flex-direction: row;
+      gap: 130px;
+    }
+  }
+
+  &__links {
+    @include flex(column, 20px);
+
+    @include breakpoint($tablet) {
+      gap: 30px;
+    }
+  }
+
+  &__link {
+    @extend %mouse-pointer;
+
+    color: $aqua;
+  }
+
+  &__contacts {
+    @include flex(column, 8px);
+
+    @include breakpoint($tablet) {
+      gap: 30px;
+    }
+  }
+
+  &__contact {
+    @extend %mouse-pointer;
+
+    color: $light-gray;
   }
 }

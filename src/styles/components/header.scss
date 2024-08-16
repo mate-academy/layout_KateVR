@@ -7,9 +7,9 @@
       row-gap: 20px;
     }
 
+    @include content-centering($mobile);
+
     padding: 20px;
-    max-width: $mobile;
-    margin-inline: auto;
     transition: $time-average;
 
     &--blurred-screen {
@@ -18,13 +18,15 @@
     }
 
     @include media-breakpoint($tablet, 8) {
-      max-width: $tablet;
+      @include content-centering($tablet);
+
       row-gap: 50px;
       padding: 30px 34px;
     }
 
     @include media-breakpoint($desktop, 12) {
-      max-width: $desktop;
+      @include content-centering($desktop);
+
       row-gap: 40px;
       padding: 30px 110px;
     }
@@ -275,13 +277,7 @@
     }
 
     &__link {
-      user-select: none;
-
-      @extend %mouse-pointer;
-
-      @include flex(column, 10px) {
-        align-items: center;
-      }
+      @extend %link-more-style;
 
       &--title {
         color: $aqua;
@@ -292,12 +288,6 @@
         height: auto;
         transition: $time-average;
         transform: rotate(90deg);
-      }
-
-      @include hover(transform, $scale, $time-fast) {
-        & > img {
-          transform: rotate(90deg) $large-scale;
-        }
       }
     }
   }

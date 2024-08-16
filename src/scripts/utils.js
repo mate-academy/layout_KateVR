@@ -74,3 +74,17 @@
     }
   };
 // #endregion
+
+// #region click toggle
+  // export function clickToggle(name) {
+  //   const items = query(name);
+
+  //   items.forEach(item => {
+  //     item.addEventListener('click', function() {
+  //       item.classList.toggle(`${trimString(name, 1)}--active`);
+  //     });
+  //   }) ;
+  // };
+
+
+// #endregion
