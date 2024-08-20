@@ -11,6 +11,7 @@
 
   @include on-tablet {
     padding-top: 30px;
+    padding-bottom: 55px;
   }
 }
 
@@ -72,10 +73,22 @@
   }
 }
 
+.header__content {
+  grid-row: 1/1;
+}
+
 .header__poster {
+  width: 100%;
   height: 172px;
   margin-inline: auto;
-  background-image: url('../images/blocks/header/header-img.svg');
+  background-image: url('../images/blocks/header/header-img-mobile.svg');
+
+  @include on-tablet {
+    width: 494px;
+    height: 348px;
+    grid-row: 1/1;
+    background-image: url('../images/blocks/header/header-img.svg');
+  }
 }
 
 .header__title {
@@ -91,6 +104,10 @@
 .header__text {
   margin-bottom: 8px;
   color: $grey;
+
+  @include on-tablet {
+    margin-bottom: 10px;
+  }
 }
 
 .header__price {
@@ -99,6 +116,11 @@
   color: $white;
   font-size: 18px;
   font-weight: 500;
+
+  @include on-tablet {
+    margin-bottom: 33px;
+    text-align: start;
+  }
 }
 
 .header__actions {
@@ -113,6 +135,10 @@
   height: 66px;
   background-image: url('../images/blocks/header/play-button.svg');
   color: $white;
+
+  @include on-tablet {
+    margin-inline: 0;
+  }
 }
 
 .purchase-button {
