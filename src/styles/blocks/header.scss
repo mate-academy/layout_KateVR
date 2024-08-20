@@ -8,12 +8,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  @include on-tablet {
+    padding-top: 30px;
+  }
 }
 
 .main-logo {
   height: 12px;
   width: 58px;
   background-image: url('../images/icons/main-logo.svg');
+
+  @include on-tablet {
+    height: 14px;
+    width: 67px;
+  }
 }
 
 
@@ -24,11 +33,19 @@
 
   &:nth-child(1), &:nth-child(3) {
     width: 16px;
+
+    @include on-tablet {
+      width: 24px;
+    }
   }
 
   &:nth-child(2) {
     width: 12px;
     transform: translateX(-4px);
+
+    @include on-tablet {
+      width: 18px;
+    }
   }
 }
 
@@ -44,6 +61,14 @@
   &:hover .menu-button__item:nth-child(2) {
     width: 16px;
     transform: translateX(0);
+
+    @include on-tablet {
+      width: 24px;
+    }
+  }
+
+  @include on-tablet {
+    gap: 6px;
   }
 }
 
@@ -95,4 +120,8 @@
   height: 40px;
   background-color: $blue;
   transform: translateY(50%);
+
+  @include on-tablet {
+    display: none;
+  }
 }
