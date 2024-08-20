@@ -7,10 +7,20 @@ import {
   resizingWindow,
   changePositionItem,
   changePositionElement,
-  classHtml
+  classTracking,
+  classHtml,
+  classTrackingAll
 } from './utils.js';
 
-import { eventProcessing, movingDots, openMenu, openWindow, clickToggle, clickClass } from './buttons.js';
+import {
+  eventProcessing,
+  movingDots,
+  openWindow,
+  clickToggle,
+  clickClass,
+  clickGroup
+} from './buttons.js';
+
 import { navigation } from './slider.js';
 
 // #region animate logo
@@ -41,40 +51,53 @@ import { navigation } from './slider.js';
 // #endregion
 
 // #region icon open menu
-  openMenu('.top-bar__menu', 'add', '.top-bar__menu');
-  openMenu('.drop-down-menu__icon', 'remove', '.top-bar__menu');
-// #endregion
+  openWindow('.top-bar__menu', 'add', '--active', '.top-bar__menu', '.drop-down-menu');
+  openWindow('.drop-down-menu__icon', 'remove', '--active', '.top-bar__menu', '.drop-down-menu');
+  // #endregion
 
 // #region window "language"
-  openWindow('.link-language', 'add', '.language-page');
-  openWindow('.language-page__icon', 'remove', '.language-page');
+  openWindow('.link-language', 'add', '--active', '.language-page');
+  openWindow('.language-page__icon', 'add', '--close', '.language-page');
+  clickGroup('.language-page__item', 'add', '--close', '.language-page');
+
+  classTracking('.language-page__icon','remove', '--close');
+  openWindow('.language-page__icon', 'remove', '--active', '.language-page');
+
+  clickGroup('.language-page__item', 'remove', '--active', '.language-page');
+  classTrackingAll('.language-page__item', 'remove', '--close', '.language-page');
 // #endregion
 
 // #region window "FAQ"
-  openWindow('.link-faq', 'add', '.faq-page');
-  openWindow('.faq-page__icon', 'remove', '.faq-page');
-
-  openWindow('.help-page__text--span', 'add', '.faq-page');
-  openWindow('.faq-page__icon', 'remove', '.faq-page');
-  openWindow('.faq-page__link', 'remove', '.faq-page');
-
-  clickToggle('.faq-page__block');
+  openWindow('.link-faq', 'add', '--active', '.faq-page');
+  clickClass('.link-faq', '.header__container', 'add', '--blurred-screen');
 
   query('.faq-page__link').innerHTML = query('.header__bottom__link').innerHTML;
+  clickToggle('.faq-page__block');
 
-  clickClass('.link-faq', '.header__container', 'add', '--blurred-screen');
+  openWindow('.faq-page__icon', 'remove', '--active', '.faq-page');
+  openWindow('.faq-page__icon', 'remove', '--active', '.help-page');
+  openWindow('.faq-page__icon', 'remove', '--active', '.top-bar__menu', '.drop-down-menu');
   clickClass('.faq-page__icon', '.header__container', 'remove', '--blurred-screen');
+
+  openWindow('.faq-page__link', 'remove', '--active', '.faq-page');
+  openWindow('.faq-page__link', 'remove', '--active', '.help-page');
+  openWindow('.faq-page__link', 'remove', '--active', '.top-bar__menu', '.drop-down-menu');
   clickClass('.faq-page__link', '.header__container', 'remove', '--blurred-screen');
-  // #endregion
+// #endregion
 
-  // #region window "help"
-  openWindow('.link-help', 'add', '.help-page');
-  openWindow('.help-page__icon', 'remove', '.help-page');
-
+// #region window "help"
+  openWindow('.link-help', 'add', '--active', '.help-page');
   clickClass('.link-help', '.header__container', 'add', '--blurred-screen');
+  openWindow('.help-page__text--link-faq', 'add', '--active', '.faq-page');
+
+
+  openWindow('.help-page__icon', 'remove', '--active', '.help-page');
   clickClass('.help-page__icon', '.header__container', 'remove', '--blurred-screen');
+  openWindow('.help-page__icon', 'remove', '--active', '.top-bar__menu', '.drop-down-menu');
 
-
+  openWindow('.help-page__text--link-contact', 'remove', '--active', '.help-page');
+  clickClass('.help-page__text--link-contact', '.header__container', 'remove', '--blurred-screen');
+  openWindow('.help-page__text--link-contact', 'remove', '--active', '.top-bar__menu', '.drop-down-menu');
 // #endregion
 
 // #region button "play-video"

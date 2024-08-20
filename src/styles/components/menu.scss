@@ -1,7 +1,7 @@
 .drop-down-menu {
   @extend %drop-down-window;
 
-  &__active {
+  &--active {
     @extend %drop-down-window-active;
   }
 
@@ -47,15 +47,16 @@
     @extend %h2;
     @extend %mouse-pointer;
 
-    padding: $retreat;
+    display: block;
+    padding-left: $retreat;
     transition: $time-average;
 
     @include breakpoint($tablet) {
-      padding: 108px 0 0 156px;
+      padding-left: 108px;
     }
 
     @include breakpoint($desktop) {
-      padding: 0;
+      padding-left: 0;
     }
   }
 }

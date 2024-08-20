@@ -38,39 +38,40 @@ import { classHtml, query, queryAll, trimString } from "./utils.js";
 
 // #region window opening
 
-// open window menu
-  export function openMenu(menu, event, nameblock) {
-    const item = query(menu);
+// #region opening the menu window
+  export function openWindow(nameAddress, event, modifier, nameblock1, nameblock2 = '.default') {
+    const item = query(nameAddress);
 
     item.addEventListener('click', function() {
-      classHtml(nameblock, [event], '--active');
-      classHtml('.drop-down-menu', [event], '__active');
+      classHtml(nameblock1, [event], modifier);
+      classHtml(nameblock2, [event], modifier);
       classHtml('.body', [event], '__lock');
     });
   };
-
-// opening the menu window
-    export function openWindow(name, event, nameblock) {
-      const item = query(name);
-
-      item.addEventListener('click', function() {
-        classHtml(nameblock, [event], '__active');
-        classHtml('.body', [event], '__lock');
-        classHtml('.body', [event], '--active');
-      });
-    };
 // #endregion
 
 // #region click toggle
-export function clickToggle(name) {
-  const items = queryAll(name);
+  export function clickToggle(name) {
+    const items = queryAll(name);
 
-  items.forEach(item => {
-    item.addEventListener('click', function() {
-      item.classList.toggle(`${trimString(name, 1)}--active`);
-    });
-  }) ;
-};
+    items.forEach(item => {
+      item.addEventListener('click', function() {
+        item.classList.toggle(`${trimString(name, 1)}--active`);
+      });
+    }) ;
+  };
+// #endregion
+
+// #region click on a group of elements
+  export function clickGroup(name, event, newClass, className) {
+    const container = queryAll(name);
+
+    container.forEach(item => {
+      item.addEventListener('click', function() {
+        classHtml(className, [event], newClass);
+      })
+    })
+  }
 // #endregion
 
 // #region click with add class
@@ -81,4 +82,7 @@ export function clickToggle(name) {
       classHtml(className, [event], nameClass);
     });
   };
+// #endregion
+
+
 

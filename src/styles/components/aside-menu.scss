@@ -79,23 +79,69 @@
 }
 
 .language-page {
-  @extend %drop-down-window;
-
+  position: fixed;
   z-index: 2;
+  inset: 0 0 0 100%;
 
-  &__active {
-    @extend %drop-down-window-active;
+  border: 1px solid rgba($color: $white, $alpha: 0.3);
+  background-color: $dark-purple;
+
+  &--active {
+    transition: 1s ease-out;
+    left: 0;
+  }
+
+  &--close {
+    transition: 1s ease-out;
+    left: -100%;
+    right: 100%;
   }
 
   &__top {
     @extend %top-bar-style;
+
+    justify-content: flex-start;
+
+    @include breakpoint($tablet) {
+      padding: $retreat 34px;
+    }
   }
 
   &__icon {
     @extend %icon-close;
 
+    width: 40px;
+
     &--element {
       @extend%icon-close-element;
+
+      width: 20px;
+      transform-origin: left;
+    }
+  }
+
+  &__item {
+    @extend %mouse-pointer;
+    @extend %h2;
+
+    padding-left: $retreat;
+    transition: $time-average;
+
+    &:focus {
+      color: $aqua;
+      background-color: $bark-dark-purple;
+    }
+
+    @include hover(background-color, $bark-dark-purple, $time-average) {
+      color: $aqua;
+    }
+
+    @include breakpoint($tablet) {
+      padding-left: 108px;
+    }
+
+    @include breakpoint($desktop) {
+      padding-left: 0;
     }
   }
 }
@@ -111,7 +157,7 @@
     height: 550px;
   }
 
-  &__active {
+  &--active {
     @extend %drop-down-window-active;
 
     @include breakpoint($desktop) {
@@ -230,7 +276,7 @@
     height: 550px;
   }
 
-  &__active {
+  &--active {
     @extend %drop-down-window-active;
 
     @include breakpoint($desktop) {

@@ -27,8 +27,44 @@
 // #endregion
 
 // #region creating and deleting classes
+
+  // create and delete class
   export function classHtml(className, event, newClass) {
     return query(className).classList[event](`${trimString(className, 1)}${newClass}`);
+  };
+
+  // class tracking to create or delete
+  export function classTracking(icon, event, newClass) {
+
+    const nameClass = `${trimString(icon, 1, -6)}`;
+    const container =  query(`${trimString(icon, 0, -6)}`);
+    const button = query(icon);
+
+    button.addEventListener('click', function() {
+
+      setTimeout(() => {
+        if(container.classList.contains(`${nameClass}${newClass}`)) {
+          container.classList[event](`${nameClass}${newClass}`);
+        };
+      }, 1000);
+    })
+  };
+
+  // group classes tracking to create or delete
+  export function classTrackingAll(items, event, newClass, nameClass) {
+    const groupItems = queryAll(items);
+    const container = query(nameClass);
+    const className = `${trimString(nameClass, 1)}${newClass}`;
+
+    groupItems.forEach(item => {
+      item.addEventListener('click', function() {
+        setTimeout(() => {
+          if(container.classList.contains(className)) {
+            container.classList[event](className);
+          };
+        }, 1000);
+      });
+    });
   };
 // #endregion
 
@@ -75,16 +111,3 @@
   };
 // #endregion
 
-// #region click toggle
-  // export function clickToggle(name) {
-  //   const items = query(name);
-
-  //   items.forEach(item => {
-  //     item.addEventListener('click', function() {
-  //       item.classList.toggle(`${trimString(name, 1)}--active`);
-  //     });
-  //   }) ;
-  // };
-
-
-// #endregion
