@@ -1,13 +1,33 @@
 .top-bar {
-  @include flex(row, 10px) {
-    align-items: center;
-    justify-content: space-between;
+  @include flex(row, 0);
+
+  @include breakpoint($desktop) {
+    position: fixed;
+    z-index: 5;
+    inset: 0;
+
+    height: 90px;
+    background: $gradient-top-bar;
   }
 
-  &__box {
-    @include flex(row, 20px) {
+  &__container {
+    @include flex(row, 0) {
       align-items: center;
+      justify-content: space-between;
     }
+
+    width: 100%;
+
+    @include breakpoint($desktop) {
+      @include content-centering($desktop);
+
+      gap: 20px;
+      padding: 30px 110px;
+    }
+  }
+
+  &__box-logo {
+    width: 80px;
   }
 
   &__logo {
@@ -26,6 +46,10 @@
     }
 
     @include hover(transform, $scale, $time_average);
+  }
+
+  &__icon {
+    @extend %angle-arrow;
   }
 
   &__btn {
@@ -167,9 +191,5 @@
     @include breakpoint($desktop) {
       display: none;
     }
-  }
-
-  @include breakpoint($desktop) {
-    gap: 40px;
   }
 }

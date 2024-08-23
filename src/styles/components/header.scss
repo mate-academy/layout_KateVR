@@ -1,5 +1,6 @@
 .header {
-  overflow: hidden;
+  height: 100vh;
+  pointer-events: all;
   background: $gradient;
 
   &__container {
@@ -12,11 +13,6 @@
     padding: 20px;
     transition: $time-average;
 
-    &--blurred-screen {
-      pointer-events: none;
-      filter: blur(4px);
-    }
-
     @include media-breakpoint($tablet, 8) {
       @include content-centering($tablet);
 
@@ -28,7 +24,7 @@
       @include content-centering($desktop);
 
       row-gap: 40px;
-      padding: 30px 110px;
+      padding: 50px 110px;
     }
   }
 
@@ -41,7 +37,7 @@
     @include grid(2);
 
     grid-column: 1 / -1;
-    padding-bottom: 20px;
+    padding: 30px 0 0;
 
     @include media-breakpoint($tablet, 8);
     @include media-breakpoint($desktop, 12);
@@ -258,7 +254,6 @@
   }
 
   &__bottom {
-    z-index: 1;
     display: none;
     grid-column: 1 / -1;
 
@@ -284,10 +279,7 @@
       }
 
       &--icon {
-        width: 9px;
-        height: auto;
-        transition: $time-average;
-        transform: rotate(90deg);
+        @extend %angle-arrow;
       }
     }
   }
@@ -305,7 +297,6 @@
     }
 
     &--switch {
-      pointer-events: all;
       user-select: none;
       padding: 1px 5px;
       color: $white;

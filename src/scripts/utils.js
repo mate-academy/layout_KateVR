@@ -33,6 +33,35 @@
     return query(className).classList[event](`${trimString(className, 1)}${newClass}`);
   };
 
+  // click with add or delete class
+  export function clickClass(name, className, event, nameClass) {
+    const item = query(name);
+
+    item.addEventListener('click', function() {
+      classHtml(className, [event], nameClass);
+    });
+  };
+
+  // create or delete a class contained in a container
+    export function classContains(className, event, newClass) {
+      const container = query(className);
+
+      if(container.classList.contains(newClass)) {
+        container.classList[event](newClass);
+      }
+    }
+
+  // click on a group of elements
+  export function clickGroup(name, event, newClass, className) {
+    const container = queryAll(name);
+
+    container.forEach(item => {
+      item.addEventListener('click', function() {
+        classHtml(className, [event], newClass);
+      })
+    })
+  }
+
   // class tracking to create or delete
   export function classTracking(icon, event, newClass) {
 
@@ -110,4 +139,3 @@
     }
   };
 // #endregion
-

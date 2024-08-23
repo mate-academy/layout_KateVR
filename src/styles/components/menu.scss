@@ -29,7 +29,7 @@
     @include breakpoint($desktop) {
       justify-content: flex-end;
       flex-direction: row;
-      gap: 40px;
+      gap: 20px;
     }
   }
 
@@ -39,6 +39,12 @@
     @include hover(background-color, $bark-dark-purple, $time-average) {
       & > a {
         color: $aqua;
+      }
+    }
+
+    @include breakpoint($desktop) {
+      &:nth-child(5) {
+        display: none;
       }
     }
   }
@@ -56,7 +62,7 @@
     }
 
     @include breakpoint($desktop) {
-      padding-left: 0;
+      padding: 0 10px;
     }
   }
 }

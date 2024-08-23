@@ -2,7 +2,7 @@
   position: fixed;
   inset: 30% 10% 0;
 
-  z-index: 1;
+  z-index: 10;
   height: 240px;
   border-radius: 20px;
   border: 3px solid $aqua;
@@ -120,6 +120,69 @@
     }
   }
 
+  &__button {
+    display: none;
+
+    @extend %mouse-pointer;
+
+    position: fixed;
+    left: clamp(230px, 50vw, 230px);
+    top: 5vh;
+
+    @include breakpoint($desktop) {
+      @include content-centering($desktop);
+
+      @include flex(row, 8px) {
+        align-items: flex-end;
+      }
+
+      @include hover(transform, $scale, $time-fast) {
+        .language-page__icon-arrow {
+          transform: rotate(90deg) $large-scale;
+        }
+
+        .language-page__icon-arrow--active {
+          transform: rotate(270deg) $large-scale;
+        }
+      }
+    }
+  }
+
+  &__current-language {
+    color: $aqua;
+  }
+
+  &__icon-arrow {
+    @extend %angle-arrow;
+
+    &--active {
+      transform: rotate(270deg);
+    }
+  }
+
+  &__list {
+    transition: $time-average;
+
+    @include breakpoint($desktop) {
+      position: fixed;
+      left: 220px;
+      top: 70px;
+
+      width: 250px;
+      height: 0;
+      overflow: hidden;
+
+      border-radius: 10px;
+      background-color: $dark-purple;
+    }
+
+    &--active {
+      z-index: 2;
+      height: 500px;
+      border: 1px solid rgba($color: $white, $alpha: 0.3);
+    }
+  }
+
   &__item {
     @extend %mouse-pointer;
     @extend %h2;
@@ -141,7 +204,11 @@
     }
 
     @include breakpoint($desktop) {
-      padding-left: 0;
+      padding: 0 10px;
+
+      &:hover {
+        border-radius: 10px;
+      }
     }
   }
 }
@@ -161,8 +228,7 @@
     @extend %drop-down-window-active;
 
     @include breakpoint($desktop) {
-      left: 20%;
-      top: 10%;
+      inset: 5% 0 0 20%;
     }
   }
 
@@ -189,7 +255,7 @@
     @include flex(column, 30px);
     @include content-centering($mobile);
 
-    padding: $retreat $retreat 50px $retreat;
+    padding: 0 $retreat;
 
     @include breakpoint($tablet) {
       @include content-centering($tablet);
@@ -280,8 +346,7 @@
     @extend %drop-down-window-active;
 
     @include breakpoint($desktop) {
-      left: 20%;
-      top: 10%;
+      inset: 5% 0 0 20%;
     }
   }
 

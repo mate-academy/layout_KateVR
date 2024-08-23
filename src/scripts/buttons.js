@@ -30,7 +30,7 @@ import { classHtml, query, queryAll, trimString } from "./utils.js";
       query(nameClass).addEventListener('click', function() {
         classHtml('.video-link', event, newClass);
         classHtml('.body', event, '__lock');
-        classHtml('.header__container', event, '--blurred-screen');
+        classHtml('.body-wrapper', event, '--blurred-screen');
         query('.video-link--iframe').src = source;
       });
     };
@@ -50,8 +50,16 @@ import { classHtml, query, queryAll, trimString } from "./utils.js";
   };
 // #endregion
 
-// #region click toggle
-  export function clickToggle(name) {
+// #region click toggle class
+  export function clickToggleClass(classClick, newClass) {
+    const item = query(classClick);
+
+    item.addEventListener('click', function() {
+      query(newClass).classList.toggle(`${trimString(newClass, 1)}--active`);
+    });
+  }
+
+  export function clickToggleAll(name) {
     const items = queryAll(name);
 
     items.forEach(item => {
@@ -62,26 +70,56 @@ import { classHtml, query, queryAll, trimString } from "./utils.js";
   };
 // #endregion
 
-// #region click on a group of elements
-  export function clickGroup(name, event, newClass, className) {
-    const container = queryAll(name);
+// #region display of current information
+  export function displayCurrent(elem, display) {
+    const list =  query(elem);
 
-    container.forEach(item => {
+    list.querySelectorAll('LI').forEach(item => {
+
       item.addEventListener('click', function() {
-        classHtml(className, [event], newClass);
-      })
-    })
+
+        list.querySelectorAll('LI').forEach(item => {
+          item.classList.remove('active');
+        });
+
+        this.classList.add('active');
+
+        const selectedValue = this.getAttribute('data-value');
+        query(display).textContent = selectedValue;
+      });
+    });
   }
 // #endregion
 
-// #region click with add class
-  export function clickClass(name, className, event, nameClass) {
+// #region disable click
+  export function disableClick(name, button) {
     const item = query(name);
+    const buttons = queryAll(button);
+
 
     item.addEventListener('click', function() {
-      classHtml(className, [event], nameClass);
+
+      buttons.forEach((btn) => {
+        btn.classList.toggle('disabled');
+      });
+
+      item.classList.remove('disabled');
     });
-  };
+  }
+
+  export function disableClickAll(name, button) {
+    const items = queryAll(name);
+    const buttons = queryAll(button);
+
+    items.forEach((btn) => {
+      btn.addEventListener('click', function() {
+
+        buttons.forEach((btn) => {
+          btn.classList.remove('disabled');
+        })
+      })
+    })
+  }
 // #endregion
 
 
