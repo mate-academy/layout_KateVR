@@ -2,6 +2,11 @@
   padding-bottom: 27px;
   padding-top: 50px;
   background: linear-gradient(150deg, rgba(25,21,54,1) 10%, rgba(0,0,0,1) 100%);;
+
+  @include on-tablet {
+    padding-bottom: 56px;
+    padding-top: 65px
+  }
 }
 
 .about__title {
@@ -12,12 +17,25 @@
     color: $blue;
     font-weight: 400;
   }
+
+  @include on-tablet {
+    margin-bottom: 30px;
+  }
+}
+
+.slider__wrapper {
+  grid-row: 1/4;
 }
 
 .about__poster {
   margin-inline: auto;
   margin-bottom: 14px;
   height: 189px;
+
+  @include on-tablet {
+    height: 270px;
+    background-size: cover;
+  }
 }
 
 .img-1 {
@@ -60,6 +78,10 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 150%;
+
+  @include on-tablet {
+    margin-bottom: 30px;
+  }
 }
 
 .about__button {
@@ -69,4 +91,8 @@
 .greet-text {
   margin-bottom: 11px;
   color: $blue;
+}
+
+.about__background-block {
+  background-image: url('../images/blocks/about-product/bgd-img-1.svg');
 }
