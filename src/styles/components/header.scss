@@ -105,6 +105,7 @@
 
     @include breakpoint($tablet) {
       text-align: start;
+      margin-bottom: 20px;
     }
 
     @include breakpoint($desktop) {
@@ -160,7 +161,6 @@
 
     @include breakpoint($tablet) {
       width: 250px;
-      margin-top: 20px;
     }
 
     @include breakpoint($desktop) {
@@ -174,7 +174,10 @@
 
       border: 2px solid $aqua;
       border-radius: 50%;
-      transition: $time_fast;
+
+      transition:
+        $time-fast $time-fast,
+        transform $time-fast cubic-bezier(0.32, 1, 0.32, 1);
 
       &::before {
         content: '';

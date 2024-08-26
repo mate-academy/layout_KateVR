@@ -162,3 +162,15 @@
   transition: $time-average;
   transform: rotate(90deg);
 }
+
+%base-retreat-container {
+  @include content-centering($mobile);
+
+  @include breakpoint($tablet) {
+    @include content-centering($tablet);
+  }
+
+  @include breakpoint($desktop) {
+    @include content-centering($desktop);
+  }
+}

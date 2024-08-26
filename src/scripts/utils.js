@@ -130,12 +130,13 @@
     }
   };
 
-  export function changePositionItem(sizeScreen, item, newContainer, previousContainer) {
+  export function changePositionItem(sizeScreen, item, event, newContainer, previousContainer) {
 
     if(window.innerWidth >= breakpoint(sizeScreen)) {
-      query(newContainer).appendChild(query(item));
+      query(newContainer)[event](query(item));
     } else {
-      query(previousContainer).appendChild(query(item));
+      query(previousContainer)[event](query(item));
     }
   };
 // #endregion
+

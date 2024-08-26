@@ -29,6 +29,7 @@ import { classHtml, query, queryAll, trimString } from "./utils.js";
     export function eventProcessing(nameClass, event, newClass, source) {
       query(nameClass).addEventListener('click', function() {
         classHtml('.video-link', event, newClass);
+        classHtml('.header__link-video--arrow', event, newClass);
         classHtml('.body', event, '__lock');
         classHtml('.body-wrapper', event, '--blurred-screen');
         query('.video-link--iframe').src = source;

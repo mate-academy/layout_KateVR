@@ -1,13 +1,18 @@
 .main {
+  // @include flex(column, 40px);
   background-color: $gradient;
 }
 
 .experience {
-  @include grid(2) {
-    row-gap: 40px;
-  }
+  &__container {
+    @include grid(2) {
+      row-gap: 40px;
+    }
 
-  padding: 80px $retreat;
+    @extend %base-retreat-container;
+
+    padding: 50px $retreat;
+  }
 
   &__top {
     grid-column: 1 / -1;
@@ -36,7 +41,7 @@
     color: $aqua;
   }
 
-  &__container {
+  &__content {
     grid-column: 1 / -1;
 
     @include grid(2) {
@@ -46,7 +51,7 @@
     @include media-breakpoint($tablet, 8);
   }
 
-  &__content {
+  &__article {
     grid-column: 1 / -1;
 
     @include flex(column, 20px);
@@ -124,6 +129,177 @@
 
     @include breakpoint($tablet) {
       text-align: center;
+    }
+  }
+}
+
+.about-product {
+  background: $gradient;
+
+  &__container {
+    @include grid(2) {
+      row-gap: 20px;
+    }
+
+    @extend %base-retreat-container;
+
+    padding: 50px $retreat;
+
+    @include media-breakpoint($tablet, 8) {
+      column-gap: 40px;
+    }
+
+    @include media-breakpoint($desktop, 12);
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    &--span {
+      font-weight: 400;
+      color: $aqua;
+    }
+
+    @include breakpoint($desktop) {
+      @include breakpoint-font-style(36px, 44px);
+    }
+  }
+
+  &__slider {
+    @include flex(column, 20px);
+
+    grid-column: 1 / -1;
+
+    @include breakpoint($tablet) {
+      grid-column: 1 / 5;
+    }
+
+    @include breakpoint($desktop) {
+      grid-column: 2 / 7;
+    }
+  }
+
+  &__box {
+    @include flex(row, 20px);
+  }
+
+  &__display-current {
+    display: none;
+    color: $aqua;
+
+    @include breakpoint($desktop) {
+      display: block;
+    }
+  }
+
+  &__navigation {
+    @include flex(row, 10px) {
+      justify-content: center;
+    }
+
+    &--switch {
+      width: 4px;
+      height: 4px;
+
+      background-color: $gray;
+      border-radius: 50%;
+
+      &--active {
+        color: $light-gray;
+      }
+    }
+
+    @include breakpoint($desktop) {
+      display: none;
+    }
+  }
+
+  &__clone-navigation {
+    display: none;
+    width: 208px;
+    padding-left: 36px;
+
+    @include breakpoint($desktop) {
+      @include flex(column, 10px);
+    }
+  }
+
+  &__article-1 {
+    @include flex(column, 50px);
+
+    grid-column: 1 / -1;
+
+    @include breakpoint($tablet) {
+      grid-column: 5 / -1;
+      row-gap: 20px;
+    }
+
+    @include breakpoint($desktop) {
+      grid-column: 8 / -1;
+      align-self: start;
+      row-gap: 40px;
+    }
+  }
+
+  &__article-2 {
+    @include flex(column, 30px);
+
+    grid-column: 1 / -1;
+    margin-top: 50px;
+
+    @include breakpoint($tablet) {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include breakpoint($desktop) {
+      grid-column: 2 / 11;
+    }
+  }
+
+  &__wrapper {
+    @include flex(column, 30px);
+
+    @include breakpoint($tablet) {
+      flex-basis: 70%;
+    }
+
+    @include breakpoint($desktop) {
+      flex-basis: 40%;
+    }
+  }
+
+  &__box-title {
+    @include flex(column, 10px);
+
+    &--text {
+      color: $aqua;
+    }
+  }
+
+  &__images {
+    display: none;
+
+    @include breakpoint($tablet) {
+      @include flex(row, 40px);
+    }
+  }
+
+  &__img {
+    height: 256px;
+
+    @include breakpoint($desktop) {
+      height: 342px;
+    }
+
+    &:nth-child(odd) {
+      @include animation-brightness(100%, 50%);
+
+      transform: rotate(180deg);
+    }
+
+    &:nth-child(even) {
+      @include animation-brightness(50%, 20%);
     }
   }
 }

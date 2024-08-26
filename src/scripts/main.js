@@ -29,20 +29,10 @@ import { navigation } from './slider.js';
 import { experience } from './array_of_data.js';
 import { templateHtml } from './templates.js';
 
-// #region animate logo
-  document.addEventListener('DOMContentLoaded', () => {
-    const letters = queryAll('.top-bar__logo--letter');
-
-    letters.forEach((letter, index) => {
-      letter.style.setProperty('--index', index);
-    });
-  });
-// #endregion
-
+import favicon_1 from '../icon/favicons/favicon1.svg';
+import favicon_2 from '../icon/favicons/favicon2.svg';
+import favicon_3 from '../icon/favicons/favicon3.svg';
 // #region animate favicon
-  import favicon_1 from '../icon/favicons/favicon1.svg';
-  import favicon_2 from '../icon/favicons/favicon2.svg';
-  import favicon_3 from '../icon/favicons/favicon3.svg';
 
   const favicons = [favicon_1, favicon_2, favicon_3];
   let currentIndex = 0;
@@ -55,11 +45,6 @@ import { templateHtml } from './templates.js';
 
   setInterval(animateFavicon, 1000);
 // #endregion
-
-// #region icon open menu
-  openWindow('.top-bar__menu', 'add', '--active', '.top-bar__menu', '.drop-down-menu');
-  openWindow('.drop-down-menu__icon', 'remove', '--active', '.top-bar__menu', '.drop-down-menu');
-  // #endregion
 
 // #region window "language"
   openWindow('.link-language', 'add', '--active', '.language-page');
@@ -139,44 +124,97 @@ import { templateHtml } from './templates.js';
   openWindow('.help-page__text--link-contact', 'remove', '--active', '.top-bar__menu', '.drop-down-menu');
 // #endregion
 
-// #region button "play-video"
-  movingDots('.header__link-video--lines', 'dots', 'top');
-  movingDots('.header__link-video--lines', 'dots', 'bottom');
-  disableClick('.header__link-video--lines', '.button');
+// #region section "top-bar"
 
-  eventProcessing('.header__link-video', 'add', '--active', 'https://www.youtube.com/embed/SvTbB19bvIw?si=C6jgLg3OL_VWxo8Y');
+  // animate logo
+    document.addEventListener('DOMContentLoaded', () => {
+      const letters = queryAll('.top-bar__logo--letter');
 
-  eventProcessing('.video-link--icon-close', 'remove', '--active', '');
-  disableClick('.video-link--icon-close', '.button');
+      letters.forEach((letter, index) => {
+        letter.style.setProperty('--index', index);
+      });
+    });
+// #endregion
 
-  resizingWindow('.video-link', '.video-link--resizer');
+// #region section "header"
+
+  // icon open menu
+    openWindow('.top-bar__menu', 'add', '--active', '.top-bar__menu', '.drop-down-menu');
+    openWindow('.drop-down-menu__icon', 'remove', '--active', '.top-bar__menu', '.drop-down-menu');
+
+  // button "play-video"
+    movingDots('.header__link-video--lines', 'dots', 'top');
+    movingDots('.header__link-video--lines', 'dots', 'bottom');
+    disableClick('.header__link-video--lines', '.button');
+
+    eventProcessing('.header__link-video', 'add', '--active', 'https://www.youtube.com/embed/SvTbB19bvIw?si=C6jgLg3OL_VWxo8Y');
+    eventProcessing('.video-link--icon-close', 'remove', '--active');
+
+    disableClick('.video-link--icon-close', '.button');
+    resizingWindow('.video-link', '.video-link--resizer');
+// #endregion
+
+// #region section "experience"
+
+  // add a template to a document
+    query('.experience__content').innerHTML = experience.map(templateHtml).join('');
 //#endregion
+
+// #region section "about product"
+
+  // slider buttons
+    navigation(query('input[name="next"]'), 'forward');
+    navigation(query('input[name="previous"]'), 'back');
+
+  // duplication button "link-video"
+    const clone = query('.header__link-video').cloneNode(true);
+    query('.about-product__link-video').appendChild(clone);
+
+    eventProcessing('.about-product__link-video', 'add', '--active', 'https://www.youtube.com/embed/SvTbB19bvIw?si=C6jgLg3OL_VWxo8Y');
+
+  // duplication nagivation
+    const cloneNavigation = query('.header__navigation').cloneNode(true);
+    const cloneDisplayNav = query('.header__display-nav').cloneNode(true);
+    const container = query('.about-product__clone-navigation');
+
+    container.appendChild(cloneNavigation);
+    container.appendChild(cloneDisplayNav);
+
+  // copying images in the section "images"
+    window.addEventListener('DOMContentLoaded', function() {
+      let numberCopy = 5;
+
+      // if(window.innerWidth >= breakpoint('--desktop')) {
+      //   numberCopy = 5;
+      // };
+
+      for(let i=0; i < numberCopy; i++) {
+        const clone = query('.about-product__img').cloneNode(true);
+
+        query('.about-product__images').appendChild(clone);
+      }
+    })
+// #endregion
 
 // #region changing resize window broswer and content loaded
 
-  window.addEventListener('DOMContentLoaded', () => {
-    changePositionItem('--desktop', '.menu', '.top-bar__container', '.drop-down-menu');
+window.addEventListener('DOMContentLoaded', () => {
+  changePositionItem('--desktop', '.menu', 'appendChild', '.top-bar__container', '.drop-down-menu');
+  changePositionItem('--tablet', '.about-product__title', 'prepend', '.about-product__article-1', '.about-product__container');
 
-    changePositionElement('--desktop', '.menu__list', 'li-2', '.header__bottom__menu');
-    changePositionElement('--desktop', '.menu__list', 'li-3', '.header__bottom__menu');
+  changePositionElement('--desktop', '.menu__list', 'li-2', '.header__bottom__menu');
+  changePositionElement('--desktop', '.menu__list', 'li-3', '.header__bottom__menu');
 
-    clickGroup('.language-page__item', 'remove', '--active', '.language-page__list');
-    clickGroup('.language-page__item', 'remove', '--blurred-screen', '.header__container');
-  });
 
-  window.addEventListener('resize', () => {
-    changePositionItem('--desktop', '.menu', '.top-bar__container', '.drop-down-menu');
+  clickGroup('.language-page__item', 'remove', '--active', '.language-page__list');
+  clickGroup('.language-page__item', 'remove', '--blurred-screen', '.header__container');
+});
 
-    changePositionElement('--desktop', '.menu__list', 'li-2', '.header__bottom__menu');
-    changePositionElement('--desktop', '.menu__list', 'li-3', '.header__bottom__menu');
-  });
+window.addEventListener('resize', () => {
+  changePositionItem('--desktop', '.menu', 'appendChild', '.top-bar__container', '.drop-down-menu');
+  changePositionItem('--tablet', '.about-product__title', 'prepend', '.about-product__article-1', '.about-product__container');
+
+  changePositionElement('--desktop', '.menu__list', 'li-2', '.header__bottom__menu');
+  changePositionElement('--desktop', '.menu__list', 'li-3', '.header__bottom__menu');
+});
 // #endregion
-
-// #region slider
-  navigation(query('input[name="next"]'), 'forward');
-  navigation(query('input[name="previous"]'), 'back');
-// #endregion
-
-// #region add a template to a document
-  query('.experience__container').innerHTML = experience.map(templateHtml).join('');
-//#endregion

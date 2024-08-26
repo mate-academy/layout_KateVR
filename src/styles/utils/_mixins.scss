@@ -60,3 +60,21 @@
   max-width: $width;
   margin-inline: auto;
 }
+
+@mixin animation-brightness($start, $finish) {
+  animation-name: brightness;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  @keyframes brightness {
+    0% {
+      filter: brightness($start);
+    }
+
+    100% {
+      filter: brightness($finish);
+    }
+  }
+}

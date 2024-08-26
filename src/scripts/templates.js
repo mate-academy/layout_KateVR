@@ -2,7 +2,7 @@
 
 // #region template for block 'more'
   export const templateHtml = (name) => {
-    return `<article class="experience__content">
+    return `<article class="experience__article">
               <img
                 class="experience__image"
                 src="${name['image']}"
