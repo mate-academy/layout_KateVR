@@ -28,7 +28,7 @@
   justify-content: end;
 }
 
-.help-page__close-button {
+.help-page__close-button-mob {
   width: 17px;
   height: 17px;
   background-image: url('../images/icons/cross-icon.svg');
@@ -36,6 +36,26 @@
   
   &:hover {
     transform: rotate(180deg);
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.help-page__close-button-desktop {
+  display: none;
+
+  @include on-desktop {
+    display: block;
+    width: 17px;
+    height: 17px;
+    background-image: url('../images/icons/cross-icon.svg');
+    transition: transform 0.3s;
+  
+    &:hover {
+      transform: rotate(180deg);
+    }
   }
 }
 

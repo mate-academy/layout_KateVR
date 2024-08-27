@@ -7,6 +7,10 @@
     padding-top: 70px;
     padding-bottom: 78px;
   }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
 }
 
 .benefits__title {
@@ -21,6 +25,10 @@
   @include on-tablet {
     text-align: center;
   }
+
+  @include on-desktop {
+    margin-bottom: 16px;
+  }
 }
 
 .benefits__slogan {
@@ -30,6 +38,10 @@
 
   @include on-tablet {
     text-align: center;
+  }
+
+  @include on-desktop {
+    font-size: 14px;
   }
 }
 
@@ -46,6 +58,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @include on-desktop {
+    width: 231px;
+  }
 }
 
 .benefit__img {
@@ -57,6 +73,10 @@
     display: block;
     margin-bottom: 22px;
   }
+
+  @include on-desktop {
+    margin-bottom: 32px;
+  }
 }
 
 .benefit__title {
@@ -66,15 +86,36 @@
   @include on-tablet {
     margin-bottom: 20px;
   }
+
+  @include on-desktop {
+    margin-bottom: 31px;
+  }
 }
 
-.benefit__text {
+.benefit__text-mob {
   color: $grey;
   font-size: 16px;
   line-height: 150%;
   font-weight: 400;
 
   @include on-tablet {
+    text-align: center;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.benefit__text-desk {
+  display: none;
+
+  @include on-desktop {
+    display: inline;
+    color: $grey;
+    font-size: 16px;
+    line-height: 150%;
+    font-weight: 400;
     text-align: center;
   }
 }

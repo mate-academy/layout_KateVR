@@ -237,7 +237,7 @@
   background-color: $background-menu;
 }
 
-.header__desktop-actions {
+.header__desktop-top-actions {
   display: none;
 
   @include on-desktop {
@@ -259,3 +259,62 @@
 .desktop-menu__link {
   color: $white;
 }
+
+.header__desktop-bottom-actions {
+  display: none;
+
+  @include on-desktop {
+    padding-top: 93px;
+    padding-bottom: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.header__bottom-link, .header__slider-buttons {
+  color: $white;
+}
+
+.header__bottom-links {
+  display: flex;
+  gap: 39px;
+}
+
+.header__about-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  color: $blue;
+  margin-right: -60px;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 9px;
+    height: 6px;
+    background-image: url('../images/icons/lang-arrow.svg');
+    background-repeat: no-repeat;
+  }
+}
+
+.header__slider-buttons {
+  display: flex;
+  gap: 3px;
+
+  button {
+    width: 66px;
+    height: 22px;
+    border-bottom: 2px solid $grey;
+  }
+
+  .active {
+    border-bottom: 2px solid $blue;
+  }
+}
+
+.hidden-button {
+  pointer-events: none;
+}
+
