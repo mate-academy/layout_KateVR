@@ -1,6 +1,6 @@
 "use strict";
 
-/* play video funccional */
+/* play video functional */
 
 const body = document.querySelector(".page__body");
 const playButton = [...document.querySelectorAll(".play-button")];
@@ -51,3 +51,58 @@ setInterval(() => {
     }
   }
 }, 2000);
+
+/* menu open background */
+
+const menuOpenButton = document.querySelector(".menu-open-button");
+const menuCloseButton = document.querySelector(".menu-close-button");
+const menuList = document.querySelector(".menu-list");
+const helpPage = document.querySelector(".help-page");
+const languagePage = document.querySelector(".languages-page");
+
+menuOpenButton.addEventListener("click", () => {
+  darkBackground.classList.remove("hidden");
+});
+
+menuCloseButton.addEventListener("click", () => {
+  darkBackground.classList.add("hidden");
+});
+
+menuList.addEventListener("click", (event) => {
+  if (
+    event.target.innerText === "Help" ||
+    event.target.innerText === "Language"
+  ) {
+    return 0;
+  } else {
+    darkBackground.classList.add("hidden");
+  }
+});
+
+helpPage.addEventListener("click", (event) => {
+  if (event.target.classList.contains("help-page__close-button")) {
+    return 0;
+  } else {
+    darkBackground.classList.add("hidden");
+  }
+});
+
+languagePage.addEventListener("click", (event) => {
+  if (event.target.classList.contains("menu-page-back__link")) {
+    return 0;
+  } else {
+    darkBackground.classList.add("hidden");
+  }
+});
+
+/* desktop lang list beheviour */
+
+const langSelScreen = document.querySelector(".lang-selector-screen");
+
+langSelScreen.addEventListener("click", () => {
+  if (langSelScreen.classList.contains("overflow--hidden")) {
+    langSelScreen.classList.remove("overflow--hidden");
+  } else {
+    langSelScreen.classList.add("overflow--hidden");
+  }
+});

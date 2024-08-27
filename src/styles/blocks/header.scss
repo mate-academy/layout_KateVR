@@ -2,6 +2,20 @@
   background: linear-gradient(90deg, rgba(25,21,54,1) 15%, rgba(0,0,0,1) 100%);
 }
 
+
+.purchase-button {
+  width: 100%;
+  height: 40px;
+  background-color: $blue;
+  transform: translateY(50%);
+
+  @include on-desktop {
+    width: 200px;
+    height: 48px;
+    transform: translateY(0);
+  }
+}
+
 .header__nav-bar {
   padding-top: 18px;
   padding-bottom: 14px;
@@ -13,6 +27,19 @@
     padding-top: 30px;
     padding-bottom: 55px;
   }
+
+  @include on-desktop {
+    padding-top: 47px;
+    padding-bottom: 101px;
+  }
+
+  .purchase-button {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
 }
 
 .main-logo {
@@ -23,6 +50,11 @@
   @include on-tablet {
     height: 14px;
     width: 67px;
+  }
+
+  @include on-desktop {
+    height: 16px;
+    width: 77px;
   }
 }
 
@@ -70,6 +102,10 @@
 
   @include on-tablet {
     gap: 6px;
+  }
+
+  @include on-desktop {
+    display: none;
   }
 }
 
@@ -127,6 +163,12 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+
+  .purchase-button {
+    @include on-tablet {
+      display: none;
+    }
+  }
 }
 
 .play-button {
@@ -141,13 +183,55 @@
   }
 }
 
-.purchase-button {
-  width: 100%;
-  height: 40px;
-  background-color: $blue;
-  transform: translateY(50%);
+.desktop-menu__list {
+  display: flex;
+  gap: 36px;
+}
 
-  @include on-tablet {
-    display: none;
+.lang-selector-screen {
+  position: relative;
+  width: 33px;
+  height: 21px;
+}
+
+.lang-sel-button {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 9px;
+  height: 6px;
+  transform: translateY(-50%);
+  background-image: url('../images/icons/lang-arrow.svg');
+}
+
+.desktop-lang__list {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 4px;
+  background-color: $background-menu;
+}
+
+.header__desktop-actions {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+    gap: 300px;
   }
+}
+
+.desktop-lang__link, .desktop-menu__link {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 130%;
+}
+
+.desktop-lang__link, .lang-selector-screen {
+  color: $blue;
+}
+
+.desktop-menu__link {
+  color: $white;
 }
