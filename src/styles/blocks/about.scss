@@ -7,6 +7,10 @@
     padding-top: 65px;
     padding-bottom: 56px;
   }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
 }
 
 .about__title {
@@ -20,6 +24,11 @@
 
   @include on-tablet {
     margin-bottom: 30px;
+    font-size: 21px;
+  }
+
+  @include on-desktop {
+    font-size: 36px;
   }
 }
 
@@ -35,6 +44,10 @@
   @include on-tablet {
     height: 270px;
     background-size: cover;
+  }
+
+  @include on-desktop {
+    height: 290px;
   }
 }
 
@@ -63,12 +76,12 @@
 
 .nav__dot {
   background-color: #484848;
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
+  width: 25px;
+  height: 2px;
+  border-radius: 1px;
 
   &--active {
-    background-color: #ABABAB;
+    background-color: $blue;
   }
 }
 
@@ -86,13 +99,19 @@
 
 .about__button {
   margin-bottom: 79px;
+  margin-left: 0;
 }
 
 .greet-text {
   margin-bottom: 11px;
   color: $blue;
+  font-size: 14px;
 }
 
 .about__background-block {
   background-image: url('../images/blocks/about-product/bgd-img-1.svg');
+
+  @include on-desktop {
+    background-image: url('../images/blocks/about-product/bgd-img-desktop.svg');
+  }
 }
