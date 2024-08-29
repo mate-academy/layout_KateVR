@@ -11,7 +11,8 @@ import {
   clickClass,
   clickGroup,
   classTrackingAll,
-  breakpoint
+  breakpoint,
+  clickNewClass,
 } from './utils.js';
 
 import {
@@ -27,7 +28,7 @@ import {
 
 import { navigation } from './slider.js';
 import { experience } from './array_of_data.js';
-import { templateHtml } from './templates.js';
+import { templateHtml_1 } from './templates.js';
 
 import favicon_1 from '../icon/favicons/favicon1.svg';
 import favicon_2 from '../icon/favicons/favicon2.svg';
@@ -157,7 +158,7 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
 // #region section "experience"
 
   // add a template to a document
-    query('.experience__content').innerHTML = experience.map(templateHtml).join('');
+    query('.experience__content').innerHTML = experience.map(templateHtml_1).join('');
 //#endregion
 
 // #region section "about product"
@@ -182,7 +183,7 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
 
   // copying images in the section "images"
     window.addEventListener('DOMContentLoaded', function() {
-      let numberCopy = 5;
+      let numberCopy = 4;
 
       // if(window.innerWidth >= breakpoint('--desktop')) {
       //   numberCopy = 5;
@@ -194,6 +195,22 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
         query('.about-product__images').appendChild(clone);
       }
     })
+// #endregion
+
+// #region section "tech-specs"
+    clickToggleAll('.tech-specs__icon');
+
+    clickNewClass('.tech-specs__icon-1', '.tech-specs__article-1', 'toggle', 'tech-specs__article--active');
+    clickNewClass('.tech-specs__icon-2', '.tech-specs__article-2', 'toggle', 'tech-specs__article--active');
+    clickNewClass('.tech-specs__icon-3', '.tech-specs__article-3', 'toggle', 'tech-specs__article--active');
+
+    clickNewClass('.tech-specs__article-1', '.tech-specs__icon-1', 'remove', 'tech-specs__icon--active');
+    clickNewClass('.tech-specs__article-2', '.tech-specs__icon-2', 'remove', 'tech-specs__icon--active');
+    clickNewClass('.tech-specs__article-3', '.tech-specs__icon-3', 'remove', 'tech-specs__icon--active');
+
+    clickNewClass('.tech-specs__article-1', '.tech-specs__article-1', 'remove', 'tech-specs__article--active');
+    clickNewClass('.tech-specs__article-2', '.tech-specs__article-2', 'remove', 'tech-specs__article--active');
+    clickNewClass('.tech-specs__article-3', '.tech-specs__article-3', 'remove', 'tech-specs__article--active');
 // #endregion
 
 // #region changing resize window broswer and content loaded
@@ -218,3 +235,29 @@ window.addEventListener('resize', () => {
   changePositionElement('--desktop', '.menu__list', 'li-3', '.header__bottom__menu');
 });
 // #endregion
+
+// canvas for lines
+
+function updatePath() {
+  // const canvas = query('.tech-specs__canvas-for-line');
+  const canvasWidth = query('.tech-specs__canvas-for-line').clientWidth;
+
+  // line 1
+  queryID('line-1').setAttribute('width', canvasWidth / 2);
+  queryID('line-1').setAttribute('viewBox', `0 0 ${canvasWidth / 2} 42`);
+  queryID('path-1_1').setAttribute('d', `M117.5 3H${(canvasWidth / 2) - 2} V40`);
+
+  // line 2
+  queryID('line-2').setAttribute('width', canvasWidth / 2);
+  queryID('line-2').setAttribute('viewBox', `0 0 ${canvasWidth / 2} 163`);
+  queryID('path-2_1').setAttribute('d', `M220.5 160.5H270V3.5H${canvasWidth / 3}`);
+  queryID('path-2_2').setAttribute('cx', canvasWidth / 3);
+
+  // line 3
+  queryID('path-3_1').setAttribute('d', `M${(canvasWidth / 2) + (canvasWidth / 5)} 5.5V242H${canvasWidth / 2}`);
+  queryID('path-3_2').setAttribute('cx', ((canvasWidth / 2) + (canvasWidth / 5)));
+  queryID('path-3_3').setAttribute('cx', canvasWidth / 2);
+}
+
+  window.addEventListener('DOMContentLoaded', updatePath);
+  window.addEventListener('resize', updatePath);

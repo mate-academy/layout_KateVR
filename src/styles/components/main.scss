@@ -1,5 +1,4 @@
 .main {
-  // @include flex(column, 40px);
   background-color: $gradient;
 }
 
@@ -253,7 +252,7 @@
     }
 
     @include breakpoint($desktop) {
-      grid-column: 2 / 11;
+      grid-column: 2 / 12;
     }
   }
 
@@ -300,6 +299,280 @@
 
     &:nth-child(even) {
       @include animation-brightness(50%, 20%);
+    }
+  }
+}
+
+.tech-specs {
+  &__container {
+    @include flex(column, 50px);
+    @extend %base-retreat-container;
+
+    padding: 80px $retreat;
+
+    @include breakpoint($tablet) {
+      padding: 80px 32px;
+    }
+
+    @include breakpoint($desktop) {
+      margin-top: 100px;
+      gap: 80px;
+      padding: 30px 110px 0;
+    }
+  }
+
+  &__title {
+    &--span {
+      color: $aqua;
+    }
+
+    @include breakpoint($desktop) {
+      @include breakpoint-font-style(36px, 44px);
+
+      padding-right: 110px;
+      text-align: end;
+    }
+
+    @include breakpoint($design) {
+      padding-right: 150px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    width: 100%;
+
+    @include flex(row, 0) {
+      justify-content: center;
+    }
+  }
+
+  &__canvas-for-line {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  &__box-images {
+    position: relative;
+
+    padding: 20px;
+
+    &::before {
+      position: absolute;
+      display: none;
+      content: '';
+
+      @extend %animation-rotate-brightness;
+
+      background-image: url(../icon/img_ellipse.svg);
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      width: 100%;
+      height: 200px;
+
+      left: 10px;
+      top: 95px;
+
+      @include breakpoint($desktop) {
+        display: block;
+      }
+    }
+  }
+
+  &__line {
+    position: absolute;
+    z-index: 1;
+    transform: scale(0);
+
+    @include animation-brightness(200%, 50%);
+
+    &:nth-of-type(2) {
+      bottom: 140px;
+    }
+
+    @include breakpoint($desktop) {
+      transform: $click-scale;
+    }
+  }
+
+  &__image {
+    @extend %animation-scaling-rotate;
+
+    width: 200px;
+
+    @include breakpoint($tablet) {
+      width: 360px;
+    }
+
+    @include breakpoint($desktop) {
+      animation: none;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+
+    @extend %mouse-pointer;
+
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background-color: $aqua;
+
+    @include hover(transform, $scale, $time-fast) {
+      box-shadow: $shadow-click;
+
+      &::before,
+      &::after {
+        box-shadow: $shadow-white;
+      }
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 30%;
+      width: 16px;
+      height: 1px;
+
+      transition: all $time-average;
+      transform-origin: center;
+      background-color: $white;
+
+      @include breakpoint($tablet) {
+        width: 24px;
+        height: 2px;
+      }
+    }
+
+    &::after {
+      transform: rotate(90deg);
+    }
+
+    &--active {
+      &::before,
+      &::after {
+        transform: rotate(360deg);
+      }
+    }
+
+    &:first-of-type {
+      top: 10px;
+      left: 80px;
+    }
+
+    &:nth-of-type(2) {
+      top: 100px;
+      right: 50px;
+    }
+
+    &:last-of-type {
+      left: 10px;
+      bottom: 30px;
+    }
+
+    @include breakpoint($tablet) {
+      width: 60px;
+      height: 60px;
+
+      &:first-of-type {
+        top: 0;
+      }
+
+      &:nth-of-type(2) {
+        top: 170px;
+        right: 68px;
+      }
+
+      &:last-of-type {
+        left: 0;
+      }
+    }
+
+    @include breakpoint($desktop) {
+      display: none;
+    }
+  }
+
+  &__article {
+    position: absolute;
+
+    @include flex(column, 20px);
+
+    width: 100%;
+    padding: 10px;
+
+    transition: all $time-fast;
+    transform: scale(0);
+
+    border: 1px solid rgba($color: $white, $alpha: 0.3);
+    border-radius: 10px;
+    background-color: $dark-purple;
+
+    @include breakpoint($tablet) {
+      width: auto;
+    }
+
+    @include breakpoint($desktop) {
+      transform: $click-scale;
+      background-color: transparent;
+      border: none;
+    }
+
+    &:first-of-type {
+      top: -164px;
+
+      @include breakpoint($tablet) {
+        top: -50px;
+        left: -30px;
+      }
+
+      @include breakpoint($desktop) {
+        top: -25px;
+        left: 0;
+      }
+    }
+
+    &:nth-of-type(2) {
+      top: 154px;
+
+      @include breakpoint($tablet) {
+        top: -50px;
+        right: 0;
+      }
+
+      @include breakpoint($desktop) {
+        top: -25px;
+        right: -30px;
+      }
+
+      @include breakpoint($design) {
+        right: 10px;
+      }
+    }
+
+    &:last-of-type {
+      @include breakpoint($tablet) {
+        left: -30px;
+        bottom: 100px;
+      }
+
+      @include breakpoint($desktop) {
+        left: 50px;
+        bottom: 30px;
+      }
+    }
+
+    &--active {
+      @extend %mouse-pointer;
+
+      transform: $click-scale;
     }
   }
 }

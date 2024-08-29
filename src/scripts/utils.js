@@ -33,6 +33,10 @@
     return query(className).classList[event](`${trimString(className, 1)}${newClass}`);
   };
 
+  export function classicClassHtml(className, event, newClass) {
+    return query(className).classList[event](newClass);
+  };
+
   // click with add or delete class
   export function clickClass(name, className, event, nameClass) {
     const item = query(name);
@@ -40,6 +44,14 @@
     item.addEventListener('click', function() {
       classHtml(className, [event], nameClass);
     });
+  };
+
+  export function clickNewClass(name, blockName, event, newClass ) {
+    const item = query(name);
+
+    item.addEventListener('click', function() {
+      classicClassHtml(blockName, [event], newClass);
+    })
   };
 
   // create or delete a class contained in a container

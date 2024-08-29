@@ -37,8 +37,6 @@ import { classHtml, query, queryAll, trimString } from "./utils.js";
     };
 //#endregion
 
-// #region window opening
-
 // #region opening the menu window
   export function openWindow(nameAddress, event, modifier, nameblock1, nameblock2 = '.default') {
     const item = query(nameAddress);

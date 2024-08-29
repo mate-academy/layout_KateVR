@@ -52,6 +52,23 @@
   }
 }
 
+%animation-scaling-rotate {
+  animation-name: scaling-rotate;
+  animation-duration: 5s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+  @keyframes scaling-rotate {
+    0% {
+      transform: rotate(10deg) scale(1);
+    }
+    100% {
+      transform: rotate(-10deg) $scale;
+    }
+  }
+}
+
 %animation-rotate {
   animation-name: rotate;
   animation-duration: 1.8s;
@@ -68,6 +85,26 @@
     }
     100% {
       transform: rotate(30deg);
+    }
+  }
+}
+
+%animation-rotate-brightness {
+  animation-name: rotate;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-out;
+  animation-iteration-count: infinite;
+
+  @keyframes rotate {
+    0% {
+      transform: rotate(10deg);
+      filter: brightness(200%);
+    }
+
+    100% {
+      transform: rotate(-10deg);
+      filter: brightness(50%);
     }
   }
 }
