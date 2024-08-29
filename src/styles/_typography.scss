@@ -1,3 +1,41 @@
 h1 {
   @extend %h1;
+
+  font-size: 26px;
+  line-height: 130%;
+
+  @include laptop {
+    font-size: 46px;
+  }
+
+  @include laptop {
+    font-size: 54px;
+  }
+}
+
+h2 {
+  @extend %h1;
+
+  font-size: 21px;
+
+  @include media(laptop, desktop) {
+    font-size: 36px;
+  }
+}
+
+h3 {
+  @extend %h1;
+
+  font-size: 18px;
+
+  @include phone {
+    font-size: 16px;
+  }
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400px;
+  line-height: 150%;
 }

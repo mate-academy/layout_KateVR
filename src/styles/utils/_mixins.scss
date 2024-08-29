@@ -4,3 +4,51 @@
     #{$_property}: $_toValue;
   }
 }
+
+// reusable mixins to easily style all device types
+@mixin phone {
+  @media (max-width: #{$bp-tablet - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$bp-tablet}) and (max-width: #{$bp-laptop - 1px}) {
+    @content;
+  }
+}
+
+@mixin laptop {
+  @media (min-width: #{$bp-laptop}) and (max-width: #{$bp-desktop - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$bp-desktop}) {
+    @content;
+  }
+}
+
+// reusable mixin to apply same styles to multiple device types
+@mixin media($keys...) {
+  @each $key in $keys {
+    @if $key == phone {
+      @include phone {
+        @content;
+      }
+    } @else if $key == tablet {
+      @include tablet {
+        @content;
+      }
+    } @else if $key == laptop {
+      @include laptop {
+        @content;
+      }
+    } @else if $key == desktop {
+      @include desktop {
+        @content;
+      }
+    }
+  }
+}
