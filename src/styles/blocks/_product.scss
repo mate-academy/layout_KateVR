@@ -1,0 +1,44 @@
+.product {
+  flex: 0 1 50%;
+
+  @include on-tablet {
+    flex: 0 1 100%;
+  }
+
+  &__image {
+    img {
+      max-width: 100%;
+
+      @include on-tablet {
+        width: 100%;
+      }
+    }
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+
+  &__count {
+    display: flex;
+    gap: 85px;
+    margin-top: 50px;
+
+    @include on-mobile {
+      gap: 25px;
+      margin-top: 20px;
+      justify-content: space-between;
+    }
+  }
+
+  &__amount {
+    margin-top: 20px;
+    font-size: 36px;
+    color: $contrast;
+    font-weight: 500;
+
+    @include on-mobile {
+      font-size: 26px;
+    }
+  }
+}

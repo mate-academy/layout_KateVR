@@ -1,0 +1,66 @@
+.form {
+  &__fields {
+    display: flex;
+  }
+
+  &__field {
+    position: relative;
+  }
+
+  &__input {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background-color: transparent;
+    border-bottom: 1px #2f2f2f solid;
+    color: $white;
+    caret-color: $contrast;
+
+    &:focus {
+      border-bottom: 1px $contrast solid;
+    }
+
+    &._error {
+      border-bottom: 1px #860404 solid;
+    }
+
+    &._foc + .form__placeholder {
+      top: 0px;
+      color: $contrast;
+    }
+
+    &._foc + .form__placeholder--top {
+      top: -10px;
+      color: $contrast;
+    }
+
+    &._error + .form__placeholder {
+      color: #860404;
+    }
+
+    &._error + .form__placeholder {
+      .placehodler__message--error {
+        display: block;
+      }
+
+      .placehodler__message--default {
+        display: none;
+      }
+    }
+  }
+
+  &__placeholder {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: #999;
+    transition: all 0.3s ease;
+    pointer-events: none;
+
+    &--top {
+      top: -10px;
+    }
+  }
+}
