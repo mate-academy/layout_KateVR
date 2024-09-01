@@ -1,0 +1,78 @@
+.footer {
+  background-color: $color-background;
+  padding-block: 25px 70px;
+
+  &__content {
+    @include padding-inline;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0 20px;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__link {
+    grid-column: 1 / 2;
+    grid-row: 1;
+    margin-bottom: 15px;
+    display: flex;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__logo {
+    height: 12px;
+    max-width: 100%;
+
+    @include on-tablet {
+      height: 14px;
+    }
+
+    @include on-desktop {
+      height: 100%;
+    }
+  }
+
+  &__container {
+    display: grid;
+  }
+
+  &__nav {
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+
+    font-size: 13px;
+    line-height: 19.5px;
+  }
+
+  &__nav-list {
+    gap: 8px;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      gap: 45px;
+    }
+  }
+
+  &__nav-link {
+    font-size: 13px;
+    line-height: 19.5px;
+  }
+
+  &__contacts {
+    grid-column: 2 / 3;
+    grid-row: 2;
+
+    font-size: 13px;
+    line-height: 15.73;
+  }
+}
