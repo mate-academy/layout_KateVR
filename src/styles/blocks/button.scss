@@ -1,0 +1,21 @@
+.button {
+  box-sizing: border-box;
+  display: block;
+  text-align: center;
+  border-radius: 4px;
+  background-color: $color-accent;
+  color: $color-white;
+  line-height: 48px;
+
+  @include media(laptop, desktop) {
+    @include hover-scale;
+  }
+
+  @include phone {
+    font-size: 14px;
+  }
+
+  &--size--fixed {
+    width: 200px;
+  }
+}

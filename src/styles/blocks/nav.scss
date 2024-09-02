@@ -1,0 +1,35 @@
+.nav {
+  &__list {
+    display: none;
+
+    @include media(laptop, desktop) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 37px;
+    }
+  }
+
+  &__link {
+    line-height: 100%;
+    padding-block: 16px;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      height: 1px;
+      width: 100%;
+      background-color: $color-accent;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+}
