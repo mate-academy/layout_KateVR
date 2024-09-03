@@ -4,11 +4,13 @@
   text-align: center;
   border-radius: 4px;
   background-color: $color-accent;
-  color: $color-white;
   line-height: 48px;
 
   @include media(laptop, desktop) {
-    @include hover-scale;
+    &:hover {
+      color: $color-accent;
+      background-color: $color-white;
+    }
   }
 
   @include phone {
