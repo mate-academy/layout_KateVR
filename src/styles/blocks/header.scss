@@ -3,7 +3,29 @@
   background: $color-gradient;
 
   &__content {
-    height: 100vh;
+    @include phone {
+      height: clamp(568px, 100vh, 720px);
+    }
+
+    @include tablet {
+      height: 445px;
+    }
+
+    @include media(laptop, desktop) {
+      height: auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @include laptop {
+      gap: 50px;
+    }
+
+    @include desktop {
+      gap: 90px;
+    }
   }
 
   &__nav {
@@ -13,6 +35,25 @@
       display: flex;
       justify-content: space-between;
       flex-grow: 1;
+    }
+  }
+
+  &__screen-1 {
+    @include phone {
+      margin-top: 6px;
+    }
+
+    @include tablet {
+      margin-top: 46px;
+      margin-inline: auto;
+    }
+
+    @include laptop {
+      margin-top: 9px;
+    }
+
+    @include desktop {
+      margin-top: 16px;
     }
   }
 }

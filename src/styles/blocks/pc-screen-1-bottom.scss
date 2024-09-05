@@ -1,0 +1,61 @@
+.pc-s1-bottom {
+  display: none;
+  grid-column: 1 / -1;
+  font-weight: 500;
+
+  @include media(laptop, desktop) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 39px;
+  }
+
+  &__nav-link {
+    display: block;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      height: 1px;
+      width: 100%;
+      background-color: $color-accent;
+
+      transition: transform 0.3s;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__more {
+    margin-left: 115px;
+
+    @include hover-scale;
+
+    @include laptop {
+      margin-left: 100px;
+    }
+  }
+
+  &__more-label {
+    color: $color-accent;
+  }
+
+  &__more-icon {
+    display: block;
+    width: 9.1px;
+    height: 6.2px;
+    margin: auto;
+    padding-top: 5px;
+  }
+}
