@@ -8,7 +8,12 @@
   }
 
   &__title {
-    @include set-grid-columns(span 2, span 2, 9 / span 3, 11 / span 4);
+    @include set-grid-columns(
+      span 2,
+      span 2,
+      9 / span 3,
+      11 / span 4
+    );
 
     grid-row: 1 / span 1;
     width: 100%;
@@ -44,25 +49,26 @@
     position: relative;
     display: flex;
 
-    @include phone {
-      width: 197px;
-    }
+    @include set-responsive-values(
+      width,
+      197px,
+      357px,
+      297px,
+      297px
+    );
 
     @include tablet {
       grid-area: 2 / 2 / 3 / -2;
-      width: 357px;
       margin-block: 5px 10px;
     }
 
     @include laptop {
       margin-right: 43px;
-      width: 297px;
     }
 
     @include desktop {
       margin-right: 22px;
       margin-bottom: 3px;
-      width: 297px;
     }
   }
 

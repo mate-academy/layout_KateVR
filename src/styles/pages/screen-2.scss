@@ -28,30 +28,30 @@
 
     justify-content: center;
 
+    @include set-responsive-values(
+      margin-block,
+      33px 0,
+      45px 8px,
+      83px 12px,
+      71px 8px
+    );
+
     @include phone {
-      margin-top: 33px;
       row-gap: 14px;
     }
 
     @include tablet {
-      margin-top: 45px;
-      margin-bottom: 8px;
       row-gap: 44px;
-    }
-
-    @include laptop {
-      margin-top: 83px;
-      margin-bottom: 12px;
-    }
-
-    @include desktop {
-      margin-top: 71px;
-      margin-bottom: 8px;
     }
   }
 
   &__card {
-    @include set-grid-columns(span 2, span 3, span 3, span 4);
+    @include set-grid-columns(
+      span 2,
+      span 3,
+      span 3,
+      span 4
+    );
 
     &-image {
       @include phone {
@@ -62,21 +62,16 @@
     &-title {
       text-align: inherit;
 
+      @include set-responsive-values(
+        margin-block,
+        11px,
+        28px 19px,
+        27px 18px,
+        25px 20px
+      );
+
       @include phone {
-        padding-block: 11px;
         letter-spacing: 1.1px;
-      }
-
-      @include tablet {
-        padding-block: 28px 19px;
-      }
-
-      @include laptop {
-        padding-block: 27px 18px;
-      }
-
-      @include desktop {
-        padding-block: 25px 20px;
       }
     }
 

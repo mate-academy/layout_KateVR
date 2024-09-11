@@ -12,44 +12,44 @@
     }
 
     &--company {
-      @include media(phone, tablet) {
-        margin-top: 80px;
-      }
+      @include set-responsive-values(
+        margin-top,
+        80px,
+        80px,
+        186px,
+        171px
+      );
 
       @include tablet {
         margin-left: -4px;
-      }
-
-      @include laptop {
-        margin-top: 186px;
-      }
-
-      @include desktop {
-        margin-top: 171px;
       }
     }
   }
 
   &__image-container {
-    @include set-grid-columns(span 2, span 3, 3 / span 5, 4 / span 7);
+    @include set-grid-columns(
+      span 2,
+      span 3,
+      3 / span 5,
+      4 / span 7
+    );
 
     grid-row: 1 / span 3;
     width: 100%;
     overflow: hidden;
     display: flex;
 
+    @include set-responsive-values(
+      height,
+      189px,
+      270px,
+      290px,
+      290px
+    );
+
     @include phone {
       grid-row: span 1;
-      height: 189px;
       margin-top: 23px;
-    }
-
-    @include tablet {
-      height: 270px;
-    }
-
-    @include media(laptop, desktop) {
-      height: 290px;
     }
   }
 
@@ -97,7 +97,12 @@
   &__title-product,
   &__description-product,
   &__video-button {
-    @include set-grid-columns(span 2, 4 / span 3, 9 / span 4, 12 / span 5);
+    @include set-grid-columns(
+      span 2,
+      4 / span 3,
+      9 / span 4,
+      12 / span 5
+    );
 
     @include media(tablet, laptop, desktop) {
       grid-row: span 1;
@@ -115,26 +120,24 @@
   }
 
   &__description-product {
-    @include phone {
-      margin-block: 20px 21px;
-    }
+    @include set-responsive-values(
+      margin-block,
+      20px 21px,
+      33px 23px,
+      31px 27px,
+      61px 40px
+    );
 
     @include media(tablet, laptop, desktop) {
       grid-row-start: 2;
     }
 
     @include tablet {
-      margin-block: 33px 23px;
       padding-right: 4px;
     }
 
     @include laptop {
-      margin-block: 31px 27px;
       padding-right: 5px;
-    }
-
-    @include desktop {
-      margin-block: 61px 40px;
     }
   }
 
@@ -164,7 +167,12 @@
   }
 
   &__company-info {
-    @include set-grid-columns(span 2, span 4, span 5, 2 / span 6);
+    @include set-grid-columns(
+      span 2,
+      span 4,
+      span 5,
+      2 / span 6
+    );
 
     margin-block: auto;
 
@@ -188,44 +196,36 @@
   }
 
   &__title-company {
-    @include phone {
-      margin-block: 10px 22px;
-    }
-
-    @include tablet {
-      margin-block: 10px;
-    }
-
-    @include laptop {
-      margin-block: 14px 31px;
-    }
-
-    @include desktop {
-      margin-bottom: 29px;
-    }
+    @include set-responsive-values(
+      margin-block,
+      10px 22px,
+      10px,
+      14px 31px,
+      18px 29px
+    );
   }
 
   &__description-company {
-    @include phone {
-      margin-bottom: 26px;
-    }
+    @include set-responsive-values(
+      margin-bottom,
+      26px,
+      32px,
+      7px,
+      50px
+    );
 
-    @include tablet {
-      margin-top: 32px;
-    }
-
-    @include laptop {
-      margin-bottom: 7px;
-    }
-
-    @include desktop {
-      margin-bottom: 50px;
+   @include desktop {
       letter-spacing: normal;
     }
   }
 
   &__decoration {
-    @include set-grid-columns(span 1, 5 / span 2, 7 / span 6, 9 / span 7);
+    @include set-grid-columns(
+      span 1,
+      5 / span 2,
+      7 / span 6,
+      9 / span 7
+    );
 
     overflow: hidden;
 

@@ -9,21 +9,16 @@
   &__title {
     text-align: inherit;
 
-    @include phone {
-      margin-left: 4px;
-    }
-
-    @include tablet {
-      margin-left: 5px;
-    }
-
-    @include laptop {
-      margin-right: 24px;
-    }
+    @include set-responsive-values(
+      margin-inline,
+      4px 0,
+      5px 0,
+      0 24px,
+      0 24px
+    );
 
     @include desktop {
       margin-top: 2px;
-      margin-right: 24px;
     }
   }
 
@@ -42,27 +37,30 @@
       }
     }
 
+    @include set-responsive-values(
+      margin-block,
+      31px,
+      31px,
+      84px 89px,
+      82px 89px
+    );
+
     @include phone {
-      margin-block: 31px;
       row-gap: 26px;
     }
 
     @include tablet {
       text-align: center;
-      margin-block: 31px;
-    }
-
-    @include laptop {
-      margin-block: 84px 89px;
-    }
-
-    @include desktop {
-      margin-block: 82px 89px;
     }
   }
 
   &__card {
-    @include set-grid-columns(span 2, span 2, span 4, span 4);
+    @include set-grid-columns(
+      span 2,
+      span 2,
+      span 4,
+      span 4
+    );
 
     &-image {
       @include phone {
@@ -73,21 +71,16 @@
     &-title {
       text-align: inherit;
 
+      @include set-responsive-values(
+        padding-block,
+        0 11px,
+        19px 24px,
+        27px 18px,
+        25px 22px
+      );
+
       @include phone {
-        padding-bottom: 11px;
         letter-spacing: 1.35px;
-      }
-
-      @include tablet {
-        padding-block: 19px 24px;
-      }
-
-      @include laptop {
-        padding-block: 27px 18px;
-      }
-
-      @include desktop {
-        padding-block: 25px 22px;
       }
 
       @include media(phone, tablet) {

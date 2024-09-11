@@ -77,23 +77,41 @@
   }
 }
 
-@mixin set-grid-columns(
-  $phoneColumns,
-  $tabletColumns,
-  $laptopColumns,
-  $desktopColumns
+@mixin set-responsive-values(
+  $property,
+  $phoneValue,
+  $tabletValue,
+  $laptopValue,
+  $desktopValue
 ) {
-  grid-column: $phoneColumns;
+  @include phone {
+    #{$property}: $phoneValue;
+  }
 
   @include tablet {
-    grid-column: $tabletColumns;
+    #{$property}: $tabletValue;
   }
 
   @include laptop {
-    grid-column: $laptopColumns;
+    #{$property}: $laptopValue;
   }
 
   @include desktop {
-    grid-column: $desktopColumns;
+    #{$property}: $desktopValue;
   }
+}
+
+@mixin set-grid-columns(
+    $phoneColumns,
+    $tabletColumns,
+    $laptopColumns,
+    $desktopColumns
+  ) {
+  @include set-responsive-values(
+    grid-column,
+    $phoneColumns,
+    $tabletColumns,
+    $laptopColumns,
+    $desktopColumns
+  )
 }
