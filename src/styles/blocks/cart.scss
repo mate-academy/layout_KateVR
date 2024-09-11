@@ -1,0 +1,264 @@
+.cart {
+  height: 100vh;
+  overflow: auto;
+  background-color: $color-background;
+
+  &__content {
+    @include padding-inline;
+    @include section-grid;
+
+    grid-column: 1 / -1;
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+    justify-content: space-between;
+  }
+
+  &__top-tabs {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      gap: 192px;
+    }
+  }
+
+  &__tabs {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #212121;
+
+    margin-bottom: 30px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__tab {
+    font-size: 12px;
+
+    &--active {
+      position: relative;
+      color: $color-blue;
+
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        bottom: -17px;
+        background-color: $color-blue;
+      }
+
+      @include on-desktop {
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+          left: 50%;
+          bottom: -17px;
+          background-color: $color-blue;
+        }
+      }
+    }
+  }
+
+  &__order-info {
+    display: none;
+
+    &--active {
+      display: grid;
+      grid-column: 1 / -1;
+
+      margin-bottom: 40px;
+
+      @include on-desktop {
+        grid-column: 1 / 6;
+        margin-top: 91px;
+      }
+
+      @include on-desktop-wide {
+        grid-column: 1 / 8;
+
+        margin-bottom: 40px;
+        margin-top: 50px;
+      }
+    }
+  }
+
+  &__order-price {
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      justify-content: start;
+      gap: 148px;
+    }
+
+    @include on-desktop {
+      gap: 86px;
+      margin-top: 62px;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      background: url(../images/device-pictures/device-cart-tablet.png)
+        no-repeat center;
+      height: 277px;
+    }
+
+    @include on-desktop {
+      background: url(../images/device-pictures/device-cart-web.png) no-repeat
+        center;
+      height: 279px;
+      width: 505px;
+    }
+
+    @include on-desktop-wide {
+      background: url(../images/device-pictures/vr-devices-web-wide.png)
+        no-repeat center;
+      background-size: cover;
+      height: 407px;
+      width: 760px;
+    }
+  }
+
+  &__place-order {
+    display: none;
+
+    &--active {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      grid-column: 1 / -1;
+
+      margin-bottom: 37px;
+
+      @include on-tablet {
+        gap: 58px;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / -1;
+
+        margin-top: 52px;
+        gap: 68px;
+      }
+
+      @include on-desktop-wide {
+        grid-column: 9 / -1;
+
+        margin-top: 160px;
+      }
+    }
+  }
+
+  &__pay {
+    display: none;
+
+    &--active {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+
+      grid-column: 1 / -1;
+
+      margin-bottom: 37px;
+
+      @include on-tablet {
+        grid-column: 2 / 6;
+
+        gap: 104px;
+
+        margin-bottom: 43px;
+      }
+
+      @include on-desktop {
+        grid-column: 8 / -1;
+
+        margin-top: 82px;
+        gap: 68px;
+      }
+
+      @include on-desktop-wide {
+        grid-column: 9 / 14;
+
+        gap: 139px;
+        margin-top: 160px;
+      }
+    }
+  }
+
+  &__complete {
+    display: none;
+
+    &--active {
+      display: grid;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__dropdown-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__dropdown-content {
+    padding: 8px;
+    width: 100%;
+    margin-top: 3px;
+    z-index: 2;
+    height: 150px;
+    overflow: auto;
+  }
+
+  &__dropdown-list {
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 26px;
+    gap: 8px;
+  }
+
+  &__purchase-button {
+    display: block;
+    padding-block: 8px;
+    text-align: center;
+    width: 280px;
+    height: 40px;
+    color: $color-white;
+    background-color: $color-blue;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+
+    @include hover(color, $color-blue);
+    @include hover(background-color, $color-white);
+
+    @include on-tablet {
+      margin-inline: auto;
+      width: 458px;
+    }
+
+    @include on-desktop {
+      margin-inline: 0;
+      width: 200px;
+    }
+  }
+}

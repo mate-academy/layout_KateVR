@@ -1,0 +1,68 @@
+.place-order {
+  &__form {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 40px 20px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(8, 1fr);
+
+      grid-column: 7 / -1;
+      grid-row: 2 / 4;
+
+      margin-bottom: 38px;
+    }
+
+    @include on-desktop-wide {
+      grid-column: 9 / -1;
+
+      margin-bottom: 0;
+    }
+  }
+
+  &__dropdown {
+    margin-top: 30px;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__input {
+    padding-bottom: 19px;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__sum {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 30px;
+  }
+
+  &__price {
+    font-size: 26px;
+    color: $color-blue;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+  }
+}

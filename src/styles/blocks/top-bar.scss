@@ -1,0 +1,71 @@
+.top-bar {
+  grid-column: 1 / -1;
+
+  padding-block: 18px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include on-tablet {
+    padding-block: 30px;
+  }
+
+  &__left {
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+
+    @include on-tablet {
+      padding-block: 13px;
+    }
+  }
+
+  &__right {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      justify-content: space-between;
+      gap: 35px;
+    }
+  }
+
+  &__nav {
+    padding-block: 13px;
+  }
+
+  &__button {
+    width: 200px;
+    padding-block: 13px;
+  }
+
+  &__link {
+    display: flex;
+  }
+
+  &__logo {
+    max-width: 100%;
+    height: 12px;
+
+    transition: transform 0.3s ease-in-out;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      height: 14px;
+    }
+
+    @include on-desktop {
+      height: 100%;
+    }
+  }
+
+  &__dropdown {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+}

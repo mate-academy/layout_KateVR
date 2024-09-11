@@ -1,0 +1,140 @@
+.contact-us {
+  display: grid;
+
+  &__content {
+    @include padding-inline;
+    @include section-grid;
+
+    grid-column: 1 / -1;
+
+    position: relative;
+  }
+
+  &__title-small {
+    grid-column: 1 / -1;
+
+    color: $color-blue;
+    font-size: 14px;
+    margin-bottom: 11px;
+
+    @include on-tablet {
+      grid-column: 1 / 3;
+
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include h2-mobile;
+
+    margin-bottom: 14px;
+
+    @include on-tablet {
+      grid-row: 2;
+
+      margin-bottom: 50px;
+    }
+
+    @include on-desktop {
+      @include h2-web;
+    }
+
+    &--highlighted {
+      color: $color-blue;
+      font-weight: 400;
+      font-size: 21px;
+      line-height: 25.41px;
+
+      @include on-desktop {
+        font-weight: 400;
+        font-size: 36px;
+        line-height: 43.57px;
+      }
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+
+      grid-row: 1 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+  }
+
+  &__wrapper {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+
+      gap: 11px;
+
+      grid-row: 4;
+    }
+  }
+
+  &__details {
+    @include hover(color, $color-blue);
+  }
+
+  &__message {
+    grid-column: 1 / -1;
+
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 30px;
+
+    @include on-tablet {
+      grid-row: 3;
+
+      margin-bottom: 76px;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+  }
+
+  &__to-top-link {
+    display: none;
+    transition: transform 0.3s ease-in-out;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      display: inline-block;
+
+      position: absolute;
+      bottom: 0;
+      right: 34px;
+    }
+
+    @include on-desktop {
+      right: 110px;
+    }
+
+    @include on-desktop-wide {
+      right: 230px;
+    }
+  }
+
+  &__to-top-img {
+    display: block;
+  }
+}
