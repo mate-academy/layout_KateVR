@@ -1,0 +1,222 @@
+.pop-up {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.4);
+  transition: all 0.4s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &._popup-open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__body {
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 10px;
+  }
+
+  &__content {
+    position: relative;
+    background-color: $dark-purple;
+    width: 880px;
+    border-radius: 4px;
+    padding: 60px 90px;
+
+    &--no-padding {
+      padding: 0;
+    }
+
+    @include on-tablet {
+      width: 100%;
+      padding: 10px 15px 40px 15px;
+    }
+  }
+
+  &__video {
+    padding-bottom: 55.3%;
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__move {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+
+    & a span:nth-child(1) {
+      display: block;
+    }
+
+    & a span:nth-child(2) {
+      display: none;
+    }
+
+    &._less a span:nth-child(1) {
+      display: none;
+    }
+
+    &._less a span:nth-child(2) {
+      display: block;
+    }
+
+    &._less a img {
+      display: none;
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 24px;
+    height: 24px;
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 7%;
+      width: 24px;
+      height: 1px;
+      background-color: $white;
+      transition: all 0.3s ease 0s;
+    }
+
+    &::before {
+      transform: rotate(45deg);
+    }
+
+    &::after {
+      transform: rotate(-45deg);
+    }
+
+    &--rigth {
+      top: 0;
+      right: -42px;
+
+      @include on-laptop {
+        right: 0px;
+        top: 0px;
+        background-color: $contrast;
+        border-radius: 3px;
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  &__accordion {
+    margin-top: 50px;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+  }
+
+  &__info {
+    margin-top: 50px;
+    padding-bottom: 20px;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+
+    a,
+    button {
+      font-size: 16px;
+      color: $contrast;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    button {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__contacts {
+    margin-top: 20px;
+    display: flex;
+    gap: 65px;
+    flex-wrap: wrap;
+    margin-bottom: 15px;
+
+    @include on-tablet {
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__contact,
+  &__join {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__contact {
+    @include on-tablet {
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+  }
+
+  &__join {
+    color: $contrast;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+.close-pop-up {
+  &--tablet {
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
+
+.mobile-faq {
+  display: none;
+
+  @include on-tablet {
+    display: inline-block;
+  }
+}

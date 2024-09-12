@@ -1,0 +1,173 @@
+.hero {
+  &__container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+
+  &__main {
+    flex: 1 1 auto;
+    display: flex;
+    gap: 20px;
+
+    @media (max-width: 645px) {
+      flex-direction: column;
+      gap: 0px;
+    }
+  }
+
+  &__content {
+    flex: 0 1 45%;
+    display: flex;
+    flex-direction: column;
+    transform: translate(-100%, 0);
+    opacity: 0;
+    transition:
+      transform 0.6s,
+      ease 1.2s,
+      opacity 0.6s ease 0.6s;
+
+    &._limn {
+      transform: translate(0%, 0);
+      opacity: 1;
+    }
+
+    @include on-tablet {
+      flex: 0 1 50%;
+    }
+
+    @media (max-width: 645px) {
+      order: 1;
+      flex: 0 1 100%;
+    }
+  }
+
+  &__content-image {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      flex: 0 1 50%;
+      transform: translate(0, 20%);
+      opacity: 0;
+      transition: all 0.5s ease 0.5s;
+
+      &._limn {
+        transform: translate(0, 0);
+        opacity: 1;
+      }
+
+      img {
+        width: 100%;
+      }
+    }
+
+    @media (max-width: 645px) {
+      flex: 0 1 100%;
+      order: 0;
+    }
+  }
+
+  &__info {
+    margin-top: 19px;
+    max-width: 330px;
+    align-self: center;
+
+    @include on-laptop {
+      align-self: start;
+    }
+
+    @media (max-width: 645px) {
+      max-width: none;
+    }
+
+    @include on-mobile {
+      width: 100%;
+    }
+  }
+
+  &__text {
+    font-weight: 500;
+  }
+
+  &__price {
+    font-size: 18px;
+    color: $white;
+    margin-top: 25px;
+
+    @media (max-width: 340px) {
+      text-align: center;
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+  }
+
+  &__buy {
+    display: none;
+
+    @include on-mobile {
+      display: block;
+      position: absolute;
+      bottom: -56px;
+      left: 0;
+      transform: translateY(50%);
+    }
+  }
+
+  &__helper {
+    margin-top: 70px;
+    display: flex;
+    transform: translate(0, 100%);
+    opacity: 0;
+    transition: all 0.5s ease 0s;
+
+    &._limn {
+      transform: translate(0, 0%);
+      opacity: 1;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__support {
+    flex: 0 1 33.33%;
+    display: flex;
+    gap: 39px;
+  }
+
+  &__faq {
+    font-weight: 500;
+    color: $white;
+
+    @include hover {
+      color: #cfcfcf;
+    }
+  }
+
+  &__help {
+    font-weight: 500;
+    color: $white;
+
+    @include hover {
+      color: #cfcfcf;
+    }
+  }
+
+  &__move {
+    flex: 0 1 33.33%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__navigation {
+    position: relative;
+    flex: 0 1 33.33%;
+    display: flex;
+    justify-content: end;
+    gap: 103px;
+  }
+}

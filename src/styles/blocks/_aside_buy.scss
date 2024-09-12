@@ -1,0 +1,149 @@
+.aside-buy {
+  height: 100vh;
+  background: $bg-gradient;
+  transform: none;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 0.5s;
+  z-index: -1;
+
+  &._aside-open {
+    opacity: 1;
+    visibility: visible;
+    z-index: 20;
+  }
+
+  &__wrapper {
+  }
+
+  &__header {
+    display: flex;
+    min-height: 145px;
+    align-items: center;
+    justify-content: space-between;
+
+    @include on-tablet {
+      display: block;
+      min-height: 90px;
+    }
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    flex: 0 0 78px;
+    max-width: 78px;
+
+    @include on-tablet {
+      margin-top: 30px;
+      padding-left: 15px;
+    }
+
+    @include on-mobile {
+      margin-top: 20px;
+    }
+  }
+
+  &__steps {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    flex: 0 1 60%;
+    margin-right: 12%;
+    position: relative;
+    --dot-position: 0;
+
+    @include on-tablet {
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: $dark-gray;
+        z-index: -1;
+      }
+    }
+
+    .dot {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      transform: translate(0%);
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background-color: $contrast;
+      transition: left 0.4s ease;
+
+      @include on-tablet {
+        height: 1px;
+        width: 100%;
+        border-radius: 0;
+      }
+    }
+
+    @include on-tablet {
+      flex: 0 1 100%;
+      margin-top: 30px;
+      margin-right: 0px;
+    }
+
+    @include on-mobile {
+      gap: 10px;
+    }
+  }
+
+  &__step-btn {
+    font-size: 14px;
+    color: $text-color;
+
+    @include on-tablet {
+      flex: 0 1 33.333%;
+    }
+
+    @include on-mobile {
+      font-size: 12px;
+    }
+
+    &--active {
+      color: $contrast;
+      transition: all 0.5s ease 0s;
+    }
+
+    &--lock {
+      // cursor: not-allowed;
+    }
+  }
+
+  &__section {
+    position: fixed;
+    width: 100%;
+    margin-top: 3%;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0%);
+    transition: all 0.5s ease 0s;
+    z-index: 20;
+    padding-bottom: 30px;
+
+    &._hidden-section {
+      z-index: -1;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateX(100%);
+    }
+  }
+}
+
+.aside-buy--block {
+  padding: 0;
+}
+
+.aside {
+  &__back {
+  }
+}
+.back-aside {
+}

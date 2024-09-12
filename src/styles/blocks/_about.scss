@@ -1,0 +1,157 @@
+.about {
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    @media (max-width: 645px) {
+      justify-content: none;
+      flex-direction: column;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    flex: 0 0 41.7%;
+    margin-left: 180px;
+    min-width: 0;
+    width: 100%;
+
+    @include on-laptop {
+      flex: 0 0 50%;
+      margin-left: 0;
+    }
+
+    @media (max-width: 645px) {
+      margin-top: 20px;
+      flex: 0 1 100%;
+      order: 1;
+    }
+  }
+
+  &__fraction {
+    font-size: 14px;
+    color: $contrast;
+    position: absolute;
+    top: -7px;
+    left: -23px;
+    transform: translate(-100%);
+
+    @include on-laptop {
+      display: none;
+    }
+  }
+
+  &__navigation {
+    margin-top: 12px;
+  }
+
+  &__nav-btns {
+    position: relative;
+    width: 207px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__bullets {
+    display: none;
+
+    @include on-tablet {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+    }
+  }
+
+  &__bullet {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #484848;
+
+    &._cur {
+      background-color: #ababab;
+    }
+  }
+
+  &__content {
+    flex: 0 1 32%;
+
+    @include on-laptop {
+      flex: 0 1 50%;
+    }
+
+    @media (max-width: 645px) {
+      display: flex;
+      flex-direction: column;
+      flex: 0 1 100%;
+    }
+  }
+
+  &__title {
+    @media (max-width: 645px) {
+      order: 0;
+    }
+  }
+
+  &__text {
+    margin-top: 30px;
+
+    @media (max-width: 645px) {
+      order: 2;
+    }
+
+    @include on-mobile {
+      margin-top: 20px;
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+
+    @media (max-width: 645px) {
+      order: 3;
+    }
+
+    @include on-mobile {
+      margin-top: 45px;
+    }
+  }
+}
+
+.about-slider {
+  height: 64%;
+
+  @media (max-width: 645px) {
+    height: none;
+  }
+
+  &__image {
+    position: relative;
+    height: 100%;
+
+    @media (max-width: 645px) {
+      height: 190px;
+    }
+
+    &::before {
+      content: '';
+      z-index: 3;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: #19153676;
+    }
+
+    img {
+      object-fit: cover;
+      height: 100%;
+      width: 100%;
+    }
+  }
+}

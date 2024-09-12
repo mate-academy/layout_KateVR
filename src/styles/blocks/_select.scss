@@ -1,0 +1,92 @@
+.select {
+  position: relative;
+
+  &__inner {
+    cursor: pointer;
+    position: relative;
+    width: 100%;
+    background-color: $dark-purple;
+    padding: 13px 24px;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translate(-50%);
+      align-self: center;
+      display: inline-block;
+      margin-bottom: 5px;
+      background: url('../images/down.svg') no-repeat;
+      margin-left: 5px;
+      width: 9px;
+      height: 6px;
+    }
+
+    &--small {
+      background-color: transparent;
+      padding: 0;
+
+      &::after {
+        right: -20px;
+      }
+    }
+  }
+
+  &__current {
+    color: $white;
+    display: flex;
+    align-items: center;
+
+    &--blue {
+      color: $contrast;
+    }
+  }
+
+  &._active &__list {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__list {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease 0s;
+    min-width: 100%;
+    position: absolute;
+    bottom: inherit;
+    right: inherit;
+    background-color: $dark-purple;
+    border-radius: 4px;
+    max-height: 250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 0 10px;
+    margin-top: 3px;
+    z-index: 5;
+
+    &--center {
+      margin-top: 14px;
+      max-height: 111px;
+      padding: 0;
+    }
+  }
+
+  &__item {
+    padding: 6px 12px;
+
+    a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+
+      @include hover {
+        color: $contrast;
+      }
+    }
+  }
+}
+
+.select__list--center {
+  transform: translateX(-15%);
+}
