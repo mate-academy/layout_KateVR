@@ -1,0 +1,44 @@
+.overlay-container {
+  background-color: $color-dark-blue-bg;
+  box-sizing: border-box;
+  margin-block: 0 auto;
+
+  @include phone {
+    min-height: 100vh;
+    padding-block: 75px 30px;
+  }
+
+  @include tablet {
+    padding-block: 108px 26px;
+  }
+
+  &__link {
+    display: block;
+    height: 49px;
+    align-content: center;
+    font-size: 21px;
+    line-height: normal;
+
+    @include phone {
+      padding-inline: 20px;
+    }
+
+    @include tablet {
+      padding-inline: max(34px, calc((100vw - 900px) / 2));
+    }
+
+    @include hover(color, $color-accent);
+    @include hover(background-color, $color-dark-blue-accent);
+  }
+
+  &__button-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    @include tablet {
+      top: 37px;
+      right: 37px;
+    }
+  }
+}
