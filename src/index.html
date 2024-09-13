@@ -170,12 +170,10 @@
 
               <div class="screen-1__price">1200$</div>
 
-              <a
-                href="#video-overlay"
-                class="screen-1__video-button start-video__link"
-              >
-                <div class="start-video__button"></div>
-              </a>
+              <button
+                onclick="overlayOn('video-overlay')"
+                class="screen-1__video-button start-video__button"
+              ></button>
             </article>
 
             <div class="screen-1__image-container">
@@ -224,6 +222,29 @@
         </div>
       </div>
     </header>
+    <!-- #endregion -->
+    <!-- #region video-overlay -->
+    <div
+      class="overlay overlay--default-state--hidden video-overlay"
+      id="video-overlay"
+    >
+      <div class="video-overlay__wrapper">
+        <button
+          onclick="overlayOff('video-overlay')"
+          class="video-overlay__button-close button-close"
+        ></button>
+
+        <iframe
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/SvTbB19bvIw?si=hkDgdqBqCehkHac2"
+          title="KAT loco: A Complete Wearable Locomotion System"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
     <!-- #endregion -->
     <!-- #region screen-2 -->
     <section
@@ -338,12 +359,10 @@
               reality.
             </p>
 
-            <a
-              href="#video-overlay"
-              class="screen-3__video-button start-video__link"
-            >
-              <div class="start-video__button"></div>
-            </a>
+            <button
+              onclick="overlayOn('video-overlay')"
+              class="screen-3__video-button start-video__button"
+            ></button>
           </div>
           <!-- #endregion -->
 
