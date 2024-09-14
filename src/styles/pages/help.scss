@@ -1,0 +1,60 @@
+.help {
+  overflow: auto;
+  height: 100%;
+
+  &__container {
+    margin-top: -5px;
+
+    @include tablet {
+      max-width: 900px;
+      margin-inline: auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 31px;
+  }
+
+  &__text {
+    margin-bottom: 28px;
+    text-align: justify;
+  }
+
+  &__text,
+  &__text > * {
+    font-size: 16px;
+  }
+
+  &__links-block {
+    @include phone {
+      margin-bottom: 14px;
+    }
+  }
+
+  &__link {
+    display: block;
+    font-size: 16px;
+    line-height: 277%;
+  }
+
+  &__address {
+    line-height: 180%;
+  }
+
+  @include media(tablet, laptop, desktop) {
+    &__wrapper {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      margin-bottom: 30px;
+    }
+
+    &__links,
+    &__address {
+      grid-column: span 1;
+    }
+
+    &__address {
+      line-height: 277%;
+    }
+  }
+}
