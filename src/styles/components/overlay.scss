@@ -1,0 +1,38 @@
+.overlay {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  z-index: 2;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  background: #000000b2;
+
+  &--default-state--hidden {
+    display: none;
+  }
+
+  &--default-state--transparent {
+    display: block;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+    transition-duration: $transition-duration;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateX(0);
+    }
+
+    @include media(laptop, desktop) {
+      transform: scale(0%);
+
+      &:target {
+        transform: scale(100%);
+      }
+    }
+  }
+}

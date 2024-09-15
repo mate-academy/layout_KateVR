@@ -1,0 +1,52 @@
+.dropdown {
+  color: $color-accent;
+  cursor: pointer;
+
+  &__label {
+    display: flex;
+    gap: 5px;
+    padding-block: 16px;
+  }
+
+  &__icon {
+    padding-top: 7.3px;
+    display: block;
+    width: 9.1px;
+    height: 6.2px;
+    align-self: center;
+  }
+
+  &__content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    border-right: 1px solid #014954;
+
+    background-color: $color-dark-blue-bg;
+    max-height: 15vh;
+    height: auto;
+    overflow-y: scroll;
+    scrollbar-width: thin;
+    scrollbar-color: $color-accent $color-dark-blue-bg;
+  }
+
+  &:hover &__content {
+    display: block;
+  }
+
+  &__link {
+    color: inherit;
+  }
+
+  &__item {
+    box-sizing: border-box;
+    width: 35px;
+    padding-block: 5px;
+
+    &:hover {
+      padding-right: 14px;
+      color: $color-white;
+      transition: all $transition-duration;
+    }
+  }
+}

@@ -1,0 +1,130 @@
+.screen-5 {
+  width: 100%;
+  background: $color-gradient;
+
+  @include phone {
+    padding-bottom: 20px;
+  }
+
+  @include tablet {
+    padding-bottom: 80px;
+  }
+
+  @include media(laptop, desktop) {
+    text-align: center;
+  }
+
+  &__title {
+    text-align: inherit;
+
+    @include set-responsive-values(
+      margin-inline,
+      4px 0,
+      5px 0,
+      0 24px,
+      0 24px
+    );
+
+    @include desktop {
+      margin-top: 2px;
+    }
+  }
+
+  &__cards {
+    @include page-grid;
+
+    justify-content: center;
+
+    &-spacing {
+      @include media(phone, tablet, laptop) {
+        display: none;
+      }
+
+      @include desktop {
+        grid-column: span 2;
+      }
+    }
+
+    @include set-responsive-values(
+      margin-block,
+      31px 0,
+      31px 0,
+      84px 89px,
+      82px 89px
+    );
+
+    @include phone {
+      row-gap: 26px;
+    }
+
+    @include tablet {
+      text-align: center;
+    }
+  }
+
+  &__card {
+    @include set-grid-columns(
+      span 2,
+      span 2,
+      span 4,
+      span 4
+    );
+
+    &-image {
+      @include phone {
+        display: none;
+      }
+    }
+
+    &-title {
+      text-align: inherit;
+
+      @include set-responsive-values(
+        padding-block,
+        0 11px,
+        19px 24px,
+        27px 18px,
+        25px 22px
+      );
+
+      @include phone {
+        letter-spacing: 1.35px;
+      }
+
+      @include media(phone, tablet) {
+        &--small {
+          font-size: 16px;
+          letter-spacing: -0.1px;
+        }
+      }
+    }
+
+    &-description {
+      line-height: 150%;
+
+      @include media(phone, tablet) {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+      }
+    }
+  }
+
+  &__button {
+    margin: auto;
+
+    // TODO: make visible, floating on small screens
+    @include media(phone, tablet) {
+      display: none;
+    }
+
+    @include tablet {
+      width: 458px;
+    }
+
+    @include media(laptop, desktop) {
+      width: 200px;
+    }
+  }
+}
