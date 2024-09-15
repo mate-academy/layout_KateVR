@@ -1,15 +1,25 @@
 .floating-button {
   z-index: 1;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.21) 0%, rgba(4, 4, 4, 0.59) 23.44%, #050505 100%);
-  padding-block: 10px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.21) 15%, rgba(4, 4, 4, 0.59) 42.44%, #050505 100%);
+  padding-block: 22px 10px;
   width: 100%;
   box-sizing: border-box;
 
   position: sticky;
   bottom: 0;
 
+  @include phone {
+    margin-top: -32px;
+  }
+
   @include tablet {
     padding-block: 31px;
+    margin-top: -100px;
+
+    &__button {
+      max-width: 576px;
+      margin: auto;
+    }
   }
 
   @include media(laptop, desktop) {
