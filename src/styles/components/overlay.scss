@@ -18,10 +18,21 @@
     display: block;
     opacity: 0;
     pointer-events: none;
+    transform: translateX(-100%);
+    transition-duration: $transition-duration;
 
     &:target {
       opacity: 1;
       pointer-events: all;
+      transform: translateX(0);
+    }
+
+    @include media(laptop, desktop) {
+      transform: scale(0%);
+
+      &:target {
+        transform: scale(100%);
+      }
     }
   }
 }
