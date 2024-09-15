@@ -170,12 +170,10 @@
 
               <div class="screen-1__price">1200$</div>
 
-              <a
-                href="#video-overlay"
-                class="screen-1__video-button start-video__link"
-              >
-                <div class="start-video__button"></div>
-              </a>
+              <button
+                onclick="overlayOn('video-overlay')"
+                class="screen-1__video-button start-video__button"
+              ></button>
             </article>
 
             <div class="screen-1__image-container">
@@ -224,6 +222,397 @@
         </div>
       </div>
     </header>
+    <!-- #endregion -->
+    <!-- #region video-overlay -->
+    <div
+      class="overlay overlay--default-state--hidden video-overlay"
+      id="video-overlay"
+    >
+      <div class="video-overlay__wrapper">
+        <button
+          onclick="overlayOff('video-overlay')"
+          class="video-overlay__button-close button-close"
+        ></button>
+
+        <iframe
+          width="100%"
+          height="100%"
+          src="https://www.youtube.com/embed/SvTbB19bvIw?si=hkDgdqBqCehkHac2"
+          title="KAT loco: A Complete Wearable Locomotion System"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          referrerpolicy="strict-origin-when-cross-origin"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
+    <!-- #endregion -->
+    <!-- #region menu -->
+    <aside
+      class="overlay overlay--default-state--transparent menu"
+      id="menu"
+    >
+      <a
+        href="#"
+        class="overlay-container__button-close button-close"
+      ></a>
+
+      <nav class="overlay-container menu__container">
+        <a
+          href="#about"
+          class="overlay-container__link"
+        >
+          About
+        </a>
+
+        <a
+          href="#tech"
+          class="overlay-container__link"
+        >
+          Tech
+        </a>
+
+        <a
+          href="#benefits"
+          class="overlay-container__link"
+        >
+          Benefits
+        </a>
+
+        <a
+          href="#contact"
+          class="overlay-container__link"
+        >
+          Contact
+        </a>
+
+        <a
+          href="#language"
+          class="overlay-container__link"
+        >
+          Language
+        </a>
+
+        <a
+          href="#faq"
+          class="overlay-container__link"
+        >
+          FAQ
+        </a>
+
+        <a
+          href="#help"
+          class="overlay-container__link"
+        >
+          Help
+        </a>
+      </nav>
+    </aside>
+    <!-- #endregion -->
+    <!-- #region language -->
+    <aside
+      class="overlay overlay--default-state--transparent language"
+      id="language"
+    >
+      <a
+        href="#menu"
+        class="language__button-back"
+      ></a>
+
+      <ul class="overlay-container">
+        <a
+          href="#language"
+          class="overlay-container__link"
+        >
+          Arabic
+        </a>
+
+        <a
+          href="#language"
+          class="overlay-container__link"
+        >
+          Chinese (Simplified)
+        </a>
+
+        <a
+          href="#language"
+          class="overlay-container__link"
+        >
+          Chinese (Traditional)
+        </a>
+
+        <a
+          href="#language"
+          class="overlay-container__link"
+        >
+          French
+        </a>
+
+        <a
+          href="#language"
+          class="overlay-container__link"
+        >
+          German
+        </a>
+
+        <a
+          href="#language"
+          class="overlay-container__link"
+        >
+          Italian
+        </a>
+
+        <a
+          href="#language"
+          class="overlay-container__link"
+        >
+          Polish
+        </a>
+
+        <a
+          href="#language"
+          class="overlay-container__link"
+        >
+          Russian
+        </a>
+
+        <a
+          href="#language"
+          class="overlay-container__link"
+        >
+          Ukrainian
+        </a>
+      </ul>
+    </aside>
+    <!-- #endregion -->
+    <!-- #region help -->
+    <aside
+      class="overlay overlay--default-state--transparent help"
+      id="help"
+    >
+      <div class="overlay-container">
+        <div class="container">
+          <a
+            href="#"
+            class="overlay-container__button-close button-close"
+          ></a>
+
+          <article class="help__container">
+            <h2 class="help__title">
+              How can we
+              <span class="text-accent">help</span>
+              you?
+            </h2>
+            <p class="help__text">
+              Welcome to our help center. Our goal is to make the process of
+              getting acquainted and purchase as easy and pleasant as possible.
+              Need help with your KAT VR loco product? Many product questions
+              can be resolved by reviewing our Product Support
+              <a
+                href="#faq"
+                class="paragraph-accent"
+              >
+                FAQs
+              </a>
+              .
+              <br />
+              <br />
+              Please also feel free to
+              <a
+                href="#contact"
+                class="paragraph-accent"
+              >
+                Contact Us
+              </a>
+              directly should you need anything further. We’re happy to help.
+            </p>
+            <div class="help__wrapper">
+              <div class="help__links-block">
+                <a
+                  href="#help"
+                  class="help__link paragraph-accent"
+                >
+                  Instruction manual
+                </a>
+                <a
+                  href="#help"
+                  class="help__link paragraph-accent"
+                >
+                  Where to go for a warranty
+                </a>
+                <a
+                  href="#help"
+                  class="help__link paragraph-accent"
+                >
+                  Service Policy
+                </a>
+              </div>
+              <p class="help__address">
+                +86-0571-86105373
+                <br />
+                global@katvr.com
+                <br />
+                overseas@katvr.com
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </aside>
+    <!-- #endregion -->
+    <!-- #region faq -->
+    <aside
+      class="overlay overlay--default-state--transparent faq"
+      id="faq"
+    >
+      <div class="overlay-container">
+        <div class="container">
+          <a
+            href="#"
+            class="overlay-container__button-close button-close"
+          ></a>
+
+          <h2 class="faq__title">
+            Frequently asked
+            <span class="text-accent">questions</span>
+          </h2>
+          <!-- #region faq-article-1 -->
+          <article class="faq__article">
+            <input
+              id="collapsible-1"
+              class="faq__article-toggle"
+              type="checkbox"
+            />
+            <label
+              for="collapsible-1"
+              class="faq__article-title"
+            >
+              What makes KAT loco different from other systems?
+              <div class="faq__article-icon"></div>
+            </label>
+
+            <div class="faq__article-collapsible">
+              <p class="faq__article-description">
+                Despite being approached from many different angles, all
+                traditional VR Locomotion systems including roomscale,
+                teleportation, and free locomotion failed to provide an optimal
+                solution capable of integrating high immersion with convenience.
+                KAT loco does all of that without repeating their flaws. Our
+                system offers a complete and versatile solution for an
+                affordable price what makes it a perfect choice for home-use. It
+                is also 100% user friendly, wireless, universally compatible,
+                and more! It even offers decoupled head and body directions!
+              </p>
+              <p class="faq__article-date">
+                Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+              </p>
+            </div>
+          </article>
+          <!-- endregion -->
+
+          <!-- #region faq-article-2 -->
+          <article class="faq__article">
+            <input
+              id="collapsible-2"
+              class="faq__article-toggle"
+              type="checkbox"
+            />
+            <label
+              for="collapsible-2"
+              class="faq__article-title"
+            >
+              Will it decrease my motion sickness?
+              <div class="faq__article-icon"></div>
+            </label>
+
+            <div class="faq__article-collapsible">
+              <p class="faq__article-description">
+                KAT Loco is the ultimate solution for realistic locomotion in
+                virtual reality. Traditional VR locomotion techniques have
+                failed to provide an optimal solution that combines high
+                immersion with convenience. But with KAT Loco, you can finally
+                bring your lower body into play, freeing your hands from
+                controlling body directions and allowing you to walk with your
+                feet. This not only increases immersion, but also reduces motion
+                sickness and space limitations.
+              </p>
+              <p class="faq__article-date">
+                Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+              </p>
+            </div>
+          </article>
+          <!-- endregion -->
+
+          <!-- #region faq-article-3 -->
+          <article class="faq__article">
+            <input
+              id="collapsible-3"
+              class="faq__article-toggle"
+              type="checkbox"
+            />
+            <label
+              for="collapsible-3"
+              class="faq__article-title"
+            >
+              Which VR headsets is it compatible with?
+              <div class="faq__article-icon"></div>
+            </label>
+
+            <div class="faq__article-collapsible">
+              <p class="faq__article-description">
+                In terms of compatibility, the KAT Loco S will work with “all
+                major headsets” including Quest and Quest 2 when used for
+                SteamVR content via Oculus Link or Virtual Desktop. KAT Loco S
+                also works with PlayStation VR, but will require an additional
+                adapter. Keyboard support will also allow players to use the
+                system in non-VR games as well.
+              </p>
+              <p class="faq__article-date">
+                Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+              </p>
+            </div>
+          </article>
+          <!-- endregion -->
+
+          <!-- #region faq-article-4 -->
+          <article class="faq__article">
+            <input
+              id="collapsible-4"
+              class="faq__article-toggle"
+              type="checkbox"
+            />
+            <label
+              for="collapsible-4"
+              class="faq__article-title"
+            >
+              Is it compatible with Oculus Quest?
+              <div class="faq__article-icon"></div>
+            </label>
+
+            <div class="faq__article-collapsible">
+              <p class="faq__article-description">
+                Currently, we support over 100 Quest games. Some games may
+                temporarily lack compatibility due to issues or have not been
+                tested yet and will be synchronized online after passing
+                subsequent tests.
+              </p>
+              <p class="faq__article-date">
+                Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+              </p>
+            </div>
+          </article>
+          <!-- endregion -->
+
+          <div class="faq__more">
+            <a
+              href="#screen-2"
+              class="faq__more-button"
+            >
+              More
+            </a>
+          </div>
+        </div>
+      </div>
+    </aside>
     <!-- #endregion -->
     <!-- #region screen-2 -->
     <section
@@ -338,12 +727,10 @@
               reality.
             </p>
 
-            <a
-              href="#video-overlay"
-              class="screen-3__video-button start-video__link"
-            >
-              <div class="start-video__button"></div>
-            </a>
+            <button
+              onclick="overlayOn('video-overlay')"
+              class="screen-3__video-button start-video__button"
+            ></button>
           </div>
           <!-- #endregion -->
 

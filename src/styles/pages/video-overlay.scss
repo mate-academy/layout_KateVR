@@ -1,0 +1,36 @@
+.video-overlay {
+  justify-items: center;
+
+  @include media(phone, tablet) {
+    align-items: start;
+  }
+
+  @include media(laptop, desktop) {
+    align-items: center;
+  }
+
+  &__wrapper {
+    width: 65%;
+    aspect-ratio: 16 / 9;
+    position: relative;
+    margin: 70px;
+
+    @include phone {
+      width: 85%;
+    }
+  }
+
+  &__button-close {
+    position: absolute;
+
+    @include set-responsive-values(right, 0, 0, -4%, -3.5%);
+
+    @include media (phone, tablet) {
+      top: -30px;
+    }
+
+    @include media (laptop, desktop) {
+      top: 0;
+    }
+  }
+}
