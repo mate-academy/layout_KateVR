@@ -1,0 +1,245 @@
+.tech {
+  padding-block: 50px;
+  background-color: $background-black;
+
+  @media (min-width: $tablet-min-width) {
+    padding-block: 80px;
+  }
+
+  @media (min-width: $desktop-min-width) {
+    padding-block: 100px;
+  }
+
+  @media (min-width: $desktop-lg-min-width) {
+    padding-block: 160px;
+  }
+
+  &__page-title {
+    margin-bottom: 40px;
+
+    @media (min-width: $tablet-min-width) {
+      margin-bottom: 57px;
+    }
+
+    @media (min-width: $desktop-min-width) {
+      margin-bottom: 80px;
+      text-align: right;
+      margin-right: 120px;
+    }
+
+    @media (min-width: $desktop-lg-min-width) {
+      margin-right: 250px;
+    }
+  }
+
+  &__descr {
+    text-align: center;
+    position: relative;
+
+    @media (min-width: $desktop-min-width) {
+      @include create-page-grid;
+    }
+  }
+
+  &__img {
+    width: 197px;
+    height: 195px;
+
+    &:hover {
+      transform: scale(1.01) rotate(5deg);
+    }
+
+    @media (min-width: $tablet-min-width) {
+      width: 358px;
+      height: 354px;
+    }
+
+    @media (min-width: $desktop-min-width) {
+      width: 297px;
+      height: 294px;
+      margin-top: 50px;
+      margin-left: 10px;
+      grid-column: 5 / 9;
+      grid-row: 1 / 4;
+    }
+
+    @media (min-width: $desktop-lg-min-width) {
+      grid-column: 7 / 11;
+    }
+  }
+
+  &__dot {
+    display: block;
+    width: 34px;
+    height: 34px;
+    background-image: url(../images/tech/dot.svg);
+    background-repeat: no-repeat;
+    background-size: 34px;
+    position: absolute;
+
+    @media (min-width: $tablet-min-width) {
+      width: 62px;
+      height: 62px;
+      background-size: 62px;
+    }
+
+    @media (min-width: $desktop-min-width) {
+      display: none;
+    }
+
+    &--1 {
+      top: -10px;
+      left: 100px;
+
+      @media (min-width: $tablet-min-width) {
+        top: -20px;
+        left: 230px;
+      }
+    }
+
+    &--2 {
+      bottom: 15px;
+      left: 30px;
+
+      @media (min-width: $tablet-min-width) {
+        left: 110px;
+      }
+    }
+
+    &--3 {
+      top: 80px;
+      right: 60px;
+
+      @media (min-width: $tablet-min-width) {
+        top: 145px;
+        right: 220px;
+      }
+    }
+  }
+
+  &__block {
+    display: none;
+
+    @media (min-width: $desktop-min-width) {
+      display: block;
+      text-align: left;
+    }
+
+    &--1 {
+      @media (min-width: $desktop-min-width) {
+        grid-column: 1 / 4;
+      }
+
+      @media (min-width: $desktop-lg-min-width) {
+        grid-column: 3 / 6;
+      }
+    }
+
+    &--2 {
+      @media (min-width: $desktop-min-width) {
+        grid-column: 9 / 13;
+        margin-bottom: 20px;
+      }
+
+      @media (min-width: $desktop-lg-min-width) {
+        grid-column: 12 / 16;
+      }
+    }
+
+    &--3 {
+      @media (min-width: $desktop-min-width) {
+        grid-column: 2 / 5;
+      }
+
+      @media (min-width: $desktop-lg-min-width) {
+        grid-column: 3 / 6;
+      }
+    }
+  }
+
+  &__title {
+    @media (min-width: $desktop-min-width) {
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 21.78px;
+      color: $white-color;
+      margin-bottom: 21px;
+    }
+  }
+
+  &__line {
+    pointer-events: none;
+
+    @media (min-width: $desktop-min-width) {
+      position: absolute;
+      display: block;
+    }
+
+
+    &--sensor {
+      @media (min-width: $desktop-min-width) {
+        background-image: url(../images/tech/sensor.png);
+        width: 403px;
+        height: 65px;
+        top: 5px;
+        left: 115px;
+      }
+
+      @media (min-width: $desktop-lg-min-width) {
+        background-image: url(../images/tech/sensor-lg.png);
+        width: 431px;
+        height: 65px;
+        left: 278px;
+      }
+    }
+
+    &--batterries {
+      @media (min-width: $desktop-min-width) {
+        background-image: url(../images/tech/batteries.png);
+        width: 192px;
+        height: 245px;
+        top: 5px;
+        right: 350px;
+      }
+
+      @media (min-width: $desktop-lg-min-width) {
+        background-image: url(../images/tech/batteries-lg.png);
+        width: 283px;
+        height: 245px;
+        right: 460px;
+      }
+    }
+
+    &--connection {
+      @media (min-width: $desktop-min-width) {
+        background-image: url(../images/tech/connection.png);
+        width: 134px;
+        height: 113px;
+        top: 107px;
+        left: 230px;
+      }
+
+      @media (min-width: $desktop-lg-min-width) {
+        background-image: url(../images/tech/connection-lg.png);
+        width: 241px;
+        height: 113px;
+        top: 110px;
+        left: 320px;
+      }
+    }
+
+    &--half {
+      @media (min-width: $desktop-min-width) {
+        background-image: url(../images/tech/half.png);
+        width: 40px;
+        height: 201px;
+        top: 90px;
+        left: 360px;
+      }
+
+      @media (min-width: $desktop-lg-min-width) {
+        left: 550px;
+      }
+    }
+  }
+}
