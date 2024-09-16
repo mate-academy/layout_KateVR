@@ -1,25 +1,19 @@
 'use strict';
 
 // #region template for block 'experience'
-  export const templateHtml_1 = (name) => {
-    return `<article class="experience__article">
-              <img
-                class="experience__image"
-                src="${name['image']}"
-                alt="education KatVR"
-              >
+  export const templateHtml = (name) => {
+    return `<article class="${name.nameObject}__article">
 
-              <h3 class="experience__subtitle">${name.title}</h3>
-              <p class="experience__description">${name.text}</p>
-            </article>`;
-  };
-// #endregion
+              <div class="${name.nameObject}__image">
+                <img
+                  class="${name.nameObject}__img"
+                  src="${name['image']}"
+                  alt="education KatVR"
+                >
+              </div>
 
-// #region template for "tech-spes"
-  export const templateHtml_2 = (name) => {
-    return `<article class="tech-specs__block">
-              <h2 class="tech-specs__block--title">${name.title}</h2>
-              <p class="tech-specs__block--text">${name.text}</p>
+              <h3 class="${name.nameObject}__subtitle">${name.title}</h3>
+              <p class="${name.nameObject}__description">${name.text}</p>
             </article>`;
   };
 // #endregion

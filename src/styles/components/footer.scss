@@ -1,3 +1,96 @@
 .footer {
-  background-color: $gradient;
+  &__container {
+    @extend %base-retreat-container;
+
+    padding: 50px $retreat;
+
+    @include grid(2) {
+      row-gap: 20px;
+    }
+
+    @include media-breakpoint($tablet, 8);
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+
+    @include breakpoint($tablet) {
+      grid-column: 1 / 2;
+    }
+  }
+
+  &__content {
+    @include flex(row, 10px);
+
+    @include breakpoint($tablet) {
+      justify-content: center;
+      grid-column: 3 / 6;
+    }
+
+    @include breakpoint($desktop) {
+      grid-column: 3 / 7;
+    }
+  }
+
+  &__menu-list {
+    @include flex(column, 10px);
+
+    @include breakpoint($tablet) {
+      flex-direction: row;
+      gap: 30px;
+    }
+  }
+
+  &__menu-item {
+    &:nth-child(n + 5) {
+      display: none;
+    }
+
+    @include hover(background-color, transparent, $time-average) {
+      & > a {
+        color: $aqua;
+      }
+    }
+  }
+
+  &__menu-link {
+    line-height: 30px;
+    padding-left: 0;
+  }
+
+  &__bottom {
+    @include flex(column, 40px) {
+      align-items: center;
+    }
+
+    @include breakpoint($tablet) {
+      grid-column: 7 / -1;
+    }
+
+    @include breakpoint($desktop) {
+      grid-column: 8 / -1;
+    }
+  }
+
+  &__contact {
+    @include breakpoint($tablet) {
+      display: none;
+    }
+  }
+
+  &__social-networks {
+    width: 100%;
+
+    @include flex(row, 20px);
+  }
+
+  &__link {
+    @extend %mouse-pointer;
+
+    @include hover(transform, scale(2), $time-average) {
+      & > svg {
+        fill: $aqua;
+      }
+    }
+  }
 }

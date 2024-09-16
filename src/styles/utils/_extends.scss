@@ -84,7 +84,7 @@
       transform: rotate(45deg);
     }
     100% {
-      transform: rotate(30deg);
+      transform: rotate(65deg);
     }
   }
 }
@@ -105,6 +105,42 @@
     100% {
       transform: rotate(-10deg);
       filter: brightness(50%);
+    }
+  }
+}
+
+%animation-moving-up {
+  animation-name: moving-up;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+
+  @keyframes moving-up {
+    0% {
+      transform: translateY(10%);
+    }
+
+    100% {
+      transform: translateY(-10%);
+    }
+  }
+}
+
+%animation-brightness {
+  animation-name: bright;
+  animation-duration: 3s;
+  animation-direction: alternate;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  @keyframes bright {
+    0% {
+      filter: brightness(100%);
+    }
+
+    100% {
+      filter: brightness(30%);
     }
   }
 }

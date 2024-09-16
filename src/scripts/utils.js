@@ -18,12 +18,41 @@
           .getPropertyValue(media)
           .slice(0, -2);
   };
+
+  export function showString(nameString, variable) {
+    if(variable.length <= 0) {
+      return '';
+    }
+    return nameString;
+  };
 // #endregion
 
 // #region tirm string
   export function trimString(string,from, to) {
     return string.slice(from, to);
   }
+// #endregion
+
+// #region copy elements
+  export function copyElement(container, insert, copies = '1') {
+
+    for(let i=0; i < copies; i++) {
+
+      const img = document.createElement('img');
+      img.className = ".about-product__text-image";
+      img.src = insert;
+      img.alt = "katvr-games";
+
+      query(container).appendChild(img);
+      animationText(img, i);
+    }
+  };
+
+  export function animationText(name, index) {
+    name.style.animation = 'bright 2s ease-in-out alternate infinite';
+    name.style.animationDelay = `${index * 300}ms`;
+  };
+
 // #endregion
 
 // #region creating and deleting classes
@@ -148,6 +177,15 @@
       query(newContainer)[event](query(item));
     } else {
       query(previousContainer)[event](query(item));
+    }
+  };
+
+  export function changePositionTeg(sizeScreen, item, eventFirst, newContainer, eventLast, previousContainer) {
+
+    if(window.innerWidth >= breakpoint(sizeScreen)) {
+      query(newContainer)[eventFirst](query(item));
+    } else {
+      query(previousContainer)[eventLast](query(item));
     }
   };
 // #endregion

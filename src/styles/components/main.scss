@@ -55,6 +55,13 @@
 
     @include flex(column, 20px);
 
+    &:hover {
+      & > p {
+        display: block;
+        height: 72px;
+      }
+    }
+
     @include breakpoint($tablet) {
       align-items: center;
       padding: $retreat;
@@ -76,8 +83,12 @@
       }
 
       @include hover(box-shadow, $shadow-click, $time-average) {
-        & > img {
+        & > div {
           transform: $scale;
+        }
+
+        & > p {
+          height: 100%;
         }
       }
     }
@@ -104,7 +115,7 @@
   &__image {
     display: none;
     width: 100px;
-    height: 80px;
+    height: 100px;
     transition: $time-average;
 
     @include breakpoint($tablet) {
@@ -117,8 +128,11 @@
   }
 
   &__description {
-    position: relative;
+    cursor: text;
     text-wrap: balance;
+
+    transition: all $time-average;
+    height: 48px;
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -128,6 +142,240 @@
 
     @include breakpoint($tablet) {
       text-align: center;
+      display: block;
+      height: 100%;
+    }
+  }
+}
+
+.contact {
+  background: $gradient;
+
+  &__container {
+    position: relative;
+
+    @include flex(column, 20px);
+    @extend %base-retreat-container;
+
+    padding: 50px $retreat;
+
+    @include breakpoint($tablet) {
+      padding-bottom: 100px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__top {
+    @include flex(column, 40px);
+
+    &--wrapper-title {
+      @include flex(column, 10px);
+    }
+
+    &--wrapper-addittion-info {
+      display: none;
+
+      @include breakpoint($tablet) {
+        @include flex(column, 60px);
+      }
+    }
+  }
+
+  &__text {
+    color: $aqua;
+  }
+
+  &__title {
+    &--span {
+      font-weight: 400;
+      color: $aqua;
+    }
+
+    @include breakpoint($desktop) {
+      @include breakpoint-font-style(36px, 44px);
+    }
+  }
+
+  &__contacts {
+    @include flex(column, 10px);
+  }
+
+  &__link {
+    @extend %mouse-pointer;
+
+    color: $light-gray;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include flex(column, 20px);
+
+    @include breakpoint($tablet) {
+      flex-basis: 50%;
+      gap: 50px;
+    }
+  }
+
+  &__form {
+    @include flex(column, 20px);
+
+    user-select: none;
+
+    & > label {
+      @include flex(column, 0);
+
+      color: $light-gray;
+
+      @include hover(color, $aqua, $time-average) {
+        & > input,
+        textarea {
+          border-bottom: 1px solid $aqua;
+        }
+      }
+    }
+
+    &--input {
+      @include font-style(400, 16px, 24px);
+
+      padding: 3px 10px;
+      border: none;
+      border-bottom: 1px solid $gray;
+      transition: all $time-average;
+
+      color: $aqua;
+      background-color: transparent;
+
+      &:last-child {
+        resize: none;
+      }
+
+      &:focus {
+        border-bottom: 1px solid $aqua;
+      }
+    }
+
+    &--message-error {
+      font-style: italic;
+      height: 20px;
+
+      color: $aqua;
+      text-shadow: $shadow-click;
+
+      transition: $time-average;
+      transform: scale(0);
+    }
+
+    &--btn {
+      @include font-style(500, 16px, 48px);
+      @extend %mouse-pointer;
+
+      width: 100%;
+
+      border: none;
+      border-radius: 4px;
+
+      color: $white;
+      background-color: $aqua;
+
+      @include hover(box-shadow, 0 0 10px $aqua, $time-fast) {
+        text-shadow: 0 0 10px $white;
+      }
+
+      @include active(transform, scale(0.98)) {
+        box-shadow: inset 0 0 5px $black;
+        background-color: rgba($color: $aqua, $alpha: 0.5);
+      }
+
+      @include breakpoint($tablet) {
+        grid-column: 1 / 2;
+        width: 200px;
+      }
+    }
+
+    &--btn-message {
+      position: absolute;
+      bottom: 40px;
+
+      max-width: 300px;
+      height: 40px;
+      padding: 10px;
+
+      border-radius: 10px;
+      background-color: $black;
+      border: 1px solid rgba($color: $white, $alpha: 0.3);
+
+      @include breakpoint($tablet) {
+        left: 26px;
+        bottom: 96px;
+      }
+
+      @include breakpoint($desktop) {
+        left: 320px;
+      }
+    }
+  }
+
+  &__bottom {
+    @include flex(column, 20px) {
+      justify-content: space-between;
+    }
+
+    @include breakpoint($tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__btn-up {
+    position: relative;
+    display: none;
+
+    @extend %mouse-pointer;
+    @extend %animation-moving-up;
+
+    width: 48px;
+    height: 48px;
+
+    border: 1px solid $aqua;
+    border-radius: 50%;
+
+    @include hover(transform, $scale, $time-fast) {
+      box-shadow: $shadow-click;
+
+      &::before,
+      &::after {
+        box-shadow: 0 0 5px $aqua;
+      }
+    }
+
+    @include active(transform, scale(0.98)) {
+      box-shadow: inset $shadow-click;
+    }
+
+    @include breakpoint($tablet) {
+      display: block;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 49%;
+
+      width: 16px;
+      height: 1px;
+      background-color: $aqua;
+    }
+
+    &::before {
+      transform: rotate(-45deg);
+      left: 10px;
+    }
+
+    &::after {
+      transform: rotate(45deg);
+      right: 10px;
     }
   }
 }
@@ -164,7 +412,7 @@
     }
   }
 
-  &__slider {
+  &__slider-block {
     @include flex(column, 20px);
 
     grid-column: 1 / -1;
@@ -178,34 +426,61 @@
     }
   }
 
-  &__box {
-    @include flex(row, 20px);
+  &__slider {
+    @include flex(row, 0);
+
+    overflow: hidden;
   }
 
   &__display-current {
+    position: relative;
+    z-index: 1;
     display: none;
     color: $aqua;
 
     @include breakpoint($desktop) {
-      display: block;
+      @include flex(row, 3px);
+    }
+  }
+
+  &__sliders {
+    @include flex(row, 0);
+
+    transition: transform $time-average ease-in-out;
+    width: 100%;
+    height: 240px;
+
+    @include breakpoint($desktop) {
+      height: 300px;
+    }
+  }
+
+  &__slide {
+    object-fit: contain;
+    flex-shrink: 0;
+
+    &--active {
+      pointer-events: none;
+      color: $light-gray;
     }
   }
 
   &__navigation {
-    @include flex(row, 10px) {
+    @include flex(row, 20px) {
       justify-content: center;
     }
 
     &--switch {
-      width: 4px;
-      height: 4px;
+      width: 6px;
+      height: 6px;
 
       background-color: $gray;
       border-radius: 50%;
+    }
 
-      &--active {
-        color: $light-gray;
-      }
+    input[name='switch']:checked + label {
+      background-color: $aqua;
+      box-shadow: $shadow-click;
     }
 
     @include breakpoint($desktop) {
@@ -276,29 +551,39 @@
     }
   }
 
-  &__images {
+  &__text-images {
     display: none;
 
     @include breakpoint($tablet) {
       @include flex(row, 40px);
     }
-  }
-
-  &__img {
-    height: 256px;
 
     @include breakpoint($desktop) {
-      height: 342px;
+      gap: 60px;
     }
 
-    &:nth-child(odd) {
-      @include animation-brightness(100%, 50%);
+    & > img {
+      height: 256px;
 
-      transform: rotate(180deg);
-    }
+      @include breakpoint($desktop) {
+        height: 342px;
+      }
 
-    &:nth-child(even) {
-      @include animation-brightness(50%, 20%);
+      &:nth-child(even) {
+        transform: rotate(180deg);
+      }
+
+      @include breakpoint($tablet) {
+        &:nth-child(n + 4) {
+          display: none;
+        }
+      }
+
+      @include breakpoint($desktop) {
+        &:nth-child(n + 4) {
+          display: block;
+        }
+      }
     }
   }
 }
@@ -573,6 +858,135 @@
       @extend %mouse-pointer;
 
       transform: $click-scale;
+    }
+  }
+}
+
+.benefits {
+  background: $gradient;
+
+  &__container {
+    @include grid(2) {
+      row-gap: 40px;
+    }
+
+    @extend %base-retreat-container;
+
+    padding: 50px $retreat;
+
+    @include breakpoint($desktop) {
+      height: 100vh;
+      padding: 100px $retreat;
+    }
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+
+    @include flex(column, 10px);
+
+    @include breakpoint($tablet) {
+      align-items: start;
+    }
+
+    @include breakpoint($desktop) {
+      align-items: center;
+    }
+  }
+
+  &__title {
+    &--span {
+      font-weight: 400;
+      color: $aqua;
+    }
+
+    @include breakpoint($desktop) {
+      @include breakpoint-font-style(36px, 44px);
+    }
+  }
+
+  &__text {
+    @include font-style(400, 12px, 15px);
+
+    color: $aqua;
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+
+    @include flex(column, 20px);
+
+    @include breakpoint($tablet) {
+      flex-direction: row;
+    }
+  }
+
+  &__article {
+    @include flex(column, 20px);
+
+    &:hover {
+      & > p {
+        display: block;
+        height: 90px;
+      }
+    }
+
+    @include breakpoint($tablet) {
+      align-items: center;
+      padding: $retreat 3px;
+
+      @include hover(box-shadow, $shadow-click, $time-average) {
+        & > div {
+          transform: $scale;
+        }
+
+        & > p {
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  &__image {
+    display: none;
+    width: 100px;
+    height: 100px;
+    transition: $time-average;
+
+    @include breakpoint($tablet) {
+      display: block;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 900;
+
+    @include breakpoint($tablet) {
+      font-size: 14px;
+    }
+
+    @include breakpoint($desktop) {
+      font-size: 16px;
+    }
+  }
+
+  &__description {
+    cursor: text;
+    text-wrap: balance;
+
+    transition: all $time-average;
+    height: 48px;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    @include breakpoint($tablet) {
+      text-align: center;
+      display: block;
+      height: 100%;
     }
   }
 }
