@@ -1,0 +1,38 @@
+.menu-nav {
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 27.3px;
+  }
+
+  &__item {
+    @include grid-container;
+    @include on-hover(background-color, $extraDarkColor);
+  }
+
+  &__link {
+    grid-column: 1 / -1;
+
+    display: flex;
+    align-items: center;
+    height: 49px;
+
+    text-decoration: none;
+    color: $whiteColor;
+
+    @include on-tablet {
+      grid-column: 2 / -1;
+    }
+
+    @include pointer-cursor;
+    @include on-hover(color, $contrastColor);
+  }
+}
