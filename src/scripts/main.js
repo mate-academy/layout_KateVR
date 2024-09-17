@@ -17,3 +17,10 @@ overlayVideoClose.addEventListener('click', () => {
   page.style.overflow = 'scroll';
   page.scroll = "yes";
 })
+
+const dropdown = document.querySelector('.dropdown');
+const dropdownTrigger = dropdown.querySelector('.dropdown__trigger');
+
+dropdownTrigger.addEventListener('click', () => {
+  dropdown.classList.toggle('dropdown--active');
+});

@@ -2,36 +2,44 @@
   color: $color-accent;
   cursor: pointer;
 
-  &__label {
+  &__trigger {
     display: flex;
     gap: 5px;
     padding-block: 16px;
+    align-items: end;
+    justify-content: space-between;
   }
 
   &__icon {
-    padding-top: 7.3px;
+    content: ' ';
     display: block;
-    width: 9.1px;
-    height: 6.2px;
-    align-self: center;
+    height: 0;
+    width: 0;
+
+    border-top: 6px solid $color-accent;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    transform: translateY(-2px);
+    margin-bottom: 2px;
   }
 
   &__content {
-    display: none;
     position: absolute;
     z-index: 1;
     border-right: 1px solid #014954;
 
     background-color: $color-dark-blue-bg;
-    max-height: 15vh;
     height: auto;
     overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: $color-accent $color-dark-blue-bg;
+
+    max-height: 0;
+    transition: max-height $transition-duration;
   }
 
-  &:hover &__content {
-    display: block;
+  &--active &__content {
+    max-height: 15vh;
   }
 
   &__link {
