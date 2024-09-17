@@ -53,24 +53,27 @@
   }
 
   &__btn {
-    position: sticky;
+    position: fixed;
     left: 50%;
-    bottom: 20px;
-    top: 0;
+    bottom: 10px;
 
-    width: 280px;
-    z-index: 1;
-    order: 1;
-
-    border-radius: 4px;
-    background-color: $aqua;
-
+    @include font-style(500, 14px, 40px);
     @extend %animation-bounce-btn;
     @extend %mouse-pointer;
 
-    &--title {
-      text-align: center;
-      color: $white;
+    pointer-events: none;
+    width: 280px;
+    z-index: 1;
+
+    border-radius: 4px;
+    border: none;
+
+    color: $white;
+    background-color: $aqua;
+
+    &--active {
+      pointer-events: all;
+      transition: $time-average;
     }
 
     @include hover(box-shadow, 0 0 10px $aqua, $time-fast) {
@@ -89,7 +92,9 @@
     }
 
     @include breakpoint($desktop) {
+      pointer-events: all;
       position: static;
+      order: 1;
       width: 200px;
 
       @keyframes bounce-btn {

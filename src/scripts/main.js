@@ -144,13 +144,13 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
     });
 // #endregion
 
-// #region section "header"
+// #region section "menu"
 
   // icon open menu
     openWindow('.top-bar__menu', 'add', '--active', '.top-bar__menu', '.drop-down-menu');
     openWindow('.drop-down-menu__icon', 'remove', '--active', '.top-bar__menu', '.drop-down-menu');
 
-    // menu
+    // menu list
     window.addEventListener('DOMContentLoaded', () => {
       changePositionItem('--desktop', '.menu', 'appendChild', '.top-bar__container', '.drop-down-menu');
 
@@ -165,6 +165,13 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
       changePositionElement('--desktop', '.menu__list', 'li-3', '.header__bottom__menu');
     });
 
+    clickGroup('.menu__link', 'remove', '__lock', '.body');
+    clickGroup('.menu__link', 'remove', '--active', '.drop-down-menu');
+    clickGroup('.menu__link', 'remove', '--active', '.top-bar__menu');
+// #endregion
+
+// #region section "header"
+
   // button "play-video"
     movingDots('.header__link-video--lines', 'dots', 'top');
     movingDots('.header__link-video--lines', 'dots', 'bottom');
@@ -175,6 +182,30 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
 
     disableClick('.video-link--icon-close', '.button');
     resizingWindow('.video-link', '.video-link--resizer');
+
+  // button "Buy Now"
+    window.addEventListener('scroll', function() {
+
+      if(window.innerWidth >=breakpoint('--desktop')) {
+        return;
+      };
+
+      const headerHeight = query('.header').getBoundingClientRect();
+      const footerHeight = query('.footer').getBoundingClientRect();
+
+        if (headerHeight.top < 0 && footerHeight.top > 600) {
+
+          query('.top-bar__btn').style.opacity = '1';
+          query('.top-bar__btn').classList.add('top-bar__btn--active');
+
+        } else {
+          query('.top-bar__btn').style.opacity = '0';
+
+          setTimeout(() => {
+            query('.top-bar__btn').classList.remove('top-bar__btn--active');
+          }, 300);
+        };
+    });
 // #endregion
 
 // #region section "experience"
@@ -372,7 +403,7 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
     });
 // #endregion
 
-// ===============================
+// =============================== delete ===================
 // #region changing resize window broswer and content loaded
 
 window.addEventListener('DOMContentLoaded', () => {
