@@ -1,27 +1,26 @@
 'use strict';
 
-function showHideTechInfo(btn, elementId) {
-  const element = document.getElementById(elementId);
+const page = document.documentElement;
 
-  const elementStyle = window.getComputedStyle(element);
+const overlayVideoOpen = document.querySelector('.start-video__button');
+const overlayVideoClose = document.querySelector('.video-overlay__button-close');
+const overlayVideo = document.querySelector('.video-overlay');
 
-  if (elementStyle.display == "none") {
-    btn.classList.replace("screen-4__info-btn--plus", "screen-4__info-btn--minus");
-    element.style.display = "block";
-  } else {
-    btn.classList.replace("screen-4__info-btn--minus", "screen-4__info-btn--plus");
-    element.style.display = "none";
-  }
-}
+overlayVideoOpen.addEventListener('click', () => {
+  overlayVideo.style.display = "grid";
+  page.style.overflow = 'hidden';
+  page.scroll = "no";
+})
 
-function overlayOn(elementId) {
-  document.getElementById(elementId).style.display = "grid";
-  document.documentElement.style.overflow = 'hidden';
-  document.body.scroll = "no";
-}
+overlayVideoClose.addEventListener('click', () => {
+  overlayVideo.style.display = "none";
+  page.style.overflow = 'scroll';
+  page.scroll = "yes";
+})
 
-function overlayOff(elementId) {
-  document.getElementById(elementId).style.display = "none";
-  document.documentElement.style.overflow = 'scroll';
-  document.body.scroll = "yes";
-}
+const dropdown = document.querySelector('.dropdown');
+const dropdownTrigger = dropdown.querySelector('.dropdown__trigger');
+
+dropdownTrigger.addEventListener('click', () => {
+  dropdown.classList.toggle('dropdown--active');
+});
