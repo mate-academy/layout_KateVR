@@ -13,7 +13,10 @@
       type="image/x-icon"
       href="./images/icons/favicon.webp"
     />
-    <script src="scripts/main.js"></script>
+    <script
+      src="scripts/main.js"
+      defer
+    ></script>
     <link
       rel="preconnect"
       href="https://fonts.googleapis.com"
@@ -218,7 +221,6 @@
               <div class="screen-1__price">1200$</div>
 
               <button
-                onclick="overlayOn('video-overlay')"
                 class="screen-1__video-button start-video__button"
               ></button>
             </article>
@@ -271,15 +273,9 @@
     </header>
     <!-- #endregion -->
     <!-- #region video-overlay -->
-    <div
-      class="overlay overlay--default-state--hidden video-overlay"
-      id="video-overlay"
-    >
+    <div class="overlay overlay--default-state--hidden video-overlay">
       <div class="video-overlay__wrapper">
-        <button
-          onclick="overlayOff('video-overlay')"
-          class="video-overlay__button-close button-close"
-        ></button>
+        <button class="video-overlay__button-close button-close"></button>
 
         <iframe
           width="100%"
@@ -774,10 +770,7 @@
               reality.
             </p>
 
-            <button
-              onclick="overlayOn('video-overlay')"
-              class="screen-3__video-button start-video__button"
-            ></button>
+            <button class="screen-3__video-button start-video__button"></button>
           </div>
           <!-- #endregion -->
 

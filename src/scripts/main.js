@@ -1,13 +1,19 @@
 'use strict';
 
-function overlayOn(elementId) {
-  document.getElementById(elementId).style.display = "grid";
-  document.documentElement.style.overflow = 'hidden';
-  document.body.scroll = "no";
-}
+const page = document.documentElement;
 
-function overlayOff(elementId) {
-  document.getElementById(elementId).style.display = "none";
-  document.documentElement.style.overflow = 'scroll';
-  document.body.scroll = "yes";
-}
+const overlayVideoOpen = document.querySelector('.start-video__button');
+const overlayVideoClose = document.querySelector('.video-overlay__button-close');
+const overlayVideo = document.querySelector('.video-overlay');
+
+overlayVideoOpen.addEventListener('click', () => {
+  overlayVideo.style.display = "grid";
+  page.style.overflow = 'hidden';
+  page.scroll = "no";
+})
+
+overlayVideoClose.addEventListener('click', () => {
+  overlayVideo.style.display = "none";
+  page.style.overflow = 'scroll';
+  page.scroll = "yes";
+})
