@@ -170,6 +170,23 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
     clickGroup('.menu__link', 'remove', '--active', '.top-bar__menu');
 // #endregion
 
+// #region section "purchase-payment"
+
+// duplicatin logo
+  const clLogo = query('.top-bar__box-logo').cloneNode(true);
+  const box = query('.purchase-payment__top');
+  box.prepend(clLogo);
+
+  clLogo.classList.add('purchase-payment__box-logo');
+
+  clickClass('.purchase-payment__icon', '.purchase-payment', 'remove', '--active');
+  clickClass('.purchase-payment__box-logo', '.purchase-payment', 'remove', '--active');
+
+  clickClass('.purchase-payment__icon', '.body', 'remove', '__lock');
+  clickClass('.purchase-payment__box-logo', '.body', 'remove', '__lock');
+
+// #endregion
+
 // #region section "header"
 
   // button "play-video"
@@ -184,6 +201,9 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
     resizingWindow('.video-link', '.video-link--resizer');
 
   // button "Buy Now"
+    clickClass('.top-bar__btn', '.purchase-payment', 'add', '--active');
+    clickClass('.top-bar__btn', '.body', 'add', '__lock');
+
     window.addEventListener('scroll', function() {
 
       if(window.innerWidth >=breakpoint('--desktop')) {

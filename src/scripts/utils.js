@@ -75,6 +75,14 @@
     });
   };
 
+  export function clickClassClone(clone, name, className, event, nameClass) {
+    const item = clone;
+
+    item.addEventListener('click', function() {
+      classHtml(className, [event], nameClass);
+    });
+  };
+
   export function clickNewClass(name, blockName, event, newClass ) {
     const item = query(name);
 
