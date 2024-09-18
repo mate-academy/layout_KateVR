@@ -15,7 +15,7 @@ A landing page for locomotive system from KateVR that expands VR-experience made
 1. **Unified design**:
 * Block structure with reusable components for easy site scaling
 * Smilar content-box scaling logic for all sections
-* Persistent font styles, effects duration and color palette accross the entire page
+* Consistent font styles, effects duration and color palette accross the entire page
 
 2. **Usability and user experience**:
 * Responsive design without horizontal scrolling
