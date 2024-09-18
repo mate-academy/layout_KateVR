@@ -1,5 +1,5 @@
 .purchase-payment {
-  @extend %drop-down-window;
+  // @extend %drop-down-window;
 
   z-index: 6;
   background: $gradient;
@@ -130,5 +130,115 @@
       row-gap: 40px;
       padding: 50px 110px;
     }
+  }
+
+  &__content-top {
+    @include flex(column, 20px);
+  }
+
+  &__image {
+    display: none;
+
+    @include breakpoint($tablet) {
+      display: block;
+    }
+  }
+
+  &__block-price {
+    @include flex(row, 20px) {
+      justify-content: space-between;
+    }
+
+    @include breakpoint($tablet) {
+      justify-content: space-around;
+    }
+  }
+
+  &__wrapper {
+    @include flex(column, 20px) {
+      align-items: center;
+    }
+  }
+
+  &__quantity-selection {
+    position: relative;
+  }
+
+  &__quantity-window {
+    @extend %mouse-pointer;
+
+    @include flex(row, 0) {
+      justify-content: center;
+      align-items: center;
+    }
+
+    text-align: center;
+
+    width: 90px;
+    height: 41px;
+    background-color: $dark-purple;
+  }
+
+  &__quantity {
+    @include font-style(400, 20px, 26px);
+
+    flex-basis: 60%;
+  }
+
+  &__icon-arrow {
+    @extend %angle-arrow;
+
+    &--active {
+      transform: rotate(270deg);
+    }
+  }
+
+  &__selection {
+    @extend %mouse-pointer;
+
+    position: absolute;
+    left: 12%;
+    width: 70%;
+    height: 0;
+
+    overflow: hidden;
+    overflow-y: scroll;
+    transition: $time-average;
+
+    border-radius: 8px;
+    background: $dark-purple;
+
+    &::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba($color: $aqua, $alpha: 0.3);
+      border-radius: 20px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $aqua;
+      border-radius: 20px;
+    }
+
+    &--active {
+      z-index: 2;
+      height: 132px;
+      border: 1px solid rgba($color: $white, $alpha: 0.3);
+    }
+  }
+
+  &__option {
+    @extend %mouse-pointer;
+    @include font-style(400, 20px, 26px);
+
+    text-align: center;
+  }
+
+  &__price {
+    @include font-style(500, 26px, 31px);
+
+    color: $aqua;
   }
 }
