@@ -1417,8 +1417,10 @@
       src="scripts/main.js"
       type="module"
     ></script>
-    
+
     <script>
+      console.log('Player is not ready');
+
       var tag = document.createElement('script');
       tag.src = 'https://www.youtube.com/iframe_api';
       var firstScriptTag = document.getElementsByTagName('script')[0];
@@ -1430,9 +1432,14 @@
         player = new YT.Player('player', {
           videoId: '8z6QjTrTkGY',
           events: {
+            'onReady': onPlayerReady,
             'onError': onPlayerError
           }
         });
+      }
+
+      function onPlayerReady(event) {
+        console.log('Player is ready');
       }
 
       function onPlayerError(event) {
