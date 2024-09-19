@@ -24,15 +24,6 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <script
-      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
-      defer
-    ></script>
-    <script
-      src="scripts/main.js"
-      type="module"
-      defer
-    ></script>
   </head>
 
   <body class="body page__body">
@@ -1418,6 +1409,15 @@
       </div>
     </footer>
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+    ></script>
+
+    <script
+      src="scripts/main.js"
+      type="module"
+    ></script>
+    
     <script>
       var tag = document.createElement('script');
       tag.src = 'https://www.youtube.com/iframe_api';
@@ -1429,7 +1429,14 @@
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
           videoId: '8z6QjTrTkGY',
+          events: {
+            'onError': onPlayerError
+          }
         });
+      }
+
+      function onPlayerError(event) {
+        console.error('Error occurred: ', event.data);
       }
 
       const playBtns = document.querySelectorAll('.play-button');
