@@ -24,6 +24,16 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
+      defer
+    ></script>
+    <script
+      src="scripts/main.js"
+      type="module"
+      defer
+    ></script>
   </head>
 
   <body class="body page__body">
@@ -1409,70 +1419,49 @@
       </div>
     </footer>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"
-    ></script>
-
-    <script
-      src="scripts/main.js"
-      type="module"
-    ></script>
-
     <script>
-      console.log('Player is not ready');
-
-      var tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      var firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-
       let player;
 
       function onYouTubeIframeAPIReady() {
         player = new YT.Player('player', {
           videoId: '8z6QjTrTkGY',
-          events: {
-            'onReady': onPlayerReady,
-            'onError': onPlayerError
-          }
         });
       }
 
-      function onPlayerReady(event) {
-        console.log('Player is ready');
-      }
+      document.addEventListener('DOMContentLoaded', () => {
+        let tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-      function onPlayerError(event) {
-        console.error('Error occurred: ', event.data);
-      }
+        const playBtns = document.querySelectorAll('.play-button');
+        const video = document.querySelector('.media-player');
+        const closeBtn = document.querySelector('.media-player__close-btn');
 
-      const playBtns = document.querySelectorAll('.play-button');
-      const video = document.querySelector('.media-player');
-      const closeBtn = document.querySelector('.media-player__close-btn');
-
-      playBtns.forEach((playBtn) => {
-        playBtn.addEventListener('click', () => {
-          video.classList.add('page__aside--active');
+        playBtns.forEach((playBtn) => {
+          playBtn.addEventListener('click', () => {
+            video.classList.add('page__aside--active');
+          });
         });
-      });
 
-      closeBtn.addEventListener('click', () => {
-        video.classList.remove('page__aside--active');
-        if (player) {
-          player.pauseVideo();
-        }
-      });
-
-      document.addEventListener('click', (e) => {
-        if (
-          !e.target.closest('.media-player__video') &&
-          !e.target.closest('.play-button')
-        ) {
+        closeBtn.addEventListener('click', () => {
           video.classList.remove('page__aside--active');
           if (player) {
             player.pauseVideo();
           }
-        }
+        });
+
+        document.addEventListener('click', (e) => {
+          if (
+            !e.target.closest('.media-player__video') &&
+            !e.target.closest('.play-button')
+          ) {
+            video.classList.remove('page__aside--active');
+            if (player) {
+              player.pauseVideo();
+            }
+          }
+        });
       });
     </script>
   </body>
