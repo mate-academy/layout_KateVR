@@ -1421,11 +1421,35 @@
 
     <script>
       let player;
+      let ytLoaded = false;
+      let windowWidth = window.innerWidth;
 
-      function onYouTubeIframeAPIReady() {
+      window.onYouTubeIframeAPIReady = function() {
+        console.log("YouTube API Ready");
+
         player = new YT.Player('player', {
           videoId: '8z6QjTrTkGY',
+          playerVars: {
+            controls: 1,
+            autoplay: 0,
+            disablekb: 1,
+            enablejsapi: 1,
+            iv_load_policy: 3,
+            showinfo: 1,
+          }
         });
+
+        ytLoaded = true;
+
+        if (windowWidth) {
+          resizePlayer();
+        }
+      };
+
+      function resizePlayer() {
+        if (player) {
+          player.setSize(windowWidth, 400);
+        }
       }
 
       document.addEventListener('DOMContentLoaded', () => {
