@@ -1,0 +1,90 @@
+.form {
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__input {
+    color: $main-text-color;
+    background-color: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $decor-color--grey;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    padding: 0;
+    padding-bottom: 6px;
+
+    @include transition(border-bottom-color);
+
+    &:-webkit-autofill {
+      transition:
+        background-color 5000s ease-in-out 0s,
+        color 5000s ease-in-out 0s;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__label {
+    color: $secondary-text-color;
+    font-size: 14px;
+    line-height: 21px;
+
+    @include transition(color);
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &:focus-within .form__label {
+      color: $accent-color;
+    }
+
+    &:focus-within .form__input {
+      border-bottom-color: $accent-color;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__submit-btn {
+    cursor: pointer;
+  }
+
+  &__loader {
+    display: none;
+
+    height: 20px;
+    width: 20px;
+
+    border: 3px solid $decor-color--grey;
+    border-radius: 50%;
+
+    border-left-color: $accent-color;
+    animation: load 1s linear infinite;
+
+    &--active {
+      display: block;
+    }
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

@@ -1,0 +1,267 @@
+.header {
+  &__container {
+    @include content-limitation;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @include on-tablet {
+      position: relative;
+      min-height: auto;
+    }
+  }
+
+  &__top {
+    padding-top: 48px;
+    margin-bottom: 100px;
+
+    display: flex;
+    align-items: center;
+    gap: 34px;
+
+    @include on-tablet {
+      justify-content: space-between;
+      margin-bottom: 55px;
+      padding-top: 30px;
+    }
+
+    @include on-mobile {
+      padding-top: 18px;
+      margin-bottom: 6px;
+    }
+  }
+
+  &__menu {
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  & &__menu-open-btn {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      position: relative;
+      z-index: 10;
+    }
+  }
+
+  &__hero {
+    @include page-grid;
+
+    margin-bottom: 84px;
+
+    @include on-tablet {
+      margin-bottom: 60px;
+    }
+
+    @include on-mobile {
+      display: flex;
+      flex-direction: column-reverse;
+      margin-bottom: 50px;
+      gap: 0;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2;
+    grid-column: span 6;
+
+    @include on-small-desktop {
+      grid-column: span 5;
+    }
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+  }
+
+  &__title {
+    margin-bottom: 36px;
+
+    @include on-small-desktop {
+      margin-bottom: 20px;
+    }
+
+    @include on-tablet {
+      margin-bottom: 17px;
+    }
+  }
+
+  &__title-accent {
+    font-weight: 500;
+  }
+
+  &__text {
+    padding-left: 92px;
+
+    @include on-tablet {
+      padding-left: 0;
+    }
+  }
+
+  &__desc {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 500;
+    color: $secondary-text-color;
+
+    margin-bottom: 30px;
+
+    @include on-small-desktop {
+      @include text-1;
+
+      font-weight: 500;
+
+      margin-bottom: 15px;
+    }
+
+    @include on-tablet {
+      margin-bottom: 16px;
+    }
+
+    @include on-mobile {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__price {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 24px;
+
+    margin-bottom: 36px;
+
+    @include on-small-desktop {
+      font-size: 18px;
+      line-height: 22px;
+
+      margin-bottom: 20px;
+    }
+
+    @include on-tablet {
+      margin-bottom: 24px;
+    }
+
+    @include on-mobile {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__play-btn {
+    margin-left: -12px;
+
+    @include on-tablet {
+      margin-left: -3px;
+    }
+  }
+
+  &__visual {
+    position: relative;
+    grid-column: span 10;
+
+    @include on-small-desktop {
+      grid-column: span 7;
+    }
+
+    @include on-tablet {
+      position: static;
+      grid-column: span 3;
+    }
+  }
+
+  & &__swiper {
+    position: absolute;
+    right: 0;
+
+    width: 125%;
+    height: 54vh;
+    min-height: 430px;
+    max-height: 700px;
+
+    @include on-small-desktop {
+      width: 115%;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      position: absolute;
+      object-fit: contain;
+      object-position: bottom right;
+      width: 65vw;
+      height: 100%;
+      right: 0;
+      margin-right: -$content-margin--m;
+      top: 0;
+    }
+
+    @include on-mobile {
+      position: relative;
+      width: calc(100% + (2 * #{$content-margin--s}));
+      min-width: 320px;
+      height: auto;
+      margin-left: calc(-1 * #{$content-margin--s});
+    }
+  }
+
+  &__bottom {
+    line-height: 150%;
+
+    display: flex;
+    margin-bottom: 120px;
+
+    @include on-small-desktop {
+      margin-bottom: 98px;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__help {
+    @include btn-link;
+
+    line-height: 150%;
+    display: flex;
+    gap: 40px;
+  }
+
+  &__faq-btn {
+    cursor: pointer;
+
+    @include hover(color, $accent-color);
+  }
+
+  &__help-btn {
+    cursor: pointer;
+
+    @include hover(color, $accent-color);
+  }
+
+  &__more-btn {
+    @include btn-link;
+
+    line-height: 150%;
+    margin-inline: auto;
+  }
+}
