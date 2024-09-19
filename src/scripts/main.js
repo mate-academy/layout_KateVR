@@ -15,7 +15,11 @@ import {
   clickNewClass,
   changePositionTeg,
   showString,
-  copyElement
+  copyElement,
+  calculatePrice,
+  displayCurrent,
+  hideElement,
+  currentQuantity
 } from './utils.js';
 
 import {
@@ -24,7 +28,6 @@ import {
   openWindow,
   clickToggleClass,
   clickToggleAll,
-  displayCurrent,
   disableClick,
   disableClickAll,
 } from './buttons.js';
@@ -184,6 +187,29 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
 
   clickClass('.purchase-payment__icon', '.body', 'remove', '__lock');
   clickClass('.purchase-payment__box-logo', '.body', 'remove', '__lock');
+
+  clickClass('.purchase-payment__quantity-window', '.purchase-payment__icon-arrow', 'toggle', '--active');
+  clickClass('.purchase-payment__quantity-window', '.purchase-payment__quantity-window', 'toggle', '--active');
+  clickClass('.purchase-payment__quantity-window', '.purchase-payment__selection-list', 'toggle', '--active');
+
+
+  clickGroup('.purchase-payment__option', 'remove', '--active', '.purchase-payment__icon-arrow');
+  clickGroup('.purchase-payment__option', 'remove', '--active', '.purchase-payment__quantity-window');
+  clickGroup('.purchase-payment__option', 'remove', '--active', '.purchase-payment__selection-list');
+
+  hideElement('quantity-window', '.purchase-payment__quantity', '.purchase-payment__option');
+
+  window.addEventListener('DOMContentLoaded', function() {
+
+    if(query('.purchase-payment__quantity').dataset.value > 0) {
+
+      query('.purchase-payment__price').textContent = '1200$';
+      query('.purchase-payment__quantity').textContent = '1';
+    }
+  });
+
+  displayCurrent('.purchase-payment__selection', '.purchase-payment__quantity',
+    '.purchase-payment__price', '*', '1200');
 
 // #endregion
 

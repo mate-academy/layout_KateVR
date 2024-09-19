@@ -1,5 +1,5 @@
 'use strict';
-import { classHtml, query, queryAll, trimString } from "./utils.js";
+import { classHtml, query, queryAll, trimString ,showTeg} from "./utils.js";
 
 // #region All for the 'play-video' button
 
@@ -70,24 +70,27 @@ import { classHtml, query, queryAll, trimString } from "./utils.js";
 // #endregion
 
 // #region display of current information
-  export function displayCurrent(elem, display) {
-    const list =  query(elem);
 
-    list.querySelectorAll('LI').forEach(item => {
 
-      item.addEventListener('click', function() {
+// export function displayCurrent(elem, display) {
+//   const list =  query(elem);
 
-        list.querySelectorAll('LI').forEach(item => {
-          item.classList.remove('active');
-        });
+//      list.querySelectorAll('LI').forEach(item => {
 
-        this.classList.add('active');
+//       item.addEventListener('click', function() {
 
-        const selectedValue = this.getAttribute('data-value');
-        query(display).textContent = selectedValue;
-      });
-    });
-  }
+//         list.querySelectorAll('LI').forEach(item => {
+//           item.classList.remove('active');
+//         });
+
+//         this.classList.add('active');
+
+//         const selectedValue = this.getAttribute('data-value');
+//         query(display).textContent = selectedValue;
+//         query(display).dataset.value = selectedValue;
+//       });
+//     });
+//   }
 // #endregion
 
 // #region disable click

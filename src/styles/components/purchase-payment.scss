@@ -1,5 +1,5 @@
 .purchase-payment {
-  // @extend %drop-down-window;
+  @extend %drop-down-window;
 
   z-index: 6;
   background: $gradient;
@@ -59,6 +59,7 @@
 
   &__label {
     position: relative;
+    user-select: none;
 
     @include font-style(500, 12px, 16px);
 
@@ -160,6 +161,10 @@
     }
   }
 
+  &__subtitle {
+    user-select: none;
+  }
+
   &__quantity-selection {
     position: relative;
   }
@@ -172,16 +177,23 @@
       align-items: center;
     }
 
-    text-align: center;
-
+    box-sizing: border-box;
     width: 90px;
     height: 41px;
+    text-align: center;
     background-color: $dark-purple;
+
+    &--active {
+      border-top: 1px solid rgba($color: $white, $alpha: 0.3);
+      border-left: 1px solid rgba($color: $white, $alpha: 0.3);
+      border-right: 1px solid rgba($color: $white, $alpha: 0.3);
+    }
   }
 
   &__quantity {
     @include font-style(400, 20px, 26px);
 
+    user-select: none;
     flex-basis: 60%;
   }
 
@@ -193,20 +205,30 @@
     }
   }
 
+  &__selection-list {
+    position: absolute;
+    width: 98%;
+    height: 0;
+    transition: $time-average;
+    background: $dark-purple;
+
+    &--active {
+      z-index: 2;
+      height: 132px;
+      padding-bottom: 10px;
+
+      border-left: 1px solid rgba($color: $white, $alpha: 0.3);
+      border-right: 1px solid rgba($color: $white, $alpha: 0.3);
+      border-bottom: 1px solid rgba($color: $white, $alpha: 0.3);
+    }
+  }
+
   &__selection {
     @extend %mouse-pointer;
 
-    position: absolute;
-    left: 12%;
-    width: 70%;
-    height: 0;
-
-    overflow: hidden;
+    width: 85%;
+    height: inherit;
     overflow-y: scroll;
-    transition: $time-average;
-
-    border-radius: 8px;
-    background: $dark-purple;
 
     &::-webkit-scrollbar {
       width: 8px;
@@ -221,12 +243,6 @@
       background: $aqua;
       border-radius: 20px;
     }
-
-    &--active {
-      z-index: 2;
-      height: 132px;
-      border: 1px solid rgba($color: $white, $alpha: 0.3);
-    }
   }
 
   &__option {
@@ -234,11 +250,13 @@
     @include font-style(400, 20px, 26px);
 
     text-align: center;
+    padding-left: 10px;
   }
 
   &__price {
     @include font-style(500, 26px, 31px);
 
+    user-select: none;
     color: $aqua;
   }
 }

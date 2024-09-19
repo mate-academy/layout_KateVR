@@ -33,7 +33,7 @@
   }
 // #endregion
 
-// #region copy elements
+// #region copy element
   export function copyElement(container, insert, copies = '1') {
 
     for(let i=0; i < copies; i++) {
@@ -75,21 +75,23 @@
     });
   };
 
-  export function clickClassClone(clone, name, className, event, nameClass) {
-    const item = clone;
+  // click with add or delete new class
+    export function clickNewClass(name, blockName, event, newClass ) {
+      const item = query(name);
 
-    item.addEventListener('click', function() {
-      classHtml(className, [event], nameClass);
-    });
-  };
+      item.addEventListener('click', function() {
+        classicClassHtml(blockName, [event], newClass);
+      })
+    };
 
-  export function clickNewClass(name, blockName, event, newClass ) {
-    const item = query(name);
+  // click with add or delete class clone
+    export function clickClassClone(clone, className, event, nameClass) {
+      const item = clone;
 
-    item.addEventListener('click', function() {
-      classicClassHtml(blockName, [event], newClass);
-    })
-  };
+      item.addEventListener('click', function() {
+        classHtml(className, [event], nameClass);
+      });
+    };
 
   // create or delete a class contained in a container
     export function classContains(className, event, newClass) {
@@ -98,52 +100,52 @@
       if(container.classList.contains(newClass)) {
         container.classList[event](newClass);
       }
-    }
+    };
 
   // click on a group of elements
-  export function clickGroup(name, event, newClass, className) {
-    const container = queryAll(name);
+    export function clickGroup(name, event, newClass, className) {
+      const container = queryAll(name);
 
-    container.forEach(item => {
-      item.addEventListener('click', function() {
-        classHtml(className, [event], newClass);
+      container.forEach(item => {
+        item.addEventListener('click', function() {
+          classHtml(className, [event], newClass);
+        })
       })
-    })
-  }
+    };
 
   // class tracking to create or delete
-  export function classTracking(icon, event, newClass) {
+    export function classTracking(icon, event, newClass) {
 
-    const nameClass = `${trimString(icon, 1, -6)}`;
-    const container =  query(`${trimString(icon, 0, -6)}`);
-    const button = query(icon);
+      const nameClass = `${trimString(icon, 1, -6)}`;
+      const container =  query(`${trimString(icon, 0, -6)}`);
+      const button = query(icon);
 
-    button.addEventListener('click', function() {
+      button.addEventListener('click', function() {
 
-      setTimeout(() => {
-        if(container.classList.contains(`${nameClass}${newClass}`)) {
-          container.classList[event](`${nameClass}${newClass}`);
-        };
-      }, 1000);
-    })
-  };
-
-  // group classes tracking to create or delete
-  export function classTrackingAll(items, event, newClass, nameClass) {
-    const groupItems = queryAll(items);
-    const container = query(nameClass);
-    const className = `${trimString(nameClass, 1)}${newClass}`;
-
-    groupItems.forEach(item => {
-      item.addEventListener('click', function() {
         setTimeout(() => {
-          if(container.classList.contains(className)) {
-            container.classList[event](className);
+          if(container.classList.contains(`${nameClass}${newClass}`)) {
+            container.classList[event](`${nameClass}${newClass}`);
           };
         }, 1000);
+      })
+    };
+
+  // group classes tracking to create or delete
+    export function classTrackingAll(items, event, newClass, nameClass) {
+      const groupItems = queryAll(items);
+      const container = query(nameClass);
+      const className = `${trimString(nameClass, 1)}${newClass}`;
+
+      groupItems.forEach(item => {
+        item.addEventListener('click', function() {
+          setTimeout(() => {
+            if(container.classList.contains(className)) {
+              container.classList[event](className);
+            };
+          }, 1000);
+        });
       });
-    });
-  };
+    };
 // #endregion
 
 // #region resizing the window with the mouse
@@ -194,6 +196,91 @@
       query(newContainer)[eventFirst](query(item));
     } else {
       query(previousContainer)[eventLast](query(item));
+    }
+  };
+// #endregion
+
+// #region display of current information
+
+  export function displayCurrent(elem, display, displayPrice, event, price, currency) {
+    const list =  query(elem);
+
+      list.querySelectorAll('LI').forEach(item => {
+
+        item.addEventListener('click', function() {
+
+          list.querySelectorAll('LI').forEach(item => {
+            item.classList.remove('active');
+          });
+
+          this.classList.add('active');
+
+          const dateValue = this.getAttribute('data-value');
+
+          query(display).textContent = dateValue;
+          query(display).dataset.value = dateValue;
+
+          query(displayPrice).textContent = calculatePrice(dateValue, event, price, currency);
+
+        });
+      });
+  };
+// #endregion
+
+// #region hide element
+
+  export function hideElement(btn, elem, options) {
+    const element = query(elem);
+    const elements = queryAll(options);
+    const button = query(`${trimString(elem, 0, -8)}${btn}`);
+
+    button.addEventListener('click', function() {
+
+      elements.forEach(elem => {
+
+          if(element.dataset.value === elem.dataset.value) {
+            elem.style.display = 'none';
+          } else {
+            elem.style.display = 'block';
+          }
+      });
+
+      elements.forEach(elem => {
+        elem.addEventListener('click', function() {
+
+          if(element.dataset.value === elem.dataset.value) {
+            elem.style.display = 'none';
+          } else {
+            elem.style.display = 'block';
+          }
+        })
+      });
+    });
+  };
+// #endregion
+
+// #region calculate
+  export function calculatePrice(quantity, event, price, currency='$') {
+
+    const a = price;
+    const b = quantity;
+
+    switch (event) {
+
+      case '*':
+        return `${a * b}${currency}`;
+
+      case '/':
+        return  `${a / b}${currency}`;
+
+      case '+':
+        return  `${a + b}${currency}`;
+
+      case '-':
+        return  `${a - b}${currency}`;
+
+      default:
+        return result = 0;
     }
   };
 // #endregion
