@@ -1,0 +1,70 @@
+.slider {
+  width: 100%;
+  height: 100%;
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__slide {
+    flex-shrink: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    @include on-mobile {
+      height: 0;
+      padding-bottom: 68%;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 20% top;
+
+    &--full {
+      object-fit: contain;
+      object-position: 80% 0;
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    width: max-content;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 103px;
+    padding-bottom: 10px;
+  }
+
+  &__button {
+    @include btn-link;
+
+    line-height: 150%;
+    cursor: pointer;
+
+    @include transition(color);
+
+    &:disabled {
+      cursor: not-allowed;
+      color: $secondary-text-color;
+    }
+
+    &:not(&:disabled) {
+      @include hover(color, $accent-color);
+    }
+  }
+
+  &__scrollbar {
+    --swiper-scrollbar-bg-color: #{$decor-color};
+    --swiper-scrollbar-drag-bg-color: #{$accent-color};
+    --swiper-scrollbar-size: 2px;
+    --swiper-scrollbar-bottom: 0;
+  }
+}

@@ -1,0 +1,54 @@
+.gaming {
+  background-color: $bg-color--secondary;
+
+  &__container {
+    @include content-limitation;
+  }
+
+  &__title-wrapper {
+    text-align: center;
+    margin-bottom: 70px;
+
+    @include on-small-desktop {
+      margin-bottom: 80px;
+    }
+
+    @include on-tablet {
+      margin-bottom: 55px;
+    }
+
+    @include on-mobile {
+      text-align: start;
+      margin-bottom: 45px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 16px;
+
+    @include on-tablet {
+      margin-bottom: 12px;
+    }
+  }
+  &__tip {
+    @include text-2;
+
+    color: $accent-color;
+  }
+
+  &__articles {
+    @include page-grid;
+  }
+
+  &__article {
+    grid-column: span 4;
+
+    @include on-small-desktop {
+      grid-column: span 3;
+    }
+
+    @include on-mobile {
+      grid-column: span 2;
+    }
+  }
+}

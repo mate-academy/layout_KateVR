@@ -1,0 +1,257 @@
+.tech {
+  background-color: $bg-color--secondary;
+
+  &__container {
+    @include content-limitation;
+    @include page-grid;
+
+    row-gap: 80px;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+  }
+
+  &__title {
+    grid-column: 12 / span 5;
+
+    @include on-small-desktop {
+      grid-column: 9 / span 4;
+    }
+  }
+
+  &__details {
+    grid-column: 1 / -1;
+
+    @include page-grid;
+
+    row-gap: 10px;
+
+    @include on-small-desktop {
+      max-width: 1060px;
+      margin-inline: auto;
+    }
+
+    @include on-tablet {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100%;
+
+      position: relative;
+      margin-inline: 0;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 21px;
+  }
+
+  &__detail {
+    @include text-1;
+
+    @include on-tablet {
+      display: none;
+      position: absolute;
+      background-color: $bg-color--main;
+      border-radius: 4px;
+      padding: 17px 10px 22px;
+    }
+
+    &--sensor {
+      grid-column: 3 / span 3;
+
+      @include on-small-desktop {
+        grid-column: span 3;
+      }
+
+      @include on-tablet {
+        top: 6px;
+        left: 30vw;
+        z-index: 1;
+      }
+    }
+
+    &--connection {
+      grid-column: 3 / span 3;
+      padding-bottom: 25px;
+
+      @include on-small-desktop {
+        grid-column: 2 / span 3;
+      }
+
+      @include on-tablet {
+        display: none;
+
+        top: 50%;
+        left: 0;
+      }
+    }
+
+    &--batteries {
+      grid-column: 12 / span 4;
+      padding-bottom: 21px;
+
+      @include on-small-desktop {
+        grid-column: 9 / span 4;
+      }
+
+      @include on-tablet {
+        display: none;
+        bottom: 0;
+        right: 0;
+      }
+    }
+  }
+
+  &__img-container {
+    position: relative;
+    grid-column: 7 / span 4;
+    grid-row: 1 / span 2;
+    height: 98%;
+
+    @include on-small-desktop {
+      grid-column: 5 / span 4;
+    }
+  }
+
+  &__img {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 8px;
+    transform: translateX(-38.5%);
+
+    @include on-small-desktop {
+      transform: translateX(-43%);
+    }
+
+    @include on-tablet {
+      position: static;
+      transform: translateX(0);
+      width: 47vw;
+    }
+
+    @include on-mobile {
+      min-width: 160px;
+    }
+  }
+
+  &__bar {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+
+    position: absolute;
+
+    &--first {
+      top: -16px;
+      left: 50%;
+      transform: translateX(-130%);
+      align-items: flex-end;
+
+      @include on-mobile {
+        align-items: center;
+        top: 0;
+        left: 50%;
+        transform: translateX(-70%);
+      }
+    }
+
+    &--second {
+      top: 42%;
+      right: 7%;
+      transform: translateX(33%);
+      align-items: center;
+      flex-direction: column;
+
+      @include on-mobile {
+        flex-direction: row-reverse;
+        align-items: center;
+        top: 50%;
+        left: 50%;
+        transform: translate(-70%, -50%);
+      }
+    }
+
+    &--third {
+      top: 70%;
+      left: -10%;
+      align-items: flex-start;
+      flex-direction: column !important;
+
+      @include on-mobile {
+        flex-direction: column-reverse !important;
+        top: 90%;
+        left: 0%;
+        transform: translate(0, -100%);
+      }
+    }
+  }
+
+  &__circle {
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../icons/open-circle-icon.svg');
+
+    @include hover(
+      background-image,
+      url('../icons/open-circle-hover-icon.svg')
+    );
+
+    &--active {
+      background-image: url('../icons/close-circle-icon.svg');
+
+      @include hover(
+        background-image,
+        url('../icons/close-circle-hover-icon.svg')
+      );
+    }
+
+    @include on-tablet {
+      display: block;
+    }
+
+    @include on-mobile {
+      height: 34px;
+      width: 34px;
+    }
+
+    &--sensor {
+      top: -28px;
+      left: 65px;
+
+      @include on-mobile {
+        top: -11px;
+        left: 60px;
+      }
+    }
+
+    &--baterries {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 50px;
+
+      @include on-mobile {
+        right: 30px;
+      }
+    }
+
+    &--connection {
+      bottom: 20px;
+      transform: translateX(-100%);
+
+      @include on-mobile {
+        bottom: 7px;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
