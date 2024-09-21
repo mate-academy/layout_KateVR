@@ -1,0 +1,157 @@
+.help {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+  min-width: 320px;
+  background-color: $c-aside-2;
+
+  @include on-desktop {
+    padding-top: 134px;
+    background-color: $c-aside-2;
+  }
+
+  @include on-design {
+    padding-top: 287px;
+  }
+
+  &__content {
+    @include page-grid;
+
+    width: 100%;
+    min-height: 100%;
+    background-color: $c-aside;
+
+    @include on-tablet {
+      min-height: 596px;
+    }
+
+    @include on-desktop {
+      margin-inline: auto;
+      border-radius: 4px;
+      grid-template-columns: repeat(10, 70px);
+      width: 880px;
+      margin-bottom: 127px;
+      background-color: $c-aside;
+      min-height: 500px;
+    }
+
+    @include on-design {
+      grid-template-columns: repeat(12, 72px);
+      width: 1084px;
+      margin-bottom: 153px;
+    }
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+  }
+
+  &__icon {
+    display: flex;
+    font-display: row;
+    justify-content: end;
+    padding: 20px 0 31px;
+
+    @include on-tablet {
+      padding: 34px 0 51px;
+    }
+
+    @include on-desktop {
+      padding: 18px 18px 25px 0;
+    }
+
+    @include on-design {
+      padding: 26px 26px 25px 0;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    color: $c-white;
+    margin-bottom: 30px;
+
+    @include on-desktop {
+      grid-column: 2 / -2;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__span-title {
+    color: $c-contrast;
+    font-weight: 400;
+  }
+
+  &__text {
+    grid-column: 1 / -1;
+
+    color: $c-text;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &__span-bottom {
+    grid-column: 1 / -1;
+    padding-block: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      padding-block: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 5;
+    }
+  }
+
+  &__span-text {
+    color: $c-contrast;
+  }
+
+  &__contacts {
+    grid-column: 1 / -1;
+
+    margin-bottom: 72px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 7;
+    }
+
+    &-text {
+      text-decoration: none;
+      color: $c-text;
+
+      &-number {
+        margin-bottom: 11px;
+
+        @include on-tablet {
+          margin-bottom: 25px;
+        }
+      }
+
+      &-email {
+        margin-bottom: 8px;
+
+        @include on-tablet {
+          margin-bottom: 25px;
+        }
+      }
+    }
+  }
+}

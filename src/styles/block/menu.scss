@@ -1,0 +1,73 @@
+.menu {
+  height: 100%;
+  background-color: $c-aside-2;
+  min-width: 320px;
+  width: 100%;
+
+  &__content {
+    background-color: $c-aside;
+    width: 100%;
+    min-height: 100%;
+
+    @include on-tablet {
+      min-height: 596px;
+    }
+  }
+
+  &-t {
+    @include page-grid;
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+    padding: 20px 0 37.8px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+
+    @include on-tablet {
+      padding: 34px 0 57px;
+    }
+  }
+}
+
+.nav {
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 27.3px;
+    color: $c-white;
+  }
+
+  &__item {
+    @include page-grid;
+
+    &:hover {
+      background-color: $c-background-hover;
+      color: $c-contrast;
+    }
+  }
+
+  &__a {
+    grid-column: 1 / -1;
+
+    height: 49px;
+    line-height: 49px;
+    color: $c-white;
+
+    @include on-tablet {
+      grid-column: 2 / -1;
+    }
+
+    &:hover {
+      background-color: $c-background-hover;
+      color: $c-contrast;
+    }
+  }
+}

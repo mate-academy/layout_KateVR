@@ -1,0 +1,135 @@
+.contact-us {
+  background-color: $c-background-black;
+  &__container {
+    @include page-grid;
+
+    padding-block: 50px;
+
+    @include on-tablet {
+      padding: 70px 0 130px;
+    }
+
+    @include on-desktop {
+      padding-block: 100px;
+    }
+
+    @include on-design {
+      padding: 156px 0 205px;
+    }
+  }
+
+  &__questions {
+    grid-column: 1 / -1;
+    margin-bottom: 11px;
+    line-height: 16.9px;
+
+    color: $c-contrast;
+
+    @include on-tablet {
+      grid-area: 1 / 1 / 2 / 4;
+    }
+
+    @include on-desktop {
+      margin-bottom: 15px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    color: $c-white;
+    padding-bottom: 32px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+      margin-bottom: 50px;
+      padding-bottom: 0;
+      height: 25px;
+    }
+
+    @include on-desktop {
+      height: 44px;
+      margin-bottom: 26px;
+    }
+  }
+
+  &__span {
+    color: $c-contrast;
+    font-weight: 400;
+  }
+
+  &__bottom-text {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      height: 24px;
+      margin: 0 0 76px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__email {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__header {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+    }
+  }
+}
+
+.part-of-footer {
+  color: $c-text;
+
+  &__tel {
+    margin-bottom: 11px;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__email {
+    margin-bottom: 8px;
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__emailtwo {
+    @include hover(transform, scale(1.05));
+  }
+}
+
+.go__top {
+  display: none;
+
+  @include on-tablet {
+    display: block;
+    background-image: url(../images/button/go_to_top.svg);
+    background-position: 50%;
+    background-size: cover;
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+
+    &:hover {
+      background-image: url(../images/button/go_to_top_hover.svg);
+    }
+  }
+}

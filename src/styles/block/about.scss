@@ -1,0 +1,403 @@
+.about {
+  background: $c-linear-gradient;
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-top: 70px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  @include on-design {
+    padding: 147px 0 156px;
+  }
+
+  &__part-one {
+    @include page-grid;
+
+    &-title {
+      grid-column: 1 / -1;
+
+      color: $c-white;
+      padding-bottom: 20px;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &-span {
+      font-weight: 400;
+      color: $c-contrast;
+    }
+  }
+
+  &__part-two {
+    @include page-grid;
+
+    @include on-tablet {
+      padding-top: 107px;
+    }
+
+    @include on-desktop {
+      padding-top: 183px;
+    }
+
+    &-title {
+      grid-column: 1 / -1;
+
+      color: $c-white;
+    }
+
+    &-span {
+      font-weight: 400;
+      color: $c-contrast;
+    }
+  }
+
+  &__img {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__text-one {
+    grid-column: 1 / -1;
+
+    padding: 20px 0 24px;
+    color: $c-text;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__text-two {
+    grid-column: 1 / -1;
+    padding-top: 22px;
+    color: $c-text;
+
+    @include on-design {
+      padding-top: 30px;
+    }
+  }
+
+  &__button-video {
+    grid-column: 1 / -1;
+
+    margin-bottom: 79px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__world-hello {
+    color: $c-contrast;
+    margin-bottom: 11px;
+
+    @include on-tablet {
+      margin-top: 24px;
+    }
+
+    @include on-desktop {
+      margin: 43px 0 15px;
+      height: 17px;
+    }
+
+    @include on-design {
+      grid-column: 2 / 4;
+      margin-top: 45px;
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 5 / -1;
+      grid-row: 1 / -1;
+      width: 232px;
+      height: 257px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__desktop-logo {
+    display: none;
+
+    @include on-desktop {
+      background-image: url(../images/about/photo_about_desktop.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      grid-column: 7 / -1;
+      grid-row: 1 / -1;
+      width: 100%;
+      display: block;
+    }
+
+    @include on-design {
+      background-image: url(../images/about/photo_about_desktop.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      grid-column: 9 / -1;
+      width: 100%;
+      height: 343px;
+      display: block;
+    }
+  }
+
+  &__tablet {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: -5 / -1;
+      grid-row: 1 / 2;
+    }
+
+    @include on-design {
+      grid-column: -6 / -1;
+    }
+
+    &-title {
+      grid-column: 4 / -1;
+      color: $c-white;
+      margin-bottom: 30px;
+
+      @include on-design {
+        height: 72px;
+        margin-bottom: 32px;
+      }
+    }
+
+    &-span {
+      font-weight: 400;
+      color: $c-contrast;
+    }
+
+    &-text {
+      grid-column: 4 / -1;
+      color: $c-text;
+      margin-bottom: 21px;
+
+      @include on-design {
+        margin-bottom: 33px;
+      }
+    }
+
+    &-video {
+      grid-column: 4 / -1;
+    }
+  }
+
+  &__section-second {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-design {
+      grid-column: 2 / 8;
+    }
+  }
+
+  &-desktop {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+
+      grid-column: 3 / 8;
+    }
+
+    @include on-design {
+      grid-column: 4 / 11;
+    }
+
+    &__img {
+      @include on-desktop {
+        width: 430px;
+        height: 290px;
+      }
+
+      @include on-design {
+        display: none;
+      }
+    }
+
+    &__design {
+      display: none;
+
+      @include on-design {
+        display: block;
+        width: 100%;
+      }
+    }
+
+    &__bottom {
+      grid-column: 3 / 6;
+
+      padding-top: 12px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 103px;
+      border-bottom: 1px solid $c-fraction;
+      width: 204.4px;
+
+      @include on-design {
+        grid-column: 4 / 7;
+      }
+    }
+
+    &__previous {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        position: relative;
+        padding-bottom: 10px;
+        cursor: pointer;
+
+        &::after {
+          content: '';
+          background-color: $c-contrast;
+          width: 100%;
+          height: 1px;
+          display: block;
+          position: absolute;
+          bottom: -2px;
+        }
+      }
+    }
+
+    &__next {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        position: relative;
+        padding-bottom: 10px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.numbers {
+  display: none;
+
+  @include on-desktop {
+    grid-column: 2 / 2;
+
+    justify-content: end;
+    display: flex;
+    color: $c-contrast;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+  }
+
+  @include on-design {
+    grid-column: 3 / 3;
+  }
+}
+
+.slide-container {
+  position: relative;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.slider {
+  grid-column: 1 / -1;
+
+  @include on-tablet {
+    grid-column: 1 / 4;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+}
+
+.slider-content {
+  margin-bottom: 34px;
+}
+
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.img-swiper {
+  display: block;
+  width: 280px;
+  height: 189px;
+
+  @include on-tablet {
+    width: 340px;
+    height: 270px;
+  }
+
+  @include on-desktop {
+    width: 430px;
+    height: 290px;
+  }
+
+  @include on-design {
+    width: 622px;
+  }
+}
+
+.swiper-pagination-bullet {
+  background-color: $c-pagination;
+  width: 4px;
+  height: 4px;
+
+  &-active {
+    background-color: $c-pagination-active;
+  }
+}
+
+.swiper-pagination-fraction {
+  @include on-desktop {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16.94px;
+    color: $c-contrast;
+  }
+}
+
+.swiper-scrollbar {
+  background-color: $c-fraction;
+  width: 270px;
+
+  &-drag {
+    background-color: $c-contrast;
+  }
+}
