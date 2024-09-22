@@ -1,0 +1,275 @@
+.header {
+  &__content {
+    @include content-min-width;
+    @include grid-container;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    min-height: 554px;
+    background: $gradient;
+
+    @include on-tablet {
+      min-height: 445px;
+    }
+
+    @include on-laptop {
+      min-height: 740px;
+
+      padding-top: 196px;
+    }
+
+    @include on-desktop {
+      min-height: 1103px;
+
+      padding-top: 327px;
+    }
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-row: 1 / 2;
+    }
+
+    @include on-laptop {
+      display: none;
+    }
+  }
+
+  &__img {
+    grid-column: 1 / -1;
+
+    display: block;
+    width: 100%;
+    height: 172px;
+
+    object-fit: cover;
+    object-position: center;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 2 / 6;
+
+      height: 100%;
+      object-fit: contain;
+    }
+
+    @include on-laptop {
+      display: none;
+    }
+  }
+
+  &__slider {
+    display: none;
+
+    @include on-laptop {
+      display: block;
+
+      grid-column: 7 / -1;
+      grid-row: 1 / 5;
+
+      margin-bottom: 84px;
+    }
+
+    @include on-desktop {
+      grid-column: 8 / -1;
+      margin-bottom: 212px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-bottom: 17px;
+
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 33.8px;
+    color: $whiteColor;
+    text-transform: uppercase;
+
+    & > span {
+      font-weight: 400;
+      color: $contrastColor;
+    }
+
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 2 / 3;
+    }
+
+    @include on-laptop {
+      grid-column: span 6;
+      grid-row: 1 / 2;
+      margin-bottom: 19px;
+
+      font-size: 46px;
+      line-height: 60px;
+
+      color: transparent;
+
+      & > span {
+        color: transparent;
+      }
+
+      background-image: url(../images/titles/header-title.svg);
+      background-repeat: no-repeat;
+      background-position: left center;
+    }
+
+    @include on-desktop {
+      grid-column: span 7;
+
+      width: 552px;
+      margin-bottom: 35px;
+
+      font-size: 54px;
+      line-height: 70.2px;
+
+      background-size: contain;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-bottom: 8px;
+
+    font-weight: 500;
+
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 3 / 4;
+
+      margin-bottom: 16px;
+    }
+
+    @include on-laptop {
+      grid-column: 2 / 6;
+      grid-row: 2 / 3;
+
+      height: 87px;
+      margin-bottom: 5px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 7;
+      margin-bottom: 30px;
+
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+
+  &__price {
+    grid-column: 1 / -1;
+
+    margin: 0;
+    margin-bottom: 16px;
+
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 21.78px;
+    color: $whiteColor;
+    text-align: center;
+
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 4 / 5;
+
+      margin-bottom: 24px;
+
+      text-align: left;
+    }
+
+    @include on-laptop {
+      grid-column: 2 / 4;
+      grid-row: 3 / 4;
+
+      margin-bottom: 20px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 36px;
+
+      font-size: 20px;
+      line-height: 24.2px;
+    }
+  }
+
+  &__play-video {
+    grid-column: 1 / -1;
+
+    margin-bottom: 46px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 5 / 6;
+
+      margin-bottom: 0;
+    }
+
+    @include on-laptop {
+      grid-column: 2 / 5;
+      grid-row: 4 / 5;
+
+      margin-bottom: 84px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+      margin-bottom: 212px;
+    }
+  }
+
+  &__bottom-bar {
+    display: none;
+
+    @include on-laptop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      grid-column: 1 / -1;
+      grid-row: 5 / 6;
+
+      margin-bottom: 84px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 107px;
+    }
+  }
+
+  &__faq-help-links {
+    align-self: flex-start;
+    width: 207px;
+    height: 24px;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 39px;
+  }
+
+  &__link {
+    text-decoration: none;
+    font-weight: 500;
+    color: $whiteColor;
+
+    @include pointer-cursor;
+    @include on-hover(color, $contrastColor);
+  }
+
+  &__prev-next {
+    display: none;
+
+    @include on-laptop {
+      display: block;
+    }
+  }
+}

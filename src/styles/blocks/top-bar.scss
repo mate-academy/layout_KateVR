@@ -1,0 +1,119 @@
+.top-bar {
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 18px 0 14px;
+
+  @include on-tablet {
+    padding: 30px 0 55px;
+  }
+
+  &--close-only {
+    justify-content: flex-end;
+    padding: 20px 0 38px;
+
+    @include on-tablet {
+      padding: 34px 0 50px;
+    }
+
+    @include on-laptop {
+      padding: 18px 18px 25px;
+    }
+
+    @include on-desktop {
+      padding: 28px 28px 25px;
+    }
+  }
+
+  &--back-only {
+    justify-content: flex-start;
+    padding: 20px 0 38px;
+
+    @include on-tablet {
+      padding: 33px 0 47px;
+    }
+  }
+
+  &--order {
+    padding: 19px 0 31px;
+
+    @include on-tablet {
+      padding: 30px 0 27px;
+    }
+  }
+
+  &--youtube-close {
+    justify-content: flex-end;
+    padding: 150px 0 23px;
+
+    @include on-tablet {
+      padding: 90px 0 23px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 20px;
+    height: 10px;
+
+    background-image: url(../images/icons/menu-icon.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include pointer-cursor;
+    @include on-hover(transform, scale(1.25));
+    @include on-hover(
+      background-image,
+      url(../images/icons/menu-icon-hover.svg)
+    );
+
+    @include on-tablet {
+      width: 29.25px;
+      height: 14px;
+    }
+
+    &--close {
+      width: 17px;
+      height: 17.22px;
+      background-image: url(../images/icons/close-icon.svg);
+
+      @include on-hover(
+        background-image,
+        url(../images/icons/close-icon-hover.svg)
+      );
+    }
+
+    &--order-close {
+      width: 14.61px;
+      height: 14.8px;
+      background-image: url(../images/icons/close-icon.svg);
+
+      @include on-hover(transform, scale(1.35));
+      @include on-hover(
+        background-image,
+        url(../images/icons/close-icon-hover.svg)
+      );
+
+      @include on-tablet {
+        width: 17px;
+        height: 17.22px;
+      }
+    }
+
+    &--back {
+      width: 8.5px;
+      height: 17px;
+      background-image: url(../images/icons/back-icon.svg);
+
+      @include on-hover(transform, scale(1.35));
+      @include on-hover(
+        background-image,
+        url(../images/icons/back-icon-hover.svg)
+      );
+    }
+  }
+}
