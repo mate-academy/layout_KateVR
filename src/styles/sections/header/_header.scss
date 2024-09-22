@@ -1,0 +1,193 @@
+.header {
+  position: relative;
+  background: linear-gradient(108deg, #191536 0%, #000 100%);
+
+  &__container {
+    @include container;
+  }
+
+  &__grid {
+    margin-top: 55px;
+
+    @include tablet {
+      @include page-grid;
+    }
+
+    @include desktop {
+      margin-top: 100px;
+    }
+  }
+
+  &__img {
+    padding-top: 15px;
+    display: none;
+    width: 100%;
+
+    @include tablet {
+      grid-column: 4 / -1;
+      grid-row: 1 / 1;
+      display: block;
+      margin-left: 32px;
+    }
+
+    @include desktop {
+      padding-top: 0;
+      grid-column: 7 / -1;
+      margin-left: 0;
+    }
+
+    &--mobile {
+      display: block;
+
+      @include tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__middle {
+    @include tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include desktop {
+      grid-column: 1 / 7;
+      display: grid;
+      column-gap: 20px;
+      grid-template-columns: repeat(7, 1fr);
+    }
+  }
+
+  &__title {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 130%;
+
+    &--blue {
+      color: $blue-color;
+      font-weight: 400;
+    }
+
+    @include desktop {
+      font-size: 46px;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+    color: $grey-text-color;
+    margin-top: 17px;
+
+    @include desktop {
+      grid-column: 2 / 7;
+    }
+  }
+
+  &__price {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+    margin-top: 8px;
+
+    @include tablet {
+      text-align: left;
+      margin-top: 10px;
+    }
+
+    @include desktop {
+      margin-top: 30px;
+      grid-column: 2 / 7;
+    }
+  }
+
+  &__play {
+    @include desktop {
+      grid-column: 2 / 7;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include desktop {
+      @include container;
+
+      padding-bottom: 84px;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__bottom-nav {
+    display: flex;
+    gap: 40px;
+  }
+
+  &__more {
+    transition: all $effect-duration;
+    cursor: pointer;
+
+    &:hover {
+      transform: scale(1.2);
+      filter: brightness(100);
+    }
+  }
+
+  &__more-arrow {
+    margin-top: 7px;
+  }
+
+  &__slider {
+    display: flex;
+    gap: 103px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      left: 0;
+      bottom: 0;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $slider-after-color;
+    }
+  }
+
+  &__slider-previous {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $blue-color;
+      z-index: 1;
+    }
+  }
+
+  &__slider-next {
+    position: relative;
+
+    &:focus::after {
+      content: '';
+      position: absolute;
+      left: -170px;
+      bottom: 0;
+      display: block;
+      height: 1px;
+      width: 570%;
+      background-color: $blue-color;
+      z-index: 1;
+    }
+  }
+}
