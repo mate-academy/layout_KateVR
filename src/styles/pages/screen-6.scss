@@ -60,7 +60,6 @@
 
   &__address {
     grid-row: 4 / span 1;
-    line-height: 180%;
 
     @include phone {
       display: none;
@@ -68,6 +67,17 @@
 
     &-link {
       color: inherit;
+    }
+
+    &-text {
+      line-height: 180%;
+
+      @include media(laptop, desktop) {
+        &:hover {
+          font-size: 120%;
+          line-height: 135%;
+        }
+      }
     }
   }
 
