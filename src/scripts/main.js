@@ -39,36 +39,56 @@ window.addEventListener('scroll', () => {
 
 // select language
 
-  const dropdown = document.querySelectorAll('.select-top');
-  const dropdownButton = document.querySelectorAll('.select-top__en');
+  const dropdown = document.querySelector('.select-top');
+  const dropdownButton = dropdown.querySelector('.select-top__en');
 
-  for (let i = 0; i < dropdownButton.length; i++) {
-    dropdownButton[i].addEventListener('click', (event) => {
-      event.preventDefault();
-      dropdown[i].classList.toggle('select-top__active');
-    });
-  };
+  dropdownButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    dropdown.classList.toggle('select-top--active');
+  });
 
   //select buyNow
 
-  const buyNow = document.querySelectorAll('.select-buynow');
-  const buyNowButton = document.querySelectorAll('.select-buynow__one');
+  const buyNow = document.querySelector('.select-buynow');
+  const buyNowButton = buyNow.querySelector('.select-buynow__one');
 
-  for (let i = 0; i < buyNowButton.length; i++) {
+  buyNowButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    buyNow.classList.toggle('select-top--active');
+  });
+
+/*   for (let i = 0; i < buyNowButton.length; i++) {
     buyNowButton[i].addEventListener('click', (e) => {
       e.preventDefault();
-      buyNow[i].classList.toggle('select-top__active');
+      buyNow[i].classList.toggle('select-top--active');
     });
-  }
+  } */
 
   //select city
 
-  const buyNowCity = document.querySelectorAll('.select-buynow__city');
-  const buyNowCityButton = document.querySelectorAll('.select-buynow__first');
+  const country = document.querySelector('.select-country');
+  const countryButton = country.querySelector('.select-country__first');
 
+  countryButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    country.classList.toggle('select-country--active');
+  });
+/*
   for (let i = 0; i < buyNowCityButton.length; i++) {
     buyNowCityButton[i].addEventListener('click', (ev) => {
       ev.preventDefault();
-      buyNowCity[i].classList.toggle('select-top__active');
-    });
-  }
+      buyNowCity[i].classList.toggle('select-top--active');
+    }); */
+
+
+  const city = document.querySelector('.select-city');
+  const cityButton = city.querySelector('.select-city__one');
+
+  cityButton.addEventListener('click', (event) => {
+    event.preventDefault();
+
+    city.classList.toggle('select-city--active');
+  });

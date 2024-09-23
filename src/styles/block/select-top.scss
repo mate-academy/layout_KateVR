@@ -3,11 +3,13 @@
   color: $c-contrast;
   width: 32px;
   height: 21px;
+  cursor: pointer;
 
   &__en {
     background-image: url(../images/icons/triangle.svg);
     background-repeat: no-repeat;
     background-position: right 80%;
+    cursor: pointer;
   }
 
   &__list {
@@ -23,9 +25,12 @@
 
     overflow: auto;
 
-    opacity: 0;
-    transform: translateY(-5px);
+    opacity: 1;
     pointer-events: none;
+    transform: translateY(-5px);
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
 
     &::-webkit-scrollbar-thumb {
       background: $c-contrast;
@@ -44,8 +49,8 @@
     }
   }
 
-  &__active &__list {
-    opacity: 1;
+  &--active &__list {
+    opacity: 0;
     transform: translateY(0);
     pointer-events: all;
   }
@@ -63,6 +68,7 @@
   &__item {
     align-items: center;
     padding-inline: 11px;
+    cursor: pointer;
 
     &:hover {
       color: $c-white;
