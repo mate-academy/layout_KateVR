@@ -49,13 +49,19 @@
 
   &__more-label {
     color: $color-accent;
-  }
 
-  &__more-icon {
-    display: block;
-    width: 9.1px;
-    height: 6.2px;
-    margin: auto;
-    padding-top: 5px;
+    &::after {
+      content: ' ';
+      display: block;
+      height: 0;
+      width: 0;
+
+      border-top: 6px solid $color-accent;
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+      transform: translateY(-2px);
+      margin-block: 5px 2px;
+      margin-inline: auto;
+    }
   }
 }
