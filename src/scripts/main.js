@@ -19,7 +19,9 @@ import {
   calculatePrice,
   displayCurrent,
   hideElement,
-  currentQuantity
+  currentQuantity,
+  clickNewClassParthnerElement,
+  classHtml
 } from './utils.js';
 
 import {
@@ -182,6 +184,8 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
 
   clLogo.classList.add('purchase-payment__box-logo');
 
+  //
+
   clickClass('.purchase-payment__icon', '.purchase-payment', 'remove', '--active');
   clickClass('.purchase-payment__box-logo', '.purchase-payment', 'remove', '--active');
 
@@ -199,17 +203,49 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
 
   hideElement('quantity-window', '.purchase-payment__quantity', '.purchase-payment__option');
 
-  window.addEventListener('DOMContentLoaded', function() {
+  // display numter of servises
+    window.addEventListener('DOMContentLoaded', function() {
 
-    if(query('.purchase-payment__quantity').dataset.value > 0) {
+      if(query('.purchase-payment__quantity').dataset.value > 0) {
 
-      query('.purchase-payment__price').textContent = '1200$';
-      query('.purchase-payment__quantity').textContent = '1';
-    }
-  });
+        query('.purchase-payment__price').textContent = '1200$';
+        query('.purchase-payment__quantity').textContent = '1';
+      }
+    });
 
-  displayCurrent('.purchase-payment__selection', '.purchase-payment__quantity',
-    '.purchase-payment__price', '*', '1200');
+    displayCurrent('.purchase-payment__selection', '.purchase-payment__quantity',
+      '.purchase-payment__price', '*', '1200');
+
+
+  // slider in the section "about product"
+    navigation_2('input[id="switch-pay_1"]', '.purchase-payment__form', '0');
+    navigation_2('input[id="switch-pay_2"]', '.purchase-payment__form', '-100');
+    navigation_2('input[id="switch-pay_3"]', '.purchase-payment__form', '-200');
+
+  // buttons with the names "purchase"
+    navigation_2('.purchase-payment__user-data--btn', '.purchase-payment__form', '-100');
+    navigation_2('.purchase-payment__pay--btn', '.purchase-payment__form', '-200');
+
+  // toggle slider
+    query('.purchase-payment__user-data--btn').addEventListener('click', function() {
+      query('input[id="switch-pay_1"]').removeAttribute('checked');
+      query('input[id="switch-pay_2"]').setAttribute('checked', 'checked');
+    });
+
+    query('.purchase-payment__pay--btn').addEventListener('click', function() {
+      query('input[id="switch-pay_2"]').removeAttribute('checked');
+      query('input[id="switch-pay_3"]').setAttribute('checked', 'checked');
+    });
+
+
+  // button with then name "back to homepage"
+    clickClass('.purchase-payment__complete--btn', '.body', 'remove', '__lock');
+    clickClass('.purchase-payment__complete--btn', '.purchase-payment', 'remove', '--active');
+
+    query('.purchase-payment__complete--btn').addEventListener('click', function() {
+      query('input[id="switch-pay_3"]').removeAttribute('checked');
+      query('input[id="switch-pay_1"]').setAttribute('checked', 'checked');
+    });
 
 // #endregion
 

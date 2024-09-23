@@ -357,8 +357,8 @@
 
         <div class="purchase-payment__navigation">
           <input
-            id="switch-pay_1"
             type="radio"
+            id="switch-pay_1"
             name="switch-pay"
             tabindex="1"
             checked
@@ -371,8 +371,8 @@
           </label>
 
           <input
-            id="switch-pay_2"
             type="radio"
+            id="switch-pay_2"
             name="switch-pay"
             tabindex="2"
           />
@@ -384,8 +384,8 @@
           </label>
 
           <input
-            id="switch-pay_3"
             type="radio"
+            id="switch-pay_3"
             name="switch-pay"
             tabindex="3"
           />
@@ -502,9 +502,261 @@
         </section>
 
         <section class="purchase-payment__content">
-          <section class="purchase-payment__place-order"></section>
-          <section class="purchase-payment__pay"></section>
-          <section class="purchase-payment__complete"></section>
+          <form
+            class="purchase-payment__form"
+            action="#"
+            method="post"
+            autocomplete="off"
+          >
+            <section class="purchase-payment__user-data">
+              <label class="purchase-payment__user-data--first-name">
+                First Name*
+
+                <input
+                  class="purchase-payment__user-data--input"
+                  type="text"
+                  name="first-name"
+                  data-role="1"
+                  tabindex="1"
+                  autofocus
+                />
+
+                <span
+                  class="purchase-payment__user-data--message-error"
+                  data-value="error-username"
+                ></span>
+              </label>
+
+              <label class="purchase-payment__user-data--last-name">
+                Last Name*
+
+                <input
+                  class="purchase-payment__user-data--input"
+                  type="text"
+                  name="last-name"
+                  data-role="1"
+                  tabindex="2"
+                />
+
+                <span
+                  class="purchase-payment__user-data--message-error"
+                  data-value="error-username"
+                ></span>
+              </label>
+
+              <label class="purchase-payment__user-data--email">
+                Email*
+
+                <input
+                  class="purchase-payment__user-data--input"
+                  type="email"
+                  name="email"
+                  data-role="1"
+                  tabindex="3"
+                />
+
+                <span
+                  class="purchase-payment__user-data--message-error"
+                  data-value="error-email"
+                ></span>
+              </label>
+
+              <label class="purchase-payment__user-data--phone">
+                Phone Number*
+
+                <input
+                  class="purchase-payment__user-data--input"
+                  type="tel"
+                  name="phone"
+                  data-role="1"
+                  tabindex="4"
+                />
+
+                <span
+                  class="purchase-payment__user-data--message-error"
+                  data-value="error-phone"
+                ></span>
+              </label>
+
+              <label class="purchase-payment__user-data--country">
+                Country*
+
+                <input
+                  class="purchase-payment__user-data--input"
+                  type="text"
+                  name="country"
+                  data-role="1"
+                  tabindex="5"
+                />
+
+                <span
+                  class="ppurchase-payment__user-data--message-error"
+                  data-value="error-select"
+                ></span>
+              </label>
+
+              <label class="purchase-payment__user-data--city">
+                City*
+
+                <input
+                  class="purchase-payment__user-data--input"
+                  type="text"
+                  name="city"
+                  data-role="1"
+                  tabindex="6"
+                />
+
+                <span
+                  class="purchase-payment__user-data--message-error"
+                  data-value="error-select"
+                ></span>
+              </label>
+
+              <label class="purchase-payment__user-data--shipping-adress*">
+                Shipping Adress*
+
+                <input
+                  class="purchase-payment__user-data--input"
+                  type="text"
+                  name="adress-1"
+                  data-role="1"
+                  tabindex="7"
+                />
+
+                <span
+                  class="purchase-payment__user-data--message-error"
+                  data-value="error-username"
+                ></span>
+              </label>
+
+              <label class="purchase-payment__user-data--shipping-adress 2">
+                Shipping Adress 2
+
+                <input
+                  class="purchase-payment__user-data--input"
+                  type="text"
+                  name="adress-2"
+                  data-role="1"
+                  tabindex="8"
+                />
+
+                <span
+                  class="purchase-payment__user-data--message-error"
+                  data-value="error-username"
+                ></span>
+              </label>
+
+              <button
+                class="purchase-payment__user-data--btn"
+                type="button"
+              >
+                Purchase
+              </button>
+            </section>
+
+            <section class="purchase-payment__pay">
+              <label class="purchase-payment__pay--card-pay">
+                Card Number*
+
+                <input
+                  class="purchase-payment__pay--number-card"
+                  type="tel"
+                  name="number-card-field-1"
+                  placeholder="0000"
+                  pattern="[0-9]"
+                  maxlength="4"
+                />
+
+                <input
+                  class="purchase-payment__pay--number-card"
+                  type="tel"
+                  name="number-card-field-1"
+                  placeholder="0000"
+                  pattern="[0-9]"
+                  maxlength="4"
+                />
+
+                <input
+                  class="purchase-payment__pay--number-card"
+                  type="tel"
+                  name="number-card-field-1"
+                  placeholder="0000"
+                  pattern="[0-9]"
+                  maxlength="4"
+                />
+
+                <input
+                  class="purchase-payment__pay--number-card"
+                  type="tel"
+                  name="number-card-field-1"
+                  placeholder="0000"
+                  pattern="[0-9]"
+                  maxlength="4"
+                />
+              </label>
+
+              <label class="purchase-payment__pay--holder-name">
+                Card Holder Name*
+
+                <input
+                  class="purchase-payment__number-card"
+                  type="text"
+                  name="holder-name"
+                />
+              </label>
+
+              <div class="purchase-payment__pay--experation-date">
+                <label class="purchase-payment__experation-date--date">
+                  Expiration Date*
+
+                  <input
+                    class="purchase-payment__number-card"
+                    type="date"
+                    name="card-data"
+                    placeholder="MM / YY"
+                  />
+                </label>
+
+                <label class="purchase-payment__experation-date--cvv">
+                  CVV*
+
+                  <input
+                    class="purchase-payment__number-card"
+                    type="number"
+                    name="card-cvv"
+                    placeholder="000"
+                  />
+                </label>
+              </div>
+
+              <button
+                class="purchase-payment__pay--btn"
+                type="button"
+              >
+                Purchase
+              </button>
+            </section>
+
+            <section class="purchase-payment__complete">
+              <h1 class="purchase-payment__complete--title">
+                Thank you
+                <span>your</span>
+                order!
+              </h1>
+
+              <p class="purchase-payment__complete--text">
+                Your order has been placed and is being processed. You will
+                recive an email with the order details
+              </p>
+
+              <button
+                class="purchase-payment__complete--btn"
+                type="submit"
+              >
+                Back to homepage
+              </button>
+            </section>
+          </form>
         </section>
       </div>
     </aside>
