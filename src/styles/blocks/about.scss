@@ -1,0 +1,240 @@
+.about {
+  &__content {
+    @include page-grid;
+
+    row-gap: 84px;
+
+    @include on-desktop {
+      row-gap: 183px;
+    }
+
+    @include on-large-desktop {
+      row-gap: 175px;
+    }
+  }
+
+  &__top {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 20px;
+
+    @include on-desktop {
+      grid-template-columns: repeat(10, 1fr);
+      grid-column: 3 / -1;
+    }
+
+    @include on-large-desktop {
+      grid-template-columns: repeat(13, 1fr);
+      grid-column: 4 / -1;
+    }
+  }
+
+  &__title {
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    @include on-large-desktop {
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__slider {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      position: relative;
+    }
+
+    @include on-large-desktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__current-slide {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+      left: -40px;
+      top: -5px;
+      color: $accent-color;
+      font-size: 14px;
+      line-height: 17px;
+    }
+  }
+
+  &__image {
+    height: 280px;
+    width: 100%;
+
+    @include on-tablet {
+      height: 270px;
+      width: 340px;
+    }
+
+    @include on-desktop {
+      height: 290px;
+      width: 430px;
+    }
+
+    @include on-large-desktop {
+      width: 622px;
+    }
+
+    &--1 {
+      background-image: url('../images/about/1.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: 25% center;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #484848;
+
+    &:hover {
+      background-color: $accent-color;
+    }
+
+    &--active {
+      background-color: #ababab;
+    }
+  }
+
+  &__text {
+    margin-block: 10px;
+
+    @include on-tablet {
+      margin-block: 20px;
+    }
+
+    &--first {
+      margin-block: 20px;
+
+      @include on-tablet {
+        margin-block: 30px;
+        grid-column: span 3;
+        grid-row: 2;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / -1;
+      }
+
+      @include on-large-desktop {
+        margin-block: 68px 42px;
+        grid-column: 9 / -1;
+      }
+    }
+  }
+
+  &__play-btn {
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 3;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    @include on-large-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__bottom {
+    grid-column: 1 / -1;
+    display: grid;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, 1fr);
+      grid-column: 2 / -1;
+    }
+
+    @include on-large-desktop {
+      grid-template-columns: repeat(16, 1fr);
+      grid-column: 2 / -1;
+    }
+  }
+  &__greeting {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 5;
+    }
+
+    @include on-large-desktop {
+      grid-column: span 7;
+    }
+  }
+
+  &__bottom-image {
+    @include on-tablet {
+      background-image: url('../images/about/bg-t.png');
+      background-size: contain;
+      background-repeat: no-repeat;
+      height: 256px;
+      width: 232px;
+      grid-column: span 2;
+    }
+
+    @include on-desktop {
+      background-image: url('../images/about/bg-d.png');
+      height: 342px;
+      width: 495px;
+      grid-column: 7 / -1;
+    }
+
+    @include on-large-desktop {
+      background-image: url('../images/about/bg-d-lg.png');
+      height: 344px;
+      width: 701px;
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__hello {
+    color: $accent-color;
+  }
+}
