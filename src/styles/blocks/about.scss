@@ -1,0 +1,166 @@
+@import '../utils';
+
+.about {
+  padding: 50px 0;
+
+  &__container,
+  &__content {
+    @include grid;
+  }
+
+  &__container {
+    row-gap: 20px;
+  }
+
+  &__content,
+  &__title,
+  &__swiper,
+  &__text,
+  &__video-button {
+    grid-column: 1 / -1;
+  }
+
+  &__title {
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 25px;
+    color: $white;
+
+    &--blue {
+      color: $blue;
+      font-weight: 400;
+    }
+  }
+
+  &__content {
+    row-gap: 55px;
+  }
+
+  &__text {
+    color: $gray;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+  }
+
+  &__video-button {
+    color: $white;
+    padding: 13px 0;
+    height: 50px;
+    width: 209px;
+    text-align: center;
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+    margin-left: 15px;
+    border: 2px solid transparent;
+    transition: $main-transition;
+    cursor: pointer;
+
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 30px;
+      height: 2px;
+      background: $blue;
+      left: 35px;
+      opacity: .45;
+      transition: $all-transition;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+
+    &:hover::after,
+    &:hover::before {
+        width: 100%!important;
+        opacity: 1!important;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+  }
+
+  &__border {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-repeat: no-repeat;
+    background-image: url(../images/header/border.svg);
+    left: 65px;
+    transition: $all-transition;
+
+
+    &--top {
+      top: 0;
+    }
+
+    &--bottom {
+      bottom: 0;
+    }
+  }
+
+  &__button-play {
+    width: 53px;
+    position: absolute;
+    top: -5px;
+    left: -12px;
+  }
+
+  &__list {
+    display: flex;
+    gap: 36px;
+    align-items: center;
+
+    &--buttons {
+      position: relative;
+      gap: 106px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgb(33, 33, 33);
+      width: fit-content;
+
+      &::after {
+        transition: $all-transition;
+        position: absolute;
+        content: '';
+        width: 69px;
+        height: 1px;
+        background: $blue;
+        bottom: 0;
+      }
+    }
+  }
+
+  &__link {
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+    transition: $all-transition;
+
+    &--next {
+      color: $gray;
+    }
+  }
+
+  &__numbers {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+    justify-self: end;
+    color: $blue;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    display: none;
+  }
+}
