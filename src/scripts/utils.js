@@ -25,6 +25,7 @@
     }
     return nameString;
   };
+
 // #endregion
 
 // #region tirm string
@@ -51,6 +52,18 @@
   export function animationText(name, index) {
     name.style.animation = 'bright 2s ease-in-out alternate infinite';
     name.style.animationDelay = `${index * 300}ms`;
+  };
+
+// #endregion
+
+// #region action reset
+  export function resetAction(reset) {
+    const inputs = queryAll(reset);
+
+    inputs.forEach(input => {
+      input.value = '';
+      input.style = '';
+    });
   };
 
 // #endregion

@@ -16,12 +16,10 @@ import {
   changePositionTeg,
   showString,
   copyElement,
-  calculatePrice,
   displayCurrent,
   hideElement,
-  currentQuantity,
-  clickNewClassParthnerElement,
-  classHtml
+  classHtml,
+  resetAction
 } from './utils.js';
 
 import {
@@ -37,11 +35,38 @@ import {
 import { navigation_1, navigation_2, navigation_3 } from './slider.js';
 import { benefits, experience } from './array_of_data.js';
 import { templateHtml } from './templates.js';
-import { FORM__ERROR_TEXT, FORM_FILLING_ERROR_TEXT, MESSAGE_EMAIL, MESSAGE_PHONE, MESSAGE_TEXT, spanError, validateField } from './validator.js';
 
-import favicon_1 from '../icon/favicons/favicon1.svg';
-import favicon_2 from '../icon/favicons/favicon2.svg';
-import favicon_3 from '../icon/favicons/favicon3.svg';
+import {
+  FORM__ERROR_TEXT,
+  FORM_FILLING_ERROR_TEXT,
+  MESSAGE_EMAIL,
+  MESSAGE_PHONE, MESSAGE_SELECT,
+  MESSAGE_TEXT,
+  spanError,
+  validateField,
+  validateField_2,
+  onlyLetters,
+  onlyNumbers,
+  validateInput,
+  validField,
+  validForm,
+  validCreditCard
+} from './validator.js';
+
+import {
+  cardExpiry,
+  cardNumberCVVfield,
+  cardNumberEntryFields,
+  focusInputField,
+  paymentSystem
+} from './credit-card.js';
+
+// import pictures
+  import imgText from '../icon/about_us.svg';
+
+  import favicon_1 from '../icon/favicons/favicon1.svg';
+  import favicon_2 from '../icon/favicons/favicon2.svg';
+  import favicon_3 from '../icon/favicons/favicon3.svg';
 
 // #region animate favicon
 
@@ -184,26 +209,29 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
 
   clLogo.classList.add('purchase-payment__box-logo');
 
-  //
+  // event at the top of the window
+    clickClass('.purchase-payment__icon', '.purchase-payment', 'remove', '--active');
+    clickClass('.purchase-payment__icon', '.body', 'remove', '__lock');
 
-  clickClass('.purchase-payment__icon', '.purchase-payment', 'remove', '--active');
-  clickClass('.purchase-payment__box-logo', '.purchase-payment', 'remove', '--active');
+    query('.purchase-payment__icon').addEventListener('click', function() {
+      resetAction('input');
+      resetAction('span');
+    });
 
-  clickClass('.purchase-payment__icon', '.body', 'remove', '__lock');
-  clickClass('.purchase-payment__box-logo', '.body', 'remove', '__lock');
+    clickClass('.purchase-payment__box-logo', '.purchase-payment', 'remove', '--active');
+    clickClass('.purchase-payment__box-logo', '.body', 'remove', '__lock');
 
-  clickClass('.purchase-payment__quantity-window', '.purchase-payment__icon-arrow', 'toggle', '--active');
-  clickClass('.purchase-payment__quantity-window', '.purchase-payment__quantity-window', 'toggle', '--active');
-  clickClass('.purchase-payment__quantity-window', '.purchase-payment__selection-list', 'toggle', '--active');
+    query('.purchase-payment__box-logo').addEventListener('click', function() {
+      resetAction('input');
+      resetAction('span');
+    });
 
+  // the area of the number of services
+    clickClass('.purchase-payment__quantity-window', '.purchase-payment__icon-arrow', 'toggle', '--active');
+    clickClass('.purchase-payment__quantity-window', '.purchase-payment__quantity-window', 'toggle', '--active');
+    clickClass('.purchase-payment__quantity-window', '.purchase-payment__selection-list', 'toggle', '--active');
 
-  clickGroup('.purchase-payment__option', 'remove', '--active', '.purchase-payment__icon-arrow');
-  clickGroup('.purchase-payment__option', 'remove', '--active', '.purchase-payment__quantity-window');
-  clickGroup('.purchase-payment__option', 'remove', '--active', '.purchase-payment__selection-list');
-
-  hideElement('quantity-window', '.purchase-payment__quantity', '.purchase-payment__option');
-
-  // display numter of servises
+  // display the numter of services
     window.addEventListener('DOMContentLoaded', function() {
 
       if(query('.purchase-payment__quantity').dataset.value > 0) {
@@ -213,39 +241,162 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
       }
     });
 
+  // the drop-down list the numbers of services
+    clickGroup('.purchase-payment__option', 'remove', '--active', '.purchase-payment__icon-arrow');
+    clickGroup('.purchase-payment__option', 'remove', '--active', '.purchase-payment__quantity-window');
+    clickGroup('.purchase-payment__option', 'remove', '--active', '.purchase-payment__selection-list');
+
+    hideElement('quantity-window', '.purchase-payment__quantity', '.purchase-payment__option');
+
+  // calculation area and price display
     displayCurrent('.purchase-payment__selection', '.purchase-payment__quantity',
       '.purchase-payment__price', '*', '1200');
 
+  // slider at the top of the section "purchase-payment__form"
+    query('input[id="switch-pay_1"]').addEventListener('click', function() {
 
-  // slider in the section "about product"
-    navigation_2('input[id="switch-pay_1"]', '.purchase-payment__form', '0');
-    navigation_2('input[id="switch-pay_2"]', '.purchase-payment__form', '-100');
-    navigation_2('input[id="switch-pay_3"]', '.purchase-payment__form', '-200');
+      queryAll('input[name="switch-pay"]').forEach(radio => {
+        radio.nextElementSibling.classList.remove('purchase-payment__label--active');
 
-  // buttons with the names "purchase"
-    navigation_2('.purchase-payment__user-data--btn', '.purchase-payment__form', '-100');
-    navigation_2('.purchase-payment__pay--btn', '.purchase-payment__form', '-200');
+        if(radio.checked) {
+          radio.checked = true;
+        }
+      });
 
-  // toggle slider
+      query('.purchase-payment__form').style.transform = 'translateX(0%)';
+    });
+
+    query('input[id="switch-pay_2"]').addEventListener('click', function() {
+
+      queryAll('input[name="switch-pay"]').forEach(radio => {
+        radio.nextElementSibling.classList.remove('purchase-payment__label--active');
+
+        if(radio.checked) {
+          radio.checked = true;
+        }
+      });
+
+      query('.purchase-payment__form').style.transform = 'translateX(-100%)';
+    });
+
+  // button event ".purchase-payment__user-data--btn"
     query('.purchase-payment__user-data--btn').addEventListener('click', function() {
-      query('input[id="switch-pay_1"]').removeAttribute('checked');
-      query('input[id="switch-pay_2"]').setAttribute('checked', 'checked');
+
+      queryAll('input[name="switch-pay"]').forEach(radio => {
+        radio.nextElementSibling.classList.remove('purchase-payment__label--active');
+
+        if(radio.checked) {
+          radio.checked = false;
+        }
+      });
+
+      query('input[id="switch-pay_2"]').nextElementSibling.classList.add('purchase-payment__label--active');
+      query('.purchase-payment__form').style.transform = 'translateX(-100%)';
     });
 
-    query('.purchase-payment__pay--btn').addEventListener('click', function() {
-      query('input[id="switch-pay_2"]').removeAttribute('checked');
-      query('input[id="switch-pay_3"]').setAttribute('checked', 'checked');
+    // ========SYBMIT FORM!!!============
+
+  // button event ".purchase-payment__credit-card--btn"
+    query('.purchase-payment__credit-card--btn').addEventListener('click', function() {
+
+      queryAll('input[name="switch-pay"]').forEach(radio => {
+        radio.nextElementSibling.classList.remove('purchase-payment__label--active');
+
+        if(radio.checked) {
+          radio.checked = false;
+        }
+      });
+
+      query('input[id="switch-pay_1"]').nextElementSibling.style.pointerEvents = 'none';
+      query('input[id="switch-pay_2"]').nextElementSibling.style.pointerEvents = 'none';
+      query('input[id="switch-pay_3"]').nextElementSibling.classList.add('purchase-payment__label--active');
+
+      // classHtml('.purchase-payment__content', 'add', '--active');
+      // query('.purchase-payment__form').style.transform = 'translateX(-200%)';
+
+      validForm('.purchase-payment-input');
     });
 
 
-  // button with then name "back to homepage"
-    clickClass('.purchase-payment__complete--btn', '.body', 'remove', '__lock');
-    clickClass('.purchase-payment__complete--btn', '.purchase-payment', 'remove', '--active');
 
+    // =============================================
+
+  // button event ".purchase-payment__complete--btn"
     query('.purchase-payment__complete--btn').addEventListener('click', function() {
-      query('input[id="switch-pay_3"]').removeAttribute('checked');
-      query('input[id="switch-pay_1"]').setAttribute('checked', 'checked');
+
+      queryAll('input[name="switch-pay"]').forEach(radio => {
+        radio.nextElementSibling.classList.remove('purchase-payment__label--active');
+
+        if(radio.checked) {
+          radio.checked = false;
+        }
+      });
+
+      query('input[id="switch-pay_1"]').nextElementSibling.style.pointerEvents = 'all';
+      query('input[id="switch-pay_2"]').nextElementSibling.style.pointerEvents = 'all';
+
+      query('input[id="switch-pay_1"]').checked = true;
+      query('.purchase-payment__form').style.transform = 'translateX(0%)';
+
+      classHtml('.body', 'remove', '__lock');
+      classHtml('.purchase-payment', 'remove', '--active');
+      classHtml('.purchase-payment__content', 'remove', '--active');
+
+      resetAction('span');
+      resetAction('input');
     });
+
+  // #region validation of forms
+
+    // section "purchase-payment__user-data"
+      onlyLetters('input[name="first-name"]');
+      validateInput('first-name');
+      validField('first-name', 'isName', MESSAGE_TEXT);
+
+      onlyLetters('input[name="last-name"]');
+      validateInput('last-name');
+      validField('last-name', 'isName', MESSAGE_TEXT);
+
+      validateInput('e-email');
+      validField('e-email', 'isEmail', MESSAGE_EMAIL);
+
+      onlyNumbers('input[name="phone-number"]');
+      validateInput('phone-number');
+      validField('phone-number', 'isPhone', MESSAGE_PHONE);
+
+
+    // country!!!!!!
+      validateField_2('country', 'isSelect', MESSAGE_SELECT);
+
+    // city!!!!!!!!
+      validateField_2('city', 'isSelect', MESSAGE_SELECT);
+
+
+      validateInput('adress-1');
+      validField('adress-1', 'isName', MESSAGE_TEXT);
+
+    // "purchase-payment__credit-card"
+      focusInputField('input[name="number-card-field-4"]', '4', 'input[name="holder-name"]');
+      focusInputField('input[name="card-data"]', '5', 'input[name="card-cvv"]');
+      onlyLetters('input[name="holder-name"]');
+
+      cardNumberEntryFields('.credit-card-number');
+      paymentSystem('input[name="number-card-field-1"]');
+
+      validCreditCard('number-card-field-1', '4');
+      validCreditCard('number-card-field-2', '4');
+      validCreditCard('number-card-field-3', '4');
+      validCreditCard('number-card-field-4', '4');
+
+      validCreditCard('holder-name', '5');
+
+      cardExpiry('input[name="card-data"]');
+      validCreditCard('card-data', '5');
+
+      cardNumberCVVfield('input[name="card-cvv"]');
+      validCreditCard('card-cvv', '3');
+
+  // #endregion
 
 // #endregion
 
@@ -306,7 +457,6 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
     });
 
   // animation text in the "about-product__text-images"
-    import imgText from '../icon/about_us.svg';
     copyElement('.about-product__text-images', imgText, '5');
 
   // duplication button "link-video"
@@ -483,29 +633,4 @@ import favicon_3 from '../icon/favicons/favicon3.svg';
     itemMenu.forEach(link => {
       link.classList.add('footer__menu-link');
     });
-// #endregion
-
-// =============================== delete ===================
-// #region changing resize window broswer and content loaded
-
-window.addEventListener('DOMContentLoaded', () => {
-  // changePositionItem('--desktop', '.menu', 'appendChild', '.top-bar__container', '.drop-down-menu');
-  // changePositionItem('--tablet', '.about-product__title', 'prepend', '.about-product__article-1', '.about-product__container');
-
-  // changePositionElement('--desktop', '.menu__list', 'li-2', '.header__bottom__menu');
-  // changePositionElement('--desktop', '.menu__list', 'li-3', '.header__bottom__menu');
-
-
-  // clickGroup('.language-page__item', 'remove', '--active', '.language-page__list');
-  // clickGroup('.language-page__item', 'remove', '--blurred-screen', '.header__container');
-});
-
-window.addEventListener('resize', () => {
-
-  // changePositionItem('--desktop', '.menu', 'appendChild', '.top-bar__container', '.drop-down-menu');
-  // changePositionItem('--tablet', '.about-product__title', 'prepend', '.about-product__article-1', '.about-product__container');
-
-  // changePositionElement('--desktop', '.menu__list', 'li-2', '.header__bottom__menu');
-  // changePositionElement('--desktop', '.menu__list', 'li-3', '.header__bottom__menu');
-});
 // #endregion
