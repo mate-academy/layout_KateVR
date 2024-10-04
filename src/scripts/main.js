@@ -43,14 +43,14 @@ import {
   MESSAGE_PHONE, MESSAGE_SELECT,
   MESSAGE_TEXT,
   spanError,
-  validateField,
-  validateField_2,
   onlyLetters,
   onlyNumbers,
   validateInput,
   validField,
   validForm,
-  validCreditCard
+  validCreditCard,
+  validContactForm,
+  validateInputAnother
 } from './validator.js';
 
 import {
@@ -294,32 +294,39 @@ import {
       query('.purchase-payment__form').style.transform = 'translateX(-100%)';
     });
 
-    // ========SYBMIT FORM!!!============
-
   // button event ".purchase-payment__credit-card--btn"
     query('.purchase-payment__credit-card--btn').addEventListener('click', function() {
 
-      queryAll('input[name="switch-pay"]').forEach(radio => {
-        radio.nextElementSibling.classList.remove('purchase-payment__label--active');
+      const elements = queryAll('.purchase-payment-input');
+      let dataValue = [];
 
-        if(radio.checked) {
-          radio.checked = false;
-        }
-      });
+        elements.forEach(elem => {
+          dataValue += elem.dataset.role;
+        });
 
-      query('input[id="switch-pay_1"]').nextElementSibling.style.pointerEvents = 'none';
-      query('input[id="switch-pay_2"]').nextElementSibling.style.pointerEvents = 'none';
-      query('input[id="switch-pay_3"]').nextElementSibling.classList.add('purchase-payment__label--active');
+      let totalSum = dataValue.split('').map(Number).reduce((acc, num) => acc + num, 0);
 
-      // classHtml('.purchase-payment__content', 'add', '--active');
-      // query('.purchase-payment__form').style.transform = 'translateX(-200%)';
+      if(totalSum >= 1) {
+        validForm('.purchase-payment-input');
+        return;
+      } else {
 
-      validForm('.purchase-payment-input');
+        queryAll('input[name="switch-pay"]').forEach(radio => {
+          radio.nextElementSibling.classList.remove('purchase-payment__label--active');
+
+          if(radio.checked) {
+            radio.checked = false;
+          }
+        });
+
+        query('input[id="switch-pay_1"]').nextElementSibling.style.pointerEvents = 'none';
+        query('input[id="switch-pay_2"]').nextElementSibling.style.pointerEvents = 'none';
+        query('input[id="switch-pay_3"]').nextElementSibling.classList.add('purchase-payment__label--active');
+
+        classHtml('.purchase-payment__content', 'add', '--active');
+        query('.purchase-payment__form').style.transform = 'translateX(-200%)';
+      };
     });
-
-
-
-    // =============================================
 
   // button event ".purchase-payment__complete--btn"
     query('.purchase-payment__complete--btn').addEventListener('click', function() {
@@ -366,10 +373,8 @@ import {
 
 
     // country!!!!!!
-      validateField_2('country', 'isSelect', MESSAGE_SELECT);
 
     // city!!!!!!!!
-      validateField_2('city', 'isSelect', MESSAGE_SELECT);
 
 
       validateInput('adress-1');
@@ -378,7 +383,6 @@ import {
     // "purchase-payment__credit-card"
       focusInputField('input[name="number-card-field-4"]', '4', 'input[name="holder-name"]');
       focusInputField('input[name="card-data"]', '5', 'input[name="card-cvv"]');
-      onlyLetters('input[name="holder-name"]');
 
       cardNumberEntryFields('.credit-card-number');
       paymentSystem('input[name="number-card-field-1"]');
@@ -388,16 +392,16 @@ import {
       validCreditCard('number-card-field-3', '4');
       validCreditCard('number-card-field-4', '4');
 
-      validCreditCard('holder-name', '5');
+
+      validField('holder-name', 'isName', MESSAGE_TEXT);
+      onlyLetters('input[name="holder-name"]');
 
       cardExpiry('input[name="card-data"]');
       validCreditCard('card-data', '5');
 
       cardNumberCVVfield('input[name="card-cvv"]');
       validCreditCard('card-cvv', '3');
-
   // #endregion
-
 // #endregion
 
 // #region section "header"
@@ -559,50 +563,64 @@ import {
   });
 
   // #region form validation
-    validateField('username', 'isName', MESSAGE_TEXT);
-    validateField('email', 'isEmail', MESSAGE_EMAIL);
-    validateField('phone', 'isPhone', MESSAGE_PHONE);
+    onlyLetters('input[name="username"]');
+    validateInput('username');
+    validateInputAnother('username', 'contact-form');
+    validField('username', 'isName', MESSAGE_TEXT);
 
+    validateInput('email');
+    validateInputAnother('email', 'contact-form');
+    validField('email', 'isEmail', MESSAGE_EMAIL);
 
-    queryID('btn-form').addEventListener('click', (event) => {
-      event.preventDefault();
+    onlyNumbers('input[name="phone"]');
+    validateInput('phone');
+    validateInputAnother('phone', 'contact-form');
+    validField('phone', 'isPhone', MESSAGE_PHONE);
 
-      const spanForm = query(`span[data-value="error-form"]`);
-      const inputName = query('input[name="username"]').dataset.role;
-      const inputEmail = query('input[name="email"]').dataset.role;
-      const inputPhone = query('input[name="phone"]').dataset.role;
+    //  button event ".contact__form--btn"
+      queryID('btn-form').addEventListener('click', function() {
+        const elements = queryAll('.contact-form-input');
+        const spanForm = query('span[data-value="error-contact-form"]');
 
-      let sum = Number(inputName + inputEmail + inputPhone);
+        let dataValue = [];
 
-      if(sum > 0) {
-        spanForm.textContent = FORM__ERROR_TEXT;
-        spanForm.style.transform = 'scale(1)';
+          elements.forEach(elem => {
+            dataValue += elem.dataset.role;
+          });
 
-        query('.contact__form--username').style.color = '#05c2df';
-        query('.contact__form--email').style.color = '#05c2df';
-        query('.contact__form--phone').style.color = '#05c2df';
+        let totalSum = dataValue.split('').map(Number).reduce((acc, num) => acc + num, 0);
 
-        return;
-      } else if(spanError.length > 0) {
+        if(totalSum === 3) {
+          spanForm.textContent = FORM__ERROR_TEXT;
+          spanForm.style.transform = 'scale(1)';
 
-        spanForm.textContent = FORM_FILLING_ERROR_TEXT;
-        spanForm.style.transform = 'scale(1)';
+          query('.contact__form--username').style.color = '#05c2df';
+          query('.contact__form--email').style.color = '#05c2df';
+          query('.contact__form--phone').style.color = '#05c2df';
 
-        return;
-      };
+          return;
 
-      const formTemplate = `
-                              Please confirm your details:
-                                Username: ${query('input[name="username"]').value}
-                                Email: ${query('input[name="email"]').value}
-                                Phone: ${query('input[name="phone"]').value}
-                                ${showString('Message:', query('textarea[name="message"]').value)} ${query('textarea[name="message"]').value}
-                            `;
+        } else if(totalSum >= 1) {
+          spanForm.textContent = FORM_FILLING_ERROR_TEXT;
+          spanForm.style.transform = 'scale(1)';
+          
+          return;
+        };
 
-      const isConfirmed = confirm(formTemplate);
-      (isConfirmed) ? alert('Form submitted successfully!') : alert('Form was not submitted.');
-      query('.contact__form').reset();
-    });
+        const formTemplate = `
+                                Please confirm your details:
+                                  Username: ${query('input[name="username"]').value}
+                                  Email: ${query('input[name="email"]').value}
+                                  Phone: ${query('input[name="phone"]').value}
+                                  ${showString('Message:', query('textarea[name="message"]').value)} ${query('textarea[name="message"]').value}
+                              `;
+
+        const isConfirmed = confirm(formTemplate);
+        (isConfirmed) ? alert('Form submitted successfully!') : alert('Form was not submitted.');
+
+        query('.contact__form').reset();
+        resetAction('input');
+      });
   //#endregion
 
 // #endregion

@@ -63,6 +63,7 @@
     inputs.forEach(input => {
       input.value = '';
       input.style = '';
+      input.dataset.role = '1';
     });
   };
 

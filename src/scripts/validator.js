@@ -10,15 +10,12 @@ export const MESSAGE_EMAIL = 'Invalid.For example: global@katvr.com  Please repe
 export const MESSAGE_PHONE = 'Invalid. For example: 86057186105373. Please repeat!';
 export const MESSAGE_SELECT = 'Invalid. This field is required! Please select from the list.';
 
-export let spanError = [];
-
 class Validator {
 
   isRequired(value) {
     if(value.trim() !== '') {
       return true;
     } else {
-      spanError.push(1);
       return false;
     }
   };
@@ -27,7 +24,6 @@ class Validator {
     if(/^[a-zA-Z]{2,}$/.test(value)) {
       return true;
     } else {
-      spanError.push(2);
       return false;
     }
   };
@@ -36,7 +32,6 @@ class Validator {
     if(/^\w{3,}@\w{3,}\.[a-zA-z]{2,}$/.test(value)) {
       return true;
     } else {
-      spanError.push(2);
       return false;
     }
   };
@@ -45,7 +40,6 @@ class Validator {
     if(/^\+?\d{10,}$/.test(value)) {
       return true;
     } else {
-      spanError.push(2);
       return false;
     }
   };
@@ -54,96 +48,12 @@ class Validator {
     if(value.trim() !== '') {
       return true;
     } else {
-      spanError.push(1);
       return false;
     }
   }
 };
 
 const validator = new Validator();
-
-// ===============????????????????
-
-export function validateField(name, validate, message) {
-
-  const labelElement = query(`.contact__form--${name}`);
-
-  const inputElement = query(`input[name="${name}"]`);
-  const span = query(`span[data-value="error-${name}"]`);
-
-  const spanForm = query('span[data-value="error-form"]');
-
-  inputElement.addEventListener('input', (event) => {
-    event.preventDefault();
-
-    const requiredField = validator.isRequired(inputElement.value);
-    const inputValue = validator[validate](inputElement.value);
-
-    if(requiredField !== true) {
-      span.textContent = REQUIRE_TEXT;
-      span.style.transform = 'scale(1)';
-      inputElement.dataset.role = '1';
-
-    } else if(inputValue !== true) {
-      span.textContent = message;
-      span.style.transform = 'scale(1)';
-    }  else {
-
-      setTimeout(function() {
-        span.textContent = '';
-        spanForm.textContent = '';
-      },400);
-
-      spanError = [];
-      span.style.transform = 'scale(0)';
-      spanForm.style.transform = 'scale(0)';
-      inputElement.dataset.role = '0';
-      labelElement.style.color = '';
-    }
-  })
-};
-
-export function validateField_2(name, validate, message) {
-
-  // const labelElement = query(`.contact__form--${name}`);
-
-  const inputField = query(`input[name="${name}"]`);
-
-  const span = query(`span[data-value="error-${name}"]`);
-
-
-  // const spanForm = query('span[data-value="error-form"]');
-
-  inputField.addEventListener('input', (event) => {
-    event.preventDefault();
-
-    const requiredField = validator.isRequired(inputField.value);
-    const inputValue = validator[validate](inputField.value);
-
-    if(requiredField !== true) {
-      span.textContent = REQUIRE_TEXT;
-      span.style.transform = 'scale(1)';
-      inputField.dataset.role = '1';
-
-    } else if(inputValue !== true) {
-      span.textContent = message;
-      span.style.transform = 'scale(1)';
-    }  else {
-
-      setTimeout(function() {
-        span.textContent = '';
-      }, 400);
-
-      spanError = [];
-      span.style.transform = 'scale(0)';
-      inputField.dataset.role = '0';
-    }
-  })
-};
-
-// =======================???????????????
-
-
 
 export function validateInput(namefield) {
 
@@ -163,9 +73,34 @@ export function validateInput(namefield) {
 
       setTimeout(function() {
         span.textContent = '';
-      }, 400);
+      }, 300);
 
-      spanError = [];
+      span.style.transform = 'scale(0)';
+      input.dataset.role = '0';
+    };
+  });
+};
+
+export function validateInputAnother(namefield, anotherSpan) {
+
+  const input = query(`input[name="${namefield}"]`);
+  const span = query(`span[data-value="error-${anotherSpan}"]`);
+
+  input.addEventListener('input', function () {
+
+    const requiredField = validator.isRequired(input.value);
+
+    if(requiredField !== true) {
+      span.textContent = REQUIRE_TEXT;
+      span.style.transform = 'scale(1)';
+      input.dataset.role = '1';
+
+    } else {
+
+      setTimeout(function() {
+        span.textContent = '';
+      }, 300);
+
       span.style.transform = 'scale(0)';
       input.dataset.role = '0';
     };
@@ -195,9 +130,8 @@ export function validField(namefield, validate, message) {
 
       setTimeout(function() {
         span.textContent = '';
-      }, 400);
+      }, 300);
 
-      spanError = [];
       span.style.transform = 'scale(0)';
       input.dataset.role = '0';
     };
@@ -234,30 +168,51 @@ export function onlyNumbers(field) {
 };
 
 export function validForm(nameFileds) {
-
   const inputs = queryAll(nameFileds);
   const span = query('span[data-value="error-btn-user-data');
+  let dataValue = [];
 
-
-  inputs.forEach(input => {
-
-    let dataValue = parseInt(input.dataset.role);
-
-    console.log(dataValue);
-
-
-    if(dataValue >= 1) {
-      span.textContent = FORM_FILLING_ERROR_TEXT;
-      span.style.transform = 'scale(1)';
-    } else {
-
-      setTimeout(function() {
-        span.textContent = '';
-      }, 400);
-
-      span.textContent = '';
-      span.style.transform = 'scale(0)';
-    }
-
+  inputs.forEach(elem => {
+    dataValue += elem.dataset.role;
   });
+
+  let totalSum = dataValue.split('').map(Number).reduce((acc, num) => acc + num, 0);
+
+  if(totalSum >= 1) {
+    span.textContent = FORM_FILLING_ERROR_TEXT;
+    span.style.transform = 'scale(1)';
+  } else {
+
+    setTimeout(function() {
+      span.textContent = '';
+    }, 300);
+
+    span.textContent = '';
+    span.style.transform = 'scale(0)';
+  }
 };
+
+// export function validContactForm(nameFileds, nameSpan) {
+//   const inputs = queryAll(nameFileds);
+//   const span = query(`span[data-value="error-${nameSpan}`);
+//   let dataValue = [];
+
+//   inputs.forEach(elem => {
+//     dataValue += elem.dataset.role;
+//   });
+
+//   let totalSum = dataValue.split('').map(Number).reduce((acc, num) => acc + num, 0);
+
+//   if(totalSum >= 1) {
+//     span.textContent = FORM_FILLING_ERROR_TEXT;
+//     span.style.transform = 'scale(1)';
+//   } else {
+
+//     setTimeout(function() {
+//       span.textContent = '';
+//     }, 300);
+
+//     span.textContent = '';
+//     span.style.transform = 'scale(0)';
+//   }
+// };
