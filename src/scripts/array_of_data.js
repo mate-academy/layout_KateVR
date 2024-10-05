@@ -60,3 +60,15 @@ export const benefits = [
     text: 'What makes it even more advanced, KAT Loco is entirely wireless, and comes with a complete system of algorithms, super durable batteries and more!'
   }
 ];
+
+export const countries = {
+  "Saudi Arabia": ['Riyadh', 'Jeddah', 'Mecca', 'Medina', 'Dammam'],
+  "China": ['Beijing', 'Shanghai', 'Guangzhou', 'Shenzhen', 'Chengdu'],
+  "United Kingdom": ['London', 'Manchester', 'Birmingham', 'Leeds', 'Liverpool'],
+  "France": ['Paris', 'Marseille', 'Lyon', 'Toulouse', 'Nice'],
+  "Germany": ['Berlin', 'Munich', 'Frankfurt', 'Hamburg', 'Cologne'],
+  "Italy": ['Rome', 'Milan', 'Naples', 'Turin', 'Palermo'],
+  "Poland": ['Warsaw', 'Krakow', 'Wroclaw', 'Poznan', 'Gdansk'],
+  "Russia": ['Moscow', 'Saint Petersburg', 'Novosibirsk', 'Yekaterinburg', 'Kazan'],
+  "Ukraine": ['Kyiv', 'Kharkiv', 'Odesa', 'Dnipro', 'Lviv']
+};

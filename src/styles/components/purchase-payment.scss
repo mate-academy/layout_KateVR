@@ -336,8 +336,19 @@
 
       color: $light-gray;
 
+      & > select {
+        @extend %mouse-pointer;
+
+        height: 47px;
+        background-color: $dark-purple;
+      }
+
       @include hover(color, $aqua, $time-average) {
         & > input {
+          border-bottom: 1px solid $aqua;
+        }
+
+        & > select {
           border-bottom: 1px solid $aqua;
         }
       }
@@ -369,17 +380,25 @@
       }
     }
 
-    &--country {
-      & > input {
-        height: 47px;
-        background-color: $dark-purple;
-      }
+    &--country,
+    &--city {
+      position: relative;
     }
 
-    &--city {
-      & > input {
-        height: 47px;
-        background-color: $dark-purple;
+    &--country-icon,
+    &--city-icon {
+      position: absolute;
+      top: 44px;
+      right: 20px;
+
+      width: 9px;
+      height: auto;
+      aspect-ratio: 1;
+      transform: rotate(90deg);
+      transition: $time-average;
+
+      &--active {
+        transform: rotate(270deg);
       }
     }
 

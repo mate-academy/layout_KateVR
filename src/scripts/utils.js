@@ -84,6 +84,7 @@
   export function clickClass(name, className, event, nameClass) {
     const item = query(name);
 
+
     item.addEventListener('click', function() {
       classHtml(className, [event], nameClass);
     });
@@ -97,15 +98,6 @@
         classicClassHtml(blockName, [event], newClass);
       })
     };
-
-  // click with add or delete new class to the parther element
-    // export function clickNewClassParthnerElement(nameClick, nameClass, event, newClass) {
-    //   const item = query(nameClick);
-
-    //   item.addEventListener('click', function() {
-    //     query(nameClass).nextElementSibling.classList[event](newClass);
-    //   })
-    // };
 
   // click with add or delete class clone
     export function clickClassClone(clone, className, event, nameClass) {

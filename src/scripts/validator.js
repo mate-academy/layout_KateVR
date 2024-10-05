@@ -138,6 +138,32 @@ export function validField(namefield, validate, message) {
   });
 };
 
+export function validSelection(Select) {
+
+  const input = query(`select[name="${Select}"]`);
+  const span = query(`span[data-value="error-${Select}"]`);
+
+  input.addEventListener('blur', function () {
+
+    const requiredField = validator.isSelect(input.value);
+
+    if(requiredField !== true) {
+      span.textContent = MESSAGE_SELECT;
+      span.style.transform = 'scale(1)';
+      input.dataset.role = '1';
+
+    }  else {
+
+      setTimeout(function() {
+        span.textContent = '';
+      }, 300);
+
+      span.style.transform = 'scale(0)';
+      input.dataset.role = '0';
+    };
+  });
+};
+
 export function validCreditCard(field, stringLength) {
   const input = query(`input[name="${field}"]`);
 
@@ -191,28 +217,3 @@ export function validForm(nameFileds) {
     span.style.transform = 'scale(0)';
   }
 };
-
-// export function validContactForm(nameFileds, nameSpan) {
-//   const inputs = queryAll(nameFileds);
-//   const span = query(`span[data-value="error-${nameSpan}`);
-//   let dataValue = [];
-
-//   inputs.forEach(elem => {
-//     dataValue += elem.dataset.role;
-//   });
-
-//   let totalSum = dataValue.split('').map(Number).reduce((acc, num) => acc + num, 0);
-
-//   if(totalSum >= 1) {
-//     span.textContent = FORM_FILLING_ERROR_TEXT;
-//     span.style.transform = 'scale(1)';
-//   } else {
-
-//     setTimeout(function() {
-//       span.textContent = '';
-//     }, 300);
-
-//     span.textContent = '';
-//     span.style.transform = 'scale(0)';
-//   }
-// };

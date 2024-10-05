@@ -40,17 +40,16 @@ import {
   FORM__ERROR_TEXT,
   FORM_FILLING_ERROR_TEXT,
   MESSAGE_EMAIL,
-  MESSAGE_PHONE, MESSAGE_SELECT,
+  MESSAGE_PHONE,
   MESSAGE_TEXT,
-  spanError,
   onlyLetters,
   onlyNumbers,
   validateInput,
   validField,
   validForm,
   validCreditCard,
-  validContactForm,
-  validateInputAnother
+  validateInputAnother,
+  validSelection
 } from './validator.js';
 
 import {
@@ -60,6 +59,8 @@ import {
   focusInputField,
   paymentSystem
 } from './credit-card.js';
+
+import { citySelect, countrySelect } from './drop-down_lists.js';
 
 // import pictures
   import imgText from '../icon/about_us.svg';
@@ -214,8 +215,9 @@ import {
     clickClass('.purchase-payment__icon', '.body', 'remove', '__lock');
 
     query('.purchase-payment__icon').addEventListener('click', function() {
-      resetAction('input');
       resetAction('span');
+      resetAction('input');
+      resetAction('select');
     });
 
     clickClass('.purchase-payment__box-logo', '.purchase-payment', 'remove', '--active');
@@ -351,6 +353,7 @@ import {
 
       resetAction('span');
       resetAction('input');
+      resetAction('select');
     });
 
   // #region validation of forms
@@ -371,11 +374,13 @@ import {
       validateInput('phone-number');
       validField('phone-number', 'isPhone', MESSAGE_PHONE);
 
+      validSelection('country');
+      clickClass('select[name="country"]', '.purchase-payment__user-data--country-icon', 'toggle', '--active');
+      countrySelect('countrySelect');
 
-    // country!!!!!!
-
-    // city!!!!!!!!
-
+      validSelection('city');
+      clickClass('select[name="city"]', '.purchase-payment__user-data--city-icon', 'toggle', '--active');
+      queryID('countrySelect').addEventListener('change', citySelect);
 
       validateInput('adress-1');
       validField('adress-1', 'isName', MESSAGE_TEXT);
@@ -603,7 +608,7 @@ import {
         } else if(totalSum >= 1) {
           spanForm.textContent = FORM_FILLING_ERROR_TEXT;
           spanForm.style.transform = 'scale(1)';
-          
+
           return;
         };
 
