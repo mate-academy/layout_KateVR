@@ -125,16 +125,14 @@
 
     @extend %mouse-pointer;
 
-    position: fixed;
-    left: clamp(230px, 50vw, 230px);
-    top: 5vh;
-
     @include breakpoint($desktop) {
-      @include content-centering($desktop);
-
       @include flex(row, 8px) {
         align-items: flex-end;
       }
+
+      @include content-centering($desktop);
+
+      margin-left: 50px;
 
       @include hover(transform, $scale, $time-fast) {
         .language-page__icon-arrow {

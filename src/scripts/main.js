@@ -100,6 +100,8 @@ import { citySelect, countrySelect } from './drop-down_lists.js';
     clickGroup('.language-page__item', 'remove', '--active', '.language-page__list');
     clickGroup('.language-page__item', 'remove', '--blurred-screen', '.header__container');
 
+    changePositionItem('--desktop', '.language-page__button', 'appendChild', '.top-bar__container', '.language-page__content');
+
     (window.innerWidth < breakpoint('--desktop'))
       ? clickGroup('.language-page__item', 'add', '--close', '.language-page')
       : clickGroup('.language-page__item', 'remove', '--close', '.language-page');

@@ -87,6 +87,12 @@
   &__link {
     @extend %mouse-pointer;
 
+    &:first-child {
+      & > svg {
+        transform: scale(1.5);
+      }
+    }
+
     @include hover(transform, scale(2), $time-average) {
       & > svg {
         fill: $aqua;
