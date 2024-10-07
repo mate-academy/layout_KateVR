@@ -1,31 +1,28 @@
-# KateVR landing page (HARD)
+# KateVR landing page
+A landing page for locomotive system from KateVR that expands VR-experience made with HTML and CSS.
 
-**⚠️ Attention: this is a hard landing page for development. We highly recommend choosing this landing page only if you didn't have a lot of troubles with previous homework tasks and if you sent all homework in time (didn't miss deadlines).** 
+## Check it out!
+- [DEMO LINK](https://vkrasnovyd.github.io/layout_KateVR/)
+- [PAGE PROTOTYPE](https://www.figma.com/design/Blpg4iapsI7fRqJeSp6DvK/KatVR-_FE-students?node-id=3495-38&node-type=canvas&t=ay18MM3LBdYsm8eN-0)
 
-Implement landing page according to [Figma design](https://www.figma.com/file/Blpg4iapsI7fRqJeSp6DvK/KatVR?node-id=1%3A370) - Use BEM and SCSS
+## Structure
+* 6 sections + top-bar and footer
+* Overlay with embed link to the product presentation video
+* Overlays with 'help' and 'faq' sections
+* Menu and language selection blocks as overlays on mobile devices (< 1280px)
 
-- The design 1440px
-- Desktop 1280px
-- Tablet 640px
-- Mobile (> 320px)
+## Features
+1. **Unified design**:
+* Block structure with reusable components for easy site scaling
+* Smilar content-box scaling logic for all sections
+* Consistent font styles, effects duration and color palette accross the entire page
 
+2. **Usability and user experience**:
+* Responsive design without horizontal scrolling
+* Clickable site navigation hyperlinks
+* Different first section and 'tech specs' block for tablets and phones for better content fit
 
-
-## Github flow
-1. **Fork** the repo.
-2. **Clone** the forked one. (The project link should have your name but not `mate-academy`)
-3. Run `npm install` (or just `npm i`).
-4. Run `npm start`.
-5. Open one more terminal window for the next steps.
-6. `git checkout -b develop` - to create new branch and switch on it.
-7. Write you code in `src` folder.
-8. Run `npm run lint` and fix code style errors.
-9. Run `npm run deploy` to deploy your solution to `gh-pages`.
-10. `git add . && git commit -m 'solution'` to save your changes.
-11. `git push origin develop` - to send you code for PR.
-12. Create a Pull Request (PR) from your branch `develop` to branch `master` of original repo.
-13. Replace `<your_account>` with your Github username in the
-  [DEMO LINK](https://<your_account>.github.io/layout_KateVR/).
-14. Copy `DEMO LINK` to the PR description.
-
-> To update you PR repeat steps 7-11.
+3. **User engagement**:
+* Hover effects on icons and clickable objects
+* Overlays with smooth opening and closing animations
+* Floating 'Buy now' button on mobile devices

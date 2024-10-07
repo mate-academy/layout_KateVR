@@ -1,0 +1,101 @@
+.faq {
+  &__title {
+    margin-bottom: 1em;
+  }
+
+  &__article {
+    margin-bottom: 1.2rem;
+    border: 1px solid $color-accent;
+    padding-inline: 27px;
+
+    &-toggle {
+      display: none;
+    }
+
+    &-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      cursor: pointer;
+      line-height: normal;
+      color: $color-accent;
+      padding-block: 18px;
+
+      @include media(laptop, desktop) {
+        @include hover(color, $color-white);
+      }
+    }
+
+    &-icon {
+      content: ' ';
+      display: block;
+      height: 0;
+      width: 0;
+      margin-top: 2px;
+
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 7px solid $color-accent;
+      transform: translateY(-2px);
+
+      transition: transform $transition-duration ease-out;
+    }
+
+    &-toggle:checked + &-title &-icon {
+      transform: rotate(90deg) translateX(-3px);
+    }
+
+    &-collapsible {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height $transition-duration ease-in-out;
+    }
+
+    &-toggle:checked + &-title + &-collapsible {
+      max-height: 100vh;
+    }
+
+    &-description {
+      margin-bottom: 27px;
+      line-height: 150%;
+    }
+
+    &-date {
+      color: #545454;
+      font-size: 14px;
+      margin-bottom: 23px;
+    }
+  }
+
+  &__more {
+    width: 100%;
+    display: flex;
+    margin-block: 30px;
+
+    &-button {
+      display: block;
+      margin-inline: auto;
+      color: $color-accent;
+      position: relative;
+
+      @include hover-scale;
+
+      &::after {
+        content: ' ';
+        display: block;
+        height: 0;
+        width: 0;
+
+        border-top: 6px solid $color-accent;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+        transform: translateY(-2px);
+
+        position: absolute;
+        top: 27px;
+        left: 40%;
+      }
+    }
+  }
+}

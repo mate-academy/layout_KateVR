@@ -1,3 +1,70 @@
 h1 {
   @extend %h1;
+
+  font-size: 26px;
+  line-height: 130%;
+  letter-spacing: 0.4px;
+
+  @include media(laptop, desktop) {
+    letter-spacing: 0.8px;
+  }
+
+  @include laptop {
+    font-size: 46px;
+  }
+
+  @include desktop {
+    font-size: 54px;
+  }
+}
+
+h2 {
+  @extend %h1;
+
+  font-size: 21px;
+  line-height: normal;
+
+  @include media(laptop, desktop) {
+    font-size: 36px;
+  }
+}
+
+h3 {
+  @extend %h1;
+
+  font-size: 18px;
+  line-height: normal;
+  letter-spacing: normal;
+
+  @include phone {
+    font-size: 16px;
+  }
+}
+
+p {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  letter-spacing: 0.1px;
+}
+
+.text-accent {
+  color: $color-accent;
+}
+
+.headline-accent {
+  color: $color-accent;
+  font-weight: 400;
+  letter-spacing: 0.35px;
+
+  @include media(laptop, desktop) {
+    letter-spacing: 1.1px;
+  }
+}
+
+.paragraph-accent {
+  line-height: 121%;
+  color: $color-accent;
+  font-size: 14px;
 }

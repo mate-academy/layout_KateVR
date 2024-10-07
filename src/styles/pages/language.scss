@@ -1,0 +1,30 @@
+.language {
+  height: 100vh;
+
+  @include media(laptop, desktop) {
+    &:target {
+      opacity: 0;
+      pointer-events: none;
+    }
+  }
+
+  &__button-back {
+    display: block;
+    background-image: url(../images/icons/button-back.svg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    height: 17px;
+    width: 8.5px;
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    @include tablet {
+      top: 37px;
+      left: 37px;
+    }
+  }
+}

@@ -1,0 +1,201 @@
+.screen-6 {
+  width: 100%;
+  background-color: #000;
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+
+    @include set-responsive-values(
+      grid-template-rows,
+      83px 1fr 46px,
+      118px 20px 74px 1fr,
+      118px 20px 74px 1fr,
+      118px 20px 75px 1fr
+    );
+    @include set-responsive-values(
+      margin-block,
+      -12px 0,
+      -15px 62px,
+      -12px 0,
+      -17px 47px
+    );
+
+    @include phone {
+      & > * {
+        grid-column: span 2;
+      }
+    }
+  }
+
+  &__heading {
+    grid-row: 1 / span 1;
+  }
+
+  &__title-extension {
+    @include phone {
+      margin-bottom: 11px;
+    }
+
+    @include set-responsive-values(
+      margin-block,
+      13px 10px,
+      15px 10px,
+      18px 12px,
+      19px 11px
+    );
+  }
+
+  &__description {
+    grid-row: 2 / span 1;
+
+    @include phone {
+      grid-row: 3 / span 1;
+      font-size: 12px;
+      align-self: flex-end;
+      letter-spacing: normal;
+    }
+  }
+
+  &__address {
+    grid-row: 4 / span 1;
+
+    @include phone {
+      display: none;
+    }
+
+    &-link {
+      color: inherit;
+    }
+
+    &-text {
+      line-height: 180%;
+
+      @include media(laptop, desktop) {
+        &:hover {
+          font-size: 120%;
+          line-height: 135%;
+        }
+      }
+    }
+  }
+
+  &__form {
+    @include media(tablet, laptop, desktop) {
+      grid-row: 1 / span 4;
+      grid-column-start: 2;
+    }
+
+    @include phone {
+      grid-row: 2 / span 1;
+    }
+
+    &-field {
+      box-sizing: border-box;
+      width: 100%;
+      border: none;
+      border-bottom: 1px solid $color-gray-600;
+
+      background-color: #000;
+      letter-spacing: 0.15px;
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      &-wrapper {
+        position: relative;
+        padding-bottom: 10px;
+      }
+
+      &--input {
+        height: 54px;
+        padding-top: 12px;
+      }
+
+      &--textarea {
+        padding: 0;
+        height: 102px;
+        padding-top: 24px;
+        resize: none;
+        overflow: auto;
+        outline: none;
+
+        font-family: $font-family;
+        font-size: inherit;
+        letter-spacing: inherit;
+      }
+
+      &--input:-webkit-autofill,
+      &--input:-webkit-autofill:hover,
+      &--input:-webkit-autofill:focus,
+      &--textarea:-webkit-autofill,
+      &--textarea:-webkit-autofill:hover,
+      &--textarea:-webkit-autofill:focus {
+        -webkit-text-fill-color: $color-white;
+        -webkit-box-shadow: 0 0 0 1000px #000 inset;
+      }
+
+      &-label {
+        pointer-events: none;
+        position: absolute;
+        left: 0;
+        top: 14px;
+        transition: $transition-duration ease all;
+        font-size: 14px;
+        width: 100%;
+      }
+
+      &:focus,
+      &:not(:placeholder-shown):valid {
+        border-bottom: 1px solid $color-accent;
+        color: $color-white;
+      }
+
+      &:focus ~ &-label,
+      &:not(:focus, :placeholder-shown) ~ &-label {
+        top: -3px;
+        color: $color-accent;
+      }
+
+      &:not(:focus, :placeholder-shown):invalid {
+        border-bottom: 1px solid #860404;
+        color: $color-white;
+
+        & ~ .screen-6__form-field-label {
+          color: #860404;
+        }
+      }
+    }
+
+    &-button {
+      margin-top: 36px;
+      cursor: pointer;
+
+      @include set-responsive-values(margin-top, 14px, 33px, 74px, 35px);
+
+      @include phone {
+        line-height: 39px;
+        width: 100%;
+      }
+    }
+  }
+
+  &__button-up {
+    object-position: center;
+    place-self: end end;
+    grid-area: 4 / -2 / span 1 / span 1;
+    z-index: 1;
+
+    @include hover-scale;
+
+    @include phone {
+      display: none;
+    }
+
+    &-image {
+      display: block;
+    }
+  }
+}

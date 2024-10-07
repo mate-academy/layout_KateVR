@@ -1,0 +1,367 @@
+.screen-4 {
+  background-color: #000;
+
+  &__container {
+    @include page-grid;
+
+    box-sizing: border-box;
+  }
+
+  &__title {
+    @include set-grid-columns(span 2, span 2, 9 / span 3, 11 / span 4);
+
+    grid-row: 1 / span 1;
+    width: 100%;
+
+    @include phone {
+      height: 29px;
+      margin-bottom: 41px;
+    }
+
+    @include tablet {
+      margin: 10px 0 57px -1px;
+    }
+
+    @include media(laptop, desktop) {
+      height: 45px;
+      margin-bottom: 141px;
+    }
+
+    @include laptop {
+      margin-top: -2px;
+      margin-left: 1px;
+    }
+
+    @include desktop {
+      margin-top: 3px;
+      margin-left: 79px;
+    }
+  }
+
+  &__content {
+    grid-column: 1 / -1;
+    justify-self: center;
+    position: relative;
+    display: flex;
+
+    @include set-responsive-values(width, 197px, 357px, 297px, 297px);
+
+    @include tablet {
+      grid-area: 2 / 2 / 3 / -2;
+      margin-block: 5px 10px;
+    }
+
+    @include laptop {
+      margin-right: 43px;
+    }
+
+    @include desktop {
+      margin-right: 22px;
+      margin-bottom: 3px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    &-border {
+      @include media(phone, tablet) {
+        display: none;
+      }
+
+      position: absolute;
+      width: 45px;
+      height: 203px;
+
+      background-image: url(../images/icons/tech-border.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+
+      @include media(laptop, desktop) {
+        bottom: 52px;
+        left: -12px;
+      }
+    }
+  }
+
+  &__info {
+    position: absolute;
+
+    @include phone {
+      &--1 {
+        top: -11px;
+        left: 60px;
+      }
+
+      &--2 {
+        left: -17px;
+        bottom: 2.7px;
+      }
+
+      &--3 {
+        top: 80px;
+        right: 29px;
+      }
+    }
+
+    @include tablet {
+      &--1 {
+        top: -28px;
+        left: 65px;
+      }
+
+      &--2 {
+        left: -58px;
+        bottom: 14px;
+      }
+
+      &--3 {
+        bottom: 142px;
+        right: 49px;
+      }
+    }
+
+    @include laptop {
+      &--1 {
+        top: -60px;
+        right: 404px;
+
+        width: 250px;
+        height: 143px;
+      }
+
+      &--2 {
+        top: 157px;
+        right: 327px;
+
+        width: 241px;
+        height: 124px;
+      }
+
+      &--3 {
+        top: -60px;
+        left: 360px;
+
+        width: 338px;
+        height: 207px;
+      }
+    }
+
+    @include desktop {
+      &--1 {
+        top: -58px;
+        right: 422px;
+
+        width: 250px;
+        height: 143px;
+      }
+
+      &--2 {
+        top: 156px;
+        right: 431px;
+
+        width: 241px;
+        height: 124px;
+      }
+
+      &--3 {
+        top: -60px;
+        left: 457px;
+
+        width: 344px;
+        height: 207px;
+      }
+    }
+
+    &-line {
+      background-position: center;
+      background-repeat: no-repeat;
+
+      @include media(phone, tablet) {
+        display: none;
+      }
+
+      @include media(laptop, desktop) {
+        position: absolute;
+      }
+
+      @include laptop {
+        @for $i from 1 through 3 {
+          &--#{$i} {
+            background-image: url(../images/icons/tech-line-#{$i}-laptop.svg);
+          }
+        }
+
+        &--1 {
+          top: 8px;
+          left: 101px;
+          width: 404px;
+          height: 72px;
+        }
+
+        &--2 {
+          bottom: 109px;
+          left: 140px;
+          width: 134px;
+          height: 114px;
+        }
+
+        &--3 {
+          top: 7px;
+          right: 354px;
+          width: 192px;
+          height: 245px;
+        }
+      }
+
+      @include desktop {
+        @for $i from 1 through 3 {
+          &--#{$i} {
+            background-image: url(../images/icons/tech-line-#{$i}-desktop.svg);
+          }
+        }
+
+        &--1 {
+          top: 5px;
+          left: 91px;
+          width: 432px;
+          height: 72px;
+        }
+
+        &--2 {
+          bottom: 107px;
+          left: 137px;
+          width: 241px;
+          height: 119px;
+        }
+
+        &--3 {
+          top: 6px;
+          right: 366px;
+          width: 283px;
+          height: 245px;
+        }
+      }
+    }
+
+    &-title {
+      margin-bottom: 1.15em;
+
+      @include media(phone, tablet) {
+        display: none;
+      }
+    }
+
+    &-description {
+      display: block;
+
+      @include media(phone, tablet) {
+        box-sizing: border-box;
+        padding: 17px 11px 22px;
+        height: fit-content;
+
+        background-color: $color-dark-blue-bg;
+        border: 1px solid $color-accent;
+        color: $color-gray-300;
+        border-radius: 4px;
+
+        position: absolute;
+        z-index: 1;
+      }
+
+      @include phone {
+        font-size: 12px;
+        line-height: 18px;
+
+        &--1 {
+          width: 167px;
+          top: 94%;
+          right: -93%;
+        }
+
+        &--2 {
+          width: 165px;
+          left: -54%;
+          bottom: 105%;
+        }
+
+        &--3 {
+          width: 172px;
+          top: -105px;
+          right: 105%;
+        }
+      }
+
+      @include tablet {
+        font-size: 16px;
+        line-height: 24px;
+
+        &--1 {
+          width: 220px;
+          top: 100%;
+          right: -50%;
+        }
+
+        &--2 {
+          width: 250px;
+          left: -50%;
+          bottom: 106%;
+        }
+
+        &--3 {
+          width: 335px;
+          top: -100px;
+          right: 104%;
+        }
+      }
+    }
+
+    &-btn {
+      @include media(laptop, desktop) {
+        display: none;
+      }
+
+      @include phone {
+        width: 34px;
+        height: 34px;
+      }
+
+      @include tablet {
+        width: 62px;
+        height: 62px;
+      }
+    }
+
+    @include media(phone, tablet) {
+      &-btn {
+        display: block;
+        border: none;
+        outline: none;
+        padding: 0;
+        cursor: pointer;
+      }
+
+      &-icon {
+        background-image: url(../images/icons/button-plus.svg);
+        background-size: cover;
+        border-radius: 50%;
+        width: 100%;
+        height: 100%;
+      }
+
+      &-toggle:checked + &-btn &-icon {
+        background-image: url(../images/icons/button-minus.svg);
+      }
+
+      &-collapsible {
+        display: none;
+      }
+
+      &-toggle:checked + &-btn + &-collapsible {
+        display: block;
+      }
+    }
+  }
+}
