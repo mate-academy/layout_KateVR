@@ -2,7 +2,7 @@
 
 const page = document.documentElement;
 
-const overlayVideoOpen = document.querySelector('.start-video__button');
+const overlayVideoOpen = document.querySelectorAll('.start-video__button');
 const overlayVideoClose = document.querySelector(
   '.video-overlay__button-close',
 );
@@ -11,10 +11,13 @@ const overlayVideo = document.querySelector('.video-overlay');
 /**
  * Make overlay with video visible, block scrolling the page under the overlay.
  */
-overlayVideoOpen.addEventListener('click', () => {
-  overlayVideo.style.display = 'grid';
-  page.style.overflow = 'hidden';
-  page.scroll = 'no';
+overlayVideoOpen.forEach((element) => {
+  element.addEventListener('click', () => {
+    console.log(overlayVideoOpen);
+    overlayVideo.style.display = 'grid';
+    page.style.overflow = 'hidden';
+    page.scroll = 'no';
+  });
 });
 
 /**
