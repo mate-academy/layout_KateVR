@@ -1,0 +1,176 @@
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.page {
+  &__buy {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    pointer-events: none;
+    height: 100%;
+    background: $c-background;
+    transition: opacity .5s ease-in-out;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.page:has(.page__buy:target) {
+  overflow: hidden;
+}
+
+.buy {
+  &__image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    @include on-desktop {
+      padding-top: 131px;
+    }
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+
+  &__photo {
+    height: 277px;
+    width: 524px;
+  }
+
+  &__order {
+    padding: 30px 0;
+    display: flex;
+    justify-content: space-around;
+
+    @include on-tablet {
+      width: 50%;
+    }
+
+    @include on-desktop {
+      padding: 32px 0 0 110px;
+      justify-content: center;
+      gap: 86px;
+    }
+  }
+
+  &__select {
+    position: relative;
+    width: 100%;
+  }
+
+  &__price,
+  &__quantity {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    color: $c-text;
+  }
+
+  &__trigger {
+    width: 90px;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease;
+
+    &:hover {
+      filter: drop-shadow(1px 1px 3px $c-white);
+    }
+  }
+
+  &__img {
+    position: absolute;
+    top: 17px;
+    right: 18px;
+  }
+
+  &__option {
+    height: 47px;
+    display: flex;
+    align-items: center;
+    padding-left: 24px;
+  }
+
+  &__input {
+    width: 100%;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-desktop {
+      padding-top: 102px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    &--place {
+      @include on-tablet {
+        flex-direction: row;
+      }
+    }
+
+    &--adress {
+      @include on-tablet {
+        flex-direction: row;
+      }
+    }
+  }
+
+  &__place-order {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-desktop {
+      flex-direction: row;
+    }
+  }
+
+  &__orders {
+    @include on-desktop {
+      width: 100%;
+    }
+  }
+
+  &__box {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 19px;
+    }
+  }
+
+  &__place {
+    width: 100%;
+    align-items: start;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: $c-text;
+  }
+}
+
+

@@ -1,0 +1,71 @@
+.loco {
+  padding: 50px 0;
+  display: grid;
+
+  @include on-tablet {
+    padding: 70px 0;
+  }
+
+  @include on-desktop {
+    padding: 100px 0;
+  }
+
+  &__img {
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+
+  &__butt {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 90px;
+
+    @media (max-width: 1440px) {
+      display: none;
+    }
+  }
+
+  &__button {
+    width: 200px;
+    text-align: center;
+  }
+
+  &__title {
+    padding-bottom: 32px;
+    margin: 0;
+
+    @include on-tablet {
+      padding-bottom: 30px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 84px;
+      text-align: center;
+    }
+  }
+
+  &__name {
+    margin: 0;
+    color: $c-white;
+    padding-bottom: 11px;
+  }
+
+  &__asides {
+    @include page-grid;
+  }
+
+  &__directions {
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      text-align: center;
+      grid-column: span 2;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+}

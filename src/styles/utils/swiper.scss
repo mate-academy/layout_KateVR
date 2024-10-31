@@ -1,0 +1,68 @@
+.swiper {
+  text-align: center;
+
+  &__navigation {
+    padding-top: 12px;
+    width: 207px;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #212121;
+
+    @media (max-width: 1280px) {
+      display: none;
+    }
+  }
+
+  &__button {
+    height: 34px;
+    width: 64px;
+    color: $c-white;
+    transition: all .5s ease;
+    cursor: pointer;
+
+    &--next {
+      width: 36px;
+      text-align: end;
+    }
+
+    &:hover {
+      color: $c-text;
+      border-bottom: 1px solid $c-contrast;
+    }
+  }
+}
+
+.swiper-wrapper {
+  height: 207px;
+  overflow: hidden;
+
+  @include on-tablet {
+    height: 270px;
+  }
+
+  @include on-desktop {
+    width: 430px;
+    height: 280px;
+  }
+
+  @include on-big-desktop {
+    height: 307px;
+  }
+}
+
+.slide-img {
+  height: 100%;
+  width: 100%;
+  background-image: url(../images/photo/person.svg);
+  background-position: center;
+  background-size: cover;
+}
+
+.swiper-slide {
+  height: 100%;
+  width: 100%;
+}
+
+.swiper-pagination {
+  height: 100%;
+}

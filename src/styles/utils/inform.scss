@@ -1,0 +1,70 @@
+.inform {
+  padding-bottom: 54px;
+
+  @include on-tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__link {
+    color: $c-white;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 43px;
+    }
+  }
+
+  &__logo {
+    padding-bottom: 15px;
+
+    @include on-tablet {
+      padding: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__icons {
+    display: flex;
+    gap: 22px;
+    padding-top: 22px;
+
+    &--hide {
+      @media (max-width: 639px) {
+        display: none;
+      }
+    }
+
+    @include on-tablet {
+      padding: 0;
+    }
+  }
+
+  &__box {
+    @media (min-width: 640px) {
+      display: none;
+    }
+  }
+}
+
+.contact {
+  color: $c-text;
+}
+
+.menus {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

@@ -1,0 +1,60 @@
+.page {
+  &__menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  box-sizing: border-box;
+  height: 100vh;
+  pointer-events: none;
+  background-color: $bgc-menu;
+  transition: opacity .5s ease-in-out;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+}
+
+.page:has(.page__menu:target) {
+  overflow: hidden;
+}
+
+.menu {
+  &__close {
+    display: flex;
+    height: 74px;
+    justify-content: end;
+  }
+
+  &__img {
+    padding: 20px 21px 0 0;
+    height: 17px;
+    width: 17px;
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav {
+    font-family: Inter, serif;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 42px;
+    padding-left: 22px;
+    color: $c-white;
+
+    @include on-tablet {
+      padding-left: 152px;
+    }
+
+    &:hover {
+      color: $c-contrast;
+      background-color: $hover-menu;
+    }
+  }
+}

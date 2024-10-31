@@ -1,0 +1,48 @@
+.greetings {
+  padding-bottom: 50px;
+  display: grid;
+
+  &__grid {
+    @include page-grid;
+  }
+
+  &__content {
+    padding-top: 23px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/5;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__title {
+    color: $c-white;
+    margin: 11px 0 22px;
+
+    @include on-tablet {
+      margin: 11px 0 32px;
+    }
+  }
+
+  &__text {
+    padding-bottom: 21px;
+  }
+
+  &__absoluts {
+    @include on-tablet {
+      grid-column: 5/-1;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+}

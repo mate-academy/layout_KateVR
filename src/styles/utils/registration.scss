@@ -1,0 +1,138 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  transition: all 5000s ease-in-out 0s;
+}
+
+.grid {
+  @include page-grid;
+}
+
+.registration {
+  padding: 50px 0;
+  display: grid;
+
+  &__top {
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/4;
+    }
+
+    @include on-desktop {
+      grid-column: 1/6;
+    }
+  }
+
+  &__box {
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+
+  &__title {
+    color: $c-white;
+    margin: 0;
+    padding: 11px 0 32px;
+
+    @include on-tablet {
+      padding: 11px 0 50px;
+    }
+
+    @include on-desktop {
+      padding: 11px 0 26px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    @include on-tablet {
+      width: 200px;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+  }
+
+  &__buttons {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: row;
+
+    @include on-tablet {
+      margin: 48px 0;
+      justify-content: space-between;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 4/-1;
+    }
+
+    @include on-desktop {
+      grid-column: 7/-1;
+    }
+  }
+
+  &__textarea {
+    height: 88px;
+    resize: none;
+  }
+
+  &__massage {
+    color: $c-text;
+
+    @media (min-width: 640px) {
+      display: none;
+    }
+  }
+
+  &__massage-hide {
+    color: $c-text;
+    padding-bottom: 76px;
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+  }
+
+  &__up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid $c-contrast;
+    height: 48px;
+    width: 48px;
+    background: none;
+    padding: 0;
+    transition: all 0.2s ease;
+    cursor: pointer;
+
+    @media (max-width: 640px) {
+      display: none;
+    }
+
+    &:hover {
+      background-color: $c-contrast;
+    }
+  }
+
+  &__img {
+    transition: filter 0.2s ease;
+  }
+}
+
+.registration__up:hover .registration__img {
+  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(7495%) hue-rotate(270deg) brightness(104%) contrast(100%);
+}

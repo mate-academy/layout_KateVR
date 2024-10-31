@@ -1,0 +1,62 @@
+.page {
+  &__language {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    pointer-events: none;
+    background-color: $bgc-menu;
+    transition: opacity .5s ease-in-out;
+
+      &:target {
+        opacity: 1;
+        pointer-events: all;
+      }
+    }
+}
+
+.page:has(.page__language:target) {
+  overflow: hidden;
+}
+
+.language {
+  @include on-tablet {
+    height: 568px;
+  }
+
+  &__before {
+    height: 74px;
+    display: flex;
+  }
+
+  &__img {
+    padding: 20px 0 0 21px;
+    height: 17px;
+  }
+
+  &__navigation {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav {
+    font-family: Inter, serif;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 42px;
+    padding-left: 22px;
+    color: $c-white;
+
+    @include on-tablet {
+      padding-left: 152px;
+    }
+
+    &:hover {
+      color: $c-contrast;
+      background-color: $hover-menu;
+    }
+  }
+}

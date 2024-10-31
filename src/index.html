@@ -1,19 +1,774 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="page">
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>KatVR</title>
+    <link rel="icon" href="images/photo/favicon.svg">
     <link
       rel="stylesheet"
       href="./styles/main.scss"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin="true">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,100..900&display=swap" rel="stylesheet">
+    <script src="scripts/main.js" defer></script>
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
-    <script src="scripts/main.js"></script>
+
+  <body class="page__body">
+    <div class="container bcg">
+      <header class="header">
+        <div class="top-bar" id="top">
+          <div class="top-bar__left">
+            <img
+              class="top-bar__logo nav"
+              src="images/social/logo.svg"
+              alt="logo">
+            <button class="top-bar__en nav">
+              En
+              <img
+                class="top-bar__polygon"
+                src="images/photo/Polygon1.svg"
+                alt="Polygon">
+            </button>
+          </div>
+
+          <div class="top-bar__right">
+            <a class="top-bar__menu" href="#menu">
+              <img
+                class="top-bar__img nav"
+                src="images/social/menu.svg"
+                alt="menu">
+            </a>
+
+            <div class="top-bar__nav">
+              <a class="nav shadow" href="#about">About</a>
+              <a class="nav shadow" href="#tech">Tech</a>
+              <a class="nav shadow" href="#benefits">Benefits</a>
+              <a class="nav shadow" href="#contact">Contact</a>
+              <a href="#buy" class="top-bar__button button">Buy Now</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="header__bottom">
+          <img
+            class="header__image"
+            src="images/photo/image.svg"
+            alt="image1">
+
+          <div class="header__content">
+            <h1 class="header__title header__title--new">
+              <span class="white-text">THE NEW START OF</span> <span class="blue-text">VR LOCOMOTION</span>
+            </h1>
+
+            <p class="header__text">
+              Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!
+            </p>
+
+            <div class="header__price">1200$</div>
+
+            <button class="button-play">
+              <img
+                class="button-image"
+                src="images/photo/Group4.svg"
+                alt="button">
+            </button>
+
+            <a href="#buy" class="header__buy button">
+              Buy Now
+            </a>
+          </div>
+        </div>
+      </header>
+    </div>
+
+    <aside class="page__buy buy" id="buy">
+      <div class="menu-buy">
+        <div class="container">
+          <div class="top-bar">
+            <img
+              class="top-bar__logo nav"
+              src="images/social/logo.svg"
+              alt="logo">
+
+            <a class="top-bar__close" href="#">
+              <img
+                class="top-bar__close-buy shadow"
+                src="images/photo/close.svg"
+                alt="close">
+            </a>
+          </div>
+        </div>
+
+        <div class="menu-buy__nav">
+          <a class="menu-buy__link" href="#place-order">Place Order</a>
+          <a class="menu-buy__link" href="#pay">Pay</a>
+          <a class="menu-buy__link" href="#complete">Complete</a>
+        </div>
+      </div>
+
+      <div class="buy__place-order" id="place-order">
+
+        <div class="buy__orders">
+          <div class="buy__image">
+            <img
+              class="buy__photo"
+              src="images/photo/image.svg"
+              alt="image">
+          </div>
+
+          <div class="buy__order">
+            <div class="buy__quantity">
+              Quantity
+              <div class="buy__select">
+                <div class="buy__trigger trigger">
+                  1
+                  <img
+                    class="buy__img"
+                    src="images/photo/Polygon1.svg"
+                    alt="Polygon1">
+                </div>
+              </div>
+            </div>
+            <div class="buy__price">
+              Price
+              <span class="blue-text price">1200$</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="buy__orders container">
+          <form class="buy__form" onsubmit="this.reset(); return false;">
+            <div class="buy__content">
+              <div class="buy__box">
+                <input
+                  name="name"
+                  required
+                  placeholder="First Name*"
+                  class="buy__input input"
+                  type="text">
+
+                <input
+                  name="last name"
+                  required
+                  placeholder="Last Name*"
+                  class="buy__input input"
+                  type="text">
+              </div>
+
+              <div class="buy__box">
+                <input
+                  name="email"
+                  required
+                  placeholder="Email*"
+                  class="buy__input input"
+                  type="email">
+
+                <input
+                  name="phone"
+                  required
+                  placeholder="Phone Number*"
+                  class="buy__input input"
+                  type="number">
+              </div>
+            </div>
+
+            <div class="buy__content buy__content--place">
+              <div class="buy__place">
+                Country*
+                <div class="buy__select">
+                  <div class="buy__option trigger">
+                    Ukraine
+                    <img
+                      class="buy__img"
+                      src="images/photo/Polygon1.svg"
+                      alt="Polygon1">
+                  </div>
+                </div>
+              </div>
+
+              <div class="buy__place">
+                City*
+                <div class="buy__select">
+                  <div class="buy__option trigger">
+                    <img
+                      class="buy__img"
+                      src="images/photo/Polygon1.svg"
+                      alt="Polygon1">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="buy__content buy__content--adress">
+              <input
+                name="Adress"
+                required
+                placeholder="Shipping Adress*"
+                class="buy__input input"
+                type="text">
+
+              <input
+                name="Adress 2"
+                required
+                placeholder="Shipping Adress 2"
+                class="buy__input input"
+                type="text">
+            </div>
+
+            <button class="button">Purchase</button>
+          </form>
+        </div>
+      </div>
+    </aside>
+
+    <aside class="page__menu menu" id="menu">
+      <a href="#" class="menu__close">
+        <img
+          src="images/photo/close.svg"
+          alt="close"
+          class="menu__img shadow">
+      </a>
+
+      <div class="menu__navigation">
+        <a class="menu__nav" href="#about">
+          About
+        </a>
+        <a class="menu__nav" href="#tech">
+          Tech
+        </a>
+        <a class="menu__nav" href="#benefits">
+          Benefits
+        </a>
+        <a class="menu__nav" href="#contact">
+          Contact
+        </a>
+        <a class="menu__nav" href="#language">
+          Language
+        </a>
+        <a class="menu__nav" href="#benefits">
+          FAQ
+        </a>
+        <a class="menu__nav" href="#contact">
+          Help
+        </a>
+      </div>
+    </aside>
+
+    <aside class="page__language language" id="language">
+      <a href="#menu" class="language__before">
+        <img
+          class="language__img shadow"
+          src="images/photo/before.svg"
+          alt="before">
+      </a>
+
+      <div class="language__navigation">
+        <a class="language__nav" href="#">
+          English
+        </a>
+        <a class="language__nav" href="#">
+          Arabic
+        </a>
+        <a class="language__nav" href="#">
+          Chinese (Simplified)
+        </a>
+        <a class="language__nav" href="#">
+          Chinese (Traditional)
+        </a>
+        <a class="language__nav" href="#">
+          French
+        </a>
+        <a class="language__nav" href="#">
+          German
+        </a>
+        <a class="language__nav" href="#">
+          Italian
+        </a>
+        <a class="language__nav" href="#">
+          Polish
+        </a>
+        <a class="language__nav" href="#">
+          Russian
+        </a>
+        <a class="language__nav" href="#">
+          Ukrainian
+        </a>
+      </div>
+    </aside>
+
+    <main class="page__main main">
+      <section class="main__directions directions">
+        <div class="container">
+          <h2 class="directions__title">
+            <span class="white-text">MORE THAN</span> <span class="blue-text">GAMING!</span>
+          </h2>
+          <p class="directions__description text3">
+            <span class="blue-text">This also made for people who are interested in...</span>
+          </p>
+
+          <aside class="directions__asides">
+            <div class="directions__directions directions__directions--left">
+              <img
+                class="directions__img foto-hover"
+                src="images/photo/hat.svg"
+                alt="image">
+
+              <h3 class="directions__name">EDUCATION</h3>
+              <p class="directions__text">Create aducational simulations, trainings and much more with...</p>
+            </div>
+            <div class="directions__directions directions__directions--right">
+              <img
+                class="directions__img foto-hover"
+                src="images/photo/bild.svg"
+                alt="image">
+
+              <h3 class="directions__name">REAL ESTATE</h3>
+              <p class="directions__text">Desighn architectural projects in a deeply realistic environment...</p>
+            </div>
+            <div class="directions__directions directions__directions--left">
+              <img
+                class="directions__img foto-hover"
+                src="images/photo/arm.svg"
+                alt="image">
+
+              <h3 class="directions__name">FITNESS</h3>
+              <p class="directions__text">Combine business with pleasure, and discover countless ways...</p>
+            </div>
+            <div class="directions__directions directions__directions--right">
+              <img
+                class="directions__img foto-hover"
+                src="images/photo/network.svg"
+                alt="image">
+
+              <h3 class="directions__name">SOCIAL INTERACTIONS</h3>
+              <p class="directions__text">Hang out with your friends in the virtual world when you can’t...</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <main class="page__main main">
+      <div class="container bcg">
+
+        <section class="main__about about" id="about">
+          <div class="about__grid">
+            <div class="about__swiper-count">1/5</div>
+            <div class="about__bgimage">
+              <div class="swiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="slide-img"></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slide-img"></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slide-img"></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slide-img"></div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="slide-img"></div>
+                  </div>
+                </div>
+                <div class="swiper-pagination"></div>
+              </div>
+              <div class="swiper__navigation">
+                <div class="swiper__button">Previous</div>
+                <div class="swiper__button swiper__button--next">Next</div>
+              </div>
+            </div>
+
+            <div class="about__product">
+              <h2 class="about__title">
+                <span class="white-text">ABOUT</span> <span class="blue-text">PRODUCT</span>
+              </h2>
+
+              <div class="about__img-hide">
+                <div class="swiper">
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                      <div class="slide-img"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide-img"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide-img"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide-img"></div>
+                    </div>
+                    <div class="swiper-slide">
+                      <div class="slide-img"></div>
+                    </div>
+                  </div>
+                  <div class="swiper-pagination"></div>
+
+                </div>
+              </div>
+
+              <p class="about__text">
+                KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.
+              </p>
+
+              <button class="about__button button-play">
+                <img
+                  class="button-image"
+                  src="images/photo/Group4.svg"
+                  alt="button">
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <section class="main__greetings greetings">
+          <div class="greetings__grid">
+            <div class="greetings__content">
+              <div class="text2"><span class="blue-text">Hello,</span></div>
+              <h2 class="greetings__title">NICE TO MEET <span class="blue-text">YOU!</span></h2>
+
+              <p class="greetings__text">
+                KAT VR is an independent company dedicated to the research, development, and sales of VR Locomotion products and solutions. Founded in 2013, we have quickly grown to become one of the world’s leading professional suppliers of VR games’ & simulations’ equipment
+              </p>
+            </div>
+
+            <img
+              class="greetings__absoluts"
+              src="images/photo/absoluts.svg"
+              alt="absoluts">
+          </div>
+        </section>
+
+        <section class="main__tech tech" id="tech">
+          <h2 class="tech__title"><span class="white-text">TECH</span> <span class="blue-text">SPECS</span></h2>
+          <div class="tech__background">
+            <div class="tech__box">
+              <div class="tech__boxis">
+                <img
+                  class="tech__img"
+                  src="images/photo/asdasds.svg"
+                  alt="asdasds">
+
+                <button class="tech__button tech__button--sensor">
+                  <img
+                    class="tech__plus"
+                    src="images/photo/plus.svg"
+                    alt="plus">
+                </button>
+
+                <button class="tech__button tech__button--connection">
+                  <img
+                    class="tech__plus"
+                    src="images/photo/plus.svg"
+                    alt="plus">
+                </button>
+
+                <button class="tech__button tech__button--batterries">
+                  <img
+                    class="tech__plus"
+                    src="images/photo/plus.svg"
+                    alt="plus">
+                </button>
+              </div>
+
+              <div class="tech__content tech__content--sensor">
+                <div class="tech__text">
+                  <div class="tech__directions">SENSOR</div>
+                  <p class="tech__paragr">Weight: 35g/1.23oz each <br>
+                    Dimension: 50mm/1.97in <br>
+                    24mm/0.94in <br>
+                    Light: LED lights <br>
+                  </p>
+                </div>
+              </div>
+              <div class="tech__content tech__content--connection">
+                <div class="tech__text">
+                  <div class="tech__directions">CONNECTION</div>
+                  <p class="tech__paragr">Wireless: Bluetooth 4.2 <br>
+                    Signal range: 5m <br>
+                    Receiver: USB 2.0 and above <br>
+                  </p>
+                </div>
+              </div>
+              <div class="tech__content tech__content--batterries">
+                <div class="tech__text">
+                  <div class="tech__directions">BATTERRIES</div>
+                  <p class="tech__paragr">Type: Lthium-lon polymer batteries <br>
+                    Capacity: 370mAh <br>
+                    Battery life: 10h of continuous use 150 hours on stand by <br>
+                    Charging: Fast charging - 1 hour <br>
+                    Charging voltage and current: 5V = 0.5A <br>
+                  </p>
+                </div>
+              </div>
+
+              <img
+                class="tech__arrow tech__arrow--sensor"
+                src="images/photo/sensor.svg"
+                alt="sensor">
+              <img
+                class="tech__arrow tech__arrow--connection"
+                src="images/photo/conect.svg"
+                alt="connection">
+              <img
+                class="tech__arrow tech__arrow--batterries"
+                src="images/photo/battar.svg"
+                alt="batterries">
+            </div>
+
+          </div>
+
+        </section>
+      </div>
+
+      <div class="container bcg">
+        <section class="main__loco loco" id="benefits">
+          <h2 class="loco__title"><span class="white-text">WHY</span> <span class="blue-text">KAT LOCO?</span></h2>
+
+          <aside class="loco__asides">
+            <div class="loco__directions">
+              <img
+                class="loco__img"
+                src="images/photo/social.svg"
+                alt="image">
+
+              <h3 class="loco__name">UNIVERSALLY COMPATIBLE</h3>
+              <p class="loco__text">KAT Loco offers universal compatibility across all major VR headsets and platforms...</p>
+            </div>
+            <div class="loco__directions">
+              <img
+                class="loco__img"
+                src="images/photo/tv.svg"
+                alt="image">
+
+              <h3 class="loco__name">VR/PC CONTROL PANEL</h3>
+              <p class="loco__text">Our Multifunctional Software allows for quick access to KAT Loco’s control panel both from...</p>
+            </div>
+            <div class="loco__directions">
+              <img
+                class="loco__img"
+                src="images/photo/wifi.svg"
+                alt="image">
+
+              <h3 class="loco__name">FITNESS</h3>
+              <p class="loco__text">Combine business with pleasure, and discover countless ways...</p>
+            </div>
+          </aside>
+
+          <div class="loco__butt">
+            <a href="#buy" class="loco__button button">Buy Now</a>
+          </div>
+        </section>
+
+        <section class="main__registration registration">
+          <div class="grid">
+            <div class="registration__top">
+              <div class="text2"><span class="blue-text">Have any questions?</span></div>
+              <h2 class="registration__title">GET IN <span class="blue-text">TOUCH</span></h2>
+
+              <div class="registration__box" id="contact">
+                <div class="registration__massage-hide text3">Our manager will reply you within 15 minutes</div>
+
+                <div class="registration__menu menu">
+                  <a
+                    class="contact shadow"
+                    href="tel:++86-0571-86105373"
+                    target="_blank">
+                      +86-0571-86105373
+                  </a>
+                  <a
+                    class="contact shadow"
+                    href="mailto:global@katvr.com"
+                    target="_blank">
+                    global@katvr.com
+                  </a>
+                  <a
+                    class="contact shadow"
+                    href="mailto:overseas@katvr.com">
+                    overseas@katvr.com
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <form class="registration__form" onsubmit="this.reset(); return false;">
+              <input
+                class="registration__input input"
+                placeholder="Name*"
+                type="text"
+                required
+              >
+              <input
+                class="registration__input input"
+                placeholder="Email*"
+                type="email"
+                required
+              >
+              <input
+                class="registration__input input"
+                placeholder="Phone*"
+                type="tel"
+                required
+              >
+
+              <textarea
+                class="registration__textarea input"
+                placeholder="Message"
+                name="text"
+                required
+              ></textarea>
+
+              <div class="registration__buttons">
+                <button class="registration__button button">Contact Us</button>
+                <a href="#top" class="registration__up">
+                  <img
+                    class="registration__img"
+                    src="images/photo/Polygon.svg"
+                    alt="Polygon">
+                </a>
+              </div>
+
+              <div class="registration__massage text3">Our manager will reply you within 15 minutes</div>
+            </form>
+          </div>
+        </section>
+
+        <section class="main__inform inform">
+          <img
+            class="inform__logo shadow"
+            src="images/social/logo.svg"
+            alt="logo">
+
+          <aside class="inform__content">
+            <div class="inform__menu">
+              <a class="nav shadow"href="#about">About</a>
+              <a class="nav shadow"href="#tech">Tech</a>
+              <a class="nav shadow"href="#benefits">Benefits</a>
+              <a class="nav shadow"href="#contact">Contact</a>
+            </div>
+
+            <div class="inform__box">
+              <div class="menus">
+                <a
+                  class="contact shadow"
+                  href="tel:++86-0571-86105373"
+                  target="_blank">
+                    +86-0571-86105373
+                </a>
+                <a
+                  class="contact shadow"
+                  href="mailto:global@katvr.com"
+                  target="_blank">
+                    global@katvr.com
+                </a>
+                <a
+                  class="contact shadow"
+                  href="mailto:overseas@katvr.com"
+                  target="_blank">
+                    overseas@katvr.com
+                </a>
+              </div>
+              <div class="inform__icons">
+                <a
+                  class="inform__icon shadow"
+                  target="_blank"
+                  href="https://de-de.facebook.com/">
+                  <img
+                    class="inform__img"
+                    src="images/social/face.svg"
+                    alt="facebook">
+                </a>
+                <a class="inform__icon shadow"
+                  target="_blank"
+                  href="https://twitter.com">
+                  <img
+                    class="inform__img"
+                    src="images/social/twit.svg"
+                    alt="twitter">
+                </a>
+                <a
+                  class="inform__icon shadow"
+                  target="_blank"
+                  href="https://www.youtube.com/">
+                  <img
+                    class="inform__img"
+                    src="images/social/Group.svg"
+                    alt="youtube">
+                </a>
+                <a
+                  class="inform__icon shadow"
+                  href="#">
+                  <img
+                    class="inform__img"
+                    src="images/social/vector.svg"
+                    alt="vector">
+                </a>
+              </div>
+            </div>
+          </aside>
+
+          <div class="inform__icons inform__icons--hide">
+            <a
+              class="inform__icon shadow"
+              target="_blank"
+              href="https://de-de.facebook.com/">
+              <img
+                class="inform__img"
+                src="images/social/face.svg"
+                alt="facebook">
+            </a>
+            <a
+              class="inform__icon shadow"
+              target="_blank"
+              href="https://twitter.com">
+              <img
+                class="inform__img"
+                src="images/social/twit.svg"
+                alt="twitter">
+            </a>
+            <a
+              class="inform__icon shadow"
+              target="_blank"
+              href="https://www.youtube.com/">
+              <img
+                class="inform__img"
+                src="images/social/Group.svg"
+                alt="youtube">
+            </a>
+            <a
+              class="inform__icon shadow"
+              href="#">
+              <img
+                class="inform__img"
+                src="images/social/vector.svg"
+                alt="vector">
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
   </body>
+
+  <script type="module">
+    import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
+    const swiper = new Swiper('.swiper', {
+      direction: 'horizontal',
+      loop: true,
+
+      pagination: {
+        el: '.swiper-pagination',
+      },
+    });
+  </script>
 </html>

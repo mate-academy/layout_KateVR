@@ -1,0 +1,185 @@
+.tech {
+  padding: 50px 0;
+  position: relative;
+
+  @include on-tablet {
+    padding: 80px 0;
+  }
+
+  @include on-tablet {
+    padding: 100px 0;
+  }
+
+  &__img {
+    width: auto;
+    height: auto;
+
+    @include on-tablet {
+      height: 380px;
+    }
+
+    @include on-desktop {
+      width: 297px;
+      height: 294px;
+    }
+  }
+
+  &__title {
+    padding-bottom: 41px;
+    margin: 0;
+
+    @include on-tablet {
+      padding-bottom: 57px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 80px;
+      text-align-last: right;
+      font-size: 36px;
+      line-height: 43px;
+    }
+  }
+
+  &__background {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__box {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__content {
+    position: absolute;
+    cursor: pointer;
+    text-align: left;
+
+    &--sensor {
+      @include on-desktop {
+        width: 250px;
+        inset: 0 917px 212px 0;
+      }
+    }
+
+    &--connection {
+      @include on-desktop {
+        width: 338px;
+        top: 217px;
+        left: 86px;
+        bottom: 14px;
+      }
+    }
+
+    &--batterries {
+      @include on-desktop {
+        width: 338px;
+        top: 0;
+        right: 0;
+        bottom: 148px;
+      }
+    }
+  }
+
+  &__plus {
+    @include on-tablet {
+      height: 21px;
+      width: 21px;
+    }
+  }
+
+  &__boxis {
+    position: relative;
+    width: 214px;
+    height: 205.7px;
+
+    @include on-tablet {
+      width: 357.95px;
+      height: 353.78px;
+    }
+  }
+
+  &__button {
+    width: 34px;
+    height: 34px;
+    border: 2px;
+    border-radius: 50%;
+    color: $c-white;
+    background-color: $c-contrast;
+    transition: $all-effect;
+    cursor: pointer;
+    position: absolute;
+
+    &--sensor {
+      inset: -11px 103px 171px 60px;
+
+      @include on-tablet {
+        inset: -27px 231px 319px 64px;
+      }
+    }
+
+    &--connection {
+      inset: 153px 180px 7px -17px;
+
+      @include on-tablet {
+        inset: 273px 354px 19px -58px;
+      }
+    }
+
+    &--batterries {
+      inset: 80px 29px 80px 134px;
+
+      @include on-tablet {
+        inset: 154px 49px 147px 247px;
+      }
+    }
+
+    @include on-tablet {
+      width: 61px;
+      height: 61px;
+    }
+
+    &:hover {
+      transform: $nav-transform;
+    }
+
+    @media (min-width: 1280px) {
+      display: none;
+    }
+  }
+
+  &__directions {
+    color: $c-white;
+    padding-bottom: 21px;
+  }
+
+  &__text {
+    @media (max-width: 1279px) {
+      display: none;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+
+    @media (max-width: 1279px) {
+      display: none;
+    }
+
+    &--sensor {
+      inset: 9px 551px 274px 89px;
+    }
+
+    &--connection {
+      inset: 122px 699px 125px 226px;
+    }
+
+    &--batterries {
+      top: 9px;
+      right: 354px;
+      bottom: 102px;
+    }
+  }
+}

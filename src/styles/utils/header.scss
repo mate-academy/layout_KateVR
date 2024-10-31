@@ -1,0 +1,56 @@
+.header {
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__bottom {
+    @include on-tablet {
+      display: flex;
+      padding: 55px 0 61px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    order: 2;
+  }
+
+  &__title {
+    margin: 0;
+
+    &--new {
+      color: $c-white;
+    }
+  }
+
+  &__buy {
+    width: 100%;
+    text-align: center;
+
+    @media (min-width: 640px) {
+      display: none;
+    }
+  }
+
+  &__text {
+    font-weight: 500;
+    padding: 17px 0 55px;
+
+    @include on-tablet {
+      max-width: 340px;
+      padding-bottom: 10px;
+    }
+  }
+
+  &__price {
+    color: $c-white;
+    padding-bottom: 15px;
+    text-align: center;
+
+    @media (min-width: 640px) {
+      text-align: left;
+    }
+  }
+}
