@@ -2,6 +2,1217 @@
 @import 'fonts';
 @import 'typography';
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
 body {
-  background: $c-gray;
+  background: $gradient;
+  color: $text;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  position: relative;
+}
+
+main {
+  position: relative;
+  margin-top: 60px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 250px;
+  }
+}
+
+a {
+  color: inherit;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    color: $light;
+  }
+
+  &:visited {
+    color: $gray;
+  }
+}
+
+button {
+  align-items: center;
+  background: none;
+  border-radius: 4px;
+  border: none;
+  color: $text;
+  cursor: pointer;
+  display: flex;
+  font-size: 16px;
+  font-weight: 500;
+  justify-content: center;
+  &:hover {
+    color: $light;
+  }
+}
+
+li {
+  list-style: none;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0;
+  width: 90dvw;
+
+  @media screen and (min-width: 768px) {
+    width: 700px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1060px;
+  }
+
+  @media screen and (min-width: 1920px) {
+    width: 1440px;
+  }
+}
+
+.arrowUp {
+  align-items: center;
+  border-radius: 50%;
+  border: 2px solid $lightBlue;
+  bottom: 30px;
+  display: flex;
+  height: 25px;
+  justify-content: center;
+  opacity: 0;
+  padding: 15px;
+  position: fixed;
+  right: 10px;
+  transition: opacity 0.5s ease-in;
+  width: 25px;
+  z-index: 10;
+
+  @media screen and (min-width: 768px) {
+    height: 50px;
+    right: 30px;
+    width: 50px;
+  }
+}
+
+.arrowDisplayed {
+  opacity: 1;
+}
+
+.headerScrolled {
+  background: $gradient;
+  opacity: 0.98;
+  transition: all 0.8s ease-in;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  z-index: 12;
+  padding: 30px 0;
+
+  &__select {
+    position: relative;
+    padding: 5px;
+  }
+  &__list {
+    display: none;
+    position: absolute;
+  }
+  &__lang {
+    display: flex;
+    gap: 5px;
+    color: $lightBlue;
+
+    &:hover {
+      color: $text;
+    }
+
+    p {
+      color: inherit;
+    }
+  }
+
+  &__wrapper {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  transition: all 0.8s ease-in;
+
+  &__logo {
+    align-items: center;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    &-img {
+      width: 4vw;
+
+      @media screen and (max-width: 768px) {
+        width: 8.72vw;
+      }
+
+      @media screen and (max-width: 320px) {
+        width: 18.12vw;
+      }
+    }
+  }
+
+  &__right {
+    align-items: center;
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+  }
+
+  &__nav {
+    gap: 35px;
+    display: none;
+
+    @media screen and (min-width: 768px) {
+      display: flex;
+    }
+
+    &-link {
+      font-weight: 500;
+    }
+  }
+
+  &__button {
+    background-color: $lightBlue;
+    display: none;
+    font-weight: 700;
+    padding: 13px 80px;
+    transition: all 0.5s ease-in-out;
+
+    &:hover {
+      background-color: $text;
+    }
+
+    @media screen and (min-width: 768px) {
+      display: grid;
+    }
+  }
+  &__burger {
+    width: 20px;
+    height: 20px;
+
+    @media screen and (min-width: 768px) {
+      display: none;
+    }
+  }
+}
+
+.displayOptions {
+  display: block;
+}
+
+.grid {
+  column-gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+  @media screen and (min-width: 1280px) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.hero {
+  &__container {
+    padding-bottom: 55px;
+
+    @media screen and (min-width: 768px) {
+      position: relative;
+      padding-bottom: 70px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      padding: 84px 0;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+
+    @media screen and (min-width: 768px) {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &__title {
+    z-index: 2;
+    grid-column: 1/3;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 1/4;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 1/6;
+    }
+
+    &-h1 {
+      grid-column: 1/12;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 18px;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 35px;
+        grid-column: 1/12;
+      }
+
+      @media screen and (min-width: 320px) {
+        margin-bottom: 18px;
+        grid-column: 1/6;
+      }
+
+      &_blue {
+        color: $lightBlue;
+      }
+    }
+
+    &-description {
+      margin-bottom: 8px;
+      grid-column: 1/2;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 30px;
+        grid-column: 2/12;
+      }
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 5px;
+        grid-column: 1/6;
+      }
+
+      @media screen and (min-width: 320px) {
+        margin-bottom: 10px;
+        grid-column: 1/12;
+      }
+    }
+
+    &-price {
+      font-weight: 700;
+      grid-column: 1/2;
+      margin-bottom: 25px;
+      color: $text;
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 45px;
+        grid-column: 2/12;
+      }
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 29px;
+        grid-column: 1/6;
+      }
+
+      @media screen and (min-width: 320px) {
+        margin-bottom: 33px;
+        grid-column: 1/6;
+      }
+    }
+
+    &-button {
+      align-items: center;
+      aspect-ratio: 3.5;
+      background-image: url('../images/buttonPlay.png');
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      grid-column: 1/2;
+      height: 80px;
+      padding: 15px 45px;
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &_label {
+        margin-left: 15px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 45px;
+        grid-column: 2/12;
+      }
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 29px;
+        grid-column: 1/6;
+      }
+
+      @media screen and (min-width: 320px) {
+        margin-bottom: 33px;
+        grid-column: 1/2;
+      }
+    }
+  }
+
+  &__image {
+    flex: 1 0 100%;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__slider {
+    grid-column: 1/3;
+    margin: 0 auto;
+    overflow: hidden;
+    z-index: -10;
+    width: 90vw;
+    &-content {
+      @media screen and (min-width: 768px) {
+        position: relative;
+      }
+
+      &_wrapper {
+        display: flex;
+        transition: transform 0.8s ease-in-out;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      right: 0;
+      bottom: 100px;
+      max-width: 75%;
+      position: absolute;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    &-info,
+    &-buttons {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    &-more {
+      color: $lightBlue;
+      position: relative;
+      &::after {
+        content: '';
+        background-image: url('../images/arrowDown.png');
+        background-repeat: no-repeat;
+        width: 9px;
+        height: 6px;
+        position: absolute;
+        bottom: -10px;
+        left: 40%;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+
+    &-buttons {
+      border-bottom: 1px solid #212121;
+    }
+
+    &-button {
+      width: 85px;
+      padding: 13px 8px;
+      transition: border 1ms ease-in;
+
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        color: $lightBlue;
+      }
+    }
+
+    @media screen and (min-width: 768px) {
+      align-items: center;
+      display: flex;
+      grid-column: 1/3;
+      justify-content: space-between;
+      margin-top: 115px;
+      max-width: 90vw;
+    }
+  }
+}
+
+.buttonActive {
+  border-bottom: 1px solid $lightBlue;
+}
+
+.dotActive {
+  border: 3px solid $text;
+}
+
+.blue {
+  color: $lightBlue;
+}
+
+.info {
+  background-color: $darkBlue;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 100px 0;
+  }
+  &__title {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+    text-align: center;
+
+    @media screen and (min-width: 1280px) {
+      margin-bottom: 70px;
+    }
+
+    &-h2_blue,
+    &-subtitle {
+      color: $lightBlue;
+    }
+  }
+
+  &__cards {
+    align-items: baseline;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+
+    @media screen and (min-width: 768px) {
+      flex-flow: wrap;
+    }
+    &-item {
+      width: 100%;
+
+      @media screen and (min-width: 768px) {
+        width: 40%;
+        text-align: center;
+      }
+
+      @media screen and (min-width: 1280px) {
+        width: 20%;
+      }
+    }
+
+    &-title {
+      margin-bottom: 11px;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 20px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 18px;
+      }
+    }
+
+    &-img {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: inline-block;
+        height: 84px;
+        width: fit-content;
+        margin-bottom: 22px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 30px;
+      }
+    }
+  }
+}
+
+.about {
+  background: $gradient;
+  padding: 50px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 100px 0;
+  }
+
+  &__product {
+    &-slider {
+      align-items: center;
+      grid-column: 1/3;
+      justify-content: center;
+      margin-bottom: 20px;
+      overflow: hidden;
+
+      @media screen and (min-width: 768px) {
+        grid-column: 1/3;
+        margin-bottom: 183px;
+        min-width: 340px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        grid-column: 3/8;
+        width: 100%;
+      }
+
+      &-h2 {
+        margin-bottom: 20px;
+
+        @media screen and (min-width: 768px) {
+          display: none;
+        }
+      }
+      &_content {
+        width: 100%;
+        margin-bottom: 15px;
+
+        &-wrapper {
+          display: flex;
+          transition: transform 0.8s ease-in-out;
+          width: 100%;
+        }
+      }
+
+      &_image {
+        flex: 1 0 100%;
+        height: 100%;
+        width: 100%;
+
+        @media screen and (min-width: 768px) {
+          aspect-ratio: 1.25;
+        }
+
+        @media screen and (min-width: 1280px) {
+          aspect-ratio: auto;
+        }
+      }
+
+      &_buttons {
+        display: none;
+        align-items: center;
+        border-bottom: 1px solid #212121;
+        gap: 15px;
+        justify-content: center;
+        width: fit-content;
+
+        @media screen and (min-width: 1280px) {
+          display: flex;
+        }
+      }
+
+      &_button {
+        padding: 13px 8px;
+        width: 85px;
+        transition: all 0.5s ease-in-out;
+
+        &:hover {
+          color: $lightBlue;
+        }
+      }
+
+      &_dots {
+        align-items: center;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        margin-bottom: 15px;
+
+        @media screen and (min-width: 1280px) {
+          display: none;
+        }
+      }
+
+      &_dot {
+        background: $gray;
+        border-radius: 50%;
+        height: 5px;
+        width: 5px;
+      }
+    }
+
+    &-title {
+      grid-column: 1/3;
+
+      @media screen and (min-width: 768px) {
+        grid-column: 3/7;
+      }
+
+      @media screen and (min-width: 1280px) {
+        grid-column: 8/12;
+      }
+
+      &_h2 {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+          margin-bottom: 40px;
+          display: block;
+        }
+
+        &-blue {
+          color: $lightBlue;
+        }
+      }
+
+      &_description {
+        margin-bottom: 40px;
+      }
+    }
+  }
+
+  &__meet {
+    &-title {
+      grid-column: 1/3;
+
+      @media screen and (min-width: 768px) {
+        grid-column: 1/5;
+      }
+
+      @media screen and (min-width: 1280px) {
+        grid-column: 2/6;
+      }
+
+      &_button {
+        display: none;
+
+        @media screen and (min-width: 768px) {
+          display: block;
+        }
+      }
+
+      &_small {
+        color: $lightBlue;
+        margin-bottom: 15px;
+      }
+
+      &_h3 {
+        margin-bottom: 40px;
+
+        &-blue {
+          color: $lightBlue;
+        }
+      }
+
+      &_description {
+        margin-bottom: 40px;
+      }
+    }
+
+    &-img {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        background-image: url('../images/adout.png');
+        background-position: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        grid-column: 5/7;
+      }
+
+      @media screen and (min-width: 1280px) {
+        background-position: center;
+        grid-column: 6/12;
+      }
+    }
+  }
+}
+
+.why {
+  background: $gradient;
+  padding: 50px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 100px 0;
+  }
+}
+
+.tech {
+  padding: 50px 0;
+  background: $gradient;
+
+  @media screen and (min-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 100px 0;
+  }
+
+  &__container-h2 {
+    grid-column: 1/3;
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 9/12;
+    }
+  }
+
+  &__wrapper {
+    grid-column: 1/3;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 1/6;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 1/12;
+    }
+
+    &-left {
+      display: none;
+
+      @media screen and (min-width: 1280px) {
+        display: flex;
+        flex-direction: column;
+        grid-column: 2/5;
+        z-index: 2;
+      }
+    }
+
+    &-img {
+      margin: 0 auto;
+      position: relative;
+      z-index: 0;
+
+      @media screen and (min-width: 1280px) {
+        margin: 120px 0 0;
+        grid-column: 5/9;
+      }
+    }
+    &-button1 {
+      top: 0;
+      left: 25%;
+    }
+    &-button2 {
+      bottom: 35%;
+      right: 25%;
+    }
+    &-button3 {
+      bottom: 0;
+      left: 0;
+    }
+
+    &-button1,
+    &-button2,
+    &-button3 {
+      background: $lightBlue;
+      border-radius: 50%;
+      font-size: 24px;
+      font-weight: 700;
+      height: 50px;
+      position: absolute;
+      transition: all 0.5s ease-in-out;
+      width: 50px;
+      z-index: 5;
+
+      @media screen and (min-width: 1280px) {
+        display: none;
+      }
+    }
+
+    &-info1,
+    &-info2,
+    &-info3 {
+      background: $gray;
+      position: absolute;
+      border-radius: 8px;
+      padding: 15px;
+      opacity: 0;
+      transition: opacity 0.8ms ease-in;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    &-info1 {
+      top: 30%;
+      left: 10px;
+    }
+    &-info2 {
+      bottom: 20%;
+      right: 45%;
+    }
+    &-info3 {
+      bottom: 20%;
+      left: 40px;
+    }
+  }
+
+  &__sensor {
+    margin-left: 25px;
+    margin-top: 55px;
+    position: relative;
+
+    &-title {
+      margin-bottom: 20px;
+    }
+
+    &-subtitle {
+      max-width: 200px;
+    }
+
+    &-img {
+      display: none;
+
+      @media screen and (min-width: 1280px) {
+        background-image: url('../images/arrow1.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        height: 72px;
+        left: 101px;
+        padding: 100px 0;
+        position: absolute;
+        top: 11px;
+        width: 125%;
+      }
+    }
+  }
+
+  &__connection {
+    margin-left: 100px;
+    margin-top: 150px;
+    position: relative;
+
+    &-title {
+      align-items: baseline;
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    &-img {
+      display: none;
+
+      @media screen and (min-width: 1280px) {
+        background-image: url('../images/arrow2.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        bottom: 100px;
+        display: block;
+        height: 113px;
+        left: 140px;
+        position: absolute;
+        width: 134px;
+      }
+    }
+  }
+
+  &__batteries {
+    display: none;
+
+    @media screen and (min-width: 1280px) {
+      display: block;
+      grid-column: 9/12;
+      z-index: 2;
+      position: relative;
+      margin-top: 55px;
+    }
+    &-title {
+      margin-bottom: 20px;
+    }
+
+    &-img {
+      display: none;
+
+      @media screen and (min-width: 1280px) {
+        background-image: url('../images/arrow3.png');
+        background-repeat: no-repeat;
+        background-size: contain;
+        display: block;
+        height: 245px;
+        margin-right: 21px;
+        position: absolute;
+        right: 100%;
+        top: 11px;
+        width: 192px;
+      }
+    }
+  }
+}
+
+.displayedInfo {
+  opacity: 1;
+  z-index: 6;
+}
+
+.contactUs {
+  background: $darkBlue;
+  padding: 50px 0;
+
+  @media screen and (min-width: 768px) {
+    padding: 70px 0;
+  }
+
+  @media screen and (min-width: 1280px) {
+    padding: 100px 0;
+  }
+
+  &__info {
+    grid-column: 1/3;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 1/3;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 1/6;
+    }
+
+    &-subtitle {
+      color: $lightBlue;
+    }
+    &-title {
+      margin-bottom: 32px;
+
+      @media screen and (min-width: 768px) {
+        margin-bottom: 50px;
+      }
+
+      @media screen and (min-width: 1280px) {
+        margin-bottom: 26px;
+      }
+    }
+    &-description {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: block;
+        margin-bottom: 76px;
+      }
+    }
+    &-contacts {
+      display: none;
+
+      @media screen and (min-width: 768px) {
+        display: flex;
+        flex-direction: column;
+      }
+    }
+  }
+
+  &__formWrapper {
+    grid-column: 1/3;
+
+    @media screen and (min-width: 768px) {
+      grid-column: 3/7;
+    }
+
+    @media screen and (min-width: 1280px) {
+      grid-column: 6/12;
+    }
+  }
+  &__form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 45px;
+    gap: 15px;
+
+    &-input {
+      background: none;
+      border: none;
+      border-bottom: 1px solid #212121;
+      color: $text;
+      cursor: pointer;
+      min-width: 100%;
+      padding: 30px;
+
+      &:focus {
+        outline: none;
+        border-bottom: 1px solid $text;
+      }
+    }
+    &-description {
+      margin-top: 30px;
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+  &__button {
+    background-color: $lightBlue;
+    font-weight: 700;
+    margin: 0 auto;
+    padding: 15px 55px;
+    transition: all 0.5s ease-in-out;
+    width: 100%;
+
+    &:hover {
+      background-color: $text;
+    }
+
+    @media screen and (min-width: 768px) {
+      margin: 0;
+      width: fit-content;
+    }
+  }
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 40px 0;
+
+  @media screen and (min-width: 768px) {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__logo {
+    grid-column: 1/3;
+  }
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    grid-column: 1/2;
+    margin-top: 20px;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+      gap: 40px;
+      margin: 0;
+    }
+  }
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 2/3;
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      @media screen and (min-width: 768px) {
+        display: none;
+      }
+    }
+  }
+  &__social {
+    display: flex;
+    gap: 20px;
+  }
+}
+
+.menu {
+  background: $blue;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  min-width: 100vw;
+  overflow: hidden;
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in;
+  width: 100%;
+  z-index: 13;
+
+  &__close {
+    align-self: end;
+    margin-top: 15px;
+    padding-right: 40px;
+    &-img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  &__nav {
+    width: 100%;
+
+    &-link {
+      align-items: start;
+      color: $text;
+      display: flex;
+      justify-content: flex-start;
+
+      padding: 15px;
+
+      width: 100%;
+      &a {
+        font-size: 21px;
+        font-weight: 500;
+        line-height: 27px;
+      }
+      &:hover {
+        background: $darkBlue;
+        color: $lightBlue;
+      }
+    }
+  }
+}
+
+.displayMenu {
+  transform: translateX(0);
+}
+
+.error {
+  border-bottom: 1px solid #911818;
+  &::placeholder {
+    color: #911818;
+  }
+}
+
+.errorMessage {
+  color: #911818;
+}
+
+.removeScroll {
+  overflow: hidden;
+}
+
+.wrapperButtonActive {
+  color: $blue;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover {
+  border-bottom: 1px solid $gray;
+  -webkit-text-fill-color: $lightBlue;
+  -webkit-box-shadow: 0 0 0 1000px transparent inset;
+  transition: background-color 5000s ease-in-out 0s;
 }

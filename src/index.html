@@ -6,14 +6,895 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>KatVR</title>
     <link
       rel="stylesheet"
       href="./styles/main.scss"
     />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="./images/favicon.ico"
+    />
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
-    <script src="scripts/main.js"></script>
+
+  <body id="body">
+    <header
+      class="header"
+      id="header"
+    >
+      <div
+        class="header__wrapper container"
+        id="a"
+      >
+        <div class="header__logo">
+          <a
+            href="#"
+            class="header__logo-img"
+          >
+            <img
+              alt="#"
+              src="./images/Logo.png"
+              class="header__logo-img"
+            />
+          </a>
+          <div class="header__select">
+            <button
+              class="header__lang"
+              id="lang"
+            >
+              <p id="select"></p>
+              <img
+                src="./images/arrowDown.png"
+                alt="arrowDown"
+              />
+            </button>
+            <div
+              class="header__list"
+              id="list"
+            >
+              <button
+                value="en"
+                id="en"
+              >
+                en
+              </button>
+              <button
+                value="ua"
+                id="ua"
+              >
+                ua
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="header__right">
+          <nav>
+            <ul class="header__nav">
+              <li>
+                <a
+                  href="#about"
+                  id="navAbout"
+                  class="header__nav-link"
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="#tech"
+                  id="navTech"
+                  class="header__nav-link"
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="#why"
+                  id="navBenefits"
+                  class="header__nav-link"
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="#contactUs"
+                  id="navContact"
+                  class="header__nav-link"
+                ></a>
+              </li>
+            </ul>
+          </nav>
+          <button
+            id="buttonByu"
+            class="header__button"
+          ></button>
+        </div>
+        <button
+          class="header__burger"
+          id="burger"
+        >
+          <img
+            src="./images/burger.svg"
+            alt="burger"
+          />
+        </button>
+      </div>
+    </header>
+    <main id="main">
+      <a
+        class="arrowUp"
+        id="arrowUp"
+        href="#main"
+      >
+        <img
+          src="./images/arrowUp.png"
+          alt="arrow"
+        />
+      </a>
+      <section
+        class="menu"
+        id="menuMobile"
+      >
+        <button
+          class="menu__close"
+          id="close"
+        >
+          <img
+            src="./images/close.png"
+            alt="close"
+            class="menu__close-img"
+          />
+        </button>
+        <ul class="menu__nav">
+          <li>
+            <a
+              href="#about"
+              id="menuAbout"
+              class="menu__nav-link"
+            ></a>
+          </li>
+          <li>
+            <a
+              class="menu__nav-link"
+              href="#tech"
+              id="menuTech"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="#why"
+              class="menu__nav-link"
+              id="menuBenefits"
+            ></a>
+          </li>
+          <li>
+            <a
+              href="#contactUs"
+              id="menuContact"
+              class="menu__nav-link"
+            ></a>
+          </li>
+        </ul>
+      </section>
+      <section
+        id="hero"
+        class="hero"
+      >
+        <div class="hero__container container">
+          <div class="hero__wrapper">
+            <div class="hero__title">
+              <h1 class="hero__title-h1">
+                <span id="h1White"></span>
+                <span
+                  id="h1Blue"
+                  class="hero__title-h1_blue"
+                ></span>
+              </h1>
+              <p
+                id="heroDescription"
+                class="hero__title-description"
+              ></p>
+              <p class="hero__title-price">1200$</p>
+              <button class="hero__title-button button__play">
+                <p
+                  class="hero__title-button_label button__play"
+                  id="heroButtonPlay"
+                ></p>
+              </button>
+            </div>
+            <div class="hero__slider">
+              <div class="hero__slider-content">
+                <div
+                  class="hero__slider-content_wrapper"
+                  id="slider"
+                >
+                  <img
+                    alt="#"
+                    class="hero__image"
+                    id="heroImage"
+                    src="./images/hero.png"
+                  />
+                  <img
+                    alt="#"
+                    class="hero__image"
+                    id="heroImage2"
+                    src="./images/videoPreview.png"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="hero__menu">
+            <ul class="hero__menu-info">
+              <li>
+                <a
+                  href="#why"
+                  class="hero__menu-info_item"
+                  id="heroFaq"
+                ></a>
+              </li>
+              <li>
+                <a
+                  href="#contactUs"
+                  class="hero__menu-info_item"
+                  id="heroHelp"
+                ></a>
+              </li>
+            </ul>
+            <a
+              href="#about"
+              class="hero__menu-more"
+              id="more"
+            ></a>
+            <div class="hero__menu-buttons">
+              <button
+                class="hero__menu-button buttonActive"
+                type="button"
+                id="buttonPrev"
+              ></button>
+              <button
+                class="hero__menu-button"
+                id="buttonNext"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="info"
+        id="info"
+      >
+        <div class="info__container container">
+          <div class="info__title">
+            <h2 class="info__title-h2">
+              <span id="info2"></span>
+              <span
+                id="info2Blue"
+                class="info__title-h2_blue"
+              ></span>
+            </h2>
+            <p
+              class="info__title-subtitle"
+              id="infoSubtitle"
+            ></p>
+          </div>
+          <div class="info__cards">
+            <div class="info__cards-item">
+              <img
+                src="./images/education.png"
+                alt="#"
+                class="info__cards-img"
+              />
+              <h3
+                class="info__cards-title"
+                id="educationTitle"
+              ></h3>
+              <p
+                class="info__cards-text"
+                id="educationSubtitle"
+              ></p>
+            </div>
+            <div class="info__cards-item">
+              <img
+                src="./images/skyline.png"
+                alt="#"
+                class="info__cards-img"
+              />
+              <h3
+                class="info__cards-title"
+                id="realEstateTitle"
+              ></h3>
+              <p
+                class="info__cards-text"
+                id="realEstateSubtitle"
+              ></p>
+            </div>
+            <div class="info__cards-item">
+              <img
+                src="./images/sport.png"
+                alt="sport"
+                class="info__cards-img"
+              />
+              <h3
+                class="info__cards-title"
+                id="fitnesTitle"
+              ></h3>
+              <p
+                class="info__cards-text"
+                id="fitnesSubtitle"
+              ></p>
+            </div>
+            <div class="info__cards-item">
+              <img
+                src="./images/network.png"
+                alt="#"
+                class="info__cards-img"
+              />
+              <h3
+                class="info__cards-title"
+                id="socialInteractionsTitle"
+              ></h3>
+              <p
+                class="info__cards-text"
+                id="socialInteractionsSubtitle"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="about"
+        class="about"
+      >
+        <div class="container">
+          <div class="about__product grid">
+            <div class="about__product-slider">
+              <h2 class="about__product-slider-h2">
+                <span id="aboutTitleMob"></span>
+                <span
+                  id="aboutTitleBlueMob"
+                  class="about__product-title_h2-blue"
+                ></span>
+              </h2>
+              <div class="about__product-slider_content">
+                <div
+                  class="about__product-slider_content-wrapper"
+                  id="sliderAbout"
+                >
+                  <img
+                    alt="#"
+                    class="about__product-slider_image"
+                    src="./images/videoPreview.png"
+                  />
+                  <img
+                    alt="#"
+                    class="about__product-slider_image"
+                    src="./images/hero.png"
+                  />
+                </div>
+              </div>
+              <div class="about__product-slider_buttons">
+                <button
+                  class="about__product-slider_button buttonActive"
+                  type="button"
+                  id="aboutButtonPrev"
+                ></button>
+                <button
+                  class="about__product-slider_button"
+                  id="aboutButtonNext"
+                ></button>
+              </div>
+              <div class="about__product-slider_dots">
+                <button
+                  class="about__product-slider_dot dotActive"
+                  type="button"
+                  id="aboutDotPrev"
+                ></button>
+                <button
+                  id="aboutDotNext"
+                  class="about__product-slider_dot"
+                ></button>
+              </div>
+            </div>
+            <div class="about__product-title">
+              <h2 class="about__product-title_h2">
+                <span id="aboutTitle"></span>
+                <span
+                  id="aboutTitleBlue"
+                  class="about__product-title_h2-blue"
+                ></span>
+              </h2>
+              <p
+                class="about__product-title_description"
+                id="aboutSubtitle"
+              ></p>
+              <div class="about__product-title_button">
+                <button class="hero__title-button button__play">
+                  <p
+                    class="hero__title-button_label button__play"
+                    id="aboutButtonPlay"
+                  ></p>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="about__meet grid">
+            <div class="about__meet-title">
+              <p
+                class="about__meet-title_small"
+                id="meetTitleSmall"
+              ></p>
+              <h2 class="about__meet-title_h3">
+                <span id="meetTitle"></span>
+                <span
+                  id="meetTitleBlue"
+                  class="about__meet-title_h3-blue"
+                ></span>
+              </h2>
+              <p
+                class="about__meet-title_description"
+                id="meetSubtitle"
+              ></p>
+              <div class="about__meet-title_button">
+                <button class="hero__title-button button__play">
+                  <p
+                    class="hero__title-button_label button__play"
+                    id="meetButtonPlay"
+                  ></p>
+                </button>
+              </div>
+            </div>
+            <div class="about__meet-img"></div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="tech"
+        id="tech"
+      >
+        <div class="tech__wrapper container grid">
+          <h2 class="tech__container-h2">
+            <span id="techTitle"></span>
+            <span
+              id="techTitleBlue"
+              class="tech__container-h2 blue"
+            ></span>
+          </h2>
+          <div class="tech__wrapper-left">
+            <div class="tech__sensor">
+              <h3
+                id="sensorTitle"
+                class="tech__title-h3 tech__sensor-title"
+              ></h3>
+              <ul>
+                <li>
+                  <p
+                    id="sensorWeight"
+                    class="tech__title-p tech__sensor-subtitle"
+                  ></p>
+                </li>
+                <li>
+                  <p
+                    id="sensorDimension"
+                    class="tech__title-p tech__sensor-subtitle"
+                  ></p>
+                </li>
+                <li>
+                  <p
+                    id="sensorLight"
+                    class="tech__title-p tech__sensor-subtitle"
+                  ></p>
+                </li>
+              </ul>
+              <div class="tech__sensor-img"></div>
+            </div>
+            <div class="tech__connection">
+              <h3
+                id="connectionTitle"
+                class="tech__title-h3 tech__connection-title"
+              ></h3>
+              <ul>
+                <li>
+                  <p
+                    id="connectionWireless"
+                    class="tech__title-p"
+                  ></p>
+                </li>
+                <li>
+                  <p
+                    id="connectionReceiver"
+                    class="tech__title-p"
+                  ></p>
+                </li>
+              </ul>
+              <div class="tech__connection-img"></div>
+            </div>
+          </div>
+          <div class="tech__wrapper-img">
+            <img
+              src="./images/imageTech.png"
+              alt="tech"
+            />
+            <button
+              class="tech__wrapper-button1 wrapper-button"
+              id="wrapperButton1"
+            ></button>
+            <button
+              id="wrapperButton2"
+              class="tech__wrapper-button2 wrapper-button"
+            ></button>
+            <button
+              id="wrapperButton3"
+              class="tech__wrapper-button3 wrapper-button"
+            ></button>
+            <div
+              class="tech__wrapper-info1 wrapper-info"
+              id="wrapper-info1"
+            >
+              <h3
+                class="tech__wrapper-info-h3"
+                id="sensorTitle2"
+              ></h3>
+              <ul>
+                <li>
+                  <p
+                    id="sensorWeight2"
+                    class="tech__title-p tech__sensor-subtitle"
+                  ></p>
+                </li>
+                <li>
+                  <p
+                    id="sensorDimension2"
+                    class="tech__title-p tech__sensor-subtitle"
+                  ></p>
+                </li>
+                <li>
+                  <p
+                    id="sensorLight2"
+                    class="tech__title-p tech__sensor-subtitle"
+                  ></p>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="tech__wrapper-info2 wrapper-info"
+              id="wrapper-info2"
+            >
+              <h3
+                class="tech__wrapper-info-h3"
+                id="connectionTitle2"
+              ></h3>
+              <ul>
+                <li>
+                  <p
+                    id="connectionWireless2"
+                    class="tech__title-p"
+                  ></p>
+                </li>
+                <li>
+                  <p
+                    id="connectionReceiver2"
+                    class="tech__title-p"
+                  ></p>
+                </li>
+              </ul>
+            </div>
+            <div
+              class="tech__wrapper-info3 wrapper-info"
+              id="wrapper-info3"
+            >
+              <h3
+                class="tech__wrapper-info-h3"
+                id="batteriesTitle2"
+              ></h3>
+              <ul>
+                <li>
+                  <p
+                    id="batteriesType2"
+                    class="tech__title-p"
+                  ></p>
+                </li>
+                <li>
+                  <p
+                    id="batteriesCapacity2"
+                    class="tech__title-p"
+                  ></p>
+                </li>
+                <li>
+                  <p
+                    id="batteriesBatteryLife2"
+                    class="tech__title-p"
+                  ></p>
+                </li>
+                <li>
+                  <p
+                    id="batteriesCharging2"
+                    class="tech__title-p"
+                  ></p>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tech__batteries">
+            <h3
+              id="batteriesTitle"
+              class="tech__title-h3 tech__batteries-title"
+            ></h3>
+            <ul>
+              <li>
+                <p
+                  id="batteriesType"
+                  class="tech__title-p"
+                ></p>
+              </li>
+              <li>
+                <p
+                  id="batteriesCapacity"
+                  class="tech__title-p"
+                ></p>
+              </li>
+              <li>
+                <p
+                  id="batteriesBatteryLife"
+                  class="tech__title-p"
+                ></p>
+              </li>
+              <li>
+                <p
+                  id="batteriesCharging"
+                  class="tech__title-p"
+                ></p>
+              </li>
+            </ul>
+            <div class="tech__batteries-img"></div>
+          </div>
+        </div>
+      </section>
+      <section
+        id="why"
+        class="why"
+      >
+        <div class="container">
+          <div class="info__title">
+            <h2 class="info__title-h2">
+              <span id="whyh2"></span>
+              <span
+                id="whyh2Blue"
+                class="info__title-h2_blue"
+              ></span>
+            </h2>
+          </div>
+          <div class="info__cards">
+            <div class="info__cards-item">
+              <img
+                src="./images/whyImage1.png"
+                alt="#"
+                class="info__cards-img"
+              />
+              <h3
+                class="info__cards-title"
+                id="universallyTitle"
+              ></h3>
+              <p
+                class="info__cards-text"
+                id="universallySubtitle"
+              ></p>
+            </div>
+            <div class="info__cards-item">
+              <img
+                src="./images/whyImage2.png"
+                alt="#"
+                class="info__cards-img"
+              />
+              <h3
+                class="info__cards-title"
+                id="controlTitle"
+              ></h3>
+              <p
+                class="info__cards-text"
+                id="controlSubtitle"
+              ></p>
+            </div>
+            <div class="info__cards-item">
+              <img
+                src="./images/whyImage3.png"
+                alt="sport"
+                class="info__cards-img"
+              />
+              <h3
+                class="info__cards-title"
+                id="virelessTitle"
+              ></h3>
+              <p
+                class="info__cards-text"
+                id="virelessSubtitle"
+              ></p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section
+        class="contactUs"
+        id="contactUs"
+      >
+        <div class="contactUs__wrapper container grid">
+          <div class="contactUs__info">
+            <p
+              class="contactUs__info-subtitle"
+              id="contactUsSubtitle"
+            ></p>
+            <h2 class="contactUs__info-title">
+              <span id="contactUsTitle"></span>
+              <span
+                id="contactUsTitleBlue"
+                class="blue"
+              ></span>
+            </h2>
+            <p
+              class="contactUs__info-description"
+              id="contactUsDescription"
+            ></p>
+
+            <ul class="contactUs__info-contacts">
+              <li>
+                <a href="tel:+86057186105373">+86-0571-86105373</a>
+              </li>
+              <li>
+                <a href="mailto:global@katvr.com">global@katvr.com</a>
+              </li>
+              <li>
+                <a href="mailto:overseas@katvr.com">overseas@katvr.com</a>
+              </li>
+            </ul>
+          </div>
+          <div class="contactUs__formWrapper">
+            <form class="contactUs__form">
+              <input
+                class="contactUs__form-input"
+                id="contactUsName"
+                placeholder="Name *"
+                required
+                type="text"
+              />
+              <input
+                class="contactUs__form-input"
+                id="contactUsEmail"
+                placeholder="Email *"
+                required
+                type="email"
+              />
+              <input
+                class="contactUs__form-input"
+                id="contactUsPhone"
+                placeholder="Phone *"
+                required
+                type="number"
+              />
+              <textarea
+                class="contactUs__form-input"
+                id="contactUsMessage"
+                placeholder="Message"
+                required
+              ></textarea>
+              <p
+                class="formMessage"
+                id="formMessage"
+              ></p>
+              <button
+                class="contactUs__button"
+                id="contactUsButton"
+              ></button>
+            </form>
+            <p
+              class="contactUs__form-description"
+              id="contactUsDescriptionMob"
+            ></p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="footer container">
+      <a
+        href="#main"
+        class="footer__logo"
+      >
+        <img
+          alt="#"
+          src="./images/Logo.png"
+          class="footer__logo-img"
+        />
+      </a>
+
+      <ul class="footer__nav">
+        <li>
+          <a
+            href="#about"
+            class="footer_nav-item"
+            id="footerAbout"
+          ></a>
+        </li>
+        <li>
+          <a
+            href="#tech"
+            class="footer_nav-item"
+            id="footerTech"
+          ></a>
+        </li>
+        <li>
+          <a
+            href="#why"
+            class="footer_nav-item"
+            id="footerBenefits"
+          ></a>
+        </li>
+        <li>
+          <a
+            href="#contactUs"
+            class="footer_nav-item"
+            id="footerContact"
+          ></a>
+        </li>
+      </ul>
+      <div class="footer__contacts">
+        <ul class="footer__contacts-list">
+          <li>
+            <a href="tel:+86057186105373">+86-0571-86105373</a>
+          </li>
+          <li>
+            <a href="mailto:global@katvr.com">global@katvr.com</a>
+          </li>
+          <li>
+            <a href="mailto:overseas@katvr.com">overseas@katvr.com</a>
+          </li>
+        </ul>
+        <ul class="footer__social">
+          <li>
+            <a href="https://www.facebook.com">
+              <img
+                src="./images/facebook.png"
+                alt="facebook"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="https://x.com/?lang=en">
+              <img
+                src="./images/twitter.png"
+                alt="twitter"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="https://youtube.com">
+              <img
+                src="./images/youtube.png"
+                alt="youtube"
+              />
+            </a>
+          </li>
+          <li>
+            <a href="https://youtube.com">
+              <img
+                src="./images/monkey.png"
+                alt="monkey"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+    <script
+      src="scripts/main.js"
+      defer
+    ></script>
   </body>
 </html>
