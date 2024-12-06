@@ -1,0 +1,66 @@
+.video {
+  height: 100vh;
+
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin: 0 auto;
+    padding: 20px 20px 0;
+
+    @include on-tablet {
+      padding: 30px 34px 0;
+    }
+
+    @include on-desktop {
+      max-width: 1060px;
+      padding: 130px 200px 124px 204px;
+    }
+
+    @include on-design {
+      padding: 130px 300px 124px 204px;
+    }
+
+    @include on-fullhd {
+      padding: 130px 300px 124px 304px;
+      max-width: 1452px;
+    }
+  }
+
+  &__cross {
+    width: 18px;
+    height: 18px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/cross.svg);
+
+    @include on-desktop {
+      transform: translate(-16px, 34px);
+    }
+  }
+}
+
+.iframe {
+  width: 100%;
+  height: 300px;
+
+  @include on-tablet {
+    height: 400px;
+  }
+
+  @include on-desktop {
+    width: 876px;
+    height: 486px;
+  }
+
+  @include on-fullhd {
+    width: 1200px;
+    height: 600px;
+  }
+}

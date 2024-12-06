@@ -1,0 +1,28 @@
+.logo {
+  display: flex;
+  margin: auto;
+
+  &__image {
+    height: 12px;
+
+    @include on-tablet {
+      height: 14px;
+    }
+
+    @include on-desktop {
+      height: 16px;
+    }
+
+    &--footer {
+      margin-bottom: 15px;
+
+      @include on-tablet {
+        grid-column: 1/2;
+      }
+
+      @include on-desktop {
+        grid-column: 1/3;
+      }
+    }
+  }
+}
