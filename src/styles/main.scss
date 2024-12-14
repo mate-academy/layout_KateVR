@@ -3,5 +3,48 @@
 @import 'typography';
 
 body {
+  &__landing-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+
+    @media (min-width: 1440px) {
+      max-width: 1440px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1280px) {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 640px) {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 320px) {
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    &__header {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    &__content {
+      font-size: 1rem;
+      line-height: 1.5;
+      text-align: center;
+    }
+
+    &__footer {
+      margin-top: 20px;
+      font-size: 0.88rem;
+    }
+  }
+  
   background: $c-gray;
 }
