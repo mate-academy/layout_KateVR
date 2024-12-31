@@ -1,0 +1,103 @@
+.form-buy {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  grid-column: 1 / -1;
+
+  margin-bottom: 37px;
+
+  @include on-tablet {
+    @include page-grid;
+  }
+
+  @include on-small-desktop {
+    grid-template-columns: repeat(6, 1fr);
+    grid-column: 7 / -1;
+    grid-row: 1 / 3;
+  }
+
+  @include on-desktop {
+    grid-column: 9 / -1;
+    grid-template-columns: repeat(8, 1fr);
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__label {
+    font-size: 14px;
+    color: $c-text;
+
+    @include transition(color);
+  }
+
+  &__input,
+  &__textarea {
+    color: $c-white;
+    font-family: $main-ff;
+    padding-bottom: 6px;
+    background-color: transparent;
+
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $c-dark-grey;
+    font-size: 16px;
+    resize: none;
+
+    @include transition(border-bottom);
+
+    &:-webkit-autofill {
+      transition:
+        background-color 5000s ease-in-out 0s,
+        color 5000s ease-in-out 0s;
+    }
+
+    &:invalid {
+      border-bottom: 1px solid $c-error;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $c-contrast;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__button {
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-small-desktop {
+      width: 199px;
+      height: 48px;
+      padding: 0;
+      grid-column: 1 / 4;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 4;
+    }
+  }
+}
+
+.form-buy__field:focus-within .form-buy__label {
+  color: $c-contrast;
+}

@@ -1,0 +1,194 @@
+.header {
+  background: $c-bg-gradient;
+
+  @include on-tablet {
+    position: relative;
+  }
+
+  @include on-desktop {
+    position: static;
+  }
+
+  &__hero {
+    padding-bottom: 46px;
+
+    @include on-tablet {
+      @include page-grid;
+
+      padding-bottom: 62px;
+    }
+
+    @include on-small-desktop {
+      position: relative;
+    }
+  }
+
+  &__content {
+    z-index: 1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 7;
+      margin-bottom: 84px;
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 212px;
+    }
+  }
+
+  &__visual {
+    @include on-tablet {
+      position: static;
+      grid-column: span 3;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 7;
+    }
+
+    @include on-desktop {
+      grid-column: span 10;
+    }
+
+    display: block;
+    width: calc(100% + 40px);
+    margin-left: -20px;
+    min-width: 320px;
+
+    @include on-tablet {
+      position: absolute;
+      object-fit: contain;
+      object-position: bottom right;
+      width: 65vw;
+      height: 100%;
+      right: 0;
+      top: 0;
+    }
+
+    @include on-desktop {
+      width: 1104px;
+      height: 595px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: calc(100% + 40px);
+
+    min-width: 320px;
+    height: auto;
+
+    @include on-tablet {
+      position: absolute;
+      object-fit: contain;
+      object-position: bottom right;
+      width: 65vw;
+      height: 100%;
+      right: 0;
+      top: 0;
+    }
+
+    @include on-desktop {
+      width: 1104px;
+      height: 595px;
+      object-fit: cover;
+      object-position: center;
+    }
+  }
+
+  &__title {
+    margin-bottom: 17px;
+  }
+
+  &__info {
+    @include on-small-desktop {
+      padding-left: 86px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 8px;
+
+    @include on-tablet {
+      margin-bottom: 10px;
+    }
+
+    @include on-small-desktop {
+      width: 336px;
+      margin-bottom: 10px;
+    }
+
+    @include on-desktop {
+      width: 439px;
+      font-size: 20px;
+    }
+  }
+
+  &__price {
+    text-align: center;
+    color: $c-white;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 120%;
+    margin-bottom: 25px;
+
+    @include on-tablet {
+      text-align: left;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include on-small-desktop {
+      display: flex;
+      justify-content: space-between;
+      grid-column: 1 / -1;
+      padding-bottom: 84px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 120px;
+    }
+  }
+
+  &__help {
+    display: flex;
+    gap: 39px;
+  }
+
+  &__faq-btn,
+  &__help-btn {
+    @include hover(color, $c-contrast);
+  }
+
+  &__img-mb {
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__swiper {
+    display: none !important;
+
+    @include on-small-desktop {
+      display: block !important;
+      position: absolute;
+      right: 0;
+      height: 54vh;
+      min-height: 430px;
+      max-height: 700px;
+      width: 115%;
+    }
+
+    @include on-desktop {
+      width: 125%;
+    }
+  }
+}

@@ -1,0 +1,110 @@
+.form {
+  &__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    font-size: 14px;
+    color: $c-text;
+
+    @include transition(color);
+  }
+
+  &__field:focus-within .form__label {
+    color: $c-contrast;
+  }
+
+  &__input,
+  &__textarea {
+    color: $c-white;
+    font-family: $main-ff;
+    padding-bottom: 6px;
+    background-color: transparent;
+
+    outline: none;
+    border: none;
+    border-bottom: 1px solid $c-dark-grey;
+    font-size: 16px;
+    resize: none;
+
+    @include transition(border-bottom);
+
+    &:-webkit-autofill {
+      transition:
+        background-color 5000s ease-in-out 0s,
+        color 5000s ease-in-out 0s;
+    }
+
+    &:invalid {
+      border-bottom: 1px solid $c-error;
+    }
+
+    &:focus {
+      border-bottom: 1px solid $c-contrast;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include on-tablet {
+      width: 200px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__loader {
+    display: none;
+
+    height: 20px;
+    width: 20px;
+
+    border: 3px solid $c-text-dark;
+    border-radius: 50%;
+
+    border-left-color: $c-contrast;
+    animation: load 1s linear infinite;
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__up {
+    display: none;
+
+    @include on-tablet {
+      cursor: pointer;
+      display: block;
+      border-radius: 50%;
+
+      @include hover(box-shadow, 0 6px 8px $c-contrast);
+    }
+
+    &-img {
+      display: block;
+    }
+  }
+}
+
+@keyframes load {
+  0% {
+    transform: rotateZ(0deg);
+  }
+
+  100% {
+    transform: rotateZ(360deg);
+  }
+}

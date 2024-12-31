@@ -1,0 +1,84 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 18px 0 14px;
+
+  @include on-tablet {
+    padding-bottom: 0;
+    margin-bottom: 55px;
+  }
+
+  @include on-small-desktop {
+    margin-bottom: 116px;
+  }
+
+  @include on-desktop {
+    margin-bottom: 245px;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+  }
+
+  &__logo {
+    display: block;
+    width: 58px;
+    height: 12px;
+    background-image: url('../images/icons/logo-mb.svg');
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      width: 67px;
+      height: 14px;
+      background-image: url('../images/icons/logo-tb.svg');
+    }
+
+    @include on-small-desktop {
+      width: 77px;
+      height: 16px;
+      background-image: url('../images/icons/logo.svg');
+    }
+  }
+
+  &__link-menu {
+    @include hover(transform, scale(1.1));
+
+    z-index: 2;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__lang {
+    display: none;
+
+    @include on-small-desktop {
+      display: block;
+    }
+  }
+
+  &__menu {
+    display: none;
+
+    @include on-small-desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 37px;
+    }
+  }
+
+  &__btn-buy {
+    display: none;
+
+    @include on-small-desktop {
+      display: block;
+    }
+  }
+}

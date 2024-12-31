@@ -1,0 +1,133 @@
+.select-qty,
+.select {
+  font-size: 20px;
+  line-height: 26px;
+  color: $c-white;
+
+  &__content {
+    position: relative;
+    height: 47px;
+    width: 90px;
+    border-radius: 4px;
+    background-color: $bg-menu;
+  }
+
+  &__current-value {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+
+    position: relative;
+
+    @include hover(color, $c-contrast);
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 11px;
+      top: 50%;
+      transform: translateY(-50%) rotate(-90deg);
+
+      @include transition(transform);
+
+      display: block;
+      border-left: 4.5px solid transparent;
+      border-right: 4.5px solid transparent;
+      border-top: 6px solid $c-white;
+    }
+
+    @include hover-after(border-top-color, $c-contrast);
+  }
+
+  &__list-wrapper {
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    margin-top: 3px;
+
+    width: 100%;
+    border-radius: 4px;
+    background-color: $bg-menu;
+
+    transition: opacity 0.3s;
+    opacity: 0;
+    pointer-events: none;
+
+    &--visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 4px;
+      bottom: 4px;
+      right: 0;
+      display: block;
+      width: 1px;
+      background-color: $c-contrast;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 4px;
+      right: 0;
+      display: block;
+      width: 1px;
+      height: 22px;
+      background-color: $c-contrast;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+    padding-block: 8px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__item {
+    @include hover(color, $c-contrast);
+
+    &--selected {
+      display: none;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.select {
+  &__content {
+    width: 100%;
+  }
+
+  &__current-value {
+    font-size: 16px;
+    padding-left: 24px;
+    justify-content: left;
+    width: auto;
+
+    &::after {
+      right: 21px;
+    }
+  }
+
+  &__item {
+    padding-left: 24px;
+    font-size: 16px;
+  }
+}

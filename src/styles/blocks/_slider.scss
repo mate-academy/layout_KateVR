@@ -1,0 +1,66 @@
+.slider {
+  width: 100%;
+  height: 100%;
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__slide {
+    height: 0;
+
+    @include on-tablet {
+      flex-shrink: 0;
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 20% top;
+
+    &--full {
+      object-fit: contain;
+      object-position: 80% 0;
+    }
+  }
+
+  &__bottom {
+    position: relative;
+    width: max-content;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 103px;
+    padding-bottom: 10px;
+  }
+
+  &__button {
+    line-height: 150%;
+    cursor: pointer;
+
+    @include transition(color);
+
+    &:disabled {
+      cursor: not-allowed;
+      color: $c-text-dark;
+    }
+
+    &:not(&:disabled) {
+      @include hover(color, $c-contrast);
+    }
+  }
+
+  &__scrollbar {
+    --swiper-scrollbar-bg-color: #{$c-text-dark};
+    --swiper-scrollbar-drag-bg-color: #{$c-contrast};
+    --swiper-scrollbar-size: 2px;
+    --swiper-scrollbar-bottom: 0;
+  }
+}
