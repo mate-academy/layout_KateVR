@@ -1,6 +1,185 @@
+@mixin set-size($width: auto, $height: auto) {
+  height: $height;
+  width: $width;
+}
+
+@mixin flex($direction: row, $content: flex-start, $items: stretch) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $content;
+  align-items: $items;
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin on-tablet {
+  @media (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin on-mobile {
+  @media (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline {
+  margin-inline: auto;
+  padding-inline: 110px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-mobile {
+    padding-inline: 20px;
+  }
+}
+
+@mixin page-grid {
+  --columns: 12;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+  }
+
+  @include on-mobile {
+    --columns: 2;
+  }
+}
+
+@mixin slider-navigation-btn {
+  background: none;
+  color: $white-color;
+  cursor: pointer;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+@mixin progress-line-styles(
+  $background: $robins-blue-color,
+  $transition: 0.3s ease
+) {
+  background: $background;
+  transition: width $transition;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+}
+
+@mixin progress-container-styles {
+  @include set-size(100%, 1px);
+
+  background: $mine-shaft-color;
+  position: relative;
+  margin: 10px auto 0;
+}
+
+@mixin primary-text-effect(
+  $text-color,
+  $hover-color,
+  $underline-color,
+  $underline-thickness: 1px,
+  $underline-spacing: 8px,
+  $transition-duration: 0.3s
+) {
+  position: relative;
+  color: $text-color;
+  transition: color $transition-duration ease;
+
+  &:hover {
+    color: $hover-color;
+  }
+
+  &::after {
+    @include set-size(100%, $underline-thickness);
+
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -#{$underline-spacing};
+    left: 0;
+    background-color: $underline-color;
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform $transition-duration ease;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+@mixin hover-color($hover-color, $transition: all 0.3s ease) {
+  transition: $transition;
+
+  &:hover {
+    color: $hover-color;
+  }
+}
+
+@mixin primary-button(
+  $bg-color: $robins-blue-color,
+  $text-color: $white-color,
+  $hover-bg-color: $white-color,
+  $hover-text-color: $robins-blue-color,
+  $hover-shadow-color: $lavender-color,
+  $padding: 13px 55px,
+  $border-radius: 4px,
+  $transition: all 0.3s ease
+) {
+  border-radius: $border-radius;
+  background-color: $bg-color;
+  color: $text-color;
+  padding: $padding;
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    background-color: $hover-bg-color;
+    color: $hover-text-color;
+    box-shadow:
+      0 0 10px $hover-shadow-color,
+      0 0 20px $hover-shadow-color,
+      0 0 20px $hover-bg-color inset;
+  }
+}
+
+@mixin close-button($size: 18px, $icon-url: '../images/icons/close-icon.svg') {
+  @include set-size($size, $size);
+
+  position: absolute;
+  top: $size;
+  right: $size;
+  background: url($icon-url) no-repeat center;
+  cursor: pointer;
+
+  @include hover(transform, scale(1.2));
+}
+
+@mixin arrow-icon(
+  $width: 6px,
+  $height: 9px,
+  $icon-url: '../images/icons/arrow-icon.svg'
+) {
+  @include set-size($width, $height);
+
+  background: url($icon-url) no-repeat center;
+  transition: transform 0.3s ease;
 }
