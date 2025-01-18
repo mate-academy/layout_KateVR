@@ -1,0 +1,107 @@
+.footer {
+  background-color: #000;
+
+  &__content {
+    @include page-grid;
+
+    padding-top: 45px;
+    padding-bottom: 50px;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+  }
+
+  &__logo {
+    grid-column: 1/-1;
+    margin-bottom: 15px;
+  }
+
+  &__nav {
+    grid-column: 1;
+    grid-row: 2/4;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+
+  &__link {
+    color: $color-white;
+    text-decoration: none;
+    font-size: 13px;
+
+    @include hover(color, $color-accent);
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+  }
+
+  &__contacts {
+    grid-column: 2;
+    margin-bottom: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__contact {
+    color: inherit;
+    text-decoration: none;
+    font-size: 13px;
+
+    @include hover(color, $color-accent);
+  }
+
+  &__social-medias {
+    grid-column: 2;
+    display: flex;
+    gap: 18px;
+
+    @include on-design {
+      gap: 28px;
+    }
+  }
+
+  &__icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+
+    @include hover(transform, scale($scale-size));
+  }
+
+  &__icon--facebook {
+    background-image: url(../images/footer/facebook.svg);
+  }
+
+  &__icon--x {
+    background-image: url(../images/footer/X.svg);
+  }
+
+  &__icon--youtube {
+    background-image: url(../images/footer/youtube.svg);
+  }
+
+  &__icon--reddit {
+    background-image: url(../images/footer/reddit.svg);
+  }
+}

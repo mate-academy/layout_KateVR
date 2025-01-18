@@ -1,0 +1,65 @@
+.language {
+  background-color: $color-background;
+  z-index: 4;
+
+  &__content {
+    position: relative;
+    height: 100vh;
+
+    @include page-grid;
+  }
+
+  &__icon {
+    margin-top: 20px;
+    position: absolute;
+    display: block;
+    height: 17px;
+    width: 8px;
+    background-size: cover;
+    background-image: url(../images/icons/back.svg);
+
+    @include hover(transform, scale($scale-size));
+
+    @include on-tablet {
+      margin-top: 33px;
+    }
+  }
+
+  &__nav {
+    @include on-tablet {
+      grid-column: 2/-1;
+    }
+  }
+
+  &__list {
+    padding-top: 86px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+  }
+
+  &__item {
+    padding-block: 11px;
+    padding-left: 25vw;
+    margin-left: -25vw;
+    width: 200vw;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 130%;
+    color: $color-white;
+    cursor: pointer;
+
+    @include hover(color, $color-accent);
+    @include hover(background-color, $color-hover-background);
+
+    &--active {
+      background-color: $color-hover-background;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+    width: 100%;
+  }
+}

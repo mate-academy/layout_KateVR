@@ -1,0 +1,105 @@
+.help {
+  z-index: 4;
+
+  &__wrapper {
+    background-color: $color-background;
+
+    @include on-desktop {
+      margin-top: 10%;
+      width: 880px;
+      margin-inline: auto;
+    }
+
+    @include on-design {
+      width: 1280px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-desktop {
+      height: fit-content;
+    }
+  }
+
+  &__icon {
+    margin-top: 20px;
+    position: absolute;
+    right: 0;
+    display: block;
+    height: 17px;
+    width: 17px;
+    background-size: cover;
+    background-image: url(../images/icons/close.svg);
+
+    @include hover(transform, scale($scale-size));
+  }
+
+  &__title {
+    padding-top: 68px;
+
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 130%;
+    color: $color-white;
+  }
+
+  &__description {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 152px;
+      margin-bottom: 80px;
+    }
+
+    @include on-desktop {
+      gap: 70px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $color-accent;
+
+    @include hover(color, $color-white);
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    @include on-tablet {
+      gap: 25px;
+    }
+  }
+
+  &__contact {
+    text-decoration: none;
+    color: inherit;
+    line-height: 1.19;
+
+    @include hover(color, $color-white);
+  }
+}

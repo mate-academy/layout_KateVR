@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+
+body,
+p,
+ul,
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+.page {
+  min-width: 320px;
+
+  font-family: Inter, serif;
+  font-size: 16px;
+  line-height: 150%;
+  color: #929292;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target),
+  &:has(.page__help:target),
+  &:has(.page__faq:target),
+  &:has(.page__order:target),
+  &:has(.page__language:target) {
+    overflow: hidden;
+  }
+
+  &__aside {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    overflow: hidden;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+
+    transition: transform $effect-duration;
+    transform: translateY(-100%);
+
+    &:target {
+      transform: translateY(0);
+    }
+  }
+}

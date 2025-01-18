@@ -1,0 +1,28 @@
+.scroll-up {
+  display: none;
+  height: 48px;
+  width: 48px;
+  background-image: url(../images/scroll-up/scroll-up.svg);
+  background-size: cover;
+  position: fixed;
+  bottom: 200px;
+  right: 20px;
+  border-radius: 50%;
+  box-shadow:
+    0 0 15px 4px $color-accent,
+    inset 0 0 15px 4px $color-accent;
+  z-index: 3;
+
+  @include hover(
+    background-image,
+    url(../images/scroll-up/scroll-up-hover.svg)
+  );
+  @include hover(
+    box-shadow,
+    (0 0 15px 4px $color-white, inset 0 0 15px 4px $color-white)
+  );
+
+  &--active {
+    display: block;
+  }
+}

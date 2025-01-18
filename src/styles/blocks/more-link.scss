@@ -1,0 +1,23 @@
+.more-link {
+  text-decoration: none;
+  color: $color-accent;
+  position: relative;
+
+  @include hover(color, $color-white);
+
+  &::after {
+    display: block;
+    content: '';
+    width: 100%;
+    height: 6px;
+    background-image: url(../images/header/polygon-accent.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    position: absolute;
+    bottom: -14px;
+  }
+
+  &:hover::after {
+    background-image: url(../images/header/polygon-white.svg);
+  }
+}

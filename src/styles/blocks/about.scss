@@ -1,0 +1,237 @@
+.about {
+  background: $color-gradient;
+
+  &__container {
+    padding-block: 50px;
+
+    @include on-tablet {
+      @include page-grid;
+
+      row-gap: 84px;
+
+      padding-block: 70px;
+
+      overflow: hidden;
+    }
+
+    @include on-desktop {
+      row-gap: 226px;
+
+      padding-block: 100px;
+    }
+
+    @include on-design {
+      row-gap: 220px;
+
+      padding-block: 150px;
+    }
+  }
+
+  &__slider {
+    position: relative;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: 3/8;
+    }
+
+    @include on-design {
+      grid-column: 4/11;
+    }
+  }
+
+  &__img {
+    margin-bottom: 14px;
+
+    display: block;
+    object-fit: contain;
+    width: 100%;
+
+    @include on-tablet {
+      aspect-ratio: 1 / 0.85;
+      object-fit: cover;
+    }
+
+    @include on-desktop {
+      aspect-ratio: auto;
+    }
+
+    @include on-design {
+      aspect-ratio: 3 / 1.3;
+    }
+  }
+
+  &__boolets {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__navigation {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      justify-content: space-between;
+      width: 50%;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__scrollbar {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__switch {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__main {
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: 9/-1;
+    }
+
+    @include on-design {
+      grid-column: 12/-1;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    &--before {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--after {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__text {
+    padding-bottom: 24px;
+  }
+
+  &__play-video {
+    margin-top: 14px;
+    margin-bottom: 107px;
+
+    @include on-tablet {
+      margin-top: 20px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__additional {
+    @include on-tablet {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 5;
+    }
+
+    @include on-design {
+      grid-column: 2/8;
+    }
+  }
+
+  &__hello {
+    margin-bottom: 11px;
+    color: $color-accent;
+    font-size: 14px;
+    line-height: 130%;
+  }
+
+  &__subtitle {
+    margin-bottom: 22px;
+  }
+
+  &__picture-style {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: span 2;
+
+      background-image: url(../images/about/about-style.png);
+      background-size: auto 100%;
+      background-repeat: no-repeat;
+    }
+
+    @include on-desktop {
+      grid-column: 7/-1;
+      transform: scale(1, 1.2);
+    }
+
+    @include on-design {
+      grid-column: 9/-1;
+    }
+  }
+
+  .swiper-pagination {
+    --swiper-pagination-bullet-size: 4px;
+    --swiper-pagination-color: #ababab;
+    --swiper-pagination-bullet-inactive-color: #484848;
+    --swiper-pagination-bullet-inactive-opacity: 1;
+    --swiper-pagination-bottom: 0;
+
+    font-size: 4px;
+    line-height: 1;
+  }
+
+  .swiper-pagination-fraction {
+    font-size: 14px;
+    line-height: 1.21;
+    color: $color-accent;
+
+    --swiper-pagination-bottom: 1;
+
+    transform: translate(calc(-55% - 20px));
+  }
+
+  .swiper-scrollbar {
+    --swiper-scrollbar-bg-color: #212121;
+    --swiper-scrollbar-size: 2px;
+    --swiper-scrollbar-bottom: 0;
+    --swiper-scrollbar-sides-offset: 25%;
+
+    transform: translate(-50%);
+  }
+
+  .swiper-button-next-out,
+  .swiper-button-prev-out {
+    color: $color-white;
+    cursor: pointer;
+  }
+
+  .swiper-button-disabled {
+    color: $color-text;
+    cursor: no-drop;
+  }
+}

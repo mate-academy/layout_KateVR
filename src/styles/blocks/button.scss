@@ -1,0 +1,30 @@
+.button {
+  display: block;
+  padding-block: 11px;
+  width: 100%;
+  max-width: 280px;
+  border-radius: 4px;
+
+  text-align: center;
+  text-decoration: none;
+  background-color: $color-accent;
+  color: $color-white;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 130%;
+
+  z-index: 3;
+
+  @include hover(box-shadow, 0 0 10px 5px $color-accent);
+
+  @include on-tablet {
+    padding-block: 13px;
+    max-width: 458px;
+    font-size: 16px;
+  }
+
+  &:active {
+    background-color: $color-white;
+    color: $color-accent;
+  }
+}

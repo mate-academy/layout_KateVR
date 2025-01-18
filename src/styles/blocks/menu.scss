@@ -1,0 +1,61 @@
+.menu {
+  background-color: $color-background;
+  z-index: 4;
+
+  &__content {
+    position: relative;
+    height: 100vh;
+
+    @include page-grid;
+  }
+
+  &__icon {
+    margin-top: 20px;
+    position: absolute;
+    right: 0;
+    display: block;
+    height: 17px;
+    width: 17px;
+    background-size: cover;
+    background-image: url(../images/icons/close.svg);
+
+    @include hover(transform, scale($scale-size));
+
+    @include on-tablet {
+      margin-top: 34px;
+    }
+  }
+
+  &__nav {
+    @include on-tablet {
+      grid-column: 2/-1;
+    }
+  }
+
+  &__list {
+    padding-top: 86px;
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+
+    @include on-tablet {
+      padding-top: 108px;
+    }
+  }
+
+  &__link {
+    display: block;
+    padding-left: 25vw;
+    margin-left: -25vw;
+    width: 200vw;
+    padding-block: 11px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 130%;
+    color: $color-white;
+
+    @include hover(color, $color-accent);
+    @include hover(background-color, $color-hover-background);
+  }
+}
