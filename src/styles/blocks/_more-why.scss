@@ -1,0 +1,142 @@
+.more-why {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include on-tablet {
+    @include page-grid;
+
+    row-gap: 40px;
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      grid-column: span 3;
+      align-items: center;
+      gap: 20px;
+
+      &--why {
+        grid-column: span 2;
+
+        @include on-desktop {
+          grid-column: span 4;
+        }
+      }
+    }
+
+    @include on-desktop {
+      @include hover(transform, scale(1.2));
+    }
+
+    @include on-design {
+      grid-column: span 4;
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 100%;
+
+      &--edc {
+        width: 98px;
+        height: 81px;
+      }
+
+      &--real {
+        width: 84px;
+        height: 84px;
+      }
+
+      &--fit {
+        width: 110px;
+        height: 80.44px;
+      }
+
+      &--social {
+        width: 83px;
+        height: 83px;
+      }
+
+      &--uni {
+        width: 80px;
+        height: 79.45px;
+      }
+
+      &--vr-pc {
+        width: 89px;
+        height: 80.91px;
+      }
+
+      &--wireless {
+        width: 105.31px;
+        height: 75.32px;
+      }
+    }
+
+    @include on-desktop {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__subtitle {
+    font-weight: 900;
+    line-height: 19.36px;
+    text-transform: uppercase;
+    color: $c-white;
+
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+
+  &__info-wrapper {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    text-overflow: ellipsis;
+    cursor: pointer;
+    position: relative;
+
+    &:hover {
+      -webkit-line-clamp: unset;
+      white-space: normal;
+      overflow: visible;
+    }
+
+    @include on-tablet {
+      -webkit-line-clamp: unset;
+    }
+
+    &--why {
+      -webkit-line-clamp: 3;
+
+      @include on-tablet {
+        -webkit-line-clamp: 3;
+      }
+
+      @include on-desktop {
+        -webkit-line-clamp: unset;
+      }
+    }
+  }
+
+  &__info {
+    font-weight: 400;
+    line-height: 24px;
+    color: $c-text;
+
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+}
