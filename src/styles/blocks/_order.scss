@@ -1,0 +1,261 @@
+.order {
+  background: linear-gradient(100.83deg, #191536 0.67%, #000 100%);
+  box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, 0.25);
+  width: 100vw;
+  height: 100vh;
+
+  &__content {
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__picture {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      grid-column: 1 / 6;
+    }
+
+    &--pay {
+      @include on-tablet {
+        grid-column: 2 / 6;
+      }
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+      position: absolute;
+      width: 701px;
+      margin-left: -110px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__top-menu {
+    box-sizing: border-box;
+    width: 100%;
+    height: 33px;
+    display: flex;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__top-menu-desk {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      width: 647px;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  }
+
+  &__block {
+    width: calc(100% / 3);
+    display: flex;
+    justify-content: center;
+    color: $c-text;
+    font-size: 12px;
+    line-height: 15.6px;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+
+    @include on-desktop {
+      font-size: 14px;
+      line-height: 18.2px;
+      text-align: left;
+    }
+
+    &--active {
+      color: $c-accent;
+      border-bottom: 1px solid $c-accent;
+    }
+
+    &--active-desk {
+      color: $c-accent;
+
+      &::after {
+        content: '';
+        background-image: url('../images/dot.svg');
+        width: 4px;
+        height: 4px;
+      }
+    }
+  }
+
+  &__qty-price {
+    display: flex;
+    justify-content: center;
+    gap: 75px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      justify-content: flex-start;
+      gap: 148px;
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+      grid-row: 2 / 3;
+      margin-top: 32px;
+    }
+
+    &--pay {
+      @include on-tablet {
+        grid-column: 2 / -1;
+      }
+
+      @include on-desktop {
+        grid-area: 2 / 1 / auto / 5;
+      }
+    }
+  }
+
+  &__qty {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  &__subtitle {
+    font-weight: 400;
+    line-height: 20.8px;
+    color: $c-text;
+  }
+
+  &__qty-form {
+    width: 90px;
+    height: 41px;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      background-image: url('../images/arrow-down.svg');
+      width: 9px;
+      height: 6px;
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__qty-number {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 90px;
+    height: 41px;
+    background-color: rgba(25, 21, 54, 1);
+    border: none;
+    color: $c-white;
+    text-align: center;
+    outline: none;
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__amounts {
+    font-size: 26px;
+    line-height: 31.47px;
+    color: $c-accent;
+    font-weight: 500;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    &--pay {
+      @include on-tablet {
+        grid-column: 2 / 6;
+      }
+
+      @include on-desktop {
+        grid-area: 1 / 7 / 3 / -1;
+      }
+    }
+
+    @include on-desktop {
+      grid-area: 1 / 7 / auto / -1;
+    }
+  }
+
+  &__complete-title {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 33.8px;
+    text-align: center;
+    color: $c-white;
+    margin-top: 90px;
+    width: 218px;
+    margin-inline: auto;
+
+    &--accent {
+      font-weight: 400;
+      color: $c-accent;
+    }
+
+    @include on-tablet {
+      font-size: 46px;
+      line-height: 59.8px;
+      width: 100%;
+      margin-top: 180px;
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      margin: 0;
+    }
+  }
+
+  &__complete-text {
+    font-weight: 400;
+    line-height: 20.8px;
+    text-align: center;
+    color: $c-white;
+    margin-block: 16px 30px;
+
+    @include on-tablet {
+      margin-block: 20px 50px;
+      font-size: 18px;
+      line-height: 23.4px;
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      margin-block: 36px 50px;
+    }
+  }
+}

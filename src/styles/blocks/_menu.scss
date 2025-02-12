@@ -1,0 +1,62 @@
+.menu {
+  min-height: 568px;
+  background: rgba(0, 0, 0, 0.7);
+  width: 100vw;
+  min-width: 320px;
+  height: 100vh;
+  overflow: auto;
+
+  &__content {
+    background-color: rgba(25, 21, 54, 1);
+
+    @include on-tablet {
+      min-height: 568px;
+      width: 100%;
+      background-color: rgba(25, 21, 54, 1);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    font-size: 21px;
+    line-height: 27.3px;
+
+    @include on-tablet {
+      grid-column: 2 / -1;
+    }
+  }
+
+  &__item {
+    padding-block: 11px;
+    position: relative;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(17, 14, 37, 1);
+      margin-inline: -16px;
+      padding-inline: 16px;
+
+      @include on-tablet {
+        margin-inline: -34px;
+        padding-inline: 34px;
+      }
+    }
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__link {
+    color: $c-white;
+
+    &:hover {
+      color: $c-accent;
+    }
+
+    @include on-tablet {
+      grid-column: 2 / -1;
+    }
+  }
+}
