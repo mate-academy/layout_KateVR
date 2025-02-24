@@ -1,0 +1,191 @@
+.button {
+  width: 100%;
+  background-color: $c-accent;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 37px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+
+  &--buy {
+    width: 280px;
+    height: 40px;
+
+    @include on-tablet {
+      width: 458px;
+      height: 48px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  @include on-tablet {
+    height: 48px;
+  }
+
+  @include on-desktop {
+    font-size: 16px;
+  }
+
+  &:hover {
+    background-color: $c-white;
+  }
+
+  &__buy {
+    color: $c-white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 18.2px;
+    height: 37px;
+    width: 100%;
+    align-content: center;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__purchase {
+    color: $c-white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 18.2px;
+    margin-block: 40px 37px;
+    cursor: pointer;
+    background-color: $c-accent;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      margin-block: 58px 43px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+      width: 199px;
+      margin-block: 68px 97px;
+    }
+  }
+
+  &__purchase-link {
+    font-size: 14px;
+    line-height: 18.2px;
+    color: $c-white;
+    width: 100%;
+    height: 37px;
+    text-align: center;
+    align-content: center;
+
+    @include on-tablet {
+      height: 48px;
+    }
+
+    @include on-desktop {
+      font-size: 16px;
+    }
+
+    &:hover {
+      color: $c-accent;
+    }
+
+    .forminput:valid,
+    select:valid & {
+      background-color: $c-accent;
+      cursor: pointer;
+    }
+  }
+
+  &__back {
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      width: 218px;
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+  }
+
+  &__more {
+    line-height: 24px;
+    color: $c-accent;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 7px;
+
+    &:hover {
+      color: $c-white;
+    }
+
+    &::after {
+      content: '';
+      background-image: url('../images/arrow-down.svg');
+      width: 9px;
+      height: 6px;
+      background-repeat: no-repeat;
+    }
+
+    &:hover::after {
+      background-image: url('../images/arrow-down-hover.svg');
+    }
+  }
+
+  &__top-bar {
+    display: none;
+
+    @include on-desktop {
+      width: 200px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $c-white;
+      line-height: 20.8px;
+      font-size: 16px;
+    }
+
+    &--why {
+      @include on-desktop {
+        margin-top: 90px;
+      }
+    }
+
+    &:hover {
+      color: $c-accent;
+    }
+  }
+
+  &__contact {
+    color: $c-white;
+    margin-block: 30px;
+
+    @include on-tablet {
+      width: 200px;
+      margin: 0;
+    }
+  }
+
+  &__contacts {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+
+    &:hover {
+      color: $c-accent;
+    }
+  }
+}

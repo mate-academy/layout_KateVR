@@ -1,0 +1,113 @@
+.faq {
+  background: rgba(0, 0, 0, 0.7);
+  overflow: auto;
+  width: 100vw;
+  height: 100vh;
+
+  &__main {
+    background-color: rgba(25, 21, 54, 1);
+    height: 100%;
+
+    @include on-desktop {
+      width: 880px;
+      height: fit-content;
+      margin: auto;
+      margin-bottom: 127px;
+    }
+  }
+
+  &__conteiner {
+    @include on-tablet {
+      @include page-grid;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(10, 70px);
+      margin-inline: -110px;
+    }
+  }
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.1s;
+  }
+
+  &__toggle {
+    display: none;
+
+    &:checked ~ .faq__content {
+      max-height: 100%;
+    }
+
+    &:checked ~ .faq__button-more label {
+      display: inline-block;
+    }
+  }
+
+  &__bocks {
+    border: 1px solid $c-accent;
+    border-radius: 4px;
+    padding: 20px 12px;
+    margin-bottom: 13px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &__question {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: $c-accent;
+    margin-bottom: 18px;
+    cursor: pointer;
+    display: block;
+  }
+
+  &__answer {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: $c-text;
+    margin-bottom: 40px;
+  }
+
+  &__date {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    text-align: left;
+    color: rgba(84, 84, 84, 1);
+  }
+
+  &__button-more {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 1 / -1;
+      justify-self: center;
+      margin-top: 50px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 49px;
+    }
+
+    &--bottom {
+      margin: 0;
+
+      &:hover {
+        color: $c-white;
+      }
+    }
+  }
+}

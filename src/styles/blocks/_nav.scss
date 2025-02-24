@@ -1,0 +1,52 @@
+.nav {
+  display: none;
+
+  &__footer {
+    display: inline-block;
+    grid-area: 2 / 1 / 4 / 2;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      grid-row: 1 / 2;
+    }
+
+    @include on-desktop {
+      grid-area: 1 / 5 / 2 / 9;
+    }
+  }
+
+  @include on-desktop {
+    display: block;
+  }
+
+  &__list {
+    display: flex;
+    gap: 36px;
+
+    &--footer {
+      flex-direction: column;
+      gap: 12px;
+
+      @include on-tablet {
+        flex-direction: row;
+        justify-content: space-around;
+      }
+    }
+  }
+
+  &__link {
+    color: $c-white;
+    line-height: 20.8px;
+
+    &--footer {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 19.5px;
+      text-align: left;
+    }
+
+    &:hover {
+      color: $c-accent;
+    }
+  }
+}

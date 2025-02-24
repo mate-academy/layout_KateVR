@@ -1,0 +1,118 @@
+.slider-about {
+  position: relative;
+  overflow: hidden;
+  max-width: 100%;
+  padding-bottom: 38px;
+  margin-top: 20px;
+
+  @include on-tablet {
+    grid-area: 1 / 1 / 4 / 4;
+    margin: 0;
+    padding-bottom: 15px;
+  }
+
+  @include on-desktop {
+    grid-area: 1 / 3 / 4 / 8;
+    padding-bottom: 12px;
+  }
+
+  @include on-design {
+    grid-area: 1 / 4 / 4 / 11;
+  }
+
+  &__track {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    width: 100%;
+  }
+
+  &__item {
+    flex: 0 0 100%;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  &__img {
+    height: 189px;
+    width: 100%;
+    object-fit: contain;
+
+    @include on-tablet {
+      min-height: 270px;
+    }
+
+    @include on-desktop {
+      min-height: 290px;
+    }
+
+    &--1,
+    &--2 {
+      @include on-tablet {
+        object-fit: cover;
+      }
+    }
+  }
+
+  input {
+    display: none;
+  }
+}
+
+input.slick-1:checked ~ .slider-about__track {
+  transform: translateX(0);
+}
+
+input.slick-2:checked ~ .slider-about__track {
+  transform: translateX(calc(-100%));
+}
+
+input.slick-3:checked ~ .slider-about__track {
+  transform: translateX(calc(-200%));
+}
+
+input.slick-4:checked ~ .slider-about__track {
+  transform: translateX(calc(-300%));
+}
+
+input.slick-5:checked ~ .slider-about__track {
+  transform: translateX(calc(-400%));
+}
+
+.slick-navigation {
+  position: absolute;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  left: 50%;
+  bottom: 20px;
+
+  @include on-tablet {
+    bottom: 0;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  label {
+    width: 4px;
+    height: 4px;
+    background: rgba(72, 72, 72, 1);
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:hover,
+    &:active,
+    &:focus {
+      background: rgba(171, 171, 171, 1);
+    }
+  }
+
+  input.slick-1:checked ~ .slick-navigation label:nth-child(1),
+  input.slick-2:checked ~ .slick-navigation label:nth-child(2),
+  input.slick-3:checked ~ .slick-navigation label:nth-child(3),
+  input.slick-4:checked ~ .slick-navigation label:nth-child(4),
+  input.slick-5:checked ~ .slick-navigation label:nth-child(5) {
+    background: $c-accent;
+  }
+}
