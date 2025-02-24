@@ -1,0 +1,106 @@
+.header {
+  &__content {
+    height: 100vh;
+
+    @include on-tablet {
+      @include page-grid;
+
+      position: relative;
+      padding-bottom: 70px;
+      height: auto;
+    }
+
+    @include on-desktop {
+      padding: 0;
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include on-tablet {
+      top: 0;
+      position: absolute;
+      max-width: 486px;
+      right: 0;
+    }
+
+    @include on-desktop {
+      max-width: 810.7px;
+      max-height: 688px;
+    }
+  }
+
+  &__title {
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 33.8px;
+    color: $c-white;
+    word-spacing: -2.5px;
+    margin-bottom: 17px;
+
+    &--accent {
+      font-weight: 400;
+      color: $c-accent;
+    }
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-area: 1 / span 6 / 2;
+      font-size: 46px;
+      line-height: 59.8px;
+      margin-bottom: 19px;
+    }
+  }
+
+  &__text {
+    line-height: 24px;
+    color: $c-text;
+    margin-bottom: 8px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-bottom: 10px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__price {
+    font-size: 18px;
+    line-height: 21.78px;
+    text-align: center;
+    color: $c-white;
+    margin-bottom: 16px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      justify-self: flex-start;
+      margin-bottom: 33px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 4;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      grid-column: 1 / -1;
+      margin-top: 222px;
+      margin-bottom: 84px;
+    }
+  }
+}

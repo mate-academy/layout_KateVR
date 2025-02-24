@@ -1,0 +1,53 @@
+.language-switcher {
+  display: none;
+
+  @include on-desktop {
+    width: 33px;
+    height: 21px;
+    position: relative;
+    display: inline-block;
+
+    &::after {
+      content: '';
+      background-image: url('../images/arrow-down.svg');
+      width: 9px;
+      height: 6px;
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+      background-repeat: no-repeat;
+    }
+
+    &:hover::after {
+      background-image: url('../images/arrow-down-hover.svg');
+    }
+  }
+
+  &__select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 33px;
+    height: 21px;
+    background-color: transparent;
+    border: none;
+    color: $c-accent;
+    outline: none;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:hover {
+      color: $c-white;
+    }
+  }
+
+  &__option {
+    background-color: #191536;
+    color: inherit;
+    border: 1px solid $c-accent;
+  }
+}

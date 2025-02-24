@@ -1,0 +1,135 @@
+.about {
+  &__content-top {
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__info {
+    font-weight: 400;
+    line-height: 24px;
+    text-align: left;
+    color: $c-text;
+    margin-bottom: 48px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+
+    @include on-design {
+      grid-column: 12 / -1;
+    }
+
+    &--greetings {
+      margin: 0;
+      margin-top: 22px;
+
+      @include on-tablet {
+        grid-column: span 4;
+        margin: 0;
+        margin-bottom: 22px;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+
+      @include on-design {
+        grid-column: 2 / 8;
+      }
+    }
+  }
+
+  &__slider-number {
+    display: none;
+
+    @include on-desktop {
+      color: $c-accent;
+      display: block;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16.94px;
+      grid-column: 1 / 3;
+      justify-self: flex-end;
+    }
+
+    @include on-design {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__slider {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-area: 4 / 3 / 5 / 8;
+      width: 207px;
+      justify-content: space-between;
+    }
+
+    @include on-design {
+      grid-area: 4 / 4 / 5 / 11;
+    }
+  }
+
+  &__hello {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+    color: $c-accent;
+    margin-block: 88px 11px;
+
+    @include on-tablet {
+      grid-column: span 4;
+      margin-block: 24px 11px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      margin-block: 43px 15px;
+    }
+
+    @include on-design {
+      grid-column: 2 / 8;
+    }
+  }
+
+  &__content-bottom {
+    @include on-tablet {
+      @include page-grid;
+
+      padding-top: 84px;
+    }
+
+    @include on-desktop {
+      padding-top: 184px;
+    }
+
+    @include on-design {
+      padding-top: 175px;
+    }
+  }
+
+  &__svg {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-area: 1 / 5 / 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-area: 1 / 7 / 4 / -1;
+    }
+
+    @include on-design {
+      grid-area: 1 / 8 / 4 / -1;
+    }
+  }
+}

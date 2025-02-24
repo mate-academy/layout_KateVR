@@ -1,7 +1,81 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import './blocks/page';
+@import './blocks/top-bar';
+@import './blocks/header';
+@import './blocks/overlay';
+@import './blocks/play';
+@import './blocks/button';
+@import './blocks/order';
+@import './blocks/form';
+@import './blocks/form-select';
+@import './blocks/pay-order';
+@import './blocks/menu';
+@import './blocks/language';
+@import './blocks/help';
+@import './blocks/contact-info';
+@import './blocks/section-title';
+@import './blocks/faq';
+@import './blocks/nav';
+@import './blocks/language-switcher';
+@import './blocks/slider';
+@import './blocks/more';
+@import './blocks/title-section';
+@import './blocks/about';
+@import './blocks/slider-about';
+@import './blocks/tech';
+@import './blocks/more-why';
+@import './blocks/why';
+@import './blocks/contact';
+@import './blocks/footer';
 
 body {
-  background: $c-gray;
+  background: linear-gradient(100.83deg, #191536 0.67%, #000 100%);
+  box-shadow: 4px 4px 40px 0 rgba(0, 0, 0, 0.25);
+  font-family: Inter, serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  overflow: auto;
+
+  &:has(.play__video-toggle:checked) {
+    overflow: hidden;
+  }
+}
+
+p,
+h1,
+h2,
+h3,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+input {
+  background-color: transparent !important;
+  outline: none;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  background-color: transparent !important;
+  color: $c-text !important;
+  -webkit-text-fill-color: $c-text !important;
+  transition: background-color 5000s ease-in-out 0s;
 }

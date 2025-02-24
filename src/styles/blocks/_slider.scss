@@ -1,0 +1,34 @@
+.slider {
+  color: $c-white;
+  display: flex;
+  gap: 103px;
+  line-height: 24px;
+  position: relative;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 1px;
+    background-color: $c-dark-gray;
+    position: absolute;
+    bottom: -10px;
+  }
+
+  &::after {
+    content: '';
+    width: calc(100% / 3);
+    height: 1px;
+    background-color: $c-accent;
+    position: absolute;
+    bottom: -10px;
+  }
+
+  &__previous {
+    color: $c-text;
+  }
+
+  &__previous,
+  &__next {
+    cursor: pointer;
+  }
+}
