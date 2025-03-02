@@ -1,0 +1,336 @@
+.tech {
+  &__container {
+    margin: 0 auto;
+    padding: 50px 20px;
+
+    background-image: url(../images/tech.svg);
+    background-position: center 114px;
+    background-repeat: no-repeat;
+    background-size: 195px 197px;
+    background-attachment: local;
+
+    @include on-tablet {
+      padding: 80px 32px;
+      background-size: 358px 354px;
+      background-position: center 168px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      max-width: 1056px;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      padding: 100px 112px 130px;
+
+      background-image: url(../images/tech3.svg), url(../images/tech1.svg),
+        url(../images/tech2.svg), url(../images/tech4.svg),
+        url(../images/tech-ellipse.svg);
+      background-position:
+        623px 235px,
+        470px 280px,
+        214px 230px,
+        342px 340px,
+        460px 322px;
+      background-repeat: no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+      background-size: initial;
+    }
+
+    @include on-fullhd {
+      padding: 160px 234px 175px;
+      max-width: 1452px;
+      grid-template-columns: repeat(16, 1fr);
+
+      background-image: url(../images/tech3--2.svg), url(../images/tech1.svg),
+        url(../images/tech2--2.svg), url(../images/tech4--2.svg),
+        url(../images/tech-ellipse.svg);
+      background-position:
+        954px 297px,
+        801px 345px,
+        516px 294px,
+        563px 403px,
+        788px 388px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 25px;
+    color: #fff;
+
+    @include on-desktop {
+      grid-column: 9/12;
+      margin-bottom: 80px;
+
+      font-size: 36px;
+      line-height: 44px;
+    }
+
+    @include on-fullhd {
+      grid-column: 12/15;
+    }
+
+    &--2 {
+      font-weight: 400;
+      color: #05c2df;
+    }
+  }
+
+  &__button {
+    position: relative;
+
+    margin-left: 36%;
+    width: 34px;
+    height: 34px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    text-align: center;
+    color: #fff;
+
+    border-radius: 50px;
+    box-sizing: border-box;
+    background-color: #05c2df;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+
+    @include on-tablet {
+      margin-left: 34%;
+      width: 62px;
+      height: 62px;
+      font-size: 36px;
+    }
+
+    &--2 {
+      margin-left: 62%;
+
+      @include on-tablet {
+        margin-left: 59%;
+      }
+    }
+
+    &--3 {
+      margin-left: 10%;
+
+      @include on-tablet {
+        margin-left: 18%;
+      }
+    }
+  }
+
+  &__text {
+    position: relative;
+    display: none;
+    width: 147px;
+    height: 73px;
+    padding: 17px 10px 22px 11px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #929292;
+    background-color: #191536;
+
+    @include on-tablet {
+      width: 170px;
+      height: 80px;
+      margin-left: 110px;
+
+      font-size: 14px;
+    }
+
+    &--2 {
+      height: 110px;
+      width: 206px;
+      margin-left: 70px;
+      padding: 2px;
+
+      font-size: 11px;
+
+      @include on-tablet {
+        margin-left: 250px;
+        padding: 17px 10px 22px 11px;
+        width: 280px;
+        height: 130px;
+        font-size: 14px;
+      }
+    }
+
+    &--3 {
+      height: 50px;
+      width: 180px;
+      margin-left: 0;
+      padding: 2px;
+
+      @include on-tablet {
+        padding: 5px 10px 22px 11px;
+        margin-left: 40px;
+        width: 200px;
+        height: 50px;
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__place {
+    margin-bottom: 57px;
+    max-height: 34px;
+
+    @include on-tablet {
+      margin-bottom: 144px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &--2 {
+      margin-bottom: 39px;
+      max-height: 34px;
+
+      @include on-tablet {
+        margin-bottom: 100px;
+      }
+    }
+
+    &--3 {
+      margin-bottom: 8px;
+
+      @include on-tablet {
+        margin-bottom: 34px;
+      }
+    }
+  }
+
+  &__block {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &--1 {
+      grid-column: 1/4;
+
+      @include on-fullhd {
+        grid-column: 3/6;
+      }
+    }
+
+    &--2 {
+      grid-column: 9/13;
+      margin-bottom: 30px;
+
+      @include on-fullhd {
+        grid-column: 12/16;
+      }
+    }
+
+    &--3 {
+      grid-column: 2/5;
+
+      @include on-fullhd {
+        grid-column: 3/6;
+      }
+    }
+  }
+
+  &__item {
+    margin-bottom: 21px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: #fff;
+  }
+
+  &__description {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+  }
+}
+
+.secondecolor {
+  margin-left: 36%;
+  width: 34px;
+  height: 34px;
+
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  color: #fff;
+
+  border-radius: 50px;
+  box-sizing: border-box;
+  background-color: #07798b;
+  border: 2px solid rgba(255, 255, 255, 0.14);
+
+  @include on-tablet {
+    margin-left: 34%;
+    width: 62px;
+    height: 62px;
+    font-size: 36px;
+  }
+}
+
+.secondecolor--2 {
+  margin-left: 62%;
+  width: 34px;
+  height: 34px;
+
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  color: #fff;
+
+  border-radius: 50px;
+  box-sizing: border-box;
+  background-color: #07798b;
+  border: 2px solid rgba(255, 255, 255, 0.14);
+
+  @include on-tablet {
+    margin-left: 59%;
+    width: 62px;
+    height: 62px;
+    font-size: 36px;
+  }
+}
+
+.secondecolor--3 {
+  margin-left: 10%;
+  width: 34px;
+  height: 34px;
+
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  text-align: center;
+  color: #fff;
+
+  border-radius: 50px;
+  box-sizing: border-box;
+  background-color: #07798b;
+  border: 2px solid rgba(255, 255, 255, 0.14);
+
+  @include on-tablet {
+    margin-left: 18%;
+    width: 62px;
+    height: 62px;
+    font-size: 36px;
+  }
+}

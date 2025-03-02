@@ -1,0 +1,46 @@
+.icon {
+  display: block;
+  width: 20px;
+  height: 10px;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  @include on-tablet {
+    width: 30px;
+    height: 14px;
+  }
+
+  &--menu {
+    background-image: url(../images/menu.svg);
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &--cross {
+    width: 18px;
+    height: 18px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/cross.svg);
+
+    &__buy {
+      @include on-desktop {
+        display: none;
+      }
+    }
+  }
+
+  &--language {
+    width: 9px;
+    height: 17px;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../images/arrow-language.svg);
+  }
+}

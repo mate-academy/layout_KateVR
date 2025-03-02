@@ -1,0 +1,253 @@
+.faq {
+  height: 100vh;
+
+  box-sizing: border-box;
+  overflow-y: auto;
+  background-color: #191536;
+
+  @include on-desktop {
+    padding: 134px 200px 200px;
+
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  @include on-fullhd {
+    padding: 134px 418px;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px 20px 0;
+
+    @include on-tablet {
+      padding: 34px 34px 0;
+    }
+
+    @include on-desktop {
+      padding: 18px 18px 0;
+
+      background-color: #191536;
+    }
+
+    @include on-fullhd {
+      padding: 28px 28px 0;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    padding: 32px 20px 10px;
+
+    @include on-tablet {
+      padding: 52px 34px 245px;
+    }
+
+    @include on-desktop {
+      padding: 25px 90px 62px;
+
+      background-color: #191536;
+    }
+
+    @include on-fullhd {
+      padding: 25px 92px 63px 95px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 130%;
+    color: #fff;
+
+    @include on-desktop {
+      margin-bottom: 50px;
+
+      font-size: 36px;
+    }
+
+    @include on-fullhd {
+      margin-bottom: 37px;
+    }
+
+    &--2 {
+      font-weight: 400;
+      color: #05c2df;
+    }
+  }
+
+  &__content {
+    padding: 20px 12px 12px;
+    margin-bottom: 13px;
+
+    border: 1px solid #05c2df;
+    border-radius: 4px;
+
+    &--4 {
+      margin-bottom: 0;
+
+      @include on-tablet {
+        margin-bottom: 50px;
+      }
+    }
+
+    @include on-tablet {
+      padding: 20px 14px 24px 28px;
+    }
+
+    @include on-desktop {
+      padding: 18px 31px 21px 27px;
+    }
+  }
+
+  &__question {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #05c2df;
+    transition: all 0.5s;
+
+    &:hover {
+      color: #fff;
+    }
+  }
+
+  &__answer {
+    margin: 18px 0 30px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+
+    @include on-tablet {
+      margin: 18px 0 15px;
+    }
+
+    @include on-desktop {
+      margin: 18px 0 20px;
+    }
+  }
+
+  &__update {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: #545454;
+
+    @include on-desktop {
+      font-size: 14px;
+    }
+  }
+
+  &__more {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+
+      font-family: Inter, sans-serif;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 150%;
+      color: #05c2df;
+      text-decoration: none;
+      transition: all 0.5s;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 9px;
+        height: 6px;
+        background-image: url(../images/language-arrow.svg);
+        background-position: 0;
+        background-repeat: no-repeat;
+        background-size: cover;
+        transform: translateY(27px);
+        transition: all 0.5s;
+      }
+
+      &:hover {
+        color: #fff;
+
+        &::after {
+          background-image: url(../images/arrow-hover.svg);
+        }
+      }
+    }
+  }
+
+  &__br {
+    display: block;
+
+    @include on-fullhd {
+      display: none;
+    }
+  }
+
+  &__arrow {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      width: 9px;
+      height: 6px;
+      transition: all 0.1s ease-in-out;
+      transform: rotate(180deg);
+    }
+  }
+}
+
+.toggled[aria-hidden].toggled-short {
+  transition-duration: 0s, 0.4s, 0.4s;
+}
+
+.toggled[aria-hidden] {
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  max-height: 0;
+  transition:
+    visibility 0s linear 0.6s,
+    opacity 0.6s ease-in,
+    max-height 0.6s ease-out;
+}
+
+.toggled[aria-hidden='true'] {
+  max-height: 0 !important; /* Overrides inline style */
+}
+
+.toggled[aria-hidden='false'] {
+  visibility: visible;
+  opacity: 1;
+  max-height: 50em; /* Set more accurately inline by JavaScript */
+  transition-delay: 0s, 0s, 0s; /* unit "s" is required */
+  transition-timing-function: linear, linear, ease-out;
+}
+
+[class^='toggled'][aria-hidden].toggled-short {
+  transition-duration: 0s, 0.4s, 0.4s;
+}
+
+.toggler {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: inherit;
+  border: none;
+  box-sizing: border-box;
+  text-align: left;
+  cursor: pointer;
+}
