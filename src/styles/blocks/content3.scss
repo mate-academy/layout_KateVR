@@ -1,0 +1,118 @@
+.content3 {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__link {
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.5s;
+
+    &:hover {
+      color: #05c2df;
+    }
+
+    &--1 {
+      margin-right: 39px;
+
+      transition: color 0.5s;
+    }
+
+    &--2 {
+      margin-right: 404px;
+
+      transition: color 0.5s;
+
+      @include on-fullhd {
+        margin-right: 609px;
+      }
+    }
+  }
+
+  // align-content: center;
+
+  &__more {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-right: 298px;
+    padding-bottom: 20px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #05c2df;
+    text-decoration: none;
+    transform: translateY(10px);
+    background-image: url(../images/language-arrow.svg);
+    background-position: center 32px;
+    background-repeat: no-repeat;
+
+    background-size: 9px 6px;
+    transition: all 0.5s;
+
+    &:hover {
+      color: #fff;
+      background-image: url(../images/arrow-hover.svg);
+    }
+
+    @include on-fullhd {
+      margin-right: 487px;
+    }
+  }
+}
+
+.tabs {
+  position: relative;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 103px;
+
+  font-family: Inter, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+
+  border-bottom: 1px solid #212121;
+  transform: translateY(5px);
+
+  &--tab {
+    display: block;
+    color: #fff;
+    padding-bottom: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 350ms;
+
+    &.-active {
+      color: #929292;
+    }
+
+    &__ua {
+      font-size: 14px;
+    }
+  }
+
+  &--line {
+    position: absolute;
+
+    display: block;
+    height: 1px;
+    bottom: -1px;
+
+    background-color: #05c2df;
+    transition: 350ms;
+  }
+}

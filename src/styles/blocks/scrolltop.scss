@@ -1,0 +1,47 @@
+.scrolltop {
+  position: fixed;
+  right: 110px;
+  bottom: 30px;
+  display: none;
+  z-index: 100;
+
+  @media (max-width: 767px) {
+    display: none !important;
+  }
+
+  @include on-tablet {
+    position: fixed;
+    right: 34px;
+    bottom: 30px;
+    z-index: 100;
+  }
+
+  @include on-desktop {
+    right: 110px;
+  }
+
+  &.show {
+    display: flex;
+
+    @media (max-width: 767px) {
+      display: none !important;
+    }
+  }
+
+  &__link {
+    width: 48px;
+    height: 48px;
+    background-image: url(../images/scroll.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 1px solid #05c2df;
+    border-radius: 50%;
+    box-sizing: border-box;
+    transition: all 0.5s;
+
+    &:hover {
+      background-color: #05c2df;
+      background-image: url(../images/scroll-hover.svg);
+    }
+  }
+}
