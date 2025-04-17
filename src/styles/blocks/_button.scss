@@ -1,0 +1,51 @@
+.button {
+  width: 200px;
+  padding-block: 13px;
+  text-align: center;
+  background-color: $c-contrast;
+  border-radius: 4px;
+
+  @include on-tablet {
+    display: block;
+  }
+
+  &:hover {
+    @include hover(color, $c-contrast);
+    @include hover(background-color, $c-white);
+    @include hover(box-shadow, 0 0 15px $c-white);
+  }
+
+  &:active {
+    background-color: $hover-bg-color;
+  }
+
+  &:disabled {
+    background-color: $hover-bg-color;
+    color: $c-dark-grey;
+    box-shadow: none;
+    cursor: not-allowed;
+  }
+}
+
+.more-btn {
+  position: relative;
+  cursor: pointer;
+  color: $c-contrast;
+
+  @include hover(color, $c-white);
+
+  &::after {
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+
+    content: '';
+    display: block;
+    border-left: 4.5px solid transparent;
+    border-right: 4.5px solid transparent;
+    border-top: 5px solid $c-contrast;
+  }
+
+  @include hover-after(border-top-color, $c-white);
+}

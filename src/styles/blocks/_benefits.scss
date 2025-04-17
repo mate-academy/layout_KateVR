@@ -1,0 +1,84 @@
+.benefits {
+  background: $c-bg-gradient;
+
+  @include section-padding-block;
+
+  &__content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-small-desktop {
+      gap: 80px;
+    }
+  }
+
+  &__title {
+    text-align: left;
+
+    @include on-small-desktop {
+      text-align: center;
+    }
+  }
+
+  &__text {
+    text-align: left;
+
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+
+  &__articles {
+    @include page-grid;
+
+    row-gap: 20px;
+  }
+
+  &__article {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: span 2;
+    }
+
+    @include on-small-desktop {
+      grid-column: span 4;
+    }
+
+    @include on-desktop {
+      &:nth-child(1) {
+        grid-column: span 4;
+      }
+
+      &:nth-child(2) {
+        grid-column: 7 / 11;
+      }
+
+      &:nth-child(3) {
+        grid-column: 13 / -1;
+      }
+    }
+  }
+
+  &__btn-buy {
+    width: 100%;
+
+    @include on-tablet {
+      width: 60vw;
+    }
+
+    @include on-small-desktop {
+      margin: 0 auto;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__container {
+    overflow: unset;
+  }
+}

@@ -1,0 +1,68 @@
+.page {
+  scroll-behavior: smooth;
+  transition: all 0.3s;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  position: relative;
+
+  &:has(body aside[class*='--active']) {
+    overflow-y: hidden;
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__aside {
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-120%);
+    background-color: transparent;
+    transition:
+      opacity $hover-duration,
+      background-color $hover-duration,
+      transform $hover-duration $hover-duration;
+
+    &--active {
+      pointer-events: all;
+      opacity: 1;
+      background-color: $box-shadow;
+      transform: translateX(0);
+
+      transition:
+        transform $hover-duration,
+        background-color $hover-duration $hover-duration;
+    }
+  }
+
+  &__menu {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    right: 0;
+
+    z-index: 2;
+    transition: all 0.5s;
+    transform: translateX(-100%);
+    pointer-events: none;
+
+    &::before {
+      content: '';
+      z-index: -1;
+      background-color: $box-shadow;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      pointer-events: none;
+    }
+
+    &:target {
+      opacity: 1;
+      transform: translateX(0);
+      pointer-events: all;
+    }
+  }
+}
