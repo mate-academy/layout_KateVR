@@ -1,0 +1,80 @@
+.why-kat-loco {
+  background-image: $linear-gradient;
+
+  &__content {
+    @include padding-block;
+    @include page-grid;
+  }
+
+  &__features {
+    display: flex;
+    grid-column: 1/-1;
+    flex-direction: column;
+    gap: 20px;
+
+    margin-top: 32px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 15px;
+    }
+
+    @include on-desktop {
+      gap: 23px;
+      margin-top: 84px;
+      margin-bottom: 79px;
+    }
+  }
+
+  &__feature-title {
+    margin-bottom: 11px;
+
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 100%;
+    color: $main-white;
+
+    @include on-tablet {
+      margin-bottom: 21px;
+      font-size: 18px;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__title {
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/3;
+    }
+
+    @include on-desktop {
+      grid-column: 1/-1;
+      text-align: center;
+    }
+  }
+
+  &__icon {
+    display: none;
+    margin-bottom: 26px;
+    margin-inline: auto;
+
+    @include on-tablet {
+      display: block;
+    }
+
+    @include on-desktop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__description {
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+}

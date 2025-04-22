@@ -1,0 +1,48 @@
+.pay {
+  background-image: $linear-gradient;
+
+  &__content {
+    position: relative;
+    padding-bottom: 37px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      padding-top: 40px;
+      padding-bottom: 43px;
+    }
+
+    @include on-desktop {
+      padding-top: 33px;
+    }
+  }
+
+  &__photo {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 1/-1;
+
+      width: 524px;
+      height: 277px;
+      margin-inline: auto;
+
+      background-image: url(/src/images/header-photo.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    @include on-desktop {
+      position: absolute;
+      top: 80px;
+      left: -660px;
+
+      grid-column: 7/-1;
+
+      width: 701px;
+      height: 279px;
+    }
+  }
+}
