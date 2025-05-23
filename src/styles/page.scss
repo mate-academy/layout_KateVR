@@ -1,0 +1,126 @@
+* {
+  margin: 0;
+}
+
+.page {
+  scroll-behavior: smooth;
+
+  font-family: Inter, serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: $grey-text;
+
+  background-color: $footer-bg;
+
+  &__body {
+    position: relative;
+    min-width: 320px;
+  }
+
+  &__menu,
+  &__language,
+  &__faq,
+  &__help,
+  &__place-order,
+  &__pay,
+  &__complete {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 4;
+    inset: 0;
+    transform: translateX(-100%);
+
+    overflow: auto;
+
+    opacity: 0;
+
+    transition: all 300ms;
+  }
+
+  &__faq {
+    @include on-desktop {
+      inset: 124px 200px 70px;
+    }
+  }
+
+  &__help {
+    @include on-tablet {
+      bottom: auto;
+    }
+
+    @include on-desktop {
+      top: 134px;
+      right: 200px;
+      left: 200px;
+    }
+  }
+
+  &:has(.page__menu:target) .page__menu,
+  &:has(.page__language:target) .page__language,
+  &:has(.page__faq:target) .page__faq,
+  &:has(.page__help:target) .page__help,
+  &:has(.page__place-order:target) .page__place-order,
+  &:has(.page__pay:target) .page__pay,
+  &:has(.page__complete:target) .page__complete {
+    pointer-events: all;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &:has(.place-order:target) .buy-now__menu-link--order {
+    border-bottom: 1px solid $main-turquoise;
+    color: $main-turquoise;
+
+    @include on-desktop {
+      position: relative;
+      border-bottom: none;
+
+      @include green-step;
+    }
+  }
+
+  &:has(.pay:target) .buy-now__menu-link--pay {
+    border-bottom: 1px solid $main-turquoise;
+    color: $main-turquoise;
+
+    @include on-desktop {
+      position: relative;
+      border-bottom: none;
+
+      @include green-step;
+    }
+  }
+
+  &:has(.complete:target) .buy-now__menu-link--complete {
+    border-bottom: 1px solid $main-turquoise;
+    color: $main-turquoise;
+
+    @include on-desktop {
+      position: relative;
+      border-bottom: none;
+
+      @include green-step;
+    }
+  }
+
+  &:has(.page__menu:target),
+  &:has(.page__language:target),
+  &:has(.page__faq:target),
+  &:has(.page__help:target),
+  &:has(.page__place-order:target),
+  &:has(.page__pay:target),
+  &:has(.page__complete:target) {
+    overflow: hidden;
+  }
+
+  &:has(.page__menu:target) .header,
+  &:has(.page__language:target) .header,
+  &:has(.page__faq:target) .header,
+  &:has(.page__help:target) .header,
+  &:has(.page__place-order:target) .header,
+  &:has(.page__pay:target) .header {
+    opacity: 0.4;
+  }
+}

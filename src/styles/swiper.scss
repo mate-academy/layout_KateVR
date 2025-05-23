@@ -1,0 +1,148 @@
+.swiper {
+  z-index: 0;
+
+  &--header {
+    position: absolute !important;
+    top: 0;
+    right: 0;
+
+    display: none !important;
+
+    width: 790px;
+    height: 688px;
+
+    @include on-desktop {
+      right: -120px;
+      display: block !important;
+    }
+  }
+
+  &--product {
+    width: 280px;
+    height: 207px;
+
+    @include on-tablet {
+      width: 100%;
+      height: 289px;
+    }
+
+    @include on-desktop {
+      height: 341px;
+    }
+  }
+
+  &--mobile {
+    display: block !important;
+
+    @include on-desktop {
+      display: none !important;
+    }
+  }
+
+  &--desktop {
+    display: none !important;
+
+    @include on-desktop {
+      display: block !important;
+    }
+  }
+
+  &-slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  &-photo {
+    cursor: pointer;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &-product-wrapper {
+    height: 189px !important;
+
+    @include on-tablet {
+      height: 270px !important;
+    }
+
+    @include on-desktop {
+      height: 290px !important;
+    }
+  }
+
+  &-pagination-bullet {
+    width: 4px !important;
+    height: 4px !important;
+    background-color: $main-white !important;
+  }
+
+  &-pagination {
+    bottom: -7px !important;
+  }
+
+  &-button {
+    cursor: pointer;
+
+    position: absolute;
+    z-index: 5;
+    top: auto !important;
+    bottom: 0 !important;
+
+    color: $main-white !important;
+    &::after {
+      display: none !important;
+    }
+  }
+
+  &-button-prev {
+    left: 20px !important;
+
+    &--header {
+      right: 276px !important ;
+      bottom: 40px !important;
+      left: auto !important;
+    }
+  }
+
+  &-button-next {
+    left: 190px !important;
+
+    &--header {
+      right: 115px !important ;
+      bottom: 40px !important;
+      left: auto !important;
+    }
+  }
+
+  &-scrollbar {
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 190px !important;
+
+    &--header {
+      right: 115px !important;
+      bottom: 35px !important;
+      left: auto !important;
+      width: 207px !important;
+    }
+  }
+
+  &-scrollbar-drag {
+    width: 69px !important;
+    height: 1px !important;
+    background-color: $main-turquoise !important;
+
+    &--header {
+      width: 107px !important;
+    }
+  }
+}
