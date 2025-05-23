@@ -1,0 +1,153 @@
+.header {
+  background-image: $linear-gradient;
+
+  &__content {
+    @include page-grid;
+
+    @include on-tablet {
+      position: relative;
+    }
+  }
+
+  &__top-bar {
+    z-index: 2;
+    margin-bottom: 172px;
+
+    @include on-tablet {
+      margin-bottom: 25px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 54px;
+    }
+  }
+
+  &__photo {
+    position: absolute;
+    z-index: 0;
+    top: 44px;
+    left: 50%;
+    transform: translate(-50%);
+
+    width: 320px;
+    height: 172px;
+
+    background-image: url(/src/images/header-photo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include on-tablet {
+      top: 0;
+      right: 0;
+      left: auto;
+      transform: none;
+
+      width: 486px;
+      height: 439px;
+
+      background-image: url(/src/images/header-bg-tablet.png);
+      background-size: contain;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    margin-bottom: 17px;
+    font-size: 26px;
+
+    @include on-tablet {
+      grid-column: 1/4;
+    }
+
+    @include on-desktop {
+      grid-column: 1/8;
+      margin-bottom: 19px;
+      font-size: 46px;
+    }
+  }
+
+  &__description {
+    grid-column: 1/-1;
+    margin-bottom: 8px;
+    font-weight: 500;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      margin-bottom: 10px;
+    }
+
+    @include on-desktop {
+      grid-column: 2/6;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__price {
+    grid-column: 1/-1;
+
+    margin-bottom: 16px;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 100%;
+    color: $main-white;
+    text-align: center;
+
+    @include on-tablet {
+      grid-column: 1/3;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    @include on-desktop {
+      grid-column: 2/3;
+      margin-bottom: 20px;
+    }
+  }
+
+  &__play-video {
+    grid-column: 1/-1;
+    margin-bottom: 46px;
+
+    @include on-tablet {
+      margin-bottom: 61px;
+    }
+
+    @include on-desktop {
+      grid-column: 2/5;
+      margin-bottom: 0;
+    }
+  }
+
+  &__bottom {
+    z-index: 2;
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1/7;
+      gap: 404px;
+      padding-block: 84px;
+    }
+  }
+
+  &__bottom-left {
+    display: flex;
+    gap: 39px;
+    align-items: center;
+  }
+
+  &__bottom-link {
+    color: $main-white;
+    text-decoration: none;
+
+    &:hover {
+      color: $main-turquoise;
+    }
+  }
+}
