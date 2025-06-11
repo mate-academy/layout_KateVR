@@ -1,0 +1,42 @@
+.aside {
+  &__top-bar {
+    margin-bottom: 30px;
+
+    &--menu {
+      justify-content: end;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    cursor: pointer;
+
+    align-content: center;
+
+    height: 49px;
+    padding-left: 34px;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 130%;
+    color: $white-color;
+    text-decoration: none;
+
+    transition: transform 0.3s ease;
+
+    @include on-tablet {
+      padding-left: 153px;
+    }
+
+    &:hover {
+      color: $blue-color;
+      background-color: $hover-black-color;
+
+      /* transform: scale(1.1); */
+    }
+  }
+}

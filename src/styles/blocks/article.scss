@@ -1,0 +1,73 @@
+.article {
+  @include on-tablet {
+    justify-items: center;
+  }
+
+  &__icon {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+
+      width: 110px;
+      height: 84px;
+      margin-bottom: 22px;
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      &:hover {
+        transform: scale(1.05);
+        box-shadow: $blue-color 0 5px 10px;
+        transition: 0.3s ease-in-out;
+      }
+    }
+
+    @include on-desktop {
+      margin-bottom: 32px;
+    }
+
+    &--education {
+      background-image: url(../images/icons/education.svg);
+    }
+
+    &--realestate {
+      background-image: url(../images/icons/realestate.svg);
+    }
+
+    &--fitness {
+      background-image: url(../images/icons/fitness.svg);
+    }
+
+    &--social {
+      background-image: url(../images/icons/social.svg);
+    }
+
+    &--compatibility {
+      background-image: url(../images/icons/compatibility.svg);
+    }
+
+    &--panel {
+      background-image: url(../images/icons/panel.svg);
+    }
+
+    &--sensors {
+      background-image: url(../images/icons/wireless.svg);
+    }
+  }
+
+  &__h4-title {
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+}

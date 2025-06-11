@@ -2,6 +2,59 @@
 @import 'fonts';
 @import 'typography';
 
+@import 'blocks/header';
+@import 'blocks/top-bar';
+@import 'blocks/icons';
+@import 'blocks/button';
+@import 'blocks/dropdown';
+@import 'blocks/text';
+@import 'blocks/nav';
+@import 'blocks/title';
+@import 'blocks/more';
+@import 'blocks/h4-title';
+@import 'blocks/article';
+@import 'blocks/about';
+@import 'blocks/video';
+@import 'blocks/tech-mobile';
+@import 'blocks/tech';
+@import 'blocks/popover';
+@import 'blocks/why';
+@import 'blocks/socials';
+@import 'blocks/footer';
+@import 'blocks/contacts';
+@import 'blocks/forms';
+@import 'blocks/menu';
+@import 'blocks/help';
+@import 'blocks/aside';
+@import 'blocks/lang';
+
 body {
-  background: $c-gray;
+  /* background: $c-gray; */
+  background: $main-bg-color;
+}
+
+body:has(.menu:target) {
+  overflow: hidden;
+}
+
+body:has(.help:target) {
+  overflow: hidden;
+}
+
+body:has(.lang:target) {
+  overflow: hidden;
+}
+
+* {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+html {
+  font-family: Inter, sans-serif;
+}
+
+.main {
+  @include padding-inline;
 }

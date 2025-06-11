@@ -1,0 +1,58 @@
+.video {
+  pointer-events: none;
+
+  position: fixed;
+  z-index: 1;
+  top: 12%;
+  right: 5%;
+  left: 5%;
+  transform: translateX(-100%);
+
+  overflow-y: auto;
+
+  box-sizing: border-box;
+  width: 90%;
+
+  opacity: 0;
+
+  transition: all 0.3s;
+
+  &:target {
+    pointer-events: all;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &__wrapper {
+    position: relative;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__play {
+    width: 100%;
+  }
+
+  &__icon-close {
+    cursor: pointer;
+
+    position: absolute;
+    z-index: 1;
+    top: 1%;
+    right: 1%;
+
+    display: flex;
+
+    width: 1.2rem;
+    height: 1.2rem;
+
+    background-image: url(../images/icons/close.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    &:hover {
+      background-image: url(../images/icons/close-blue.svg);
+    }
+  }
+}

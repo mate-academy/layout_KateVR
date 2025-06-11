@@ -1,0 +1,49 @@
+.tech-mobile {
+  width: 100%;
+  margin-bottom: 50px;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__img {
+    position: relative;
+
+    width: 48%;
+    margin: 0 auto;
+    padding-bottom: 48%;
+
+    background-image: url(../images/images/tech-img.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+  }
+
+  &__popover {
+    &--sensor {
+      position: absolute;
+      top: -3%;
+      left: 23%;
+
+      @include on-mobile {
+        left: 30%;
+      }
+    }
+
+    &--connection {
+      position: absolute;
+      top: 78%;
+      left: -8%;
+    }
+
+    &--battery {
+      position: absolute;
+      top: 42%;
+      left: 70%;
+    }
+  }
+}

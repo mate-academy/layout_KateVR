@@ -1,0 +1,138 @@
+.contacts {
+  margin-bottom: 50px;
+
+  @include on-tablet {
+    display: flex;
+    margin-bottom: 0;
+    padding-block: 100px;
+  }
+
+  @include on-desktop {
+    justify-content: space-between;
+  }
+
+  &__content {
+    @include on-tablet {
+      flex-basis: 50%;
+    }
+
+    @include on-desktop {
+      flex-basis: 40%;
+    }
+  }
+
+  &__wrapper {
+    @include on-tablet {
+      flex-basis: 50%;
+    }
+  }
+
+  &__blue-text {
+    margin-bottom: 12px;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $blue-color;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      margin-bottom: 50px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__infos {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  &__info {
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $text-color;
+    text-decoration: none;
+
+    &:hover {
+      color: $blue-color;
+    }
+  }
+
+  &__forms {
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__text {
+    &--tablet {
+      @media (max-width: 767px) {
+        display: none;
+      }
+
+      @include on-tablet {
+        margin-bottom: 76px;
+        font-size: 16px;
+      }
+
+      @include on-desktop {
+        margin-bottom: 120px;
+      }
+    }
+
+    &--mobile {
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      width: 200px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__up {
+    display: flex;
+
+    @include on-tablet {
+      justify-content: space-between;
+    }
+  }
+
+  &__up-row {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+
+      width: 48px;
+      height: 48px;
+
+      background-image: url(../images/icons/up-row.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+
+      @include hover(transform, scale(1.1));
+    }
+  }
+}
