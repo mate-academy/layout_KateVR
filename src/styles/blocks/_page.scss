@@ -1,0 +1,64 @@
+.page {
+  scroll-behavior: smooth;
+
+  &__body {
+    font-family: Inter, sans-serif;
+    margin: 0;
+  }
+
+  &__menu {
+    box-sizing: border-box;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    opacity: 0;
+    transition: all 0.3s;
+    transform: translateY(-100%);
+    pointer-events: none;
+
+    &:target {
+      z-index: 2;
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__buy {
+    z-index: 1;
+    position: fixed;
+    bottom: 3px;
+    left: 20px;
+    right: 20px;
+
+    @include on-tablet {
+      bottom: 30px;
+      left: 155px;
+      right: 155px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: $main-color;
+}
+
+p {
+  color: $third-color;
+}

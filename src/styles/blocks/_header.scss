@@ -1,0 +1,146 @@
+.header {
+  background: linear-gradient(
+    107.56deg,
+    $first-gradient-color 0%,
+    $second-gradient-color 100%
+  );
+  position: relative;
+
+  &__top {
+    @include page-grid;
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+  }
+
+  &__img {
+    position: absolute;
+    top: 44px;
+    width: 320px;
+    height: 172px;
+    object-fit: cover;
+    object-position: center;
+    right: 50%;
+    transform: translateX(50%);
+
+    @include on-tablet {
+      top: 6px;
+      right: 0;
+      transform: translateX(0);
+      width: 486px;
+      height: 439px;
+    }
+
+    @include on-desktop {
+      top: 10px;
+      width: 811px;
+      height: 688px;
+    }
+
+    @include on-desktopxl {
+      top: 0;
+      width: 1150.04px;
+      height: 988.41px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    margin-top: 187px;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 33.8px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-top: 54px;
+    }
+
+    @include on-desktop {
+      margin-top: 101px;
+      grid-column: 1 / 7;
+      font-size: 46px;
+      line-height: 59.8px;
+    }
+
+    @include on-desktopxl {
+      margin-top: 232px;
+      font-size: 54px;
+      line-height: 70.2px;
+    }
+  }
+
+  &__desc {
+    display: flex;
+    margin: 0;
+    margin-top: 17px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      width: 340px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+      margin-top: 19px;
+    }
+
+    @include on-desktopxl {
+      grid-column: 2 / 7;
+      margin-top: 35px;
+      font-size: 20px;
+      line-height: 30px;
+      width: 439px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 21.78px;
+    justify-content: center;
+    grid-column: 1 / -1;
+    margin: 0;
+    margin-top: 8px;
+
+    @include on-tablet {
+      justify-content: start;
+      grid-column: 1 / 2;
+      margin-top: 10px;
+    }
+
+    @include on-desktop {
+      margin-top: 5px;
+      grid-column: 2 / 3;
+    }
+
+    @include on-desktopxl {
+      margin-top: 30px;
+    }
+  }
+
+  &__play {
+    grid-column: 1 / -1;
+    margin-block: 16px 46px;
+
+    @include on-tablet {
+      margin-block: 24px 61px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / -1;
+      margin-block: 20px 84px;
+    }
+
+    @include on-desktopxl {
+      margin-block: 36px 221px;
+    }
+  }
+}

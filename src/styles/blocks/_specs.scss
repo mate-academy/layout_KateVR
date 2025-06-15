@@ -1,0 +1,78 @@
+.specs {
+  background-color: $second-bg-color;
+
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-block: 80px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  @include on-desktopxl {
+    padding-block: 160px;
+  }
+
+  &__content {
+    @include page-grid;
+    
+    position: relative;
+
+    height: 265px;
+    background: url(../images/specs/img-mobile.png) center bottom / 197px 195px
+      no-repeat;
+
+    @include on-tablet {
+      min-height: 440px;
+      background-size: 358px 354px;
+    }
+
+    @include on-desktop {
+      min-height: 479px;
+      background:
+        url(../images/specs/line-sensor.svg) calc(50% - 195px) 134px / 403px
+          72px no-repeat,
+        url(../images/specs/line-connection-desktop.svg) calc(50% - 205px)
+          244.5px / 133.92px 113px no-repeat,
+        url(../images/specs/line-batterries-desktop.svg) calc(50% + 90px) 133px /
+          191.5px 245px no-repeat,
+        url(../images/specs/img-desktop.png) center bottom / 312.5px 294px
+          no-repeat;
+    }
+
+    @include on-desktopxl {
+      background:
+        url(../images/specs/line-sensor.svg) calc(50% - 209px) 134px / 431px
+          72px no-repeat,
+        url(../images/specs/line-connection.svg) calc(50% - 255px)
+          244.5px / 241px 113px no-repeat,
+        url(../images/specs/line-batterries.svg) calc(50% + 140px) 133px /
+          283px 245px no-repeat,
+        url(../images/specs/img-desktop.png) center bottom / 312.5px 294px
+          no-repeat;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 25.41px;
+
+    @include on-tablet {
+      grid-column: 1 / 3;
+    }
+
+    @include on-desktop {
+      grid-column: -5 / -2;
+      font-size: 36px;
+      line-height: 43.57px;
+    }
+
+    @include on-desktopxl {
+      grid-column: -6 / -3;
+    }
+  }
+}

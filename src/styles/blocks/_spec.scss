@@ -1,0 +1,53 @@
+.spec {
+  display: none;
+
+  @include on-desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+  }
+
+  &--sensor {
+    @include on-desktop {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktopxl {
+      grid-column: 3 / 6;
+    }
+  }
+
+  &--batterries {
+    @include on-desktop {
+      grid-column: -5 / -1;
+    }
+
+    @include on-desktopxl {
+      grid-column: -6 / -2;
+    }
+  }
+
+  &--connection {
+    @include on-desktop {
+      grid-column: 2 / 5;
+    }
+
+    @include on-desktopxl {
+      grid-column: 3 / 6;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 21.78px;
+  }
+
+  &__desc {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+}

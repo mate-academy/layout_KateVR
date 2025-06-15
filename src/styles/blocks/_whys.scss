@@ -1,0 +1,60 @@
+.whys {
+  background: linear-gradient(
+    108.62deg,
+    $first-gradient-color 0%,
+    $second-gradient-color 77.34%
+  );
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-block: 70px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  @include on-desktopxl {
+    padding-block: 160px;
+  }
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin: 0;
+    margin-bottom: 32px;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 25.41px;
+
+    @include on-desktop {
+      grid-column: 5 / 9;
+      margin-bottom: 84px;
+      font-size: 36px;
+      line-height: 43.57px;
+    }
+
+    @include on-desktopxl {
+      grid-column: 7 / 11;
+    }
+  }
+
+  &__buy {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 5/ -5;
+      width: 200px;
+      justify-self: center;
+      margin-top: 90px;
+    }
+
+    @include on-desktopxl {
+      display: none;
+    }
+  }
+}

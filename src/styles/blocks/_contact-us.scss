@@ -1,0 +1,193 @@
+.contact-us {
+  position: relative;
+  z-index: 4;
+  background-color: $second-bg-color;
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-block: 70px 130px;
+  }
+
+  &__content {
+    @include page-grid;
+
+    @include on-tablet {
+      grid-template-rows: 28px 75px 100px 125px 48px;
+    }
+
+    @include on-desktop {
+      grid-template-rows: 30px 70px 100px 167px 48px;
+    }
+  }
+
+  &__pre-title {
+    grid-column: 1 / -1;
+    margin: 0;
+    margin-bottom: 11px;
+    color: $secondary-color;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1 / 2;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin: 0;
+    margin-bottom: 32px;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 25.41px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 2 / 3;
+    }
+
+    @include on-desktop {
+      font-size: 36px;
+      line-height: 43.57px;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 1 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    @include on-desktopxl {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__input {
+    border: none;
+    border-bottom: 1px solid $input-border-color;
+    background-color: $second-bg-color;
+    color: $third-color;
+    padding-bottom: 19px;
+    outline: none;
+  }
+
+  &__message {
+    resize: none;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $input-border-color;
+    background-color: $second-bg-color;
+    color: $third-color;
+    height: 88px;
+  }
+
+  &__submit {
+    grid-column: 1 / -1;
+    height: 37px;
+    width: 100%;
+    margin-block: 30px;
+    background-color: $secondary-color;
+    color: $main-color;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.2px;
+    cursor: pointer;
+    display: inline-block;
+    
+    @include hover(scale, 1.05);
+
+    @include on-tablet {
+      grid-column: -4 / -2;
+      grid-row: -2 / -1;
+      width: 200px;
+      height: 48px;
+      font-size: 16px;
+      line-height: 20.8px;
+      margin: 0;
+
+      @include hover(scale, 1.2);
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 10;
+    }
+
+    @include on-desktopxl {
+      grid-column: 9 / 12;
+    }
+  }
+
+  &__note {
+    grid-column: 1 / -1;
+    margin: 0;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 3 / 4;
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      grid-column: 1 / 4;
+      grid-row: 4 / 5;
+    }
+  }
+
+  &__emails {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__contact {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+  }
+
+  &__to-top {
+    display: none;
+
+    @include on-tablet {
+      grid-column: -2 / -1;
+      grid-row: -2 / -1;
+      justify-self: end;
+      display: flex;
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      background-image: url(../images/contact-us/to-top.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+  }
+
+  &__pre-title,
+  &__title,
+  &__note,
+  &__contacts {
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+
+    @include on-desktopxl {
+      grid-column: 1 / 9;
+    }
+  }
+}

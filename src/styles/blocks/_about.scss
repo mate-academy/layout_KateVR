@@ -1,0 +1,313 @@
+.about {
+  background: linear-gradient(
+    146.86deg,
+    $first-gradient-color -0.5%,
+    $second-gradient-color 99.5%
+  );
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-block: 70px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  @include on-desktop {
+    padding-block: 150px;
+  }
+
+  &__content {
+    position: relative;
+    align-items: start;
+
+    @include page-grid;
+
+    @include on-tablet {
+      grid-template-rows: 59px 154px 81px 88px 24px 28px 36px 150px;
+    }
+
+    @include on-desktop {
+      grid-template-rows: 75px 149px 78px 217px 43px 32px 76px 195px;
+    }
+
+    @include on-desktopxl {
+      grid-template-rows: 104px 138px 77px 209px 45px 32px 61px 197px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    grid-column: 1 / -1;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 25.41px;
+
+    @include on-desktop {
+      font-size: 36px;
+      line-height: 43.57px;
+    }
+
+    &--1 {
+      margin-bottom: 20px;
+
+      @include on-tablet {
+        margin: 0;
+        grid-column: 4 / -1;
+        grid-row: 1 / 2;
+      }
+
+      @include on-desktop {
+        grid-column: -5 / -1;
+      }
+
+      @include on-desktopxl {
+        grid-column: -6 / -1;
+      }
+    }
+
+    &--2 {
+      margin-bottom: 22px;
+
+      @include on-tablet {
+        grid-column: 1 / 5;
+        grid-row: -3 / -2;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 6;
+      }
+
+      @include on-desktopxl {
+        grid-column: 2 / 8;
+      }
+    }
+  }
+
+  &__img {
+    margin-bottom: 20px;
+    grid-column: 1 / -1;
+    width: 100%;
+    height: 169px;
+    object-fit: cover;
+    object-position: center;
+
+    @include on-tablet {
+      margin: 0;
+      grid-column: 1 / 4;
+      grid-row: 1 / 4;
+      height: 270px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 8;
+      height: 290px;
+    }
+
+    @include on-desktopxl {
+      height: 307px;
+      grid-column: 4 / 11;
+      align-self: end;
+    }
+  }
+
+  &__desc {
+    margin: 0;
+    grid-column: 1 / -1;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    text-underline-position: from-font;
+    text-decoration-skip-ink: none;
+
+    &--1 {
+      margin-bottom: 24px;
+
+      @include on-tablet {
+        margin: 0;
+        grid-column: 4 / -1;
+        grid-row: 2 / 3;
+      }
+
+      @include on-desktop {
+        grid-column: -5 / -1;
+      }
+
+      @include on-desktopxl {
+        grid-column: -6 / -1;
+      }
+    }
+
+    &--2 {
+      @include on-tablet {
+        grid-column: 1 / 5;
+        grid-row: -2 / -1;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 6;
+      }
+
+      @include on-desktopxl {
+        grid-column: 2 / 8;
+      }
+    }
+  }
+
+  &__play {
+    grid-column: 1 / -1;
+    margin-bottom: 80px;
+
+    @include on-tablet {
+      margin: 0;
+      grid-column: 4 / -1;
+      grid-row: 3 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: -5 / -1;
+    }
+
+    @include on-desktopxl {
+      grid-column: -6 / -1;
+    }
+  }
+
+  &__pre-title {
+    margin: 0;
+    color: $secondary-color;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      grid-row: -4 / -3;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+    }
+
+    @include on-desktopxl {
+      grid-column: 2 / 8;
+    }
+  }
+
+  &__counter {
+    display: none;
+
+    @include on-desktop {
+      margin: 0;
+      display: flex;
+      grid-column: 2 / 3;
+      grid-row: 1 / 2;
+      justify-self: end;
+
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16.94px;
+      color: $secondary-color;
+    }
+
+    @include on-desktopxl {
+      margin-top: 13px;
+      grid-column: 3 / 4;
+    }
+  }
+
+  &__cycle-block {
+    display: none;
+
+    @include on-desktop {
+      display: inline-block;
+      grid-column: 3 / 6;
+      grid-row: 4 / 5;
+    }
+
+    @include on-desktopxl {
+      grid-column: 4 / 7;
+    }
+  }
+
+  &__about-us-block {
+    display: none;
+
+    @include on-tablet {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+
+      display: flex;
+      justify-content: space-between;
+      width: 232px;
+    }
+
+    @include on-desktop {
+      width: 495px;
+    }
+
+    @include on-desktopxl {
+      width: 701px;
+    }
+  }
+
+  &__about-us-img {
+    @include on-tablet {
+      width: 62px;
+      height: 253px;
+    }
+
+    @include on-desktop {
+      width: 83px;
+      height: 337px;
+    }
+
+    &--rotate {
+      transform: rotate(180deg);
+    }
+
+    &--2 {
+      opacity: 0.5;
+    }
+
+    &--3 {
+      opacity: 0.2;
+    }
+
+    &--4 {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        opacity: 0.1;
+      }
+    }
+
+    &--5 {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        opacity: 0.05;
+      }
+    }
+
+    &--6 {
+      display: none;
+
+      @include on-desktopxl {
+        display: flex;
+        opacity: 0.03;
+      }
+    }
+
+    &--7 {
+      display: none;
+
+      @include on-desktopxl {
+        display: flex;
+        opacity: 0.02;
+      }
+    }
+  }
+}

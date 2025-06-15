@@ -1,0 +1,39 @@
+.cycle {
+  &__buttons {
+    display: flex;
+    width: 207px;
+    height: 34px;
+    justify-content: space-between;
+  }
+
+  &__button {
+    color: $main-color;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 24px;
+    display: flex;
+
+
+    @include hover(scale, 1.2);
+
+    &--inaccessible {
+      pointer-events: none;
+      cursor: default;
+    }
+  }
+
+  &__line {
+    margin-top: 10px;
+    height: 1px;
+    width: 207px;
+    border: 1px solid #212121;
+  }
+
+  &__current {
+    box-sizing: border-box;
+    height: 1px;
+    width: 69px;
+    border: 1px solid $secondary-color;
+  }
+}

@@ -1,0 +1,91 @@
+.dropdown {
+  position: absolute;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &--sensor {
+    top: 59px;
+    left: calc(50% - 38px);
+
+    @include on-tablet {
+      left: calc(50% - 120px);
+    }
+  }
+
+  &--batteries {
+    top: 150px;
+    left: calc(50% + 35px);
+
+    @include on-tablet {
+      top: 231px;
+      left: calc(50% + 70px);
+    }
+  }
+
+  &--connection {
+    top: 223px;
+    left: calc(50% - 120px);
+
+    @include on-tablet {
+      top: 359px;
+      left: calc(50% - 250px);
+    }
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__icon {
+    background-image: url(../images/specs/spec.svg);
+    background-size: cover;
+    height: 34px;
+    width: 34px;
+    background-color: $secondary-color;
+    border-radius: 50%;
+
+    border: none;
+    cursor: pointer;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      height: 62px;
+      width: 62px;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 1;
+    margin-top: 10px;
+    width: 250px;
+    border-radius: 10px;
+    background-color: $main-color;
+    box-shadow: 0 2px 5px 0 rgba (0, 0, 0, 0.1);
+
+    height: 0;
+    overflow: hidden;
+  }
+
+  &--active &__content {
+    height: auto;
+    padding: 10px;
+    z-index: 4;
+  }
+
+  &__title {
+    color: $second-gradient-color;
+    margin: 0;
+  }
+
+  &__desc {
+    color: $first-gradient-color;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    margin: 0;
+  }
+}

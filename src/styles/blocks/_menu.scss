@@ -1,0 +1,66 @@
+.menu {
+  &__top {
+    height: 100vh;
+    min-height: $menu-height;
+    background-color: $first-gradient-color;
+  }
+
+  &__top-bar {
+    justify-content: flex-end;
+
+    @include on-tablet {
+      padding-top: 34px;
+    }
+  }
+
+  &__nav {
+    padding-bottom: 26px;
+  }
+
+  &__list {
+    flex-direction: column;
+    gap: 22px;
+    margin-top: 49px;
+    align-items: flex-start;
+
+    @include on-tablet {
+      margin-top: 58px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    width: 100%;
+  }
+
+  &__link {
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 27.3px;
+
+    padding-left: 22px;
+
+    @include on-tablet {
+      padding-left: 152px;
+    }
+
+    @include hover(color, $secondary-color);
+
+    &:nth-child(n) {
+      &:hover {
+        box-sizing: border-box;
+        display: flex;
+        height: 49px;
+        width: 100%;
+        background-color: #110e25;
+        margin-block: -11px;
+        align-items: center;
+      }
+    }
+  }
+
+  &__bottom {
+    height: calc(100vh - $menu-height);
+    background: #000000b2;
+  }
+}
