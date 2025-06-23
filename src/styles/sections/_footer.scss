@@ -1,0 +1,130 @@
+.footer {
+  background-color: $totalBlackC;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 45px 0 50px;
+
+    @include on-tablet {
+      flex-direction: row;
+      padding-block: 21px;
+      align-items: center;
+    }
+
+    @include on-desktop {
+      padding-block: 39px;
+    }
+  }
+
+  &__main-info {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 15px;
+
+    @include on-tablet {
+      align-items: center;
+      padding: 0;
+      width: 100%;
+    }
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+
+    @include on-tablet {
+      flex-direction: row;
+      margin: auto;
+    }
+  }
+
+  &__logo-link {
+    height: 100%;
+    display: flex;
+
+    &--mob {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+  }
+
+  &__logo {
+    height: 14px;
+    width: auto;
+  }
+
+  &__nav {
+    @include on-tablet {
+      width: 306px;
+    }
+  }
+
+  &__list {
+    gap: 12px;
+
+    @include on-tablet {
+      width: 100%;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__right {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__social-media {
+    display: flex;
+    gap: 23px;
+    height: 18px;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 18px;
+    }
+
+    @include on-big-desktop {
+      gap: 28px;
+    }
+  }
+
+  &__icon {
+    transition-duration: $effectDuration;
+
+    @include hover(scale, 1.1);
+
+    &:hover {
+      path {
+        fill: $cyanC;
+      }
+    }
+  }
+}

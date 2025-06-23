@@ -1,0 +1,42 @@
+.cards {
+  justify-content: center;
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    transition-duration: $effectDuration;
+    padding: 1px;
+
+    @include on-tablet {
+      &:hover {
+        border: 1px solid $cyanC;
+        border-radius: 20px;
+      }
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      max-height: 80px;
+    }
+  }
+
+  &__title {
+    padding-bottom: 11px;
+
+    @include on-tablet {
+      text-align: center;
+      padding: 22px 0 27px;
+    }
+  }
+
+  &__text {
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+}

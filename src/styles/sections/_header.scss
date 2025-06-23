@@ -1,0 +1,155 @@
+.header {
+  height: auto;
+  background: $linearGradient;
+
+  @include on-desktop {
+    height: 100vh;
+  }
+
+  &__content {
+    padding-bottom: 55px;
+    position: relative;
+
+    @include on-tablet {
+      padding-bottom: 64px;
+    }
+
+    @include on-desktop {
+      height: 100%;
+      padding-bottom: 0;
+    }
+  }
+
+  &__middle {
+    width: 100%;
+    display: flex;
+    flex-direction: column-reverse;
+    position: relative;
+
+    @include on-tablet {
+      padding-top: 25px;
+      align-items: center;
+      justify-content: space-between;
+      flex-direction: row;
+    }
+
+    @include on-desktop {
+      padding: 52px 0 0;
+    }
+  }
+
+  &__middle-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      justify-content: flex-start;
+      width: 50%;
+    }
+
+    @include on-desktop {
+      max-width: 479px;
+    }
+  }
+
+  &-title {
+    padding-bottom: 17px;
+
+    @include on-desktop {
+      padding-bottom: 19px;
+    }
+  }
+
+  &__text {
+    padding-bottom: 8px;
+
+    @include on-desktop {
+      padding-left: 92px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    padding-bottom: 16px;
+    color: $whiteC;
+
+    @include on-tablet {
+      text-align: left;
+      justify-content: left;
+    }
+
+    @include on-desktop {
+      padding: 0 0 20px 92px;
+    }
+  }
+
+  &__slider {
+    width: 100%;
+
+    @include on-tablet {
+      width: 50%;
+    }
+  }
+
+  &__slide {
+    width: 100%;
+    height: auto;
+  }
+
+  &__bottom {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      bottom: 84px;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    @include on-big-desktop {
+      bottom: 107px;
+    }
+  }
+
+  &__button-play {
+    justify-content: center;
+    width: 221px;
+
+    @include on-tablet {
+      justify-self: left;
+      width: 258px;
+      background-position: left;
+    }
+
+    @include on-desktop {
+      margin-left: 92px;
+    }
+  }
+
+  &__button-link {
+    z-index: 1;
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    right: 20px;
+
+    @include on-tablet {
+      width: 458px;
+      bottom: 31px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__button {
+    width: 100%;
+  }
+}

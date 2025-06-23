@@ -1,0 +1,63 @@
+.bottom {
+  height: 39px;
+  align-items: center;
+
+  @include on-desktop {
+    &__nav {
+      display: flex;
+    }
+
+    &__list {
+      display: flex;
+      flex-direction: row;
+      gap: 39px;
+    }
+
+    &__item {
+      display: flex;
+    }
+
+    &__link {
+      color: $whiteC;
+      transition-duration: $effectDuration;
+
+      @include hover(scale, 1.1);
+
+      &:hover {
+        color: $cyanC;
+      }
+    }
+
+    &__button-more {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      background-color: transparent;
+      border: none;
+      align-items: center;
+      gap: 7px;
+      padding: 0;
+      transition-duration: $effectDuration;
+
+      @include hover(scale, 1.1);
+    }
+
+    &__button-text {
+      color: $cyanC;
+    }
+
+    &__button-img {
+      width: 9px;
+      height: 6px;
+    }
+
+    &__slider-control {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slider-control__progress-bar {
+      width: 20%;
+    }
+  }
+}

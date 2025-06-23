@@ -1,0 +1,126 @@
+.tech-specs {
+  &__detail {
+    cursor: pointer;
+    display: flex;
+    position: absolute;
+    width: 34px;
+    padding: 0;
+    height: 34px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    border: 2px solid $white14C;
+    background-color: $cyanC;
+    background-image: url(../images/common-images/detail-plus-icon.svg);
+    background-repeat: no-repeat;
+    background-size: 12px 12px;
+    background-position: center;
+    transition-duration: $effectDuration;
+
+    @include on-tablet {
+      width: 62px;
+      height: 62px;
+      background-size: 22px 22px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    @include hover(scale, 1.1);
+
+    &--first {
+      left: 69px;
+      top: 27px;
+
+      @include on-tablet {
+        top: 25px;
+        left: 65px;
+      }
+    }
+
+    &--second {
+      top: 50%;
+      transform: translateY(-50%);
+      right: 35px;
+
+      @include on-tablet {
+        right: 50px;
+      }
+    }
+
+    &--third {
+      left: 0;
+      bottom: 40px;
+
+      @include on-tablet {
+        left: -30px;
+        bottom: 50px;
+      }
+    }
+  }
+
+  &__information-active {
+    display: flex;
+  }
+
+  &__info {
+    opacity: 0;
+    display: none;
+    position: absolute;
+    background-color: $darkBlueMagentaC;
+    color: $greyC;
+    width: max-content;
+    height: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 17px 10px 22px 11px;
+    border-radius: 4px;
+    transition: opacity $effectDuration;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &--first {
+      left: 20px;
+      top: 25px;
+
+      @include on-tablet {
+        top: 42px;
+        left: -10px;
+      }
+    }
+
+    &--second {
+      top: -5px;
+      left: -30px;
+
+      @include on-tablet {
+        inset: auto 0 0 auto;
+      }
+    }
+
+    &--third {
+      bottom: 5px;
+      left: 25px;
+
+      @include on-tablet {
+        bottom: 0;
+        left: 48px;
+      }
+    }
+  }
+}
+
+.plus-active {
+  background-image: url(../images/common-images/detail-minus-icon.svg);
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: center;
+}
+
+.tech-specs__info-active {
+  display: flex;
+  opacity: 1;
+  z-index: 2;
+}
