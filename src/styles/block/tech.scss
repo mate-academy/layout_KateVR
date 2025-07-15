@@ -1,0 +1,203 @@
+.tech {
+  background: $background-black;
+
+  @include section-padding-block;
+
+  &__headline {
+    margin-bottom: 45px;
+
+    @include tablet {
+      margin-bottom: 60px;
+    }
+
+    @include desktop {
+      text-align: right;
+    }
+  }
+
+  &__specs {
+    position: relative;
+
+    @include desktop {
+      background-image: url('../images/tech/tech-img-decktop.png');
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 32% bottom;
+      padding-bottom: 15px;
+      box-sizing: border-box;
+
+      @include grid-markup;
+    }
+  }
+
+  &__spec {
+    &--sensor {
+      @include desktop {
+        grid-column: 1/4;
+      }
+    }
+
+    &--connection {
+      @include desktop {
+        grid-column: 2/5;
+      }
+    }
+
+    &--batterries {
+      @include desktop {
+        grid-column: 10/-1;
+        grid-row: 2/-1;
+      }
+    }
+  }
+
+  &__spec-button {
+    position: absolute;
+    width: 12%;
+    height: 17%;
+    cursor: pointer;
+    background-color: $contrast-color;
+    border: 2px solid rgba(255, 255, 255, 0.14);
+    border-radius: 50%;
+    box-sizing: border-box;
+    z-index: 3;
+    transition: opacity $effectDuration ease;
+
+    @include tablet {
+      width: 9%;
+      height: 18%;
+    }
+
+    @include desktop {
+      display: none;
+    }
+
+    &--active {
+      background-color: #07798b;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 41%;
+      transition: opacity $effectDuration ease;
+    }
+
+    &::before {
+      background-image: url('../images/tech/tech-plus.svg');
+      opacity: 1;
+    }
+
+    &::after {
+      background-image: url('../images/tech/tech-minus.svg');
+      opacity: 0;
+    }
+
+    &--active::before {
+      opacity: 0;
+    }
+
+    &--active::after {
+      opacity: 1;
+    }
+
+    &--sensor {
+      top: -5%;
+      left: 36%;
+    }
+
+    &--connection {
+      top: 78%;
+      left: 10%;
+    }
+
+    &--batterries {
+      top: 40%;
+      left: 62%;
+    }
+  }
+
+  &__spec-info {
+    position: absolute;
+    background-color: #191536;
+    padding: 17px 10px;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+    transition: $effectDuration;
+    z-index: 2;
+    width: 51%;
+    max-width: 240px;
+
+    @include desktop {
+      opacity: 1;
+      visibility: visible;
+      background-color: unset;
+      position: unset;
+      width: 100%;
+      padding: 0;
+    }
+
+    &--sensor {
+      top: 14%;
+      left: 13%;
+    }
+
+    &--connection {
+      bottom: 24%;
+      left: 11%;
+    }
+
+    &--batterries {
+      right: 39%;
+      bottom: 13%;
+    }
+
+    &--show {
+      opacity: 1;
+      visibility: visible;
+      z-index: 4;
+    }
+  }
+
+  &__spec-heading {
+    display: none;
+
+    @include desktop {
+      display: block;
+      margin-bottom: 21px;
+    }
+  }
+
+  &__spec-list {
+    list-style: none;
+    color: #929292;
+    line-height: 150%;
+  }
+
+  &__img-wrapper {
+    width: 70%;
+    overflow: hidden;
+    margin-inline: auto;
+    position: relative;
+
+    @include tablet {
+      width: 51%;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}

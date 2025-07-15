@@ -1,0 +1,55 @@
+.accordion {
+  width: 100%;
+  padding: 12px 20px;
+  border-radius: 4px;
+  border: 1px solid $contrast-color;
+  box-sizing: border-box;
+  cursor: pointer;
+
+  &__content {
+    max-height: 0;
+    overflow: hidden;
+    transition: $effectDuration;
+  }
+
+  &--open &__content {
+    max-height: 1000px;
+  }
+
+  &__title-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    color: $contrast-color;
+  }
+
+  &__arrow {
+    height: 9px;
+    width: 6px;
+    background-size: cover;
+    background-position: center;
+    background-image: url(../images/icon/icon-arrow.svg);
+    transition: $effectDuration;
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &--open &__arrow {
+    transform: rotate(90deg);
+  }
+
+  &__text {
+    margin: 18px 0 24px;
+  }
+
+  &__date {
+    color: #545454;
+    line-height: 150%;
+  }
+}

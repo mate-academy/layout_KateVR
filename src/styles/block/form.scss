@@ -1,0 +1,63 @@
+.form {
+  &__fields {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__label {
+    transition: $effectDuration;
+    color: $text-color;
+  }
+
+  &__input {
+    @include form-styles;
+    @include autofill;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__textarea {
+    @include form-styles;
+    @include autofill;
+
+    resize: none;
+
+    &:disabled {
+      cursor: not-allowed;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    &:focus-within .form__label {
+      color: $contrast-color;
+    }
+
+    &:focus-within .form__input {
+      border-bottom-color: $contrast-color;
+    }
+
+    &:focus-within .form__textarea {
+      border-bottom-color: $contrast-color;
+    }
+  }
+
+  &__submit-btn {
+    margin-top: 30px;
+
+    @include tablet {
+      width: 200px;
+      margin-top: 48px;
+    }
+
+    @include desktop {
+      margin-top: 90px;
+    }
+  }
+}

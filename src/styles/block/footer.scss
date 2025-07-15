@@ -1,0 +1,59 @@
+.footer {
+  background-color: #000;
+  padding-block: 50px;
+
+  @include tablet {
+    padding-block: 25px;
+  }
+
+  @include desktop {
+    padding-block: 40px;
+  }
+
+  &__content {
+    @include grid-markup;
+
+    row-gap: 22px;
+
+    @include tablet {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo-link {
+    height: 14px;
+    width: 69px;
+    display: flex;
+    align-items: center;
+    grid-column: 1/-1;
+
+    @include desktop {
+      height: 14px;
+      width: 72px;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__nav {
+    grid-area: span 2 / span 1;
+    display: flex;
+  }
+
+  &__contacts {
+    grid-area: span 1 / span 1;
+
+    @include tablet {
+      display: none;
+    }
+  }
+
+  &__socials {
+    grid-area: span 1 / span 1;
+  }
+}

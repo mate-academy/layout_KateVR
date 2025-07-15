@@ -1,0 +1,36 @@
+.more-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 7px;
+  text-decoration: none;
+  cursor: pointer;
+
+  @include hover(color, #fff, '.more-button__text');
+  @include hover(opacity, 0, '.more-button__arrow--static');
+  @include hover(opacity, 1, '.more-button__arrow--hover');
+
+  &__text {
+    color: $contrast-color;
+  }
+
+  &__arrow-wrapper {
+    position: relative;
+  }
+
+  &__arrow {
+    display: block;
+    height: 6px;
+    width: 9px;
+    background-size: cover;
+    background-position: center;
+
+    &--static {
+      background-image: url(../images/icon/icon-more-arrow.svg);
+    }
+
+    &--hover {
+      @include accent(url(../images/icon/icon-more-arrow-hover.svg));
+    }
+  }
+}

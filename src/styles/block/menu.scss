@@ -1,0 +1,30 @@
+.menu {
+  @include aside-style;
+
+  &__container {
+    @include tablet {
+      padding-bottom: 140px;
+    }
+  }
+
+  &__top {
+    @include aside-top-style;
+
+    justify-content: right;
+  }
+
+  &__center {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav {
+    margin-top: 18px;
+  }
+
+  &__language,
+  &__faq,
+  &__help {
+    @include aside-link-style;
+  }
+}

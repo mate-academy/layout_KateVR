@@ -1,0 +1,31 @@
+.page {
+  font-family: $font-inter;
+  color: $text-color;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+
+    &--no-scroll {
+      overflow: hidden;
+      height: 100vh;
+    }
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__mobile-hidden {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+}

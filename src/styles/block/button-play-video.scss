@@ -1,0 +1,40 @@
+.button-play-video {
+  background-image: url(../images/play-video/btn-play-video.svg);
+  display: flex;
+  height: 66px;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  cursor: pointer;
+  align-items: center;
+  gap: 45px;
+  padding-left: 7px;
+  width: 236px;
+
+  @include hover(opacity, 0, '.button-play-video__arrow');
+  @include hover(opacity, 1, '.button-play-video__arrow--hover');
+
+  &__arrow-wrapper {
+    position: relative;
+  }
+
+  &__arrow {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-image: url(../images/play-video/arrow-play-video.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid $contrast-color;
+    background-position-x: 55%;
+    background-size: 19px;
+
+    &--static {
+      background-image: url(../images/play-video/arrow-play-video.svg);
+    }
+
+    &--hover {
+      @include accent(url(../images/play-video/arrow-play-video-hover.svg));
+    }
+  }
+}

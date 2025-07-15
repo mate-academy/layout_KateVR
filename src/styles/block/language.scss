@@ -1,0 +1,42 @@
+.language {
+  @include aside-style;
+
+  &__container {
+    @include tablet {
+      padding-bottom: 80px;
+    }
+  }
+
+  &__top {
+    @include aside-top-style;
+  }
+
+  &__center {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    color: #fff;
+    height: 100%;
+  }
+
+  &__item {
+    height: 100%;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    height: 100%;
+
+    @include aside-link-style;
+    @include hover(color, $contrast-color);
+  }
+}

@@ -1,0 +1,229 @@
+@mixin tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin container() {
+  padding-inline: 20px;
+  margin: 0 auto;
+
+  @include tablet {
+    padding-inline: 34px;
+  }
+
+  @include desktop {
+    padding-inline: 110px;
+    max-width: 1452px;
+  }
+}
+
+@mixin grid-markup {
+  --columns: 2;
+
+  display: grid;
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include tablet {
+    --columns: 6;
+  }
+
+  @include desktop {
+    --columns: 12;
+  }
+}
+
+@mixin section-padding-block {
+  padding-block: 50px;
+
+  @include tablet {
+    padding-block: 70px;
+  }
+
+  @include desktop {
+    padding-block: 100px;
+  }
+}
+
+@mixin section-item-style {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+
+  &__headline {
+    margin-bottom: 11px;
+    position: relative;
+    align-self: center;
+
+    &::after {
+      content: '';
+      background-color: #fff;
+      width: 100%;
+      height: 3px;
+      transition: transform 0.3s;
+      display: block;
+      position: absolute;
+      bottom: -8px;
+      transform-origin: 0;
+      transform: scale(0);
+    }
+
+    @include tablet {
+      margin-bottom: 20px;
+      text-align: center;
+    }
+  }
+
+  &__img-wrapper {
+    width: 80px;
+    height: 80px;
+    display: none;
+
+    @include tablet {
+      display: block;
+      margin-bottom: 25px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+  }
+
+  &__description {
+    @include tablet {
+      text-align: center;
+    }
+  }
+}
+
+@mixin aside-style {
+  background-color: #000000b3;
+  position: fixed;
+  inset: 0;
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: $effectDuration ease-in-out;
+  z-index: 10;
+  box-sizing: border-box;
+  overflow-y: scroll;
+
+  &--open {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__container {
+    background-color: $background-dark-blue;
+    min-height: 100vh;
+
+    @include tablet {
+      min-height: auto;
+    }
+  }
+}
+
+@mixin aside-top-style {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px 32px;
+
+  @include tablet {
+    padding: 34px 34px 32px 46px;
+  }
+
+  @include desktop {
+    padding: 20px 20px 25px;
+  }
+}
+
+@mixin aside-link-style {
+  display: flex;
+  align-items: center;
+  padding-inline: 20px;
+  height: 49px;
+  box-sizing: border-box;
+
+  @include tablet {
+    padding-inline: 150;
+  }
+
+  &:hover {
+    background-color: #110e25;
+    color: $contrast-color;
+  }
+}
+
+@mixin hover($property, $toValue, $element: false) {
+  @if $element {
+    #{$element} {
+      transition: #{$property} $effectDuration;
+    }
+    &:hover #{$element} {
+      #{$property}: $toValue;
+    }
+  } @else {
+    transition: #{$property} $effectDuration;
+    &:hover {
+      #{$property}: $toValue;
+    }
+  }
+}
+
+@mixin pressed($property, $toValue, $element: false) {
+  @if $element {
+    #{$element} {
+      transition: #{$property} 0.3s;
+    }
+    &:active #{$element} {
+      #{$property}: $toValue;
+    }
+  } @else {
+    transition: #{$property} 0.3s;
+    &:active {
+      #{$property}: $toValue;
+    }
+  }
+}
+
+@mixin accent($bg-image) {
+  position: absolute;
+  top: 0;
+  background-image: $bg-image;
+  opacity: 0;
+}
+
+@mixin autofill {
+  &:-webkit-autofill {
+    transition:
+      background-color 5000s ease-in-out 0s,
+      color 5000s ease-in-out 0s;
+  }
+}
+
+@mixin form-styles {
+  color: #fff;
+  background-color: #05040b;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid $text-color;
+  padding-bottom: 6px;
+  transition: $effectDuration;
+
+  &:focus-visible {
+    outline: none;
+    color: #fff;
+    border-bottom: 1px solid $text-color;
+    background-color: transparent;
+  }
+}

@@ -1,0 +1,48 @@
+.faq {
+  @include aside-style;
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+
+    @include grid-markup;
+  }
+
+  &__container {
+    padding-bottom: 12px;
+
+    @include tablet {
+      padding-bottom: 240px;
+    }
+
+    @include desktop {
+      grid-column: 3/-3;
+      padding-bottom: 50px;
+    }
+  }
+
+  &__top {
+    justify-content: right;
+
+    @include aside-top-style;
+  }
+
+  &__headline {
+    margin-bottom: 30px;
+  }
+
+  &__articles {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  &__more-button {
+    margin-top: 50px;
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+}

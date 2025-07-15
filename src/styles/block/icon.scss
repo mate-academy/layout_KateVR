@@ -1,0 +1,102 @@
+.icon {
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  &__wrapper {
+    position: relative;
+
+    @include hover(opacity, 0, '.icon--static');
+    @include hover(opacity, 1, '.icon--hover');
+  }
+
+  &--menu {
+    height: 20px;
+    width: 20px;
+    background-image: url(../images/icon/icon-menu.svg);
+
+    @include tablet {
+      height: 30px;
+      width: 30px;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &--menu-hover {
+    @include accent(url(../images/icon/icon-menu-hover.svg));
+  }
+
+  &--close {
+    height: 17px;
+    width: 17px;
+    background-image: url(../images/icon/icon-close.svg);
+  }
+
+  &--close-hover {
+    @include accent(url(../images/icon/icon-close-hover.svg));
+  }
+
+  &--language-close {
+    height: 17px;
+    width: 17px;
+    background-image: url(../images/icon/icon-language-close.svg);
+  }
+
+  &--language-close-hover {
+    @include accent(url(../images/icon/icon-language-close-hover.svg));
+  }
+
+  &--social {
+    height: 15px;
+    width: 15px;
+  }
+
+  &--facebook {
+    background-image: url(../images/icon/icon-facebook.svg);
+  }
+
+  &--facebook-hover {
+    @include accent(url(../images/icon/icon-facebook-hover.svg));
+  }
+
+  &--twitter {
+    background-image: url(../images/icon/icon-twitter.svg);
+  }
+
+  &--twitter-hover {
+    @include accent(url(../images/icon/icon-twitter-hover.svg));
+  }
+
+  &--youtube {
+    background-image: url(../images/icon/icon-youtube.svg);
+  }
+
+  &--youtube-hover {
+    @include accent(url(../images/icon/icon-youtube-hover.svg));
+  }
+
+  &--reddit {
+    background-image: url(../images/icon/icon-reddit.svg);
+  }
+
+  &--reddit-hover {
+    @include accent(url(../images/icon/icon-reddit-hover.svg));
+  }
+
+  &--scroll-up {
+    height: 9px;
+    width: 16px;
+    background-image: url(../images/icon/icon-scroll-up.svg);
+  }
+
+  &--scroll-up-hover {
+    @include accent(url(../images/icon/icon-scroll-up-hover.svg));
+
+    top: unset;
+  }
+}
