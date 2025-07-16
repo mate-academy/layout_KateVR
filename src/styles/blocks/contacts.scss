@@ -1,0 +1,169 @@
+.contacts {
+  padding: 155px 0 205px;
+
+  @include on-large-desktop {
+    padding: 100px 0;
+  }
+
+  @include on-small-desktop {
+    padding: 70px 0 130px;
+  }
+
+  @include on-phone {
+    padding: 50px 0;
+  }
+
+  &__content {
+    @include grid;
+
+    position: relative;
+  }
+
+  &__wrapper {
+    grid-column: 1 / 5;
+
+    @include on-small-desktop {
+      grid-column: 1 / 4;
+    }
+
+    @include on-phone {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__title {
+    @extend%h2;
+
+    margin-bottom: 26px;
+
+    @include on-large-desktop {
+      margin-bottom: 50px;
+    }
+
+    @include on-phone {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 1;
+    color: #05c2df;
+    margin-bottom: 15px;
+    text-transform: none;
+  }
+
+  &__title-span {
+    @extend%span;
+  }
+
+  &__text {
+    @extend%main-text;
+
+    margin-bottom: 75px;
+
+    @include on-phone {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      font-size: 12px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__item {
+    width: fit-content;
+  }
+
+  &__link {
+    @extend%main-text;
+
+    display: block;
+    text-decoration-line: none;
+    position: relative;
+
+    @include on-phone {
+      font-size: 13px;
+    }
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: $text-color;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      left: 0;
+      bottom: 0;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &__form {
+    grid-column: 9 / -1;
+
+    @include on-large-desktop {
+      grid-column: 7 / -1;
+    }
+
+    @include on-small-desktop {
+      grid-column: 4 / -1;
+    }
+
+    @include on-phone {
+      grid-column: 1 / -1;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__up-btn {
+    position: absolute;
+    width: 48px;
+    height: 48px;
+    right: 0;
+    bottom: 0;
+    border: 1px solid $accent-color;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s;
+
+    &::before {
+      position: absolute;
+      content: '';
+      border: solid $accent-color;
+      border-width: 0 1px 1px 0;
+      padding: 4px;
+      transform: rotate(-135deg) translate(-2px, -2px);
+      transition: border 0.3s;
+    }
+
+    @include on-phone {
+      display: none;
+    }
+
+    &:hover {
+      background-color: $accent-color;
+
+      &::before {
+        border-color: $white-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,323 @@
+<!doctype html>
+<html
+  lang="en"
+  class="order-page"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>KatVR</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./images/favicon.svg"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="./styles/main.scss"
+    />
+  </head>
+
+  <body class="order-page__body">
+    <div class="order">
+      <div class="container">
+        <div class="order__top">
+          <a
+            href="./index.html"
+            class="logo order__logo"
+          >
+            <img
+              src="./images/logo.svg"
+              alt="logo"
+              class="logo__img"
+            />
+          </a>
+          <a
+            href="./order.html"
+            class="order__top-link order__top-link--active"
+          >
+            Place Order
+          </a>
+          <a
+            href="./pay.html"
+            class="order__top-link"
+          >
+            Pay
+          </a>
+          <a
+            href="./complete.html"
+            class="order__top-link"
+          >
+            Order complete
+          </a>
+          <a
+            href="./index.html"
+            class="order__close-btn"
+          ></a>
+        </div>
+        <div class="order__bottom">
+          <div class="order__wpapper">
+            <img
+              src="./images/3.png"
+              alt="bg"
+              class="order__bottom-img"
+            />
+            <div class="order__quantity order-quantity dropdown">
+              <h6 class="order-quantity__title">Quantity</h6>
+              <div class="dropdown__wrapper order-quantity__wrapper">
+                <button class="dropdown__button order-quantity__button">
+                  1
+                </button>
+                <ul class="dropdown__list order-quantity__list">
+                  <li
+                    class="dropdown__item order-quantity__item"
+                    data-value="1"
+                  >
+                    1
+                  </li>
+                  <li
+                    class="dropdown__item order-quantity__item"
+                    data-value="2"
+                  >
+                    2
+                  </li>
+                  <li
+                    class="dropdown__item order-quantity__item"
+                    data-value="3"
+                  >
+                    3
+                  </li>
+                  <li
+                    class="dropdown__item order-quantity__item"
+                    data-value="4"
+                  >
+                    4
+                  </li>
+                  <li
+                    class="dropdown__item order-quantity__item"
+                    data-value="5"
+                  >
+                    5
+                  </li>
+                </ul>
+                <input
+                  name="quantity-input"
+                  type="text"
+                  value="1"
+                  class="dropdown__input order-quantity__input"
+                />
+              </div>
+            </div>
+            <div class="order__price">
+              <h6 class="order__price-title">Price</h6>
+              <span class="order__price-item">1200$</span>
+            </div>
+          </div>
+          <form
+            action="#"
+            onsubmit="this.reset(); window.scrollTo({ top: 0, behavior: 'smooth' }); return false;"
+            class="order__form order-form"
+            method="post"
+          >
+            <label
+              class="order-form__label"
+              for="firstname"
+            >
+              First Name*
+              <input
+                name="firstname"
+                id="firstname"
+                type="text"
+                class="order-form__input"
+                required
+              />
+            </label>
+            <label
+              class="order-form__label"
+              for="lastname"
+            >
+              Last Name*
+              <input
+                name="lastname"
+                id="lastname"
+                type="text"
+                class="order-form__input"
+                required
+              />
+            </label>
+            <label
+              class="order-form__label"
+              for="email"
+            >
+              Email*
+              <input
+                name="email"
+                id="email"
+                type="email"
+                class="order-form__input"
+                required
+              />
+            </label>
+            <label
+              class="order-form__label"
+              for="tel"
+            >
+              Phone Number*
+              <input
+                name="tel"
+                id="tel"
+                type="tel"
+                class="order-form__input"
+                pattern="[0-9]{10,15}"
+                inputmode="numeric"
+                maxlength="15"
+                required
+              />
+            </label>
+            <div class="order-form__dropdown dropdown">
+              <h5 class="order-form__dropdown-title">Country*</h5>
+              <div class="order-form__wrapper dropdown__wrapper">
+                <button class="order-form__button dropdown__button">
+                  Ukraine
+                </button>
+                <ul class="order-form__list dropdown__list">
+                  <li
+                    class="order-form__item dropdown__item"
+                    data-value="ukraine"
+                  >
+                    Ukraine
+                  </li>
+                  <li
+                    class="order-form__item dropdown__item"
+                    data-value="poland"
+                  >
+                    Poland
+                  </li>
+                  <li
+                    class="order-form__item dropdown__item"
+                    data-value="germany"
+                  >
+                    Germany
+                  </li>
+                  <li
+                    class="order-form__item dropdown__item"
+                    data-value="romania"
+                  >
+                    Romania
+                  </li>
+                  <li
+                    class="order-form__item dropdown__item"
+                    data-value="italy"
+                  >
+                    Italy
+                  </li>
+                </ul>
+                <input
+                  name="country-input"
+                  type="text"
+                  class="order-form__dropdown-input dropdown__input"
+                  value="ukraine"
+                />
+              </div>
+            </div>
+            <div class="order-form__dropdown dropdown">
+              <h5 class="order-form__dropdown-title">City*</h5>
+              <div class="order-form__wrapper dropdown__wrapper">
+                <button class="order-form__button dropdown__button">
+                  Kyiv
+                </button>
+                <ul class="order-form__list dropdown__list">
+                  <li
+                    class="order-form__item dropdown__item"
+                    data-value="kyiv"
+                  >
+                    Kyiv
+                  </li>
+                  <li
+                    class="order-form__item dropdown__item"
+                    data-value="lviv"
+                  >
+                    Lviv
+                  </li>
+                  <li
+                    class="order-form__item dropdown__item"
+                    data-value="kharkiv"
+                  >
+                    Kharkiv
+                  </li>
+                  <li
+                    class="order-form__item dropdown__item"
+                    data-value="rivne"
+                  >
+                    Rivne
+                  </li>
+                  <li
+                    class="order-form__item dropdown__item"
+                    data-value="ternopil"
+                  >
+                    Ternopil
+                  </li>
+                </ul>
+                <input
+                  name="city-input"
+                  type="text"
+                  class="order-form__dropdown-input dropdown__input"
+                  value="kyiv"
+                />
+              </div>
+            </div>
+            <label
+              class="order-form__label"
+              for="address1"
+            >
+              Shipping Address*
+              <input
+                name="address1"
+                id="address1"
+                type="text"
+                class="order-form__input"
+                required
+              />
+            </label>
+            <label
+              class="order-form__label order-form__label--address"
+              for="address2"
+            >
+              Shipping Address 2
+              <input
+                name="address2"
+                id="address2"
+                type="text"
+                class="order-form__input"
+                required
+              />
+            </label>
+            <button
+              class="order-form__btn button"
+              type="submit"
+            >
+              Purchase
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/order.js"></script>
+  </body>
+</html>

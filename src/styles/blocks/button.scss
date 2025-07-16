@@ -1,0 +1,24 @@
+.button {
+  @extend%link;
+
+  box-sizing: border-box;
+  padding: 13px 55px;
+  text-decoration-line: none;
+  background-color: $accent-color;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+
+  @include on-phone {
+    padding: 10px 55px;
+  }
+
+  &:hover {
+    background-color: $white-color;
+    color: $accent-color;
+  }
+}

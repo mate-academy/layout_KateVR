@@ -1,0 +1,76 @@
+.menu {
+  background-color: $secondary-bg-color;
+
+  &__content {
+    padding: 100px 0;
+    position: relative;
+  }
+
+  &__close-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: 30px;
+    right: 34px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 24px;
+      background-color: $white-color;
+      transition: background-color 0.3s;
+    }
+
+    &::before {
+      transform: rotateZ(45deg);
+    }
+
+    &::after {
+      transform: rotateZ(-45deg);
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        background-color: $accent-color;
+      }
+    }
+
+    @include on-phone {
+      top: 20px;
+      right: 20px;
+    }
+  }
+
+  &__lang-btn {
+    @extend%link;
+
+    border: none;
+    background-color: transparent;
+    width: fit-content;
+    padding: 0;
+    cursor: pointer;
+    transition: background-color, 0.3s;
+
+    @include on-small-desktop {
+      padding: 10px 0 10px 150px;
+      width: 100%;
+      text-align: left;
+
+      &:hover {
+        background-color: #110e25;
+      }
+    }
+
+    @include on-phone {
+      padding: 10px 0 10px 20px;
+    }
+
+    @include hover(color, $accent-color);
+  }
+}

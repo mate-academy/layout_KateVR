@@ -1,0 +1,179 @@
+.faq {
+  padding: 70px 90px 50px;
+  background-color: $secondary-bg-color;
+
+  @include on-small-desktop {
+    padding: 100px 34px;
+  }
+
+  @include on-phone {
+    padding: 70px 20px 20px;
+  }
+
+  &__close-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    top: 28px;
+    right: 28px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: 24px;
+      height: 1px;
+      background-color: $white-color;
+      transition: background-color 0.3s;
+    }
+
+    &::before {
+      transform: rotateZ(45deg);
+    }
+
+    &::after {
+      transform: rotateZ(-45deg);
+    }
+
+    @include on-small-desktop {
+      top: 34px;
+      right: 34px;
+    }
+
+    @include on-phone {
+      top: 20px;
+      right: 20px;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        background-color: $accent-color;
+      }
+    }
+  }
+
+  &__title {
+    @extend%h2;
+
+    margin-bottom: 35px;
+  }
+
+  &__title-span {
+    @extend%span;
+  }
+
+  &__item {
+    border: 1px solid $accent-color;
+    border-radius: 4px;
+
+    &:last-of-type {
+      margin-bottom: 50px;
+    }
+
+    &:not(:last-of-type) {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__item-title {
+    @extend%main-text;
+
+    padding: 20px 30px;
+    position: relative;
+    color: $accent-color;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 5px 0;
+      border-color: #05c2df transparent transparent;
+      transform: rotateZ(-90deg);
+      right: 30px;
+      transition: transform 0.3s;
+    }
+
+    &.faq__item-title--active::after {
+      transform: rotateZ(0);
+    }
+
+    @include on-phone {
+      padding: 20px 10px;
+
+      &::after {
+        display: none;
+      }
+    }
+  }
+
+  &__item-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  &__item-description {
+    @extend%main-text;
+
+    padding: 0 30px;
+    margin-bottom: 20px;
+
+    @include on-phone {
+      padding: 0 10px;
+    }
+  }
+
+  &__item-time {
+    @extend%main-text;
+
+    font-size: 14px;
+    color: #545454;
+    margin: 0 0 20px;
+    padding: 0 30px;
+  }
+
+  &__more-btn {
+    @extend%link;
+
+    position: relative;
+    margin: 0 auto;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    color: $accent-color;
+    width: fit-content;
+    transition: color 0.3s;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 5px 0;
+      border-color: $accent-color transparent transparent;
+      bottom: 0;
+      transition: border 0.3s;
+    }
+
+    &:hover {
+      color: $white-color;
+      &::before {
+        border-color: $white-color transparent transparent;
+      }
+    }
+  }
+}

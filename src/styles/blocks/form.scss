@@ -1,0 +1,70 @@
+.form {
+  &__label {
+    @extend%main-text;
+
+    display: block;
+    margin-bottom: 24px;
+    transition: color 0.3s;
+
+    &:focus-within {
+      color: $accent-color;
+    }
+  }
+
+  &__input {
+    @extend%main-text;
+
+    color: $white-color;
+    box-sizing: border-box;
+    background-color: transparent;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $dark-color;
+    transition: border 0.3s;
+
+    &::placeholder {
+      @extend%main-text;
+
+      font-size: 14px;
+    }
+
+    &:focus,
+    &:hover {
+      border-bottom: 1px solid $accent-color;
+    }
+
+    &:invalid {
+      color: #860404;
+    }
+
+    &:-webkit-autofill {
+      -webkit-text-fill-color: $text-color;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+  }
+
+  &__textarea {
+    margin-bottom: 50px;
+    resize: none;
+    height: 75px;
+
+    @include on-large-desktop {
+      margin-bottom: 90px;
+    }
+
+    @include on-phone {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__btn {
+    display: block;
+    border: none;
+    max-width: 280px;
+
+    @include on-phone {
+      margin: 0 auto;
+    }
+  }
+}

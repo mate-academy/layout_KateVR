@@ -1,0 +1,220 @@
+.help {
+  @include grid;
+
+  --columns: 12;
+
+  padding: 60px 0 90px;
+  background-color: $secondary-bg-color;
+
+  @include on-large-desktop {
+    --columns: 10;
+  }
+
+  @include on-small-desktop {
+    --columns: 6;
+
+    padding: 100px 34px;
+  }
+
+  @include on-phone {
+    --columns: 2;
+    
+    padding: 70px 20px;
+  }
+
+  &__close-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    top: 28px;
+    right: 28px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: 24px;
+      height: 1px;
+      background-color: $white-color;
+      transition: background-color 0.3s;
+    }
+
+    &::before {
+      transform: rotateZ(45deg);
+    }
+
+    &::after {
+      transform: rotateZ(-45deg);
+    }
+
+    @include on-small-desktop {
+      top: 34px;
+      right: 34px;
+    }
+
+    @include on-phone {
+      top: 20px;
+      right: 20px;
+    }
+
+    &:hover {
+      &::before,
+      &::after {
+        background-color: $accent-color;
+      }
+    }
+  }
+
+  &__title {
+    @extend%h2;
+
+    margin-bottom: 50px;
+    grid-column: 2 / -2;
+
+    @include on-small-desktop {
+      grid-column: 1 / -1;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title-span {
+    @extend%span;
+  }
+
+  &__description {
+    margin-bottom: 30px;
+    grid-column: 2 / -2;
+
+    @include on-small-desktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__text {
+    @extend%main-text;
+
+    margin: 0;
+
+    &:not(:last-of-type) {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__description-link {
+    color: $accent-color;
+    text-decoration-line: none;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: $accent-color;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      left: 0;
+      bottom: 0;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 2 / 5;
+
+    @include on-small-desktop {
+      grid-column: 1 / 4;
+    }
+
+    @include on-phone {
+      grid-column: 1 / -1;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__link {
+    @extend%main-text;
+
+    color: $accent-color;
+    text-decoration-line: none;
+    position: relative;
+    padding-bottom: 5px;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: $accent-color;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      left: 0;
+      bottom: 0;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+
+  &__contacts-list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    grid-column: 5 / 8;
+
+    @include on-small-desktop {
+      grid-column: 4 / -1;
+    }
+
+    @include on-phone {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__contacts-item {
+    width: fit-content;
+  }
+
+  &__contacts-link {
+    @extend%main-text;
+
+    display: block;
+    text-decoration-line: none;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: $text-color;
+      transform: scaleX(0);
+      transition: transform 0.3s;
+      left: 0;
+      bottom: 0;
+    }
+
+    &:hover::after {
+      transform: scaleX(1);
+    }
+  }
+}

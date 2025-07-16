@@ -1,0 +1,300 @@
+.header {
+  padding-bottom: 107px;
+  background-image: linear-gradient(90deg, $secondary-bg-color, #000);
+
+  @include on-large-desktop {
+    padding-bottom: 85px;
+  }
+
+  @include on-small-desktop {
+    padding-bottom: 0;
+  }
+
+  &__top {
+    @include grid;
+
+    padding: 200px 0;
+
+    @include on-large-desktop {
+      padding: 45px 0 85px;
+    }
+
+    @include on-small-desktop {
+      padding: 20px 0 70px;
+    }
+
+    @include on-phone {
+      padding: 0 0 50px;
+    }
+  }
+
+  &__content {
+    display: grid;
+    column-gap: 20px;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column: 1 / 7;
+
+    @include on-small-desktop {
+      grid-template-columns: repeat(3, 1fr);
+      grid-column: 1 / 4;
+    }
+
+    @include on-phone {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__title {
+    @extend%h1;
+
+    grid-column: 1 / -1;
+  }
+
+  &__title-span {
+    @extend%h1;
+    @extend%span;
+
+    font-weight: 400;
+    grid-column: 1 / -1;
+    margin-bottom: 35px;
+
+    @include on-large-desktop {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__description {
+    @extend%secondary-text;
+
+    grid-column: 2 / -2;
+    margin-bottom: 30px;
+
+    @include on-large-desktop {
+      grid-column: 2 / -3;
+      margin-bottom: 20px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__price {
+    @extend%link;
+
+    font-size: 20px;
+    line-height: 1;
+    grid-column: 2 / 3;
+    margin-bottom: 45px;
+
+    @include on-large-desktop {
+      margin-bottom: 30px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / -1;
+    }
+
+    @include on-phone {
+      justify-self: center;
+    }
+  }
+
+  &__video-btn {
+    grid-column: 2 / 5;
+
+    @include on-small-desktop {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  &__faq-btn {
+    @extend%link;
+
+    margin-right: 40px;
+    text-transform: uppercase;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color, 0.3s;
+
+    @include on-tablet {
+      margin-right: 0;
+      display: block;
+      padding: 10px 0 10px 150px;
+      width: 100%;
+      text-align: left;
+
+      &:hover {
+        background-color: #110e25;
+      }
+    }
+
+    @include on-phone {
+      padding: 10px 0 10px 20px;
+    }
+
+    @include hover(color, $accent-color);
+  }
+
+  &__help-btn {
+    @extend%link;
+
+    margin-right: auto;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color, 0.3s;
+
+    @include on-tablet {
+      padding: 10px 0 10px 150px;
+      width: 100%;
+      text-align: left;
+
+      &:hover {
+        background-color: #110e25;
+      }
+    }
+
+    @include on-phone {
+      padding: 10px 0 10px 20px;
+    }
+
+    @include hover(color, $accent-color);
+  }
+
+  &__more-btn {
+    @extend%link;
+
+    position: absolute;
+    margin: 0 auto;
+    height: 37px;
+    display: flex;
+    justify-content: center;
+    color: $accent-color;
+    left: 50%;
+    transition: color 0.3s;
+
+    &::before {
+      position: absolute;
+      content: '';
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 6px 5px 0;
+      border-color: $accent-color transparent transparent;
+      bottom: 0;
+      transition: border 0.3s;
+    }
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &:hover {
+      color: $white-color;
+      &::before {
+        border-color: $white-color transparent transparent transparent;
+      }
+    }
+  }
+
+  &__previous-btn {
+    @extend%link;
+
+    margin-right: 100px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__next-btn {
+    @extend%link;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
+
+.header-swiper {
+  grid-column: 8 / -1;
+  width: 100%;
+  overflow: hidden;
+
+  @include on-large-desktop {
+    grid-column: 7 / -1;
+    align-self: center;
+  }
+
+  @include on-small-desktop {
+    grid-column: 4 / -1;
+  }
+
+  @include on-phone {
+    grid-column: 1 / -1;
+    order: -1;
+  }
+
+  &__wrapper {
+    width: 100%;
+  }
+
+  &__slide {
+    width: 100%;
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__control {
+    position: relative;
+    width: 200px;
+  }
+
+  &__previous-btn {
+    @extend%link;
+
+    color: $white-color;
+    width: fit-content;
+    height: 20px;
+    position: absolute;
+    cursor: pointer;
+
+    &::after {
+      content: 'Previous';
+    }
+  }
+
+  &__next-btn {
+    @extend%link;
+
+    color: $white-color;
+    width: fit-content;
+    height: 20px;
+    left: 160px;
+    position: absolute;
+    cursor: pointer;
+
+    &::after {
+      content: 'Next';
+    }
+  }
+
+  &__scrollbar.swiper-scrollbar-horizontal {
+    bottom: -10px;
+    position: absolute;
+    width: 100%;
+    background-color: #212121;
+  }
+}

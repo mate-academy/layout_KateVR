@@ -1,0 +1,234 @@
+<!doctype html>
+<html
+  lang="en"
+  class="order-page"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>KatVR</title>
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./images/favicon.svg"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="./styles/main.scss"
+    />
+  </head>
+
+  <body class="order-page__body">
+    <div class="order">
+      <div class="container">
+        <div class="order__top">
+          <a
+            href="./index.html"
+            class="logo order__logo"
+          >
+            <img
+              src="./images/logo.svg"
+              alt="logo"
+              class="logo__img"
+            />
+          </a>
+          <a
+            href="./order.html"
+            class="order__top-link"
+          >
+            Place Order
+          </a>
+          <a
+            href="./pay.html"
+            class="order__top-link order__top-link--active"
+          >
+            Pay
+          </a>
+          <a
+            href="./complete.html"
+            class="order__top-link"
+          >
+            Order complete
+          </a>
+          <a
+            href="./index.html"
+            class="order__close-btn"
+          ></a>
+        </div>
+        <div class="order__bottom">
+          <div class="order__wpapper order__card-wrapper">
+            <img
+              src="./images/3.png"
+              alt="bg"
+              class="order__bottom-img order__bottom-img--pay"
+            />
+            <div class="order__quantity order-quantity dropdown">
+              <h6 class="order-quantity__title">Quantity</h6>
+              <div class="dropdown__wrapper order-quantity__wrapper">
+                <button class="dropdown__button order-quantity__button">
+                  1
+                </button>
+                <ul class="dropdown__list order-quantity__list">
+                  <li
+                    class="dropdown__item order-quantity__item"
+                    data-value="1"
+                  >
+                    1
+                  </li>
+                  <li
+                    class="dropdown__item order-quantity__item"
+                    data-value="2"
+                  >
+                    2
+                  </li>
+                  <li
+                    class="dropdown__item order-quantity__item"
+                    data-value="3"
+                  >
+                    3
+                  </li>
+                  <li
+                    class="dropdown__item order-quantity__item"
+                    data-value="4"
+                  >
+                    4
+                  </li>
+                  <li
+                    class="dropdown__item order-quantity__item"
+                    data-value="5"
+                  >
+                    5
+                  </li>
+                </ul>
+                <input
+                  name="quantity-input"
+                  type="text"
+                  value="1"
+                  class="dropdown__input order-quantity__input"
+                />
+              </div>
+            </div>
+            <div class="order__price">
+              <h6 class="order__price-title">Price</h6>
+              <span class="order__price-item">1200$</span>
+            </div>
+          </div>
+          <form
+            action="#"
+            onsubmit="this.reset(); window.scrollTo({ top: 0, behavior: 'smooth' }); return false;"
+            class="order__card-form card-form"
+            method="post"
+          >
+            <label class="card-form__label card-form__label--number">
+              Card Number*
+              <div class="card-form__number">
+                <input
+                  type="text"
+                  name="number"
+                  maxlength="4"
+                  pattern="\d*"
+                  inputmode="numeric"
+                  class="card-form__input card-form__input--num"
+                  placeholder="0000"
+                  required
+                />
+                <input
+                  type="text"
+                  name="number"
+                  maxlength="4"
+                  pattern="\d*"
+                  inputmode="numeric"
+                  class="card-form__input card-form__input--num"
+                  placeholder="0000"
+                  required
+                />
+                <input
+                  type="text"
+                  name="number"
+                  maxlength="4"
+                  pattern="\d*"
+                  inputmode="numeric"
+                  class="card-form__input card-form__input--num"
+                  placeholder="0000"
+                  required
+                />
+                <input
+                  type="text"
+                  name="number"
+                  maxlength="4"
+                  pattern="\d*"
+                  inputmode="numeric"
+                  class="card-form__input card-form__input--num"
+                  placeholder="0000"
+                  required
+                />
+                <a
+                  href="#"
+                  class="card-form__visa"
+                ></a>
+              </div>
+            </label>
+
+            <label class="card-form__label card-form__label--name">
+              Card Holder Name*
+              <input
+                type="text"
+                class="card-form__input"
+                id="cardHolder"
+                required
+              />
+            </label>
+
+            <label class="card-form__label card-form__label--date">
+              Expiration Date*
+              <input
+                type="text"
+                class="card-form__input card-form__input--date"
+                id="expDate"
+                maxlength="5"
+                placeholder="MM/YY"
+                required
+              />
+            </label>
+
+            <label class="card-form__label card-form__label--cvv">
+              CVV*
+              <input
+                type="text"
+                class="card-form__input card-form__input--cvv"
+                id="cvv"
+                maxlength="4"
+                placeholder="000"
+                pattern="[0-9]{4}"
+                required
+              />
+            </label>
+            <button
+              class="card-form__btn button"
+              type="submit"
+            >
+              Purchase
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="./scripts/order.js"></script>
+  </body>
+</html>

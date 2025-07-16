@@ -1,0 +1,279 @@
+.tech {
+  padding: 160px 0;
+
+  @include on-large-desktop {
+    padding: 100px 0;
+  }
+
+  @include on-small-desktop {
+    padding: 80px 0;
+  }
+
+  @include on-phone {
+    padding: 50px 0;
+  }
+
+  &__title {
+    @extend%h2;
+
+    margin-bottom: 80px;
+    text-align: right;
+
+    @include on-small-desktop {
+      margin-bottom: 60px;
+      text-align: left;
+    }
+
+    @include on-phone {
+      margin-bottom: 40px;
+    }
+  }
+
+  &__title-span {
+    @extend%span;
+  }
+
+  &__wrapper {
+    box-sizing: border-box;
+    padding-top: 60px;
+    width: 1175px;
+    height: 354px;
+    margin: 0 auto;
+
+    @include on-small-desktop {
+      width: auto;
+      height: auto;
+      padding-top: 0;
+    }
+  }
+
+  &__content {
+    position: relative;
+    margin: 0 auto;
+    background-image: url(../images/tech/tech-bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 298px 294px;
+    width: 298px;
+    height: 294px;
+
+    @include on-small-desktop {
+      width: 358px;
+      height: 354px;
+      background-size: 358px 354px;
+    }
+
+    @include on-phone {
+      background-size: 197px 195px;
+      width: 197px;
+      height: 195px;
+    }
+  }
+
+  &__item {
+    position: absolute;
+
+    &--sensor {
+      left: -375px;
+      top: -57px;
+
+      @include on-large-desktop {
+        left: -350px;
+      }
+
+      @include on-small-desktop {
+        left: 60px;
+        top: -25px;
+      }
+
+      @include on-phone {
+        top: -11px;
+      }
+    }
+
+    &--connection {
+      left: -375px;
+      bottom: 20px;
+
+      @include on-large-desktop {
+        left: -275px;
+      }
+
+      @include on-small-desktop {
+        left: -60px;
+        bottom: 25px;
+      }
+
+      @include on-phone {
+        left: -20px;
+        bottom: 5px;
+      }
+    }
+
+    &--batteries {
+      right: -480px;
+      top: -58px;
+
+      @include on-large-desktop {
+        right: -390px;
+      }
+
+      @include on-small-desktop {
+        right: 50px;
+        top: 145px;
+      }
+
+      @include on-phone {
+        right: 30px;
+        top: 80px;
+      }
+    }
+  }
+
+  &__item-content {
+    @include on-small-desktop {
+      position: absolute;
+      width: max-content;
+      left: -70px;
+      bottom: 70px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+
+      &.tech__item-content--active {
+        opacity: 1;
+      }
+
+      &--sensor {
+        @include on-phone {
+          left: 36px;
+          bottom: -35px;
+        }
+      }
+
+      &--connection {
+        @include on-phone {
+          left: -35px;
+          bottom: 45px;
+        }
+      }
+
+      &--batteries {
+        @include on-phone {
+          left: -170px;
+          bottom: -144px;
+        }
+      }
+    }
+  }
+
+  &__item-title {
+    @extend%inter-900;
+
+    margin: 0 0 20px;
+    font-size: 18px;
+    line-height: 1;
+    color: $white-color;
+    text-transform: uppercase;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__item-description {
+    @extend%main-text;
+
+    @include on-small-desktop {
+      font-size: 12px;
+      background-color: $secondary-bg-color;
+      padding: 15px 10px;
+      border-radius: 4px;
+    }
+  }
+
+  &__item-btn {
+    display: none;
+    padding: 0;
+    border: 2px solid #ffffff24;
+    background-color: $accent-color;
+    border-radius: 50%;
+    width: 62px;
+    height: 62px;
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      width: 22px;
+      height: 1px;
+      background-color: $white-color;
+    }
+
+    &::after {
+      transform: rotateZ(90deg);
+      transition: opacity 0.3s;
+    }
+
+    @include on-small-desktop {
+      display: flex;
+    }
+
+    @include on-phone {
+      width: 34px;
+      height: 34px;
+
+      &::before,
+      &::after {
+        width: 12px;
+      }
+    }
+
+    &.tech__item-btn--active {
+      background-color: #07798b;
+
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__lines {
+    position: absolute;
+    margin: 0;
+
+    @include on-small-desktop {
+      display: none;
+    }
+
+    &--sensor {
+      right: 150px;
+      top: -50px;
+    }
+
+    &--connection {
+      right: 295px;
+      top: 65px;
+    }
+
+    &--batteries {
+      left: 150px;
+      bottom: 95px;
+    }
+  }
+
+  &__ellipse-img {
+    position: absolute;
+    display: block;
+    left: -10px;
+    top: 40px;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,195 @@
+@use 'sass:list';
+
+.about {
+  padding: 147px 0 156px;
+  background-image: linear-gradient($secondary-bg-color, #000);
+
+  @include on-large-desktop {
+    padding: 100px 0;
+  }
+
+  @include on-small-desktop {
+    padding: 70px 0 50px;
+  }
+
+  @include on-phone {
+    padding: 100px 0 50px;
+  }
+}
+
+.about-product {
+  @include grid;
+
+  margin-bottom: 175px;
+
+  @include on-large-desktop {
+    margin-bottom: 180px;
+  }
+
+  @include on-small-desktop {
+    margin-bottom: 80px;
+  }
+
+  @include on-phone {
+    position: relative;
+  }
+
+  &__swiper-wrapper {
+    grid-column: 4 / 11;
+    position: relative;
+
+    @include on-large-desktop {
+      grid-column: 3 / 8;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__content {
+    grid-column: -6 / -1;
+
+    @include on-large-desktop {
+      grid-column: 9 / -1;
+    }
+
+    @include on-small-desktop {
+      grid-column: 4 / -1;
+    }
+
+    @include on-phone {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__title {
+    @extend%h2;
+
+    margin-bottom: 30px;
+
+    @include on-phone {
+      position: absolute;
+      top: -50px;
+      left: 0;
+    }
+  }
+
+  &__span {
+    @extend%span;
+  }
+
+  &__description {
+    @extend%main-text;
+
+    margin-bottom: 30px;
+  }
+}
+
+.about-us {
+  @include grid;
+
+  &__content {
+    padding: 45px 0 70px;
+    grid-column: 2 / 7;
+
+    @include on-large-desktop {
+      grid-column: 1 / 6;
+      padding: 40px 0;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 5;
+      padding: 25px 0;
+    }
+  }
+
+  &__subtitle {
+    @extend%inter-400;
+
+    display: block;
+    font-size: 14px;
+    line-height: 1;
+    color: $accent-color;
+    margin-bottom: 15px;
+    text-transform: capitalize;
+  }
+
+  &__title {
+    @extend%h2;
+
+    margin-bottom: 30px;
+  }
+
+  &__title-span {
+    @extend%span;
+  }
+
+  &__description {
+    @extend%main-text;
+  }
+
+  &__text {
+    grid-column: 9 / -1;
+    display: flex;
+    gap: 17px;
+    overflow: hidden;
+
+    @include on-large-desktop {
+      grid-column: 7 / -1;
+    }
+
+    @include on-small-desktop {
+      grid-column: 5 / -1;
+    }
+
+    @include on-phone {
+      display: none;
+    }
+  }
+
+  &__item {
+    @extend%inter-900;
+
+    font-size: 64px;
+    color: $bg-color;
+    line-height: 1.3;
+    text-transform: uppercase;
+    height: fit-content;
+    text-shadow:
+      1px 1px $accent-color,
+      -1px -1px $accent-color,
+      -1px 1px $accent-color,
+      1px -1px $accent-color;
+
+    @include on-large-desktop {
+      &:nth-child(n + 6) {
+        display: none;
+      }
+    }
+
+    @include on-small-desktop {
+      font-size: 48px;
+
+      &:nth-child(n + 4) {
+        display: none;
+      }
+    }
+
+    &:nth-child(odd) {
+      writing-mode: sideways-rl;
+    }
+
+    &:nth-child(even) {
+      writing-mode: sideways-lr;
+    }
+  }
+}
+
+$opacities: 100%, 50%, 20%, 10%, 5%, 3%, 2%;
+
+@for $i from 1 through length($opacities) {
+  .about-us__item:nth-child(#{$i}) {
+    opacity: list.nth($opacities, $i);
+  }
+}

@@ -1,0 +1,22 @@
+.nav {
+  &__list {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  &__link {
+    @extend%link;
+
+    transition: background-color, 0.3s;
+
+    @include on-tablet {
+      &:hover {
+        background-color: #110e25;
+      }
+    }
+
+    @include hover(color, $accent-color);
+  }
+}

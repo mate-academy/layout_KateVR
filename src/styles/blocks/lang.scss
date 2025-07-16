@@ -1,0 +1,60 @@
+.lang {
+  padding: 100px 0 25px;
+  background-color: $secondary-bg-color;
+
+  @include on-phone {
+    padding: 50px 0 25px;
+  }
+
+  &__close-btn {
+    position: absolute;
+    background-color: transparent;
+    border: none;
+    width: 9px;
+    height: 17px;
+    top: 34px;
+    left: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &::before {
+      position: absolute;
+      content: '';
+      padding: 5px;
+      border: solid $white-color;
+      border-width: 0 0 1px 1px;
+      transform: rotateZ(45deg);
+    }
+
+    @include on-phone {
+      top: 20px;
+      left: 20px;
+    }
+
+    @include hover(transform, translateX(-5px));
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__link {
+    @extend%link;
+
+    display: block;
+    padding: 10px 0 10px 150px;
+
+    @include on-phone {
+      padding: 10px 20px;
+    }
+
+    &:hover {
+      color: $accent-color;
+      background-color: #110e25;
+    }
+  }
+}
