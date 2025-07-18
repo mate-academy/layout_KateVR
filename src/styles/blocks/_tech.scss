@@ -1,0 +1,258 @@
+.tech {
+  background-color: rgba(5, 4, 11, 1);
+
+  &__content {
+    @include on-desktop {
+      @include page-grid;
+    }
+  }
+
+  &__wrapper-img {
+    width: 197px;
+    height: 194.7px;
+    margin-inline: auto;
+    position: relative;
+
+    @include on-tablet {
+      width: 357.95px;
+      height: 353.78px;
+    }
+
+    @include on-desktop {
+      width: 297.48px;
+      height: 294.01px;
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    @include on-desktop {
+      position: relative;
+    }
+  }
+
+  &__semi-circle {
+    @include on-desktop {
+      background-image: url('../images/semi-round.svg');
+      width: 40px;
+      height: 201px;
+      position: absolute;
+      background-position: 50%;
+      background-repeat: no-repeat;
+      background-size: contain;
+      bottom: 53px;
+      left: -15px;
+    }
+  }
+
+  &__wrapper-buttom {
+    position: absolute;
+
+    &--sensor {
+      top: -11px;
+      left: 60px;
+
+      @include on-tablet {
+        top: -27px;
+        left: 65px;
+      }
+    }
+
+    &--batterries {
+      top: 80px;
+      right: 29px;
+
+      @include on-tablet {
+        right: 49px;
+        top: 145px;
+      }
+    }
+
+    &--connection {
+      bottom: 7.7px;
+      left: -17px;
+
+      @include on-tablet {
+        left: -58px;
+        top: 273px;
+      }
+    }
+
+    @include on-desktop {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__buttom {
+    background-image: url('../images/buttom-plus.svg');
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    display: block;
+
+    @include on-tablet {
+      width: 61.68px;
+      height: 61.68px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__line {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: contain;
+    }
+
+    &--sensore {
+      @include on-desktop {
+        background-image: url('../images/sensore-line.svg');
+        width: 403px;
+        height: 72px;
+        right: 150.48px;
+        bottom: 274.01px;
+      }
+    }
+
+    &--batterries {
+      @include on-desktop {
+        background-image: url('../images/batterries-line.svg');
+        width: 191.5px;
+        height: 244.96px;
+        bottom: 102px;
+        right: -46px;
+      }
+    }
+
+    &--connection {
+      @include on-desktop {
+        background-image: url('../images/connection-line.svg');
+        width: 133.92px;
+        height: 113px;
+        bottom: 122px;
+        left: -133.92px;
+      }
+    }
+  }
+
+  &__subtitle {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      font-size: 18px;
+      font-weight: 900;
+      line-height: 21.78px;
+      color: $c-white;
+      text-transform: uppercase;
+      position: absolute;
+    }
+
+    &--sensore {
+      @include on-desktop {
+        top: -355px;
+        left: -381px;
+      }
+    }
+
+    &--batterries {
+      top: -353px;
+      right: -162.45px;
+    }
+
+    &--connection {
+      bottom: 116px;
+      left: -290px;
+    }
+  }
+
+  &__info {
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+    color: $c-text;
+    z-index: 1;
+    box-sizing: border-box;
+    background-color: rgba(25, 21, 54, 1);
+    border-radius: 4px;
+    padding: 17px 11px;
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: -12px;
+    width: 168px;
+    height: fit-content;
+
+    @include on-tablet {
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include on-desktop {
+      display: block;
+      background-color: transparent;
+    }
+
+    &--sensore {
+      @include on-desktop {
+        width: max-content;
+        padding: 0;
+        top: -312px;
+        right: 493px;
+      }
+    }
+
+    &--batterries {
+      width: 200px;
+      top: -100px;
+      right: 100%;
+
+      @include on-desktop {
+        padding: 0;
+        width: 338px;
+        top: -292px;
+        left: 347px;
+      }
+    }
+
+    &--connection {
+      inset: auto auto 100% -100%;
+
+      @include on-desktop {
+        padding: 0;
+        width: max-content;
+        bottom: 14px;
+        left: -289px;
+      }
+    }
+  }
+
+  &__checkbox {
+    display: none;
+
+    &:checked + .tech__buttom {
+      background-image: url('../images/buttom-minus.svg');
+
+      & + .tech__info {
+        display: block;
+      }
+    }
+  }
+}

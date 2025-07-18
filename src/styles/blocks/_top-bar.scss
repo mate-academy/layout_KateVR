@@ -1,0 +1,197 @@
+.top-bar {
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 18px 6px;
+
+    @include on-tablet {
+      padding-block: 30px 55px;
+    }
+
+    @include on-desktop {
+      padding-block: 47px 101px;
+    }
+
+    &--aside {
+      padding-block: 19px 31px;
+
+      @include on-tablet {
+        padding-block: 30px;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include on-desktop {
+        padding-block: 65px 114px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    &--menu {
+      justify-content: end;
+      padding-block: 20px 38px;
+
+      @include on-tablet {
+        padding-block: 34px 57px;
+      }
+    }
+
+    &--language {
+      padding-block: 20px 38px;
+
+      @include on-tablet {
+        padding-block: 34px 57px;
+      }
+    }
+
+    &--help {
+      padding-block: 20px 31px;
+      justify-content: end;
+
+      @include on-tablet {
+        padding-block: 34px 51px;
+      }
+
+      @include on-desktop {
+        margin-inline: -110px;
+        padding-block: 18px 25px;
+        padding-inline: 18px;
+      }
+    }
+
+    &--faq {
+      padding-block: 20px 31px;
+      justify-content: end;
+
+      @include on-tablet {
+        padding-block: 34px 57px;
+      }
+
+      @include on-desktop {
+        padding-block: 18px 25px;
+        padding-inline: 18px;
+        margin-inline: -110px;
+      }
+    }
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: 37px;
+  }
+
+  &__logo {
+    width: 58px;
+    height: 12px;
+    display: flex;
+
+    @include hover(transform, scale(1.2));
+
+    &--footer {
+      grid-column: 1 / -1;
+      margin-bottom: 15px;
+
+      @include on-tablet {
+        grid-column: 1 / 2;
+        margin: 0;
+        width: 69px;
+        height: 14px;
+      }
+
+      @include on-desktop {
+        width: 74px;
+        height: 14px;
+      }
+    }
+
+    @include on-tablet {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include on-desktop {
+      width: 78px;
+      height: 16px;
+    }
+  }
+
+  &__logo-img {
+    width: 58px;
+    height: 12px;
+
+    @include on-tablet {
+      width: 67px;
+      height: 14px;
+    }
+  }
+
+  &__logo-menu {
+    background-image: url('../images/logo-menu.svg');
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include on-tablet {
+      width: 29.25px;
+      height: 20px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    @include hover(transform, scale(1.2));
+
+    &:hover {
+      background-image: url('../images/logo-menu-hover.svg');
+    }
+  }
+
+  &__menu-img {
+    @include on-tablet {
+      width: 29.25px;
+      height: 20px;
+    }
+  }
+
+  &__logo-close {
+    background-image: url('../images/icon-close.svg');
+    width: 17px;
+    height: 17px;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    &:hover {
+      background-image: url('../images/icon-close-hover.svg');
+    }
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__logo-row {
+    @include hover(transform, scale(1.2));
+  }
+
+  &__logo-row-svg {
+    &:hover {
+      stroke: $c-accent;
+    }
+  }
+}
