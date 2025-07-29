@@ -1,19 +1,1342 @@
 <!doctype html>
-<html lang="en">
+<html
+  lang="en"
+  class="page"
+>
   <head>
     <meta charset="UTF-8" />
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>KatVR</title>
+    <meta
+      name="description"
+      content="KAT VR is an independent company dedicated to the research, development, and sales of VR Locomotion products and solutions."
+    />
     <link
       rel="stylesheet"
       href="./styles/main.scss"
     />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon shortcut"
+      href="images/common-images/katvr-favicon.svg"
+      type="image/svg+xml"
+    />
+    <script
+      src="scripts/main.js"
+      defer
+    ></script>
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
-    <script src="scripts/main.js"></script>
+  <body class="page__body">
+    <header
+      class="header"
+      id="header"
+    >
+      <div class="container">
+        <div class="header__content">
+          <div
+            class="top-bar"
+            id="top-bar"
+          >
+            <a
+              href="#"
+              class="top-bar__logo-link logo-link"
+            >
+              <img
+                src="images/common-images/katvr-logo.svg"
+                alt="kat vr logo"
+                class="top-bar__logo logo"
+              />
+            </a>
+
+            <div class="top-bar__middle">
+              <select
+                class="top-bar__language-switcher language-switcher language-switcher__aside"
+              >
+                <option
+                  class="language-switcher__option"
+                  value="en"
+                >
+                  En
+                </option>
+                <option
+                  class="language-switcher__option"
+                  value="zh"
+                >
+                  Zh(S)
+                </option>
+                <option
+                  class="language-switcher__option"
+                  value="zh"
+                >
+                  Zh(T)
+                </option>
+                <option
+                  class="language-switcher__option"
+                  value="fr"
+                >
+                  Fr
+                </option>
+                <option
+                  class="language-switcher__option"
+                  value="de"
+                >
+                  De
+                </option>
+                <option
+                  class="language-switcher__option"
+                  value="it"
+                >
+                  It
+                </option>
+                <option
+                  class="language-switcher__option"
+                  value="pl"
+                >
+                  Pl
+                </option>
+                <option
+                  class="language-switcher__option"
+                  value="ru"
+                >
+                  ru
+                </option>
+                <option
+                  class="language-switcher__option"
+                  value="uk"
+                >
+                  Ua
+                </option>
+              </select>
+              <nav
+                class="top-bar__nav nav"
+                aria-label="main navigation"
+              >
+                <ul class="nav__list">
+                  <li class="nav__item">
+                    <a
+                      href="#about"
+                      class="nav__link"
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li class="nav__item">
+                    <a
+                      href="#tech-specs"
+                      class="nav__link"
+                    >
+                      Tech
+                    </a>
+                  </li>
+                  <li class="nav__item">
+                    <a
+                      href="#why-cat-loco"
+                      class="nav__link"
+                    >
+                      Benefits
+                    </a>
+                  </li>
+                  <li class="nav__item">
+                    <a
+                      href="#questions"
+                      class="nav__link"
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <a
+              href="#questions"
+              class="top-bar__button-link"
+            >
+              <button
+                class="top-bar__button button buy--button"
+                aria-label="Buy button"
+              >
+                Buy
+              </button>
+            </a>
+            <a
+              href="#menu"
+              class="top-bar__icon-menu icon icon--menu"
+            ></a>
+          </div>
+          <div class="header__middle">
+            <div class="header__middle-info">
+              <h1 class="header-title">
+                <span class="header-title-bold">THE NEW START OF</span>
+                <span class="header-title-thin">VR LOCOMOTION</span>
+              </h1>
+              <p class="header__text">
+                Discover the most comprehensive VR Locomotion system, and unlock
+                infinite motion in any games on any platforms!
+              </p>
+              <p class="header__price">1200$</p>
+              <button
+                class="header__button-play button-play"
+                id="header__button"
+                data-video="https://www.youtube.com/embed/SvTbB19bvIw"
+                aria-label="Play video about KatVR Loco system"
+              ></button>
+              <div
+                id="header__video-container"
+                class="hidden video-container header__video-container"
+              >
+                <div
+                  id="header__video-wrapper"
+                  class="header__video-wrapper video-wrapper"
+                >
+                  <iframe
+                    id="header__video-frame"
+                    class="header__video-frame video-frame"
+                    src="https://www.youtube.com/embed/SvTbB19bvIw"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+
+                  <button
+                    class="header__icon icon icon--close icon--close-video"
+                    id="header__close-button"
+                    aria-label="Close video"
+                  ></button>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="header__slider slider"
+              id="header-slider"
+            >
+              <div class="slider__images">
+                <img
+                  src="images/header/headerBg-phone.png"
+                  alt="header-background image"
+                  class="slider__slide header__slide active"
+                />
+                <img
+                  src="images/header/headerBg-second.png"
+                  alt="header-background second image"
+                  class="slider__slide header__slide"
+                />
+                <img
+                  src="images/header/headerBg-third.png"
+                  alt="header-background third image"
+                  class="slider__slide header__slide"
+                />
+                <img
+                  src="images/header/headerBg-fourth.png"
+                  alt="header-background fourth image"
+                  class="slider__slide header__slide"
+                />
+                <img
+                  src="images/header/headerBg-fifth.png"
+                  alt="header-background fourth image"
+                  class="slider__slide header__slide"
+                />
+              </div>
+            </div>
+          </div>
+          <a
+            href="#questions"
+            class="header__button-link"
+          >
+            <button
+              class="header__button button buy--button"
+              aria-label="Buy button"
+            >
+              Buy
+            </button>
+          </a>
+          <div class="header__bottom bottom">
+            <nav
+              class="bottom__nav nav"
+              aria-label="seconddary navigation"
+            >
+              <ul class="bottom__list nav__list">
+                <li class="bottom__item">
+                  <a
+                    href="#help"
+                    class="bottom__link"
+                  >
+                    FAQ
+                  </a>
+                </li>
+                <li class="bottom__item">
+                  <a
+                    href="#help"
+                    class="bottom__link"
+                  >
+                    Help
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <a
+              href="#using-areas"
+              class="bottom__more-link"
+            >
+              <button
+                class="bottom__button-more"
+                aria-label="More button"
+              >
+                <p class="bottom__button-text">More</p>
+                <img
+                  src="images/common-images/arrow-down-icon.svg"
+                  alt="arrow-down-icon"
+                  class="bottom__button-img"
+                />
+              </button>
+            </a>
+            <div class="bottom__slider-control slider-control">
+              <div class="slider-control__buttons">
+                <button
+                  class="slider-control__button"
+                  id="button-prev"
+                  aria-label="Previous slide"
+                >
+                  Previous
+                </button>
+                <button
+                  class="slider-control__button"
+                  id="button-next"
+                  aria-label="Next slide"
+                >
+                  Next
+                </button>
+              </div>
+              <div
+                class="slider-control__progress-line"
+                id="header-progress-line"
+              >
+                <div
+                  class="slider-control__progress-bar"
+                  id="header-progress-bar"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- #region aside nav menu -->
+    <aside
+      class="page__menu menu"
+      id="menu"
+    >
+      <div class="container">
+        <div class="menu__top-bar top-bar">
+          <a
+            href="#"
+            class="icon icon--close"
+          ></a>
+        </div>
+        <nav
+          class="menu__nav nav"
+          aria-label="main navigation"
+        >
+          <ul class="nav__list menu__list">
+            <li class="nav__item menu__item">
+              <a
+                href="#about"
+                class="nav__link"
+              >
+                About
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#tech-specs"
+                class="nav__link"
+              >
+                Tech
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#why-cat-loco"
+                class="nav__link"
+              >
+                Benefits
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#questions"
+                class="nav__link"
+              >
+                Contact
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#languages"
+                class="nav__link"
+              >
+                Language
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#help"
+                class="nav__link"
+              >
+                FAQ
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#help"
+                class="nav__link"
+              >
+                Help
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+    <!-- #endregion -->
+    <!-- #region aside languages -->
+    <aside
+      class="page__menu languages menu"
+      id="languages"
+    >
+      <div class="container">
+        <div class="top-bar menu__top-bar">
+          <a
+            href="#menu"
+            class="icon icon--left"
+          ></a>
+        </div>
+        <nav
+          class="menu__nav nav"
+          aria-label="language navigation"
+        >
+          <ul class="nav__list menu__list">
+            <li class="nav__item menu__item">
+              <a
+                href="#"
+                class="nav__link"
+              >
+                English
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#"
+                class="nav__link"
+              >
+                Arabic
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#"
+                class="nav__link"
+              >
+                Chinese (Simplified)
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#"
+                class="nav__link"
+              >
+                Chinese (Traditional)
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#"
+                class="nav__link"
+              >
+                French
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#"
+                class="nav__link"
+              >
+                German
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#help"
+                class="nav__link"
+              >
+                Italian
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#"
+                class="nav__link"
+              >
+                Polish
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#"
+                class="nav__link"
+              >
+                russian
+              </a>
+            </li>
+            <li class="nav__item menu__item">
+              <a
+                href="#help"
+                class="nav__link"
+              >
+                Ukrainian
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </aside>
+    <!-- #endregion -->
+    <!-- #region aside help -->
+    <aside
+      class="page__menu menu help"
+      id="help"
+    >
+      <div class="container">
+        <div class="top-bar">
+          <!-- <a href="#menu" class="icon icon--left"></a> -->
+          <a
+            href="#menu"
+            class="icon icon--close"
+          ></a>
+        </div>
+        <div class="help__content">
+          <h2 class="section-title">
+            <span class="section-title-bold">How can we</span>
+            <span class="section-title-thin">Help</span>
+            <span class="section-title-bold">You?</span>
+          </h2>
+
+          <div class="help__description">
+            <p class="help__text">
+              Welcome to our help center. Our goal is to make the process of
+              getting acquainted and purchase as easy and pleasant as possible.
+              Need help with your KAT VR loco product? Many product questions
+              can be resolved by reviewing our Product Support
+              <a
+                href="#"
+                class="help__text-link"
+              >
+                FAQs
+              </a>
+              .
+            </p>
+            <p class="help__text">
+              Please also feel free to
+              <a
+                href="#"
+                class="help__text-link"
+              >
+                Contact Us
+              </a>
+              directly should you need anything further. We’re happy to help.
+            </p>
+            <div class="help__links">
+              <a
+                href="#"
+                class="help__link"
+              >
+                Instruction manual
+              </a>
+              <a
+                href="#"
+                class="help__link"
+              >
+                Where to go for a warranty
+              </a>
+              <a
+                href="#"
+                class="help__link"
+              >
+                Service Policy
+              </a>
+            </div>
+            <div class="help__contacts contacts">
+              <a
+                class="contacts__contact"
+                href="tel:+86-0571-86105373"
+              >
+                +86-0571-86105373
+              </a>
+              <a
+                href="mailto:global@katvr.com"
+                class="contacts__contact"
+              >
+                global@katvr.com
+              </a>
+              <a
+                href="mailto:overseas@katvr.com"
+                class="contacts__contact"
+              >
+                overseas@katvr.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- #endregion -->
+    <main class="main">
+      <div class="main__content">
+        <!-- #region using-areas -->
+        <section
+          class="using-areas"
+          id="using-areas"
+        >
+          <div class="container">
+            <div class="using-areas__content">
+              <h2 class="section-title">
+                <span class="section-title-bold">MORE THAN</span>
+                <span class="section-title-thin">GAMING!</span>
+              </h2>
+              <p class="using-areas__text">
+                This also made for people who are interested in...
+              </p>
+              <div class="using-areas__areas">
+                <div class="using-areas__area area">
+                  <img
+                    src="images/using-areas/study-hat.svg"
+                    alt="study hat icon"
+                    class="area__img"
+                  />
+                  <h3 class="area__title">Education</h3>
+                  <p class="area__text">
+                    Create aducational simulations, trainings and much more with
+                    unlimited virtual space and minimum physical space
+                  </p>
+                </div>
+                <div class="using-areas__area area">
+                  <img
+                    src="images/using-areas/buildings.svg"
+                    alt="building icon"
+                    class="area__img"
+                  />
+                  <h3 class="area__title">Real Estate</h3>
+                  <p class="area__text">
+                    Desighn architectural projects in a deeply realistic
+                    environment allowing visitors to freely walk around, and
+                    feel their vibe
+                  </p>
+                </div>
+                <div class="using-areas__area area">
+                  <img
+                    src="images/using-areas/power-hand.svg"
+                    alt="training hand icon"
+                    class="area__img"
+                  />
+                  <h3 class="area__title">Fitness</h3>
+                  <p class="area__text">
+                    Combine business with pleasure, and discover countless ways
+                    to stay fit while playing your favorite VR Games!
+                  </p>
+                </div>
+                <div class="using-areas__area area">
+                  <img
+                    src="images/using-areas/network.svg"
+                    alt="network icon"
+                    class="area__img"
+                  />
+                  <h3 class="area__title">Social interactions</h3>
+                  <p class="area__text">
+                    Hang out with your friends in the virtual world when you
+                    can’t meet space requirements
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- #endregion -->
+        <!-- #region about -->
+        <section
+          class="about"
+          id="about"
+        >
+          <div class="container">
+            <div class="about__content">
+              <div class="about__top">
+                <h2 class="section-title section-title--first">
+                  <span class="section-title-bold">About</span>
+                  <span class="section-title-thin">Product</span>
+                </h2>
+                <div class="about__slider slider">
+                  <div class="slider__images about__images">
+                    <div class="slider__pagination-desktop pagination-desktop">
+                      <span class="slider__pagination-count">1/5</span>
+                    </div>
+                    <img
+                      src="images/about/slider/slide1.png"
+                      class="slider__slide active"
+                      alt="Slide 1"
+                    />
+                    <img
+                      src="images/about/slider/slide2.jpg"
+                      class="slider__slide"
+                      alt="Slide 2"
+                    />
+                    <img
+                      src="images/about/slider/slide3.jpg"
+                      class="slider__slide"
+                      alt="Slide 3"
+                    />
+                    <img
+                      src="images/about/slider/slide4.jpg"
+                      class="slider__slide"
+                      alt="Slide 4"
+                    />
+                    <img
+                      src="images/about/slider/slide5.jpg"
+                      class="slider__slide"
+                      alt="Slide 5"
+                    />
+                  </div>
+                  <div class="slider__pagination-dots pagination-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                  </div>
+
+                  <div class="about__slider-control slider-control">
+                    <div class="slider-control__buttons">
+                      <button
+                        class="slider-control__button previous"
+                        id="about-prev"
+                        aria-label="Previous slide"
+                      >
+                        Previous
+                      </button>
+                      <button
+                        class="slider-control__button next"
+                        id="about-next"
+                        aria-label="Next slide"
+                      >
+                        Next
+                      </button>
+                    </div>
+                    <div
+                      class="slider-control__progress-line"
+                      id="about-progress-line"
+                    >
+                      <div
+                        class="slider-control__progress-bar"
+                        id="about-progress-bar"
+                      ></div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="about__product-info">
+                  <h2
+                    class="section-title section-title--first section-title--right"
+                  >
+                    <span class="section-title-bold">About</span>
+                    <span class="section-title-thin">Product</span>
+                  </h2>
+
+                  <p class="about__product-details">
+                    KAT loco is a foot-based VR locomotion system that gives
+                    complete physical control over lower-body actions, allowing
+                    you to freely walk, run, and carry out just any other
+                    movement in virtual reality.
+                  </p>
+                  <button
+                    class="about__button-play button-play"
+                    id="about__button"
+                    data-video="https://www.youtube.com/embed/SvTbB19bvIw"
+                    aria-label="Play video about KatVR Loco system"
+                  ></button>
+                </div>
+              </div>
+
+              <div
+                id="about__video-container"
+                class="hidden video-container about__video-container"
+              >
+                <div
+                  id="about__video-wrapper"
+                  class="about__video-wrapper video-wrapper"
+                >
+                  <iframe
+                    id="about__video-frame"
+                    class="about__video-frame video-frame"
+                    src="https://www.youtube.com/embed/SvTbB19bvIw"
+                    title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen
+                  ></iframe>
+                  <button
+                    class="about__icon icon icon--close icon--close-video"
+                    id="about__close-button"
+                    aria-label="Close video"
+                  ></button>
+                </div>
+              </div>
+              <div class="about__bottom">
+                <div class="about__information">
+                  <p class="about__greeting">Hello,</p>
+                  <h2 class="section-title section-title--second">
+                    <span class="section-title-bold">Nice to meet</span>
+                    <span class="section-title-thin">You!</span>
+                  </h2>
+                  <p class="about__text">
+                    KAT VR is an independent company dedicated to the research,
+                    development, and sales of VR Locomotion products and
+                    solutions. Founded in 2013, we have quickly grown to become
+                    one of the world’s leading professional suppliers of VR
+                    games’ & simulations’ equipment
+                  </p>
+                </div>
+                <div class="about__img-container"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- #endregion -->
+        <!-- #region tech-specs -->
+        <section
+          class="tech-specs"
+          id="tech-specs"
+        >
+          <div class="container">
+            <div class="tech-specs__content">
+              <h2 class="section-title">
+                <span class="section-title-bold">Tech</span>
+                <span class="section-title-thin">specs</span>
+              </h2>
+
+              <div class="tech-specs__mobtab">
+                <div class="tech-specs__detail-block">
+                  <button
+                    class="tech-specs__detail tech-specs__detail--second"
+                    id="plus-detail-second"
+                    aria-label="Second detail"
+                  ></button>
+                  <p class="tech-specs__info tech-specs__info--second">
+                    Type: Lthium-lon polymer batteries
+                    <br />
+                    Capacity: 370mAh
+                    <br />
+                    Battery life: 10h of continuous use 150 hours on stand by
+                    <br />
+                    Charging: Fast charging - 1 hour
+                    <br />
+                    Charging voltage and current: 5V = 0.5A
+                  </p>
+                </div>
+                <div class="tech-specs__detail-block">
+                  <button
+                    class="tech-specs__detail tech-specs__detail--first"
+                    id="plus-detail-first"
+                    aria-label="First detail"
+                  ></button>
+                  <p class="tech-specs__info tech-specs__info--first">
+                    Weight: 35g/1.23oz each
+                    <br />
+                    Dimension: 50mm/1.97in
+                    <br />
+                    24mm/0.94in
+                    <br />
+                    Light: LED lights
+                  </p>
+                </div>
+                <div class="tech-specs__detail-block">
+                  <button
+                    class="tech-specs__detail tech-specs__detail--third"
+                    id="plus-detail-third"
+                    aria-label="Third detail"
+                  ></button>
+                  <p class="tech-specs__info tech-specs__info--third">
+                    Wireless: Bluetooth 4.2
+                    <br />
+                    Signal range: 5m
+                    <br />
+                    Receiver: USB 2.0 and above
+                  </p>
+                </div>
+              </div>
+
+              <div class="tech-specs__desktop">
+                <div class="tech-specs__block tech-specs__block--first">
+                  <div class="tech-specs__information">
+                    <h3 class="tech-specs__title">Sensor</h3>
+                    <div class="tech-specs__text">
+                      Weight: 35g/1.23oz each
+                      <br />
+                      Dimension: 50mm/1.97in
+                      <br />
+                      24mm/0.94in
+                      <br />
+                      Light: LED lights
+                    </div>
+                  </div>
+                  <div
+                    class="tech-specs__line-img tech-specs__line-img--top"
+                  ></div>
+                </div>
+                <div class="tech-specs__block tech-specs__block--second">
+                  <div
+                    class="tech-specs__line-img tech-specs__line-img--right"
+                  ></div>
+                  <div class="tech-specs__information">
+                    <h3 class="tech-specs__title">Batterries</h3>
+                    <div class="tech-specs__text">
+                      Type: Lthium-lon polymer batteries
+                      <br />
+                      Capacity: 370mAh
+                      <br />
+                      Battery life: 10h of continuous use 150 hours on stand by
+                      <br />
+                      Charging: Fast charging - 1 hour
+                      <br />
+                      Charging voltage and current: 5V = 0.5A
+                    </div>
+                  </div>
+                </div>
+                <div class="tech-specs__block tech-specs__block--third">
+                  <div
+                    class="tech-specs__information tech-specs__information--third"
+                  >
+                    <h3 class="tech-specs__title">Connection</h3>
+                    <div class="tech-specs__text">
+                      Wireless: Bluetooth 4.2
+                      <br />
+                      Signal range: 5m
+                      <br />
+                      Receiver: USB 2.0 and above
+                    </div>
+                  </div>
+                  <div
+                    class="tech-specs__line-img tech-specs__line-img--bottom"
+                  ></div>
+                  <div
+                    class="tech-specs__line-img tech-specs__line-img--circle"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- #endregion -->
+        <!-- #region why cat loco -->
+        <section
+          class="why-cat-loco"
+          id="why-cat-loco"
+        >
+          <div class="container">
+            <div class="why-cat-loco__content">
+              <h2 class="section-title">
+                <span class="section-title-bold">Why</span>
+                <span class="section-title-thin">Kat loco?</span>
+              </h2>
+              <div class="why-cat-loco__cards cards">
+                <div class="cards__card">
+                  <img
+                    src="images/why-cat-loco/modern.svg"
+                    alt="universal svg image"
+                    class="cards__img"
+                  />
+                  <h3 class="cards__title">Universally Compatible</h3>
+                  <p class="cards__text">
+                    KAT Loco offers universal compatibility across all major VR
+                    headsets and...
+                  </p>
+                </div>
+                <div class="cards__card">
+                  <img
+                    src="images/why-cat-loco/vr-screen.svg"
+                    alt="screen svg image"
+                    class="cards__img"
+                  />
+                  <h3 class="cards__title">VR/PC Control panel</h3>
+                  <p class="cards__text">
+                    Our Multifunctional Software allows for quick access to KAT
+                    Loco’s...
+                  </p>
+                </div>
+                <div class="cards__card">
+                  <img
+                    src="images/why-cat-loco/signal.svg"
+                    alt="signal svg image"
+                    class="cards__img"
+                  />
+                  <h3 class="cards__title">Wireless sensors</h3>
+                  <p class="cards__text">
+                    What makes it even more advanced, KAT Loco is entirely
+                    wireless, and..
+                  </p>
+                </div>
+              </div>
+              <a
+                href="#"
+                class="why-cat-loco__link"
+              >
+                <button
+                  class="why-cat-loco__button button"
+                  aria-label="Buy Now"
+                >
+                  Buy Now
+                </button>
+              </a>
+            </div>
+          </div>
+        </section>
+        <!-- #endregion -->
+        <!-- #region questions -->
+        <section
+          class="questions"
+          id="questions"
+        >
+          <div class="container">
+            <div class="questions__content">
+              <div class="questions__mob">
+                <p class="questions__question">Have any questions</p>
+                <h2 class="section-title section-tittle--first">
+                  <span class="section-title-bold">Get in</span>
+                  <span class="section-title-thin">touch</span>
+                </h2>
+              </div>
+
+              <div class="questions__left">
+                <div class="questions__tablet">
+                  <p class="questions__question">Have any questions</p>
+                  <h2 class="section-title section-tittle--first">
+                    <span class="section-title-bold">Get in</span>
+                    <span class="section-title-thin">touch</span>
+                  </h2>
+                </div>
+                <p class="questions__note">
+                  Our manager will reply you within 15 minutes
+                </p>
+                <div class="questions__contacts contacts">
+                  <a
+                    class="contacts__contact"
+                    href="tel:+86-0571-86105373"
+                  >
+                    +86-0571-86105373
+                  </a>
+                  <a
+                    href="mailto:global@katvr.com"
+                    class="contacts__contact"
+                  >
+                    global@katvr.com
+                  </a>
+                  <a
+                    href="mailto:overseas@katvr.com"
+                    class="contacts__contact"
+                  >
+                    overseas@katvr.com
+                  </a>
+                </div>
+              </div>
+
+              <div class="questions__right">
+                <form
+                  onsubmit="this.reset();"
+                  class="contacts__form form"
+                >
+                  <div class="form__field">
+                    <label
+                      for="name"
+                      class="form__field-name"
+                      data-default-text="Name*"
+                    >
+                      Name*
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      class="form__field-place"
+                      required
+                    />
+                  </div>
+                  <div class="form__field">
+                    <label
+                      for="email"
+                      class="form__field-name"
+                      data-default-text="Email*"
+                    >
+                      Email*
+                    </label>
+                    <input
+                      type="email"
+                      class="form__field-place"
+                      name="email"
+                      required
+                    />
+                  </div>
+                  <div class="form__field">
+                    <label
+                      for="phone"
+                      class="form__field-name"
+                      data-default-text="Phone*"
+                    >
+                      Phone*
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      pattern="^\+?\d{10,}$"
+                      class="form__field-place"
+                      name="phone"
+                      required
+                    />
+                  </div>
+                  <div class="form__field form__field--message">
+                    <label
+                      for="textarea"
+                      class="form__field-name"
+                    >
+                      Message
+                    </label>
+                    <textarea
+                      class="form__field-place form__field-place--message"
+                    ></textarea>
+                  </div>
+
+                  <button
+                    type="submit"
+                    qa="hover"
+                    class="form__button button"
+                    aria-label="Contact Us button"
+                  >
+                    Contact Us
+                  </button>
+                </form>
+                <a
+                  href="#"
+                  class="scroll-up__link"
+                >
+                  <img
+                    src="images/common-images/scroll-up-button.svg"
+                    alt="scroll up"
+                    class="scroll-up__button"
+                  />
+                </a>
+                <p class="questions__note--mobile">
+                  Our manager will reply you within 15 minutes
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+        <!-- #endregion -->
+      </div>
+    </main>
+
+    <!-- #region footer -->
+    <footer
+      class="footer"
+      id="footer"
+    >
+      <div class="container">
+        <div class="footer__content">
+          <a
+            href="#"
+            class="footer__logo-link footer__logo-link--mob logo-link"
+          >
+            <img
+              src="images/common-images/katvr-logo.svg"
+              alt="kat vr logo"
+              class="footer__logo logo"
+            />
+          </a>
+          <div class="footer__main-info">
+            <a
+              href="#"
+              class="footer__logo-link footer__logo-link--tablet logo-link"
+            >
+              <img
+                src="images/common-images/katvr-logo.svg"
+                alt="kat vr logo"
+                class="footer__logo logo"
+              />
+            </a>
+            <div class="footer__left">
+              <nav
+                class="footer__nav nav"
+                aria-label="footer navigation"
+              >
+                <ul class="footer__list nav__list">
+                  <li class="nav__item">
+                    <a
+                      href="#about"
+                      class="footer__link nav__link"
+                    >
+                      About
+                    </a>
+                  </li>
+                  <li class="nav__item">
+                    <a
+                      href="#tech-specs"
+                      class="footer__link nav__link"
+                    >
+                      Tech
+                    </a>
+                  </li>
+                  <li class="nav__item">
+                    <a
+                      href="#why-cat-loco"
+                      class="footer__link nav__link"
+                    >
+                      Benefits
+                    </a>
+                  </li>
+                  <li class="nav__item">
+                    <a
+                      href="#questions"
+                      class="footer__link nav__link"
+                    >
+                      Contact
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+            <div class="footer__right">
+              <div class="footer__contacts contacts">
+                <a
+                  class="contacts__contact"
+                  href="tel:+86-0571-86105373"
+                >
+                  +86-0571-86105373
+                </a>
+                <a
+                  href="mailto:global@katvr.com"
+                  class="contacts__contact"
+                >
+                  global@katvr.com
+                </a>
+                <a
+                  href="mailto:overseas@katvr.com"
+                  class="contacts__contact"
+                >
+                  overseas@katvr.com
+                </a>
+              </div>
+              <div class="footer__social-media">
+                <a
+                  href="https://www.facebook.com/katvr.global/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__icon-link"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="10"
+                    height="12"
+                    viewBox="0 0 10 12"
+                    fill="none"
+                    aria-label="Facebook icon"
+                    class="footer__icon"
+                  >
+                    <path
+                      d="M1.49378 6.85308V12H3.73444V6.85308H5.62656L6 4.29384H3.73444V2.55924H6V0H3.73444C2.49887 0 1.49378 1.14799 1.49378 2.55924V4.29384H0V6.85308H1.49378Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://twitter.com/katvrwalk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__icon-link"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="11"
+                    viewBox="0 0 15 11"
+                    fill="none"
+                    class="footer__icon"
+                    aria-label="twitter icon"
+                  >
+                    <path
+                      d="M5.596 11C4.94736 11 4.27971 10.9529 3.60807 10.8586C2.4251 10.6923 1.2276 10.1378 0.888741 9.97183L0 9.53644L0.962212 9.25292C2.01403 8.94304 2.65386 8.75078 3.4459 8.44972C2.65283 8.10559 2.04161 7.48656 1.74739 6.68633L1.52354 6.07745L1.7071 6.10257C1.53304 5.94538 1.3956 5.78582 1.28905 5.64073C0.910142 5.12505 0.709528 4.49494 0.752214 3.95497L0.794328 3.4235L1.14944 3.54675C0.999634 3.29327 0.891374 3.02257 0.827745 2.73884C0.672679 2.0469 0.802454 1.31178 1.19327 0.668958L1.5026 0.160153L1.9163 0.605383C3.22469 2.01367 4.8819 2.84907 6.84878 3.09363C6.76844 2.59743 6.82864 2.11857 7.02788 1.68934C7.25985 1.18956 7.67252 0.765756 8.22091 0.463672C8.82996 0.128263 9.56856 -0.0342637 10.3006 0.00603471C11.0773 0.048794 11.7825 0.309554 12.3426 0.760629C12.6161 0.696952 12.8176 0.628967 13.09 0.537091C13.2539 0.481822 13.4397 0.419067 13.6723 0.347289L14.5292 0.0827349L13.9704 1.51276C14.0072 1.50999 14.0452 1.50764 14.0849 1.5061L15 1.46898L14.4592 2.13129C14.4281 2.16923 14.4202 2.17999 14.4093 2.19486C14.3657 2.25372 14.3114 2.32693 13.569 3.21514C13.3832 3.43755 13.2904 3.72722 13.3077 4.03095C13.3735 5.18514 13.2154 6.22941 12.8377 7.13464C12.4804 7.99106 11.9267 8.72586 11.1922 9.31865C10.2834 10.052 9.12442 10.5542 7.74748 10.8109C7.07205 10.9368 6.34673 11 5.596 11Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.youtube.com/channel/UCDLrbvh177aZzSb-4SM9DCQ/videos?view_as=subscriber"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__icon-link"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="15"
+                    height="11"
+                    viewBox="0 0 15 11"
+                    fill="none"
+                    class="footer__icon"
+                    aria-label="YouTube icon"
+                  >
+                    <path
+                      d="M12.1017 0H2.07694C0.931813 0 0 0.931813 0 2.07694V8.72317C0 9.8683 0.931813 10.8001 2.07694 10.8001H12.1017C13.2468 10.8001 14.1786 9.8683 14.1786 8.72317V2.07694C14.1786 0.931813 13.2468 0 12.1017 0ZM5.01236 8.26397V2.61727L10.0108 5.394L5.01236 8.26397Z"
+                      fill="white"
+                    />
+                    <path
+                      d="M5.84326 4.02905V6.82893L8.32186 5.40622L5.84326 4.02905Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+                <a
+                  href="https://www.reddit.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="footer__icon-link"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="14"
+                    height="14"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    class="footer__icon"
+                    aria-label="Reddit icon"
+                  >
+                    <path
+                      d="M0.881622 8.54572C0.84552 8.75627 0.820312 8.96943 0.820312 9.1875C0.820312 11.8411 3.6348 14 7.02734 14C10.4199 14 13.1797 11.8411 13.1797 9.1875C13.1797 8.96943 13.1545 8.75627 13.1184 8.54572C13.6503 8.24995 14 7.66582 14 7C14 6.03488 13.2642 5.25 12.3594 5.25C11.9459 5.25 11.5574 5.41532 11.2595 5.70356C10.2286 4.93691 8.86076 4.44928 7.34842 4.38776L8.13327 1.14035L9.90324 1.80093C9.9292 2.74212 10.6506 3.5 11.5391 3.5C12.4439 3.5 13.1797 2.71512 13.1797 1.75C13.1797 0.78488 12.4439 0 11.5391 0C10.9082 0 10.3658 0.385775 10.0914 0.943929L7.56204 0.000455729L6.49905 4.39596C5.06863 4.49167 3.7243 4.97189 2.74046 5.70356C2.44257 5.41532 2.05409 5.25 1.64062 5.25C0.735825 5.25 0 6.03488 0 7C0 7.66582 0.349701 8.24995 0.881622 8.54572ZM9.48828 7C10.1667 7 10.7188 7.5888 10.7188 8.3125C10.7188 9.0362 10.1667 9.625 9.48828 9.625C8.80981 9.625 8.25781 9.0362 8.25781 8.3125C8.25781 7.5888 8.80981 7 9.48828 7ZM9.3129 10.8649L9.66367 11.6553C8.89388 12.0445 7.98224 12.25 7.02734 12.25C6.07245 12.25 5.10612 12.0445 4.33633 11.6553L4.6871 10.8648C6.009 11.5322 7.991 11.5322 9.3129 10.8649ZM4.51172 7C5.19019 7 5.74219 7.5888 5.74219 8.3125C5.74219 9.0362 5.19019 9.625 4.51172 9.625C3.83325 9.625 3.28125 9.0362 3.28125 8.3125C3.28125 7.5888 3.83325 7 4.51172 7Z"
+                      fill="white"
+                    />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- #endregion -->
   </body>
 </html>

@@ -1,0 +1,114 @@
+.tech-specs {
+  &__desktop {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      margin: auto;
+      max-width: 1055px;
+      height: 355px;
+      position: relative;
+    }
+
+    @include on-big-desktop {
+      width: 1175px;
+      max-width: 1175px;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    height: max-content;
+  }
+
+  &__block--first {
+    right: 50%;
+  }
+
+  &__block--second {
+    gap: 17px;
+    left: 50%;
+    top: 125px;
+    transform: translateY(-50%);
+
+    @include on-big-desktop {
+      left: 47%;
+      gap: 21px;
+    }
+  }
+
+  &__block--third {
+    bottom: 14px;
+    right: 61%;
+    align-items: flex-end;
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    max-width: 344px;
+    gap: 21px;
+  }
+
+  &__information--third {
+    margin-bottom: -17px;
+    margin-right: -60px;
+  }
+
+  &__line-img {
+    display: flex;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  &__line-img--top {
+    display: flex;
+    background-image: url(../images/tech-specs/up-line.svg);
+    background-position: left 6px;
+    min-height: 72px;
+    width: 403px;
+    z-index: 1;
+    margin-left: -80px;
+
+    @include on-big-desktop {
+      width: 431px;
+    }
+  }
+
+  &__line-img--right {
+    background-image: url(../images/tech-specs/right-line.svg);
+    background-position: left 8px;
+    width: 185px;
+    min-height: 245px;
+
+    @include on-big-desktop {
+      background-image: url(../images/tech-specs/right-line-mask.svg);
+      background-position: right;
+      width: 283px;
+      min-height: 245px;
+    }
+  }
+
+  &__line-img--bottom {
+    background-image: url(../images/tech-specs/bottom-line.svg);
+    width: 134px;
+    min-height: 113px;
+    margin-bottom: 80px;
+
+    @include on-big-desktop {
+      background-image: url(../images/tech-specs/bottom-line-mask.svg);
+      width: 241px;
+      min-height: 113px;
+    }
+  }
+
+  &__line-img--circle {
+    background-image: url(../images/tech-specs/circle-line.svg);
+    width: 40px;
+    min-height: 201px;
+    transform: rotate(-11deg);
+  }
+}

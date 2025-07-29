@@ -1,0 +1,70 @@
+.tech-specs {
+  &__content {
+    padding-block: 50px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include on-tablet {
+      padding-block: 80px;
+      min-height: 440px;
+    }
+
+    @include on-desktop {
+      padding-block: 100px;
+    }
+
+    @include on-big-desktop {
+      padding-block: 160px;
+    }
+  }
+
+  .section-title {
+    display: flex;
+    padding-bottom: 30px;
+    align-self: flex-start;
+
+    @include on-desktop {
+      padding-bottom: 80px;
+      padding-right: 73px;
+      align-self: flex-end;
+    }
+  }
+
+  &__mobtab {
+    display: flex;
+    position: relative;
+    width: 100%;
+    width: 214px;
+    background-image: url(../images/tech-specs/device-bg.png);
+    background-repeat: no-repeat;
+    background-size: 197px 195px;
+    min-height: 265px;
+    background-position: center;
+
+    @include on-tablet {
+      height: 440px;
+      width: 419px;
+      background-size: 358px 354px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+    position: relative;
+    width: 100%;
+
+    @include on-desktop {
+      display: flex;
+      background-image: url(../images/tech-specs/device-bg.png);
+      background-size: 297px 294px;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+    }
+  }
+}

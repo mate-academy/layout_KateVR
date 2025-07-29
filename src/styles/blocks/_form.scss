@@ -1,0 +1,122 @@
+.form {
+  display: flex;
+  flex-direction: column;
+
+  &__field--message {
+    height: 88px;
+  }
+
+  &__field-place {
+    display: flex;
+    overflow: hidden;
+    resize: none;
+    background-color: transparent;
+    border: none;
+    height: 34px;
+    width: 100%;
+    padding: 0 2px 0 0;
+    transition: $effectDuration;
+  }
+
+  &__field-place--message {
+    height: 67px;
+    padding-top: 2px;
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 24px;
+    border-bottom: 1px solid $ralphLaurenC;
+    height: 55px;
+    transition-duration: $effectDuration;
+
+    &-name {
+      height: 21px;
+    }
+  }
+
+  &__button {
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 48px;
+    }
+  }
+
+  &__field-place::placeholder {
+    color: $greyC;
+  }
+
+  &__field-place:not(:placeholder-shown) {
+    color: $greyC;
+    font-weight: 700;
+    background-color: $blackBG;
+  }
+
+  &__field-place:hover::placeholder {
+    color: $greyC;
+  }
+
+  &__field-place:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid $cyanC;
+    color: $greyC;
+    font-weight: 600;
+  }
+
+  &__field:hover {
+    .form__field-name {
+      color: $cyanC;
+    }
+
+    .form__field-place {
+      border-bottom: 1px solid $cyanC;
+    }
+
+    &:active {
+      height: 55px;
+
+      .form__field-name {
+        color: $cyanC;
+      }
+
+      .form__field-place {
+        border-bottom: 1px solid $cyanC;
+      }
+    }
+  }
+}
+
+input:autofill,
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: $greyC;
+  -webkit-box-shadow: 0 0 0 1000px $blackBG inset;
+}
+
+input:autofill:not(:placeholder-shown),
+input:-webkit-autofill:not(:placeholder-shown) {
+  -webkit-text-fill-color: $greyC;
+}
+
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+  -webkit-text-fill-color: $greyC;
+  -webkit-box-shadow: 0 0 0 1000px $blackBG inset;
+}
+
+textarea:-webkit-autofill:not(:placeholder-shown) {
+  -webkit-text-fill-color: $greyC;
+}
+
+.error {
+  color: $errorC;
+}
+
+.error-field {
+  border-bottom: 1px solid $errorC;
+}

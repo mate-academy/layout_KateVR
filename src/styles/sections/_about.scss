@@ -1,0 +1,219 @@
+.about {
+  background: $linearGradient;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-block: 50px;
+    gap: 88px;
+
+    @include on-tablet {
+      padding: 70px 0 50px;
+      gap: 84px;
+    }
+
+    @include on-desktop {
+      padding: 100px 0 98px;
+      gap: 183px;
+    }
+
+    @include on-big-desktop {
+      padding: 147px 0 156px;
+      gap: 175px;
+    }
+  }
+
+  .section-title {
+    padding-bottom: 20px;
+
+    @include on-tablet {
+      padding-bottom: 30px;
+    }
+  }
+
+  .section-title--first {
+    display: flex;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  .section-title--right {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+
+    @include on-big-desktop {
+      height: 72px;
+    }
+  }
+
+  .section-title--second {
+    padding-bottom: 22px;
+
+    @include on-tablet {
+      padding-bottom: 32px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      justify-content: space-between;
+      flex-direction: row;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 107px;
+    }
+  }
+
+  &__images {
+    gap: 23px;
+    height: 67vw;
+
+    @include on-tablet {
+      min-width: 340px;
+      min-height: 270px;
+      height: 270px;
+    }
+
+    @include on-desktop {
+      width: 430px;
+      min-width: 430px;
+      height: 290px;
+      max-height: 290px;
+      justify-self: right;
+      padding-bottom: 12px;
+    }
+
+    @include on-big-desktop {
+      width: 622px;
+      min-width: 622px;
+    }
+  }
+
+  &__product-info {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      width: 49%;
+    }
+
+    @include on-desktop {
+      width: 31%;
+    }
+
+    @include on-big-desktop {
+      width: 30%;
+    }
+  }
+
+  &__button-play {
+    display: flex;
+    margin-top: 15px;
+    height: 71px;
+    width: 249px;
+
+    @include on-desktop {
+      margin-top: 21px;
+    }
+  }
+
+  &__slider {
+    width: 100%;
+    height: auto;
+
+    @include on-tablet {
+      width: 50%;
+      height: 290px;
+    }
+
+    @include on-desktop {
+      margin-left: auto;
+      width: 430px;
+      height: 336px;
+    }
+
+    @include on-big-desktop {
+      width: 622px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    align-items: center;
+
+    @include on-tablet {
+      height: 255px;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      height: 346px;
+      gap: 101px;
+    }
+  }
+
+  &__information {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    @include on-tablet {
+      max-width: 65%;
+    }
+
+    @include on-desktop {
+      width: 41%;
+    }
+
+    @include on-big-desktop {
+      width: 40%;
+    }
+  }
+
+  &__img-container {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+      width: 33%;
+      background-image: url(../images/about/about-us-text.png);
+      background-repeat: no-repeat;
+      background-size: auto 90%;
+      background-position: center;
+    }
+
+    @include on-desktop {
+      width: 48%;
+      background-image: url(../images/about/about-us-text-desktop.png);
+      background-position: left;
+    }
+
+    @include on-big-desktop {
+      width: 52%;
+      background-image: url(../images/about/about-us-text-big-desktop.png);
+      background-position: left;
+    }
+  }
+
+  &__greeting {
+    color: $cyanC;
+    padding-bottom: 11px;
+
+    @include on-desktop {
+      padding-bottom: 15px;
+    }
+  }
+}
