@@ -1,0 +1,125 @@
+.footer {
+  background-color: #000;
+  width: 100%;
+
+  &__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    @include set-responsive-values(padding-block, 43px, 20px, 40px, 37px);
+
+    @include phone {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 25px 100px 1fr;
+      column-gap: 20px;
+      align-items: start;
+    }
+
+    @include tablet {
+      max-width: 900px;
+      margin-inline: auto;
+    }
+  }
+
+  &__logo {
+    align-self: flex-start;
+
+    @include hover-scale;
+
+    @include phone {
+      grid-area: 1 / 1 / span 1 / span 1;
+    }
+
+    @include media(phone, tablet) {
+      width: 69px;
+    }
+
+    @include media(laptop, desktop) {
+      width: 72px;
+    }
+  }
+
+  &__nav {
+    font-size: 14px;
+
+    @include phone {
+      grid-area: 2 / 1 / span 2 / span 1;
+
+      &-list {
+        gap: 9.8px;
+        flex-direction: column;
+        align-items: start;
+        font-size: 13px;
+        margin-top: 5px;
+      }
+    }
+
+    @include media(tablet, laptop) {
+      margin-left: 31px;
+    }
+
+    @include desktop {
+      margin-left: 85px;
+    }
+
+    &-list {
+      gap: 42px;
+
+      @include phone {
+        gap: 9.8px;
+        flex-direction: column;
+        align-items: start;
+        font-size: 13px;
+        margin-top: 5px;
+      }
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: baseline;
+
+    @include phone {
+      grid-area: 3 / 2 / span 1 / span 1;
+    }
+
+    @include set-responsive-values(gap, 23.2px, 18px, 18px, 28px);
+
+    &-icon {
+      @include hover-scale;
+
+      &--facebook {
+        @include set-responsive-values(height, 15.2px, 12px, 12px, 19.1px);
+      }
+
+      &--twitter {
+        @include set-responsive-values(height, 13.9px, 11px, 11px, 17.5px);
+      }
+
+      &--youtube {
+        @include set-responsive-values(height, 13.6px, 10.8px, 10.8px, 17.2px);
+      }
+
+      &--reddit {
+        @include set-responsive-values(height, 17.7px, 14px, 14px, 22.3px);
+      }
+    }
+  }
+
+  &__address {
+    display: none;
+
+    @include phone {
+      display: block;
+      grid-area: 2 / 2 / span 1 / span 1;
+      font-size: 13px;
+      line-height: 221%;
+    }
+
+    &-link {
+      color: inherit;
+    }
+  }
+}

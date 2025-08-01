@@ -1,0 +1,62 @@
+html {
+  font-family: $font-family;
+  font-style: normal;
+  color: $color-gray-300;
+  font-size: 16px;
+  line-height: 140%;
+  scroll-behavior: smooth;
+  min-width: 320px;
+  background-color: #000;
+
+  &:has(.overlay:target) {
+    overflow: hidden; /* not to scroll the page */
+  }
+}
+
+body {
+  margin: 0;
+}
+
+.container {
+  margin-block: 0;
+  margin-inline: auto;
+
+  @include phone {
+    padding-inline: 20px;
+  }
+
+  @include tablet {
+    padding-inline: 34px;
+  }
+
+  @include laptop {
+    padding-inline: 110px;
+  }
+
+  @include desktop {
+    padding-inline: 120px;
+    max-width: 1440px;
+  }
+}
+
+.content-container {
+  box-sizing: border-box;
+
+  @include phone {
+    padding-block: 50px;
+  }
+
+  @include tablet {
+    padding-block: 70px;
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  @include laptop {
+    padding-block: 100px;
+  }
+
+  @include desktop {
+    padding-block: 158px;
+  }
+}

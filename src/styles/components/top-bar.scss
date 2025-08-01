@@ -1,0 +1,52 @@
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 18px;
+  line-height: 20px;
+  gap: 17px;
+
+  @include tablet {
+    padding-top: 30px;
+    line-height: 30px;
+  }
+
+  @include media(laptop, desktop) {
+    padding-top: 47px;
+  }
+
+  &__link {
+    display: flex;
+
+    @include media(laptop, desktop) {
+      @include hover-scale;
+
+      align-self: center;
+    }
+  }
+
+  &__logo {
+    width: 58px;
+    align-self: flex-start;
+
+    @include tablet {
+      width: 67px;
+    }
+
+    @include media(laptop, desktop) {
+      width: 77.5px;
+    }
+  }
+
+  &__icon {
+    width: 20px;
+
+    @include tablet {
+      width: 30px;
+      margin-top: -7px;
+    }
+
+    @include media(laptop, desktop) {
+      display: none;
+    }
+  }
+}

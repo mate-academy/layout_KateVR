@@ -1,0 +1,67 @@
+.pc-s1-bottom {
+  display: none;
+  grid-column: 1 / -1;
+  font-weight: 500;
+
+  @include media(laptop, desktop) {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 39px;
+  }
+
+  &__nav-link {
+    display: block;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -10px;
+      height: 1px;
+      width: 100%;
+      background-color: $color-accent;
+
+      transition: transform $transition-duration;
+      transform: scale(0);
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+  }
+
+  &__more {
+    margin-left: 115px;
+
+    @include hover-scale;
+
+    @include laptop {
+      margin-left: 100px;
+    }
+  }
+
+  &__more-label {
+    color: $color-accent;
+
+    &::after {
+      content: ' ';
+      display: block;
+      height: 0;
+      width: 0;
+
+      border-top: 6px solid $color-accent;
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+      transform: translateY(-2px);
+      margin-block: 5px 2px;
+      margin-inline: auto;
+    }
+  }
+}

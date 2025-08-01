@@ -1,0 +1,84 @@
+.screen-2 {
+  width: 100%;
+  background-color: #000;
+  text-align: center;
+
+  @include phone {
+    text-align: left;
+    margin-top: -14px;
+  }
+
+  &__title {
+    text-align: inherit;
+  }
+
+  &__description {
+    @include media(phone, tablet) {
+      margin-top: 1em;
+      font-size: 12px;
+    }
+
+    @include media(laptop, desktop) {
+      margin-top: 17px;
+    }
+  }
+
+  &__cards {
+    @include page-grid;
+
+    justify-content: center;
+
+    @include set-responsive-values(
+      margin-block,
+      33px 0,
+      45px 8px,
+      83px 12px,
+      71px 8px
+    );
+
+    @include phone {
+      row-gap: 14px;
+    }
+
+    @include tablet {
+      row-gap: 44px;
+    }
+  }
+
+  &__card {
+    @include set-grid-columns(span 2, span 3, span 3, span 4);
+
+    &-image {
+      @include phone {
+        display: none;
+      }
+
+      @include hover-scale;
+    }
+
+    &-title {
+      text-align: inherit;
+
+      @include set-responsive-values(
+        margin-block,
+        11px,
+        28px 19px,
+        27px 18px,
+        25px 20px
+      );
+
+      @include phone {
+        letter-spacing: 1.1px;
+      }
+    }
+
+    &-description {
+      @include phone {
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+      }
+    }
+  }
+}
