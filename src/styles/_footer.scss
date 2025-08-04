@@ -1,0 +1,44 @@
+@use 'sass:color';
+@import 'mixins';
+@import 'vars';
+
+.footer {
+  background: color.darken($color-light, 5%);
+  padding: 2rem 0;
+
+  &__inner {
+    @include container;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__links {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__link {
+    color: $color-dark;
+    text-decoration: none;
+    font-size: 0.88rem;
+
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__copy {
+    font-size: 0.88rem;
+    color: color.darken($color-dark, 40%);
+    margin-top: 1rem;
+
+    @include respond-to(mobile) {
+      width: 100%;
+      text-align: center;
+      margin-top: 2rem;
+    }
+  }
+}

@@ -1,0 +1,65 @@
+@import 'mixins';
+@import 'vars';
+
+.header {
+  background: $color-secondary;
+  border-bottom: 1px solid #eee;
+
+  &__inner {
+    @include container;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $color-primary;
+    text-decoration: none;
+  }
+
+  &__nav {
+    flex: 1;
+    margin-left: 2rem;
+
+    & .header__list {
+      display: flex;
+      gap: 2rem;
+    }
+
+    & .header__link {
+      color: $color-dark;
+      text-decoration: none;
+      font-weight: 500;
+
+      &:hover {
+        color: $color-primary;
+      }
+    }
+  }
+
+  &__cta {
+    background: $color-primary;
+    color: $color-secondary;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  @include respond-to(tablet) {
+    &__nav {
+      display: none;
+    }
+    &__cta {
+      display: none;
+    }
+  }
+}

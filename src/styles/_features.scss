@@ -1,0 +1,59 @@
+@use 'sass:color';
+@import 'mixins';
+@import 'vars';
+
+.features {
+  background: $color-light;
+  padding: 4rem 0;
+
+  &__inner {
+    @include container;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  &__item {
+    background: $color-secondary;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+  }
+
+  &__icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 1rem;
+  }
+
+  &__item-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__item-text {
+    font-size: 1rem;
+    color: color.darken($color-dark, 30%);
+  }
+
+  @include respond-to(desktop) {
+    &__list {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @include respond-to(tablet) {
+    &__list {
+      grid-template-columns: 1fr;
+    }
+  }
+}

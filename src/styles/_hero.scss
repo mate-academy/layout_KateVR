@@ -1,0 +1,78 @@
+@use 'sass:color';
+@import 'mixins';
+@import 'vars';
+
+.hero {
+  background: $color-secondary;
+  padding: 4rem 0;
+
+  &__inner {
+    @include container;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  &__content {
+    flex: 1;
+    max-width: 600px;
+  }
+
+  &__title {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+
+  &__subtitle {
+    font-size: 1.13rem;
+    margin: 1rem 0 2rem;
+    color: color.darken($color-dark, 20%);
+  }
+
+  &__button {
+    background: $color-primary;
+    color: $color-secondary;
+    border: none;
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+
+  &__media img {
+    width: 100%;
+    max-width: 500px;
+    display: block;
+  }
+
+  @include respond-to(desktop) {
+    &__inner {
+      flex-direction: column-reverse;
+      text-align: center;
+    }
+  }
+
+  @include respond-to(tablet) {
+    &__title {
+      font-size: 2.5rem;
+    }
+    &__subtitle {
+      font-size: 1rem;
+    }
+  }
+
+  @include respond-to(mobile) {
+    &__title {
+      font-size: 2rem;
+    }
+    &__subtitle {
+      font-size: 0.88rem;
+    }
+  }
+}

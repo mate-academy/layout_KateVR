@@ -1,6 +1,20 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@import 'vars';
+
+/// respond-to breakpoint mixin
+/// @param {string} $key — one of map keys in $breakpoints
+@mixin respond-to($key) {
+  $size: map.get($breakpoints, $key);
+
+  @if $size {
+    @media (max-width: $size) {
+      @content;
+    }
   }
+}
+
+/// container centering utility
+@mixin container {
+  max-width: map.get($breakpoints, wide);
+  margin: 0 auto;
+  padding: 0 1rem;
 }
