@@ -1,0 +1,411 @@
+.header {
+  background: $colorPage;
+
+  @include on-tablet {
+    padding: 34px 30px;
+  }
+
+  @include on-desktop {
+    padding: 64px 110px;
+  }
+
+  @include on-full-desktop {
+    padding: 50px 234px;
+  }
+
+  &__nav {
+    display: flex;
+    padding: 0 20px;
+    padding-top: 18px;
+    align-items: center;
+    justify-content: space-between;
+
+    @include on-tablet {
+      padding: 0;
+      margin-bottom: 55px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 100px;
+    }
+
+    @include on-full-desktop {
+      margin-bottom: 230px;
+    }
+
+    &-group1 {
+      @include on-desktop {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    &-logo {
+      @include on-desktop {
+        margin-right: 34.5px;
+      }
+
+      &-img {
+        height: 12px;
+        width: 58px;
+
+        @include hover(transform, scale(1.2));
+
+        @include on-tablet {
+          height: 14px;
+          width: 67px;
+        }
+
+        @include on-desktop {
+          width: 77.5px;
+          height: 16px;
+        }
+      }
+    }
+
+    &-language {
+      display: none;
+
+      @include hover(transform, scale(1.2));
+
+      @include on-desktop {
+        display: flex;
+      }
+
+      &-link {
+        font-family: Inter, sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20.8px;
+        color: $colorTextBlue;
+        text-decoration: none;
+        margin-right: 4px;
+      }
+
+      &-img {
+        width: 9px;
+        height: 6px;
+        margin-top: auto;
+        margin-bottom: 4px;
+      }
+    }
+
+    &-group2 {
+      display: flex;
+      align-items: center;
+    }
+
+    &-links {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 315px;
+        margin-right: 37px;
+      }
+
+      &-link {
+        font-family: Inter, sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20.8px;
+        text-decoration: none;
+        color: $colorTextWhite;
+
+        @include hover-text(transform, scale(1.1));
+      }
+    }
+
+    &-button {
+      display: none;
+      height: 48px;
+      width: 200px;
+      background-color: $colorTextBlue;
+      color: $colorTextWhite;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20.8px;
+      outline: 0;
+      border-radius: 4px;
+      border: 0;
+      cursor: pointer;
+
+      @include on-desktop {
+        display: block;
+      }
+
+      @include hover(transform, scale(1.1));
+
+      &:active {
+        background-color: $colorTextWhite;
+        color: $colorButton;
+      }
+    }
+
+    &-menu {
+      height: 20px;
+      width: 20px;
+
+      @include on-desktop {
+        display: none;
+      }
+
+      &-img {
+        @include on-tablet {
+          width: 30px;
+          height: 13px;
+        }
+
+        @include hover(transform, scale(1.2));
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+
+    @include on-tablet {
+      position: absolute;
+      right: 1px;
+      height: 238px;
+      width: 394px;
+    }
+
+    @include on-desktop {
+      right: 85px;
+      width: 600px;
+      height: 330px;
+    }
+
+    @include on-full-desktop {
+      width: 1004px;
+      height: 495px;
+    }
+  }
+
+  &__group {
+    padding: 0 20px;
+
+    @include on-tablet {
+      padding: 0;
+    }
+
+    @include on-desktop {
+      width: max-content;
+      margin-bottom: 84px;
+    }
+
+    @include on-full-desktop {
+      margin-left: 20px;
+      margin-bottom: 210px;
+    }
+
+    &-title {
+      font-family: Inter, sans-serif;
+      font-size: 25px;
+      font-weight: 900;
+      line-height: 33.8px;
+      margin: 0;
+      margin-bottom: 17px;
+      color: $colorTextWhite;
+
+      @include on-desktop {
+        font-size: 46px;
+        line-height: 59.8px;
+        margin-bottom: 19px;
+      }
+
+      @include on-full-desktop {
+        font-size: 54px;
+        line-height: 70.2px;
+        margin-bottom: 35px;
+      }
+
+      &-blue {
+        font-weight: 400;
+        color: $colorTextBlue;
+      }
+    }
+
+    &-description {
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      color: $colorTextGray;
+      margin: 0;
+      margin-bottom: 8px;
+
+      @include on-tablet {
+        width: 340px;
+        margin-bottom: 10px;
+      }
+
+      @include on-desktop {
+        width: 335px;
+        margin-bottom: 5px;
+        margin-left: 92px;
+      }
+
+      @include on-full-desktop {
+        font-size: 20px;
+        line-height: 30px;
+        width: 440px;
+        margin-bottom: 30px;
+      }
+    }
+
+    &-price {
+      margin: 0 auto;
+      margin-bottom: 25px;
+      font-family: Inter, sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 21.78px;
+      color: $colorTextWhite;
+      width: max-content;
+
+      @include on-tablet {
+        margin: 0;
+        margin-bottom: 33px;
+      }
+
+      @include on-desktop {
+        margin-bottom: 20px;
+        margin-left: 92px;
+      }
+
+      @include on-full-desktop {
+        margin-bottom: 35px;
+      }
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 20.8px;
+      text-align: center;
+      color: $colorTextWhite;
+      text-decoration: none;
+      background-image: url(./../images/header-play.png);
+      background-repeat: no-repeat;
+      width: 280px;
+      height: 69px;
+      margin: 0 auto;
+      margin-bottom: 23px;
+
+      @include hover-text(transform, scale(1.2));
+
+      @include on-tablet {
+        margin: 0;
+      }
+
+      @include on-desktop {
+        margin-left: 92px;
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 280px;
+    height: 40px;
+    border: 0;
+    border-radius: 4px;
+    outline: none;
+    background-color: $colorButton;
+    color: $colorTextWhite;
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 18.2px;
+    margin: 0 auto;
+    cursor: pointer;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    @include hover(transform, scale(1.2));
+
+    &:active {
+      background-color: $colorTextWhite;
+      color: $colorButton;
+    }
+  }
+
+  &__footer {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &-group1 {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 106px;
+    }
+
+    &-link {
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      color: $colorTextWhite;
+      text-decoration: none;
+
+      @include hover-text(transform, scale(1.2));
+    }
+
+    &-more {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      row-gap: 7px;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      color: $colorTextBlue;
+      text-decoration: none;
+
+      @include hover(transform, scale(1.2));
+
+      &-img {
+        height: 6px;
+        width: 9px;
+      }
+    }
+
+    &-group2 {
+      display: flex;
+      justify-content: space-between;
+      width: 207px;
+      height: 34px;
+      border-bottom: 1px solid rgba(33, 33, 33, 1);
+    }
+
+    &-text {
+      margin: 0;
+      font-family: Inter, sans-serif;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      color: $colorTextGray;
+      border-bottom: 1px solid $colorTextBlue;
+    }
+  }
+}

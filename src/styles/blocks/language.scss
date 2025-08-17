@@ -1,0 +1,65 @@
+.language {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  padding-top: 18px;
+  height: 100vh;
+  inset: 0;
+  background: rgba(25, 21, 54, 1);
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(-100%);
+
+  @include on-tablet {
+    padding-top: 33px;
+  }
+
+  &:target {
+    position: absolute;
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  &__link {
+    display: flex;
+    margin-right: auto;
+    margin-bottom: 38px;
+    width: max-content;
+    padding-left: 20px;
+
+    @include on-tablet {
+      padding-left: 33px;
+    }
+
+    &-img {
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+
+    &-link {
+      display: flex;
+      align-items: center;
+      height: 50px;
+      text-decoration: none;
+      padding-left: 20px;
+      font-family: Inter, sans-serif;
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 27.3px;
+      color: $colorTextWhite;
+
+      @include on-tablet {
+        padding-left: 152px;
+      }
+
+      &:hover {
+        color: $colorTextBlue;
+        background-color: $colorBgBlack;
+      }
+    }
+  }
+}
