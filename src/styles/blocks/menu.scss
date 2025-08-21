@@ -1,0 +1,47 @@
+.menu {
+  height: 100vh;
+  background-color: #191536;
+  overflow: auto;
+
+  @media (min-width: $tablet-min-width) {
+    height: auto;
+  }
+
+  @media (min-width: $desktop-min-width) {
+    display: none;
+  }
+
+  &__content {
+    @media (min-width: $tablet-min-width) {
+      @include create-page-grid;
+
+      padding-bottom: 130px;
+    }
+  }
+
+  &__top-bar {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+
+    @media (min-width: $tablet-min-width) {
+      padding-block: 32px;
+      grid-column: span 6;
+    }
+  }
+
+  &__nav {
+    @media (min-width: $tablet-min-width) {
+     grid-column: 2 / 7;
+    }
+  }
+
+  &__nav-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__nav-link {
+    padding-block: 11px;
+  }
+}

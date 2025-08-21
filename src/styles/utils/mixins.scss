@@ -1,0 +1,15 @@
+@mixin create-page-grid {
+  @media (min-width: $tablet-min-width) {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 0 20px;
+  }
+
+  @media (min-width: $desktop-min-width) {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @media (min-width: $desktop-lg-min-width) {
+    grid-template-columns: repeat(16, 1fr);
+  }
+}

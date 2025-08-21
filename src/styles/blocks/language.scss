@@ -1,0 +1,46 @@
+.language {
+  height: 100vh;
+  background-color: #191536;
+  overflow: auto;
+
+  @media (min-width: $tablet-min-width) {
+    height: auto;
+  }
+
+  @media (min-width: $desktop-min-width) {
+    display: none;
+  }
+
+  &__top-bar {
+    padding-block: 20px;
+    display: flex;
+    margin-bottom: 18px;
+
+    @media (min-width: $tablet-min-width) {
+      padding-block: 32px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+  }
+
+  &__link {
+    padding-block: 11px;
+    display: block;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 27px;
+    color: $white-color;
+
+    @media (min-width: $tablet-min-width) {
+      padding-left: 150px;
+    }
+
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+}

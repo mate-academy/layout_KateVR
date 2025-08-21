@@ -1,0 +1,31 @@
+.dropdown {
+  position: relative;
+
+  &__trigger {
+    cursor: pointer;
+  }
+
+  &__content {
+    position: absolute;
+    background-color: #191536;
+    border-radius: 4px;
+    transform-origin: top center;
+    opacity: 0;
+    transform: translateY(-5px);
+    pointer-events: none;
+  }
+
+  &--active &__content {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  &__item {
+    cursor: pointer;
+
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+}
