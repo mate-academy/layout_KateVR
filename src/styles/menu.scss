@@ -1,0 +1,210 @@
+.icon {
+  position: relative;
+  width: 20px;
+  height: 10px;
+  background-size: cover;
+
+  @include on-tablet {
+    width: 28px;
+    height: 13px;
+  }
+
+  &-close--menu {
+    @include on-desktoplittle {
+      display: none;
+    }
+  }
+
+  &:hover {
+    color: $main-title-color-accent;
+  }
+}
+
+.menu {
+  position: fixed;
+  left: 0;
+  transform-origin: left center; /* Точка вращения — левый край */
+  transform: perspective(1000px) rotateY(-90deg); /* Начальное состояние: "закрыто" */
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.5s ease-in-out,
+    opacity 0.5s ease-in-out;
+  z-index: 1000;
+  top: 0;
+  background-color: #191536;
+  width: 100%;
+  height: 100%;
+
+  &:target,
+  &.menu--open {
+    opacity: 1;
+    transform: perspective(1000px) rotateY(0deg);
+    pointer-events: all;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    @include on-desktoplittle {
+      grid-template-columns: repeat(12, 1fr);
+    }
+  }
+
+  &-decktop {
+    @include on-desktoplittle {
+      //   /* Делаем меню видимым на десктопе */
+      transform: none; /* Убираем анимацию открытия */
+      opacity: 5; /* Делаем видимым */
+      pointer-events: all; /* Делаем кликабельным */
+      background-color: transparent; /* Убираем фон */
+      width: auto; /* Ширина по содержимому */
+      height: auto; /* Высота по содержимому */
+      display: flex; /* Располагаем элементы горизонтально */
+      align-items: center;
+      position: absolute;
+      top: 60px;
+      left: 36%;
+    }
+  }
+
+  &__bottom {
+    padding-block: 48px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      padding: 55px 0 139px;
+      grid-column: 2/-1;
+    }
+
+    @include on-desktoplittle {
+      padding: 0;
+    }
+
+    @include on-desktopmiddle {
+      padding-left: 156px;
+    }
+  }
+
+  &__list {
+    display: grid;
+    row-gap: 22px;
+
+    @include on-desktoplittle {
+      display: flex;
+    }
+  }
+
+  &__item {
+    opacity: 0;
+    transform: translateX(-20px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+
+    &-menu {
+      @include on-desktoplittle {
+        opacity: 1; /* Элементы сразу видны на десктопе */
+        transform: none; /* Убираем анимацию появления */
+        transition: none; /* Убираем анимацию */
+        margin-right: 3px;
+      }
+    }
+
+    &-lang,
+    &-faq,
+    &-help {
+      @include on-desktoplittle {
+        display: none;
+      }
+    }
+  }
+
+  &:target .menu__item,
+  &.menu--open .menu__item {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  &:target .menu__item:nth-child(1),
+  &.menu--open .menu__item:nth-child(1) {
+    transition-delay: 0.3s;
+  }
+  &:target .menu__item:nth-child(2),
+  &.menu--open .menu__item:nth-child(2) {
+    transition-delay: 0.35s;
+  }
+  &:target .menu__item:nth-child(3),
+  &.menu--open .menu__item:nth-child(3) {
+    transition-delay: 0.4s;
+  }
+  &:target .menu__item:nth-child(4),
+  &.menu--open .menu__item:nth-child(4) {
+    transition-delay: 0.45s;
+  }
+  &:target .menu__item:nth-child(5),
+  &.menu--open .menu__item:nth-child(5) {
+    transition-delay: 0.5s;
+  }
+  &:target .menu__item:nth-child(6),
+  &.menu--open .menu__item:nth-child(6) {
+    transition-delay: 0.55s;
+  }
+  &:target .menu__item:nth-child(7),
+  &.menu--open .menu__item:nth-child(7) {
+    transition-delay: 0.6s;
+  }
+  &:target .menu__item:nth-child(8),
+  &.menu--open .menu__item:nth-child(8) {
+    transition-delay: 0.65s;
+  }
+  &:target .menu__item:nth-child(9),
+  &.menu--open .menu__item:nth-child(9) {
+    transition-delay: 0.7s;
+  }
+  &:target .menu__item:nth-child(10),
+  &.menu--open .menu__item:nth-child(10) {
+    transition-delay: 0.75s;
+  }
+
+  &__link {
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 130%;
+    padding: 11px 100% 11px 5px;
+    color: $main-title-color;
+    &:hover {
+      color: $main-title-color-accent;
+      background-color: #110e25;
+
+      @include on-desktoplittle {
+        background-color: transparent;
+      }
+    }
+
+    @include on-desktoplittle {
+      font-size: 16px;
+      padding: 11px 15px;
+    }
+  }
+
+  &--close {
+    grid-column: 2 / -1;
+    justify-self: end;
+    background-image: url(../icons/menu-close.svg);
+    width: 17px;
+    height: 17px;
+    margin-top: 20px;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      margin-top: 34px;
+    }
+  }
+}

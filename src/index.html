@@ -6,14 +6,2496 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>KatVR</title>
+    <link
+      rel="shortcut icon"
+      href="icons/fav-big.svg"
+      type="image/x-icon"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;900&display=swap"
+    />
     <link
       rel="stylesheet"
       href="./styles/main.scss"
     />
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
+  <body class="body">
+    <header
+      class="header"
+      id="header"
+    >
+      <div class="container">
+        <div class="header__top">
+          <a
+            href="#"
+            class="header__logo"
+          >
+            <img
+              class="header__logo-img"
+              src="icons/logo-small.png"
+              alt="logo"
+            />
+          </a>
+
+          <div class="lang-switcher">
+            <div class="lang-switcher__current">
+              <span>En</span>
+              <svg
+                class="lang-switcher__arrow"
+                width="9"
+                height="6"
+                viewBox="0 0 9 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0L5 6L10 0H0Z"
+                  fill="#00c4cc"
+                />
+              </svg>
+            </div>
+            <ul class="lang-switcher__dropdown">
+              <li>
+                <a
+                  href="#"
+                  data-lang="en"
+                  class="menu__link lang__link"
+                >
+                  En
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-lang="ar"
+                  class="menu__link lang__link"
+                >
+                  Ar
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-lang="zh-s"
+                  class="menu__link lang__link"
+                >
+                  ChiS
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-lang="zh-t"
+                  class="menu__link lang__link"
+                >
+                  ChiT
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-lang="fr"
+                  class="menu__link lang__link"
+                >
+                  Fr
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-lang="de"
+                  class="menu__link lang__link"
+                >
+                  deu
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-lang="it"
+                  class="menu__link lang__link"
+                >
+                  Ita
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-lang="pl"
+                  class="menu__link lang__link"
+                >
+                  Pl
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-lang="ru"
+                  class="menu__link lang__link"
+                >
+                  Ru
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  data-lang="uk"
+                  class="menu__link lang__link"
+                >
+                  Uk
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <a
+            href="#menu"
+            class="icon header__icon--menu"
+          ></a>
+        </div>
+      </div>
+
+      <div class="header__content">
+        <div class="slider">
+          <img
+            class="slider__img-static"
+            src="images/image1.png"
+            alt="VR Headset"
+          />
+
+          <div class="slider__item">
+            <img
+              class="slider__img"
+              src="images/image1.png"
+              alt="VR Headset"
+            />
+          </div>
+          <div class="slider__item">
+            <img
+              class="slider__img"
+              src="images/image2.jpg"
+              alt="VR Headset"
+            />
+          </div>
+          <div class="slider__item">
+            <img
+              class="slider__img"
+              src="images/image3.jpg"
+              alt="VR Headset"
+            />
+          </div>
+          <div class="slider__item">
+            <img
+              class="slider__img"
+              src="images/image4.jpg"
+              alt="VR Headset"
+            />
+          </div>
+        </div>
+
+        <div class="header__info">
+          <h1 class="header__title">
+            THE NEW START OF
+            <br />
+            <span class="header__title--color">VR LOCOMOTION</span>
+          </h1>
+
+          <p class="header__text">
+            Discover the most comprehensive VR Locomotion system, and unlock
+            infinite motion in any games on any platforms!
+          </p>
+          <span class="header__price">1200$</span>
+
+          <div class="header__video">
+            <a
+              href="#"
+              class="icon aside--close-video"
+              data-video="vrVideo"
+            ></a>
+            <iframe
+              class="header__video-iframe"
+              id="vrVideo"
+              src="https://www.youtube.com/embed/SvTbB19bvIw?enablejsapi=1"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+
+            <button
+              class="play-button"
+              data-video="vrVideo"
+            >
+              <svg
+                width="221"
+                height="69"
+                viewBox="0 0 221 69"
+                fill="black"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M107.278 40V28.3636H111.426C112.331 28.3636 113.081 28.5284 113.676 28.858C114.271 29.1875 114.716 29.6383 115.011 30.2102C115.307 30.7784 115.455 31.4186 115.455 32.1307C115.455 32.8466 115.305 33.4905 115.006 34.0625C114.71 34.6307 114.263 35.0814 113.665 35.4148C113.07 35.7443 112.322 35.9091 111.42 35.9091H108.568V34.4205H111.261C111.833 34.4205 112.297 34.322 112.653 34.125C113.009 33.9242 113.271 33.6515 113.438 33.3068C113.604 32.9621 113.688 32.5701 113.688 32.1307C113.688 31.6913 113.604 31.3011 113.438 30.9602C113.271 30.6193 113.008 30.3523 112.648 30.1591C112.292 29.9659 111.822 29.8693 111.239 29.8693H109.034V40H107.278ZM119.075 28.3636V40H117.376V28.3636H119.075ZM123.901 40.1932C123.348 40.1932 122.848 40.0909 122.401 39.8864C121.954 39.678 121.599 39.3769 121.338 38.983C121.08 38.589 120.952 38.1061 120.952 37.5341C120.952 37.0417 121.046 36.6364 121.236 36.3182C121.425 36 121.681 35.7481 122.003 35.5625C122.325 35.3769 122.685 35.2367 123.082 35.142C123.48 35.0473 123.885 34.9754 124.298 34.9261C124.821 34.8655 125.245 34.8163 125.571 34.7784C125.897 34.7367 126.134 34.6705 126.281 34.5795C126.429 34.4886 126.503 34.3409 126.503 34.1364V34.0966C126.503 33.6004 126.363 33.2159 126.082 32.9432C125.806 32.6705 125.393 32.5341 124.844 32.5341C124.272 32.5341 123.821 32.661 123.491 32.9148C123.166 33.1648 122.94 33.4432 122.815 33.75L121.219 33.3864C121.408 32.8561 121.685 32.428 122.048 32.1023C122.416 31.7727 122.838 31.5341 123.315 31.3864C123.793 31.2348 124.295 31.1591 124.821 31.1591C125.17 31.1591 125.539 31.2008 125.929 31.2841C126.323 31.3636 126.69 31.5114 127.031 31.7273C127.376 31.9432 127.658 32.2519 127.878 32.6534C128.098 33.0511 128.207 33.5682 128.207 34.2045V40H126.548V38.8068H126.48C126.37 39.0265 126.205 39.2424 125.986 39.4545C125.766 39.6667 125.484 39.8428 125.139 39.983C124.795 40.1231 124.382 40.1932 123.901 40.1932ZM124.27 38.8295C124.74 38.8295 125.141 38.7367 125.474 38.5511C125.812 38.3655 126.067 38.1231 126.241 37.8239C126.42 37.5208 126.509 37.197 126.509 36.8523V35.7273C126.448 35.7879 126.33 35.8447 126.156 35.8977C125.986 35.947 125.791 35.9905 125.571 36.0284C125.351 36.0625 125.137 36.0947 124.929 36.125C124.721 36.1515 124.546 36.1742 124.406 36.1932C124.077 36.2348 123.776 36.3049 123.503 36.4034C123.234 36.5019 123.018 36.6439 122.855 36.8295C122.696 37.0114 122.616 37.2538 122.616 37.5568C122.616 37.9773 122.772 38.2955 123.082 38.5114C123.393 38.7235 123.789 38.8295 124.27 38.8295ZM131.232 43.2727C130.978 43.2727 130.747 43.2519 130.538 43.2102C130.33 43.1723 130.175 43.1307 130.072 43.0852L130.482 41.6932C130.792 41.7765 131.069 41.8125 131.311 41.8011C131.554 41.7898 131.768 41.6989 131.953 41.5284C132.143 41.358 132.309 41.0795 132.453 40.6932L132.663 40.1136L129.47 31.2727H131.288L133.499 38.0455H133.589L135.8 31.2727H137.624L134.027 41.1648C133.86 41.6193 133.648 42.0038 133.391 42.3182C133.133 42.6364 132.826 42.875 132.47 43.0341C132.114 43.1932 131.701 43.2727 131.232 43.2727ZM144.608 28.3636L147.847 37.8409H147.977L151.216 28.3636H153.114L148.926 40H146.898L142.71 28.3636H144.608ZM154.658 40V31.2727H156.357V40H154.658ZM155.516 29.9261C155.22 29.9261 154.966 29.8277 154.754 29.6307C154.546 29.4299 154.442 29.1913 154.442 28.9148C154.442 28.6345 154.546 28.3958 154.754 28.1989C154.966 27.9981 155.22 27.8977 155.516 27.8977C155.811 27.8977 156.063 27.9981 156.271 28.1989C156.483 28.3958 156.589 28.6345 156.589 28.9148C156.589 29.1913 156.483 29.4299 156.271 29.6307C156.063 29.8277 155.811 29.9261 155.516 29.9261ZM161.909 40.1705C161.205 40.1705 160.576 39.9905 160.023 39.6307C159.473 39.267 159.042 38.75 158.727 38.0795C158.417 37.4053 158.261 36.5966 158.261 35.6534C158.261 34.7102 158.419 33.9034 158.733 33.233C159.051 32.5625 159.487 32.0492 160.04 31.6932C160.593 31.3371 161.22 31.1591 161.92 31.1591C162.462 31.1591 162.898 31.25 163.227 31.4318C163.561 31.6098 163.818 31.8182 164 32.0568C164.186 32.2955 164.33 32.5057 164.432 32.6875H164.534V28.3636H166.233V40H164.574V38.642H164.432C164.33 38.8277 164.182 39.0398 163.989 39.2784C163.799 39.517 163.538 39.7254 163.205 39.9034C162.871 40.0814 162.439 40.1705 161.909 40.1705ZM162.284 38.7216C162.773 38.7216 163.186 38.5928 163.523 38.3352C163.864 38.0739 164.121 37.7121 164.295 37.25C164.473 36.7879 164.562 36.25 164.562 35.6364C164.562 35.0303 164.475 34.5 164.301 34.0455C164.127 33.5909 163.871 33.2367 163.534 32.983C163.197 32.7292 162.78 32.6023 162.284 32.6023C161.773 32.6023 161.347 32.7348 161.006 33C160.665 33.2652 160.407 33.6269 160.233 34.0852C160.063 34.5436 159.977 35.0606 159.977 35.6364C159.977 36.2197 160.064 36.7443 160.239 37.2102C160.413 37.6761 160.67 38.0455 161.011 38.3182C161.356 38.5871 161.78 38.7216 162.284 38.7216ZM172.419 40.1761C171.559 40.1761 170.819 39.9924 170.197 39.625C169.58 39.2538 169.103 38.733 168.766 38.0625C168.432 37.3883 168.266 36.5985 168.266 35.6932C168.266 34.7992 168.432 34.0114 168.766 33.3295C169.103 32.6477 169.572 32.1155 170.175 31.733C170.781 31.3504 171.489 31.1591 172.3 31.1591C172.792 31.1591 173.269 31.2405 173.732 31.4034C174.194 31.5663 174.608 31.822 174.976 32.1705C175.343 32.5189 175.633 32.9716 175.845 33.5284C176.057 34.0814 176.163 34.7538 176.163 35.5455V36.1477H169.226V34.875H174.499C174.499 34.428 174.408 34.0322 174.226 33.6875C174.044 33.339 173.788 33.0644 173.459 32.8636C173.133 32.6629 172.75 32.5625 172.311 32.5625C171.834 32.5625 171.417 32.6799 171.061 32.9148C170.709 33.1458 170.436 33.4489 170.243 33.8239C170.054 34.1951 169.959 34.5985 169.959 35.0341V36.0284C169.959 36.6117 170.061 37.108 170.266 37.517C170.474 37.9261 170.764 38.2386 171.135 38.4545C171.506 38.6667 171.94 38.7727 172.436 38.7727C172.758 38.7727 173.052 38.7273 173.317 38.6364C173.582 38.5417 173.811 38.4015 174.004 38.2159C174.197 38.0303 174.345 37.8011 174.447 37.5284L176.055 37.8182C175.927 38.2917 175.696 38.7064 175.362 39.0625C175.033 39.4148 174.618 39.6894 174.118 39.8864C173.622 40.0795 173.055 40.1761 172.419 40.1761ZM181.724 40.1761C180.906 40.1761 180.192 39.9886 179.582 39.6136C178.973 39.2386 178.499 38.714 178.162 38.0398C177.825 37.3655 177.656 36.5777 177.656 35.6761C177.656 34.7708 177.825 33.9792 178.162 33.3011C178.499 32.6231 178.973 32.0966 179.582 31.7216C180.192 31.3466 180.906 31.1591 181.724 31.1591C182.543 31.1591 183.257 31.3466 183.866 31.7216C184.476 32.0966 184.95 32.6231 185.287 33.3011C185.624 33.9792 185.793 34.7708 185.793 35.6761C185.793 36.5777 185.624 37.3655 185.287 38.0398C184.95 38.714 184.476 39.2386 183.866 39.6136C183.257 39.9886 182.543 40.1761 181.724 40.1761ZM181.73 38.75C182.26 38.75 182.7 38.6098 183.048 38.3295C183.397 38.0492 183.654 37.6761 183.821 37.2102C183.991 36.7443 184.077 36.2311 184.077 35.6705C184.077 35.1136 183.991 34.6023 183.821 34.1364C183.654 33.6667 183.397 33.2898 183.048 33.0057C182.7 32.7216 182.26 32.5795 181.73 32.5795C181.196 32.5795 180.753 32.7216 180.401 33.0057C180.052 33.2898 179.793 33.6667 179.622 34.1364C179.455 34.6023 179.372 35.1136 179.372 35.6705C179.372 36.2311 179.455 36.7443 179.622 37.2102C179.793 37.6761 180.052 38.0492 180.401 38.3295C180.753 38.6098 181.196 38.75 181.73 38.75Z"
+                  fill="white"
+                />
+                <path
+                  opacity="0.45"
+                  d="M86 12H56V14H86V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M86 56H56V58H86V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M51 7C46.1191 3.58873 40.9135 2.35207 35 2.00004C29.0865 1.648 23.5605 3.00323 18.3211 5.81203C13.0817 8.62084 8.69816 12.8327 5.64507 17.9917C2.59199 23.1507 0.985693 29.0602 1.0001 35.0803C1.0145 41.1005 2.64905 47.002 5.72678 52.1458C8.80452 57.2896 13.2082 61.4798 18.4609 64.2627C23.7137 67.0456 29.6155 68.3151 35.5272 67.9339C41.439 67.5526 47.1355 65.4354 52 62"
+                  stroke="#05C2DF"
+                  stroke-width="2"
+                  stroke-miterlimit="1.51696"
+                />
+                <path
+                  d="M34.0306 61.1555C48.6177 61.1555 60.4429 49.3649 60.4429 34.8204C60.4429 20.276 48.6177 8.48535 34.0306 8.48535C19.4434 8.48535 7.61816 20.276 7.61816 34.8204C7.61816 49.3649 19.4434 61.1555 34.0306 61.1555Z"
+                  stroke="#05C2DF"
+                  stroke-miterlimit="10"
+                />
+                <path
+                  class="play-button-path"
+                  d="M45 35L27.75 45.3923L27.75 24.6077L45 35Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M91 12H89V14H91V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M88 12H86V14H88V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M94 12H92V14H94V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M97 12H95V14H97V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M100 12H98V14H100V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M104 12H102V14H104V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M108 12H106V14H108V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M112 12H110V14H112V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M117 12H115V14H117V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M122 12H120V14H122V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M127 12H125V14H127V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M132 12H130V14H132V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M137 12H135V14H137V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M142 12H140V14H142V12Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M153.6 12.2305H152V13.8305H153.6V12.2305Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M159.6 12.2305H158V13.8305H159.6V12.2305Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M165.6 12.2305H164V13.8305H165.6V12.2305Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M171.3 12.4297H170V13.7297H171.3V12.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M178.3 12.4297H177V13.7297H178.3V12.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M185.3 12.4297H184V13.7297H185.3V12.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M192.3 12.4297H191V13.7297H192.3V12.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M200.3 12.4297H199V13.7297H200.3V12.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M209.3 12.4297H208V13.7297H209.3V12.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M147.6 12.2305H146V13.8305H147.6V12.2305Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M221 12.5H220V13.5H221V12.5Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M91 56H89V58H91V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M88 56H86V58H88V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M94 56H92V58H94V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M97 56H95V58H97V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M100 56H98V58H100V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M104 56H102V58H104V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M108 56H106V58H108V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M112 56H110V58H112V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M117 56H115V58H117V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M122 56H120V58H122V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M127 56H125V58H127V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M132 56H130V58H132V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M137 56H135V58H137V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M142 56H140V58H142V56Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M153.6 56.2305H152V57.8305H153.6V56.2305Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M159.6 56.2305H158V57.8305H159.6V56.2305Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M165.6 56.2305H164V57.8305H165.6V56.2305Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M171.3 56.4297H170V57.7297H171.3V56.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M178.3 56.4297H177V57.7297H178.3V56.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M185.3 56.4297H184V57.7297H185.3V56.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M192.3 56.4297H191V57.7297H192.3V56.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M200.3 56.4297H199V57.7297H200.3V56.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M209.3 56.4297H208V57.7297H209.3V56.4297Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M147.6 56.2305H146V57.8305H147.6V56.2305Z"
+                  fill="#05C2DF"
+                />
+                <path
+                  opacity="0.45"
+                  d="M221 56.5H220V57.5H221V56.5Z"
+                  fill="#05C2DF"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="header__bottom">
+          <div class="header__bottom-menu">
+            <ul class="header__bottom-list">
+              <li class="header__bottom-item">
+                <a
+                  class="header__bottom-link"
+                  href="#faq"
+                >
+                  FAQ
+                </a>
+              </li>
+              <li class="header__bottom-item">
+                <a
+                  class="header__bottom-link"
+                  href="#help"
+                >
+                  Help
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div class="header__bottom-more">
+            <a
+              class="header__bottom-more-link"
+              href="#more"
+            >
+              More
+            </a>
+            <div class="header__bottom-arrow">
+              <svg
+                class="lang-switcher__arrow"
+                width="9"
+                height="6"
+                viewBox="0 0 9 6"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 0L5 6L10 0H0Z"
+                  fill="#fff"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="header__bottom-slider">
+            <button
+              class="header__bottom-slider-but header__bottom-slider-but--prev"
+              aria-label="Previous slide"
+            >
+              Previous
+            </button>
+            <button
+              class="header__bottom-slider-but header__bottom-slider-but--current"
+              aria-label="Current slide"
+            >
+              Curent
+            </button>
+            <button
+              class="header__bottom-slider-but header__bottom-slider-but--next"
+              aria-label="Next slide"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="main-button">
+      <a
+        href="#buy"
+        class="main-button__link"
+      >
+        Buy Now
+      </a>
+    </div>
+
+    <aside
+      class="menu menu-decktop"
+      id="menu"
+    >
+      <div class="container">
+        <div class="menu__wrapper">
+          <a
+            href="#"
+            class="icon menu--close icon-close--menu"
+          ></a>
+
+          <div class="menu__bottom">
+            <nav class="menu__nav">
+              <ul class="menu__list">
+                <li class="menu__item menu__item-menu">
+                  <a
+                    class="menu__link"
+                    href="#about"
+                  >
+                    About
+                  </a>
+                </li>
+                <li class="menu__item menu__item-menu">
+                  <a
+                    class="menu__link"
+                    href="#tech"
+                  >
+                    Tech
+                  </a>
+                </li>
+                <li class="menu__item menu__item-menu">
+                  <a
+                    class="menu__link"
+                    href="#benefits"
+                  >
+                    Benefits
+                  </a>
+                </li>
+                <li class="menu__item menu__item-menu">
+                  <a
+                    class="menu__link"
+                    href="#contact"
+                  >
+                    Contact
+                  </a>
+                </li>
+                <li class="menu__item">
+                  <a
+                    class="menu__link menu__item-lang"
+                    href="#lang"
+                  >
+                    Language
+                  </a>
+                </li>
+                <li class="menu__item">
+                  <a
+                    class="menu__link menu__item-faq"
+                    href="#faq"
+                  >
+                    FAQ
+                  </a>
+                </li>
+                <li class="menu__item">
+                  <a
+                    class="menu__link menu__item-help"
+                    href="#help"
+                  >
+                    Help
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <aside
+      class="help aside"
+      id="help"
+    >
+      <div class="container container__aside">
+        <div class="menu__wrapper">
+          <a
+            href="#menu"
+            class="icon aside--close aside-help"
+          ></a>
+
+          <h2 class="help__title aside__title">
+            HOW CAN WE
+            <span class="aside__title--accent">HELP</span>
+            YOU?
+          </h2>
+          <p class="aside__text">
+            Welcome to our help center. Our goal is to make the process of
+          </p>
+          <p class="help__text aside__text">
+            getting acquainted and purchase as easy and pleasant as possible.
+            Need help with your KAT VR loco product? Many product questions can
+            be resolved by reviewing our Product Support
+            <a
+              class="help__text--link"
+              href="#faq"
+            >
+              FAQs.
+            </a>
+          </p>
+          <p class="help__text aside__text">
+            Please also feel free to
+            <a
+              class="help__text--link"
+              href="#contact"
+            >
+              Contact Us
+            </a>
+            directly should you need anything further. We’re happy to help.
+          </p>
+
+          <div class="help__links">
+            <a
+              class="help__link"
+              href="#"
+            >
+              Instruction manual
+            </a>
+            <a
+              class="help__link"
+              href="#"
+            >
+              Where to go for a warranty
+            </a>
+            <a
+              class="help__link"
+              href="#"
+            >
+              Service Policy
+            </a>
+          </div>
+          <div class="help__contact">
+            <a href="tel:+86-0571-86105373">+86-0571-86105373</a>
+            <a href="mailto:global@katvr.com">global@katvr.com</a>
+            <a href="mailto:overseas@katvr.com">overseas@katvr.com</a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <aside
+      class="faq aside"
+      id="faq"
+    >
+      <div class="container container__aside">
+        <div class="menu__wrapper">
+          <a
+            href="#menu"
+            class="icon aside--close aside-faq"
+          ></a>
+
+          <div class="faq__content aside__content">
+            <h2 class="faq__title aside__title">
+              FREQUENTLY ASKED
+              <span class="aside__title--accent">QUESTIONS</span>
+            </h2>
+
+            <div class="faq__block">
+              <details>
+                <summary class="faq__subtitle">
+                  What makes KAT loco different from other systems?
+                  <span class="faq__arrow"></span>
+                </summary>
+                <div class="faq__text-wrapper">
+                  <p class="faq__text">
+                    Despite being approached from many different angles, all
+                    traditional VR Locomotion systems including roomscale,
+                    teleportation, and free locomotion failed to provide an
+                    optimal solution capable of integrating high immersion with
+                    convenience. KAT loco does all of that without repeating
+                    their flaws. Our system offers a complete and versatile
+                    solution for an affordable price what makes it a perfect
+                    choice for home-use. It is also 100% user friendly,
+                    wireless, universally compatible, and more! It even offers
+                    decoupled head and body directions!
+                  </p>
+                  <p class="faq__data">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </details>
+            </div>
+            <div class="faq__block">
+              <details>
+                <summary class="faq__subtitle">
+                  Will it decrease my motion sickness?
+                  <span class="faq__arrow"></span>
+                </summary>
+                <div class="faq__text-wrapper">
+                  <p class="faq__text">
+                    Despite being approached from many different angles, all
+                    traditional VR Locomotion systems including roomscale,
+                    teleportation, and free locomotion failed to provide an
+                    optimal solution capable of integrating high immersion with
+                    convenience. KAT loco does all of that without repeating
+                    their flaws. Our system offers a complete and versatile
+                    solution for an affordable price what makes it a perfect
+                    choice for home-use. It is also 100% user friendly,
+                    wireless, universally compatible, and more! It even offers
+                    decoupled head and body directions!
+                  </p>
+                  <p class="faq__data">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </details>
+            </div>
+            <div class="faq__block">
+              <details>
+                <summary class="faq__subtitle">
+                  Which VR headsets is it compatible with?
+                  <span class="faq__arrow"></span>
+                </summary>
+                <div class="faq__text-wrapper">
+                  <p class="faq__text">
+                    Despite being approached from many different angles, all
+                    traditional VR Locomotion systems including roomscale,
+                    teleportation, and free locomotion failed to provide an
+                    optimal solution capable of integrating high immersion with
+                    convenience. KAT loco does all of that without repeating
+                    their flaws. Our system offers a complete and versatile
+                    solution for an affordable price what makes it a perfect
+                    choice for home-use. It is also 100% user friendly,
+                    wireless, universally compatible, and more! It even offers
+                    decoupled head and body directions!
+                  </p>
+                  <p class="faq__data">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </details>
+            </div>
+            <div class="faq__block">
+              <details>
+                <summary class="faq__subtitle">
+                  Is it compatible with Oculus Quest?
+                  <span class="faq__arrow"></span>
+                </summary>
+                <div class="faq__text-wrapper">
+                  <p class="faq__text">
+                    Despite being approached from many different angles, all
+                    traditional VR Locomotion systems including roomscale,
+                    teleportation, and free locomotion failed to provide an
+                    optimal solution capable of integrating high immersion with
+                    convenience. KAT loco does all of that without repeating
+                    their flaws. Our system offers a complete and versatile
+                    solution for an affordable price what makes it a perfect
+                    choice for home-use. It is also 100% user friendly,
+                    wireless, universally compatible, and more! It even offers
+                    decoupled head and body directions!
+                  </p>
+                  <p class="faq__data">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </details>
+            </div>
+            <div class="faq__bottom-more header__bottom-more">
+              <a
+                class="faq__bottom-more-link header__bottom-more-link"
+                href="#more"
+              >
+                More
+              </a>
+              <div class="faq__bottom-arrow header__bottom-arrow">
+                <svg
+                  class="faq-switcher__arrow lang-switcher__arrow"
+                  width="9"
+                  height="6"
+                  viewBox="0 0 9 6"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M0 0L5 6L10 0H0Z"
+                    fill="#00c4cc"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <aside
+      class="lang menu"
+      id="lang"
+    >
+      <div class="lang__wrapper">
+        <div class="container">
+          <a
+            href="#menu"
+            class="icon lang--arrow"
+          >
+            <svg
+              width="10"
+              height="19"
+              viewBox="0 0 10 19"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M9.5 1L1 9.5L9.5 18"
+                stroke="white"
+              />
+            </svg>
+          </a>
+        </div>
+
+        <div class="lang__bottom">
+          <nav class="lang__nav">
+            <ul class="lang__list">
+              <li class="menu__item">
+                <a
+                  class="menu__link lang__link"
+                  href="#"
+                  data-lang="en"
+                >
+                  English
+                </a>
+              </li>
+              <li class="menu__item">
+                <a
+                  class="menu__link lang__link"
+                  href="#arabic"
+                  data-lang="ar"
+                >
+                  Arabic
+                </a>
+              </li>
+              <li class="menu__item">
+                <a
+                  class="menu__link lang__link"
+                  href="#chinese (Simplified)"
+                  data-lang="zh-s"
+                >
+                  Chinese (Simplified)
+                </a>
+              </li>
+              <li class="menu__item">
+                <a
+                  class="menu__link lang__link"
+                  href="chinese (Traditional)"
+                  data-lang="zh-t"
+                >
+                  Chinese (Traditional)
+                </a>
+              </li>
+              <li class="menu__item">
+                <a
+                  class="menu__link lang__link"
+                  href="#french"
+                  data-lang="fr"
+                >
+                  French
+                </a>
+              </li>
+              <li class="menu__item">
+                <a
+                  class="menu__link lang__link"
+                  href="#german"
+                  data-lang="de"
+                >
+                  German
+                </a>
+              </li>
+              <li class="menu__item">
+                <a
+                  class="menu__link lang__link"
+                  href="#italian"
+                  data-lang="it"
+                >
+                  Italian
+                </a>
+              </li>
+              <li class="menu__item">
+                <a
+                  class="menu__link lang__link"
+                  href="#polish"
+                  data-lang="pl"
+                >
+                  Polish
+                </a>
+              </li>
+              <li class="menu__item">
+                <a
+                  class="menu__link lang__link"
+                  href="#russian"
+                  data-lang="ru"
+                >
+                  Russian
+                </a>
+              </li>
+              <li class="menu__item">
+                <a
+                  class="menu__link lang__link"
+                  href="#ukrainian"
+                  data-lang="uk"
+                >
+                  Ukrainian
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </aside>
+
+    <aside
+      class="buy"
+      id="buy"
+    >
+      <div class="buy__wrapper">
+        <div class="container">
+          <div class="buy__top">
+            <a
+              href="#"
+              class="header__logo buy__logo"
+            >
+              <img
+                class="header__logo-img"
+                src="icons/logo-small.png"
+                alt="logo"
+              />
+            </a>
+            <a
+              href="#"
+              class="icon buy__close"
+            ></a>
+          </div>
+        </div>
+
+        <div class="buy__menu">
+          <div
+            class="step active"
+            data-step="1"
+          >
+            <a
+              class="buy__menu-item"
+              href="#buy"
+            >
+              Place Order
+            </a>
+          </div>
+
+          <div
+            class="step"
+            data-step="2"
+          >
+            <a
+              class="buy__menu-item"
+              href="#step-2"
+            >
+              Pay
+            </a>
+          </div>
+
+          <div
+            class="step"
+            data-step="3"
+          >
+            <a
+              class="buy__menu-item"
+              href="#step-3"
+            >
+              Complete
+            </a>
+          </div>
+        </div>
+
+        <div class="buy__wrapper-box">
+          <div class="buy__img">
+            <img
+              class="buy__img-picture"
+              src="images/image1.png"
+              alt="images product"
+            />
+          </div>
+          <div class="container">
+            <div class="price-container">
+              <div class="quantity">
+                <label class="quantity__label">Quantity</label>
+                <select
+                  class="quantity__select-option"
+                  id="quantity-select-step1"
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+              <div class="price">
+                <label>Price</label>
+                <span
+                  class="quantity__select-price"
+                  id="price-value-step1"
+                >
+                  1200$
+                </span>
+              </div>
+            </div>
+
+            <div
+              class="form-container"
+              id="step-1"
+            >
+              <form
+                class="buy__order-form"
+                id="order-form"
+              >
+                <div class="form-group">
+                  <input
+                    class="buy__input"
+                    type="text"
+                    id="first-name"
+                    placeholder="First Name*"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    class="buy__input"
+                    type="text"
+                    id="last-name"
+                    placeholder="Last Name*"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    class="buy__input"
+                    type="email"
+                    id="email"
+                    placeholder="Email*"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    class="buy__input"
+                    type="tel"
+                    id="phone"
+                    placeholder="Phone Number*"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="country">Country*</label>
+                  <select
+                    class="buy__select"
+                    id="country"
+                    required
+                  >
+                    <option
+                      class="buy__city"
+                      value=" "
+                      disabled
+                      selected
+                    ></option>
+                    <option value="ukraine">Ukraine</option>
+                    <option value="russia">Russia</option>
+                    <option value="france">France</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="city">City*</label>
+                  <select
+                    class="buy__select"
+                    id="city"
+                    required
+                  >
+                    <option
+                      value=" "
+                      disabled
+                      selected
+                    ></option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <input
+                    class="buy__input"
+                    type="text"
+                    id="address"
+                    placeholder="Shipping Address*"
+                    required
+                  />
+                </div>
+                <div class="form-group">
+                  <input
+                    class="buy__input"
+                    type="text"
+                    id="address2"
+                    placeholder="Shipping Address 2"
+                  />
+                </div>
+                <button
+                  class="buy__button"
+                  type="submit"
+                >
+                  Purchase
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <aside
+      class="buy buy-pay"
+      id="step-2"
+    >
+      <div class="buy__wrapper">
+        <div class="container">
+          <div class="buy__top">
+            <a
+              href="#"
+              class="header__logo buy__logo"
+            >
+              <img
+                class="header__logo-img"
+                src="icons/logo-small.png"
+                alt="logo"
+              />
+            </a>
+            <a
+              href="#buy"
+              class="icon buy__close"
+            ></a>
+          </div>
+        </div>
+
+        <div class="buy__menu">
+          <div
+            class="step"
+            data-step="1"
+          >
+            <a
+              class="buy__menu-item"
+              href="#buy"
+            >
+              Place Order
+            </a>
+          </div>
+
+          <div
+            class="step"
+            data-step="2"
+          >
+            <a
+              class="buy__menu-item"
+              href="#step-2"
+            >
+              Pay
+            </a>
+          </div>
+
+          <div
+            class="step"
+            data-step="3"
+          >
+            <a
+              class="buy__menu-item"
+              href="#step-3"
+            >
+              Complete
+            </a>
+          </div>
+        </div>
+
+        <div class="buy__img">
+          <img
+            class="buy__img-picture buy__img-pay"
+            src="images/image1.png"
+            alt="images product"
+          />
+        </div>
+
+        <div class="container">
+          <div class="price-container price-container-pay">
+            <div class="quantity quantity-pay">
+              <label class="quantity__label">Quantity</label>
+              <select
+                class="quantity__select-option"
+                id="quantity-select-step2"
+              >
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </div>
+            <div class="price">
+              <label>Price</label>
+              <span
+                class="quantity__select-price"
+                id="price-value-step2"
+              >
+                1200$
+              </span>
+            </div>
+          </div>
+
+          <form
+            class="buy-pay__payment-form"
+            id="payment-form"
+          >
+            <div class="buy-pay__form payment-form__group">
+              <label
+                class="buy-pay__form buy-pay__form-label"
+                for="card-number-1"
+              >
+                Card Number*
+              </label>
+              <div class="card-number-group">
+                <input
+                  class="payment-form__input payment-form__input--card-number buy__input"
+                  type="text"
+                  id="card-number-1"
+                  placeholder="1234"
+                  maxlength="4"
+                  required
+                />
+                <input
+                  class="payment-form__input payment-form__input--card-number buy__input"
+                  type="text"
+                  id="card-number-2"
+                  placeholder="0000"
+                  maxlength="4"
+                  required
+                />
+                <input
+                  class="payment-form__input payment-form__input--card-number buy__input"
+                  type="text"
+                  id="card-number-3"
+                  placeholder="0000"
+                  maxlength="4"
+                  required
+                />
+                <input
+                  class="payment-form__input payment-form__input--card-number buy__input"
+                  type="text"
+                  id="card-number-4"
+                  placeholder="0000"
+                  maxlength="4"
+                  required
+                />
+                <img
+                  class="pay__visa"
+                  src="./icons/visa.svg"
+                  alt="picture of visa"
+                />
+              </div>
+
+              <span
+                class="error-message"
+                id="card-number-error"
+              ></span>
+            </div>
+
+            <div class="payment-form__group">
+              <label
+                class="buy-pay__form buy-pay__form-lab card-holder-label"
+                for="card-holder"
+              >
+                Card Holder Name*
+              </label>
+              <input
+                class="payment-form__input buy__input card-holder-input"
+                type="text"
+                id="card-holder"
+                required
+              />
+              <span
+                class="error-message"
+                id="card-holder-error"
+              ></span>
+            </div>
+
+            <div class="payment-form__group row">
+              <div class="col">
+                <label
+                  class="buy-pay__form buy-pay__form-date expiry-date-label"
+                  for="expiry-date"
+                >
+                  Expiration Date*
+                </label>
+                <input
+                  class="payment-form__input buy__input expiry-date-input"
+                  type="text"
+                  id="expiry-date"
+                  placeholder="MM / YY"
+                  maxlength="7"
+                  required
+                />
+                <span
+                  class="error-message"
+                  id="expiry-date-error"
+                ></span>
+              </div>
+              <div class="col">
+                <label
+                  class="buy-pay__form buy-pay__form-cvv cvv-label"
+                  for="cvv"
+                >
+                  CVV*
+                </label>
+                <input
+                  class="payment-form__input buy__input cvv-input"
+                  type="text"
+                  id="cvv"
+                  placeholder="000"
+                  maxlength="3"
+                  required
+                />
+                <span
+                  class="error-message"
+                  id="cvv-error"
+                ></span>
+              </div>
+            </div>
+
+            <button
+              class="buy__button buy__button-pay"
+              type="submit"
+            >
+              Purchase
+            </button>
+          </form>
+        </div>
+      </div>
+    </aside>
+
+    <aside
+      class="buy buy__complete"
+      id="step-3"
+    >
+      <div class="buy__wrapper">
+        <div class="container">
+          <div class="buy__top">
+            <a
+              class="header__logo buy__logo"
+              href="#"
+            >
+              <img
+                class="header__logo-img"
+                src="icons/logo-small.png"
+                alt="logo"
+              />
+            </a>
+
+            <a
+              class="icon buy__close"
+              href="#step-2"
+            ></a>
+          </div>
+        </div>
+
+        <div class="buy__menu">
+          <div
+            class="step"
+            data-step="1"
+          >
+            <a
+              class="buy__menu-item"
+              href="#buy"
+            >
+              Place Order
+            </a>
+          </div>
+
+          <div
+            class="step"
+            data-step="2"
+          >
+            <a
+              class="buy__menu-item"
+              href="#step-2"
+            >
+              Pay
+            </a>
+          </div>
+
+          <div
+            class="step"
+            data-step="3"
+          >
+            <a
+              class="buy__menu-item"
+              href="#step-3"
+            >
+              Complete
+            </a>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="buy__complete-content">
+            <h2 class="aside__title buy__complete-title">
+              Thank you for
+              <span class="buy__complete-title--accent">your</span>
+              order!
+            </h2>
+
+            <p class="buy__complete-text">
+              Your order has been placed and is being processed. You will recive
+              an email with the order details
+            </p>
+
+            <button
+              class="buy__button button__complete"
+              type="submit"
+            >
+              Back to homepage
+            </button>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <main>
+      <section
+        class="more"
+        id="more"
+      >
+        <div class="container">
+          <h2 class="section__title more__title">
+            MORE THAN
+            <span class="section__title--color">GAMING!</span>
+          </h2>
+
+          <p class="more__text">
+            This also made for people who are interested in...
+          </p>
+
+          <div class="more__wrapper">
+            <div class="more__block">
+              <h3 class="section__subtitle more__subtitle">EDUCATION</h3>
+              <p class="section__text">
+                Create aducational simulations, trainings and much more with
+                unlimited virtual space and minimum physical space
+              </p>
+            </div>
+
+            <div class="more__block more__block-estate">
+              <h3 class="section__subtitle more__subtitle">REAL ESTATE</h3>
+              <p class="section__text">
+                Desighn architectural projects in a deeply realistic environment
+                allowing visitors to freely walk around, and feel their vibe
+              </p>
+            </div>
+
+            <div class="more__block more__block-fitness">
+              <h3 class="section__subtitle more__subtitle">FITNESS</h3>
+              <p class="section__text">
+                Combine business with pleasure, and discover countless ways to
+                stay fit while playing your favorite VR Games!
+              </p>
+            </div>
+
+            <div class="more__block more__block-social">
+              <h3 class="section__subtitle more__subtitle">
+                SOCIAL INTERACTIONS
+              </h3>
+              <p class="section__text">
+                Hang out with your friends in the virtual world when you can’t
+                meet space requirements
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="about"
+        id="about"
+      >
+        <div class="container">
+          <div class="about__top">
+            <div class="about__slider">
+              <div
+                class="about__slides"
+                id="aboutSlides"
+              >
+                <div class="about__slide">
+                  <div class="about__slide-wrapper">
+                    <h2 class="section__title about__slider-title">
+                      ABOUT
+                      <span class="section__title--color">PRODUCT</span>
+                    </h2>
+                    <img
+                      class="about__img"
+                      src="./images/about-image1.jpg"
+                      alt="KAT Loco device on user"
+                    />
+
+                    <p class="about__top-text">
+                      KAT loco is a foot-based VR locomotion system that gives
+                      complete physical control over lower-body actions,
+                      allowing you to freely walk, run, and carry out just any
+                      other movement in virtual reality.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="about__slide">
+                  <div class="about__slide-wrapper">
+                    <h2 class="section__title about__slider-title">
+                      ABOUT
+                      <span class="section__title--color">PRODUCT</span>
+                    </h2>
+                    <img
+                      class="about__img"
+                      src="./images/image2.jpg"
+                      alt="VR Headset"
+                    />
+
+                    <p class="about__top-text">
+                      2KAT loco is a foot-based VR locomotion system that gives
+                      complete physical control over lower-body actions,
+                      allowing you to freely walk, run, and carry out just any
+                      other movement in virtual reality.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="about__slide">
+                  <div class="about__slide-wrapper">
+                    <h2 class="section__title about__slider-title">
+                      ABOUT
+                      <span class="section__title--color">PRODUCT</span>
+                    </h2>
+                    <img
+                      class="about__img"
+                      src="./images/image3.jpg"
+                      alt="VR Headset"
+                    />
+
+                    <p class="about__top-text">
+                      3KAT loco is a foot-based VR locomotion system that gives
+                      complete physical control over lower-body actions,
+                      allowing you to freely walk, run, and carry out just any
+                      other movement in virtual reality.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="about__slide">
+                  <div class="about__slide-wrapper">
+                    <h2 class="section__title about__slider-title">
+                      ABOUT
+                      <span class="section__title--color">PRODUCT</span>
+                    </h2>
+                    <img
+                      class="about__img"
+                      src="./images/image4.jpg"
+                      alt="VR Headset"
+                    />
+
+                    <p class="about__top-text">
+                      4KAT loco is a foot-based VR locomotion system that gives
+                      complete physical control over lower-body actions,
+                      allowing you to freely walk, run, and carry out just any
+                      other movement in virtual reality.
+                    </p>
+                  </div>
+                </div>
+
+                <div class="about__slide">
+                  <div class="about__slide-wrapper">
+                    <h2 class="section__title about__slider-title">
+                      ABOUT
+                      <span class="section__title--color">PRODUCT</span>
+                    </h2>
+                    <img
+                      class="about__img"
+                      src="./images/img5.jpg"
+                      alt="VR Headset"
+                    />
+
+                    <p class="about__top-text">
+                      5KAT loco is a foot-based VR locomotion system that gives
+                      complete physical control over lower-body actions,
+                      allowing you to freely walk, run, and carry out just any
+                      other movement in virtual reality.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about__slider-controls">
+                <div class="about__slider-nav">
+                  <button
+                    class="header__bottom-slider-but about__bottom-slider-but"
+                    id="aboutPrevBtn"
+                  >
+                    Previous
+                  </button>
+
+                  <button
+                    class="header__bottom-slider-but about__bottom-slider-but"
+                    id="aboutNothingvBtn"
+                  ></button>
+
+                  <button
+                    class="header__bottom-slider-but about__bottom-slider-but"
+                    id="aboutNextBtn"
+                  >
+                    Next
+                  </button>
+                </div>
+
+                <div
+                  class="about__slider-counter"
+                  id="aboutCounter"
+                >
+                  1/5
+                </div>
+              </div>
+
+              <div class="about__slider-dots">
+                <div class="about__slider-dot active"></div>
+                <div class="about__slider-dot"></div>
+                <div class="about__slider-dot"></div>
+                <div class="about__slider-dot"></div>
+                <div class="about__slider-dot"></div>
+              </div>
+
+              <div class="about__video">
+                <iframe
+                  class="about__video-iframe"
+                  id="vrVideo2"
+                  src="https://www.youtube.com/embed/SvTbB19bvIw?enablejsapi=1"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                ></iframe>
+                <a
+                  href="#"
+                  class="icon video--close-video"
+                  data-video="vrVideo2"
+                ></a>
+
+                <button
+                  class="about__play-button"
+                  data-video="vrVideo2"
+                >
+                  <svg
+                    width="221"
+                    height="69"
+                    viewBox="0 0 221 69"
+                    fill="black"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M107.278 40V28.3636H111.426C112.331 28.3636 113.081 28.5284 113.676 28.858C114.271 29.1875 114.716 29.6383 115.011 30.2102C115.307 30.7784 115.455 31.4186 115.455 32.1307C115.455 32.8466 115.305 33.4905 115.006 34.0625C114.71 34.6307 114.263 35.0814 113.665 35.4148C113.07 35.7443 112.322 35.9091 111.42 35.9091H108.568V34.4205H111.261C111.833 34.4205 112.297 34.322 112.653 34.125C113.009 33.9242 113.271 33.6515 113.438 33.3068C113.604 32.9621 113.688 32.5701 113.688 32.1307C113.688 31.6913 113.604 31.3011 113.438 30.9602C113.271 30.6193 113.008 30.3523 112.648 30.1591C112.292 29.9659 111.822 29.8693 111.239 29.8693H109.034V40H107.278ZM119.075 28.3636V40H117.376V28.3636H119.075ZM123.901 40.1932C123.348 40.1932 122.848 40.0909 122.401 39.8864C121.954 39.678 121.599 39.3769 121.338 38.983C121.08 38.589 120.952 38.1061 120.952 37.5341C120.952 37.0417 121.046 36.6364 121.236 36.3182C121.425 36 121.681 35.7481 122.003 35.5625C122.325 35.3769 122.685 35.2367 123.082 35.142C123.48 35.0473 123.885 34.9754 124.298 34.9261C124.821 34.8655 125.245 34.8163 125.571 34.7784C125.897 34.7367 126.134 34.6705 126.281 34.5795C126.429 34.4886 126.503 34.3409 126.503 34.1364V34.0966C126.503 33.6004 126.363 33.2159 126.082 32.9432C125.806 32.6705 125.393 32.5341 124.844 32.5341C124.272 32.5341 123.821 32.661 123.491 32.9148C123.166 33.1648 122.94 33.4432 122.815 33.75L121.219 33.3864C121.408 32.8561 121.685 32.428 122.048 32.1023C122.416 31.7727 122.838 31.5341 123.315 31.3864C123.793 31.2348 124.295 31.1591 124.821 31.1591C125.17 31.1591 125.539 31.2008 125.929 31.2841C126.323 31.3636 126.69 31.5114 127.031 31.7273C127.376 31.9432 127.658 32.2519 127.878 32.6534C128.098 33.0511 128.207 33.5682 128.207 34.2045V40H126.548V38.8068H126.48C126.37 39.0265 126.205 39.2424 125.986 39.4545C125.766 39.6667 125.484 39.8428 125.139 39.983C124.795 40.1231 124.382 40.1932 123.901 40.1932ZM124.27 38.8295C124.74 38.8295 125.141 38.7367 125.474 38.5511C125.812 38.3655 126.067 38.1231 126.241 37.8239C126.42 37.5208 126.509 37.197 126.509 36.8523V35.7273C126.448 35.7879 126.33 35.8447 126.156 35.8977C125.986 35.947 125.791 35.9905 125.571 36.0284C125.351 36.0625 125.137 36.0947 124.929 36.125C124.721 36.1515 124.546 36.1742 124.406 36.1932C124.077 36.2348 123.776 36.3049 123.503 36.4034C123.234 36.5019 123.018 36.6439 122.855 36.8295C122.696 37.0114 122.616 37.2538 122.616 37.5568C122.616 37.9773 122.772 38.2955 123.082 38.5114C123.393 38.7235 123.789 38.8295 124.27 38.8295ZM131.232 43.2727C130.978 43.2727 130.747 43.2519 130.538 43.2102C130.33 43.1723 130.175 43.1307 130.072 43.0852L130.482 41.6932C130.792 41.7765 131.069 41.8125 131.311 41.8011C131.554 41.7898 131.768 41.6989 131.953 41.5284C132.143 41.358 132.309 41.0795 132.453 40.6932L132.663 40.1136L129.47 31.2727H131.288L133.499 38.0455H133.589L135.8 31.2727H137.624L134.027 41.1648C133.86 41.6193 133.648 42.0038 133.391 42.3182C133.133 42.6364 132.826 42.875 132.47 43.0341C132.114 43.1932 131.701 43.2727 131.232 43.2727ZM144.608 28.3636L147.847 37.8409H147.977L151.216 28.3636H153.114L148.926 40H146.898L142.71 28.3636H144.608ZM154.658 40V31.2727H156.357V40H154.658ZM155.516 29.9261C155.22 29.9261 154.966 29.8277 154.754 29.6307C154.546 29.4299 154.442 29.1913 154.442 28.9148C154.442 28.6345 154.546 28.3958 154.754 28.1989C154.966 27.9981 155.22 27.8977 155.516 27.8977C155.811 27.8977 156.063 27.9981 156.271 28.1989C156.483 28.3958 156.589 28.6345 156.589 28.9148C156.589 29.1913 156.483 29.4299 156.271 29.6307C156.063 29.8277 155.811 29.9261 155.516 29.9261ZM161.909 40.1705C161.205 40.1705 160.576 39.9905 160.023 39.6307C159.473 39.267 159.042 38.75 158.727 38.0795C158.417 37.4053 158.261 36.5966 158.261 35.6534C158.261 34.7102 158.419 33.9034 158.733 33.233C159.051 32.5625 159.487 32.0492 160.04 31.6932C160.593 31.3371 161.22 31.1591 161.92 31.1591C162.462 31.1591 162.898 31.25 163.227 31.4318C163.561 31.6098 163.818 31.8182 164 32.0568C164.186 32.2955 164.33 32.5057 164.432 32.6875H164.534V28.3636H166.233V40H164.574V38.642H164.432C164.33 38.8277 164.182 39.0398 163.989 39.2784C163.799 39.517 163.538 39.7254 163.205 39.9034C162.871 40.0814 162.439 40.1705 161.909 40.1705ZM162.284 38.7216C162.773 38.7216 163.186 38.5928 163.523 38.3352C163.864 38.0739 164.121 37.7121 164.295 37.25C164.473 36.7879 164.562 36.25 164.562 35.6364C164.562 35.0303 164.475 34.5 164.301 34.0455C164.127 33.5909 163.871 33.2367 163.534 32.983C163.197 32.7292 162.78 32.6023 162.284 32.6023C161.773 32.6023 161.347 32.7348 161.006 33C160.665 33.2652 160.407 33.6269 160.233 34.0852C160.063 34.5436 159.977 35.0606 159.977 35.6364C159.977 36.2197 160.064 36.7443 160.239 37.2102C160.413 37.6761 160.67 38.0455 161.011 38.3182C161.356 38.5871 161.78 38.7216 162.284 38.7216ZM172.419 40.1761C171.559 40.1761 170.819 39.9924 170.197 39.625C169.58 39.2538 169.103 38.733 168.766 38.0625C168.432 37.3883 168.266 36.5985 168.266 35.6932C168.266 34.7992 168.432 34.0114 168.766 33.3295C169.103 32.6477 169.572 32.1155 170.175 31.733C170.781 31.3504 171.489 31.1591 172.3 31.1591C172.792 31.1591 173.269 31.2405 173.732 31.4034C174.194 31.5663 174.608 31.822 174.976 32.1705C175.343 32.5189 175.633 32.9716 175.845 33.5284C176.057 34.0814 176.163 34.7538 176.163 35.5455V36.1477H169.226V34.875H174.499C174.499 34.428 174.408 34.0322 174.226 33.6875C174.044 33.339 173.788 33.0644 173.459 32.8636C173.133 32.6629 172.75 32.5625 172.311 32.5625C171.834 32.5625 171.417 32.6799 171.061 32.9148C170.709 33.1458 170.436 33.4489 170.243 33.8239C170.054 34.1951 169.959 34.5985 169.959 35.0341V36.0284C169.959 36.6117 170.061 37.108 170.266 37.517C170.474 37.9261 170.764 38.2386 171.135 38.4545C171.506 38.6667 171.94 38.7727 172.436 38.7727C172.758 38.7727 173.052 38.7273 173.317 38.6364C173.582 38.5417 173.811 38.4015 174.004 38.2159C174.197 38.0303 174.345 37.8011 174.447 37.5284L176.055 37.8182C175.927 38.2917 175.696 38.7064 175.362 39.0625C175.033 39.4148 174.618 39.6894 174.118 39.8864C173.622 40.0795 173.055 40.1761 172.419 40.1761ZM181.724 40.1761C180.906 40.1761 180.192 39.9886 179.582 39.6136C178.973 39.2386 178.499 38.714 178.162 38.0398C177.825 37.3655 177.656 36.5777 177.656 35.6761C177.656 34.7708 177.825 33.9792 178.162 33.3011C178.499 32.6231 178.973 32.0966 179.582 31.7216C180.192 31.3466 180.906 31.1591 181.724 31.1591C182.543 31.1591 183.257 31.3466 183.866 31.7216C184.476 32.0966 184.95 32.6231 185.287 33.3011C185.624 33.9792 185.793 34.7708 185.793 35.6761C185.793 36.5777 185.624 37.3655 185.287 38.0398C184.95 38.714 184.476 39.2386 183.866 39.6136C183.257 39.9886 182.543 40.1761 181.724 40.1761ZM181.73 38.75C182.26 38.75 182.7 38.6098 183.048 38.3295C183.397 38.0492 183.654 37.6761 183.821 37.2102C183.991 36.7443 184.077 36.2311 184.077 35.6705C184.077 35.1136 183.991 34.6023 183.821 34.1364C183.654 33.6667 183.397 33.2898 183.048 33.0057C182.7 32.7216 182.26 32.5795 181.73 32.5795C181.196 32.5795 180.753 32.7216 180.401 33.0057C180.052 33.2898 179.793 33.6667 179.622 34.1364C179.455 34.6023 179.372 35.1136 179.372 35.6705C179.372 36.2311 179.455 36.7443 179.622 37.2102C179.793 37.6761 180.052 38.0492 180.401 38.3295C180.753 38.6098 181.196 38.75 181.73 38.75Z"
+                      fill="white"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M86 12H56V14H86V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M86 56H56V58H86V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M51 7C46.1191 3.58873 40.9135 2.35207 35 2.00004C29.0865 1.648 23.5605 3.00323 18.3211 5.81203C13.0817 8.62084 8.69816 12.8327 5.64507 17.9917C2.59199 23.1507 0.985693 29.0602 1.0001 35.0803C1.0145 41.1005 2.64905 47.002 5.72678 52.1458C8.80452 57.2896 13.2082 61.4798 18.4609 64.2627C23.7137 67.0456 29.6155 68.3151 35.5272 67.9339C41.439 67.5526 47.1355 65.4354 52 62"
+                      stroke="#05C2DF"
+                      stroke-width="2"
+                      stroke-miterlimit="1.51696"
+                    />
+                    <path
+                      d="M34.0306 61.1555C48.6177 61.1555 60.4429 49.3649 60.4429 34.8204C60.4429 20.276 48.6177 8.48535 34.0306 8.48535C19.4434 8.48535 7.61816 20.276 7.61816 34.8204C7.61816 49.3649 19.4434 61.1555 34.0306 61.1555Z"
+                      stroke="#05C2DF"
+                      stroke-miterlimit="10"
+                    />
+                    <path
+                      class="play-button-path"
+                      d="M45 35L27.75 45.3923L27.75 24.6077L45 35Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M91 12H89V14H91V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M88 12H86V14H88V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M94 12H92V14H94V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M97 12H95V14H97V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M100 12H98V14H100V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M104 12H102V14H104V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M108 12H106V14H108V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M112 12H110V14H112V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M117 12H115V14H117V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M122 12H120V14H122V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M127 12H125V14H127V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M132 12H130V14H132V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M137 12H135V14H137V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M142 12H140V14H142V12Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M153.6 12.2305H152V13.8305H153.6V12.2305Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M159.6 12.2305H158V13.8305H159.6V12.2305Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M165.6 12.2305H164V13.8305H165.6V12.2305Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M171.3 12.4297H170V13.7297H171.3V12.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M178.3 12.4297H177V13.7297H178.3V12.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M185.3 12.4297H184V13.7297H185.3V12.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M192.3 12.4297H191V13.7297H192.3V12.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M200.3 12.4297H199V13.7297H200.3V12.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M209.3 12.4297H208V13.7297H209.3V12.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M147.6 12.2305H146V13.8305H147.6V12.2305Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M221 12.5H220V13.5H221V12.5Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M91 56H89V58H91V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M88 56H86V58H88V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M94 56H92V58H94V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M97 56H95V58H97V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M100 56H98V58H100V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M104 56H102V58H104V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M108 56H106V58H108V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M112 56H110V58H112V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M117 56H115V58H117V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M122 56H120V58H122V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M127 56H125V58H127V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M132 56H130V58H132V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M137 56H135V58H137V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M142 56H140V58H142V56Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M153.6 56.2305H152V57.8305H153.6V56.2305Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M159.6 56.2305H158V57.8305H159.6V56.2305Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M165.6 56.2305H164V57.8305H165.6V56.2305Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M171.3 56.4297H170V57.7297H171.3V56.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M178.3 56.4297H177V57.7297H178.3V56.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M185.3 56.4297H184V57.7297H185.3V56.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M192.3 56.4297H191V57.7297H192.3V56.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M200.3 56.4297H199V57.7297H200.3V56.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M209.3 56.4297H208V57.7297H209.3V56.4297Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M147.6 56.2305H146V57.8305H147.6V56.2305Z"
+                      fill="#05C2DF"
+                    />
+                    <path
+                      opacity="0.45"
+                      d="M221 56.5H220V57.5H221V56.5Z"
+                      fill="#05C2DF"
+                    />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="about__bottom">
+            <div class="about__bottom-left">
+              <span class="about__bottom-pretitle">Hello,</span>
+
+              <h2 class="section__title about__bottom-title">
+                NICE TO MEET
+                <span class="section__title--color">YOU!</span>
+              </h2>
+              <p class="about__bottom-text">
+                KAT VR is an independent company dedicated to the research,
+                development, and sales of VR Locomotion products and solutions.
+                Founded in 2013, we have quickly grown to become one of the
+                world’s leading professional suppliers of VR games’ &
+                simulations’ equipment
+              </p>
+            </div>
+
+            <div class="about__bottom-right">About us</div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="tech"
+        id="tech"
+      >
+        <div class="container">
+          <h2 class="section__title tech__title">
+            TECH
+            <span class="section__title--color">SPECS</span>
+          </h2>
+
+          <div class="tech__wrapper">
+            <div class="tech__circle">
+              <img
+                src="./images/tech.png"
+                alt="Tech device"
+              />
+              <div class="tech__small-circle">+</div>
+            </div>
+
+            <div class="tech-specs__block tech-specs__block--sensor">
+              <svg
+                class="tech-specs__line tech-specs__line--sensor"
+                width="450"
+                height="350"
+              >
+                <circle
+                  cx="5"
+                  cy="10"
+                  r="3"
+                  fill="#00c4cc"
+                />
+                <path
+                  d="M0,10 H400 V90"
+                  fill="none"
+                  stroke="#00c4cc"
+                  stroke-width="1"
+                />
+              </svg>
+
+              <div class="tech-specs__content">
+                <h3 class="tech-specs__subtitle">SENSOR</h3>
+                <ul class="tech-specs__list">
+                  <li>Weight: 35g/1.23oz each</li>
+                  <li>Dimension: 50mm/1.97in</li>
+                  <li>24mm/0.94in</li>
+                  <li>Light: LED lights</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Блок "Batteries"-->
+            <div class="tech-specs__block tech-specs__block--batteries">
+              <svg
+                class="tech-specs__line tech-specs__line--batteries"
+                width="450"
+                height="350"
+                viewBox="-200 0 400 300"
+              >
+                <circle
+                  class="start-circle"
+                  cx="5"
+                  cy="10"
+                  r="3"
+                  fill="#00c4cc"
+                />
+                <!-- Кружок в начале линии -->
+                <path
+                  class="line-path"
+                  d="M5,10 V215 H-185"
+                  fill="none"
+                  stroke="#00c4cc"
+                  stroke-width="1"
+                />
+                <circle
+                  class="end-circle"
+                  cx="-180"
+                  cy="215"
+                  r="3"
+                  fill="#00c4cc"
+                />
+              </svg>
+
+              <div class="tech-specs__content">
+                <h3 class="tech-specs__subtitle">BATTERRIES</h3>
+                <ul class="tech-specs__list">
+                  <li>Type: Lithium-Ion polymer batteries</li>
+                  <li>Capacity: 370mAh</li>
+                  <li>
+                    Battery life: 10% of continuous use 150 hours
+                    <br />
+                    on standby
+                  </li>
+                  <li>Charging: Fast charging ~ 1 hour</li>
+                  <li>Charging voltage and current: 5V = 0.5A</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Блок "Connection"-->
+            <div class="tech-specs__block tech-specs__block--connection">
+              <svg
+                class="tech-specs__line tech-specs__line--connection"
+                width="700"
+                height="400"
+                viewBox="-100 -100 600 300"
+              >
+                <circle
+                  cx="0"
+                  cy="10"
+                  r="3"
+                  fill="#00c4cc"
+                />
+                <!-- Кружок в начале линии -->
+                <path
+                  class="path-connect"
+                  d="M0,10 H40 V-70 H95"
+                  fill="none"
+                  stroke="#00c4cc"
+                  stroke-width="1"
+                />
+                <circle
+                  class="end-circle-connect"
+                  cx="95"
+                  cy="-70"
+                  r="3"
+                  fill="#00c4cc"
+                  stroke="#00c4cc"
+                  stroke-width="1"
+                  stroke-dasharray="31.4"
+                  stroke-dashoffset="31.4"
+                />
+              </svg>
+
+              <div class="tech-specs__content">
+                <h3 class="tech-specs__subtitle">CONNECTION</h3>
+                <ul class="tech-specs__list">
+                  <li>Wireless: Bluetooth 4.2</li>
+                  <li>Signal range: 5m</li>
+                  <li>Receiver: USB 2.0 and above</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="benefits"
+        id="benefits"
+      >
+        <div class="container">
+          <h2 class="section__title benefits__title">
+            Why
+            <span class="section__title--color">Kat loco?</span>
+          </h2>
+
+          <div class="benefits__wrapper">
+            <div class="benefits__block benefits__block-compatible">
+              <h3 class="benefits__subtitle section__subtitle">
+                UNIVERSALLY COMPATIBLE
+              </h3>
+              <p class="benefits__text section__text">
+                KAT Loco offers universal compatibility across all major VR
+                headsets and platforms allowing you to play any VR game with
+                support for Free Locomotion
+              </p>
+            </div>
+
+            <div class="benefits__block benefits__block-control">
+              <h3 class="benefits__subtitle section__subtitle">
+                VR/PC CONTROL PANEL
+              </h3>
+              <p class="benefits__text section__text">
+                Our Multifunctional Software allows for quick access to KAT
+                Loco’s control panel both from a computer desktop, and directly
+                from your VR headset.
+              </p>
+            </div>
+
+            <div class="benefits__block benefits__block-sensors">
+              <h3 class="benefits__subtitle section__subtitle">
+                WIRELESS SENSORS
+              </h3>
+              <p class="benefits__text section__text">
+                What makes it even more advanced, KAT Loco is entirely wireless,
+                and comes with a complete system of algorithms, super durable
+                batteries and more!
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="contact"
+        id="contact"
+      >
+        <div class="container">
+          <p class="contact__uptitle">Have any questions?</p>
+          <h2 class="section__title contact__title">
+            GET IN
+            <span class="section__title--color">TOUCH</span>
+          </h2>
+
+          <div class="contact-container">
+            <form class="contact-form">
+              <div class="contact-group">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Name*"
+                  required
+                />
+                <label
+                  for="name"
+                  class="contact-group-label"
+                >
+                  Name*
+                </label>
+                <span class="error-message">Please, fill your name*</span>
+              </div>
+
+              <div class="contact-group">
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="email"
+                  required
+                />
+                <label
+                  for="email"
+                  class="sr-only"
+                >
+                  Email*
+                </label>
+                <span class="error-message">Incorrect email format*</span>
+              </div>
+
+              <div class="contact-group">
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="phone"
+                  maxlength="13"
+                  required
+                />
+                <label
+                  for="Phone*"
+                  class="sr-only"
+                >
+                  Phone*
+                </label>
+                <span class="error-message">Please, fill your phone*</span>
+              </div>
+
+              <div class="contact-group">
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="Message"
+                ></textarea>
+                <label
+                  for="message"
+                  class="sr-only"
+                >
+                  Message
+                </label>
+              </div>
+
+              <button
+                type="submit"
+                class="contact-button"
+              >
+                Contact Us
+              </button>
+            </form>
+          </div>
+
+          <p class="contact-message">
+            Our manager will reply you within 15 minutes
+          </p>
+
+          <div class="contact-info">
+            <a
+              class="contact-info__phone"
+              href="tel:+86057186105373"
+            >
+              +86-0571-86105373
+            </a>
+
+            <a
+              class="contact-info__email"
+              href="mailto:global@katvr.com"
+            >
+              global@katvr.com
+            </a>
+
+            <a
+              class="contact-info__email"
+              href="mailto:overseas@katvr.com"
+            >
+              overseas@katvr.com
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <button
+        class="back-to-top"
+        aria-label="back-to-top"
+      >
+        <span class="sr-only"></span>
+      </button>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__container">
+          <div class="footer__logo">
+            <a
+              class="header__logo"
+              href="#"
+            >
+              <img
+                class="header__logo-img footer__logo-img"
+                src="icons/logo-small.png"
+                alt="logo"
+              />
+            </a>
+          </div>
+
+          <div class="footer__menu">
+            <nav class="footer__menu-nav">
+              <ul class="footer__menu-list">
+                <li class="footer__menu-item menu__item-menu">
+                  <a
+                    class="footer__menu-link"
+                    href="#about"
+                  >
+                    About
+                  </a>
+                </li>
+                <li class="footer__menu-item menu__item-menu">
+                  <a
+                    class="footer__menu-link"
+                    href="#tech"
+                  >
+                    Tech
+                  </a>
+                </li>
+                <li class="footer__menu-item menu__item-menu">
+                  <a
+                    class="footer__menu-link"
+                    href="#benefits"
+                  >
+                    Benefits
+                  </a>
+                </li>
+                <li class="footer__menu-item menu__item-menu">
+                  <a
+                    class="footer__menu-link"
+                    href="#contact"
+                  >
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+
+          <div class="footer__social">
+            <a
+              class="footer__social-link"
+              href="https://www.facebook.com"
+              target="_blank"
+            >
+              <img
+                class="footer__social-icon"
+                src="./icons/social/footer-facebook.svg"
+                alt="Facebook"
+              />
+            </a>
+
+            <a
+              class="footer__social-link"
+              href="https://www.twitter.com"
+              target="_blank"
+            >
+              <img
+                class="footer__social-icon"
+                src="./icons/social/footer-twitter.svg"
+                alt="Twitter"
+              />
+            </a>
+
+            <a
+              class="footer__social-link"
+              href="https://www.youtube.com"
+              target="_blank"
+            >
+              <img
+                src="./icons/social/footer-youtube.svg"
+                alt="YouTube"
+                class="footer__social-icon"
+              />
+            </a>
+
+            <a
+              class="footer__social-link"
+              href="https://www.reddit.com"
+              target="_blank"
+            >
+              <img
+                src="./icons/social/footer-redit.svg"
+                alt="Reddit"
+                class="footer__social-icon"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://www.youtube.com/iframe_api"></script>
     <script src="scripts/main.js"></script>
   </body>
 </html>

@@ -1,0 +1,205 @@
+// .buy-pay__form {
+//   display: block;
+//   font-size: 14px;
+//   line-height: 130%;
+//   color: $main-text-color;
+// }
+
+.buy-pay__form-date,
+.buy-pay__form-cvv {
+  margin-bottom: 10px;
+}
+
+.payment-form__group {
+  margin-bottom: 30px;
+
+  @include on-tablet {
+    grid-column: 2/-2;
+    margin-bottom: 35px;
+  }
+  @include on-desktoplittle {
+    grid-column: 2/-1;
+  }
+
+  @include on-desktopmiddle {
+    grid-column: 1/-1;
+    margin-bottom: 38px;
+  }
+}
+
+// .buy-pay__form {
+//   font-size: 14px;
+//   line-height: 130%;
+//   color: $main-text-color;
+// }
+
+.card-number-group {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+
+  @include on-desktopmiddle {
+    justify-content: space-between;
+  }
+}
+
+.payment-form__input {
+  position: relative;
+  font-size: 18px;
+  line-height: 130%;
+  width: 100%;
+  letter-spacing: 5px;
+  padding-bottom: 0;
+  background-color: $background-color;
+  border: none;
+  border-bottom: 2px solid #2f2f2f;
+  color: $main-title-color;
+
+  @include on-tablet {
+    padding-bottom: 14px;
+  }
+}
+
+.payment-form__input:focus-visible {
+  outline: none;
+  border-bottom: 1px solid $main-title-color-accent;
+}
+
+.buy-pay__form {
+  display: block;
+  font-size: 14px;
+  line-height: 130%;
+  color: $main-text-color;
+  transition: color 0.3s ease;
+  margin-bottom: 30px;
+
+  @include on-desktoplittle {
+    margin-bottom: 38px;
+  }
+  @include on-desktopmiddle {
+    margin-bottom: 60px;
+  }
+
+  &-label {
+    margin-bottom: 5px;
+    @include on-desktopmiddle {
+      margin-bottom: 17px;
+    }
+  }
+
+  &-lab {
+    margin-bottom: -5px;
+  }
+}
+
+.pay__visa {
+  display: none;
+
+  @include on-tablet {
+    display: block;
+    height: 34px;
+  }
+}
+
+/* Подсвечиваем label для card-number */
+.payment-form__group:has(.card-number-group .payment-form__input:focus-visible)
+  .buy-pay__form {
+  color: $main-title-color-accent;
+}
+
+/* Подсвечиваем label только если его for соответствует id сфокусированного input */
+.payment-form__group
+  label.card-holder-label:has(
+    + .payment-form__input.card-holder-input:focus-visible
+  ) {
+  color: $main-title-color-accent;
+}
+
+.payment-form__group
+  label.expiry-date-label:has(
+    + .payment-form__input.expiry-date-input:focus-visible
+  ) {
+  color: $main-title-color-accent;
+}
+
+.payment-form__group
+  label.cvv-label:has(+ .payment-form__input.cvv-input:focus-visible) {
+  color: $main-title-color-accent;
+}
+
+.payment-form__input::placeholder {
+  color: #2f2f2f;
+  letter-spacing: 20%;
+  font-size: 20px;
+}
+
+.payment-form__input--card-number {
+  width: 25%;
+  padding: 10px 0;
+
+  @include on-tablet {
+    width: 70px;
+    font-size: 20px;
+    margin-right: 22px;
+  }
+
+  @include on-desktoplittle {
+    margin-right: 11px;
+  }
+}
+
+.error-message {
+  position: absolute;
+  display: none;
+  color: red;
+  font-size: 10px;
+  margin-top: 5px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+
+  @include on-desktopmiddle {
+    grid-column: span 4;
+  }
+}
+
+.col {
+  flex: 1;
+}
+
+.buy-pay__payment-form {
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+  }
+
+  @include on-desktoplittle {
+    width: 430px;
+    position: absolute;
+    right: 21%;
+    top: 31%;
+  }
+
+  @include on-desktopmiddle {
+    width: 533px;
+    right: 22%;
+  }
+}
+
+.buy__button-pay {
+  @include on-tablet {
+    margin: 45px 0 0;
+  }
+
+  @include on-desktoplittle {
+    margin-top: 20px;
+    margin-left: -5px;
+  }
+  @include on-desktopmiddle {
+    margin-top: 35px;
+    margin-left: 5px;
+  }
+}

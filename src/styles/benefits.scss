@@ -1,0 +1,153 @@
+.benefits {
+  padding-block: 20px;
+
+  &__title {
+    margin-bottom: 35px;
+
+    @include on-tablet {
+      margin-bottom: 140px;
+    }
+
+    @include on-desktoplittle {
+      text-align: center;
+      margin-bottom: 203px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px 20px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+      text-align: center;
+    }
+
+    @include on-desktoplittle {
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @include on-desktopmiddle {
+      grid-template-columns: repeat(16, 1fr);
+    }
+  }
+
+  &__block {
+    position: relative;
+    grid-column: span 2;
+
+    @include on-tablet {
+      width: 222px;
+    }
+
+    @include on-desktoplittle {
+      grid-column: span 4;
+      width: 340px;
+    }
+
+    &::before {
+      @include on-tablet {
+        content: url(../icons/benefits-flow.svg);
+        width: 106px;
+        height: 81px;
+        display: block;
+        position: absolute;
+        top: 95%;
+        left: 48%;
+        transform: translate(-50%, -280%);
+      }
+
+      @include on-desktoplittle {
+        top: 85%;
+        left: 50%;
+      }
+    }
+
+    &-control {
+      @include on-desktopmiddle {
+        grid-column: 7/-6;
+      }
+    }
+
+    &-sensors {
+      @include on-desktopmiddle {
+        grid-column: 13/-1;
+      }
+    }
+
+    &-control::before {
+      @include on-tablet {
+        content: url('../icons/benefits-vr.svg');
+      }
+    }
+
+    &-sensors::before {
+      @include on-tablet {
+        content: url('../icons/benefits-sound.svg');
+      }
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    margin-bottom: 15px;
+
+    @include on-tablet {
+      margin-bottom: 35px;
+    }
+
+    @include on-desktoplittle {
+      margin-bottom: 20px;
+    }
+  }
+
+  &__text {
+    position: relative;
+    overflow-y: auto;
+    max-height: 75px;
+
+    &::after {
+      content: '...';
+      position: absolute;
+      width: 100px;
+      bottom: 0;
+      color: #fff;
+      font-size: 14px;
+      background: #05040b;
+      padding: 0 5px;
+
+      @include on-tablet {
+        display: block;
+        padding: 0 3px;
+        width: 18px;
+      }
+
+      @include on-desktoplittle {
+        display: none;
+      }
+    }
+
+    @include on-tablet {
+      font-size: 17px;
+      text-align: center;
+    }
+
+    @include on-desktoplittle {
+      max-height: 108px;
+    }
+  }
+
+  @include on-tablet {
+    padding-block: 75px;
+  }
+
+  @include on-desktoplittle {
+    margin-bottom: 165px;
+  }
+
+  @include on-desktopmiddle {
+    padding-block: 100px;
+    margin-bottom: 75px;
+  }
+}

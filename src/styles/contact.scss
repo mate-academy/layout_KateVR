@@ -1,0 +1,238 @@
+.contact {
+  // position: relative;
+  padding-top: 82px;
+  margin-bottom: 92px;
+
+  &__uptitle {
+    font-size: 14px;
+    line-height: 100%;
+    margin-bottom: 15px;
+    color: $main-title-color-accent;
+  }
+
+  &__title {
+    margin-bottom: 35px;
+
+    @include on-tablet {
+      margin-bottom: 50px;
+    }
+
+    @include on-desktoplittle {
+      margin-bottom: 35px;
+    }
+  }
+
+  @include on-tablet {
+    padding-top: 70px;
+    margin-bottom: 245px;
+  }
+
+  @include on-desktoplittle {
+    padding-top: 105px;
+    margin-bottom: 270px;
+  }
+
+  @include on-desktopmiddle {
+    padding-top: 155px;
+  }
+
+  @include on-desktopmiddle {
+    margin-bottom: 335px;
+  }
+}
+
+.contact-container {
+  // max-width: 280px;
+  // width: 100%;
+
+  margin-bottom: 25px;
+
+  @include on-tablet {
+    position: absolute;
+    transform: translate(106%, -27%);
+    width: 340px;
+  }
+
+  @include on-desktoplittle {
+    transform: translate(160%, -25%);
+  }
+
+  @include on-desktopmiddle {
+    transform: translate(220%, -30%);
+  }
+}
+
+/* Стили для формы */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Стили для группы полей */
+.contact-group {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+}
+
+.contact-group input {
+  height: 40px;
+}
+
+.contact-group label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #fff; /* Белый цвет по умолчанию */
+  font-size: 14px;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Стили для полей ввода */
+.contact input,
+.contact textarea {
+  background: none;
+  border: none;
+  border-bottom: 1px solid $main-text-color;
+  color: #fff;
+  font-size: 16px;
+  outline: none;
+
+  @include on-tablet {
+    padding: 0;
+    padding-bottom: 20px;
+  }
+}
+
+/* Делаем placeholder прозрачным */
+.contact input::placeholder,
+.contact textarea::placeholder {
+  color: transparent;
+}
+
+/* Стили для textarea */
+.contact-group textarea {
+  resize: none;
+  height: 88px;
+  padding-top: 60px;
+}
+
+/* Стили для кнопки */
+.contact-button {
+  font-weight: 500;
+  margin-top: 7px;
+
+  @include on-tablet {
+    width: 200px;
+    margin-top: 23px;
+    padding: 15px;
+  }
+
+  @include on-desktoplittle {
+    margin-top: 65px;
+  }
+
+  @include on-desktopmiddle {
+    margin-top: 30px;
+  }
+}
+
+.contact-group--error input,
+.contact-group--error textarea {
+  border-bottom: 1px solid red;
+}
+
+/* Убираем подчёркивание при фокусе */
+.contact input:focus,
+.contact textarea:focus {
+  border-bottom: 1px solid #00c4cc;
+}
+
+.contact-group--error input:focus,
+.contact-group--error textarea:focus {
+  border-bottom: 1px solid red;
+}
+
+.contact input:-webkit-autofill {
+  color: #fff;
+  background: none;
+  border: none;
+  border-bottom: 1px solid #929292;
+  outline: none;
+  font-size: 16px;
+  padding-bottom: 0;
+}
+
+.error-message {
+  display: none;
+}
+
+.contact-group--error .error-message {
+  display: block;
+  color: red;
+  font-size: 14px;
+  line-height: 150%;
+  margin-top: -15px;
+}
+
+.contact-group--error label {
+  color: var(--error-color);
+}
+
+.contact-group--error .contact-group-label,
+.contact-group--error .sr-only {
+  display: none;
+}
+
+.contact-group input:focus + label,
+.contact-group textarea:focus + label {
+  color: $main-title-color-accent;
+  top: -15px;
+}
+
+// /* Стили для меток при заполнении поля (позиция, размер и голубой цвет) */
+.contact-group input:not(:placeholder-shown) + label,
+.contact-group textarea:not(:placeholder-shown) + label {
+  top: -15px;
+  left: 0;
+  color: $main-title-color-accent;
+}
+
+/* Стили для сообщения под кнопкой */
+.contact-message {
+  color: #b0b0b0;
+  font-size: 12px;
+  line-height: 150%;
+
+  @include on-tablet {
+    font-size: 16px;
+    margin-bottom: 72px;
+  }
+}
+
+.contact-info {
+  font-size: 13px;
+  line-height: 210%;
+  width: 130px;
+  position: absolute;
+  transform: translate(115%, 148%);
+
+  @include on-tablet {
+    position: static;
+    width: 158px;
+    font-size: 16px;
+    line-height: 175%;
+    transform: translate(0);
+  }
+}
+
+.contact-info a {
+  color: $main-text-color;
+
+  &:hover {
+    color: $main-title-color;
+  }
+}

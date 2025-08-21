@@ -1,0 +1,248 @@
+.buy {
+  &__wrapper-box {
+    @include on-desktoplittle {
+      margin-top: 10%;
+      padding-inline: 110px;
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+    }
+
+    @include on-desktopmiddle {
+      margin-top: 11%;
+    }
+  }
+
+  &__img {
+    display: none;
+    text-align: center;
+
+    @include on-tablet {
+      display: block;
+    }
+
+    &-picture {
+      width: 524px;
+      height: 277px;
+
+      @include on-desktoplittle {
+        margin-left: -15%;
+      }
+
+      @include on-desktopmiddle {
+        margin-left: -11%;
+        width: 860px;
+        height: 445px;
+      }
+    }
+
+    &-pay {
+      @include on-desktoplittle {
+        top: 30%;
+        left: 19%;
+        position: absolute;
+      }
+
+      @include on-desktopmiddle {
+        top: 27%;
+        left: 14%;
+      }
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding-bottom: 19px;
+    border: none;
+    border-bottom: 1px solid #2f2f2f;
+    color: #fff;
+    font-size: 18px;
+    line-height: 130%;
+    letter-spacing: 20%;
+    background-color: $background-color;
+
+    &::placeholder {
+      color: #929292;
+      font-size: 14px;
+      line-height: 130%;
+    }
+
+    &:hover {
+      border-bottom: 1px solid $main-title-color-accent;
+
+      &::placeholder {
+        font-size: 16px; // Увеличиваем шрифт placeholder при наведении на input
+      }
+    }
+
+    &:focus {
+      outline: none; /* Убираем стандартную оранжевую рамку */
+      border-bottom: 1px solid $main-title-color-accent;
+      background-color: $background-color;
+    }
+
+    // &:not(:placeholder-shown) {
+    //   border-bottom: 1px solid #00c4cc; /* Синяя нижняя граница, когда поле заполнено */
+    //   &:hover {
+    //     border-bottom: 1px solid #2f2f2f;
+    //   }
+    // }
+  }
+
+  &__select {
+    width: 100%;
+    height: 100%;
+    padding: 25px 0 15px 24px;
+    background-color: $background-color !important;
+    color: #fff !important;
+    border: none;
+    border-bottom: 1px solid #2f2f2f;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transition: background-color 0.3s ease;
+    position: relative;
+    background-image: url('data:image/svg+xml;utf8,<svg fill="%2305C2DF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+
+    &:hover {
+      border-bottom: 1px solid $main-title-color-accent;
+    }
+
+    &:focus-visible {
+      outline: none;
+      border-bottom: 1px solid $main-title-color-accent;
+      background-color: #191536 !important;
+    }
+
+    &:-webkit-autofill {
+      background-color: $background-color !important;
+      -webkit-box-shadow: 0 0 0 30px $background-color inset !important;
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+    }
+
+    // Синее подчёркивание, когда поле заполнено
+
+    &:valid {
+      border-bottom: 1px solid #2f2f2f; // Синяя нижняя граница
+      &:hover {
+        border-bottom: 1px solid $main-title-color-accent;
+      }
+    }
+
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus,
+    &:-webkit-autofill:active {
+      background-color: $background-color !important;
+      -webkit-box-shadow: 0 0 0 30px $background-color inset !important;
+      color: #fff !important;
+      -webkit-text-fill-color: #fff !important;
+    }
+
+    option {
+      background-color: $background-color;
+      color: #fff;
+    }
+
+    @include on-desktoplittle {
+      width: 250px;
+      height: 47px;
+      margin-top: 13px;
+      margin-bottom: 10px;
+      padding: 15px 0 15px 15px;
+    }
+
+    @include on-desktopmiddle {
+      width: 100%;
+      padding: 0 0 0 15px;
+      margin-top: 13px;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__order-form {
+    @include on-tablet {
+      display: grid;
+      column-gap: 20px;
+      grid-template-columns: repeat(6, 1fr);
+    }
+
+    @include on-desktoplittle {
+      grid-template-columns: repeat(12, 1fr);
+      position: absolute;
+      width: 520px;
+      right: 12%;
+      top: 26%;
+    }
+
+    @include on-desktopmiddle {
+      grid-template-columns: repeat(8, 1fr);
+      width: 716px;
+      top: 32%;
+      right: 12%;
+    }
+  }
+}
+
+.form-group {
+  margin-bottom: 22px;
+
+  label {
+    font-size: 14px;
+    line-height: 130%;
+  }
+
+  &:hover {
+    label {
+      font-size: 16px; // Увеличиваем шрифт label при наведении на form-group
+    }
+  }
+
+  @include on-tablet {
+    grid-column: span 3;
+    margin-bottom: 30px;
+  }
+
+  @include on-desktoplittle {
+    margin-bottom: 33px;
+  }
+
+  @include on-desktopmiddle {
+    grid-column: 5/-1;
+  }
+
+  &:nth-child(2n + 1) {
+    @include on-desktoplittle {
+      grid-column: 2/-6;
+    }
+
+    @include on-desktopmiddle {
+      grid-column: span 4;
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  width: 100%;
+  padding-bottom: 19px;
+  border: none;
+  border-bottom: 1px solid #2f2f2f;
+  color: #fff;
+  font-size: 18px;
+  line-height: 130%;
+  letter-spacing: 20%;
+  box-shadow: 0 0 0 1000px #000 inset;
+  -webkit-text-fill-color: #fff !important;
+  -webkit-box-shadow: 0 0 0 30px $background-color inset !important;
+  background-color: $background-color !important;
+  transition: background-color 0.3s ease;
+}
+
+input:-webkit-autofill:hover {
+  border-bottom: 1px solid $main-title-color-accent;
+}

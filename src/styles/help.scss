@@ -1,0 +1,116 @@
+.help {
+  &__title {
+    margin: 30px 0;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-desktoplittle {
+      margin: 0 0 60px 10px;
+      font-size: 36px;
+      grid-column: 2/-1;
+    }
+
+    @include on-desktopmiddle {
+      margin-left: 0;
+    }
+  }
+
+  &__text {
+    margin-bottom: 27px;
+    grid-column: span 2;
+
+    &--link {
+      color: $main-title-color-accent;
+      &:hover {
+        color: blue;
+      }
+    }
+
+    @include on-tablet {
+      grid-column: span 6;
+    }
+
+    @include on-desktoplittle {
+      grid-column: 2/-2;
+      padding: 0 5px;
+    }
+  }
+
+  &__links {
+    grid-column: span 2;
+    margin: 10px 0 5px;
+
+    @include on-tablet {
+      grid-column: 1/-4;
+      margin: 2px 0 5px;
+    }
+    @include on-desktoplittle {
+      padding-left: 10px;
+      grid-column: 2/-8;
+    }
+    @include on-desktopmiddle {
+      width: 205px;
+      padding-left: 0;
+      grid-column: 2/-9;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $main-title-color-accent;
+    margin-bottom: 20px;
+
+    &:hover {
+      font-size: 18px;
+    }
+  }
+
+  &__contact {
+    display: grid;
+    gap: 5px;
+    grid-column: span 2;
+    margin-bottom: 73px;
+
+    & a {
+      color: $main-text-color;
+
+      &:hover {
+        color: $main-title-color;
+        font-size: 18px;
+      }
+    }
+
+    @include on-tablet {
+      grid-column: 4/-1;
+      margin-bottom: 12px;
+    }
+
+    @include on-desktoplittle {
+      grid-column: 6/-1;
+      margin-left: -20px;
+    }
+
+    @include on-desktopmiddle {
+      width: 205px;
+      grid-column: 5/-1;
+      margin-left: -5px;
+    }
+  }
+
+  @include on-desktoplittle {
+    width: 880px;
+    height: 550px;
+    top: 17%;
+    left: 16%;
+  }
+
+  @include on-desktopmiddle {
+    width: 1083px;
+    height: 518px;
+    top: 26%;
+    left: 22%;
+  }
+}

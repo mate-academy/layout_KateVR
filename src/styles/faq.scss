@@ -1,0 +1,160 @@
+.faq {
+  &__content {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 6;
+      margin-top: 30px;
+    }
+
+    @include on-desktoplittle {
+      grid-column: 2/-2;
+      margin-top: 0;
+    }
+  }
+
+  &__title {
+    width: 280px;
+    margin: 30px 0;
+
+    @include on-tablet {
+      margin: 5px 0 20px;
+    }
+
+    @include on-desktoplittle {
+      width: 520px;
+      font-size: 36px;
+      margin: 27px 0 55px;
+    }
+
+    @include on-desktopmiddle {
+      width: 100%;
+      margin: 28px 0 50px;
+    }
+  }
+
+  &__subtitle {
+    position: relative;
+    padding: 18px 12px;
+    color: $main-title-color-accent;
+
+    @include on-tablet {
+      padding: 15px 12px;
+    }
+  }
+
+  &__arrow {
+    position: absolute;
+    display: none;
+    right: 2%;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 9px solid $main-title-color-accent;
+    transform: rotate(-90deg);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      border-top: 10px solid $main-title-color;
+      cursor: pointer;
+    }
+
+    @include on-desktoplittle {
+      display: inline-block;
+      bottom: 35%;
+    }
+
+    @include on-desktopmiddle {
+      bottom: 27px;
+      right: 10px;
+    }
+  }
+
+  .faq__arrow {
+    border-top-color: white;
+  }
+
+  details[open] .faq__arrow {
+    transform: rotate(0deg);
+  }
+
+  &__block {
+    min-height: 84px;
+    border: 1px solid $main-title-color-accent;
+    border-radius: 4px;
+    margin-bottom: 20px;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    @include on-tablet {
+      margin-bottom: 18px;
+      padding: 0 16px;
+      min-height: 54px;
+    }
+    @include on-desktoplittle {
+      padding: 0 26px;
+    }
+    @include on-desktopmiddle {
+      padding: 0 15px;
+    }
+  }
+
+  &__text-wrapper {
+    padding: 0 11px;
+
+    @include on-tablet {
+      padding: 3px 11px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__data {
+    font-size: 12px;
+    color: #545454;
+    margin-bottom: 12px;
+
+    @include on-desktoplittle {
+      font-size: 14px;
+    }
+  }
+
+  &__bottom-more {
+    display: none;
+
+    @include on-desktoplittle {
+      margin-top: 48px;
+      padding-left: 0;
+      display: block;
+    }
+  }
+
+  @include on-desktoplittle {
+    width: 68%;
+    height: 74%;
+    top: 11%;
+    left: 16%;
+  }
+
+  @include on-desktopmiddle {
+    width: 1083px;
+    height: 793px;
+    top: 13%;
+    left: 22%;
+  }
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+summary {
+  list-style: none;
+}

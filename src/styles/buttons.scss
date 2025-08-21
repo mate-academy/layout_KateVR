@@ -1,0 +1,140 @@
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #05c2df;
+  border: none;
+  border-radius: 5px;
+  color: $main-title-color;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    color: #05c2df;
+    background-color: $main-title-color;
+  }
+}
+
+.buy__button {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 130%;
+  margin: 20px 0 37px;
+
+  &-pay {
+    margin: 0;
+  }
+  &-pay:disabled {
+    cursor: not-allowed;
+  }
+
+  @include on-tablet {
+    grid-column: 2/-2;
+    justify-self: center;
+    padding: 15px;
+    margin: 35px 0 37px;
+    font-size: 16px;
+  }
+
+  @include on-desktoplittle {
+    width: 200px;
+    justify-self: start;
+    margin: 32px 0 0;
+  }
+
+  @include on-desktopmiddle {
+    grid-column: 1 / -5;
+    justify-self: start;
+    width: 200px;
+    margin: 60px 0;
+  }
+}
+
+.play-button {
+  font-weight: 500;
+  font-size: 16px;
+  padding: 15px 0 0;
+  background-color: $background-color;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.5s ease,
+    opacity 0.2s ease;
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  @include hover(transform, scale(1.05));
+
+  &:hover {
+    background-color: $background-color;
+  }
+
+  @include on-tablet {
+    padding: 22px 0 0;
+  }
+
+  @include on-desktoplittle {
+    padding-left: 60px;
+  }
+
+  @include on-desktopmiddle {
+    padding-top: 40px;
+    padding-left: 50px;
+  }
+}
+
+.main-button {
+  position: fixed;
+  border-radius: 5px;
+  background-color: $main-title-color-accent;
+  width: 280px;
+  height: 40px;
+  text-align: center;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0; 
+  visibility: hidden; /* Убираем из потока */
+  transition: opacity 0.3s ease; /* Плавное появление */
+  z-index: 1;
+
+  &__link {
+    display: block;
+    width: 100%;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 130%;
+    padding: 10px;
+    color: #fff;
+
+    &:hover {
+      color: #05c2df;
+      background-color: $main-title-color;
+    }
+
+    @include on-desktoplittle {
+      font-size: 16px;
+      padding: 13px;
+    }
+  }
+
+  @include on-desktoplittle {
+    position: absolute;
+    top: 45px;
+    left: 84%;
+    opacity: 1;
+    visibility: visible;
+    width: 200px;
+    height: 48px;
+  }
+  @include on-desktopmiddle {
+    left: 83%;
+  }
+}
+
+.main-button.visible {
+  opacity: 1;
+  visibility: visible;
+}

@@ -1,0 +1,312 @@
+.header {
+  display: grid;
+
+  &__top {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    align-items: center;
+    padding-top: 12px;
+
+    @include on-tablet {
+      padding-top: 25px;
+    }
+
+    @include on-desktoplittle {
+      padding-top: 60px;
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+
+  &__logo-img {
+    width: 58px;
+    height: 12px;
+
+    &:hover {
+      @include hover(transform, scale(1.2));
+    }
+
+    @include on-tablet {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include on-desktoplittle {
+      width: 78px;
+      height: 16px;
+    }
+  }
+
+  &__icon--menu {
+    background-image: url(../icons/menu-burger.svg);
+
+    justify-self: end;
+
+    &:hover {
+      @include hover(transform, scale(1.2));
+    }
+
+    @include on-desktoplittle {
+      display: none;
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 20px;
+    margin-bottom: 25px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+      padding: 0 55px 0 0;
+    }
+
+    @include on-desktoplittle {
+      grid-template-columns: repeat(12, 1fr);
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    padding: 0 20px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 1/-4;
+      transform: translateY(-85%);
+      padding: 0 0 0 35px;
+    }
+
+    @include on-desktoplittle {
+      position: absolute;
+      top: 410px;
+      left: 8%;
+    }
+
+    @include on-desktopmiddle {
+      top: 590px;
+      left: 13%;
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 26px;
+    line-height: 135%;
+    color: #fff;
+    margin-bottom: 17px;
+    text-transform: uppercase;
+
+    &--color {
+      font-weight: 400;
+      color: $main-title-color-accent;
+    }
+
+    @include on-desktoplittle {
+      font-size: 46px;
+      margin-left: -30px;
+    }
+
+    @include on-desktopmiddle {
+      font-size: 56px;
+    }
+  }
+
+  &__text {
+    font-weight: 500;
+    margin-bottom: 8px;
+
+    @include on-tablet {
+      margin-bottom: 15px;
+    }
+
+    @include on-desktoplittle {
+      width: 336px;
+      margin-bottom: 20px;
+      margin-left: 15%;
+    }
+    @include on-desktopmiddle {
+      width: 439px;
+      margin-bottom: 30px;
+      margin-left: 12%;
+      font-size: 20px;
+      line-height: 150%;
+    }
+  }
+
+  &__price {
+    display: grid;
+    justify-self: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 100%;
+
+    @include on-tablet {
+      justify-self: start;
+    }
+
+    @include on-desktoplittle {
+      margin-left: 15%;
+    }
+
+    @include on-desktopmiddle {
+      margin-left: 12%;
+      font-size: 20px;
+    }
+  }
+
+  &__video {
+    position: absolute;
+
+    &-iframe {
+      display: none;
+      width: 100%;
+      height: 100%;
+    }
+
+    &--active {
+      border: 1px solid #fff;
+      top: 50px;
+      left: 20px;
+      right: 20px;
+      height: 81%;
+
+      @include on-tablet {
+        background-color: black;
+        padding-block: 20px;
+        padding-inline: 20px;
+        height: 300%;
+        width: 205%;
+        top: 0%;
+      }
+
+      @include on-desktoplittle {
+        width: 235%;
+        height: 220%;
+        top: -25%;
+        left: 0;
+      }
+
+      @include on-desktopmiddle {
+        width: 270%;
+        height: 270%;
+        padding-block: 30px;
+        padding-inline: 40px;
+        top: -130px;
+        left: -5%;
+      }
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    &-item {
+      display: block;
+    }
+
+    &-list {
+      display: flex;
+      margin-right: 39px;
+    }
+
+    &-link {
+      font-weight: 500;
+      font-size: 16px;
+      margin-right: 39px;
+      color: $main-title-color;
+
+      &:hover {
+        color: $main-title-color-accent;
+      }
+    }
+
+    &-more {
+      text-align: center;
+      padding-left: 25px;
+
+      &-link {
+        font-weight: 500;
+        line-height: 150%;
+        color: $main-title-color;
+
+        &:hover {
+          color: $main-title-color-accent;
+        }
+      }
+
+      @include on-desktopmiddle {
+        padding-left: 55px;
+      }
+    }
+
+    &-slider {
+      display: inline-block;
+      border-bottom: 1px solid $main-text-color;
+    }
+
+    &-slider-but {
+      line-height: 150%;
+      font-weight: 500;
+      width: 69px;
+
+      padding: 0 0 22px;
+      display: inline-block;
+      border-radius: 0;
+      border-bottom: 2px solid transparent;
+      background-color: transparent;
+      cursor: pointer;
+
+      &:hover {
+        background-color: transparent;
+      }
+
+      &.active {
+        border-bottom: 2px solid #00c4cc;
+        color: $main-text-color;
+      }
+
+      &--current {
+        color: transparent;
+
+        &.active {
+          color: transparent;
+        }
+      }
+    }
+
+    @include on-desktoplittle {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 84px;
+      margin-top: 16%;
+    }
+
+    @include on-desktopmiddle {
+      margin-top: 33%;
+    }
+  }
+
+  // @include on-desktopmiddle {
+  //   margin-bottom: 165px;
+  // }
+}
+
+.header__bottom-more:hover .header__bottom-more-link {
+  color: $main-title-color-accent;
+}
+
+/* Изменение цвета стрелки при наведении на header__bottom-more */
+.header__bottom-more:hover .lang-switcher__arrow path {
+  fill: $main-title-color-accent;
+}
+
+.play-button:hover svg .play-button-path {
+  fill: $main-title-color;
+}
+
+.about__play-button:hover svg .play-button-path {
+  fill: $main-title-color;
+}

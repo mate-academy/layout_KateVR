@@ -1,0 +1,207 @@
+.more {
+  padding-top: 160px;
+  padding-bottom: 50px;
+
+  &__title {
+    margin-bottom: 12px;
+
+    @include on-tablet {
+      grid-column: span 6;
+      text-align: center;
+    }
+
+    @include on-desktoplittle {
+      margin-bottom: 25px;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 100%;
+    margin-bottom: 48px;
+    color: $main-title-color-accent;
+
+    @include on-tablet {
+      grid-column: span 6;
+      text-align: center;
+      margin-bottom: 165px;
+    }
+
+    @include on-desktoplittle {
+      margin-bottom: 200px;
+      font-size: 14px;
+    }
+
+    @include on-desktopmiddle {
+      margin-bottom: 185px;
+    }
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat (2, 1fr);
+    gap: 22px 20px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(6, 1fr);
+      row-gap: 72px;
+    }
+
+    @include on-desktoplittle {
+      grid-template-columns: repeat(12, 1fr);
+      row-gap: 0;
+    }
+
+    @include on-desktopmiddle {
+      grid-template-columns: repeat(16, 1fr);
+    }
+  }
+
+  &__block {
+    position: relative;
+    height: 82px;
+    grid-column: span 2;
+    padding-right: 30px;
+
+    @include on-tablet {
+      height: 195px;
+      padding-right: 0;
+      grid-column: span 3;
+      text-align: center;
+    }
+
+    @include on-desktoplittle {
+      // padding-top: 53%;
+      grid-column: span 3;
+      height: 267px;
+    }
+
+    @include on-desktopmiddle {
+      grid-column: span 4;
+      height: 295px;
+    }
+
+    &::before {
+      display: none;
+
+      @include on-tablet {
+        content: url('../icons/more-cap.svg');
+        display: block;
+        position: absolute;
+        width: 98px;
+        height: 81px;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -280%);
+      }
+
+      @include on-desktoplittle {
+        top: 42%;
+        left: 50%;
+        transform: translate(-50%, -280%);
+      }
+
+      @include on-desktopmiddle {
+        top: 37%;
+        left: 50%;
+        transform: translate(-50%, -280%);
+      }
+    }
+
+    &-estate::before {
+      @include on-tablet {
+        content: url('../icons/more-building.svg');
+      }
+    }
+
+    &-fitness::before {
+      @include on-tablet {
+        content: url('../icons/more-circle.svg');
+      }
+    }
+
+    &-social::before {
+      @include on-tablet {
+        content: url('../icons/more-flow.svg');
+      }
+    }
+
+    &:hover::before {
+      content: url('../icons/more-cap1.svg');
+      transition: all 0.5s;
+    }
+
+    &-estate:hover::before {
+      content: url('../icons/more-building1.svg');
+      transition: all 0.5s;
+    }
+
+    &-fitness:hover::before {
+      content: url('../icons/more-circle1.svg');
+      transition: all 0.5s;
+    }
+
+    &-social:hover::before {
+      content: url('../icons/more-flow1.svg');
+      transition: all 0.5s;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 15px;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+  }
+
+  @include on-tablet {
+    padding-bottom: 0;
+    padding-top: 40px;
+  }
+
+  @include on-desktoplittle {
+    padding-top: 90px;
+  }
+
+  @include on-desktopmiddle {
+    padding-top: 165px;
+  }
+}
+
+.section__text {
+  position: relative;
+  max-height: 52px;
+  overflow-y: auto;
+
+  @include on-tablet {
+    max-height: 81px;
+  }
+
+  @include on-desktoplittle {
+    max-height: 108px;
+  }
+
+  @include on-desktopmiddle {
+    max-height: 81px;
+  }
+}
+
+.section__text::after {
+  content: '...';
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  color: #fff;
+  font-size: 14px;
+  background: #05040b; /* Совпадает с фоном блока */
+  padding: 0 5px;
+
+  @include on-tablet {
+    display: none;
+  }
+}
+
+.section__text.hide-ellipsis::after {
+  display: none;
+}

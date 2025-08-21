@@ -1,0 +1,171 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: $font-family;
+  font-weight: $font-weight;
+  font-size: $font-size;
+  color: $main-text-color;
+  line-height: $line-height;
+  background-color: $background-color;
+}
+
+html,
+body,
+div,
+span,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+abbr,
+address,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+samp,
+small,
+strong,
+sub,
+sup,
+var,
+b,
+i,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  list-style: none;
+  vertical-align: baseline;
+}
+
+a {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  text-decoration: none;
+  list-style: none;
+}
+
+input,
+select {
+  vertical-align: middle;
+  border: none;
+}
+
+.play-icon {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+.play-button span {
+  position: relative;
+  padding-right: 30px;
+}
+
+.play-button span::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 2px;
+  background: repeating-linear-gradient(
+    to right,
+    #00c4ff,
+    #00c4ff 4px,
+    transparent 4px,
+    transparent 8px
+  );
+}
+
+.section__title {
+  font-weight: 900;
+  font-size: 21px;
+  line-height: 100%;
+  text-transform: uppercase;
+  color: $main-title-color;
+
+  &--color {
+    font-weight: 400;
+    color: $main-title-color-accent;
+  }
+
+  @include on-desktoplittle {
+    font-size: 36px;
+  }
+}
+
+.section__subtitle {
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 100%;
+  color: $main-title-color;
+}
+
+.container__aside {
+  @include on-desktoplittle {
+    padding-inline: 0;
+  }
+}

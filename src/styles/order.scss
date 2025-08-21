@@ -1,0 +1,154 @@
+// мод окно
+
+.buy {
+  position: fixed;
+  left: 0;
+  transform-origin: left center; /* Точка вращения — левый край */
+  transform: perspective(1000px) rotateY(-90deg); /* Начальное состояние: "закрыто" */
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.5s ease-in-out,
+    opacity 0.5s ease-in-out; /* Плавный переход */
+
+  z-index: 1000;
+  top: 0;
+  background-color: $background-color;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+
+  &__top {
+    margin: 15px 0 25px;
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      margin: 25px 0;
+    }
+
+    @include on-desktoplittle {
+      margin: 0;
+      margin-top: 6%;
+    }
+
+    @include on-desktopmiddle {
+      margin-top: 60px;
+    }
+  }
+
+  &__close {
+    background-image: url(../icons/menu-close.svg);
+    width: 15px;
+    height: 15px;
+    @include hover(transform, scale(1.2));
+
+    @include on-desktoplittle {
+      display: none;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: space-between;
+    min-height: 33px;
+    border-bottom: 1px solid #2f2f2f;
+    margin-bottom: 30px;
+
+    &-item {
+      padding: 0 19px 17px;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 130%;
+      color: #545454;
+
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition:
+        color 0.3s,
+        border-bottom-color 0.3s;
+
+      &:active {
+        color: $main-title-color-accent;
+        border-bottom: 1px solid main-title-color-accent;
+      }
+      &:hover {
+        color: $main-title-color-accent;
+      }
+
+      @include on-tablet {
+        font-size: 14px;
+      }
+    }
+
+    @include on-desktoplittle {
+      position: absolute;
+      border-bottom: none;
+      width: 57%;
+      left: 23%;
+      top: 65px;
+    }
+
+    @include on-desktopmiddle {
+      top: 58px;
+      left: 24%;
+    }
+  }
+}
+
+.buy--open {
+  opacity: 1;
+  transform: perspective(1000px) rotateY(0deg);
+  pointer-events: all;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #888;
+  font-size: 14px;
+  flex: 1;
+}
+
+.step.active {
+  border-bottom: 2px solid #00c4cc;
+
+  @include on-desktoplittle {
+    border-bottom: 2px solid transparent;
+  }
+}
+
+.step.active::after {
+  @include on-desktoplittle {
+    content: '';
+
+    position: absolute;
+    bottom: 10px;
+
+    display: block;
+    background-color: $main-title-color-accent;
+
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+  }
+}
+
+.step.active .buy__menu-item {
+  color: #00c4cc;
+}
+
+select {
+  display: block;
+  width: 60px;
+  border: none;
+  color: #fff;
+  font-size: 16px;
+  appearance: none;
+  padding: 10px;
+  background: url('data:image/svg+xml;utf8,<svg fill="%2300c4cc" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"/></svg>');
+  background-color: #191536;
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}

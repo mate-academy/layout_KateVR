@@ -1,0 +1,312 @@
+.tech {
+  padding-block: 80px;
+
+  @include on-desktoplittle {
+    padding-block: 130px;
+  }
+
+  @include on-desktopmiddle {
+    padding-block: 220px;
+  }
+}
+
+.tech__title {
+  margin-bottom: 48px;
+
+  @include on-tablet {
+    margin-bottom: 60px;
+  }
+
+  @include on-desktoplittle {
+    display: inline-block;
+    margin-bottom: 145px;
+    margin-left: 68%;
+    padding-top: 50px;
+  }
+
+  @include on-desktopmiddle {
+    margin-left: 69%;
+    padding-top: 110px;
+  }
+}
+
+/* Центральный круг */
+.tech__wrapper {
+  position: relative;
+  margin: 0 auto;
+  overflow: visible;
+  height: auto;
+  grid-template-columns: repeat(2, 1fr);
+  display: grid;
+  justify-items: center;
+  column-gap: 20px;
+
+  @include on-desktoplittle {
+    grid-template-columns: repeat(12, 1fr);
+    width: 1055px;
+  }
+
+  @include on-desktopmiddle {
+    width: 1175px;
+  }
+}
+
+.tech__circle {
+  position: relative;
+  grid-column: span 2;
+  width: 197px;
+  height: 195px;
+
+  @include on-tablet {
+    width: 358px;
+    height: 354px;
+  }
+
+  @include on-desktoplittle {
+    width: 298px;
+    height: 294px;
+    grid-column: 5 / -6;
+  }
+}
+
+.tech__small-circle,
+.tech__small-circle::after,
+.tech__small-circle::before {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 34px;
+  height: 34px;
+  font-family: Arial, sans-serif;
+  font-size: 35px;
+  color: $main-title-color;
+  background-color: $main-title-color-accent;
+  line-height: 1;
+  transform: translate(-50%, -145%);
+
+  @include on-tablet {
+    width: 62px;
+    height: 62px;
+    transform: translate(-95%, -140%);
+  }
+
+  @include on-desktoplittle {
+    display: none;
+  }
+}
+
+.tech__small-circle::after {
+  content: '+';
+  top: -115px;
+  left: 95px;
+
+  @include on-tablet {
+    top: -210px;
+    left: 180px;
+  }
+}
+
+.tech__small-circle::before {
+  content: '+';
+  top: -25px;
+  left: 167px;
+
+  @include on-tablet {
+    top: -40px;
+    left: 365px;
+  }
+}
+
+.tech__circle img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Общие стили для блоков */
+
+.tech-specs__block {
+  display: none;
+
+  @include on-desktoplittle {
+    position: absolute;
+    text-transform: uppercase;
+    display: flex;
+    align-items: flex-start;
+    overflow: visible; /* Убедимся, что SVG не обрезается */
+  }
+}
+
+.tech-specs__content {
+  opacity: 0; /* Скрываем текст до анимации */
+}
+
+.tech-specs__subtitle {
+  font-weight: 900;
+  font-size: 18px;
+  margin-bottom: 21px;
+  color: $main-title-color;
+}
+
+.tech-specs__list {
+  text-transform: capitalize;
+  list-style: none;
+  padding: 0;
+  font-size: 16px;
+}
+
+// .tech-specs__list li {
+//   color: $main-text-color;
+// }
+
+/* Позиционирование блоков */
+.tech-specs__block--sensor {
+  // top: -62px;
+  // left: 0;
+  // flex-direction: row;
+  top: -62px;
+  left: 0;
+
+  @include on-desktopmiddle {
+    left: 55px;
+  }
+}
+
+.tech-specs__block--batteries {
+  top: -60px;
+  right: -15px;
+
+  @include on-desktoplittle {
+    right: -17px;
+  }
+
+  @include on-desktopmiddle {
+    right: -70px;
+  }
+}
+
+.tech-specs__block--connection {
+  bottom: 20px;
+  left: 90px;
+  flex-direction: row;
+
+  @include on-desktoplittle {
+    left: 88px;
+  }
+
+  @include on-desktopmiddle {
+    left: 0;
+  }
+
+  @include on-desktopmiddle {
+    left: 55px;
+  }
+}
+
+/* Линии */
+.tech-specs__line {
+  position: absolute;
+}
+
+/* Линии для каждого блока */
+.tech-specs__line--sensor {
+  position: absolute;
+  top: 0;
+  left: 85px;
+}
+
+.tech-specs__line--batteries {
+  position: absolute;
+  top: 0;
+  left: -250px;
+
+  @include on-desktopmiddle {
+    left: -400px;
+  }
+}
+
+.tech-specs__line--connection {
+  position: absolute;
+  top: -140px;
+  left: 25px;
+}
+
+/* Стили для кружка */
+.tech-specs__line--sensor circle,
+.tech-specs__line--batteries circle,
+.tech-specs__line--connection circle {
+  opacity: 0;
+  animation: fade-in 0.5s forwards 2s infinite; /* Синхронизируем с началом анимации линии */
+}
+
+/* Анимация конечного кружка для CONNECTION */
+.tech-specs__line--connection .end-circle {
+  animation: fade-in 0.5s forwards 3s infinite; /* Появляется после линии (1s анимация + 2s задержка) */
+}
+
+/* Анимация SVG линии */
+.tech-specs__line--sensor path {
+  stroke-dasharray: 690; /* Длина пути (примерно H350 + V90) */
+  stroke-dashoffset: 690; /* Начальное смещение для анимации */
+  animation: draw-line 5s forwards 5s infinite;
+}
+
+.tech-specs__line--batteries path {
+  stroke-dasharray: 385; /* Длина пути (примерно H350 + V90) */
+  stroke-dashoffset: 385; /* Начальное смещение для анимации */
+  animation: draw-line 5s forwards 5s infinite;
+
+  @include on-desktopmiddle {
+    stroke-dasharray: 500; /* Длина пути (примерно H350 + V90) */
+    stroke-dashoffset: 500; /* Начальное смещение для анимации */
+  }
+}
+
+.tech-specs__line--connection path {
+  stroke-dasharray: 190; /* Длина пути (примерно H350 + V90) */
+  stroke-dashoffset: 190; /* Начальное смещение для анимации */
+  animation: draw-line 5s forwards 5s infinite;
+
+  @include on-desktopmiddle {
+    stroke-dasharray: 270; /* Длина пути (примерно H350 + V90) */
+    stroke-dashoffset: 270; /* Начальное смещение для анимации */
+  }
+}
+
+@keyframes draw-line {
+  to {
+    stroke-dashoffset: 0; /* Линия полностью нарисована */
+  }
+}
+
+/* Анимация появления обводки кружка */
+@keyframes draw-circle-stroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Показ текста после анимации линии */
+.tech-specs__block--sensor .tech-specs__content {
+  animation: fade-in 0.5s forwards;
+}
+
+.tech-specs__block--batteries .tech-specs__content {
+  animation: fade-in 0.5s forwards;
+}
+
+.tech-specs__block--connection .tech-specs__content {
+  animation: fade-in 0.5s forwards;
+}
+
+/* Анимация появления текста */
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
