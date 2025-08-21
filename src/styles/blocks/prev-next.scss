@@ -1,0 +1,62 @@
+@import '../utils';
+@import '../fonts';
+
+.prev-next {
+  display: none;
+
+  @include on-laptop {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    width: 210px;
+    margin-bottom: 10px;
+  }
+
+  &__next,
+  &__prev {
+    cursor: pointer;
+
+    margin: 0;
+    padding: 0;
+    border: none;
+
+    font-size: 16;
+    color: $white;
+
+    background-color: transparent;
+
+    &:hover {
+      color: $light-blue;
+    }
+
+    &--disabled {
+      color: $grey;
+
+      &:hover {
+        color: $grey;
+      }
+    }
+  }
+
+  &__underline {
+    content: '';
+    position: relative;
+    width: 100%;
+    border-top: 2px solid $grey;
+  }
+
+  &__underline-position {
+    content: '';
+
+    position: absolute;
+    top: -2px;
+    left: 0;
+
+    width: 20%;
+    border-top: 2px solid $light-blue;
+  }
+}

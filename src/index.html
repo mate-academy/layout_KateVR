@@ -6,14 +6,1353 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title data-i18n="title.1">
+      KAT VR | No.1 VR Treadmill Technology Innovator
+    </title>
     <link
       rel="stylesheet"
       href="./styles/main.scss"
     />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+    />
+    <link
+      rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin="true"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      href="./images/favicon.ico"
+      type="image/x-icon"
+    />
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
+  <body id="top">
+    <div class="section-wrapper-gradient">
+      <header class="header">
+        <div class="header__container">
+          <a
+            href="/"
+            class="header__logo"
+          >
+            <img
+              src="./images/Logo.svg"
+              alt="KatVR Logo"
+            />
+          </a>
+
+          <div class="header__select">
+            <select
+              class="header__select-control"
+              onchange="onLangChange()"
+            >
+              <option
+                value="en"
+                selected=""
+                data-i18n="option.1"
+              >
+                En
+              </option>
+              <option
+                value="ua"
+                data-i18n="option.2"
+              >
+                Ua
+              </option>
+              <option
+                value="de"
+                data-i18n="option.3"
+              >
+                De
+              </option>
+            </select>
+          </div>
+
+          <button
+            class="header__burger"
+            aria-label="Open navigation"
+          >
+            <img
+              src="./images/icons/burger.svg"
+              alt="burger menu icon"
+              class="header__burger-icon"
+            />
+          </button>
+
+          <div class="header__background"></div>
+          <nav
+            class="header__nav nav"
+            id="main-nav"
+          >
+            <button
+              class="header__nav-close"
+              aria-label="Close navigation"
+            >
+              <img
+                src="./images/icons/burger-close.png"
+                alt="burger menu icon"
+                class="header__nav-close-icon"
+              />
+            </button>
+
+            <ul class="nav__list">
+              <li class="nav__item">
+                <a
+                  href="#about"
+                  class="nav__link"
+                  data-i18n="a.1"
+                >
+                  About
+                </a>
+              </li>
+
+              <li class="nav__item">
+                <a
+                  href="#tech"
+                  class="nav__link"
+                  data-i18n="a.2"
+                >
+                  Tech
+                </a>
+              </li>
+
+              <li class="nav__item">
+                <a
+                  href="#benefits"
+                  class="nav__link"
+                  data-i18n="a.3"
+                >
+                  Benefits
+                </a>
+              </li>
+
+              <li class="nav__item">
+                <a
+                  href="#contacts"
+                  class="nav__link"
+                  data-i18n="a.4"
+                >
+                  Contact
+                </a>
+              </li>
+
+              <li class="nav__item nav__item--lang">
+                <a
+                  href="#"
+                  class="nav__link"
+                  data-i18n="a.5"
+                >
+                  Language
+                </a>
+              </li>
+
+              <li class="nav__item nav__item--faq">
+                <a
+                  href="#why"
+                  class="nav__link"
+                  data-i18n="a.6"
+                >
+                  FAQ
+                </a>
+              </li>
+
+              <li class="nav__item nav__item--help">
+                <a
+                  href="#"
+                  class="nav__link"
+                  data-i18n="a.7"
+                >
+                  Help
+                </a>
+              </li>
+            </ul>
+
+            <ul
+              name="nav__select"
+              id="nav__select"
+              class="nav__select"
+            >
+              <button
+                class="nav__select-back"
+                aria-label="Close navigation"
+              >
+                <img
+                  src="./images/icons/arrow-left.svg"
+                  alt="burger menu icon"
+                  class="nav__select-back-icon"
+                />
+              </button>
+
+              <li
+                data-lang="en"
+                selected=""
+                class="nav__select-option"
+                data-i18n="li.1"
+              >
+                English
+              </li>
+              <li
+                class="nav__select-option"
+                data-lang="ua"
+                data-i18n="li.2"
+              >
+                Ukrainian
+              </li>
+              <li
+                class="nav__select-option"
+                data-lang="de"
+                data-i18n="li.3"
+              >
+                Deutsche
+              </li>
+            </ul>
+          </nav>
+
+          <div class="help-wrapper">
+            <div class="help">
+              <button class="help__close">
+                <img
+                  src="./images/icons/burger-close.png"
+                  alt="burger menu icon"
+                  class="help__close-icon"
+                />
+              </button>
+
+              <h2
+                class="help__title"
+                data-i18n="h2.1"
+              >
+                HOW CAN WE
+                <span
+                  class="help__title--blue"
+                  data-i18n="span.1"
+                >
+                  HELP
+                </span>
+                <span data-i18n="span.101">YOU?</span>
+              </h2>
+
+              <p
+                class="help__text"
+                data-i18n="p.1"
+              >
+                Welcome to our help center. Our goal is to make the process of
+                getting acquainted and purchase as easy and pleasant as
+                possible. Need help with your KAT VR loco product? Many product
+                questions can be resolved by reviewing our Product Support
+                <a
+                  class="help__link help__link--top"
+                  href="#why"
+                  data-i18n="a.8"
+                >
+                  FAQs.
+                </a>
+              </p>
+
+              <p
+                class="help__text"
+                data-i18n="p.2"
+              >
+                Please also feel free to
+                <a
+                  class="help__link help__link--top"
+                  href="#contacts"
+                  data-i18n="a.9"
+                >
+                  Contact Us
+                </a>
+                directly should you need anything further. We’re happy to help.
+              </p>
+
+              <a
+                class="help__link help__link--bottom"
+                href="https://download.katvr.com/product/literature/KAT%20Walk%20C202112101639381001869.pdf"
+                target="_blank"
+                data-i18n="a.10"
+              >
+                Instruction manual
+              </a>
+
+              <a
+                class="help__link help__link--bottom"
+                href="https://www.kat-vr.com/pages/warranty-policy"
+                target="_blank"
+                data-i18n="a.11"
+              >
+                Where to go for a warranty
+              </a>
+
+              <a
+                class="help__link help__link--bottom"
+                href="https://www.kat-vr.com/pages/terms-of-service"
+                target="_blank"
+                data-i18n="a.12"
+              >
+                Service Policy
+              </a>
+
+              <div class="help__info">
+                <a
+                  class="help__info-link"
+                  href="tel:+86-0571-86105373"
+                  data-i18n="a.13"
+                >
+                  +86-0571-86105373
+                </a>
+                <a
+                  class="help__info-link"
+                  href="mailto:global@katvr.com"
+                  data-i18n="a.14"
+                >
+                  global@katvr.com
+                </a>
+                <a
+                  class="help__info-link"
+                  href="mailto:overseas@katvr.com"
+                  data-i18n="a.15"
+                >
+                  overseas@katvr.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="new-start">
+        <div class="new-start__image-wrapper new-start__image-wrapper--1"></div>
+        <div class="new-start__image-wrapper new-start__image-wrapper--2"></div>
+        <div class="new-start__image-wrapper new-start__image-wrapper--3"></div>
+
+        <div class="new-start__content">
+          <h1
+            class="new-start__title"
+            data-i18n="h1.1"
+          >
+            THE NEW START OF
+            <span
+              class="new-start__title--blue"
+              data-i18n="span.2"
+            >
+              VR LOCOMOTION
+            </span>
+          </h1>
+
+          <p
+            class="new-start__text"
+            data-i18n="p.3"
+          >
+            Discover the most comprehensive VR Locomotion system, and unlock
+            infinite motion in any games on any platforms!
+          </p>
+
+          <p
+            class="new-start__price"
+            data-i18n="p.4"
+          >
+            1200$
+          </p>
+
+          <div class="new-start__play-video">
+            <button class="new-start__play-video-button">
+              <div class="new-start__play-video-image"></div>
+            </button>
+          </div>
+
+          <div class="new-start__video-container">
+            <video
+              controls=""
+              class="new-start__video"
+            >
+              <source
+                src="./video/kat-loco.mp4"
+                type="video/mp4"
+              />
+            </video>
+
+            <button class="new-start__video-close"></button>
+          </div>
+
+          <button
+            class="new-start__buy-now new-start__buy-now--default"
+            data-i18n="button.1"
+          >
+            Buy now
+          </button>
+
+          <a
+            class="new-start__more"
+            data-i18n="button.2"
+            href="#benefits"
+          >
+            More
+            <img
+              src="./images/icons/arrow-down.svg"
+              alt="arrow down"
+              class="new-start__arrow-down"
+            />
+          </a>
+
+          <div class="prev-next new-start__prev-next">
+            <div class="prev-next__container">
+              <button
+                class="prev-next__prev prev-next__prev--disabled"
+                data-i18n="button.3"
+              >
+                Previous
+              </button>
+              <button
+                class="prev-next__next"
+                data-i18n="button.4"
+              >
+                Next
+              </button>
+            </div>
+
+            <div class="prev-next__underline">
+              <div class="prev-next__underline-position"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-wrapper-dark">
+      <div
+        class="more-than"
+        id="benefits"
+      >
+        <div class="more-than__top">
+          <h2
+            class="more-than__title"
+            data-i18n="h2.2"
+          >
+            MORE THAN
+            <span
+              class="more-than__title--blue"
+              data-i18n="span.3"
+            >
+              GAMING!
+            </span>
+          </h2>
+          <p
+            class="more-than__top-text"
+            data-i18n="p.6"
+          >
+            This also made for people who are interested in...
+          </p>
+        </div>
+
+        <div class="more-than__content">
+          <div class="more-than__block">
+            <img
+              src="./images/icons/more-than-1.svg"
+              alt="education icon"
+              class="more-than__image"
+            />
+            <h3
+              class="more-than__block-title"
+              data-i18n="h3.1"
+            >
+              EDUCATION
+            </h3>
+            <p
+              class="more-than__block-text"
+              data-i18n="p.7"
+            >
+              Create aducational simulations, trainings and much more with
+              <span
+                class="more-than__block-text--mobile"
+                data-i18n="span.4"
+              >
+                ...
+              </span>
+              <span
+                class="more-than__block-text--tablet"
+                data-i18n="span.5"
+              >
+                unlimited virtual space and minimum physical space
+              </span>
+            </p>
+          </div>
+
+          <div class="more-than__block">
+            <img
+              src="./images/icons/more-than-2.svg"
+              alt="real estate icon"
+              class="more-than__image"
+            />
+            <h3
+              class="more-than__block-title"
+              data-i18n="h3.2"
+            >
+              REAL ESTATE
+            </h3>
+            <p
+              class="more-than__block-text"
+              data-i18n="p.8"
+            >
+              Desighn architectural projects in a deeply realistic environment
+              <span
+                class="more-than__block-text--mobile"
+                data-i18n="span.6"
+              >
+                ...
+              </span>
+              <span
+                class="more-than__block-text--tablet"
+                data-i18n="span.7"
+              >
+                allowing visitors to freely walk around, and feel their vibe
+              </span>
+            </p>
+          </div>
+
+          <div class="more-than__block">
+            <img
+              src="./images/icons/more-than-3.svg"
+              alt="fitness icon"
+              class="more-than__image"
+            />
+            <h3
+              class="more-than__block-title"
+              data-i18n="h3.3"
+            >
+              FITNESS
+            </h3>
+            <p
+              class="more-than__block-text"
+              data-i18n="p.9"
+            >
+              Combine business with pleasure, and discover countless ways
+              <span
+                class="more-than__block-text--mobile"
+                data-i18n="span.8"
+              >
+                ...
+              </span>
+              <span
+                class="more-than__block-text--tablet"
+                data-i18n="span.9"
+              >
+                to stay fit while playing your favorite VR Games!
+              </span>
+            </p>
+          </div>
+
+          <div class="more-than__block">
+            <img
+              src="./images/icons/more-than-4.svg"
+              alt="social interactions icon"
+              class="more-than__image"
+            />
+            <h3
+              class="more-than__block-title"
+              data-i18n="h3.4"
+            >
+              SOCIAL INTERACTIONS
+            </h3>
+            <p
+              class="more-than__block-text"
+              data-i18n="p.10"
+            >
+              Hang out with your friends in the virtual world when you can’t
+              <span
+                class="more-than__block-text--mobile"
+                data-i18n="span.10"
+              >
+                ...
+              </span>
+              <span
+                class="more-than__block-text--tablet"
+                data-i18n="span.11"
+              >
+                meet space requirements
+              </span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-wrapper-gradient">
+      <div
+        class="about"
+        id="about"
+      >
+        <h2
+          class="about__title about__title--top"
+          data-i18n="h2.3"
+        >
+          ABOUT
+          <span
+            class="about__title--blue"
+            data-i18n="span.12"
+          >
+            PRODUCT
+          </span>
+        </h2>
+
+        <div class="about__slideshow-wrapper">
+          <div class="about__slideshow-container">
+            <div class="about__slide about__slide--active">
+              <img
+                class="about__slide-image about__slide-image--m"
+                src="./images/slider/slider-m-1.png"
+                alt="slider gallery image"
+              />
+
+              <img
+                class="about__slide-image about__slide-image--d"
+                src="./images/slider/slider-d-1.png"
+                alt="slider gallery image"
+              />
+
+              <div
+                class="about__counter"
+                data-i18n="div.1"
+              >
+                1/5
+              </div>
+            </div>
+
+            <div class="about__slide">
+              <img
+                class="about__slide-image"
+                src="./images/slider/slider-m-2.webp"
+                alt="slider gallery image"
+              />
+
+              <div
+                class="about__counter"
+                data-i18n="div.2"
+              >
+                2/5
+              </div>
+            </div>
+
+            <div class="about__slide">
+              <img
+                class="about__slide-image"
+                src="./images/slider/slider-m-3.webp"
+                alt="slider gallery image"
+              />
+
+              <div
+                class="about__counter"
+                data-i18n="div.3"
+              >
+                3/5
+              </div>
+            </div>
+
+            <div class="about__slide">
+              <img
+                class="about__slide-image"
+                src="./images/slider/slider-m-4.webp"
+                alt="slider gallery image"
+              />
+
+              <div
+                class="about__counter"
+                data-i18n="div.4"
+              >
+                4/5
+              </div>
+            </div>
+
+            <div class="about__slide">
+              <img
+                class="about__slide-image"
+                src="./images/slider/slider-m-5.webp"
+                alt="slider gallery image"
+              />
+
+              <div
+                class="about__counter"
+                data-i18n="div.5"
+              >
+                5/5
+              </div>
+            </div>
+          </div>
+
+          <div class="about__dots-container">
+            <span
+              class="about__dot"
+              onclick="currentSlide(1)"
+            ></span>
+            <span
+              class="about__dot"
+              onclick="currentSlide(2)"
+            ></span>
+            <span
+              class="about__dot"
+              onclick="currentSlide(3)"
+            ></span>
+            <span
+              class="about__dot"
+              onclick="currentSlide(4)"
+            ></span>
+            <span
+              class="about__dot"
+              onclick="currentSlide(5)"
+            ></span>
+          </div>
+
+          <div class="prev-next about__prev-next">
+            <div class="prev-next__container">
+              <button
+                class="prev-next__prev prev-next__prev--disabled"
+                data-i18n="button.3"
+              >
+                Previous
+              </button>
+              <button
+                class="prev-next__next"
+                data-i18n="button.4"
+              >
+                Next
+              </button>
+            </div>
+
+            <div class="prev-next__underline">
+              <div class="prev-next__underline-position"></div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="about__text about__text--slideshow"
+          data-i18n="div.6"
+        >
+          KAT loco is a foot-based VR locomotion system that gives complete
+          physical control over lower-body actions, allowing you to freely walk,
+          run, and carry out just any other movement in virtual reality.
+        </div>
+
+        <div class="about__play-video">
+          <button class="about__play-video-button">
+            <div class="about__play-video-image"></div>
+          </button>
+        </div>
+
+        <div class="about__video-container">
+          <video
+            controls=""
+            class="about__video"
+          >
+            <source
+              src="./video/kat-loco.mp4"
+              type="video/mp4"
+            />
+          </video>
+
+          <button class="about__video-close"></button>
+        </div>
+
+        <div class="about__title--bottom">
+          <div
+            class="about__text--blue"
+            data-i18n="div.7"
+          >
+            Hello,
+          </div>
+
+          <h2
+            class="about__title"
+            data-i18n="h2.4"
+          >
+            NICE TO MEET
+            <span
+              class="about__title--blue"
+              data-i18n="span.13"
+            >
+              YOU!
+            </span>
+          </h2>
+        </div>
+
+        <div
+          class="about__text about__text--bottom"
+          data-i18n="div.8"
+        >
+          KAT VR is an independent company dedicated to the research,
+          development, and sales of VR Locomotion products and solutions.
+          Founded in 2013, we have quickly grown to become one of the world’s
+          leading professional suppliers of VR games’ &amp; simulations’
+          equipment
+        </div>
+
+        <div class="about__about-us"></div>
+      </div>
+    </div>
+
+    <div class="section-wrapper-dark">
+      <div
+        class="tech-specs"
+        id="tech"
+      >
+        <h2
+          class="tech-specs__title"
+          data-i18n="h2.5"
+        >
+          TECH
+          <span
+            class="tech-specs__title--blue"
+            data-i18n="span.14"
+          >
+            SPECS
+          </span>
+        </h2>
+        <div class="tech-specs__content">
+          <div class="tech-specs__image"></div>
+
+          <div class="tech-specs__hint tech-specs__hint--1">
+            <button class="tech-specs__hint-button tech-specs__hint-button--1">
+              <div class="tech-specs__hint-image"></div>
+            </button>
+
+            <div class="tech-specs__hint-content tech-specs__hint-content--1">
+              <h3
+                class="tech-specs__hint-title"
+                data-i18n="h3.5"
+              >
+                SENSOR
+              </h3>
+
+              <p
+                class="tech-specs__hint-text tech-specs__hint-text--1"
+                data-i18n="p.12"
+              >
+                Weight: 35g/1.23oz each
+                <br />
+                Dimension: 50mm/1.97in 24mm/0.94in
+                <br />
+                Light: LED lights
+              </p>
+
+              <picture>
+                <source
+                  media="(min-width: 1920px)"
+                  srcset="./images/icons/hint-1-d.svg"
+                />
+                <img
+                  src="./images/icons/hint-1-l.svg"
+                  alt="image"
+                  class="tech-specs__hint-arrow tech-specs__hint-arrow--1"
+                />
+              </picture>
+            </div>
+          </div>
+
+          <div class="tech-specs__hint tech-specs__hint--2">
+            <button class="tech-specs__hint-button tech-specs__hint-button--2">
+              <div class="tech-specs__hint-image"></div>
+            </button>
+
+            <div class="tech-specs__hint-content tech-specs__hint-content--2">
+              <h3
+                class="tech-specs__hint-title"
+                data-i18n="h3.6"
+              >
+                CONNECTION
+              </h3>
+
+              <p
+                class="tech-specs__hint-text tech-specs__hint-text--2"
+                data-i18n="p.13"
+              >
+                Wireless: Bluetooth 4.2
+                <br />
+                Signal range: 5m
+                <br />
+                Receiver: USB 2.0 and above
+              </p>
+
+              <picture>
+                <source
+                  media="(min-width: 1920px)"
+                  srcset="./images/icons/hint-3-d.svg"
+                />
+                <img
+                  src="./images/icons/hint-3-l.svg"
+                  alt="image"
+                  class="tech-specs__hint-arrow tech-specs__hint-arrow--2"
+                />
+              </picture>
+            </div>
+          </div>
+
+          <div class="tech-specs__hint tech-specs__hint--3">
+            <button class="tech-specs__hint-button tech-specs__hint-button--3">
+              <div class="tech-specs__hint-image"></div>
+            </button>
+
+            <div class="tech-specs__hint-content tech-specs__hint-content--3">
+              <h3
+                class="tech-specs__hint-title"
+                data-i18n="h3.7"
+              >
+                BATTERRIES
+              </h3>
+
+              <p
+                class="tech-specs__hint-text tech-specs__hint-text--3"
+                data-i18n="p.14"
+              >
+                Type: Lithium-lon polymer batteries
+                <br />
+                Capacity: 370mAh
+                <br />
+                Battery life: 10h of continuous use 150 hours on stand by
+                <br />
+                Charging: Fast charging - 1 hour
+                <br />
+                Charging voltage and current: 5V = 0.5A
+              </p>
+
+              <picture>
+                <source
+                  media="(min-width: 1920px)"
+                  srcset="./images/icons/hint-2-d.svg"
+                />
+                <img
+                  src="./images/icons/hint-2-l.svg"
+                  alt="image"
+                  class="tech-specs__hint-arrow tech-specs__hint-arrow--3"
+                />
+              </picture>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-wrapper-gradient">
+      <div
+        class="why"
+        id="why"
+      >
+        <div class="why__top">
+          <h2
+            class="why__title"
+            data-i18n="h2.6"
+          >
+            WHY
+            <span
+              class="why__title--blue"
+              data-i18n="span.15"
+            >
+              KAT LOCO?
+            </span>
+          </h2>
+        </div>
+
+        <div class="why__content">
+          <div class="why__block">
+            <img
+              src="./images/icons/why-1.svg"
+              alt="education icon"
+              class="why__image"
+            />
+            <h3
+              class="why__block-title"
+              data-i18n="h3.8"
+            >
+              UNIVERSALLY COMPATIBLE
+            </h3>
+            <p
+              class="why__block-text"
+              data-i18n="p.15"
+            >
+              KAT Loco offers universal compatibility across all major VR
+              headsets and
+              <span
+                class="why__block-text--mobile"
+                data-i18n="span.16"
+              >
+                &nbsp;platforms...
+              </span>
+              <span
+                class="why__block-text--tablet"
+                data-i18n="span.17"
+              >
+                ...
+              </span>
+              <span
+                class="why__block-text--laptop"
+                data-i18n="span.18"
+              >
+                &nbsp;platforms allowing you to play any VR game with support
+                for Free Locomotion
+              </span>
+            </p>
+          </div>
+
+          <div class="why__block">
+            <img
+              src="./images/icons/why-2.svg"
+              alt="real estate icon"
+              class="why__image"
+            />
+            <h3
+              class="why__block-title"
+              data-i18n="h3.9"
+            >
+              VR/PC CONTROL PANEL
+            </h3>
+            <p
+              class="why__block-text"
+              data-i18n="p.16"
+            >
+              Our Multifunctional Software allows for quick access to KAT Loco’s
+
+              <span
+                class="why__block-text--mobile"
+                data-i18n="span.19"
+              >
+                &nbsp;control panel both from...
+              </span>
+              <span
+                class="why__block-text--tablet"
+                data-i18n="span.20"
+              >
+                ...
+              </span>
+              <span
+                class="why__block-text--laptop"
+                data-i18n="span.21"
+              >
+                &nbsp;control panel both from a computer desktop, and directly
+                from your VR headset.
+              </span>
+            </p>
+          </div>
+
+          <div class="why__block">
+            <img
+              src="./images/icons/why-3.svg"
+              alt="fitness icon"
+              class="why__image"
+            />
+            <h3
+              class="why__block-title"
+              data-i18n="h3.10"
+            >
+              WIRELESS SENSORS
+            </h3>
+            <p
+              class="why__block-text"
+              data-i18n="p.17"
+            >
+              What makes it even more advanced, KAT Loco is entirely wireless,
+              and
+              <span
+                class="why__block-text--mobile"
+                data-i18n="span.22"
+              >
+                &nbsp;comes with a...
+              </span>
+              <span
+                class="why__block-text--tablet"
+                data-i18n="span.23"
+              >
+                ...
+              </span>
+              <span
+                class="why__block-text--laptop"
+                data-i18n="span.24"
+              >
+                &nbsp;comes with a complete system of algorithms, super durable
+                batteries and more!
+              </span>
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="why__buy-now why__buy-now--default"
+          data-i18n="button.5"
+        >
+          Buy now
+        </button>
+      </div>
+    </div>
+
+    <div class="section-wrapper-dark">
+      <div
+        class="contacts"
+        id="contacts"
+      >
+        <div class="contacts__title-wrapper">
+          <p
+            class="contacts__top-text"
+            data-i18n="p.18"
+          >
+            Have any questions?
+          </p>
+          <h2
+            class="contacts__title"
+            data-i18n="h2.7"
+          >
+            GET IN
+            <span
+              class="contacts__title--blue"
+              data-i18n="span.25"
+            >
+              TOUCH
+            </span>
+          </h2>
+        </div>
+
+        <div class="contacts__info">
+          <p
+            class="contacts__info-text"
+            data-i18n="p.19"
+          >
+            Our manager will reply you within 15 minutes
+          </p>
+          <a
+            class="contacts__link"
+            href="tel:+86-0571-86105373"
+            data-i18n="a.16"
+          >
+            +86-0571-86105373
+          </a>
+          <a
+            class="contacts__link"
+            href="mailto:global@katvr.com"
+            data-i18n="a.17"
+          >
+            global@katvr.com
+          </a>
+          <a
+            class="contacts__link"
+            href="mailto:overseas@katvr.com"
+            data-i18n="a.18"
+          >
+            overseas@katvr.com
+          </a>
+        </div>
+
+        <form
+          class="contacts__form"
+          action="GET"
+        >
+          <div class="contacts__field">
+            <label
+              for="name"
+              class="contacts__label"
+              data-i18n="label.1"
+              data-text="Name*"
+              data-error="Please fill your name*"
+            >
+              Name*
+            </label>
+
+            <input
+              type="text"
+              name="name"
+              class="contacts__input"
+              required=""
+              data-error="Please, fill your name*"
+            />
+          </div>
+
+          <div class="contacts__field">
+            <label
+              for="email"
+              class="contacts__label"
+              data-i18n="label.2"
+              data-text="Email*"
+              data-error="Please fill your email*"
+            >
+              Email*
+            </label>
+
+            <input
+              type="email"
+              name="email"
+              class="contacts__input"
+              required=""
+              data-error="Please, fill your email*"
+            />
+          </div>
+
+          <div class="contacts__field">
+            <label
+              for="tel"
+              class="contacts__label"
+              data-i18n="label.3"
+              data-text="Phone*"
+              data-error="Please fill your phone*"
+            >
+              Phone*
+            </label>
+
+            <input
+              type="tel"
+              name="tel"
+              class="contacts__input"
+              required=""
+              data-error="Please, fill your phone*"
+            />
+          </div>
+
+          <div class="contacts__field">
+            <label
+              for="message"
+              class="contacts__label"
+              data-i18n="label.4"
+            >
+              Message
+            </label>
+
+            <textarea
+              name="message"
+              id="contacts__message"
+              class="contacts__input contacts__input--textarea"
+              rows="3"
+            ></textarea>
+          </div>
+
+          <div class="contacts__form-bottom">
+            <input
+              type="submit"
+              placeholder="Contact Us"
+              value="Contact Us"
+              class="contacts__contact-us"
+            />
+
+            <a
+              href="#top"
+              class="contacts__go-top"
+            ></a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="section-wrapper-gradient">
+      <footer class="footer">
+        <a href="#top">
+          <img
+            class="footer__logo"
+            src="./images/Logo.svg"
+            alt="KAT VR logo"
+          />
+        </a>
+
+        <div class="footer__nav">
+          <a
+            class="footer__nav-link"
+            href="#about"
+            data-i18n="a.19"
+          >
+            About
+          </a>
+          <a
+            class="footer__nav-link"
+            href="#tech"
+            data-i18n="a.20"
+          >
+            Tech
+          </a>
+          <a
+            class="footer__nav-link"
+            href="#benefits"
+            data-i18n="a.21"
+          >
+            Benefits
+          </a>
+          <a
+            class="footer__nav-link"
+            href="#contacts"
+            data-i18n="a.22"
+          >
+            Contact
+          </a>
+        </div>
+
+        <div class="footer__info">
+          <a
+            class="footer__link"
+            href="tel:+86-0571-86105373"
+            data-i18n="a.23"
+          >
+            +86-0571-86105373
+          </a>
+          <a
+            class="footer__link"
+            href="mailto:global@katvr.com"
+            data-i18n="a.24"
+          >
+            global@katvr.com
+          </a>
+          <a
+            class="footer__link"
+            href="mailto:overseas@katvr.com"
+            data-i18n="a.25"
+          >
+            overseas@katvr.com
+          </a>
+        </div>
+
+        <div class="footer__external">
+          <a
+            class="footer__external-link"
+            href="https://www.facebook.com/KATVR.Technology"
+            target="_blank"
+          >
+            <img
+              src="./images/icons/facebook.svg"
+              alt="facebook logo"
+              class="footer__external-logo"
+            />
+          </a>
+          <a
+            class="footer__external-link"
+            href="https://x.com/katvrwalk/status/1728112894590464377"
+            target="_blank"
+          >
+            <img
+              src="./images/icons/x.svg"
+              alt="x logo"
+              class="footer__external-logo"
+            />
+          </a>
+          <a
+            class="footer__external-link"
+            href="https://www.youtube.com/c/KATVR"
+            target="_blank"
+          >
+            <img
+              src="./images/icons/youtube.svg"
+              alt="youtube logo"
+              class="footer__external-logo"
+            />
+          </a>
+          <a
+            class="footer__external-link"
+            href="https://www.reddit.com/r/KATVR/"
+            target="_blank"
+          >
+            <img
+              src="./images/icons/reddit.svg"
+              alt="reddit logo"
+              class="footer__external-logo"
+            />
+          </a>
+        </div>
+      </footer>
+    </div>
+
     <script src="scripts/main.js"></script>
   </body>
 </html>

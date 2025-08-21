@@ -1,0 +1,148 @@
+@import '../utils';
+@import '../fonts';
+
+.footer {
+  @include content-padding-in-line;
+
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: end;
+
+  box-sizing: border-box;
+  height: 240px;
+  padding-top: 45px;
+  padding-bottom: 50px;
+
+  @include on-tablet {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    height: fit-content;
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
+
+  @include on-laptop {
+    padding-top: 40px;
+    padding-bottom: 40px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 69px;
+    height: 14px;
+    margin-bottom: 15px;
+
+    @include on-tablet {
+      margin: 0;
+    }
+
+    @include on-laptop {
+      width: 72;
+      height: 14;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: fit-content;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    margin-left: auto;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__link {
+    all: unset;
+
+    cursor: pointer;
+
+    display: flex;
+
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $grey;
+    letter-spacing: 0%;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 40px;
+    }
+  }
+
+  &__nav-link {
+    all: unset;
+
+    cursor: pointer;
+
+    font-family: Inter, sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $white;
+    letter-spacing: 0%;
+
+    &:hover {
+      color: $light-blue;
+    }
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+  }
+
+  &__external {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 130px;
+    height: 18px;
+    margin-left: auto;
+
+    @include on-tablet {
+      gap: 18px;
+      width: auto;
+      margin: 0;
+    }
+  }
+
+  &__external-link {
+    all: unset;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 23px;
+    height: 23px;
+  }
+
+  &__external-logo {
+    width: 23px;
+    height: 23px;
+  }
+}

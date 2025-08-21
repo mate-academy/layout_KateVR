@@ -1,7 +1,76 @@
 @import 'utils';
 @import 'fonts';
-@import 'typography';
+@import './blocks/header';
+@import './blocks/nav';
+@import './blocks/new-start';
+@import './blocks/more-than';
+@import './blocks/prev-next';
+@import './blocks/about';
+@import './blocks/tech-specs';
+@import './blocks/why';
+@import './blocks/contacts';
+@import './blocks/footer';
+@import './blocks/help';
 
 body {
-  background: $c-gray;
+  overflow-x: hidden;
+
+  margin: 0;
+
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 32px;
+  color: $white;
+}
+
+h1 {
+  margin: 0;
+
+  font-family: Inter, sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  line-height: 130%;
+  letter-spacing: 0%;
+
+  @include on-laptop {
+    font-size: 46px;
+  }
+}
+
+h2 {
+  margin: 0;
+
+  font-family: Inter, sans-serif;
+  font-size: 21px;
+  font-weight: 900;
+  line-height: 130%;
+  letter-spacing: 0%;
+
+  @include on-laptop {
+    font-size: 36px;
+    line-height: 100%;
+  }
+}
+
+h3 {
+  margin: 0;
+
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+p {
+  margin: 0;
+}
+
+.section-wrapper-gradient {
+  background: $background-gradient;
+}
+
+.section-wrapper-dark {
+  background: $dark;
 }

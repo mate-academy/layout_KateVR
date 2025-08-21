@@ -1,0 +1,153 @@
+@import '../utils/vars';
+@import '../fonts';
+
+.help {
+  @include content-padding-in-line;
+
+  position: absolute;
+  z-index: 1005;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateX(100%);
+
+  overflow-y: auto;
+  display: none;
+  flex-direction: column;
+
+  width: 100vw;
+  min-height: 100vh;
+
+  list-style: none;
+
+  background-color: $blue;
+
+  transition: transform 0.3s ease;
+
+  @include on-tablet {
+    height: fit-content;
+  }
+
+  &-wrapper {
+    position: fixed;
+    z-index: 1004;
+    top: 0;
+    left: 0;
+
+    display: none;
+
+    width: 100vw;
+    height: 100vh;
+
+    &--open {
+      overflow-y: auto;
+      display: block;
+    }
+  }
+
+  &--open {
+    transform: translateX(0);
+    display: flex;
+  }
+
+  &__close {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+    margin-bottom: 20px;
+    margin-left: auto;
+    padding: 3px;
+    border: none;
+
+    font-size: 24px;
+    color: #fff;
+
+    background: none;
+  }
+
+  &__close-icon {
+    width: 17px;
+    height: 17px;
+  }
+
+  &__title {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+
+    margin: 0;
+    margin-bottom: 20px;
+
+    &--blue {
+      font-weight: 400;
+      color: $light-blue;
+    }
+  }
+
+  &__text {
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $grey;
+    letter-spacing: 0%;
+  }
+
+  &__link {
+    all: unset;
+
+    cursor: pointer;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $light-blue;
+    letter-spacing: 0%;
+
+    &--bottom {
+      margin-bottom: 20px;
+    }
+    &--top {
+      padding-left: 5px;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    width: fit-content;
+    margin-top: 15px;
+    margin-right: auto;
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    &-link {
+      all: unset;
+
+      cursor: pointer;
+
+      display: flex;
+
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 150%;
+      color: $grey;
+      letter-spacing: 0%;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+}

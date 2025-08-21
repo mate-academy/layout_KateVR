@@ -1,0 +1,169 @@
+@import '../utils';
+@import '../fonts';
+
+.header {
+  @include content-padding-in-line;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo img {
+    width: 58px;
+    height: 12px;
+  }
+
+  &__burger {
+    cursor: pointer;
+
+    position: relative;
+    z-index: 999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+    border: none;
+
+    background: none;
+  }
+
+  &__burger-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  &__nav {
+    @include content-padding-in-line;
+
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(100%);
+
+    width: 100%;
+    height: 100vh;
+
+    background-color: $blue;
+
+    transition: transform 0.3s ease;
+
+    @include on-tablet {
+      height: fit-content;
+      padding-bottom: 139px;
+    }
+
+    &--open {
+      transform: translateX(0);
+    }
+
+    &-close {
+      cursor: pointer;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 20px;
+      height: 20px;
+      margin-left: auto;
+      padding: 3px;
+      border: none;
+
+      font-size: 24px;
+      color: #fff;
+
+      background: none;
+    }
+
+    &-close-icon {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  &__arrow-down {
+    width: 9px;
+    height: 6px;
+  }
+
+  &__select {
+    position: relative;
+    display: none;
+
+    @include on-laptop {
+      display: inline-block;
+    }
+  }
+
+  &__select-control {
+    cursor: pointer;
+
+    margin-left: 34px;
+    padding: 4px 24px 4px 8px;
+    border: none;
+
+    font-size: 16px;
+    color: $light-blue;
+
+    appearance: none;
+    background-color: transparent;
+    background-image: url('../images/icons/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: right 8px center;
+    background-size: 12px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  &__background {
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    overflow: hidden;
+    display: none;
+
+    width: 100vw;
+    height: 100vh;
+
+    background-color: rgba(25, 21, 54, 0.5);
+
+    &--open {
+      display: block;
+    }
+  }
+}
+
+@media (min-width: $laptop) {
+  .header__burger {
+    display: none;
+  }
+
+  .header__nav {
+    position: static;
+    transform: none;
+
+    width: auto;
+    height: auto;
+    margin-right: 200px;
+    margin-left: auto;
+    padding: 0;
+
+    background: none;
+  }
+
+  .header__nav-close {
+    display: none;
+  }
+}

@@ -1,6 +1,49 @@
+@import './vars';
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin on-laptop {
+  @media (min-width: $laptop) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop) {
+    @content;
+  }
+}
+
+@mixin content-padding-in-line {
+  box-sizing: border-box;
+  width: 100vw;
+  margin: auto;
+  padding: 18px 20px 0;
+
+  @include on-tablet {
+    padding: 30px 34px 0;
+  }
+
+  @include on-laptop {
+    width: 1280px;
+    margin: 0 auto;
+    padding: 64px 110px 0;
+  }
+
+  @include on-desktop {
+    width: 1920px;
+    padding: 64px 236px 0;
   }
 }
