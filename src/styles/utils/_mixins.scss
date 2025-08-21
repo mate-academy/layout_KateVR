@@ -4,3 +4,28 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin column-flex {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 16px;
+}
+
+@mixin on-tablet {
+  grid-template-columns: repeat(6, 1fr);
+  column-gap: 22px;
+}
+
+@mixin on-desktop {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+@mixin on-wide-desktop {
+  grid-template-columns: repeat(16, 1fr);
+  column-gap: 16px;
+}

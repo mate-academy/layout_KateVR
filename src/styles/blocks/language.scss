@@ -1,0 +1,72 @@
+@import '../utils';
+
+
+.language {
+  position: fixed;
+  z-index: 7;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(25, 21, 54);
+  height: 100vh;
+  transform: translateX(100%);
+  transition: $all-transition;
+  overflow: scroll;
+
+  &__navigation {
+    margin-top: 40px;
+  }
+
+  &__top-bar {
+    height: 57px;
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    color: rgb(255, 255, 255);
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 130%;
+    display: block;
+    padding: 11px 0;
+
+    &:hover {
+      transition: $all-transition;
+      color: $blue;
+      background: rgb(17, 14, 37);
+    }
+  }
+
+  &__icon-close {
+    position: relative;
+    display: block;
+    height: 17px;
+    width: 8.5px;
+    transition: $all-transition;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: '';
+      background-color: $white;
+      width: 10px;
+      height: 1px;
+    }
+
+    &::before {
+      top: calc(32% - 1px);
+      transform: rotate(-45deg);
+    }
+
+    &::after {
+      bottom: calc(32% - 1px);
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+}
