@@ -1,0 +1,272 @@
+.about {
+  background: linear-gradient(147deg, #191536 -0.5%, #000 99.5%);
+  overflow: hidden;
+
+  &__container {
+    @include container;
+  }
+
+  &__place {
+    @include tablet {
+      @include page-grid;
+    }
+
+    &--1 {
+      padding-top: 50px;
+
+      @include tablet {
+        padding-top: 70px;
+      }
+
+      @include desktop {
+        padding-top: 105px;
+      }
+    }
+
+    &--2 {
+      padding-top: 80px;
+
+      @include tablet {
+        padding-top: 90px;
+        padding-bottom: 70px;
+        position: relative;
+      }
+
+      @include desktop {
+        padding-top: 220px;
+        padding-bottom: 140px;
+      }
+    }
+  }
+
+  &__slider {
+    @include tablet {
+      order: 1;
+      grid-column: span 3;
+      grid-row: 1 / 4;
+    }
+
+    @include desktop {
+      display: flex;
+      gap: 23px;
+      grid-column: 3 / 8;
+      position: relative;
+    }
+  }
+
+  &__slider-number {
+    display: none;
+
+    @include desktop {
+      display: block;
+      font-size: 14px;
+      line-height: normal;
+      color: $blue-color;
+      position: absolute;
+      left: -50px;
+    }
+  }
+
+  &__slider-img {
+    margin-top: 20px;
+    width: 100%;
+
+    @include tablet {
+      margin-top: 0;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    @include desktop {
+      height: 290px;
+    }
+  }
+
+  &__slider-grid {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      grid-column: 3 / 6;
+      order: 2;
+      margin-top: 12px;
+    }
+  }
+
+  &__slider-previous {
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      display: block;
+      height: 1px;
+      width: 100%;
+      background-color: $blue-color;
+      z-index: 1;
+    }
+  }
+
+  &__slider-next {
+    position: relative;
+
+    &:focus::after {
+      content: '';
+      position: absolute;
+      left: -170px;
+      bottom: -10px;
+      display: block;
+      height: 1px;
+      width: 570%;
+      background-color: $blue-color;
+      z-index: 1;
+    }
+  }
+
+  &__slider-button {
+    @include desktop {
+      display: flex;
+      gap: 103px;
+      position: relative;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        left: 0;
+        bottom: -10px;
+        display: block;
+        height: 1px;
+        width: 100%;
+        background-color: $slider-after-color;
+      }
+    }
+  }
+
+  &__point {
+    padding-top: 14px;
+    display: block;
+    margin: auto;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__title {
+    @include tablet {
+      order: 2;
+      grid-column: span 3;
+      grid-row: 1;
+    }
+
+    @include desktop {
+      grid-column: 9 / -1;
+    }
+
+    &--2 {
+      @include desktop {
+        grid-column: 1 / 6;
+      }
+    }
+  }
+
+  &__paragraph {
+    @include tablet {
+      grid-column: span 3;
+    }
+
+    @include desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__text {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey-text-color;
+
+    @include tablet {
+      padding-top: 30px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__hello {
+    font-size: 14px;
+    margin-bottom: 11px;
+    color: $blue-color;
+    line-height: normal;
+  }
+
+  &__us {
+    @include tablet {
+      position: absolute;
+      left: 50%;
+      bottom: 200px;
+    }
+
+    @include desktop {
+      bottom: 280px;
+    }
+  }
+
+  &__outline {
+    display: none;
+
+    @include tablet {
+      display: flex;
+      font-size: 48px;
+      font-weight: 900;
+      line-height: 130%;
+      color: transparent;
+      -webkit-text-stroke: 1px $blue-color;
+      height: min-content;
+      width: max-content;
+      position: absolute;
+
+      @include desktop {
+        font-size: 64px;
+      }
+
+      &--1 {
+        transform: rotate(90deg);
+        left: -80px;
+      }
+
+      &--2 {
+        transform: rotate(-90deg);
+        left: 20px;
+        opacity: 0.5;
+      }
+
+      &--3 {
+        transform: rotate(90deg);
+        left: 120px;
+        opacity: 0.2;
+      }
+
+      &--4 {
+        transform: rotate(-90deg);
+        left: 220px;
+        opacity: 0.1;
+      }
+
+      &--5 {
+        transform: rotate(90deg);
+        left: 320px;
+        opacity: 0.05;
+      }
+
+      &--6 {
+        transform: rotate(-90deg);
+        left: 420px;
+        opacity: 0.03;
+      }
+    }
+  }
+}

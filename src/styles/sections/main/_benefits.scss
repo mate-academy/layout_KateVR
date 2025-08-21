@@ -1,0 +1,133 @@
+.benefits {
+  background: linear-gradient(147deg, #191536 -0.5%, #000 99.5%);
+  padding-top: 50px;
+  padding-bottom: 50px;
+
+  @include tablet {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  @include desktop {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__title {
+    padding-bottom: 12px;
+
+    @include tablet {
+      padding-bottom: 32px;
+    }
+
+    @include desktop {
+      padding-bottom: 85px;
+      width: max-content;
+      margin: 0 auto;
+    }
+  }
+
+  &__box {
+    @include tablet {
+      display: flex;
+      align-items: center;
+
+      @include page-grid;
+    }
+
+    @include desktop {
+      align-items: baseline;
+    }
+  }
+
+  &__section {
+    @include tablet {
+      text-align: center;
+      grid-column: span 2;
+    }
+
+    @include desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__img {
+    display: none;
+    cursor: pointer;
+    transition: all $effect-duration;
+
+    &:hover {
+      transform: scale(1.05);
+      filter: hue-rotate(190deg);
+    }
+
+    @include tablet {
+      display: block;
+      margin: 0 auto;
+    }
+  }
+
+  &__subtitle {
+    font-size: 16px;
+    font-weight: 900;
+    line-height: normal;
+    padding-top: 20px;
+
+    @include tablet {
+      padding-top: 25px;
+    }
+
+    @include desktop {
+      padding-top: 35px;
+    }
+  }
+
+  &__paragraph {
+    font-size: 16px;
+    line-height: 150%;
+    color: $grey-text-color;
+    padding-top: 11px;
+
+    @include tablet {
+      padding-top: 37px;
+    }
+
+    @include desktop {
+      padding-top: 18px;
+    }
+
+    &--phone {
+      @include tablet {
+        display: none;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include tablet {
+        display: block;
+      }
+
+      @include desktop {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include desktop {
+        display: block;
+      }
+    }
+  }
+
+  &__buy {
+    margin: 90px auto 0;
+  }
+}

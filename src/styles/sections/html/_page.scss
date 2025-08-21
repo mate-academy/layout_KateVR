@@ -1,0 +1,66 @@
+.page {
+  font-style: normal;
+  font-weight: 400;
+  color: $white-color;
+
+  scroll-behavior: smooth;
+  background-color: $dark-blue;
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+  }
+
+  &:has(&__menu:target) {
+    overflow: hidden;
+  }
+
+  &:has(&__faq:target) {
+    overflow: hidden;
+  }
+
+  &:has(&__help:target) {
+    overflow: hidden;
+  }
+
+  &:has(&__lang:target) {
+    overflow: hidden;
+  }
+
+  &__faq,
+  &__help {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all $effect-duration;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+    z-index: 2;
+    overflow: auto;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+
+  &__lang {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    transition: all $effect-duration;
+    opacity: 0;
+    transform: translateY(-100%);
+    pointer-events: none;
+    z-index: 2;
+    overflow: auto;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: all;
+    }
+  }
+}
