@@ -1,6 +1,97 @@
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-small-desktop {
+  @media (max-width: $small-desktop-max-width) {
+    @content;
+  }
+}
+
+@mixin on-tablet {
+  @media (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin on-mobile {
+  @media (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin page-grid {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  gap: 40px $grid-col-gap;
+
+  @include on-small-desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @include on-mobile {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 20px;
+  }
+}
+
+@mixin content-limitation {
+  margin-inline: auto;
+
+  @media (min-width: $desktop-min-width) {
+    max-width: 1452px;
+  }
+
+  @include on-small-desktop {
+    margin-inline: $content-margin--l;
+  }
+
+  @include on-tablet {
+    margin-inline: $content-margin--m;
+  }
+
+  @include on-mobile {
+    margin-inline: $content-margin--s;
+  }
+}
+
+@mixin transition($_property) {
+  transition: #{$_property} $hover-duration;
+}
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  @include transition($_property);
+
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin hover-after($_property, $_toValue) {
+  &::after {
+    @include transition($_property);
+  }
+
+  &:hover::after {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin visible-2-lines {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 2;
+}
+
+@mixin visible-3-lines {
+  @include visible-2-lines;
+
+  -webkit-line-clamp: 3;
 }

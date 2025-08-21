@@ -1,0 +1,68 @@
+.footer {
+  &__container {
+    @include content-limitation;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 30px;
+
+    @include on-mobile {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px 20px;
+      padding-block: 50px;
+
+      grid-template-areas:
+        'logo logo'
+        'nav contacts'
+        'nav social-medias';
+    }
+  }
+
+  &__logo {
+    cursor: pointer;
+
+    @include on-mobile {
+      grid-area: logo;
+    }
+  }
+
+  &__nav {
+    @include on-mobile {
+      grid-area: nav;
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include on-mobile {
+      grid-area: contacts;
+      display: flex;
+      margin-bottom: 8px;
+    }
+  }
+
+  &__contact {
+    font-size: 13px;
+    font-weight: 400;
+    color: $secondary-text-color;
+  }
+
+  &__social-medias {
+    display: flex;
+    gap: 28px;
+
+    @include on-small-desktop {
+      gap: 18px;
+    }
+
+    @include on-mobile {
+      gap: 0;
+      justify-content: space-between;
+
+      grid-area: social-medias;
+    }
+  }
+}

@@ -1,0 +1,82 @@
+.open-bar {
+  width: fit-content;
+  display: flex;
+
+  @include on-tablet {
+    flex-direction: column;
+  }
+
+  &--active {
+    z-index: 1;
+  }
+
+  &__circle {
+    position: relative;
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../icons/open-circle-icon.svg');
+
+    @include hover(
+      background-image,
+      url('../icons/open-circle-hover-icon.svg')
+    );
+
+    @include on-mobile {
+      height: 34px;
+      width: 34px;
+    }
+
+    &--active {
+      background-image: url('../icons/close-circle-icon.svg');
+
+      @include hover(
+        background-image,
+        url('../icons/close-circle-hover-icon.svg')
+      );
+    }
+  }
+
+  &__content {
+    display: grid;
+    grid-template-rows: 0fr;
+    width: max-content;
+    transition: grid-template-rows $hover-duration;
+    background-color: $bg-color--main;
+    border-radius: 4px;
+
+    @include on-mobile {
+      max-width: 170px;
+    }
+  }
+
+  &:is(&--active) &__content {
+    grid-template-rows: 1fr;
+  }
+
+  &:is(&--active) &__circle {
+    background-image: url('../icons/close-circle-icon.svg');
+
+    @include hover(
+      background-image,
+      url('../icons/close-circle-hover-icon.svg')
+    );
+  }
+
+  &__content-wrapper {
+    overflow: hidden;
+  }
+
+  &__text {
+    @include text-1;
+
+    padding: 17px 10px 22px;
+
+    @include on-mobile {
+      padding: 12px 10px;
+      font-size: 12px;
+    }
+  }
+}

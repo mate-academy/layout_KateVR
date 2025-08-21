@@ -1,3 +1,39 @@
 @import 'utils/vars';
 @import 'utils/mixins';
 @import 'utils/extends';
+
+.bg-gradient {
+  background: $gradient;
+}
+
+.accent {
+  color: $accent-color;
+  font-weight: 400;
+}
+
+.no-wrap {
+  text-wrap: nowrap;
+}
+
+.more-btn {
+  position: relative;
+  cursor: pointer;
+  color: $accent-color;
+
+  @include hover(color, $main-text-color);
+
+  &::after {
+    position: absolute;
+    bottom: -7px;
+    left: 50%;
+    transform: translate(-50%, 100%);
+
+    content: '';
+    display: block;
+    border-left: 4.5px solid transparent;
+    border-right: 4.5px solid transparent;
+    border-top: 5px solid $accent-color;
+  }
+
+  @include hover-after(border-top-color, $main-text-color);
+}
