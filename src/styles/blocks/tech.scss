@@ -1,0 +1,211 @@
+.tech {
+  background-color: $bg-black-color;
+  padding-block: 50px 80px;
+
+  @include on-desktop {
+    padding-block: 160px;
+  }
+
+  &__desktop-relative {
+    position: relative;
+
+    @include on-desktop {
+      height: 479px;
+    }
+  }
+
+  &__bg-img {
+    background-image: url(../images/main/tech/bg-mobile.png);
+    position: relative;
+    margin-inline: auto;
+    background-size: cover;
+    width: 214px;
+    height: 206px;
+
+    @include on-tablet {
+      width: 300px;
+      height: 300px;
+    }
+
+    @include on-desktop {
+      background-image: url(../images/main/tech/tech.png);
+
+      width: 313px;
+      height: 294px;
+      bottom: -189;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    width: 168px;
+    background-color: $bg-purple-color;
+    padding: 17px 10px 22px;
+
+    @include on-tablet {
+      font-size: 15px;
+    }
+
+    @include on-desktop {
+      font-size: 16px;
+      background-color: inherit;
+      width: max-content;
+      padding: 0;
+    }
+  }
+
+  &__plus {
+    display: block;
+    cursor: pointer;
+    position: absolute;
+    background-size: cover;
+    width: 34px;
+    height: 34px;
+    background-image: url(../images/main/tech/plus.svg);
+
+    @include on-tablet {
+      width: 40px;
+      height: 40px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &.active {
+      background-image: url(../images/main/tech/minus.svg);
+    }
+
+    &--top {
+      top: -10px;
+      left: 69px;
+
+      @include hover(transform, scale(1.2));
+    }
+
+    &--right {
+      top: 86px;
+      left: 144px;
+
+      @include hover(transform, scale(1.2));
+
+      @include on-tablet {
+        top: 130px;
+        left: 212px;
+      }
+    }
+
+    &--left {
+      bottom: 8px;
+      left: -8px;
+
+      @include hover(transform, scale(1.2));
+    }
+  }
+
+  &__specs {
+    position: relative;
+  }
+
+  &__spec {
+    z-index: 1;
+    position: absolute;
+    display: none;
+    opacity: 0;
+
+    &.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    &--top {
+      top: -186px;
+
+      @include on-tablet {
+        left: 400px;
+        top: -394px;
+      }
+
+      @include on-desktop {
+        display: block;
+        opacity: 1;
+        top: -365px;
+        left: 18px;
+      }
+    }
+
+    &--right {
+      top: -240px;
+
+      @include on-tablet {
+        left: 490px;
+        top: -310px;
+      }
+
+      @include on-desktop {
+        display: block;
+        opacity: 1;
+        top: -365px;
+        left: 761px;
+      }
+    }
+
+    &--left {
+      top: -178px;
+
+      @include on-tablet {
+        left: 19px;
+        top: -229px;
+      }
+
+      @include on-desktop {
+        display: block;
+        opacity: 1;
+        top: -142px;
+        left: 18px;
+      }
+    }
+  }
+
+  &__line {
+    display: none;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    &--top {
+      @include on-desktop {
+        display: block;
+        background-image: url(../images/main/tech/top.svg);
+        top: -69px;
+        right: 149px;
+        width: 431px;
+        height: 72px;
+      }
+    }
+
+    &--right {
+      @include on-desktop {
+        display: block;
+        background-image: url(../images/main/tech/right.svg);
+        clip-path: inset(0 0 0 209px);
+        z-index: 1;
+        width: 276.5px;
+        height: 235.5px;
+        top: -69px;
+        left: 100px;
+      }
+    }
+
+    &--left {
+      @include on-desktop {
+        display: block;
+        background-image: url(../images/main/tech/left.svg);
+        width: 236.5px;
+        height: 107px;
+        left: -218px;
+        top: 55px;
+      }
+    }
+  }
+}

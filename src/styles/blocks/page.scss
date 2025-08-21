@@ -1,0 +1,46 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+button,
+a,
+select:hover {
+  cursor: pointer;
+}
+
+.page {
+  font-family: Inter, serif;
+  line-height: 24px;
+  color: $main-text-color;
+  scroll-behavior: smooth;
+
+  &__body {
+    min-width: 320px;
+  }
+
+  &__relative {
+    position: relative;
+  }
+
+  &__menu {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
+
+    transition: opacity $effect-duration;
+    opacity: 0;
+    pointer-events: none;
+
+    &:target {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+}

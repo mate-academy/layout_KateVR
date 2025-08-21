@@ -1,0 +1,43 @@
+.get {
+  background-color: $bg-black-color;
+  padding-block: 50px;
+
+  @include on-desktop {
+    padding-block: 150px 200px;
+  }
+
+  &__info {
+    font-size: 12px;
+    line-height: 14px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      margin-bottom: 76px;
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      margin-bottom: 76px;
+    }
+  }
+
+  &__grid {
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__form {
+    @include on-tablet {
+      grid-column: 4/-1;
+      grid-row: 2/3;
+      grid-row: span 4;
+    }
+
+    @include on-desktop {
+      grid-column: 9/-1;
+    }
+  }
+}

@@ -1,0 +1,70 @@
+.nav {
+  &--language {
+    @include on-tablet {
+      margin-bottom: 26px;
+    }
+  }
+
+  &--link {
+    @include on-tablet {
+      margin-bottom: 138px;
+    }
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    &--desktop {
+      flex-direction: row;
+      align-items: center;
+      gap: 36px;
+      line-height: 48px;
+    }
+
+    &--footer {
+      font-size: 13px;
+      line-height: 19.5px;
+      gap: 12px;
+
+      @include on-tablet {
+        flex-direction: row;
+        font-size: 14px;
+        gap: 43px;
+      }
+
+      @include on-desktop {
+        line-height: 21px;
+        gap: 37px;
+      }
+    }
+  }
+
+  &__item {
+    &--top {
+      @include hover(background-color, $menu-hover-color);
+      @include hover(color, $blue-text-color);
+    }
+
+    &--bottom {
+      @include hover(color, $blue-text-color);
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $white-text-color;
+    text-decoration: none;
+
+    &--padding {
+      padding-block: 11px;
+    }
+
+    &:hover {
+      color: $blue-text-color;
+    }
+  }
+}

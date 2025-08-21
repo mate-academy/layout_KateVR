@@ -1,0 +1,56 @@
+.gaming {
+  background-color: $bg-black-color;
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-block: 70px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  &__item {
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__info {
+    height: 30px;
+    font-weight: 400;
+    color: $blue-text-color;
+    font-size: 12px;
+    line-height: 14.52px;
+
+    @include on-desktop {
+      font-size: 14px;
+      line-height: 16.94px;
+    }
+  }
+
+  &__top {
+    margin-bottom: 30px;
+    text-align: center;
+
+    @include on-desktop {
+      margin-bottom: 83px;
+    }
+  }
+
+  &__bottom {
+    @include page-grid;
+
+    row-gap: 20px;
+
+    @include on-tablet {
+      row-gap: 40px;
+    }
+  }
+}

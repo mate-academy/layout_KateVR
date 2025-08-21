@@ -1,0 +1,160 @@
+.header {
+  background: $bg-purple-and-black-color;
+
+  &__bg {
+    background-image: url(../images/header/bg/bg-image.png);
+    display: block;
+    background-repeat: no-repeat;
+    background-size: 149%;
+    background-position: -81px center;
+    overflow: hidden;
+    top: 44px;
+    position: absolute;
+    height: 172px;
+    width: 280px;
+
+    @include on-tablet {
+      height: 100%;
+      width: 486px;
+      top: 0;
+      right: 0;
+      background-size: cover;
+      background-position: left center;
+    }
+
+    @include on-desktop {
+      width: 811px;
+    }
+  }
+
+  &__grid {
+    @include page-grid;
+  }
+
+  &__top-bar {
+    z-index: 1;
+    grid-column: 1/-1;
+    padding-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 186px;
+
+    @include on-tablet {
+      margin-bottom: 55px;
+      padding-top: 30px;
+    }
+
+    @include on-desktop {
+      padding-top: 47px;
+    }
+  }
+
+  &__bottom-bar {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      grid-column: 1/-1;
+      margin-bottom: 84px;
+    }
+  }
+
+  &__link {
+    display: block;
+    text-decoration: none;
+    color: $blue-text-color;
+    font-weight: 500;
+    position: relative;
+    margin-left: 100px;
+
+    @include hover(transform, scale(1.2));
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -9px; /* Відступ вниз */
+      left: 50%; /* Вирівнювання по центру */
+      transform: translateX(-50%);
+
+      /* Створення трикутника */
+      width: 0;
+      height: 0;
+      border-left: 4.5px solid transparent; /* Половина width (9px / 2) */
+      border-right: 4.5px solid transparent; /* Половина width (9px / 2) */
+      border-top: 6px solid $blue-text-color; /* Висота трикутника */
+    }
+  }
+
+  &__description {
+    grid-column: 1/-1;
+    margin-bottom: 8px;
+
+    @include on-tablet {
+      grid-column: 1/4;
+    }
+
+    @include on-desktop {
+      grid-column: 2/6;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+  }
+
+  &__price {
+    grid-column: 1/-1;
+
+    color: $white-text-color;
+    font-size: 18px;
+    line-height: 21.78px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 38px;
+
+    @include on-tablet {
+      justify-self: start;
+      grid-column: 1/2;
+    }
+
+    @include on-desktop {
+      grid-column: 2/3;
+      margin-bottom: 29px;
+    }
+  }
+
+  &__play {
+    grid-column: 1/-1;
+    margin-bottom: 12px;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      margin-bottom: 71px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 93px;
+      grid-column: 2/5;
+    }
+  }
+
+  &__top-left {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    @include on-desktop {
+      gap: 34.5px;
+    }
+  }
+
+  &__top-right {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      gap: 36px;
+    }
+  }
+}

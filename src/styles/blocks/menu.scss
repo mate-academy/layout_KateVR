@@ -1,0 +1,30 @@
+.menu {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: auto;
+
+  &__top {
+    height: 100vh;
+    background: $bg-purple-color;
+    padding-top: 20px;
+    font-weight: 500;
+    font-size: 21px;
+    line-height: 27.3px;
+
+    @include on-tablet {
+      padding-top: 34px;
+      height: fit-content;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+}

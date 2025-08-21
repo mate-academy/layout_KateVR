@@ -1,0 +1,28 @@
+.btn-toggle {
+  display: flex;
+  gap: 103px;
+  padding-bottom: 10px;
+  border-bottom: 1px rgba(33, 33, 33, 1) solid;
+
+  &__button {
+    position: relative;
+    cursor: pointer;
+    color: white;
+
+    @include hover(text-shadow, 0 4px 15px rgba(11, 186, 230, 0.88));
+
+    &.active {
+      color: $main-text-color;
+    }
+
+    &.active::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      width: 100%;
+      left: 0;
+      height: 1px;
+      background-color: $blue-text-color;
+    }
+  }
+}

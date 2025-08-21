@@ -1,0 +1,47 @@
+.info {
+  display: grid;
+  row-gap: 9px;
+  line-height: 19.36px;
+
+  @include on-tablet {
+    margin-bottom: 30px;
+  }
+
+  &--get {
+    display: none;
+
+    @include on-tablet {
+      display: grid;
+      grid-row: 3/4;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 2;
+    }
+  }
+
+  &--footer {
+    margin-bottom: 22px;
+    grid-column: 2/3;
+    grid-row: 2/3;
+    font-size: 13px;
+    line-height: 15.73px;
+    row-gap: 12px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+
+    @include hover(color, white);
+  }
+
+  &--menu {
+    margin-bottom: 20px;
+  }
+}

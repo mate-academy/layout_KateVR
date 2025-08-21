@@ -1,0 +1,43 @@
+.play-video {
+  color: $white-text-color;
+  position: relative;
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  text-decoration: none;
+  padding-left: 97px;
+  line-height: 20.8px;
+  font-weight: 500;
+  width: 209px;
+  height: 48px;
+
+  @include on-tablet {
+    width: 236px;
+  }
+
+  &::before {
+    content: url(../images/play.svg);
+    position: absolute;
+    left: 0;
+    top: -22%;
+  }
+
+  &:hover::before {
+    content: url(../images/selected-play.svg);
+  }
+
+  &__about {
+    margin-bottom: 88px;
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 4/-1;
+      margin-bottom: 112px;
+    }
+
+    @include on-desktop {
+      grid-column: -6/-3;
+      grid-row: 3/4;
+    }
+  }
+}
