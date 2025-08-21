@@ -1,0 +1,37 @@
+.benefits {
+  @include on-tablet {
+    display: block;
+    text-align: center;
+  }
+
+  &__title {
+    text-align: left;
+
+    @include change-margin(32, 32, 84, bottom);
+
+    @include on-desktop {
+      text-align: center;
+    }
+  }
+
+  &__article-wrapper {
+    gap: 20px;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__button-wrapper {
+    position: sticky;
+    bottom: 10px;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__button {
+    margin: 80 auto;
+  }
+}

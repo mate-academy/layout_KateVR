@@ -1,0 +1,48 @@
+.slider {
+  display: flex;
+  gap: 103px;
+  width: 207px;
+  padding-bottom: 10px;
+  position: relative;
+
+  &__left {
+    color: $description-text-color;
+    cursor: pointer;
+
+    transition: color 0.3s;
+  }
+
+  &__right {
+    color: $first-text-color;
+    cursor: pointer;
+
+    transition: color 0.3s;
+  }
+
+  & p {
+    margin: auto;
+    margin-bottom: 7px;
+  }
+
+  ::before {
+    content: '';
+    background-color: #212121;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+
+  ::after {
+    content: '';
+    background-color: $second-text-color;
+    height: 2px;
+    width: 33.3%;
+    position: absolute;
+    left: var(--slider-left, 0%);
+    bottom: 0;
+
+    transition: left 0.3s;
+  }
+}

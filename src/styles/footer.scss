@@ -1,0 +1,72 @@
+.footer {
+  background: $additional-page-color;
+  padding-bottom: 50px;
+
+  @include page-grid;
+
+  @include on-tablet {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 64px;
+    padding-bottom: 0;
+  }
+
+  @include on-desktop {
+    height: 100px;
+  }
+
+  &__left {
+    grid-column: span 1;
+    margin-bottom: 15px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__nav {
+    font-weight: $thin-font-weight;
+    font-size: $h3-regular-font-size;
+
+    grid-column: 1 / 2;
+  }
+
+  &__nav-list {
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 43px;
+    }
+  }
+
+  &__links-wrapper {
+    grid-column: 2 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $description-text-color;
+    font-weight: $thin-font-weight;
+
+    @include hover(color, $first-text-color);
+  }
+
+  &__right {
+    display: flex;
+    gap: 18px;
+    grid-column: 2 / -1;
+  }
+
+  @include padding-inline;
+}

@@ -1,0 +1,48 @@
+.section {
+  @include padding-block;
+  @include padding-inline;
+
+  &__title {
+    @include change-font-size(
+      $h2-mobile-font-size,
+      $h2-mobile-font-size,
+      $h2-desktop-font-size
+    );
+
+    line-height: 100%;
+    margin: 0;
+
+    &--main {
+      @include change-font-size(
+        $h1-mobile-font-size,
+        $h1-mobile-font-size,
+        $h1-desktop-font-size
+      );
+
+      line-height: 130%;
+    }
+
+    &--first-color {
+      color: $first-text-color;
+      font-weight: $big-font-weight;
+    }
+
+    &--second-color {
+      color: $second-text-color;
+      font-weight: $thin-font-weight;
+    }
+  }
+
+  &__semi-title {
+    font-size: $h3-regular-font-size;
+    color: $second-text-color;
+    font-weight: $thin-font-weight;
+    margin: 0;
+    margin-bottom: 15px;
+  }
+
+  &__description {
+    color: $description-text-color;
+    line-height: 150%;
+  }
+}

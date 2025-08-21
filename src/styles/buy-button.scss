@@ -1,0 +1,40 @@
+.buy-button {
+  width: 80%;
+  height: 48px;
+
+  color: $first-text-color;
+  background-color: $second-text-color;
+
+  @include hover(color, $second-text-color);
+  @include hover(background-color, $first-text-color);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 4px;
+  cursor: pointer;
+
+  &__wrapper {
+    position: sticky;
+    bottom: 10px;
+
+    display: flex;
+    justify-content: center;
+
+    @include on-desktop {
+      position: static;
+      width: 200px;
+      margin: 0 auto;
+    }
+
+    &--lower {
+      margin-bottom: 102px;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+  }
+}

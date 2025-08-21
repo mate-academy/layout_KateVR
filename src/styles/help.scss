@@ -1,0 +1,109 @@
+.help {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 100;
+  align-items: center;
+  display: flex;
+
+  &__container {
+    width: 100%;
+
+    @include page-grid;
+  }
+
+  &__content {
+    grid-column: 3 / -3;
+    padding-block: 30px 82px;
+    background-color: $context-menu-color;
+
+    position: relative;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    background-color: inherit;
+  }
+
+  &__title {
+    grid-column: 2 / span 10;
+    margin-bottom: 54px;
+    font-size: $h2-desktop-font-size;
+  }
+
+  &__main {
+    grid-column: 2 / span 10;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  &__text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $description-text-color;
+  }
+
+  &__service-btn {
+    color: $second-text-color;
+    text-decoration: none;
+
+    @include hover(color, $first-text-color);
+  }
+
+  &__bottom {
+    grid-column: 2 / span 6;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    column-gap: 20px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+
+    &--first {
+      grid-column: span 3;
+    }
+
+    &--second {
+      grid-column: span 2;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__link {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+    color: $second-text-color;
+    text-decoration: none;
+    text-wrap: nowrap;
+
+    @include hover(color, $first-text-color);
+
+    &--contact {
+      color: $description-text-color;
+    }
+  }
+}

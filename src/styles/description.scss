@@ -1,0 +1,144 @@
+.description {
+  @include page-grid;
+
+  padding-top: 0;
+  padding-bottom: 60px;
+
+  @include on-tablet {
+    padding-top: 55px;
+  }
+
+  @include on-desktop {
+    padding-top: 100px;
+    padding-bottom: 84px;
+  }
+
+  &__wrapper-left {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__img-container {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 277px;
+    object-fit: contain;
+
+    &--small {
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 auto;
+    margin-bottom: 19;
+  }
+
+  &__description {
+    @include on-desktop {
+      margin-left: $margin-header-for-desctop;
+    }
+  }
+
+  &__price {
+    font-size: 18px;
+    color: $first-text-color;
+
+    @include on-desktop {
+      margin-left: $margin-header-for-desctop;
+    }
+  }
+
+  &__button {
+    @include on-desktop {
+      margin-left: $margin-header-for-desctop;
+    }
+  }
+
+  &__bottom {
+    color: #fff;
+    margin-top: 84px;
+    grid-column: 1 / -1;
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__helper {
+    display: flex;
+    gap: 39px;
+  }
+
+  &__faq {
+    @include hover(color, $second-text-color);
+
+    cursor: pointer;
+  }
+
+  &__help {
+    @include hover(color, $second-text-color);
+
+    cursor: pointer;
+  }
+
+  &__more {
+    color: $second-text-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    transition: color, 0.3s;
+    cursor: pointer;
+
+    & a {
+      text-decoration: none;
+      color: inherit;
+      margin: auto;
+      margin-bottom: 7px;
+    }
+  }
+
+  &__triangle {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid $second-text-color;
+    transition: border-top-color, 0.3s;
+    cursor: pointer;
+  }
+
+  @include padding-inline;
+}
+
+.description__more:hover {
+  color: $first-text-color;
+}
+
+.description__more:hover .description__triangle {
+  border-top-color: $first-text-color;
+}

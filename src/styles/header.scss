@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include change-margin(18, 30, 47, top);
+  @include change-margin(18, 30, 47, top);
+
+  &__logo {
+    width: 58px;
+    height: 12px;
+
+    @include on-tablet {
+      width: 77.5px;
+      height: 16px;
+    }
+  }
+
+  &__left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 34.5px;
+  }
+
+  &__dropdown {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 36px;
+    }
+  }
+
+  &__icon {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  @include padding-inline;
+}

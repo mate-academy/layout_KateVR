@@ -1,0 +1,97 @@
+.about {
+  @include page-grid;
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  &__img-wrapper {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 7;
+    }
+  }
+
+  &__counter {
+    grid-column: 2 / 3;
+    color: $second-text-color;
+    margin-top: 20px;
+
+    justify-self: end;
+
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    min-width: 208px;
+    height: 290px;
+    object-fit: contain;
+  }
+
+  &__product-wrapper {
+    margin-top: 20px;
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__greeting-wrapper {
+    grid-column: span 2;
+
+    @include change-margin(88, 107, 183, top);
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+    }
+  }
+
+  &__decor-img {
+    display: none;
+
+    @include change-margin(0, 83, 183, top);
+
+    @include on-tablet {
+      display: block;
+      grid-column: 5 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+    }
+
+    background-image: url('../images/about-us.svg');
+    background-size: auto 100%;
+    background-size: cover;
+
+    width: 400px;
+    height: 400px;
+  }
+
+  &__slider {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+}

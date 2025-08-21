@@ -1,0 +1,71 @@
+.contacts {
+  @include page-grid;
+
+  background: $additional-page-color;
+
+  &__title {
+    margin-bottom: 26px;
+  }
+
+  &__inner-wrapper {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__description {
+    display: none;
+
+    @include on-tablet {
+      display: inline;
+    }
+  }
+
+  &__form {
+    grid-column: span 2;
+
+    @include on-tablet {
+      grid-column: span span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 6 / -1;
+    }
+  }
+
+  &__links-wrapper {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+    }
+
+    margin-top: 76px;
+    gap: 11px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $description-text-color;
+    font-weight: $thin-font-weight;
+
+    @include hover(color, $first-text-color);
+  }
+
+  &__up {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+
+    @include hover(transform, scale(1.2));
+  }
+}

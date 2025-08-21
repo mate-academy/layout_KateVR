@@ -1,0 +1,93 @@
+.open-bar {
+  width: fit-content;
+  display: flex;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  @include on-tablet {
+    flex-direction: column;
+  }
+
+  &--active {
+    z-index: 1;
+  }
+
+  &__circle {
+    position: relative;
+    height: 34px;
+    width: 34px;
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url('../images/open-circle-icon.svg');
+
+    @include hover(
+      background-image,
+      url('../images/open-circle-hover-icon.svg')
+    );
+
+    @include on-tablet {
+      height: 62px;
+      width: 62px;
+    }
+
+    &--active {
+      background-image: url('../images/close-circle-icon.svg');
+
+      @include hover(
+        background-image,
+        url('../images/close-circle-hover-icon.svg')
+      );
+    }
+  }
+
+  &__content {
+    display: none;
+    width: max-content;
+    background-color: $context-menu-color;
+    border-radius: 4px;
+
+    max-width: 170px;
+
+    @include on-tablet {
+      max-width: 340px;
+    }
+
+    &--longest {
+      @include on-tablet {
+        margin-left: -50%;
+      }
+    }
+  }
+
+  &:is(&--active) &__content {
+    display: flex;
+  }
+
+  &:is(&--active) &__circle {
+    background-image: url('../images/close-circle-icon.svg');
+
+    @include hover(
+      background-image,
+      url('../images/close-circle-hover-icon.svg')
+    );
+  }
+
+  &__content-wrapper {
+    overflow: hidden;
+  }
+
+  &__text {
+    margin: 0;
+    padding: 12px 10px;
+    font-size: $h3-mobile-font-size;
+    color: $description-text-color;
+
+    @include on-tablet {
+      padding: 17px 10px 22px;
+      font-size: $h3-heavy-font-size;
+    }
+  }
+}

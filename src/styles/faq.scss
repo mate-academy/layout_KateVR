@@ -1,0 +1,91 @@
+.faq {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto;
+  z-index: 999;
+  display: grid;
+  pointer-events: all;
+  place-items: center;
+
+  color: $second-text-color;
+
+  &__container {
+    width: fit-content;
+    height: fit-content;
+
+    @include page-grid;
+  }
+
+  &__content {
+    grid-column: 2 / span 10;
+    padding-block: 70px 50px;
+    background-color: $context-menu-color;
+
+    position: relative;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 20px;
+  }
+
+  &__close {
+    position: absolute;
+    top: 26px;
+    right: 26px;
+    background-color: inherit;
+  }
+
+  &__title {
+    grid-column: 2 / span 10;
+    margin-bottom: 37px;
+  }
+
+  &__articles {
+    grid-column: 2 / span 10;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 50px;
+  }
+
+  &__more {
+    grid-column: 1 / -1;
+
+    color: $second-text-color;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    transition: color, 0.3s;
+
+    & a {
+      text-decoration: none;
+      color: inherit;
+      margin: auto;
+      margin-bottom: 7px;
+    }
+  }
+
+  &__triangle {
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid $second-text-color;
+    transition: border-top-color, 0.3s;
+  }
+}
+
+.faq__more:hover {
+  color: $first-text-color;
+}
+
+.faq__more:hover .faq__triangle {
+  border-top-color: $first-text-color;
+}

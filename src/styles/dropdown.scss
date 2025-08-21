@@ -1,0 +1,79 @@
+.dropdown {
+  cursor: pointer;
+
+  &__title {
+    display: flex;
+    align-items: baseline;
+    gap: 3px;
+    color: $second-text-color;
+
+    &:hover {
+      color: $first-text-color;
+    }
+
+    &--text {
+      color: inherit;
+      font-size: 16px;
+      line-height: 20.8px;
+      transition: color, 0.3s;
+    }
+
+    &--triangle {
+      width: 0px;
+      height: 0px;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 4px solid $second-text-color;
+      transition: border-top-color, 0.3s;
+    }
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 3;
+    top: 85px;
+    transform: translateY(-25px);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      transform 0.3s,
+      opacity 0.3s;
+
+    overflow: hidden;
+    width: max-content;
+    border: 1px solid $second-text-color;
+    background-color: $context-menu-color;
+
+    &--active {
+      pointer-events: auto;
+      transform: translateY(5px);
+      opacity: 1;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  &__item {
+    padding: 5px 20px;
+    cursor: pointer;
+    color: $first-text-color;
+
+    @include hover(background-color, $dropdown-backgound-color-hover);
+
+    &--active {
+      color: $second-text-color;
+    }
+  }
+}
+
+.dropdown__title:hover .dropdown__title--text {
+  color: $first-text-color;
+}
+
+.dropdown__title:hover .dropdown__title--triangle {
+  border-top-color: $first-text-color;
+}

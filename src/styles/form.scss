@@ -1,0 +1,53 @@
+.form {
+  &__field {
+    margin-bottom: 24px;
+  }
+
+  &__label {
+    color: $description-text-color;
+    font-size: $h3-regular-font-size;
+    font-weight: $thin-font-weight;
+  }
+
+  &__input {
+    display: block;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #2f2f2f;
+    background: inherit;
+    color: $first-text-color;
+    font-size: $h3-heavy-font-size;
+    width: 100%;
+    margin-top: 4px;
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: 90px;
+  }
+
+  &__button {
+    cursor: pointer;
+    width: 100%;
+    height: 48px;
+
+    @include hover(color, $second-text-color);
+    @include hover(background-color, $first-text-color);
+
+    @include on-tablet {
+      width: 200px;
+    }
+
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+
+    color: $first-text-color;
+    background: $second-text-color;
+
+    border-radius: 4px;
+  }
+}
