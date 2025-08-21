@@ -1,0 +1,268 @@
+.tech {
+  background-color: $background-black;
+
+  &__content {
+    @include page-grid;
+
+    row-gap: 30px;
+
+    @include on-desktop {
+      row-gap: 80px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+
+    @include on-large-desktop {
+      grid-column: 12 / -1;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+    text-align: center;
+    position: relative;
+
+    @include on-desktop {
+      @include page-grid;
+
+      height: 355px;
+      grid-template-rows: 60px repeat(2, 1fr);
+    }
+  }
+
+  &__img {
+    width: 197px;
+    height: 195px;
+
+    @include hover(transform, rotate(15deg));
+
+    @include on-tablet {
+      width: 358px;
+      height: 354px;
+    }
+
+    @include on-desktop {
+      width: 297px;
+      height: 294px;
+      grid-column: 5 / 9;
+      grid-row: 2 / -1;
+    }
+
+    @include on-large-desktop {
+      grid-column: 7 / 11;
+    }
+  }
+
+  &__dot {
+    cursor: pointer;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: none;
+    background-image: url(../images/tech/closed-btn.svg);
+    background-repeat: no-repeat;
+    background-size: 34px;
+    position: absolute;
+
+    &--open {
+      background-image: url(../images/tech/open-btn.svg);
+    }
+
+    @include on-tablet {
+      width: 62px;
+      height: 62px;
+      background-size: 62px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &--1 {
+      top: -10px;
+      left: 100px;
+
+      @include on-tablet {
+        top: -20px;
+        left: 230px;
+      }
+    }
+
+    &--2 {
+      top: 80px;
+      right: 60px;
+
+      @include on-tablet {
+        top: 145px;
+        right: 220px;
+      }
+    }
+
+    &--3 {
+      bottom: 15px;
+      left: 30px;
+
+      @include on-tablet {
+        left: 110px;
+      }
+    }
+  }
+
+  &__info {
+    display: none;
+    text-align: left;
+
+    @include on-desktop {
+      display: block;
+    }
+
+    &-title {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+      }
+    }
+
+    &--1 {
+      position: absolute;
+      top: 0;
+
+      @include on-desktop {
+        position: static;
+        grid-column: 1 / 4;
+      }
+
+      @include on-large-desktop {
+        grid-column: 3 / 6;
+      }
+    }
+
+    &--2 {
+      position: absolute;
+      top: 210px;
+
+      @include on-desktop {
+        position: static;
+        grid-column: 9 / -1;
+      }
+
+      @include on-large-desktop {
+        grid-column: 12 / 16;
+      }
+    }
+
+    &--3 {
+      position: absolute;
+      bottom: 0;
+      left: 190px;
+
+      @include on-desktop {
+        position: static;
+        grid-column: 2 / 5;
+        grid-row: 3 / -1;
+      }
+
+      @include on-large-desktop {
+        grid-column: 3 / 6;
+      }
+    }
+
+    &--visible {
+      display: block;
+      width: max-content;
+    }
+  }
+
+  &__params {
+    padding: 20px 10px;
+    background: #191536;
+    border-radius: 4px;
+
+    @include on-desktop {
+      padding: 0;
+      background: inherit;
+    }
+  }
+
+  &__line {
+    pointer-events: none;
+
+    @include on-desktop {
+      position: absolute;
+      display: block;
+    }
+
+    &--1 {
+      @include on-desktop {
+        background-image: url(../images/tech/sensor.png);
+        width: 403px;
+        height: 65px;
+        top: 12px;
+        left: 104px;
+      }
+
+      @include on-large-desktop {
+        background-image: url(../images/tech/sensor-lg.png);
+        width: 431px;
+        height: 65px;
+        left: 269px;
+      }
+    }
+
+    &--2 {
+      @include on-desktop {
+        background-image: url(../images/tech/batteries.png);
+        width: 192px;
+        height: 245px;
+        top: 5px;
+        right: 350px;
+      }
+
+      @include on-large-desktop {
+        background-image: url(../images/tech/batteries-lg.png);
+        width: 283px;
+        height: 245px;
+        right: 460px;
+      }
+    }
+
+    &--3 {
+      @include on-desktop {
+        background-image: url(../images/tech/connection.png);
+        width: 134px;
+        height: 113px;
+        top: 107px;
+        left: 230px;
+      }
+
+      @include on-large-desktop {
+        background-image: url(../images/tech/connection-lg.png);
+        width: 241px;
+        height: 113px;
+        top: 110px;
+        left: 320px;
+      }
+    }
+
+    &--semi-circle {
+      @include on-desktop {
+        background-image: url(../images/tech/half.png);
+        width: 40px;
+        height: 201px;
+        top: 100px;
+        left: 350px;
+      }
+
+      @include on-large-desktop {
+        left: 540px;
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+.usefullness {
+  background-color: $background-black;
+
+  &__title {
+    margin-bottom: 12px;
+
+    @include on-tablet {
+      text-align: center;
+    }
+
+    @include on-desktop {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 15px;
+    color: $accent-color;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    @include on-desktop {
+      font-size: 14px;
+      line-height: 17px;
+      margin-bottom: 83px;
+    }
+
+    @include on-large-desktop {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__cards {
+    @include page-grid;
+
+    row-gap: 20px;
+
+    @include on-tablet {
+      row-gap: 40px;
+    }
+  }
+
+  &__card {
+    grid-column: span 3;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include on-large-desktop {
+      grid-column: span 4;
+    }
+  }
+}
