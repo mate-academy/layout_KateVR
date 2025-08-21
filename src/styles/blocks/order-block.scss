@@ -1,0 +1,149 @@
+.order-block {
+  height: 100%;
+  background: $c-linear-gradient;
+
+  &__top {
+    margin-bottom: 0;
+  }
+
+  &__content {
+    @include page-grid;
+
+    height: 100%;
+    padding-top: 90px;
+    justify-items: center;
+
+    @include on-tablet {
+      padding-top: 180px;
+    }
+
+    @include on-desktop {
+      padding-top: 140px;
+    }
+
+    @include on-design {
+      padding-top: 236px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    font-size: 26px;
+    line-height: 33.8px;
+    text-align: center;
+    color: $c-white;
+    text-transform: uppercase;
+
+    @include on-tablet {
+      font-size: 46px;
+      line-height: 60px;
+      justify-items: center;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / -3;
+    }
+
+    @include on-design {
+      grid: 5 / -5;
+    }
+  }
+
+  &__span {
+    font-weight: 400;
+    color: $c-contrast;
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    text-align: center;
+    margin: 16px 0 30px;
+
+    @include on-tablet {
+      font-size: 18px;
+      line-height: 23.4px;
+      margin: 20px 0 50px;
+    }
+
+    @include on-desktop {
+      margin-top: 36px;
+      grid-column: 2 / -2;
+    }
+
+    @include on-design {
+      grid-column: 4 / -4;
+      margin: 56px 0 70px;
+    }
+  }
+
+  &__des-top {
+    display: none;
+
+    @include on-desktop {
+      @include page-grid;
+
+      padding-top: 64px;
+    }
+
+    @include on-design {
+      padding-top: 58px;
+    }
+  }
+
+  &__top-right {
+    display: none;
+
+    @include on-desktop {
+      grid-column: 4 / -2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      position: relative;
+    }
+
+    @include on-design {
+      grid-column: 5 / -3;
+    }
+  }
+
+  &__top-right-text {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18.2px;
+      color: $c-text-date;
+      height: 29px;
+    }
+
+    &--blue {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        color: $c-contrast;
+
+        &::after {
+          content: '';
+          background-image: url(../images/icons/ellipse.svg);
+          background-repeat: no-repeat;
+          height: 4px;
+          width: 4px;
+          background-position: center;
+          position: absolute;
+          bottom: 0;
+          left: 92.5%;
+        }
+      }
+    }
+  }
+
+  &__button {
+    margin: 0 auto;
+  }
+}

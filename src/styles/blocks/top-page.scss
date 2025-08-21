@@ -1,0 +1,246 @@
+.top-page {
+  background: $c-linear-gradient;
+
+  &__img {
+    grid-column: 1 / -1;
+    width: 100%;
+    object-position: center;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__tab {
+    display: none;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 2 / 6;
+      display: flex;
+      width: 100%;
+    }
+
+    @include on-desktop {
+      height: 100%;
+      grid-column: 7 / -1;
+      grid-row: 1 / 5;
+    }
+
+    @include on-design {
+      grid-column: 7 / -1;
+      height: 138%;
+    }
+
+    &-img {
+      background-image: url(../images/image_header_png.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: 50%;
+
+      margin-inline: -31% -1%;
+      margin-top: 31px;
+      flex: 150px;
+      width: 448px;
+      height: 249px;
+
+      @include on-desktop {
+        margin-top: 4px;
+        margin-left: -33%;
+        height: 113%;
+      }
+
+      @include on-design {
+        margin-top: -20px;
+        margin-left: -16%;
+      }
+    }
+  }
+
+  &__content {
+    @include page-grid;
+
+    box-sizing: border-box;
+    height: 100vh;
+    width: 100%;
+    min-height: 554px;
+
+    @include on-tablet {
+      min-height: 445px;
+    }
+
+    @include on-desktop {
+      min-height: 740px;
+      padding-top: 196px;
+    }
+
+    @include on-design {
+      min-height: 1103px;
+      padding-top: 327px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    font-weight: 900;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+
+    &-span {
+      font-weight: 400;
+      color: $c-contrast;
+    }
+  }
+
+  &-text {
+    grid-column: 1 / -1;
+
+    padding-top: 17px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+      padding-top: 19px;
+    }
+
+    @include on-design {
+      padding-top: 35px;
+    }
+  }
+
+  &-price {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: center;
+    padding: 8px 0 16px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      justify-content: start;
+      padding: 10px 0 24px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+      padding: 5px 0 29px;
+    }
+
+    @include on-design {
+      padding: 30px 0 36px;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__button-video {
+    grid-column: 1 / -1;
+
+    margin-bottom: 46px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1 / -1;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      margin-block: 84px;
+    }
+
+    @include on-design {
+      margin-bottom: 107px;
+    }
+
+    &-left {
+      display: flex;
+      flex-direction: row;
+      gap: 39px;
+
+      &-text {
+        text-decoration: none;
+        color: $c-white;
+
+        @include hover(transform, scale(1.05));
+        &:hover {
+          filter: brightness(0) invert(1) sepia(1) saturate(10000%)
+            hue-rotate(130deg);
+        }
+      }
+    }
+
+    &-center {
+      &-a {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 7px;
+        text-decoration: none;
+      }
+
+      @include hover(transform, scale(1.05));
+      &-text {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 24px;
+        color: $c-contrast;
+        margin: 0;
+      }
+    }
+
+    &-right {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 103px;
+      border-bottom: 1px solid $c-fraction;
+      width: 204.4px;
+    }
+  }
+
+  &__previous {
+    position: relative;
+    padding-bottom: 10px;
+    cursor: pointer;
+
+    &::after {
+      content: '';
+      background-color: $c-contrast;
+      width: 100%;
+      height: 1px;
+      display: block;
+      position: absolute;
+      bottom: -2px;
+    }
+  }
+
+  &__next {
+    position: relative;
+    padding-bottom: 10px;
+    cursor: pointer;
+  }
+}

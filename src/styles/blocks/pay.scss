@@ -1,0 +1,327 @@
+.pay {
+  height: 100%;
+  background: $c-linear-gradient;
+
+  &__des-top {
+    display: none;
+
+    @include on-desktop {
+      @include page-grid;
+
+      padding: 64px 0 131px;
+    }
+
+    @include on-design {
+      padding: 58px 0 219px;
+    }
+  }
+
+  &__top-right {
+    display: none;
+
+    @include on-desktop {
+      grid-column: 4 / -2;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      position: relative;
+    }
+
+    @include on-design {
+      grid-column: 5 / -3;
+    }
+  }
+
+  &__top-right-text {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18.2px;
+      color: $c-text-date;
+      height: 29px;
+    }
+
+    &--blue {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        color: $c-contrast;
+
+        &::after {
+          content: '';
+          background-image: url(../images/icons/ellipse.svg);
+          background-repeat: no-repeat;
+          height: 4px;
+          width: 4px;
+          background-position: center;
+          position: absolute;
+          bottom: 0;
+          left: 48%;
+        }
+      }
+    }
+  }
+
+  &__content {
+    @include page-grid;
+
+    height: 100%;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__name-card {
+    grid-column: 1 / -1;
+    color: $c-contrast;
+    margin-bottom: 17px;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -2;
+    }
+  }
+
+  &__mmyy {
+    grid-column: 1 / 2;
+    color: $c-text;
+  }
+
+  &__ccv {
+    grid-column: 2 / -1;
+    color: $c-text;
+  }
+
+  &__bottom-card {
+    margin-bottom: 17px;
+    grid-column: 1 / 2;
+    color: $c-text;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 9;
+    }
+  }
+
+  &__bottom-cards {
+    margin-bottom: 17px;
+    grid-column: 2 / -1;
+    grid-row: 5 / 6;
+    color: $c-text;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+      grid-row: 6 / 7;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -2;
+      grid-row: 5 / 6;
+    }
+  }
+
+  &__number-inputs {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -2;
+    }
+  }
+
+  &__input {
+    width: 56px;
+    height: 32px;
+    box-sizing: border-box;
+    color: $c-white;
+    border: none;
+    border-bottom: 1px solid $c-dark-grey;
+    outline: none;
+    padding: 0;
+    background-color: transparent;
+
+    &--num {
+      letter-spacing: 0.1em;
+      text-align: center;
+    }
+
+    &--mmyy {
+      width: 90px;
+      text-align: center;
+      grid-column: 1 / 2;
+
+      @include on-design {
+        margin-bottom: 125px;
+      }
+    }
+
+    &--ccv {
+      text-align: center;
+      letter-spacing: 0.1em;
+    }
+
+    &:hover {
+      border-bottom: 1px solid $c-contrast;
+    }
+  }
+
+  &__mmyy-input {
+    grid-column: 1 / 2;
+
+    @include on-tablet {
+      grid-column: 2 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 9;
+    }
+  }
+
+  &__ccv-input {
+    grid-column: 2 / -1;
+    grid-row: 6 / 7;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+      grid-row: 7 / 8;
+      margin-bottom: 104px;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -2;
+      grid-row: 6 / 7;
+      margin-bottom: 0;
+    }
+  }
+
+  &__card-holder-name {
+    grid-column: 1 / -1;
+    margin-top: 30px;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      margin-top: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -2;
+      margin: 40px 0;
+    }
+
+    @include on-design {
+      margin: 70px 0 50px;
+    }
+  }
+
+  &__count {
+    @include on-tablet {
+      grid-column: 2 / 6;
+
+      padding-bottom: 60px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+      margin-bottom: 0;
+    }
+  }
+
+  &__icon {
+    background-image: url(../images/icons/pay_card.svg);
+    background-repeat: no-repeat;
+    width: 54px;
+    height: 34px;
+    background-size: contain;
+  }
+
+  &__desk-content {
+    display: none;
+
+    @include on-desktop {
+      @include page-grid;
+
+      height: 100%;
+    }
+  }
+
+  &__count-desk {
+    grid-column: 1 / 7;
+
+    @include on-design {
+      grid-row: 1 / 2;
+    }
+
+    &-margin {
+      margin-bottom: 17px;
+    }
+
+    &::before {
+      @include on-design {
+        content: '';
+        display: block;
+        background-image: url(../images/photo_purchase/design_version.svg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 40%;
+        transform: translate(-210px);
+        width: 921px;
+        height: 506px;
+        top: 35px;
+      }
+    }
+  }
+
+  &__desk-right {
+    grid-column: 7 / -2;
+    grid-row: 1 / 2;
+
+    @include on-design {
+      grid-column: 9 / -3;
+      margin-top: 35px;
+    }
+  }
+
+  &__bottom-desk {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: row;
+      gap: 74px;
+    }
+  }
+
+  &__button {
+    @include on-design {
+      display: none;
+    }
+  }
+
+  &__design-button {
+    display: none;
+
+    @include on-design {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

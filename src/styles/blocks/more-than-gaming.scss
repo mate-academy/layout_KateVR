@@ -1,0 +1,187 @@
+.more-than-gaming {
+  &__content {
+    @include page-grid;
+
+    background-color: $c-background-black;
+    padding-block: 50px;
+
+    @include on-tablet {
+      padding-bottom: 70px;
+    }
+
+    @include on-desktop {
+      padding-top: 100px;
+    }
+
+    @include on-design {
+      padding-top: 158px;
+    }
+  }
+
+  &__h2 {
+    grid-column: 1 / -1;
+
+    font-weight: 900;
+    color: $c-white;
+    margin-bottom: 12px;
+
+    @include on-tablet {
+      margin: 0 auto;
+      padding-bottom: 12px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 16px;
+    }
+  }
+
+  &__span {
+    font-weight: 400;
+    color: $c-contrast;
+  }
+
+  &__text-after-title {
+    grid-column: 1 / -1;
+
+    color: $c-contrast;
+    height: 30px;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      margin: 0 auto;
+    }
+
+    @include on-desktop {
+      height: 17px;
+
+      padding-bottom: 83px;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    transition-duration: 0.5s;
+
+    @include hover(transform, scale(1.05));
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      gap: 30px;
+      justify-content: space-between;
+    }
+
+    &-h3 {
+      color: $c-white;
+    }
+
+    &-text {
+      color: $c-text;
+      margin-top: 11px;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &-block--1 {
+      @include on-tablet {
+        grid-column: 1 / 4;
+
+        padding-top: 30px;
+      }
+
+      @include on-desktop {
+        padding-top: 0;
+      }
+
+      @include on-design {
+        grid-column: 1 / 5;
+      }
+    }
+
+    &-block--2 {
+      padding-top: 20px;
+
+      @include on-tablet {
+        grid-column: 4 / -1;
+
+        padding-top: 30px;
+      }
+
+      @include on-desktop {
+        grid-column: 4 / 7;
+        padding-top: 0;
+      }
+
+      @include on-design {
+        grid-column: 5 / 9;
+      }
+    }
+
+    &-block--3 {
+      padding-top: 20px;
+
+      @include on-tablet {
+        grid-column: 1 / 4;
+
+        padding-top: 40px;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / 10;
+        padding-top: 0;
+      }
+
+      @include on-design {
+        grid-column: 9 / 13;
+      }
+    }
+
+    &-block--4 {
+      padding-top: 20px;
+
+      @include on-tablet {
+        grid-column: 4 / -1;
+
+        padding-top: 40px;
+      }
+
+      @include on-desktop {
+        grid-column: 10 / -1;
+        padding-top: 0;
+        height: 238px;
+      }
+
+      @include on-design {
+        grid-column: 13 / -1;
+        height: 214px;
+      }
+    }
+
+    &-tab {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+        color: $c-text;
+        text-align: center;
+      }
+    }
+  }
+
+  &__logo {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+}

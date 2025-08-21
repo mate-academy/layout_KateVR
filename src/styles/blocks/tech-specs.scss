@@ -1,0 +1,326 @@
+.tech-specs {
+  &__content {
+    @include page-grid;
+
+    background-color: $c-background-black;
+    padding-block: 50px;
+
+    @include on-tablet {
+      padding-block: 80px;
+    }
+
+    @include on-desktop {
+      padding-bottom: 100px;
+    }
+
+    @include on-design {
+      padding-block: 160px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    color: $c-white;
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      height: 29px;
+      margin-bottom: 57px;
+    }
+
+    @include on-desktop {
+      height: 47px;
+      grid-column: -5 / -1;
+      margin-bottom: 141px;
+    }
+  }
+
+  &__span {
+    color: $c-contrast;
+    font-weight: 400;
+  }
+
+  &__block {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    position: relative;
+  }
+
+  &__but-info {
+    height: 34px;
+    width: 34px;
+    position: absolute;
+
+    @include on-tablet {
+      height: 62px;
+      width: 62px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__description--sensor {
+    width: 250px;
+    height: 143px;
+    top: -61px;
+    right: 100%;
+    margin-right: 107px;
+
+    @include on-design {
+      margin-right: 125px;
+      top: -58px;
+    }
+  }
+
+  &__description--batterries {
+    width: 338px;
+    height: 207px;
+    top: -61px;
+    left: 100%;
+    margin-left: 63px;
+
+    @include on-design {
+      width: 344px;
+      height: 201px;
+      margin-left: 158px;
+      top: -60px;
+    }
+  }
+
+  &__description--connection {
+    width: 241px;
+    height: 124px;
+    top: 156px;
+    right: 100%;
+    margin-right: 30px;
+
+    @include on-design {
+      margin-right: 134px;
+    }
+  }
+
+  &__description {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+    }
+
+    &-title {
+      color: $c-white;
+      margin-bottom: 21px;
+    }
+
+    &-p {
+      color: $c-text;
+    }
+  }
+
+  &__button {
+    background-image: url(../images/tech_specs/tech_specs_plus.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    height: 34px;
+    width: 34px;
+    padding: 0;
+
+    transition-duration: 0.5s;
+
+    &:hover {
+      background-image: url(../images/tech_specs/tech_specs_minus.svg);
+    }
+
+    @include on-tablet {
+      height: 62px;
+      width: 62px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &--top {
+      top: -11px;
+      left: 60px;
+
+      @include on-tablet {
+        top: -27px;
+      }
+    }
+
+    &--right {
+      right: 29px;
+
+      @include on-tablet {
+        right: 49px;
+      }
+    }
+
+    &--bottom {
+      left: -17px;
+      bottom: 7.7px;
+
+      @include on-tablet {
+        left: -58px;
+        bottom: 19px;
+      }
+    }
+  }
+
+  &__img {
+    object-fit: contain;
+    object-position: center;
+
+    @include on-tablet {
+      width: 358px;
+      height: 354px;
+    }
+
+    @include on-desktop {
+      width: 297.48px;
+      height: 294px;
+    }
+  }
+
+  &__half-circle {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+      width: 45px;
+      height: 201px;
+      background-image: url(../images/tech_specs/tech_specs_half_circle.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      right: 88%;
+      bottom: 53px;
+      margin-left: 15px;
+    }
+  }
+
+  &__line-top {
+    @include on-desktop {
+      width: 403px;
+      height: 72px;
+      background-image: url(../images/tech_specs/tech_specs_top_line.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      position: absolute;
+      top: 11px;
+      left: 101px;
+    }
+
+    @include on-design {
+      width: 431px;
+      background-image: url(../images/tech_specs/tech_specs_top_line_design.svg);
+      top: 8px;
+      left: 91px;
+    }
+  }
+
+  &__line-left {
+    @include on-desktop {
+      width: 134px;
+      position: absolute;
+      height: 113px;
+      background-image: url(../images/tech_specs/tech_specs_left_line.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      bottom: 109px;
+      left: 140px;
+    }
+
+    @include on-design {
+      width: 241px;
+      background-image: url(../images/tech_specs/tech_specs_left_line_design.svg);
+      left: 137px;
+    }
+  }
+
+  &__line-right {
+    @include on-desktop {
+      position: absolute;
+      width: 192px;
+      height: 245px;
+      background-image: url(../images/tech_specs/tech_specs_right-line.svg);
+      background-repeat: no-repeat;
+      background-size: contain;
+      top: 0;
+      right: 100%;
+      margin-right: 21px;
+    }
+
+    @include on-design {
+      width: 283px;
+      background-image: url(../images/tech_specs/tech_specs_right_line_design.svg);
+      top: 7px;
+    }
+  }
+
+  &__more-info {
+    display: none;
+    position: absolute;
+    background-color: $c-aside;
+    border-radius: 4px;
+    margin: 0;
+    z-index: 5;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    color: $c-text;
+    line-height: 18px;
+    font-weight: 400;
+    font-size: 12px;
+
+    @include on-tablet {
+      font-size: 14px;
+      line-height: 21px;
+    }
+
+    &--1 {
+      top: 24px;
+      left: -40px;
+      padding: 17px 10px 22px;
+
+      @include on-tablet {
+        top: 37px;
+      }
+    }
+
+    &--2 {
+      top: 114px;
+      right: -120px;
+      padding: 17px 10px 22px;
+
+      @include on-tablet {
+        top: 209px;
+      }
+    }
+
+    &--3 {
+      top: 60px;
+      left: -95px;
+      padding: 17px 10px 22px;
+
+      @include on-tablet {
+        top: 170px;
+      }
+    }
+  }
+
+  &__button--top:hover + &__more-info--1,
+  &__button--right:hover + &__more-info--2,
+  &__button--bottom:hover + &__more-info--3 {
+    display: block;
+    opacity: 1;
+  }
+}

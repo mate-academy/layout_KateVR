@@ -1,0 +1,115 @@
+.footer {
+  background-color: #000;
+
+  &__container {
+    @include page-grid;
+
+    padding: 45px 0 50px;
+
+    @include on-tablet {
+      padding-block: 21px;
+    }
+
+    @include on-desktop {
+      padding-block: 39px;
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / -1;
+    padding-bottom: 15px;
+
+    @include on-tablet {
+      grid-column: 1 / 2;
+      grid-row: 1 / -1;
+      padding-bottom: 0;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__nav {
+    grid-row: 2 / 4;
+    grid-column: 1 / 2;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      grid-row: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 9;
+    }
+
+    @include on-design {
+      grid-column: 7 / 11;
+    }
+  }
+
+  &-nav__list {
+    padding: 0;
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      align-self: center;
+      flex-direction: row;
+      justify-content: center;
+      gap: 43px;
+      align-items: center;
+    }
+  }
+
+  &__right {
+    grid-column: 2 / -1;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__contact {
+    line-height: 15.73px;
+    color: $c-text;
+
+    &--tel {
+      margin-bottom: 12px;
+    }
+
+    &--mail {
+      margin-bottom: 12px;
+    }
+
+    @include hover(transform, scale(1.05));
+  }
+
+  &__bottom {
+    grid-column: 2 / -1;
+    grid-row: 3 / 4;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: end;
+
+    @include on-tablet {
+      grid-column: -2 / -1;
+      grid-row: 1 / -1;
+      align-items: baseline;
+      gap: 11px;
+    }
+
+    @include on-desktop {
+      grid-column: -3 / -1;
+      gap: 18px;
+      justify-content: flex-end;
+      justify-self: end;
+    }
+  }
+
+  &__item {
+    @include hover(transform, scale(1.05));
+  }
+}
