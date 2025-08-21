@@ -1,0 +1,69 @@
+.video-section {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+  height: 40vh;
+  background-color: transparent;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  border-radius: 8px;
+  transition: opacity 0.3s ease;
+  box-sizing: border-box;
+
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  &__iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+
+  &__icon {
+    position: absolute;
+    z-index: 1000;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin: 6px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    right: 0;
+
+    &--close {
+      background-image: url('../images/icons/top-bar-close-icon.svg');
+
+      &:hover {
+        @extend %hover-blue-icon;
+      }
+    }
+  }
+}
+
+@keyframes fadeInOverlay {
+  from {
+    opacity: 0;
+    transform: translate(-50%, calc(-50% + 20px));
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#video-section:target {
+  display: block;
+  opacity: 1;
+  pointer-events: auto;
+  animation: fadeInOverlay 0.4s ease forwards;
+}
+

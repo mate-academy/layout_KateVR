@@ -1,0 +1,127 @@
+.footer {
+  background-color: $background-black;
+  padding: 45px 20px 50px;
+
+  @media (min-width: 768px) {
+    padding: 34px 25px;
+  }
+
+  @media (min-width: 1280px) {
+    padding: 43px 110px;
+  }
+
+  @media (min-width: 1920px) {
+    padding-inline: 234px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: 58px;
+    height: 12px;
+    background-image: url(../images/icons/top-bar-logo.svg);
+    margin-bottom: 15px;
+    @extend %logo-base;
+
+    @media (min-width: 768px) {
+      margin-bottom: 0;
+      width: 69px;
+      height: 14px;
+    }
+
+    @media (min-width: 1280px) {
+      width: 72px;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+  &__address {
+    padding-top: 27px;
+    margin-bottom: 22px;
+
+    @media (min-width: 768px) {
+      display: none;
+    }
+  }
+
+  &__messengers {
+    display: flex;
+    flex-direction: row;
+    column-gap: 22px;
+
+    @media (min-width: 768px) {
+      padding-left: 95px;
+      align-content: center;
+    }
+
+    @media (min-width: 1920px) {
+      padding-left: 413px;
+    }
+
+    &-icon {
+      display: flex;
+      width: 18px;
+      height: 18px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      transition: transform 0.5s ease, filter 0.5s ease;
+
+      @media (min-width: 768px) {
+        width: 14px;
+        height: 14px;
+      }
+
+      @media (min-width: 1920px) {
+        width: 18px;
+        height: 18px;
+      }
+
+      &--facebook{
+        background-image: url('../images/icons/footer-icon-facebook.svg');
+      }
+
+      &--twitter {
+        background-image: url('../images/icons/footer-icon-twitter.svg');
+      }
+
+      &--youtube {
+        background-image: url('../images/icons/footer-icon-youtube.svg');
+      }
+
+      &--reddit {
+        background-image: url('../images/icons/footer-icon-reddit.svg');
+      }
+
+      &:hover {
+        transform: scale(1.2);
+        @extend %hover-blue-icon;
+      }
+    }
+  }
+
+  &__info {
+    @media (min-width: 768px) {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__contact {
+    @media (min-width: 768px) {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+}

@@ -1,0 +1,100 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  transition: width 0.3s ease;
+  align-items: start;
+
+  @media (min-width: 768px) {
+    align-items: center;
+    flex: 0 1 calc(50% - 40px);
+    min-width: calc(50% - 10px);
+  }
+
+  @media (min-width: 1280px) {
+   flex: unset;
+   min-width: 250px;
+  }
+
+  &__title {
+    font-family: $text-style;
+    font-size: 16px;
+    font-weight: 900;
+    color: $white-accent;
+    margin: 0;
+    margin-bottom: 11px;
+    position: relative;
+
+    @media (min-width: 768px) {
+      margin-bottom: 18px;
+      align-self: unset;
+    }
+
+    &::after {
+      @extend %title-underlined-effect;
+    }
+  }
+
+  &:hover .card__title::after {
+    width: 100%;
+  }
+
+  &__text {
+    @extend %text-one;
+    font-weight: 400;
+    color: $text-color;
+    margin: 0;
+
+    @media (min-width: 768px) {
+    text-align: center;
+    }
+
+    &--short {
+      @media (min-width: 768px) {
+        display: none;
+      }
+    }
+
+    &--full {
+      display: none;
+
+      @media (min-width: 768px) {
+        display: block;
+      }
+    }
+  }
+
+  &__sign {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+      width: 100%;
+      margin-bottom: 22px;
+
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+
+      &--education {
+        height: 81px;
+        background-image: url(../images/icons/more-than-education.svg);
+      }
+
+      &--real-estate {
+        height: 84px;
+        background-image: url(../images/icons/more-than-real-estate.svg);
+      }
+
+      &--fitness {
+        height: 81px;
+        background-image: url(../images/icons/more-than-fitness.svg);
+      }
+
+      &--social-interactions {
+        height: 83px;
+        background-image: url(../images/icons/more-than-social-interactions.svg);
+      }
+    }
+  }
+}

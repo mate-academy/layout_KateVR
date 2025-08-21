@@ -1,0 +1,144 @@
+.card-data {
+  background: inherit;
+  height: 100vh;
+  z-index: 1000;
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s;
+
+  &:target {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+    overflow: auto;
+  }
+
+  &__content {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__form {
+    min-width: 280px;
+    padding-inline: 20px;
+    padding-bottom: 37px;
+
+    @media (min-width: 1280px) {
+      padding-top: 60px;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+  }
+
+  &__group {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+
+    &--card-number {
+      column-gap: 2px;
+    }
+
+    &--card-owner .card-data__input:focus + .card-data__label {
+      transform: translateY(-80%);
+      color: $constant-color;
+    }
+
+    &--cvv .card-data__input:focus + .card-data__label {
+      transform: translateY(-100%);
+      color: $constant-color;
+    }
+
+    &--card-number:focus-within .card-data__label {
+      transform: translateY(-100%);
+      color: $constant-color;
+    }
+
+    &--EXP:focus-within .card-data__label {
+      transform: translateY(-100%);
+      color: $constant-color;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 0px;
+    font-size: 14px;
+    line-height: 150%;
+    font-weight: 400;
+    color: $white-accent;
+    font-family: $text-style;
+    box-sizing: border-box;
+    color: $text-color;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    transform: translateY(-90%);
+
+    &--card-number {
+      transform: translateY(-80%);
+    }
+
+    &--card-owner {
+      transform: translateY(-70%);
+    }
+  }
+
+  &_inputs {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  &__input {
+    width: 6ch;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $text-color;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 14px;
+    line-height: 150%;
+    font-weight: 400;
+    color: $white-accent;
+    padding-bottom: 6px;
+    resize: none;
+    cursor: pointer;
+    @extend %autofill-fix;
+
+    & {
+      &::-webkit-outer-spin-button,
+      &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+      }
+    }
+
+    &:hover {
+      outline: none;
+      border-bottom: 1px solid $constant-color;
+    }
+
+    &::placeholder {
+      text-align: center;
+    }
+  }
+
+  &__extra {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 40px;
+    column-gap: 60px;
+    font-family: $text-style;
+  }
+
+  &__separator {
+    font-size: 18px;
+    line-height: 130%;
+    color: $text-color;
+  }
+}

@@ -1,0 +1,22 @@
+.menu {
+  height: 100vh;
+  background-color: $menu-bg;
+  z-index: 1000;
+  transform: translateX(-100%);
+  transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out, visibility 0.5s;
+
+  &:target {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__top-bar {
+    padding-bottom: 38px;
+
+    &--faq,
+    &--help {
+      padding-bottom: 20px;
+    }
+  }
+}

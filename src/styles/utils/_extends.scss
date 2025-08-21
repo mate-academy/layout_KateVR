@@ -1,4 +1,92 @@
-%h1 {
-  font-family: Roboto, sans-serif;
+%headline-one {
+  font-size: 26px;
+  line-height: 130%;
+  font-family: $text-style;
+
+  @media (min-width: 1280px) {
+    font-size: 46px;
+  }
+}
+
+%headline-two {
+  font-size: 21px;
+  font-family: $text-style;
+
+  @media (min-width: 1280px) {
+    font-size: 36px;
+    line-height: 100%;
+  }
+}
+
+%subheading {
+  font-size: 26px;
+  line-height: 130%;
+  font-family: $text-style;
+}
+
+%logo-base {
+  display: block;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.5s ease;
+}
+
+%text-two {
+  font-size: 14px;
+  font-family: $text-style;
+}
+
+%text-one {
+  font-size: 12px;
+  font-family: $text-style;
+
+  @media (min-width: 1280px) {
+    font-size: 14px;
+  }
+
+  @media (min-width: 1920px) {
+    font-size: 16px;
+    line-height: 150%;
+  }
+}
+
+%hover-blue-icon {
+  filter: brightness(0) saturate(100%) invert(64%) sepia(10%) saturate(3600%) hue-rotate(165deg) brightness(103%) contrast(103%);
+}
+
+%title-part-bold {
+  color: $white-accent;
+  font-weight: 900;
+}
+
+%title-part-light {
+  color: $constant-color;
   font-weight: 400;
+}
+
+%title-underlined-effect {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 1px;
+  background-color: $white-accent;
+  transition: width 0.3s ease;
+}
+
+%autofill-fix {
+  &:-webkit-autofill {
+    background-color: transparent !important;
+    -webkit-text-fill-color: $white-accent;
+    transition: background-color 5000s ease 0s;
+    -webkit-box-shadow: 0 0 0px 1000px transparent inset; // extra fix
+  }
+
+  &:-moz-autofill {
+    background-color: transparent !important;
+    color: $white-accent !important;
+  }
 }
