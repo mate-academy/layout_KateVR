@@ -1,0 +1,59 @@
+.help {
+  height: 100vh;
+  overflow: auto;
+
+  @include on-desktop {
+    @include padding-inline;
+
+    position: fixed;
+    top: 10%;
+    z-index: 1000;
+    height: 600px;
+    width: 880px;
+
+    padding-inline: 90px;
+  }
+
+  &__content {
+    @include padding-inline;
+  }
+
+  &__top {
+    justify-content: right;
+  }
+
+  &__title {
+    @include h2-mobile;
+
+    margin-bottom: 30px;
+
+    &--highlighted {
+      font-weight: 400;
+      font-size: 21px;
+      color: $color-blue;
+    }
+  }
+
+  &__description {
+    margin-bottom: 30px;
+  }
+
+  &__link-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+
+  &__link {
+    color: $color-blue;
+    cursor: pointer;
+  }
+
+  &__contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 73px;
+  }
+}

@@ -1,0 +1,110 @@
+.dropdown {
+  position: relative;
+
+  &__content {
+    position: absolute;
+
+    margin-top: 6px;
+    border-radius: 4px;
+    background-color: $color-aside-panel;
+    transform-origin: top center;
+    opacity: 0;
+    transform: translateY(-5px);
+    pointer-events: none;
+  }
+
+  &__arrow-button {
+    background-color: $color-aside-panel;
+    color: $color-white;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 26px;
+    border: none;
+    display: flex;
+  }
+
+  &__icon {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    font-weight: 500;
+    line-height: 1.3;
+    color: $color-white;
+
+    &--geo {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 12px;
+      padding: 10px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: $color-white;
+    }
+
+    &--lang {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      gap: 12px;
+      padding: 10px;
+      font-weight: 500;
+      line-height: 1.3;
+      color: $color-white;
+      height: 70px;
+      overflow-y: auto;
+    }
+  }
+
+  &--active &__content {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: all;
+  }
+
+  &__item {
+    cursor: pointer;
+    color: $color-white;
+
+    @include hover(color, $color-blue);
+  }
+}
+
+.arrow-button {
+  display: flex;
+
+  &__languages {
+    gap: 4px;
+    color: $color-blue;
+    background-color: transparent;
+  }
+
+  &__quantity {
+    gap: 21px;
+    padding: 7px 11px 8px 39px;
+    margin-top: 10px;
+
+    @include on-tablet {
+      font-size: 20px;
+    }
+  }
+
+  &__countries {
+    justify-content: space-between;
+    padding: 13px 21px 13px 24px;
+    margin-top: 10px;
+  }
+
+  &__cities {
+    justify-content: right;
+    padding-right: 21px;
+    padding-block: 23px;
+    margin-top: 10px;
+  }
+}

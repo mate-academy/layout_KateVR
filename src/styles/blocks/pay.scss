@@ -1,0 +1,86 @@
+.pay {
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-desktop {
+      margin-bottom: 38px;
+    }
+
+    @include on-desktop-wide {
+      margin-bottom: 0;
+    }
+  }
+
+  &__input {
+    padding-bottom: 19px;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+  }
+
+  &__card-number {
+    display: flex;
+    gap: 21px;
+
+    @include on-tablet {
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__card-input {
+    width: 52px;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 16px;
+    }
+  }
+
+  &__date-input {
+    width: 60px;
+    text-align: center;
+  }
+
+  &__cvv-input {
+    width: 30px;
+    text-align: center;
+  }
+
+  &__input-container {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__input-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input-label {
+    font-size: 14px;
+    margin-bottom: 17px;
+
+    &--cardholder {
+      margin-bottom: 0;
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+
+      height: 33.7px;
+      width: 53.93px;
+    }
+  }
+}
