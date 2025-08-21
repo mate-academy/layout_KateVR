@@ -1,0 +1,117 @@
+.aside-buy-pay {
+  &__container {
+    display: flex;
+    gap: 30px;
+
+    @include on-tablet {
+      flex-direction: column;
+    }
+  }
+
+  &__product {
+    flex: 0 1 50%;
+
+    @include on-tablet {
+      flex: 0 1 100%;
+    }
+  }
+
+  &__number {
+    margin-top: 20px;
+  }
+
+  &__form {
+    flex: 0 1 50%;
+    margin-top: 30px;
+
+    @include on-tablet {
+      flex: 0 1 100%;
+    }
+  }
+
+  &__fields {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__card {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+
+    @include on-mobile {
+      gap: 15px;
+    }
+  }
+
+  &__input {
+    font-size: 20px;
+
+    @include on-mobile {
+      font-size: 20px;
+    }
+
+    &::placeholder {
+      color: $dark-gray;
+    }
+
+    &--center {
+      text-align: center;
+      &::placeholder {
+        text-align: center;
+      }
+    }
+  }
+
+  &__card-type {
+    align-self: end;
+
+    :nth-child(1) {
+      display: none;
+    }
+
+    :nth-child(2) {
+      display: block;
+    }
+
+    &._hide-card {
+      :nth-child(2) {
+        display: none;
+      }
+
+      :nth-child(1) {
+        display: block;
+      }
+    }
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+
+  &__holder {
+    margin-top: 70px;
+
+    @include on-mobile {
+      margin-top: 30px;
+    }
+  }
+
+  &__inner {
+    margin-top: 50px;
+    gap: 80px;
+    display: flex;
+
+    @include on-mobile {
+      gap: 50px;
+    }
+  }
+
+  &__button {
+    margin-top: 125px;
+
+    @include on-mobile {
+      margin-top: 40px;
+    }
+  }
+}

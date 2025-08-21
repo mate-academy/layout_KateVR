@@ -1,0 +1,180 @@
+.menu {
+  &__body {
+    @include on-tablet {
+      position: fixed;
+      width: 100%;
+      height: 70vh;
+      background-color: $dark-purple;
+      left: 0;
+      top: 0;
+      transform: translateY(-100%);
+      z-index: 5;
+      overflow: auto;
+      transition: transform 0.3s ease 0s;
+      padding-bottom: 40px;
+
+      @include on-mobile {
+        height: 100vh;
+      }
+
+      &::before {
+        content: '';
+        max-width: 100%;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        height: 70px;
+        background-color: #bdccff;
+        z-index: 50;
+        transition: top 0.3s ease 0s;
+      }
+
+      .menu-open &::before {
+        top: 0;
+        transform: translateY(0%);
+      }
+
+      .menu-open & {
+        top: 0;
+        transform: translateY(0%);
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 36px;
+
+    @include on-laptop {
+      gap: 25px;
+    }
+
+    @include on-tablet {
+      flex-direction: column;
+      font-size: 21px;
+      gap: 0px;
+      position: relative;
+      top: 20%;
+    }
+  }
+
+  &__item {
+    position: relative;
+    transition: color 0.3s ease 0s;
+
+    &:hover {
+      color: #cdcdcd;
+    }
+
+    @include on-tablet {
+      &:hover {
+        background-color: #110e25;
+        color: $contrast;
+      }
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+      }
+    }
+  }
+
+  &__link {
+    @include on-tablet {
+      display: inline-block;
+      width: 100%;
+      line-height: 235%;
+      padding-left: 150px;
+    }
+
+    @media (max-width: 690px) {
+      padding-left: 60px;
+    }
+
+    @include on-mobile {
+      padding-left: 22px;
+    }
+  }
+
+  &__icon {
+  }
+}
+
+.icon-menu {
+  display: none;
+
+  @include on-tablet {
+    display: block;
+    position: relative;
+    flex: 0 0 24px;
+    height: 15px;
+    z-index: 5;
+  }
+
+  @include on-mobile {
+    height: 11px;
+    flex: 0 0 20px;
+  }
+
+  & span,
+  &::before,
+  &::after {
+    @include on-tablet {
+      content: '';
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background-color: $white;
+      transition: all 0.3s ease 0s;
+    }
+  }
+
+  & span {
+    @include on-tablet {
+      width: 20px;
+      left: -5px;
+      top: calc(50% - 0.5px);
+    }
+  }
+
+  &::before {
+    @include on-tablet {
+      top: 0;
+    }
+  }
+
+  &::after {
+    @include on-tablet {
+      bottom: 0;
+    }
+  }
+
+  .menu-open & span {
+    @include on-tablet {
+      width: 0;
+    }
+  }
+
+  .menu-open &::before {
+    @include on-tablet {
+      top: calc(50%);
+      transform: rotate(-45deg);
+    }
+  }
+
+  .menu-open &::after {
+    @include on-tablet {
+      bottom: calc(50% - 1.5px);
+      transform: rotate(45deg);
+    }
+
+    @include on-tablet {
+      bottom: calc(50% - 1.2px);
+    }
+  }
+}

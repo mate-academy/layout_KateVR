@@ -1,0 +1,38 @@
+.slider-pag {
+  &__btns {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 205px;
+  }
+
+  &__prev,
+  &__next {
+    color: $white;
+
+    @include hover {
+      color: #929292;
+    }
+  }
+
+  &__progressbar {
+    width: 100%;
+
+    & .swiper-pagination-progressbar-fill {
+      height: 1px;
+      background-color: $contrast;
+    }
+  }
+
+  .swiper-pagination-progressbar {
+    position: absolute;
+    top: 30px;
+    right: 0;
+    background: #212121;
+    height: 1px;
+  }
+}
+
+.swiper-button-disabled {
+  color: #929292;
+}

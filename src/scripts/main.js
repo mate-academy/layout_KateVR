@@ -1,1 +1,21 @@
 'use strict';
+
+import './lib/header.js';
+import './lib/navigation.js';
+import './lib/animation.js';
+import './lib/dynamic_adapt.js';
+import './lib/burger.js';
+import './lib/select.js';
+import './lib/dashed.js';
+import './lib/slider.js';
+import './lib/dot.js';
+import './lib/form.js';
+import './lib/linemove.js';
+import './lib/tech.js';
+import './lib/lower_btn.js';
+import './lib/popup.js';
+import './lib/accordeon.js';
+import './lib/aside.js';
+import './lib/number.js';
+import './lib/purchase.js';
+import './lib/bank_card.js';
