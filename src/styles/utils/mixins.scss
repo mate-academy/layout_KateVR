@@ -1,0 +1,52 @@
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-laptop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1920px) {
+    @content;
+  }
+}
+
+@mixin content-min-width {
+  min-width: 320px;
+}
+
+@mixin grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 130px);
+  column-gap: 20px;
+  place-content: start center;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 100px);
+  }
+
+  @include on-laptop {
+    grid-template-columns: repeat(12, 70px);
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(16, 72px);
+  }
+}
+
+@mixin on-hover($_property, $_toValue) {
+  transition: all $transitionDuration;
+
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin pointer-cursor {
+  cursor: url(../images/icons/cursor.svg), pointer;
+}

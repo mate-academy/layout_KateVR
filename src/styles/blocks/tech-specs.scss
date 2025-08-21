@@ -1,0 +1,358 @@
+.tech-specs {
+  &__content {
+    @include grid-container;
+
+    box-sizing: border-box;
+    padding-block: 50px;
+
+    @include on-tablet {
+      padding-block: 80px;
+    }
+
+    @include on-laptop {
+      padding: 100px 0 101px;
+    }
+
+    @include on-desktop {
+      padding-block: 160px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    height: 29px;
+    margin: 0;
+    margin-bottom: 41px;
+
+    @include on-tablet {
+      grid-column: span 3;
+      grid-row: 1 / 2;
+      margin-bottom: 57px;
+    }
+
+    @include on-laptop {
+      grid-column: -5 / -1;
+      height: 45px;
+      margin-bottom: 141px;
+    }
+
+    @include on-desktop {
+      grid-column: -6 / -1;
+    }
+  }
+
+  &__img-wrapper {
+    grid-column: 1 / -1;
+    justify-self: center;
+
+    position: relative;
+
+    width: 197px;
+    height: 194.7px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      grid-row: 2 / 3;
+
+      width: 358px;
+      height: 354px;
+    }
+
+    @include on-laptop {
+      width: 297px;
+      height: 294px;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    object-position: center;
+  }
+
+  &__details {
+    display: none;
+
+    @include on-laptop {
+      display: block;
+
+      position: absolute;
+
+      &--sensor {
+        top: -61px;
+        right: 100%;
+
+        width: 250px;
+        height: 143px;
+
+        margin-right: 107px;
+      }
+
+      &--batteries {
+        top: -61px;
+        left: 100%;
+
+        width: 338px;
+        height: 207px;
+
+        margin-left: 63px;
+      }
+
+      &--connection {
+        top: 156px;
+        right: 100%;
+
+        width: 241px;
+        height: 124px;
+
+        margin-right: 30px;
+      }
+    }
+
+    @include on-desktop {
+      &--sensor {
+        top: -58px;
+        margin-right: 125px;
+      }
+
+      &--batteries {
+        top: -60px;
+
+        width: 344px;
+        height: 207px;
+
+        margin-left: 158px;
+      }
+
+      &--connection {
+        margin-right: 134px;
+      }
+    }
+  }
+
+  &__details-name {
+    margin: 0;
+    margin-bottom: 21px;
+
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 22px;
+    color: $whiteColor;
+  }
+
+  &__laptop-description {
+    margin: 0;
+  }
+
+  &__sensor-line {
+    position: absolute;
+    top: 11px;
+    left: 101px;
+
+    width: 403px;
+    height: 72px;
+
+    background-image: url(../images/tech-specs/sensor-line.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    @include on-desktop {
+      top: 8px;
+      left: 91px;
+      width: 431px;
+      background-image: url(../images/tech-specs/sensor-line-desktop.svg);
+    }
+  }
+
+  &__batteries-line {
+    position: absolute;
+    top: 0;
+    right: 100%;
+
+    width: 192px;
+    height: 245px;
+
+    margin-right: 21px;
+
+    background-image: url(../images/tech-specs/batteries-line.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    @include on-desktop {
+      top: 7px;
+      width: 283px;
+      background-image: url(../images/tech-specs/batteries-line-desktop.svg);
+    }
+  }
+
+  &__connection-line {
+    position: absolute;
+    bottom: 109px;
+    left: 140px;
+
+    width: 134px;
+    height: 113px;
+
+    background-image: url(../images/tech-specs/connection-line.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    @include on-desktop {
+      left: 137px;
+      width: 241px;
+      height: 113px;
+      background-image: url(../images/tech-specs/connection-line-desktop.svg);
+    }
+  }
+
+  &__connection-arc {
+    position: absolute;
+    bottom: 39px;
+    left: 100%;
+
+    margin-left: 15px;
+
+    width: 45px;
+    height: 201px;
+
+    background-image: url(../images/tech-specs/connection-arc.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    @include on-desktop {
+      margin-left: 118px;
+    }
+  }
+
+  &__btn-wrapper {
+    position: absolute;
+
+    width: 34px;
+    height: 34px;
+
+    @include on-tablet {
+      width: 62px;
+      height: 62px;
+    }
+
+    @include on-laptop {
+      display: none;
+    }
+
+    &--sensor {
+      top: -11px;
+      left: 60px;
+
+      @include on-tablet {
+        top: -27px;
+        left: 65px;
+      }
+    }
+
+    &--batteries {
+      right: 29px;
+
+      @include on-tablet {
+        right: 49px;
+      }
+    }
+
+    &--connection {
+      left: -17px;
+      bottom: 7.7px;
+
+      @include on-tablet {
+        left: -62px;
+        bottom: 19px;
+      }
+    }
+  }
+
+  &__description {
+    display: none;
+
+    position: absolute;
+    top: 100%;
+    right: -12px;
+    z-index: 1;
+
+    margin: 0;
+    box-sizing: border-box;
+    padding: 17px 11px 22px;
+
+    width: 168px;
+    height: 112px;
+    background-color: $darkColor;
+    border-radius: 4px;
+
+    font-size: 12px;
+    line-height: 18px;
+
+    @include on-tablet {
+      right: -100%;
+      width: 220px;
+      height: fit-content;
+
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    &--batteries {
+      top: -100px;
+      right: 100%;
+
+      width: 200px;
+      height: 210px;
+
+      @include on-tablet {
+        width: 300px;
+        height: fit-content;
+      }
+    }
+
+    &--connection {
+      inset: auto auto 100% -100%;
+
+      @include on-tablet {
+        left: -50%;
+      }
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+    outline: none;
+    padding: 0;
+    border-radius: 50%;
+
+    background-image: url(../images/icons/button-plus.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    @include pointer-cursor;
+
+    &--active {
+      background-image: url(../images/icons/button-minus.svg);
+
+      & + .tech-specs__description {
+        display: block;
+      }
+    }
+  }
+}
