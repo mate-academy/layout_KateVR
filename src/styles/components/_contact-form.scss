@@ -1,0 +1,92 @@
+@import '../utils';
+
+.contact-form {
+  width: 716px;
+
+  &__name-wrapper,
+  &__email-wrapper,
+  &__phone-wrapper,
+  &__message-wrapper {
+    padding-bottom: 20px;
+    border-bottom: 1px solid #2f2f2f;
+  }
+
+  &__name-wrapper,
+  &__email-wrapper,
+  &__phone-wrapper {
+    margin-bottom: 24px;
+  }
+
+  &__message-wrapper {
+    margin-bottom: 50px;
+  }
+
+  &__name,
+  &__email,
+  &__phone,
+  &__message {
+    background-color: transparent;
+    border: none;
+    outline: none;
+  }
+
+  &__message {
+    height: 88px;
+  }
+
+  &__button {
+    border: none;
+    color: white;
+    width: 200px;
+    padding: 12px 0;
+    background-color: $light-blue;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+  }
+
+  &__lower-part {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.scroll-up {
+  height: 48px;
+  width: 48px;
+  border-radius: 50%;
+  border: 1px solid $light-blue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .contact-form {
+    width: 50%;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .contact-form {
+    width: 100%;
+
+    &__button {
+      width: 100%;
+    }
+  }
+
+  .contacts {
+    position: absolute;
+    font-size: 13px !important;
+    bottom: -230px;
+    right: 20px;
+    z-index: 2;
+  }
+
+  .scroll-up {
+    display: none;
+  }
+}

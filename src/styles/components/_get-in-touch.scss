@@ -1,0 +1,80 @@
+@import '../utils';
+
+.get-in-touch {
+  background-color: $black;
+  padding: 160px 235px 205px;
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+
+  &__subtitle {
+    font-weight: 400;
+    font-size: 14px;
+    color: $light-blue;
+    margin-bottom: 13px;
+    display: block;
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 36px;
+    margin-bottom: 26px;
+
+    &--blue {
+      color: $light-blue;
+    }
+  }
+
+  &__text,
+  .contacts {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    margin-bottom: 76px;
+    color: $gray;
+  }
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1919px) {
+  .get-in-touch {
+    padding: 100px 110px;
+    column-gap: 200px;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .get-in-touch {
+    padding: 70px 34px 130px;
+    column-gap: 22px;
+
+    &__title {
+      margin-bottom: 50px;
+    }
+
+    &__info {
+      width: 50%;
+    }
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+  .get-in-touch {
+    padding: 50px 20px;
+    flex-direction: column;
+    gap: 32px;
+    position: relative;
+
+    &__title {
+      margin-bottom: 50px;
+      font-size: 21px;
+    }
+
+    &__text {
+      position: absolute;
+      bottom: -80px;
+      left: 20px;
+      right: 20px;
+      font-size: 12px;
+    }
+  }
+}
