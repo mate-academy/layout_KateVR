@@ -1,0 +1,78 @@
+.dropdown {
+  position: relative;
+  width: 45px;
+
+  &__content {
+    background-color: #191536;
+    border-radius: 4px;
+    position: absolute;
+    width: 100%;
+    transition: $effect-duration;
+    top: 40px;
+    left: 5px;
+    padding: 10px 0;
+    box-sizing: border-box;
+    pointer-events: none;
+    border-right: 1px solid #014954;
+    overflow: hidden;
+    transform: translateY(-5%);
+    transform-origin: top center;
+    opacity: 0;
+  }
+
+  &--active &__content {
+    pointer-events: all;
+    transform: translateY(0);
+    opacity: 1;
+    overflow-y: auto;
+  }
+
+  &__btn {
+    margin: 0;
+    padding: 0;
+    color: $contrast-color;
+    background-color: unset;
+    border: none;
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    background-image: url(../images/icons/more.svg);
+    background-position: right 60%;
+    background-repeat: no-repeat;
+
+    @include hover(color, #fff);
+    @include hover(background-image, url(../images/icons/moreHover.svg));
+  }
+
+  &--active &__btn {
+    color: #fff;
+    background-image: url(../images/icons/moreHover.svg);
+  }
+
+  &__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__item {
+    width: 15px;
+
+    color: $contrast-color;
+    text-decoration: none;
+    display: block;
+    cursor: pointer;
+
+    &:hover {
+      border-left: 2px solid transparent;
+      border-right: 2px solid #05c2df;
+      padding: 0 10px;
+    }
+
+    @include hover(color, #fff);
+  }
+}

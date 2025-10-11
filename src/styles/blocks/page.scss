@@ -1,0 +1,103 @@
+.page {
+  font-family: $font-inter;
+  color: $text-color;
+  scroll-behavior: smooth;
+
+  &:has(.page__menu:target) {
+    overflow: hidden;
+  }
+
+  &__body {
+    margin: 0;
+    min-width: 320px;
+
+    &--no-scroll {
+      overflow: hidden;
+      height: 100vh;
+    }
+  }
+
+  &__container {
+    @include container;
+  }
+
+  &__mobile-hidden {
+    display: none;
+
+    @include tablet {
+      display: block;
+    }
+  }
+
+  &__place-order,
+  &__pay,
+  &__complete {
+    pointer-events: none;
+
+    position: fixed;
+    z-index: 4;
+    inset: 0;
+    transform: translateX(-100%);
+
+    overflow: auto;
+
+    opacity: 0;
+
+    transition: all 300ms;
+  }
+
+  &:has(.page__place-order:target) .page__place-order,
+  &:has(.page__pay:target) .page__pay,
+  &:has(.page__complete:target) .page__complete {
+    pointer-events: all;
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  &:has(.place-order:target) .buy-now__menu-link--order {
+    border-bottom: 1px solid $main-turquoise;
+    color: $main-turquoise;
+
+    @include desktop {
+      position: relative;
+      border-bottom: none;
+
+      @include green-step;
+    }
+  }
+
+  &:has(.pay:target) .buy-now__menu-link--pay {
+    border-bottom: 1px solid $main-turquoise;
+    color: $main-turquoise;
+
+    @include desktop {
+      position: relative;
+      border-bottom: none;
+
+      @include green-step;
+    }
+  }
+
+  &:has(.complete:target) .buy-now__menu-link--complete {
+    border-bottom: 1px solid $main-turquoise;
+    color: $main-turquoise;
+
+    @include desktop {
+      position: relative;
+      border-bottom: none;
+
+      @include green-step;
+    }
+  }
+
+  &:has(.page__place-order:target),
+  &:has(.page__pay:target),
+  &:has(.page__complete:target) {
+    overflow: hidden;
+  }
+
+  &:has(.page__place-order:target) .header,
+  &:has(.page__pay:target) .header {
+    opacity: 0.4;
+  }
+}

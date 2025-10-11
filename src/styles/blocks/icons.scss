@@ -1,0 +1,107 @@
+.icon {
+  display: block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+
+  &__wrapper {
+    position: relative;
+
+    @include hover(opacity, 0, '.icon--static');
+    @include hover(opacity, 1, '.icon--hover');
+  }
+
+  &--menu {
+    height: 20px;
+    width: 20px;
+    background-image: url(../images/icons/menuWhite.svg);
+
+    @include tablet {
+      height: 30px;
+      width: 30px;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &--menu-hover {
+    @include accent(url(../images/icons/menuWhite.svg));
+  }
+
+  &--close {
+    height: 17px;
+    width: 17px;
+    background-image: url(../images/icons/iconClose.svg);
+  }
+
+  &--close-hover {
+    @include accent(url(../images/icons/iconCloseHover.svg));
+  }
+
+  &--language-close {
+    height: 17px;
+    width: 17px;
+    background-image: url(../images/icons/language-close.svg);
+  }
+
+  &--language-close-hover {
+    @include accent(url(../images/icons/language-close-hover.svg));
+  }
+
+  &--social {
+    height: 15px;
+    width: 15px;
+  }
+
+  &--facebook {
+    background-image: url(../images/icons/face.svg);
+  }
+
+  &--facebook-hover {
+    @include accent(url(../images/icons/facebook-hover.svg));
+  }
+
+  &--twitter {
+    background-image: url(../images/icons/twitter.svg);
+  }
+
+  &--twitter-hover {
+    @include accent(url(../images/icons/twitter-hover.svg));
+  }
+
+  &--youtube {
+    background-image: url(../images/icons/videoIcon.svg);
+  }
+
+  &--youtube-hover {
+    @include accent(url(../images/icons/youtube-hover.svg));
+  }
+
+  &--reddit {
+    background-image: url(../images/icons/insta.svg);
+  }
+
+  &--reddit-hover {
+    @include accent(url(../images/icons/reddit-hover.svg));
+  }
+
+  &--scroll-up {
+    // height: 9px;
+    // width: 16px;
+    height: 48px;
+    width: 48px;
+    background-image: url(../images/icons/up.svg);
+  }
+
+  &--scroll-up-hover {
+    // height: 9px;
+    // width: 16px;
+    @include accent(url(../images/icons/upHover\ \(2\).svg));
+
+    // background-image: url(../images/icons/upHover\ \(2\).svg);
+    // top: unset;
+  }
+}

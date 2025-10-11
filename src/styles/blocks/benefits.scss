@@ -1,0 +1,33 @@
+.benefits {
+  @include section-padding-block;
+
+  background: $background-gradient;
+  background-repeat: no-repeat;
+
+  &__headline {
+    margin-bottom: 32px;
+
+    @include desktop {
+      margin-bottom: 84px;
+      text-align: center;
+    }
+  }
+
+  &__items {
+    @include grid-markup;
+
+    row-gap: 20px;
+  }
+
+  &__benefit {
+    grid-column: 1/-1;
+
+    @include tablet {
+      grid-column: span 2;
+    }
+
+    @include desktop {
+      grid-column: span 4;
+    }
+  }
+}
