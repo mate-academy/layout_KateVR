@@ -277,7 +277,7 @@ techSpecButtons.forEach((button) => {
 const frm = document.forms.contact__form;
 
 const name1 = frm.name;
-const nameLabel = document.querySelector('label[for="name"]');
+const nameLabel = document.querySelector('label[for="name1"]');
 const nameLabelText = nameLabel.innerText;
 
 const email = frm.email;
