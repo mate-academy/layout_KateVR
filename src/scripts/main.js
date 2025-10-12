@@ -276,7 +276,7 @@ techSpecButtons.forEach((button) => {
 
 const frm = document.forms.contact__form;
 
-const name = frm.name;
+const name1 = frm.name;
 const nameLabel = document.querySelector('label[for="name"]');
 const nameLabelText = nameLabel.innerText;
 
@@ -295,7 +295,7 @@ frm.addEventListener('submit', (e) => {
 
   let err = false;
 
-  if (!name.value) {
+  if (!name1.value) {
     nameField.setError(nameField.msg);
     err = true;
   }
@@ -365,7 +365,7 @@ class Field {
 }
 
 const nameField = new Field(
-  name,
+  name1,
   nameLabel,
   nameLabelText,
   'Please, fill your name*',
