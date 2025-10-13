@@ -1,0 +1,84 @@
+.help {
+  @include aside-style;
+
+  @include desktop {
+    display: flex;
+    align-items: center;
+
+    @include grid-markup;
+  }
+
+  &__container {
+    @include tablet {
+      padding-bottom: 124px;
+    }
+
+    @include desktop {
+      grid-column: 3/-3;
+      padding-bottom: 80px;
+    }
+  }
+
+  &__top {
+    justify-content: right;
+
+    @include aside-top-style;
+  }
+
+  &__headline {
+    margin-bottom: 30px;
+
+    @include desktop {
+      margin-bottom: 60px;
+    }
+  }
+
+  &__description {
+    &--contact-us {
+      margin-top: 25px;
+
+      @include tablet {
+        margin: 28px 0 30px;
+      }
+    }
+  }
+
+  &__description-link {
+    color: $contrast-color;
+    text-decoration: none;
+
+    @include hover(color, #fff);
+  }
+
+  &__bottom {
+    @include tablet {
+      @include grid-markup;
+    }
+  }
+
+  &__links {
+    margin-top: 32px;
+
+    @include tablet {
+      grid-column: span 3;
+      margin-top: 0;
+    }
+
+    @include desktop {
+      grid-column: span 5;
+    }
+  }
+
+  &__contacts {
+    margin-top: 30px;
+
+    @include tablet {
+      grid-column: span 3;
+      margin-top: 0;
+    }
+
+    @include desktop {
+      grid-column: span 5;
+    }
+  }
+}

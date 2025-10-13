@@ -1,0 +1,49 @@
+.pay {
+  background-image: $linear-gradient;
+
+  @include padding-inline;
+
+  &__content {
+    position: relative;
+    padding-bottom: 37px;
+
+    @include grid-markup;
+
+    @include tablet {
+      padding-top: 40px;
+      padding-bottom: 43px;
+    }
+
+    @include desktop {
+      padding-top: 33px;
+    }
+  }
+
+  &__photo {
+    display: none;
+
+    @include tablet {
+      display: block;
+      grid-column: 1/-1;
+
+      width: 524px;
+      height: 277px;
+      margin-inline: auto;
+
+      background-image: url(../images/image.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+
+    @include desktop {
+      position: absolute;
+
+      // top: 80px;
+      // left: -660px;
+      // grid-column: 7/-1;
+      // width: 701px;
+      // height: 279px;
+    }
+  }
+}
