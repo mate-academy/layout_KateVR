@@ -1,0 +1,27 @@
+.menu {
+  height: 100vh;
+  overflow: auto;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__content {
+    @include padding-inline;
+    @include section-grid;
+
+    grid-column: 1 / -1;
+  }
+
+  &__top {
+    justify-content: right;
+  }
+
+  &__nav {
+    margin-top: 11px;
+  }
+
+  &__item {
+    padding-block: 11px;
+  }
+}

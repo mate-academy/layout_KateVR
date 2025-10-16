@@ -1,0 +1,95 @@
+.faq {
+  height: 100vh;
+  overflow: auto;
+
+  @include on-desktop {
+    @include padding-inline;
+
+    position: fixed;
+    top: 10%;
+    z-index: 1000;
+    height: 600px;
+    width: 880px;
+
+    padding-inline: 90px;
+  }
+
+  @include on-desktop-wide {
+    width: 1080px;
+  }
+
+  &__content {
+    @include padding-inline;
+  }
+
+  &__top {
+    justify-content: right;
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+
+  &__title {
+    @include h2-mobile;
+
+    margin-bottom: 30px;
+
+    &--highlighted {
+      font-weight: 400;
+      font-size: 21px;
+      color: $color-blue;
+    }
+  }
+
+  &__wrapper {
+    padding-block: 18px;
+    padding-inline: 18px;
+
+    border: 1px solid $color-blue;
+    border-radius: 4px;
+  }
+
+  &__question {
+    color: $color-blue;
+    cursor: pointer;
+  }
+
+  &__answer {
+    display: none;
+
+    padding-top: 18px;
+  }
+
+  &__answer-date {
+    display: none;
+
+    color: $color-grey-dark;
+    font-size: 12px;
+    line-height: 18px;
+    padding-top: 18px;
+  }
+
+  &__scroll {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      margin: 50px auto;
+      height: 37px;
+      width: 40px;
+      background-image: url(../images/scroll-more-icon.svg);
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+
+      @include hover(
+        background-image,
+        url(../images/scroll-more-hover-icon.svg)
+      );
+    }
+  }
+}

@@ -1,0 +1,81 @@
+.image-slider {
+  &__slide {
+    display: none;
+
+    &--active {
+      display: block;
+    }
+  }
+
+  &__image {
+    width: 100%;
+  }
+
+  &__dots {
+    text-align: center;
+  }
+
+  &__dot {
+    cursor: pointer;
+    height: 4px;
+    width: 4px;
+    margin: 0 2px;
+    background-color: $color-grey;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+
+    &:hover {
+      background-color: $color-blue;
+    }
+
+    &--active {
+      background-color: $color-white;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__buttons {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      width: 205px;
+      gap: 103px;
+      border-bottom: 1px solid $color-grey-border;
+      padding-block: 10px;
+    }
+  }
+
+  &__button {
+    position: relative;
+    color: $color-white;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      bottom: -11px;
+      background-color: $color-blue;
+    }
+
+    @include hover(color, $color-blue);
+  }
+
+  &__count {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+      top: -5px;
+      left: -50px;
+      color: $color-blue;
+    }
+  }
+}
