@@ -1,0 +1,24 @@
+.section-title {
+  grid-column: 1 / -1;
+
+  @include h2-mobile;
+
+  margin: 0;
+
+  @include on-desktop {
+    @include h2-web;
+  }
+
+  &--highlighted {
+    color: $color-blue;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 25.41px;
+
+    @include on-desktop {
+      font-weight: 400;
+      font-size: 36px;
+      line-height: 43.57px;
+    }
+  }
+}

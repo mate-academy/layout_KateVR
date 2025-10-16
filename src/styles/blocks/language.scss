@@ -1,0 +1,33 @@
+.language {
+  height: 100vh;
+  overflow: auto;
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &__content {
+    @include padding-inline;
+    @include section-grid;
+
+    grid-column: 1 / -1;
+  }
+
+  &__bottom {
+    margin-top: 25px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    width: 100%;
+    cursor: pointer;
+    color: $color-white;
+    padding-block: 11px;
+
+    @include hover(color, $color-blue);
+  }
+}

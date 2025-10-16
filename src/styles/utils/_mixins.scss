@@ -1,3 +1,66 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-wide {
+  @media (min-width: $desktop-wide-width) {
+    @content;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: 20px;
+  margin-inline: auto;
+  max-width: 320px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+    margin-inline: auto;
+    max-width: $tablet-width;
+  }
+
+  @include on-desktop {
+    padding-inline: 110px;
+    margin-inline: auto;
+    max-width: $desktop-width;
+  }
+
+  @include on-desktop-wide {
+    padding-inline: 234px;
+    margin-inline: auto;
+    max-width: $desktop-wide-width;
+  }
+}
+
+@mixin section-grid {
+  display: grid;
+
+  --columns: 2;
+
+  column-gap: 15px;
+  grid-template-columns: repeat(var(--columns), 1fr);
+
+  @include on-tablet {
+    --columns: 6;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+
+  @include on-desktop-wide {
+    --columns: 16;
+  }
+}
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
   &:hover {
