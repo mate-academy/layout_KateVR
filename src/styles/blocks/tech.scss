@@ -1,0 +1,370 @@
+.tech {
+  background: #0d0e12;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+
+  &__title {
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 100%;
+
+    color: #00b7ff;
+
+    @include on-desktop {
+      text-align: right;
+    }
+
+    span {
+      font-family: Inter, sans-serif;
+      font-weight: 900;
+      font-size: 21px;
+      line-height: 100%;
+
+      color: #ffff;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: 1280px) {
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      gap: 3rem;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    width: 280px;
+    height: 280px;
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+    position: relative;
+  }
+
+  &__svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    z-index: 0;
+  }
+
+  /* Лінії SVG */
+  &__path {
+    fill: none;
+    stroke: #00b7ff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    opacity: 0;
+    animation: drawSVG 1.5s ease forwards;
+
+    &--left {
+      animation-delay: 0.3s;
+    }
+
+    &--right {
+      animation-delay: 0.6s;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 280px;
+    text-align: left;
+
+    &--right {
+      text-align: left;
+    }
+  }
+
+  &__block--sensor {
+    margin-left: -30px;
+    margin-top: 75px;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+
+  &__block--connection {
+    margin-top: 150px;
+    margin-right: 70px;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+
+  &__block--battery {
+    margin-top: -140px;
+    margin-left: 40px;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+  &__block {
+    background: transparent;
+
+    &-title {
+      font-family: Inter, sans-serif;
+      font-weight: 900;
+      font-size: 18px;
+      line-height: 100%;
+
+      color: #ffff;
+      margin-bottom: 0.5rem;
+    }
+
+    &-text {
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+
+      color: #929292;
+    }
+  }
+
+  &__dot--desktop {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__dop {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #00b7ff;
+    border-radius: 50%;
+    z-index: 2;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    &:hover {
+      @include transision;
+    }
+
+    &--sensor {
+      top: -5%;
+      left: 35%;
+    }
+    &--connection {
+      top: 80%;
+      left: -5%;
+    }
+    &--battery {
+      top: 45%;
+      right: 20%;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &::after {
+      content: '+';
+      color: #fff;
+      font-size: 25px;
+    }
+  }
+
+  /* Точки */
+
+  &__dot {
+    display: none;
+
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #00b7ff;
+    border-radius: 50%;
+    z-index: 2;
+
+    &--sensor {
+      top: 5%;
+      left: 46%;
+    }
+    &--connection {
+      top: 20%;
+      left: 0%;
+    }
+    &--battery {
+      top: -15%;
+      right: -25%;
+    }
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__dots {
+    display: none;
+
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: #00b7ff;
+    border-radius: 50%;
+    z-index: 2;
+
+    &--sensors {
+      top: -21%;
+      left: -98%;
+    }
+    &--connections {
+      top: 103%;
+      left: -70%;
+    }
+    &--batterys {
+      top: 53%;
+      right: 36%;
+    }
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  /* Лінії */
+  &__line {
+    position: absolute;
+    height: 2px;
+    background: #00b7ff;
+    transform-origin: left center;
+    animation: lineDraw 1.2s ease forwards;
+
+    &--sensor {
+      top: -19%;
+      left: -95%;
+      width: 405px;
+      animation-delay: 0.2s;
+
+      &::after {
+        content: '';
+        position: absolute;
+        left: 403px;
+        width: 2px;
+        height: 69px;
+        background: #00b7ff;
+        animation: lineDrawVertical 1s ease forwards 0.6s;
+      }
+    }
+
+    &--connections {
+      top: 22%;
+      left: -29%;
+      width: 94px;
+      animation-delay: 0.4s;
+    }
+
+    &--connection {
+      top: 105%;
+      left: -65%;
+      width: 100px;
+      animation-delay: 0.4s;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -233px;
+        left: 100px;
+        width: 2px;
+        height: 235px;
+        background: #00b7ff;
+        animation: lineDrawVertical 1s ease forwards 0.8s;
+      }
+    }
+
+    &--battery {
+      top: 55%;
+      left: 60%;
+      width: 172px;
+      transform-origin: right center;
+      animation-delay: 0.6s;
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: -180px;
+        right: -2px;
+        width: 2px;
+        height: 182px;
+        background: #00b7ff;
+        animation: lineDrawVertical 1s ease forwards 1s;
+      }
+    }
+  }
+
+  /* Мобільна версія */
+  @media (max-width: 1280px) {
+    &__info {
+      display: none;
+    }
+
+    &__dot {
+      display: block;
+    }
+
+    &__line {
+      display: none;
+    }
+  }
+}
+
+/* 🔹 Анімації */
+
+@keyframes line-draw {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+@keyframes line-draw-vertical {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+  to {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}

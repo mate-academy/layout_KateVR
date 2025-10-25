@@ -1,0 +1,159 @@
+@import '../utils/mixins';
+
+.improve {
+  &__content {
+    @include page-grid;
+  }
+
+  &__image--wrapper {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      grid-column: 5 / 7;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 12;
+    }
+
+    @include on-big-desktop {
+      grid-column: 9 / 14;
+    }
+  }
+  &__image--first,
+  &__image--second,
+  &__image--third,
+  &__image--fourth,
+  &__image--fifth,
+  &__image--sixth,
+  &__image--seventh {
+    display: none;
+
+    @include on-tablet {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      display: block;
+      z-index: 1000;
+
+      &:hover {
+        @include transision;
+      }
+    }
+  }
+
+  &__image--fourth,
+  &__image--fifth {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__image--sixth,
+  &__image--seventh {
+    display: none;
+
+    @include on-big-desktop {
+      display: block;
+    }
+  }
+  &__simple--tittle {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+
+    color: #05c2df;
+
+    margin-bottom: 11px;
+    margin-top: 90px;
+
+    @include on-big-desktop {
+      grid-column: 2 / 2;
+    }
+  }
+
+  &__main--tittle {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 100%;
+    cursor: pointer;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+
+    color: #ffff;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+    }
+
+    @include on-desktop {
+      font-size: 36px;
+      grid-column: 1 / 6;
+    }
+
+    @include on-big-desktop {
+      color: transparent;
+      background-image: url(../icons/NICE\ TO\ MEET\ YOU!.png);
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: center;
+      display: block; // елемент залишаємо
+      width: 400px; // задаємо ширину картинки
+      height: 100px; // і висоту
+      text-indent: -9999px;
+      margin-top: -30px;
+
+      grid-column: 2 / 6;
+    }
+  }
+
+  &__other--tittle {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 100%;
+
+    color: #05c2df;
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__about {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: #929292;
+    grid-column: 1 / -1;
+
+    margin-top: 22px;
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      grid-column: 1 / 5;
+      margin-top: -150px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      margin-top: -135px;
+    }
+
+    @include on-big-desktop {
+      grid-column: 2 / 8;
+    }
+  }
+}

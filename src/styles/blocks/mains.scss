@@ -1,0 +1,35 @@
+@import '../utils/mixins';
+
+.nav__lists {
+  display: flex;
+  flex-direction: row; /* ← ось так */
+  padding: 0;
+  list-style: none;
+
+  .nav__item {
+    width: auto;
+    margin-bottom: 22px;
+  }
+
+  .nav__link {
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+
+    display: block;
+
+    width: 100%;
+    padding: 1px 10px; // padding всередині, фон не виходить за межі
+    color: #fff;
+    text-decoration: none;
+    transition:
+      background 0.3s,
+      color 0.3s;
+
+    &:hover {
+      color: #05c2df;
+      background-color: #0a0911;
+    }
+  }
+}

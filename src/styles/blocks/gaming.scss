@@ -1,0 +1,265 @@
+@import '../utils/mixins';
+
+.gaming {
+  background-color: #05040b;
+
+  &__content--mobile {
+    @include page-grid;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+  &__section--title {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 100%;
+    cursor: pointer;
+
+    color: #ffff;
+
+    margin-top: 33px;
+
+    grid-column: 1 / -1;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+  }
+
+  &__main--otherclr {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 100%;
+
+    color: #05c2df;
+
+    @include on-big-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__section--subtitle {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+
+    color: #05c2df;
+
+    grid-column: 1 / -1;
+  }
+
+  &__section--heading {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 100%;
+
+    color: #fff;
+  }
+
+  &__text--paragraph {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+
+    color: #929292;
+  }
+
+  &__mobile--block1,
+  &__mobile--block2,
+  &__mobile--block3,
+  &__mobile--block4 {
+    margin-top: 30px;
+
+    grid-column: 1 / -1;
+  }
+
+  &__mobile--block4 {
+    margin-bottom: 50px;
+  }
+
+  &__content--more {
+    display: none;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__main--tittle {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 100%;
+    text-align: center;
+
+    cursor: pointer;
+
+    color: #fff;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+
+    @include on-tablet {
+      grid-column: 3 / 5;
+      grid-row: 1;
+      margin-top: 70px;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+      grid-row: 1;
+      margin-top: 160px;
+    }
+
+    @include on-big-desktop {
+      grid-column: 6 / 12;
+      font-size: 36px;
+    }
+  }
+
+  &__main--about {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 100%;
+    text-align: center;
+
+    color: #05c2df;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      grid-row: 2;
+      margin-top: 12px;
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: 4 / 10;
+      grid-row: 2;
+      margin-top: 16px;
+      margin-bottom: 70px;
+    }
+
+    @include on-big-desktop {
+      grid-column: 6 / 12;
+      font-size: 17px;
+    }
+  }
+
+  &__img {
+    max-width: 98px;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto 10px;
+    margin-bottom: 22px;
+  }
+
+  &__main__about {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 16px;
+    line-height: 100%;
+
+    color: #fff;
+
+    margin-bottom: 20px;
+  }
+
+  &__main--text {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    text-align: center;
+
+    color: #929292;
+  }
+
+  &__block--first {
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-row: 3;
+      grid-column: 1 / 4;
+      margin-bottom: 40px;
+    }
+
+    @include on-big-desktop {
+      grid-column: 1 / 5;
+    }
+  }
+
+  &__block--third {
+    @include on-tablet {
+      grid-column: 1 / 4;
+      margin-top: 25px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 10;
+      margin-top: 10px;
+    }
+
+    @include on-big-desktop {
+      grid-column: 9 / 13;
+    }
+  }
+
+  &__block--second {
+    @include on-tablet {
+      grid-column: 4 / 7;
+      margin-top: -15px;
+    }
+
+    @include on-big-desktop {
+      grid-column: 5 / 9;
+    }
+  }
+
+  &__block--fourth {
+    @include on-tablet {
+      grid-column: 4 / 7;
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      grid-column: 10 / 15;
+      margin-top: 5px;
+    }
+
+    @include on-big-desktop {
+      grid-column: 13 / 17;
+      margin-top: -15px;
+    }
+  }
+
+  &__block--first,
+  &__block--second,
+  &__block--third,
+  &__block--fourth {
+    text-align: center;
+    align-items: center;
+    box-sizing: border-box;
+    &:hover {
+      @include transision;
+
+      cursor: pointer;
+    }
+  }
+}

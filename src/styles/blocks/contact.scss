@@ -1,0 +1,331 @@
+@import '../utils/mixins';
+
+.contact {
+  background-color: #05040b;
+
+  &__content {
+    @include page-grid;
+  }
+
+  &__about--tittle {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+
+    color: #05c2df;
+
+    grid-column: 1 / -1;
+    padding-top: 50px;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      padding-top: 70px;
+    }
+  }
+
+  &__main--tittle {
+    font-family: Inter, sans-serif;
+    font-weight: 900;
+    font-size: 21px;
+    line-height: 100%;
+
+    color: #fff;
+
+    grid-column: 1 / -1;
+
+    margin-top: 15px;
+    margin-bottom: 35px;
+
+    transition: transform 0.5s ease;
+
+    &:hover {
+      transform: scale(0.9);
+    }
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+      padding-top: 80px;
+    }
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+
+    @include on-big-desktop {
+      grid-column: 1 / 4;
+    }
+  }
+
+  &__other--tittle {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 100%;
+
+    color: #05c2df;
+
+    @include on-desktop {
+      font-size: 36px;
+    }
+  }
+
+  &__form {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 4 / 7;
+      grid-row: 1;
+      padding-top: 70px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 13;
+    }
+
+    @include on-big-desktop {
+      grid-column: 9 / 16;
+    }
+  }
+
+  &__input {
+    position: relative;
+    width: 100%;
+    background-color: #05040b;
+    border: none;
+    border-bottom: 1px solid #2f2f2f;
+    color: #929292;
+    margin-bottom: 20px;
+    outline: none;
+    height: 40px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    grid-column: 1 / -1;
+
+    &::placeholder {
+      color: #929292;
+      transition: color 0.3s ease;
+    }
+
+    &:hover::placeholder {
+      color: #05c2df;
+    }
+
+    &:focus {
+      border-bottom-color: #05c2df;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+
+    &:hover {
+      border-bottom-color: #05c2df;
+    }
+  }
+
+  &__message {
+    position: relative;
+    width: 100%;
+    background-color: #05040b;
+    border: none;
+    border-bottom: 1px solid #2f2f2f;
+    color: #929292;
+    margin-bottom: 20px;
+    outline: none;
+    resize: none;
+
+    height: 80px;
+
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+
+    grid-column: 1 / -1;
+
+    &::placeholder {
+      color: #929292;
+      transition: color 0.3s ease;
+    }
+
+    &:hover::placeholder {
+      color: #05c2df;
+    }
+
+    &:focus {
+      border-bottom-color: #05c2df;
+    }
+
+    &:focus::placeholder {
+      color: transparent;
+    }
+
+    &:hover {
+      border-bottom-color: #05c2df;
+    }
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    height: 40px;
+    padding: 12px;
+    margin: 10px 0;
+    text-align: center;
+    background-color: #00d4ff;
+    color: #fff;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #fff;
+      color: #05c2df;
+      transition: color 0.4s;
+    }
+
+    &:disabled {
+      background-color: #191536;
+      color: #2f2f2f;
+    }
+  }
+
+  &__button--wrapper {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 4 / 6;
+
+      margin-bottom: 130px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 9;
+    }
+
+    @include on-big-desktop {
+      grid-column: 9 / 11;
+
+      margin-bottom: 200px;
+    }
+  }
+
+  &__bottom {
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+
+    color: #929292;
+
+    grid-column: 1 / -1;
+
+    margin-top: 30px;
+
+    @include on-tablet {
+      grid-row: 1;
+      padding-top: 120px;
+      grid-column: 1 / 5;
+      font-size: 16px;
+    }
+  }
+
+  &__desk--location {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+
+      grid-column: 1 / 4;
+      grid-row: 2;
+      margin-top: -100px;
+    }
+  }
+}
+
+.contact__desk--location a {
+  display: block;
+  margin-bottom: 8px;
+  font-family: Inter, sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  color: #929292;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.contact__desk--location a:hover {
+  color: #00d4ff;
+  transition: color 0.3s ease;
+}
+
+.scroll-arrow {
+  cursor: pointer;
+
+  z-index: 1000;
+  right: 40px;
+  bottom: 150px;
+
+  display: none;
+  width: 48px;
+  height: auto;
+
+  font-size: 28px;
+
+  pointer-events: auto;
+
+  @include on-big-desktop {
+    grid-column: 15 / 16;
+  }
+}
+
+@include on-desktop {
+  .scroll-arrow {
+    display: flex;
+
+    grid-column: 12;
+
+    padding-left: 30px;
+
+    &:hover {
+      @include transision;
+    }
+  }
+}
+
+@include on-big-desktop {
+  .scroll-arrow {
+    display: flex;
+
+    grid-column: 15;
+
+    padding-left: 60px;
+
+    &:hover {
+      @include transision;
+    }
+  }
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px transparent inset !important; /* прибирає білий фон */
+  -webkit-text-fill-color: #929292 !important; /* колір тексту */
+  border-bottom: 2px solid #00e0ff !important; /* повертає твою лінію */
+  transition: background-color 5000s ease-in-out 0s;
+}

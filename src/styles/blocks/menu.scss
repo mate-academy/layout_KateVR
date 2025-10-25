@@ -1,0 +1,118 @@
+@import '../utils/mixins';
+
+.menu,
+.language-menu,
+.help-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100vh; /* висота вікна */
+  overflow: hidden; /* сам блок не скролиться */
+  z-index: 100;
+  padding: 0; /* padding прибираємо з батька */
+  box-sizing: border-box;
+
+  background-color: #161632;
+  transition: left 0.3s ease;
+
+  @include on-tablet {
+    height: 50vh;
+  }
+
+  @include on-desktop {
+    display: none;
+  }
+
+  &.open {
+    left: 0;
+  }
+
+  &__title {
+    margin-top: 0;
+    color: #00d4ff;
+
+    span {
+      color: #00d4ff;
+      background-color: #161632;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 0;
+    border-bottom: 1px solid #333;
+  }
+}
+
+.help-menu {
+  overflow: hidden;
+
+  &__text {
+    font-size: 14px;
+    color: #ccc;
+  }
+
+  &__link {
+    color: #00d4ff;
+    text-decoration: underline;
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+.menu {
+  &.open {
+    left: 0;
+  }
+  &__wrapper--closed {
+    display: flex;
+    justify-content: flex-end; /* кнопка праворуч */
+    align-items: center;
+
+    width: 100%;
+  }
+}
+
+.menu a,
+.language-menu a {
+  display: block;
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  z-index: 1;
+  padding: 5px; // тільки для тексту
+}
+
+/* Псевдоелемент розтягуємо на весь екран або весь aside */
+.menu a::before,
+.language-menu a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -20px; /* компенсуємо padding тексту */
+  width: 100%; /* ширина + padding з обох сторін */
+  height: 100%;
+  background-color: #110e25;
+  z-index: -1;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+/* При ховері розкриваємо псевдоелемент */
+.menu a:hover::before,
+.language-menu a:hover::before {
+  transform: scaleX(1);
+}
+
+.menu__inner,
+.language-menu__inner,
+.help-menu__inner {
+  height: calc(100vh - 400px);
+  padding: 20px; /* відступи для тексту */
+  overflow-y: auto; /* вертикальний скрол тільки для контенту */
+  box-sizing: border-box;
+}

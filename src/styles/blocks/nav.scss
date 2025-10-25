@@ -1,0 +1,39 @@
+@import '../utils/mixins';
+
+.nav {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+
+    box-sizing: border-box;
+  }
+
+  &__link {
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 130%;
+    display: block;
+
+    width: 100%;
+    padding: 1px 10px; // padding всередині, фон не виходить за межі
+    color: #fff;
+    text-decoration: none;
+    transition:
+      background 0.3s,
+      color 0.3s;
+
+    &:hover {
+      color: #05c2df;
+      background-color: #110e25;
+    }
+  }
+
+  &__item {
+    width: 100%;
+    margin-bottom: 22px;
+  }
+}

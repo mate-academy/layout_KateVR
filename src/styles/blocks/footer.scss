@@ -1,0 +1,220 @@
+@import '../utils/mixins';
+
+.footer {
+  background-color: #05040b;
+  &__content {
+    @include page-grid;
+
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      text-align: center;
+
+      max-height: 100px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    cursor: pointer;
+
+    margin-left: 10px;
+
+    &:hover {
+      @include transision;
+    }
+  }
+
+  &__image--wrapper {
+    margin-top: 50px;
+    max-width: 70px;
+  }
+
+  &__nav {
+    grid-column: 1 / 1;
+    grid-row: 2;
+
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      margin-top: 20px;
+    }
+
+    .nav__item {
+      margin-bottom: 0 !important;
+      margin-top: 10px;
+    }
+
+    .nav__list {
+      @include on-tablet {
+        flex-direction: row;
+      }
+
+      @include on-tablet {
+        gap: 40px;
+      }
+    }
+
+    .nav__link {
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 150%;
+
+      color: #f2f2f2;
+
+      position: relative;
+      text-decoration: none;
+
+      display: inline-block;
+
+      &:hover {
+        color: #05c2df;
+        background: none;
+      }
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -4px;
+        transform-origin: center;
+        transform: scale(0);
+
+        display: block;
+
+        width: 50%;
+        height: 2px;
+        border-radius: 4px;
+
+        @include on-tablet {
+          width: 80%;
+        }
+
+        background-color: #05c2df;
+        transition: transform 0.3s;
+      }
+
+      &:hover::after {
+        transform: scale(1);
+      }
+    }
+  }
+
+  &__contact--block {
+    grid-column: 2 / -1;
+    grid-row: 2;
+    margin-top: 30px;
+
+    @include on-tablet {
+      display: none;
+    }
+
+    a {
+      display: block;
+      margin-bottom: 4px;
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 100%;
+      color: #929292;
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover {
+        color: #00d4ff;
+        transition: color 0.3s ease;
+      }
+    }
+  }
+
+  &__icons--media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    grid-column: 2 / -1;
+
+    grid-row: 3;
+
+    gap: 22px;
+
+    margin-right: 70px;
+    margin-top: -140px;
+
+    @include on-tablet {
+      margin-top: 20px;
+      margin-right: 0;
+      gap: 30px;
+    }
+  }
+
+  &__facebook {
+    background-image: url(../icons/footer--face.png);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    display: block;
+
+    width: 18px;
+    height: 18px;
+
+    &:hover {
+      @include transision;
+    }
+  }
+
+  &__twitter {
+    background-image: url(../icons/footer--twit.png);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    display: block;
+
+    width: 18px;
+    height: 18px;
+
+    &:hover {
+      @include transision;
+    }
+  }
+
+  &__reddit {
+    background-image: url(../icons/footer--reddit.png);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    display: block;
+
+    width: 18px;
+    height: 18px;
+
+    &:hover {
+      @include transision;
+    }
+  }
+
+  &__youtube {
+    background-image: url(../icons/footer--youtube.png);
+
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    display: block;
+
+    width: 18px;
+    height: 18px;
+
+    &:hover {
+      @include transision;
+    }
+  }
+}
