@@ -1,0 +1,45 @@
+.page {
+  scroll-behavior: smooth;
+
+  min-width: 320px;
+  margin: 0;
+  padding: 0;
+
+  color: $color-text-color;
+
+  background: linear-gradient(107.56deg, $color-gradient-start 0%, black 100%);
+  box-shadow: 4px 4px 40px 0 #00000040;
+  &__body {
+    margin: 0;
+    padding: 0;
+  }
+
+  &__menu {
+    pointer-events: none;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    opacity: 0;
+
+    transition: transform $animation-speed;
+
+    &--opened {
+      pointer-events: all;
+      z-index: 1000;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  &:has(.page__menu--opened) {
+    overflow: hidden;
+  }
+
+  &:has(.overlay--active) {
+    overflow: hidden;
+  }
+}

@@ -1,0 +1,46 @@
+.nav {
+  list-style: none;
+
+  &--horizontal {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      gap: 36px;
+    }
+  }
+
+  &__item {
+    @include hover(transform, scale(1.1));
+  }
+
+  &__button {
+    @include hover(color, $color-contrast-color);
+
+    position: relative;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      z-index: -1;
+      top: -11px;
+      left: -21px;
+
+      width: 0;
+      height: 49px;
+
+      background-color: #110e25;
+
+      transition: width $animation-speed;
+
+      @include on-tablet {
+        left: -152px;
+      }
+    }
+
+    &:hover::after {
+      width: 100vw;
+    }
+  }
+}

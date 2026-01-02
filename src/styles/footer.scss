@@ -1,0 +1,145 @@
+.footer {
+  padding-top: 45px;
+  padding-bottom: 50px;
+
+  @include on-tablet {
+    padding-block: 21px;
+  }
+
+  @include on-desktop {
+    padding-block: 39px;
+  }
+
+  &__wrapper {
+    display: flex;
+    gap: 81px;
+
+    @include on-desktop {
+      gap: 275px;
+    }
+
+    @include on-big-desktop {
+      gap: 471px;
+    }
+  }
+
+  &__top {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 127px;
+    }
+
+    @include on-desktop {
+      gap: 304px;
+    }
+
+    @include on-big-desktop {
+      gap: 500px;
+    }
+  }
+
+  &__logo {
+    width: 69px;
+    height: 14px;
+
+    @include on-tablet {
+      width: 72px;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 43px;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+
+    width: 130px;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    gap: 22px;
+
+    @include on-tablet {
+      gap: 18px;
+    }
+
+    &-link {
+      color: white;
+      text-decoration: none;
+
+      @include hover(transform, scale(1.1));
+      @include hover(color, $color-contrast-color);
+    }
+
+    &-icon {
+      background-repeat: no-repeat;
+
+      &--facebook {
+        width: 8px;
+        height: 15px;
+
+        @include on-tablet {
+          width: 6px;
+          height: 12px;
+        }
+      }
+
+      &--twitter {
+        width: 19px;
+        height: 14px;
+
+        @include on-tablet {
+          width: 15px;
+          height: 11px;
+        }
+      }
+
+      &--youtube {
+        width: 18px;
+        height: 14px;
+
+        @include on-tablet {
+          width: 14px;
+          height: 11px;
+        }
+      }
+
+      &--reddit {
+        width: 18px;
+        height: 18px;
+
+        @include on-tablet {
+          width: 14px;
+          height: 14px;
+        }
+      }
+    }
+  }
+}

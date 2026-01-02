@@ -1,0 +1,386 @@
+.payment {
+  &__step {
+    pointer-events: none;
+
+    position: absolute;
+    right: 0;
+    left: 0;
+    transform: translateX(-100%);
+
+    display: none;
+
+    box-sizing: border-box;
+    height: calc(100% - 100px);
+    padding-inline: 20px;
+
+    opacity: 0;
+    background: linear-gradient(
+      107.56deg,
+      $color-gradient-start 0%,
+      black 100%
+    );
+    box-shadow: 4px 4px 40px 0 #00000040;
+
+    @include on-tablet {
+      height: calc(100% - 107px);
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      height: calc(100vh - 107px);
+      padding-inline: 110px;
+    }
+
+    @include on-big-desktop {
+      padding-inline: 235px;
+    }
+
+    &--active {
+      pointer-events: all;
+
+      position: relative;
+      transform: translateX(0);
+
+      overflow: auto;
+      display: block;
+
+      opacity: 1;
+
+      transition: transform, $animation-speed;
+    }
+
+    &-indicator {
+      --steps: 3;
+      --step: 0;
+
+      width: auto;
+      height: 18px;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -17px;
+        left: -20px;
+        transform: translateX(calc(var(--step) * 100%));
+
+        width: calc(100vw / var(--steps));
+        border: 1px solid $color-contrast-color;
+
+        transition: transform $animation-speed ease;
+
+        @include on-tablet {
+          bottom: -10px;
+          left: -34px;
+        }
+
+        @include on-desktop {
+          bottom: 0;
+          left: 0;
+
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+
+          opacity: 0;
+          background-color: $color-contrast-color;
+        }
+      }
+
+      &--active {
+        color: $color-contrast-color;
+
+        &::after {
+          transform: translateX(calc(var(--step) * 100%));
+
+          @include on-desktop {
+            transform: translateX(var(--dot-x));
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  &__top-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 33px;
+
+    box-sizing: border-box;
+    height: 100px;
+    padding-top: 20px;
+    padding-inline: 20px;
+
+    background: linear-gradient(
+      107.56deg,
+      $color-gradient-start 0%,
+      black 100%
+    );
+    background-color: $color-gradient-start;
+    box-shadow: 4px 4px 40px 0 #00000040;
+
+    @include on-tablet {
+      height: 107px;
+      padding-top: 30px;
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      flex-direction: row;
+      gap: 191px;
+      padding-top: 65px;
+      padding-inline: 110px;
+    }
+
+    @include on-big-desktop {
+      gap: 288px;
+      padding-inline: 235px;
+    }
+
+    &-link {
+      cursor: pointer;
+      display: flex;
+      width: 58px;
+      height: 12px;
+
+      @include hover(transform, scale(1.1));
+
+      @include on-tablet {
+        width: 67px;
+        height: 14px;
+      }
+
+      @include on-desktop {
+        width: 78px;
+        height: 16px;
+      }
+    }
+
+    &-logo {
+      width: 100%;
+    }
+  }
+
+  &__step-bar {
+    --dot-x: 0;
+
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      bottom: -17px;
+      left: -20px;
+
+      box-sizing: border-box;
+      width: 100vw;
+      border: 1px solid #2f2f2f;
+
+      @include on-tablet {
+        bottom: -10px;
+        left: -34px;
+      }
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    @include on-tablet {
+      min-width: 584px;
+      padding-left: 54px;
+    }
+
+    @include on-desktop {
+      width: 647px;
+    }
+
+    @include on-big-desktop {
+      width: 842px;
+    }
+  }
+
+  &__complete {
+    &-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    &-title {
+      margin: 0;
+      margin-top: 90px;
+      margin-bottom: 16px;
+      color: white;
+
+      &--blue {
+        color: $color-contrast-color;
+      }
+
+      @include on-tablet {
+        max-width: 680px;
+        margin-top: 180px;
+        margin-bottom: 20px;
+      }
+
+      @include on-desktop {
+        max-width: 707px;
+        margin-top: 140px;
+        margin-bottom: 36px;
+      }
+
+      @include on-big-desktop {
+        margin-top: 236px;
+        margin-bottom: 56px;
+      }
+    }
+
+    &-description {
+      display: block;
+      margin-bottom: 30px;
+      color: white;
+      text-align: center;
+
+      @include on-tablet {
+        margin-bottom: 50px;
+      }
+
+      @include on-big-desktop {
+        margin-bottom: 70px;
+      }
+    }
+  }
+
+  &__homepage-button {
+    width: 100%;
+    height: 40px;
+
+    @include on-tablet {
+      width: 458px;
+      height: 48px;
+    }
+
+    @include on-desktop {
+      width: 218px;
+    }
+  }
+
+  &__order {
+    @include on-desktop {
+      display: flex;
+      gap: 80px;
+      box-sizing: border-box;
+      padding-top: 102px;
+    }
+
+    @include on-big-desktop {
+      padding-top: 219px;
+    }
+    &-top {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      padding-left: 14px;
+
+      @include on-tablet {
+        padding-top: 40px;
+        padding-bottom: 48px;
+        padding-left: 0;
+      }
+
+      @include on-desktop {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    &-price {
+      display: flex;
+      gap: 75px;
+
+      @include on-tablet {
+        gap: 148px;
+        margin-left: 122px;
+      }
+
+      @include on-desktop {
+        margin-left: 0;
+      }
+    }
+
+    &-bottom {
+      @include on-big-desktop {
+        padding-top: 43px;
+      }
+    }
+
+    &-form {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+
+      @include page-grid;
+    }
+
+    &-background {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        width: 524px;
+        height: 277px;
+        margin-left: 70px;
+      }
+
+      @include on-desktop {
+        width: 442px;
+        height: 279px;
+        margin-top: 29px;
+        margin-bottom: 48px;
+        margin-left: 0;
+
+        object-fit: cover;
+      }
+
+      @include on-big-desktop {
+        width: 800px;
+        height: 447px;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    @include on-tablet {
+      gap: 20px;
+      align-items: start;
+    }
+
+    &-amount {
+      color: $color-contrast-color;
+    }
+  }
+
+  &__pay {
+    @include on-desktop {
+      display: flex;
+      gap: 19px;
+      box-sizing: border-box;
+      padding-top: 102px;
+    }
+
+    @include on-big-desktop {
+      padding-top: 219px;
+    }
+  }
+}

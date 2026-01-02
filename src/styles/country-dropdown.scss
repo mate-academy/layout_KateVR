@@ -1,0 +1,70 @@
+.country-dropdown {
+  grid-column: span 2;
+
+  @include on-tablet {
+    grid-column: span 3;
+  }
+
+  @include on-desktop {
+    grid-column: span 6;
+  }
+
+  @include on-big-desktop {
+    grid-column: span 8;
+  }
+
+  &__select {
+    position: relative;
+  }
+
+  &__selected {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 47px;
+    padding-inline: 24px 16px;
+
+    background-color: $color-gradient-start;
+    &-label {
+      color: white;
+    }
+  }
+
+  &__option {
+    color: white;
+  }
+
+  &__options {
+    overflow: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    box-sizing: border-box;
+    width: 280px;
+    height: 235px;
+    padding-left: 24px;
+
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-contrast-color;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: #014954;
+    }
+
+    @include on-tablet {
+      width: 340px;
+    }
+
+    @include on-desktop {
+      width: 248px;
+    }
+  }
+}

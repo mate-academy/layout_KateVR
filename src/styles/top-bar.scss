@@ -1,0 +1,59 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 18px 14px;
+
+  @include on-tablet {
+    padding-block: 30px 55px;
+  }
+
+  @include on-desktop {
+    padding-block: 47px 101px;
+  }
+
+  @include on-big-desktop {
+    padding-bottom: 232px;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: row;
+
+    @include on-desktop {
+      gap: 34px;
+      align-items: center;
+    }
+  }
+
+  &__link {
+    cursor: pointer;
+    display: flex;
+    width: 58px;
+    height: 12px;
+
+    @include hover(transform, scale(1.1));
+  }
+
+  &__logo {
+    width: 100%;
+  }
+
+  &__navigation {
+    display: flex;
+    gap: 37px;
+    align-items: center;
+
+    @include on-big-desktop {
+      gap: 35px;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+}
