@@ -1,0 +1,155 @@
+.slider-about {
+  --steps: 5;
+  --step: 0;
+  &__content {
+    height: 207px;
+
+    @include on-tablet {
+      width: 340px;
+      height: 289px;
+    }
+
+    @include on-desktop {
+      display: flex;
+      gap: 23px;
+      width: 474px;
+      height: 300px;
+    }
+
+    @include on-big-desktop {
+      width: 666px;
+      height: 307px;
+    }
+  }
+
+  &__counter {
+    display: none;
+    color: $color-contrast-color;
+
+    @include on-desktop {
+      display: block;
+      display: flex;
+      width: 21px;
+    }
+  }
+
+  &__images {
+    position: relative;
+    height: 189px;
+
+    @include on-tablet {
+      height: 270px;
+    }
+
+    @include on-desktop {
+      width: 430px;
+      height: 290px;
+    }
+
+    @include on-big-desktop {
+      width: 622px;
+    }
+  }
+
+  &__image {
+    pointer-events: none;
+
+    position: absolute;
+    transform: translateX(-100%);
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    object-fit: cover;
+
+    transition:
+      transform $animation-speed ease,
+      opacity $animation-speed ease;
+
+    &--active {
+      pointer-events: all;
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+
+  &__buttons {
+    display: none;
+
+    @include on-desktop {
+      position: relative;
+
+      display: flex;
+      gap: 103px;
+
+      width: 205px;
+      margin-top: 12px;
+      margin-left: 40px;
+
+      &::before {
+        content: '';
+
+        position: absolute;
+        bottom: -10px;
+
+        width: 100%;
+        border-bottom: 1px solid #212121;
+      }
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -10px;
+        transform: translateX(calc(var(--step) * 100%));
+
+        width: calc(100% / var(--steps));
+        border: 1px solid $color-contrast-color;
+
+        transition: transform $animation-speed ease;
+      }
+    }
+
+    @include on-big-desktop {
+      margin-top: 12px;
+    }
+  }
+
+  &__button {
+    padding: 0;
+    background-color: inherit;
+
+    @include hover(color, $color-contrast-color);
+
+    &--disabled {
+      pointer-events: none;
+      color: $color-text-color;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 14px;
+
+    @include on-tablet {
+      margin-top: 15px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: #484848;
+
+    &--active {
+      background-color: #ababab;
+    }
+  }
+}

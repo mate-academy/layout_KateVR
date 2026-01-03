@@ -1,0 +1,297 @@
+.hotspot {
+  position: absolute;
+
+  &--sensor {
+    top: -11px;
+    left: 60px;
+
+    @include on-tablet {
+      top: -27px;
+      right: 231px;
+      left: unset;
+    }
+
+    @include on-desktop {
+      top: 7px;
+      left: 101px;
+    }
+
+    @include on-big-desktop {
+      left: 75px;
+    }
+  }
+
+  &--batterries {
+    top: 80px;
+    right: 29px;
+
+    @include on-tablet {
+      top: 145px;
+      right: 49px;
+    }
+
+    @include on-desktop {
+      top: unset;
+      right: 354px;
+      bottom: 102px;
+    }
+
+    @include on-big-desktop {
+      right: 430px;
+      bottom: 103px;
+    }
+  }
+
+  &--connection {
+    bottom: 8px;
+
+    @include on-tablet {
+      bottom: 19px;
+      left: 0;
+    }
+
+    @include on-desktop {
+      top: 119px;
+      left: 226px;
+    }
+
+    @include on-big-desktop {
+      top: 129px;
+      left: 170px;
+    }
+  }
+
+  &__popover {
+    pointer-events: none;
+
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    width: 168px;
+    max-height: 200px;
+    padding-top: 17px;
+    padding-bottom: 22px;
+    padding-inline: 10px;
+    border-radius: 4%;
+
+    opacity: 0;
+    background-color: $color-gradient-start;
+
+    transition:
+      opacity $animation-speed ease,
+      transform $animation-speed ease;
+
+    @include on-tablet {
+      max-height: 250px;
+    }
+
+    @include on-desktop {
+      transform: translate(0);
+      opacity: 1;
+      background-color: inherit;
+    }
+
+    &--sensor {
+      right: -50px;
+
+      @include on-desktop {
+        top: -40px;
+        right: 640px;
+      }
+
+      @include on-big-desktop {
+        right: 780px;
+      }
+    }
+
+    &--batterries {
+      left: -80px;
+
+      @include on-tablet {
+        top: -40px;
+        left: 70px;
+      }
+
+      @include on-desktop {
+        left: 200px;
+      }
+
+      @include on-big-desktop {
+        left: 250px;
+      }
+    }
+
+    &--connection {
+      top: -40px;
+      left: 70px;
+
+      @include on-desktop {
+        top: unset;
+        bottom: -20px;
+        left: -150px;
+      }
+
+      @include on-big-desktop {
+        bottom: -30px;
+        left: -100px;
+      }
+    }
+
+    &--active {
+      opacity: 1;
+    }
+  }
+
+  &--active {
+    .hotspot__popover {
+      pointer-events: all;
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  &__title {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      margin-bottom: 21px;
+      color: white;
+    }
+  }
+
+  &__button {
+    cursor: pointer;
+
+    position: relative;
+
+    width: 34px;
+    height: 34px;
+    border-color: #ffffff24;
+    border-radius: 50%;
+
+    background-color: #05c2df;
+    background-size: cover;
+
+    transition: background-color $animation-speed ease;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      width: 12px;
+      height: 2px;
+
+      background: white;
+
+      transition:
+        transform $animation-speed ease,
+        opacity $animation-speed ease;
+
+      @include on-tablet {
+        width: 21px;
+      }
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(90deg);
+    }
+
+    @include on-tablet {
+      width: 62px;
+      height: 62px;
+    }
+
+    &--active {
+      border-color: #ffffff24;
+      background-color: #07798b;
+
+      &::after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &__text {
+    margin: 0;
+
+    &--batterries {
+      @include on-desktop {
+        width: 338px;
+      }
+    }
+
+    &--sensor {
+      @include on-desktop {
+        width: 250px;
+      }
+    }
+
+    &--connection {
+      @include on-desktop {
+        width: 241px;
+      }
+    }
+  }
+
+  &__line {
+    &--connection {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        width: 134px;
+        height: 113px;
+      }
+
+      @include on-big-desktop {
+        width: 240px;
+        height: 112px;
+      }
+    }
+
+    &--sensor {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        width: 403px;
+        height: 72px;
+      }
+
+      @include on-big-desktop {
+        width: 431px;
+      }
+    }
+
+    &--batterries {
+      display: none;
+
+      @include on-desktop {
+        top: 0;
+        right: 0;
+
+        display: block;
+
+        width: 191px;
+        height: 245px;
+      }
+
+      @include on-big-desktop {
+        width: 283px;
+        height: 245px;
+      }
+    }
+  }
+}

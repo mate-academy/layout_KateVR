@@ -1,0 +1,133 @@
+.form {
+  &-label {
+    position: relative;
+    &--required {
+      &::after {
+        content: '*';
+        position: absolute;
+        top: 0;
+      }
+    }
+  }
+
+  &__input {
+    border: 0;
+    border-bottom: 1px solid #2f2f2f;
+
+    color: white;
+
+    background-color: inherit;
+    outline: none;
+    &:focus {
+      border-color: $color-contrast-color;
+      caret-color: $color-contrast-color;
+    }
+  }
+
+  &-field {
+    display: flex;
+    grid-column: span 2;
+    flex-direction: column;
+    gap: 2px;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    @include on-big-desktop {
+      grid-column: span 8;
+    }
+
+    &__payment {
+      grid-column: span 2;
+
+      @include on-tablet {
+        grid-column: 2 / 6;
+      }
+
+      @include on-desktop {
+        grid-column: 2 / 11;
+      }
+    }
+
+    &:focus-within .form-label {
+      color: $color-contrast-color;
+    }
+
+    &--error {
+      color: red;
+
+      .form-label--required {
+        color: red;
+      }
+
+      &:focus-within .form-label {
+        color: red;
+      }
+
+      .form__input {
+        &:focus {
+          border-color: red;
+          caret-color: red;
+        }
+      }
+    }
+  }
+
+  &__button {
+    grid-column: span 2;
+
+    width: 100%;
+    height: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      height: 48px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      width: 200px;
+      margin-top: 28px;
+    }
+
+    @include on-big-desktop {
+      margin-top: 62px;
+    }
+
+    &--pay {
+      @include on-desktop {
+        grid-column: 2 / 7;
+        margin-top: 90px;
+      }
+
+      @include on-big-desktop {
+        margin-top: 125px;
+      }
+    }
+  }
+
+  &__textarea {
+    resize: none;
+
+    height: 15px;
+    border: 0;
+    border-bottom: 1px solid #2f2f2f;
+
+    color: white;
+
+    background-color: inherit;
+    outline: none;
+
+    &:focus {
+      border-color: $color-contrast-color;
+      caret-color: $color-contrast-color;
+    }
+  }
+}

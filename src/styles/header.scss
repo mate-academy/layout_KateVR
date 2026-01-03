@@ -1,0 +1,218 @@
+.header {
+  padding-bottom: 33px;
+
+  @include on-tablet {
+    padding-bottom: 70px;
+  }
+
+  @include on-desktop {
+    padding-bottom: 84px;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+
+  &__background {
+    position: relative;
+    width: 280px;
+    height: 172px;
+
+    @include on-tablet {
+      width: 400px;
+      height: 240px;
+      padding-top: 30px;
+    }
+
+    @include on-desktop {
+      width: 505px;
+      height: 300px;
+      padding: 0;
+    }
+
+    @include on-big-desktop {
+      width: 900px;
+      height: 500px;
+    }
+
+    &-image {
+      pointer-events: none;
+
+      position: absolute;
+
+      width: 100%;
+      height: 100%;
+
+      opacity: 0;
+      object-fit: cover;
+
+      transition: opacity $animation-speed ease;
+      &--active {
+        pointer-events: all;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__middle {
+    &-title {
+      margin-left: 20px;
+    }
+  }
+
+  &__title {
+    margin: 0;
+    color: white;
+
+    &--blue {
+      margin-bottom: 17px;
+      color: $color-contrast-color;
+    }
+  }
+
+  &__price {
+    display: block;
+    margin-bottom: 25px;
+    color: white;
+    text-align: center;
+
+    @include on-tablet {
+      text-align: left;
+    }
+
+    @include on-desktop {
+      padding-left: 92px;
+    }
+
+    @include on-big-desktop {
+      margin-bottom: 36px;
+    }
+  }
+
+  &__info {
+    &-description {
+      display: block;
+      margin-bottom: 8px;
+
+      @include on-tablet {
+        max-width: 340px;
+        margin-bottom: 10px;
+      }
+
+      @include on-desktop {
+        padding-left: 92px;
+      }
+
+      @include on-big-desktop {
+        max-width: 370px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  &__video-button {
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      margin: 0;
+    }
+
+    @include on-desktop {
+      margin-bottom: 93px;
+      margin-left: 92px;
+    }
+  }
+
+  &__button-buy {
+    width: 100%;
+    height: 40px;
+
+    @include on-tablet {
+      margin-top: 40px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-links {
+      @include on-desktop {
+        display: flex;
+        gap: 39px;
+      }
+    }
+
+    &-button {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+      align-items: center;
+
+      margin-left: 100px;
+
+      color: $color-contrast-color;
+
+      background-color: inherit;
+
+      @include hover(transform, scale(1.1));
+    }
+  }
+
+  &__slider {
+    --steps: 3;
+    --step: 0;
+
+    position: relative;
+    display: flex;
+    gap: 103px;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      bottom: -10px;
+
+      width: 100%;
+      border: 1px solid #212121;
+    }
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: -10px;
+      transform: translateX(calc(var(--step) * 100%));
+
+      width: calc(100% / var(--steps));
+      border: 1px solid $color-contrast-color;
+
+      transition: transform $animation-speed ease;
+    }
+
+    &-button {
+      background-color: inherit;
+
+      @include hover(color, $color-contrast-color);
+
+      &--disabled {
+        pointer-events: none;
+        color: $color-text-color;
+      }
+    }
+  }
+}

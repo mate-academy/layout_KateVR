@@ -1,0 +1,204 @@
+.card {
+  &__input {
+    --line-height: 1.3;
+    --digit-height: 23px;
+    --digit-width: 11px;
+    --letter-gap: 3.6px;
+    --group-gap: 20px;
+    --group-width: 55px;
+    --group-height: 32px;
+
+    position: relative;
+
+    width: 100vw;
+    width: calc((4 * var(--group-width)) + (3 * var(--group-gap)));
+    height: 32px;
+    margin-top: 17px;
+
+    & input {
+      pointer-events: none;
+
+      position: absolute;
+      inset: 0;
+
+      border: none;
+
+      opacity: 0;
+      background: transparent;
+    }
+
+    @include on-tablet {
+      --digit-height: 26px;
+      --digit-width: 14.5px;
+      --letter-gap: 4px;
+      --group-gap: 32px;
+      --group-width: 70px;
+      --group-height: 32px;
+    }
+
+    @include on-desktop {
+      --group-gap: 20px;
+    }
+  }
+
+  &-visual {
+    pointer-events: auto;
+    display: flex;
+    gap: var(--group-gap);
+
+    &__group {
+      display: flex;
+      gap: var(--letter-gap);
+      align-items: flex-start;
+
+      width: var(--group-width);
+      height: var(--group-height);
+      padding-bottom: 9px;
+      border-bottom: 1px solid $color-dark-grey;
+    }
+
+    &__group.active {
+      border-bottom-color: $color-contrast-color;
+    }
+
+    &__digit {
+      width: var(--digit-width);
+      height: var(--digit-height);
+
+      font-variation-settings: 'tnum';
+      font-variant-numeric: tabular-nums;
+      line-height: var(--line-height);
+      text-align: center;
+
+      &--filled {
+        color: white;
+      }
+    }
+
+    &__placeholder {
+      color: $color-dark-grey;
+    }
+
+    &__caret {
+      pointer-events: none;
+
+      position: absolute;
+
+      width: 2px;
+      height: var(--digit-height);
+      margin-left: 1px;
+
+      opacity: 0;
+      background: $color-contrast-color;
+
+      animation: blink 1s steps(1) infinite;
+    }
+
+    &--focused {
+      .card-visual__caret {
+        opacity: 1;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        opacity: 0;
+      }
+    }
+
+    &__logo {
+      position: absolute;
+      right: -84px;
+
+      width: 54px;
+      height: 34px;
+
+      opacity: 0;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      transition: opacity $animation-speed ease;
+
+      &--visa {
+        opacity: 1;
+        background-image: url('./../images/icon/icon-visa.svg');
+      }
+
+      &--mastercard {
+        opacity: 1;
+        background-image: url('./../images/icon/icon-mastercard.svg');
+      }
+    }
+  }
+
+  &-secure {
+    &__data {
+      display: flex;
+      grid-column: span 2;
+      flex-direction: row;
+      gap: 50px;
+
+      @include on-tablet {
+        grid-column: 2 / 5;
+        gap: 145px;
+      }
+
+      @include on-desktop {
+        grid-column: 2 / 11;
+        gap: 92px;
+      }
+    }
+    &__field {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+
+      &--expiration {
+        width: 130px;
+      }
+
+      &--cvv {
+        width: 100px;
+      }
+    }
+
+    &__input {
+      box-sizing: border-box;
+      height: 32px;
+      padding-bottom: 9px;
+      border: 0;
+      border-bottom: 1px solid #2f2f2f;
+
+      color: white;
+
+      background-color: inherit;
+      outline: none;
+
+      &::placeholder {
+        color: $color-dark-grey;
+      }
+
+      &:focus {
+        border-color: $color-contrast-color;
+        caret-color: $color-contrast-color;
+      }
+
+      &--cvv {
+        width: 41px;
+
+        @include on-desktop {
+          width: 49px;
+        }
+      }
+
+      &--expiration {
+        width: 75px;
+
+        @include on-desktop {
+          width: 90px;
+        }
+      }
+    }
+  }
+}

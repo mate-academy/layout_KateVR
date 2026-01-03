@@ -1,0 +1,51 @@
+.button {
+  cursor: pointer;
+  border: none;
+  color: white;
+
+  &--primary {
+    width: 200px;
+    height: 48px;
+    border-radius: 4px;
+    background-color: $color-contrast-color;
+
+    @include hover(background-color, white);
+    @include hover(color, $color-contrast-color);
+  }
+
+  &--video {
+    display: flex;
+    align-items: center;
+
+    width: 211px;
+    height: 67px;
+    padding-left: 105px;
+
+    background-color: inherit;
+    background-image: url('./../images/icon/icon-play.svg');
+
+    @include hover(
+      background-image,
+      url('./../images/icon/icon-play-hover.svg')
+    );
+  }
+
+  &--language {
+    padding: 0;
+    background-color: inherit;
+  }
+
+  &__language--close {
+    width: 9px;
+    height: 17px;
+
+    object-fit: cover;
+    background-color: inherit;
+    background-image: url('./../images/icon/icon-back.svg');
+    background-repeat: no-repeat;
+  }
+
+  &--menu-action {
+    background-color: inherit;
+  }
+}
