@@ -1,0 +1,59 @@
+.dropdown {
+  &__options {
+    pointer-events: none;
+
+    position: absolute;
+    transform: translateY(-5px) scale(0.95);
+
+    width: 60px;
+
+    opacity: 0;
+    background-color: $color-gradient-start;
+
+    transition:
+      opacity 0.2s,
+      transform 0.2s;
+  }
+
+  &__opened {
+    .dropdown__options {
+      pointer-events: auto;
+      cursor: pointer;
+
+      z-index: 2000;
+      left: 0;
+      transform: translateY(51px) scale(1);
+
+      display: flex;
+      flex-direction: column;
+
+      opacity: 1;
+    }
+
+    .dropdown__option {
+      @include hover(color, $color-contrast-color);
+    }
+
+    &-city {
+      .dropdown__options {
+        transform: translateY(3px) scale(1);
+      }
+    }
+
+    &-country {
+      .dropdown__options {
+        transform: translateY(3px) scale(1);
+      }
+    }
+
+    &-language {
+      .dropdown__options {
+        transform: translateY(35px) scale(1);
+      }
+
+      .dropdown__option {
+        @include hover(color, white);
+      }
+    }
+  }
+}

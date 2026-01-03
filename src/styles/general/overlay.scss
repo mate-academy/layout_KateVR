@@ -1,0 +1,21 @@
+.overlay {
+  pointer-events: none;
+
+  position: fixed;
+  z-index: 5;
+  inset: 0;
+
+  border: 0;
+
+  opacity: 0;
+  background: #000000b2;
+
+  transition: opacity $animation-speed;
+
+  &--active {
+    pointer-events: all;
+    width: 100vw;
+    height: 100vh;
+    opacity: 1;
+  }
+}

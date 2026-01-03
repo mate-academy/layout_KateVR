@@ -1,6 +1,102 @@
+@use 'sass:map';
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: #{$_property} $animation-speed;
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-big-desktop {
+  @media (min-width: $big-desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin set-font($fontProperties) {
+  $size-map: map.get($fontProperties, size);
+
+  font-family: map.get($fontProperties, font);
+  font-size: font-size($size-map, mobile);
+  font-weight: map.get($fontProperties, weight);
+  font-style: map.get($fontProperties, style);
+  line-height: map.get($fontProperties, height);
+  text-transform: map.get($fontProperties, transorm);
+  letter-spacing: map.get($fontProperties, spacing);
+
+  @include on-tablet {
+    font-size: font-size($size-map, tablet, mobile);
+  }
+
+  @include on-desktop {
+    font-size: font-size($size-map, desktop, tablet, mobile);
+  }
+
+  @include on-big-desktop {
+    font-size: font-size($size-map, big-desktop, desktop, tablet, mobile);
+  }
+}
+
+@mixin content-padding-inline {
+  --padding: 20px;
+
+  padding-inline: var(--padding);
+
+  @include on-tablet {
+    --padding: 34px;
+  }
+
+  @include on-desktop {
+    --padding: 110px;
+  }
+
+  @include on-big-desktop {
+    --padding: 234px;
+  }
+}
+
+@function font-size($map, $keys...) {
+  @each $key in $keys {
+    @if map.has-key($map, $key) {
+      @return map.get($map, $key);
+    }
+  }
+
+  @return null;
+}
+
+@mixin page-grid {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  gap: 30px 19px;
+
+  @include on-tablet {
+    --columns: 6;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+
+    gap: 40px 20px;
+  }
+
+  @include on-big-desktop {
+    --columns: 16;
+
+    gap: 40px 19px;
   }
 }

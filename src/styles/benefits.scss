@@ -1,0 +1,110 @@
+.benefits {
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-block: 70px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  @include on-big-desktop {
+    padding-block: 160px;
+  }
+
+  &__title {
+    margin: 0;
+    margin-bottom: 32px;
+    color: white;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 84px;
+      text-align: center;
+    }
+
+    @include on-big-desktop {
+      margin-bottom: 82px;
+    }
+
+    &--blue {
+      color: $color-contrast-color;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      flex-direction: row;
+    }
+
+    @include on-big-desktop {
+      gap: 205px;
+    }
+  }
+
+  &__button-buy {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      margin-top: 90px;
+      margin-left: 430px;
+    }
+
+    @include on-big-desktop {
+      display: none;
+    }
+  }
+
+  &-card {
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    &__icon {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+        width: 80px;
+        height: 80px;
+        margin-bottom: 25px;
+      }
+
+      @include on-desktop {
+        margin-bottom: 34px;
+      }
+    }
+
+    &__title {
+      margin: 0;
+      margin-bottom: 11px;
+      font-size: 16px;
+      color: white;
+
+      @include on-tablet {
+        margin-bottom: 37px;
+      }
+
+      @include on-desktop {
+        margin-bottom: 18px;
+      }
+    }
+
+    &__description {
+      margin: 0;
+      color: $color-text-color;
+    }
+  }
+}
