@@ -1,0 +1,103 @@
+.about-us {
+  &__content {
+    padding-top: 30px;
+    padding-bottom: 50px;
+
+    @include page-grid;
+
+    @include on-tablet {
+      padding-top: 14px;
+    }
+
+    @include on-desktop {
+      padding-top: 83px;
+      padding-bottom: 98px;
+    }
+  }
+
+  &__title {
+    grid-column: 1/-1;
+
+    @include on-tablet {
+      grid-column: 1/3;
+    }
+
+    @include on-desktop {
+      grid-column: 1/6;
+    }
+  }
+
+  &__description {
+    grid-column: 1/-1;
+    margin-top: 22px;
+
+    @include on-tablet {
+      grid-column: 1/5;
+      margin-top: 32px;
+    }
+
+    @include on-desktop {
+      grid-column: 1/6;
+    }
+  }
+
+  &__prints {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      grid-column: 5/-1;
+      grid-row: 1/4;
+      gap: 21px;
+    }
+
+    @include on-desktop {
+      grid-column: 7/-1;
+      gap: 17px;
+    }
+  }
+
+  &__print {
+    height: 246px;
+
+    writing-mode: vertical-lr;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 130%;
+    color: $main-dark;
+    text-shadow:
+      -1px -1px 0 $main-turquoise,
+      1px -1px 0 $main-turquoise,
+      -1px 1px 0 $main-turquoise,
+      1px 1px 0 $main-turquoise;
+    text-transform: uppercase;
+
+    &--opacity50 {
+      writing-mode: sideways-lr;
+      opacity: 0.4;
+    }
+
+    &--opacity20 {
+      opacity: 0.2;
+    }
+
+    &--opacity5 {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        writing-mode: sideways-lr;
+        opacity: 0.1;
+      }
+    }
+
+    &--opacity1 {
+      display: none;
+
+      @include on-desktop {
+        display: block;
+        opacity: 0.05;
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+.nav {
+  &__nav {
+    margin-top: 18px;
+
+    @include on-tablet {
+      margin-top: 12px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+
+    padding: 0;
+
+    list-style: none;
+  }
+
+  &__link {
+    display: block;
+
+    padding: 11px 20px;
+
+    font-size: 21px;
+    line-height: 130%;
+    color: $main-white;
+    text-decoration: none;
+
+    &:hover {
+      color: $main-turquoise;
+      background-color: $nav-link-bg;
+    }
+
+    @include on-tablet {
+      padding-inline: 152px;
+    }
+  }
+}

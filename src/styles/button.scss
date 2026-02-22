@@ -1,0 +1,118 @@
+.button {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 280px;
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 130%;
+  color: $main-white;
+  text-decoration: none;
+
+  background-color: $main-turquoise;
+
+  @include hover(scale, 1.1);
+
+  @include on-tablet {
+    width: 458px;
+    height: 48px;
+  }
+
+  &:hover {
+    color: $main-turquoise;
+    background-color: $main-white;
+  }
+
+  &:disabled {
+    transform: none;
+    color: $dark-grey-text;
+    background-color: $disabled-button;
+  }
+
+  &--fixed {
+    position: fixed;
+    right: 0;
+    bottom: 3px;
+    left: 50%;
+    transform: translate(-50%);
+
+    @include on-desktop {
+      position: static;
+      transform: none;
+      width: 200px;
+      height: 48px;
+    }
+  }
+
+  &--footer {
+    align-self: center;
+    margin-top: 6px;
+
+    @include on-tablet {
+      align-self: flex-start;
+      width: 200px;
+      margin-top: 24px;
+    }
+
+    @include on-desktop {
+      margin-top: 66px;
+    }
+  }
+
+  &--why-kat-loco {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1/-1;
+      justify-self: center;
+      width: 200px;
+    }
+  }
+
+  &--buy-now {
+    grid-column: 1/-1;
+    justify-self: center;
+    margin-top: 10px;
+
+    @include on-tablet {
+      margin-top: 18px;
+    }
+
+    @include on-desktop {
+      justify-self: left;
+      width: 199px;
+      margin-top: 28px;
+    }
+  }
+
+  &--pay {
+    @include on-tablet {
+      margin-top: 64px;
+    }
+
+    @include on-desktop {
+      margin-top: 50px;
+    }
+  }
+
+  &--complete {
+    @include on-desktop {
+      width: 218px;
+    }
+  }
+}
+
+.button-link {
+  &--buy-now {
+    width: 280px;
+    height: 40px;
+  }
+}
