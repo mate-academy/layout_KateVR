@@ -1,0 +1,26 @@
+.more {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  align-items: center;
+
+  color: $main-turquoise;
+
+  &--display-none-mobile {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      margin-bottom: 49px;
+    }
+  }
+
+  &__link {
+    color: $main-white;
+    text-decoration: none;
+
+    &:hover {
+      color: $main-turquoise;
+    }
+  }
+}

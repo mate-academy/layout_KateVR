@@ -1,0 +1,52 @@
+.complete {
+  height: 100%;
+  background-image: $linear-gradient;
+
+  &__content {
+    @include page-grid;
+
+    padding-top: 90px;
+
+    @include on-tablet {
+      padding-top: 180px;
+    }
+
+    @include on-desktop {
+      padding-top: 38px;
+    }
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    margin-bottom: 16px;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+
+    @include on-desktop {
+      margin-top: 36px;
+    }
+  }
+
+  &__description {
+    grid-column: 1/-1;
+
+    margin-bottom: 30px;
+
+    line-height: 130%;
+    color: $main-white;
+    text-align: center;
+
+    @include on-tablet {
+      margin-bottom: 50px;
+      font-size: 18px;
+    }
+  }
+
+  &__button {
+    grid-column: 1/-1;
+    justify-self: center;
+  }
+}

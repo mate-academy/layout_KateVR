@@ -1,0 +1,250 @@
+.icon {
+  display: block;
+
+  width: 20px;
+  height: 9px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  @include hover(scale, 1.2);
+
+  @include on-tablet {
+    width: 30px;
+    height: 13px;
+  }
+
+  &--logo {
+    width: 58px;
+    height: 12px;
+    background-image: url(/src/images/katVR-logo.svg);
+
+    @include on-tablet {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include on-desktop {
+      width: 77px;
+      height: 16px;
+    }
+  }
+
+  &--menu {
+    background-image: url(/src/images/menu-icon.svg);
+
+    @include on-tablet {
+      width: 30px;
+      height: 13px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &--close {
+    width: 17px;
+    height: 17px;
+    background-image: url(/src/images/close-icon.svg);
+
+    &:hover {
+      background-image: url(/src/images/close-icon-hover.svg);
+    }
+  }
+
+  &--close-place-order {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &--circle {
+    position: relative;
+    width: 53px;
+    height: 53px;
+    background-image: url(/src/images/circle.png);
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 14px;
+      left: 17px;
+
+      display: block;
+
+      width: 20px;
+      height: 23px;
+
+      background-image: url(/src/images/triagle.svg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  }
+
+  &--dropdown {
+    width: 9px;
+    height: 6px;
+    background-image: url(/src/images/dropdown-icon.svg);
+
+    &:hover {
+      background-image: url(/src/images/dropdown-hover-icon.svg);
+    }
+  }
+
+  &--back {
+    width: 9px;
+    height: 17px;
+    background-image: url(/src/images/back-icon.svg);
+  }
+
+  &--education {
+    width: 98px;
+    height: 81px;
+    background-image: url(/src/images/education-icon.svg);
+  }
+
+  &--real-estate {
+    width: 84px;
+    height: 84px;
+    background-image: url(/src/images/real-estate-icon.svg);
+  }
+
+  &--fitness {
+    width: 110px;
+    height: 81px;
+    background-image: url(/src/images/fitness-icon.svg);
+  }
+
+  &--socials {
+    width: 83px;
+    height: 83px;
+    background-image: url(/src/images/socials-icon.svg);
+  }
+
+  &--discord {
+    width: 18px;
+    height: 18px;
+    background-image: url(/src/images/other-socials-icon.svg);
+  }
+
+  &--twitter {
+    width: 19px;
+    height: 14px;
+    background-image: url(/src/images/twitter-icon.svg);
+  }
+
+  &--facebook {
+    width: 8px;
+    height: 16px;
+    background-image: url(/src/images/facebook-icon.svg);
+  }
+
+  &--youtube {
+    width: 18px;
+    height: 14px;
+    background-image: url(/src/images/youtube-icon.svg);
+  }
+
+  &--arrow-up {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    display: none;
+
+    width: 48px;
+    height: 48px;
+
+    background-image: url(/src/images/up-arrow.svg);
+
+    &:hover {
+      background-image: url(/src/images/up-arrow-hover.svg);
+    }
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &--compatibility {
+    width: 80px;
+    height: 80px;
+    background-image: url(/src/images/compatibility-icon.png);
+  }
+
+  &--vr-control {
+    width: 89px;
+    height: 81px;
+    background-image: url(/src/images/VR-control-icon.png);
+  }
+
+  &--sensors {
+    width: 106px;
+    height: 76px;
+    background-image: url(/src/images/sensors-icon.png);
+  }
+
+  &--info {
+    position: absolute;
+    width: 34px;
+    height: 34px;
+    background-image: url(/src/images/tech-specs-info-icon.svg);
+
+    @include on-tablet {
+      width: 62px;
+      height: 62px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &-top {
+      top: -11px;
+      left: 60px;
+
+      @include on-tablet {
+        top: -27px;
+        left: 45px;
+      }
+    }
+
+    &-center {
+      top: 80px;
+      right: 29px;
+
+      @include on-tablet {
+        top: 135px;
+        right: 39px;
+      }
+    }
+
+    &-bottom {
+      bottom: 8px;
+      left: -17px;
+
+      @include on-tablet {
+        bottom: 19px;
+        left: -58px;
+      }
+    }
+
+    &-close {
+      background-image: url(/src/images/tech-specs-close-icon.svg);
+    }
+  }
+
+  &--visa {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 54px;
+      height: 33px;
+      background-image: url(/src/images/visa-icon.svg);
+    }
+  }
+}
