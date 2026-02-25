@@ -1,0 +1,33 @@
+.icon {
+  display: block;
+
+  width: 20px;
+  height: 20px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+
+  @include hover(transform, scale(1.1));
+
+  &--menu {
+    background-image: url(../images/icons/icon-menu.svg);
+
+    @include on-tablet {
+      width: 30px;
+      height: 30px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &--close {
+    background-image: url(../images/icons/icon-close.svg);
+  }
+
+  &--back {
+    background-image: url(../images/icons/icon-back.svg);
+  }
+}

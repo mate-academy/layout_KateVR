@@ -1,0 +1,87 @@
+@mixin on-tablet {
+  @media (min-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop-wide {
+  @media (min-width: $wide-desktop-width) {
+    @content;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: $mobile-padding-inline;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 110px;
+  }
+
+  @include on-desktop-wide {
+    padding-inline: 234px;
+  }
+}
+
+@mixin section-grid {
+  --columns: 6;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-desktop {
+    --columns: 12;
+  }
+
+  @include on-desktop-wide {
+    --columns: 16;
+  }
+}
+
+@mixin hover($_property, $_toValue) {
+  transition: #{$_property} $animation-duration;
+  &:hover {
+    #{$_property}: $_toValue;
+  }
+}
+
+@mixin button {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 40px;
+  border: none;
+  border-radius: 4px;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 130%;
+  color: $color-white;
+  text-decoration: none;
+
+  background-color: $color-blue;
+  outline: none;
+
+  @include hover(color, $color-blue);
+  @include hover(background-color, $color-white);
+
+  @include on-tablet {
+    height: 48px;
+    font-size: 16px;
+    line-height: auto;
+  }
+}

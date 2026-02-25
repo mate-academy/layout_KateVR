@@ -1,0 +1,35 @@
+.contacts {
+  width: fit-content;
+  
+  &--hidden-on-wide {
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__link {
+    @include text-mobile;
+
+    display: block;
+
+    width: 100%;
+    padding-block: 4px;
+
+    font-size: 13px;
+    line-height: 100%;
+    text-decoration: none;
+
+    @include hover(color, $color-blue);
+    @include hover(transform, translateX(20px));
+
+    @include on-tablet {
+      font-size: 16px;
+    }
+  }
+}

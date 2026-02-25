@@ -1,0 +1,29 @@
+.language {
+  height: 100vh;
+  background-color: $bg-aside;
+
+  @include on-tablet {
+    height: auto;
+    max-height: 100vh;
+    padding-bottom: 60px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    @include text-aside-mobile;
+
+    cursor: pointer;
+    padding: 11px 22px;
+
+    @include on-tablet {
+      padding-inline: 152px;
+    }
+
+    @include hover(color, $color-blue);
+    @include hover(background-color, $aside-link-bg-hover);
+  }
+}

@@ -1,0 +1,161 @@
+.product {
+  @include on-tablet {
+    @include section-grid;
+  }
+
+  @include on-desktop-wide {
+    max-width: $wide-desktop-width;
+
+    @include padding-inline;
+  }
+
+  &__img-wrapper {
+    grid-column: 3/-1;
+    grid-row: 1;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__img {
+    pointer-events: none;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__slider {
+    display: none;
+    grid-column: 7 / -1;
+    width: 100%;
+    height: 100%;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__content {
+    @include padding-inline;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+      padding-right: 0;
+
+      @include section-grid;
+    }
+
+    @include on-desktop-wide {
+      padding-inline: 0;
+    }
+  }
+
+  &__title {
+    @include h1-mobile;
+
+    margin-bottom: 17px;
+
+    &--secondary {
+      font-weight: 400;
+      color: $color-blue;
+    }
+
+    @include on-desktop {
+      @include h1-desktop;
+
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop-wide {
+      @include h1-desktop-wide;
+
+      margin-bottom: 36px
+    }
+  }
+
+  &__desc {
+    @include text-mobile;
+
+    margin-bottom: 8px;
+    font-weight: 500;
+
+    @include on-tablet {
+      margin-bottom: 10px;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / span 6;
+      margin-bottom: 16px;
+    }
+
+    @include on-desktop-wide {
+      grid-column: 3 / span 10;
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+  }
+
+  &__price-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include on-tablet {
+      justify-content: start;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / -3;
+    }
+  }
+
+  &__price {
+    margin-bottom: 24px;
+
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 100%;
+    color: $color-white;
+
+    @include on-tablet {
+      margin-bottom: 34px;
+    }
+
+    @include on-desktop-wide {
+      font-size: 20px;
+    }
+  }
+
+  &__buy-wrapper {
+    position: fixed;
+    z-index: 10;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    width: calc(100% - ($mobile-padding-inline * 2));
+
+    &--hidden-on-desktop {
+      @include on-desktop {
+        display: none;
+      }
+    }
+
+    @include on-tablet {
+      bottom: 30px;
+      width: 460px;
+    }
+  }
+
+  &__video-button {
+    @include on-desktop {
+      grid-column: 3 / -3;
+    }
+  }
+}

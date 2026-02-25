@@ -1,0 +1,159 @@
+.contact-us {
+  padding-block: 50px;
+
+  @include padding-inline;
+
+  background-color: $bg-black;
+
+  @include on-tablet {
+    padding-block: 70px 130px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  @include on-desktop-wide {
+    padding-block: 156px 206px;
+    padding-inline: 0;
+  }
+
+  &__container {
+    position: relative;
+
+    @include on-tablet {
+      @include section-grid;
+
+      grid-template-rows: repeat(3, min-content);
+    }
+
+    @include on-desktop-wide {
+      @include padding-inline;
+
+      max-width: $wide-desktop-width;
+      margin-inline: auto;
+    }
+  }
+
+  &__title-wrapper {
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      grid-row: 1;
+    }
+
+    @include on-desktop-wide {
+      grid-column: span 8;
+    }
+  }
+
+  &__title-intro {
+    @include text-mobile;
+
+    margin-bottom: 10px;
+    font-size: 14px;
+    line-height: 100%;
+    color: $color-blue;
+  }
+
+  &__title {
+    @include h2-mobile;
+
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      @include h2-desktop;
+    }
+
+    &--highlighted {
+      font-weight: 400;
+      color: $color-blue;
+    }
+  }
+
+  &__form {
+    margin-bottom: 30px;
+    padding-inline: 0;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 1 / -1;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    @include on-desktop-wide {
+      grid-column: span 8;
+    }
+  }
+
+  &__text {
+    @include text-mobile;
+
+    font-size: 12px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 2;
+      font-size: 16px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    @include on-desktop-wide {
+      grid-column: span 8;
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 1 / 4;
+      grid-row: 3;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__link-up {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+
+    display: none;
+
+    width: 48px;
+    height: 48px;
+
+    background-image: url(../images/icons/icon-up.svg);
+    background-size: contain;
+
+    @include hover(background-image, url(../images/icons/icon-up-hover.svg));
+
+    @include on-tablet {
+      right: 0;
+      bottom: 0;
+      display: block;
+    }
+
+    @include on-desktop-wide {
+      right: 234px;
+    }
+  }
+}

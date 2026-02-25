@@ -1,0 +1,60 @@
+.complete {
+  @include padding-inline;
+  @include section-grid;
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include h1-mobile;
+
+    margin-bottom: 16px;
+    text-align: center;
+
+    &--highlighted {
+      font-weight: 400;
+      color: $color-blue;
+    }
+
+    @include on-tablet {
+      @include h1-desktop;
+
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      margin-bottom: 36px;
+    }
+  }
+
+  &__desc {
+    grid-column: 1 / -1;
+
+    @include text-mobile;
+
+    margin-bottom: 40px;
+    color: $color-white;
+    text-align: center;
+
+    @include on-tablet {
+      font-size: 18px;
+    }
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+
+    @include button;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / 9;
+    }
+
+    @include on-desktop-wide {
+      grid-column: 7 / 11;
+    }
+  }
+}

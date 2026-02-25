@@ -1,0 +1,148 @@
+.information {
+  padding-block: 50px;
+
+  @include padding-inline;
+
+  background-color: $bg-black;
+
+  @include on-tablet {
+    padding-block: 70px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px
+  }
+
+  @include on-desktop-wide {
+    padding: 158px 0;
+
+  }
+
+  &__title {
+    @include h2-mobile;
+
+    margin-bottom: 12px;
+
+    &--highlighted {
+      font-weight: 400;
+      color: $color-blue;
+    }
+
+    @include on-tablet {
+      text-align: center;
+    }
+
+    @include on-desktop {
+      @include h2-desktop;
+
+      margin-bottom: 16px;
+    }
+  }
+
+  &__intro {
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 100%;
+    color: $color-blue;
+
+    @include on-tablet {
+      text-align: center;
+    }
+
+    @include on-desktop {
+      font-size: 14px;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @include hover(transform, scale(1.1));
+
+    @include on-tablet {
+      display: block;
+      width: 84px;
+      height: 84px;
+      margin-bottom: 30px;
+    }
+  }
+
+  &__title-wrapper {
+    margin-bottom: 30px;
+
+    @include on-desktop {
+      margin-bottom: 80px;
+    }
+
+    @include on-desktop-wide {
+      @include padding-inline;
+
+      max-width: $wide-desktop-width;
+      margin-inline: auto;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      @include section-grid;
+
+      row-gap: 40px;
+    }
+
+    @include on-desktop-wide {
+      @include padding-inline;
+
+      max-width: $wide-desktop-width;
+      margin-inline: auto;
+    }
+  }
+
+  &__subsection {
+    display: flex;
+    grid-column: span 3;
+    flex-direction: column;
+
+    @include on-tablet {
+      align-items: center;
+    }
+
+    @include on-desktop-wide {
+      grid-column: span 4;
+    }
+  }
+
+  &__subsection-title {
+    @include h3-mobile;
+
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 20px;
+    }
+
+    @include on-desktop {
+      @include h3-desktop;
+    }
+  }
+
+  &__subsection-desc {
+    @include text-mobile;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    text-overflow: ellipsis;
+
+    @include on-tablet {
+      display: inline;
+      text-align: center;
+    }
+  }
+}

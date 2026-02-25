@@ -1,0 +1,31 @@
+.navigation {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 40px;
+      justify-content: space-between;
+    }
+  }
+
+  &__link {
+    @include text-mobile;
+
+    font-size: 13px;
+    color: $color-white;
+    text-decoration: none;
+
+    @include hover(color, $color-blue);
+
+    @include on-desktop {
+      font-size: 14px;
+    }
+
+    @include on-desktop {
+      @include text-link-button;
+    }
+  }
+}

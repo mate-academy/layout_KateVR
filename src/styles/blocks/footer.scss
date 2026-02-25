@@ -1,0 +1,46 @@
+.footer {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, min-content);
+  gap: 16px;
+
+  @include padding-inline;
+
+  padding-block: 50px;
+
+  background-color: #000;
+
+  @include on-tablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 64px;
+    padding-block: 0;
+  }
+
+  @include on-desktop {
+    height: 100px;
+  }
+
+  &__logo-link {
+    display: block;
+    grid-column: 1/2;
+    width: fit-content;
+  }
+
+  &__logo {
+    width: 69px;
+  }
+
+  &__navigation {
+    grid-column: 1/2;
+  }
+
+  &__social {
+    display: flex;
+    grid-column: 2/-1;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}

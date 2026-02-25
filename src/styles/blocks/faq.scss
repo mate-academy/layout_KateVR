@@ -1,0 +1,147 @@
+.faq {
+  height: 100vh;
+  background-color: $bg-aside;
+
+  @include on-desktop {
+    max-height: 50%;
+    padding-bottom: 60px;
+  }
+
+  &__top-bar {
+    justify-content: end;
+    margin-bottom: 24px;
+
+    @include on-desktop {
+      margin-bottom: 0;
+      padding: 18px;
+    }
+
+    @include on-desktop-wide {
+      margin-inline: 0;
+    }
+  }
+
+  &__content {
+    @include padding-inline;
+
+    @include on-desktop {
+      padding-inline: 90px;
+    }
+  }
+
+  &__title {
+    @include h2-mobile;
+
+    margin-bottom: 30px;
+
+    &--secondary {
+      font-weight: 400;
+      color: $color-blue;
+    }
+
+    @include on-desktop {
+      @include h2-desktop;
+
+      width: 500px;
+      margin-bottom: 50px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+
+    @include on-desktop {
+      gap: 16px;
+    }
+  }
+
+  &__item {
+    border: 1px solid $color-blue;
+    border-radius: 4px;
+  }
+
+  &__question {
+    @include text-mobile;
+
+    cursor: pointer;
+
+    width: 100%;
+    padding: 20px 12px;
+    border: none;
+
+    color: $color-blue;
+    text-align: left;
+
+    background: none;
+
+    @include on-tablet {
+      padding-inline: 30px;
+    }
+
+    @include hover(color, $color-white);
+  }
+
+  &__answer {
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 12px 20px;
+
+    @include on-tablet {
+      padding-inline: 30px;
+    }
+  }
+
+  &__item--active &__answer {
+    display: flex;
+  }
+
+  &__text {
+    @include text-mobile;
+  }
+
+  &__last-update {
+    @include text-mobile;
+
+    font-size: 12px;
+    color: $color-info;
+
+    @include on-desktop {
+      font-size: 14px;
+    }
+  }
+
+  &__more-button {
+    display: block;
+
+    margin-top: 50px;
+    margin-inline: auto;
+    padding-bottom: 10px;
+    border: none;
+
+    color: $color-blue;
+
+    background: none;
+    background-image: url(../images/icons/dropdown-icon.svg);
+    background-repeat: no-repeat;
+    background-position: bottom center;
+
+    transition:
+      background-image $animation-duration,
+      color $animation-duration;
+
+    @include text-mobile;
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.7;
+    }
+
+    &:hover:not(&:disabled) {
+      color: $color-white;
+      background-image: url(../images/icons/dropdown-icon-hover.svg);
+    }
+  }
+}

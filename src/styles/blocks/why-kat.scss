@@ -1,0 +1,134 @@
+.why-kat {
+  padding-block: 50px;
+
+  @include padding-inline;
+
+  background: $bg-gradient;
+
+  @include on-tablet {
+    padding-block: 70px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  @include on-desktop-wide {
+    padding: 160px 0;
+  }
+
+  &__content {
+    @include on-desktop-wide {
+      @include padding-inline;
+
+      max-width: $wide-desktop-width;
+      margin-inline: auto;
+    }
+  }
+
+  &__title {
+    @include h2-mobile;
+
+    margin-bottom: 30px;
+
+    @include on-desktop {
+      @include h2-desktop;
+
+      margin-bottom: 82px;
+      text-align: center;
+    }
+
+    &--highlighted {
+      font-weight: 400;
+      color: $color-blue;
+    }
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 0 20px;
+    }
+
+    @include on-desktop-wide {
+      column-gap: 200px;
+    }
+  }
+
+  &__section {
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__img {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: 84px;
+      height: 84px;
+      margin-bottom: 26px;
+
+      @include hover(transform, scale(1.1));
+    }
+  }
+
+  &__section-title {
+    @include h3-mobile;
+
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      margin-bottom: 26px;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      @include h3-desktop;
+    }
+  }
+
+  &__desc {
+    @include text-mobile;
+
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    text-overflow: ellipsis;
+
+    @include on-tablet {
+      text-align: center;
+    }
+
+    @include on-desktop {
+      @include text-desktop;
+
+      display: inline-block;
+      color: $color-text;
+    }
+  }
+
+  &__buy-button {
+    display: none;
+    width: 200px;
+    margin-top: 90px;
+    margin-inline: auto;
+
+    @include on-desktop {
+      display: block;
+    }
+
+    @include on-desktop-wide {
+      display: none;
+    }
+  }
+}

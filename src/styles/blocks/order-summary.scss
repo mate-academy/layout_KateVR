@@ -1,0 +1,39 @@
+.order-summary {
+  display: flex;
+  justify-content: space-around;
+  padding-block: 30px;
+
+  @include padding-inline;
+
+  @include on-tablet {
+    justify-content: space-between;
+    padding-block: 0 48px;
+  }
+
+  &__quantity {
+    display: flex;
+    flex-direction: column;
+    gap: $order-summary-row-gap;
+  }
+
+  &__label {
+    @include text-mobile;
+
+    align-self: center;
+    line-height: 130%;
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    gap: $order-summary-row-gap;
+  }
+
+  &__value {
+    font-family: inherit;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 100%;
+    color: $color-blue;
+  }
+}

@@ -1,0 +1,180 @@
+.buy {
+  @include section-grid;
+
+  grid-auto-rows: min-content;
+  height: 100vh;
+  background: $bg-gradient;
+
+  @include on-desktop {
+    grid-template-rows: repeat(3, min-content);
+    padding-right: 110px;
+  }
+
+
+  &__top-bar {
+    grid-column: 1 / -1;
+    margin-bottom: 12px;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / -1;
+      margin-bottom: 100px;
+
+      @include padding-inline;
+    }
+
+    @include on-desktop-wide {
+      margin-inline: 0;
+    }
+  }
+
+  &__icon {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__checkout-steps {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-bottom: 40px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__order-summary {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+    }
+
+    @include on-desktop-wide {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 2 / -2;
+      width: 100%;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 8;
+    }
+  }
+
+  &__wrapper {
+    position: relative;
+    grid-column: 1 / -1;
+
+    @include on-desktop {
+      grid-column: 8 / -1;
+      grid-row: 2 / -1;
+    }
+  }
+
+  &__place-order,
+  &__pay,
+  &__complete {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    transition: transform $animation-duration;
+
+    @include on-desktop {
+      transition: none;
+    }
+  }
+
+  &__pay {
+    transform: translateX(100%);
+
+    @include on-desktop {
+      transform: scale(0) translateX(0);
+    }
+  }
+
+  &__complete {
+    transform: translateX(100%);
+    margin-top: 60px;
+  }
+
+  &--pay {
+    .buy__place-order {
+      pointer-events: none;
+      transform: translateX(-100%);
+
+      @include on-desktop {
+        transform: scale(0);
+      }
+    }
+
+    .buy__pay {
+      transform: translateX(0);
+    }
+
+    .buy__order-summary {
+      @include on-tablet {
+        grid-column: 2 / 4;
+        padding-left: 0;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 6;
+        padding-left: 110px;
+      }
+    }
+  }
+
+  &--complete {
+    .buy__place-order {
+      transform: translateX(-100%);
+
+      @include on-desktop {
+        transform: scale(0);
+      }
+    }
+
+    .buy__pay {
+      transform: translateX(-100%);
+
+      @include on-desktop {
+        pointer-events: none;
+        transform: scale(0);
+      }
+    }
+
+    .buy__complete {
+      transform: translateX(0);
+    }
+
+    .buy__order-summary,
+    .buy__image {
+      display: none;
+    }
+
+    .buy__wrapper {
+      @include on-desktop {
+        grid-column: 2 / -1;
+      }
+    }
+  }
+}

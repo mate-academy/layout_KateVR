@@ -1,0 +1,27 @@
+.social {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      gap: 16px;
+    }
+  }
+
+  &__link {
+    display: flex;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    color: $color-white;
+
+    @include hover(color, $color-blue);
+    @include hover(transform, scale(1.1));
+  }
+
+  &__icon {
+    color: inherit;
+  }
+}

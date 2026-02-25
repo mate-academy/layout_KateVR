@@ -1,0 +1,73 @@
+.checkout-steps {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+
+    padding-bottom: $steps-underline-offset;
+    padding-inline: 20px;
+
+    @include on-tablet {
+      padding-inline: 0;
+    }
+
+    @include on-desktop {
+      gap: 200px;
+      padding-bottom: 0;
+    }
+  }
+
+  &__step {
+    @include text-aside-mobile;
+
+    position: relative;
+    font-size: 12px;
+    color: $color-info;
+    transition: color $animation-duration;
+
+    &--active {
+      color: $color-blue;
+    }
+
+    @include on-tablet {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+    }
+
+    @include on-desktop {
+      width: max-content;
+      font-size: 14px;
+
+      &--active::after {
+        content: '';
+
+        position: absolute;
+        bottom: -10px;
+
+        display: block;
+
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+
+        background-color: $color-blue;
+      }
+    }
+  }
+
+  &__lines {
+    display: flex;
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: $passive-buy-collor;
+    transition: background-color $animation-duration;
+
+    &--active {
+      background-color: $color-blue;
+    }
+  }
+}

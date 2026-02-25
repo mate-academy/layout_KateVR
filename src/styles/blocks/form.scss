@@ -1,0 +1,277 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding-top: 20px;
+
+  @include padding-inline;
+
+  @include on-tablet {
+    padding-top: 0;
+  }
+
+  &--grid {
+    @include section-grid;
+
+    row-gap: 30px;
+
+    @include on-tablet {
+      row-gap: 50px;
+    }
+  }
+
+  &--padding--0 {
+    @include on-tablet {
+      padding: 0;
+    }
+  }
+
+  &--desktop--padding--0 {
+    @include on-desktop {
+      padding: 0;
+    }
+  }
+
+  &__field {
+    position: relative;
+    grid-column: 1 / -1;
+
+    &--card-info {
+      display: flex;
+      flex-direction: column;
+      gap: $form-label-field-offset;
+    }
+
+    &--grid--left {
+      @include on-tablet {
+        grid-column: 1 / 4;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+
+      @include on-desktop-wide {
+        grid-column: span 8;
+      }
+    }
+
+    &--grid--right {
+      @include on-tablet {
+        grid-column: 4 / -1;
+      }
+
+      @include on-desktop {
+        grid-column: span 6;
+      }
+
+      @include on-desktop-wide {
+        grid-column: span 8;
+      }
+    }
+
+    &--pay {
+      @include on-tablet {
+        grid-column: 2 / -2;
+      }
+    }
+  }
+
+  &__country {
+    grid-column: 1 / -1;
+
+    &--grid--left {
+      @include on-tablet {
+        grid-column: 1 / 4;
+      }
+
+      @include on-desktop {
+        grid-column: 1 / 7;
+      }
+
+      @include on-desktop-wide {
+        grid-column: 1 / 9;
+      }
+    }
+  }
+
+  &__city {
+    grid-column: 1 / -1;
+
+    &--grid--right {
+      @include on-tablet {
+        grid-column: 4 / -1;
+      }
+
+      @include on-desktop {
+        grid-column: 7 / -1;
+      }
+
+      @include on-desktop-wide {
+        grid-column: 9 / -1;
+      }
+    }
+  }
+
+  &__input {
+    @include text-mobile;
+
+    width: 100%;
+    padding-bottom: 8px;
+    border: none;
+
+    color: $color-white;
+
+    background: none;
+    outline: none;
+
+    &--card {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 130%;
+      text-align: center;
+      letter-spacing: $input-card-letter-spacing;
+    }
+
+    @for $width from 3 through 4 {
+      &--width-#{$width} {
+        width: calc(#{$width}ch + ($input-card-letter-spacing * #{$width - 1}));
+      }
+    }
+
+    &:-webkit-autofill {
+      -webkit-box-shadow: 0 0 0 1000px #{$bg-black} inset !important;
+      transition: background-color 9999s ease-in-out 0s;
+
+      -webkit-text-fill-color: #fff !important;
+    }
+  }
+
+  &__textarea {
+    @include text-mobile;
+
+    resize: none;
+
+    width: 100%;
+    padding-bottom: 36px;
+    border: none;
+
+    color: $color-white;
+
+    background: none;
+    outline: none;
+  }
+
+  &__label {
+    @include text-mobile;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    font-size: 14px;
+
+    transition:
+      top $animation-duration,
+      color $animation-duration;
+
+    &--static {
+      position: static;
+    }
+  }
+
+  &__line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background-color: #2f2f2f;
+
+    transition: background-color $animation-duration;
+  }
+
+  &__dropdown {
+    width: 100%;
+    margin-top: $form-label-field-offset;
+  }
+
+  &__submit {
+    @include button;
+
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      margin-top: 30px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 11;
+    }
+
+    &--tablet--max-width--200 {
+      @include on-tablet {
+        max-width: 200px;
+      }
+    }
+  }
+
+  &__card {
+    position: relative;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &__inputs {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+
+    max-width: 360px;
+    margin-top: $form-label-field-offset;
+    margin-inline: auto;
+
+    @include on-tablet {
+      max-width: 100%;
+      margin-inline: 0;
+    }
+  }
+
+  &__additional-card-info {
+    display: flex;
+    grid-column: 1 / -1;
+    gap: 30px;
+    max-width: min-content;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+      gap: 100px;
+      justify-content: space-between;
+    }
+  }
+
+  &__field:focus-within &__line {
+    background-color: $color-blue;
+  }
+
+  .form__input,
+  .form__textarea {
+    &:focus ~ .form__label {
+      color: $color-blue;
+    }
+
+    &:not(:placeholder-shown) ~ .form__label {
+      top: $form-label-offset;
+    }
+
+    &:focus ~ .form__line {
+      background-color: $color-blue;
+    }
+  }
+}

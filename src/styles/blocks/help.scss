@@ -1,0 +1,113 @@
+.help {
+  height: 100vh;
+  background-color: $bg-aside;
+
+  @include on-tablet {
+    height: auto;
+    max-height: 100vh;
+    padding-bottom: 60px;
+  }
+
+  @include on-desktop {
+    border-radius: 4px;
+  }
+
+  &__top-bar {
+    justify-content: end;
+    margin-bottom: 24px;
+
+    @include on-desktop {
+      margin-bottom: 0;
+      padding: 18px;
+    }
+
+    @include on-desktop-wide {
+      margin-inline: 0;
+    }
+  }
+
+  &__content {
+    @include section-grid;
+
+    row-gap: 30px;
+
+    @include padding-inline;
+
+    @include on-desktop {
+      padding-inline: 90px;
+    }
+  }
+
+  &__title {
+    @include h2-mobile;
+
+    grid-column: 1 / -1;
+    text-align: center;
+
+    &--highlighted {
+      font-weight: 400;
+      color: $color-blue;
+    }
+
+    @include on-tablet {
+      text-align: left;
+    }
+
+    @include on-desktop {
+      @include h2-desktop;
+    }
+  }
+
+  &__desc {
+    @include text-mobile;
+
+    grid-column: 1 / -1;
+  }
+
+  &__link {
+    color: $color-blue;
+    text-decoration: none;
+
+    @include hover(color, $color-white);
+  }
+
+  &__list {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 20px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 8px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      gap: 20px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__contacts-link {
+    @include text-mobile;
+
+    line-height: 100%;
+    text-decoration: none;
+
+    @include hover(color, $color-white);
+  }
+}

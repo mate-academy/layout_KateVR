@@ -1,0 +1,125 @@
+.slider {
+  &__images {
+    position: relative;
+    height: 190px;
+
+    @include on-tablet {
+      height: 100%;
+    }
+  }
+
+  &__image {
+    pointer-events: none;
+
+    position: absolute;
+    transform: scale(0);
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    opacity: 0;
+    object-fit: cover;
+
+    transition: transform $animation-duration;
+
+    &--active {
+      pointer-events: auto;
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+    margin-top: 12px;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    cursor: pointer;
+
+    width: 4px;
+    height: 4px;
+    border: none;
+    border-radius: 50%;
+
+    background-color: #484848;
+
+    @include hover(background-color, $color-blue);
+
+    &--active {
+      background-color: #ababab;
+    }
+  }
+
+  &__counter {
+    position: absolute;
+    top: 0;
+    left: -40px;
+
+    display: none;
+
+    color: $color-blue;
+
+    @include text-desktop-s;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__control {
+    display: none;
+    margin-top: 12px;
+
+    @include on-desktop {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 50%;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__button {
+    cursor: pointer;
+    border: none;
+    font-weight: 500;
+    background: none;
+
+    @include text-desktop;
+
+    @include hover(color, $color-blue);
+
+    &:disabled {
+      color: $color-white;
+      opacity: 0.6;
+    }
+  }
+
+  &__lines {
+    display: flex;
+  }
+
+  &__line {
+    width: 100%;
+    height: 1px;
+    background-color: #212121;
+    transition: background-color, $animation-duration;
+
+    &--active {
+      background-color: $color-blue;
+    }
+  }
+}
