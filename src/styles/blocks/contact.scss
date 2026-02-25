@@ -1,0 +1,118 @@
+.contact {
+  background-color: $color-black;
+
+  &__container {
+    @include page-grid;
+
+    padding-block: 50px;
+
+    @include on-tablet {
+      padding-top: 70px;
+      padding-bottom: 130px;
+    }
+
+    @include on-desktop {
+      padding-block: 100px;
+    }
+
+    @include on-design {
+      padding-top: 160px;
+      padding-bottom: 205px;
+    }
+  }
+
+  &__title {
+    grid-column: 1/-1;
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      margin-bottom: 50px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+      margin-bottom: 26px;
+    }
+
+    @include on-design {
+      grid-column: span 8;
+    }
+  }
+
+  &__subtitle {
+    // grid-column: 1/-1;
+    margin-bottom: 11px;
+    font-size: 14px;
+    color: $color-accent;
+
+    @include on-desktop {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__form {
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      grid-column: 4/-1;
+      grid-row: span 4;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+
+    @include on-design {
+      grid-column: span 8;
+    }
+  }
+
+  &__button {
+    @include on-tablet {
+      width: 200px;
+      margin-top: 24px;
+    }
+
+    @include on-desktop {
+      margin-top: 66px;
+    }
+
+    @include on-desktop {
+      margin-top: 26px;
+    }
+  }
+
+  &__text {
+    grid-column: 1/-1;
+    font-size: 12px;
+
+    @include on-tablet {
+      grid-column: 1/4;
+      margin-bottom: 76px;
+    }
+
+    @include on-desktop {
+      grid-column: span 6;
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      grid-column: 1/4;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+
+  &__link {
+    color: inherit;
+    text-decoration: none;
+
+    @include hover(color, $color-accent);
+  }
+}
