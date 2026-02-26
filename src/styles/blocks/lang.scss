@@ -1,0 +1,68 @@
+.lang {
+  &__button {
+    cursor: pointer;
+
+    padding: 0 10px 0 0;
+    border: none;
+
+    font-size: 16px;
+
+    background-color: inherit;
+
+    @include on-desktop {
+      position: relative;
+      color: $color-accent;
+
+      @include hover(color, $color-white);
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        right: -15px;
+        bottom: 4px;
+
+        display: block;
+
+        width: 100%;
+        height: 6px;
+
+        background-image: url(../images/header/polygon-accent.svg);
+        background-repeat: no-repeat;
+        background-position: center;
+      }
+
+      &:hover::after {
+        background-image: url(../images/header/polygon-white.svg);
+      }
+    }
+  }
+
+  &__list {
+    pointer-events: none;
+
+    position: absolute;
+    transform: translateY(-15px);
+
+    width: max-content;
+
+    opacity: 0;
+
+    transition: all $effect-duration ease-out;
+
+    &--active {
+      pointer-events: all;
+      transform: translateY(0);
+      opacity: 1;
+      transition: all $effect-duration ease-out;
+    }
+  }
+
+  &__item {
+    padding: 5px 10px;
+
+    &--active {
+      background-color: $color-hover-background;
+    }
+  }
+}

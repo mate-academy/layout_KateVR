@@ -1,0 +1,141 @@
+.benefits {
+  background: $color-gradient;
+
+  &__content {
+    padding-block: 50px;
+
+    @include on-tablet {
+      padding-block: 70px;
+    }
+
+    @include on-desktop {
+      padding-block: 100px;
+    }
+
+    @include on-design {
+      padding-block: 160px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    @include on-desktop {
+      margin-bottom: 84px;
+      text-align: center;
+    }
+
+    @include on-design {
+      margin-bottom: 82px;
+    }
+  }
+
+  &__container {
+    @include page-grid;
+
+    row-gap: 20px;
+
+    @include on-design {
+      justify-content: space-between;
+    }
+  }
+
+  &__benefit {
+    grid-column: 1/-1;
+    padding: 5px;
+    border: solid 1px transparent;
+    border-radius: 4px;
+
+    @include hover(border, solid 1px $color-accent);
+    @include hover(box-shadow, 0 0 10px 5px $color-accent);
+
+    @include on-tablet {
+      grid-column: span 2;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+
+    &:first-child {
+      @include on-design {
+        grid-column: 1 / span 4;
+      }
+    }
+
+    &:nth-child(2) {
+      @include on-design {
+        grid-column: 7 / span 4;
+      }
+    }
+
+    &:nth-child(3) {
+      @include on-design {
+        grid-column: 13 / span 4;
+      }
+    }
+  }
+
+  // &__picture {
+  //   display: block;
+  //   width: 100%;
+  // }
+
+  &__image {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+
+      // margin-bottom: 26px;
+      // object-position: center;
+      margin: auto;
+      margin-bottom: 26px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__description {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+
+    text-overflow: ellipsis;
+
+    @include hover(display, block);
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 11px;
+
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 105%;
+    color: $color-white;
+
+    @include on-tablet {
+      font-size: 16px;
+      line-height: 120%;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__text {
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+}

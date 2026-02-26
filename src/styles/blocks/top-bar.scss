@@ -1,0 +1,80 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0 14px;
+
+  @include on-tablet {
+    padding-block: 30px;
+  }
+
+  &__lang {
+    display: none;
+
+    @include on-desktop {
+      position: relative;
+      display: block;
+      margin-left: 34px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      justify-content: flex-end;
+      width: 100%;
+      margin-right: 37px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  &__link {
+    font-weight: 500;
+    line-height: 130%;
+    color: $color-white;
+    text-decoration: none;
+
+    @include hover(color, $color-accent);
+  }
+
+  &__icon {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+
+    @include hover(transform, scale($scale-size));
+
+    @include on-tablet {
+      width: 30px;
+      height: 30px;
+    }
+
+    &--burger {
+      background-image: url(../images/icons/burger.svg);
+
+      @include on-desktop {
+        display: none;
+      }
+    }
+    &--close {
+      background-image: url(../images/icons/close.svg);
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      width: 200px;
+    }
+  }
+}
