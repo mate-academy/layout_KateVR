@@ -13,6 +13,7 @@ import { chooseSelect } from './components/chooseSelect.js';
 import { closeOrder } from './components/closeOrder.js';
 
 
+
 document.addEventListener('DOMContentLoaded', () => {
   scrollUp();
   playVideo();
