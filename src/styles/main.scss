@@ -1,7 +1,54 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import './header';
+@import './icon';
+@import './nav';
+@import './top-bar';
+@import './menu';
+@import './faq';
+@import './help';
+@import './more';
+@import './about';
+@import './tech';
+@import './benefits';
+@import './contact';
+@import './video';
+@import './byu-main';
+@import './radio';
+@import './lang';
 
 body {
-  background: $c-gray;
+  overflow-x: hidden;
+  min-width: 320px;
+  margin: 0;
+  background: $bg-black-color;
+
+  &:has(.menu:target) {
+    overflow: hidden;
+  }
+
+  &:has(.faq:target) {
+    overflow: hidden;
+  }
+
+  &:has(.modal:target) {
+    overflow: hidden;
+  }
+  &:has(.modal__buy:target) {
+    overflow: hidden;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: $bg-line-color transparent;
+  scrollbar-width: thin;
+}
+
+.container {
+  max-width: 1440px;
+  margin-inline: auto;
+
+  @include padding-inline;
 }

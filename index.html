@@ -6,14 +6,893 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>KatVR</title>
     <link
       rel="stylesheet"
       href="src/styles/main.scss"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="icon" href="./src/images/kate-fav.svg" type="image/x-icon">
+    <script type="module" src="/src/scripts/main.js"></script>
   </head>
   <body>
-    <h1>Hello Mate Academy</h1>
-    <script src="src/scripts/main.js"></script>
+    <header class="header" id="header">
+      <div class="container">
+
+        <div class="top-bar">
+          <a href="#" class="top-bar__logo-link">
+            <img
+              src="./src/images/kate-log.svg"
+              alt="logo"
+              class="top-bar__logo">
+          </a>
+
+          <div class="top-bar__hidden">
+
+            <div class="top-bar__lang-switcher lang-switcher">
+              <details class="lang-switcher__details">
+                <summary class="lang-switcher__summary">
+                  <span class="lang-switcher__current">En</span>
+                  <span class="lang-switcher__arrow"></span>
+                </summary>
+
+                <div class="lang-switcher__dropdown">
+                  <a href="#" class="lang-switcher__option lang-switcher__option--active">En</a>
+                  <a href="#" class="lang-switcher__option">Ua</a>
+                  <a href="#" class="lang-switcher__option">Pl</a>
+                </div>
+              </details>
+            </div>
+
+            <nav class="nav__menu">
+              <ul class="nav__list">
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#tech" class="nav__link">Tech</a></li>
+                <li><a href="#benefits" class="nav__link">Benefits</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+              </ul>
+
+              <a href="#buy-modal" class="top-bar__button">Buy Now</a>
+            </nav>
+          </div>
+
+          <a href="#menu" class="icon icon--menu"></a>
+        </div>
+
+        <div class="header__bottom">
+
+          <img
+            src="./src/images/bg-img/kat-header-img.svg"
+            alt="img"
+            class="header__bottom__img">
+
+          <div class="header__bottom__title">
+            <p class="header__bottom__title-white">THE NEW START OF</p>
+            <p class="header__bottom__title-blue">VR LOCOMOTION</p>
+          </div>
+
+          <div class="header__bottom__description">
+            <p class="header__bottom__desc-text">
+              Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platforms!
+            </p>
+
+            <p class="header__bottom__prise">1200$</p>
+
+            <a href="#videoModal" class="header__bottom__play-link">
+              <img
+                src="./src/images/bg-img/video-play.svg"
+                alt="photo-button"
+                class="header__bottom__play">
+            </a>
+          </div>
+
+          <div class="header__bottom__button-wrapper"><a href="#buy-modal" class="header__bottom__button">Buy Now</a></div>
+
+          <div class="header__bottom__hidden">
+            <div class="header__bottom__page-links">
+              <a href="#faq" class="header__bottom__page-link">FAQ</a>
+              <a href="#help" class="header__bottom__page-link">Help</a>
+            </div>
+
+            <div class="header__bottom__more">
+              <a href="" class="header__bottom__more-link">More</a>
+              <a href="#lang" class="icon icon--lang-arrow"></a>
+            </div>
+
+            <div class="header__bottom__switch">
+
+              <div class="header__bottom__switch__text">
+                <button class="header__bottom__switch-btn header__bottom__switch-btn-left">Previous</button>
+                <button class="header__bottom__switch-btn header__bottom__switch-btn-right">Next</button>
+              </div>
+
+              <div class="header__bottom__switch-line">
+                <div class="header__bottom__switch-progress-1"></div>
+                <div class="header__bottom__switch-progress-2"></div>
+                <div class="header__bottom__switch-progress-3"></div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <aside class="menu" id="menu">
+      <div class="menu__content">
+        <div class="menu__wrapper">
+          <div class="top-bar__menu">
+            <a href="#" class="icon icon--close"></a>
+          </div>
+          <nav class="menu__nav__menu">
+            <ul class="menu__nav__list">
+              <li class="menu__nav__item"><a href="#about" class="nav__link menu__nav__link">About</a></li>
+              <li class="menu__nav__item"><a href="#tech" class="nav__link menu__nav__link">Tech</a></li>
+              <li class="menu__nav__item"><a href="#benefits" class="nav__link menu__nav__link">Benefits</a></li>
+              <li class="menu__nav__item"><a href="#contact" class="nav__link menu__nav__link">Contact</a></li>
+              <li class="menu__nav__item"><a href="#lang" class="nav__link menu__nav__link">Language</a></li>
+              <li class="menu__nav__item"><a href="#faq" class="nav__link menu__nav__link">FAQ</a></li>
+              <li class="menu__nav__item"><a href="#help" class="nav__link menu__nav__link">Help</a></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </aside>
+
+    <div class="menu menu__language" id="lang">
+      <div class="menu__language__content menu__content">
+
+        <div class="top-bar__language">
+          <a href="#" class="icon icon--arrow-turn-back"></a>
+        </div>
+
+        <nav class="menu__nav__menu">
+          <ul class="menu__nav__list">
+            <li class="menu__nav__item"><a href="" class="nav__link menu__nav__link">English</a></li>
+            <li class="menu__nav__item"><a href="" class="nav__link menu__nav__link">Arabic</a></li>
+            <li class="menu__nav__item"><a href="" class="nav__link menu__nav__link">Chinese (Simplified)</a></li>
+            <li class="menu__nav__item"><a href="" class="nav__link menu__nav__link">Chinese (Traditional)</a></li>
+            <li class="menu__nav__item"><a href="" class="nav__link menu__nav__link">French</a></li>
+            <li class="menu__nav__item"><a href="" class="nav__link menu__nav__link">German</a></li>
+            <li class="menu__nav__item"><a href="" class="nav__link menu__nav__link">Italian</a></li>
+            <li class="menu__nav__item"><a href="" class="nav__link menu__nav__link">Polish</a></li>
+            <li class="menu__nav__item"><a href="" class="nav__link menu__nav__link">Russian</a></li>
+            <li class="menu__nav__item"><a href="" class="nav__link menu__nav__link">Ukrainian</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <div class="faq" id="faq">
+
+      <div class=" faq__content">
+
+        <div class="top-bar__menu top-bar__faq">
+          <a href="#" class="icon icon--close"></a>
+        </div>
+
+          <div class="faq__wrapper">
+            <div class="faq__title">
+              <p class="faq__title-white">FREQUENTLY ASKED</p>
+              <p class="faq__title-blue">QUESTIONS</p>
+            </div>
+
+            <div class="faq__questions">
+              <div class="faq__question">
+                <button class="faq__question__title">
+                  <span class="faq__question__title__text">
+                    What makes KAT loco different from other systems?
+                  </span>
+
+                  <span class="icon icon--lang-arrow faq__question__title__icon"></span>
+                </button>
+
+                <div class="faq__question__content">
+                  <p class="faq__question__description">
+                    Despite being approached from many different angles, all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution for an affordable price what makes it a perfect choice for home-use. It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!
+                  </p>
+                  <p class="faq__question__footer-text">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq__question">
+                <button class="faq__question__title">
+                  <span class="faq__question__title__text">
+                    Will it decrease my motion sickness?
+                  </span>
+
+                  <span class="icon icon--lang-arrow faq__question__title__icon"></span>
+                </button>
+                <div class="faq__question__content">
+                  <p class="faq__question__description">
+                    Despite being approached from many different angles, all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution for an affordable price what makes it a perfect choice for home-use. It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!
+                  </p>
+                  <p class="faq__question__footer-text">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq__question">
+                <button class="faq__question__title">
+                  <span class="faq__question__title__text">
+                    Which VR headsets is it compatible with?
+                  </span>
+
+                  <span class="icon icon--lang-arrow faq__question__title__icon"></span>
+                </button>
+
+                <div class="faq__question__content">
+                  <p class="faq__question__description">
+                    Despite being approached from many different angles, all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution for an affordable price what makes it a perfect choice for home-use. It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!
+                  </p>
+                  <p class="faq__question__footer-text">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </div>
+
+              <div class="faq__question">
+                <button class="faq__question__title">
+                  <span class="faq__question__title__text">
+                    Is it compatible with Oculus Quest?
+                  </span>
+
+                  <span class="icon icon--lang-arrow faq__question__title__icon"></span>
+                </button>
+
+
+                <div class="faq__question__content">
+                  <p class="faq__question__description">
+                    Despite being approached from many different angles, all traditional VR Locomotion systems including roomscale, teleportation, and free locomotion failed to provide an optimal solution capable of integrating high immersion with convenience. KAT loco does all of that without repeating their flaws. Our system offers a complete and versatile solution for an affordable price what makes it a perfect choice for home-use. It is also 100% user friendly, wireless, universally compatible, and more! It even offers decoupled head and body directions!
+                  </p>
+                  <p class="faq__question__footer-text">
+                    Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="header__bottom__more faq__more">
+            <a href="" class="header__bottom__more-link">More</a>
+            <a href="#lang" class="icon icon--lang-arrow"></a>
+          </div>
+
+      </div>
+    </div>
+
+    <div class="help faq" id="help">
+
+      <div class=" faq__content">
+
+        <div class="top-bar__menu top-bar__help">
+          <a href="#" class="icon icon--close"></a>
+        </div>
+
+        <div class="faq__wrapper">
+          <div class="help__title">
+            <p class="faq__title-white">HOW CAN WE <span class="faq__title-blue">HELP</span> YOU?</p>
+          </div>
+
+          <div class="help__content">
+            <p class="help__description">Welcome to our help center. Our goal is to make the process of
+              getting acquainted and purchase as easy and pleasant as possible. Need help with your KAT VR loco product? Many product questions can be resolved by reviewing our Product Support <span class="help__description help__blue">FAQs</span>.
+            </p>
+
+            <p class="help__description">
+              Please also feel free to <span class="help__description help__blue"> Contact Us </span> directly should you need anything further. We’re happy to help.
+            </p>
+
+            <div class="help__link">
+              <ul class="help__link__list">
+                <li><a href="" class="help__link__item help__blue">Instruction manual</a></li>
+                <li><a href="" class="help__link__item help__blue">Where to go for a warranty</a></li>
+                <li><a href="" class="help__link__item help__blue">Service Policy</a></li>
+              </ul>
+            </div>
+
+            <div class="help__date">
+              <ul class="help__date__list">
+                <li><a  href="tel:+86-0571-86105373"  class="help__date__item">+86-0571-86105373</a></li>
+                <li><a href="mailto:global@katvr.com" class="help__date__item">global@katvr.com</a></li>
+                <li><a href="mailto:overseas@katvr.com" class="help__date__item">overseas@katvr.com</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="videoModal" class="modal">
+      <div class="modal-content">
+        <a href="" class="modal__close">&times;</a>
+
+        <div class="modal__video-wrapper">
+          <iframe
+            src="https://www.youtube.com/embed/FMoP7Dxvtqs"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="buy-modal" class="modal__buy">
+      <div class="buy-main">
+        <div class="container">
+          <div class="checkout">
+
+            <input type="radio" name="step" id="step1" checked>
+            <input type="radio" name="step" id="step2">
+            <input type="radio" name="step" id="step3">
+
+            <header class="buy-header">
+              <div class="buy-top-bar">
+                <a href="#" class="top-bar__logo-link">
+                  <img
+                    src="./src/images/kate-log.svg"
+                    alt="logo"
+                    class="top-bar__logo">
+                </a>
+                <a href="index.html" class="icon icon--close"></a>
+              </div>
+
+              <div class="buy-header__bottom">
+                <span class="buy-header__bottom__pages">Place Order</span>
+                <span class="buy-header__bottom__pages">Pay</span>
+                <span class="buy-header__bottom__pages">Complete</span>
+              </div>
+            </header>
+
+            <main class="buy-content">
+              <section class="page page--1">
+                <div class="buy-content__block-1__content">
+                  <img
+                    src="./src/images/bg-img/kat-header-img.svg"
+                    alt=""
+                    class="buy-content__block-1__photo">
+
+                  <div class="buy-content__block-1__amount-prise">
+
+                    <div class="buy-content__block-1__amount">
+                      <p class="buy-content__block-1__amount-prise__text">Quantity</p>
+
+                      <div class="buy-content__block-1__quantity">
+                        <select class="buy-content__block-1__quantity__select" name="quantity">
+                          <option class="top-bar__lang-switcher__link" value="1">1</option>
+                          <option class="top-bar__lang-switcher__link"  value="2">2</option>
+                          <option class="top-bar__lang-switcher__link"  value="3">3</option>
+                          <option class="top-bar__lang-switcher__link"  value="4">4</option>
+                          <option class="top-bar__lang-switcher__link"  value="5">5</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="buy-content__block-1__prise">
+                      <p class="buy-content__block-1__amount-prise__text">Price</p>
+                      <p class="buy-content__block-1__amount-prise__number">1200$</p>
+                    </div>
+                  </div>
+
+                  <form class="buy-content__block-1__right" onsubmit="this.reset(); return false;">
+
+                    <div class="contact__group buy-content__block-1__group buy-content__block-1__group--left">
+                      <p class="contact__input__text">First Name*</p>
+                      <input type="text" class="contact__input" placeholder=" " required>
+                    </div>
+
+                    <div class="contact__group buy-content__block-1__group buy-content__block-1__group--right">
+                      <p class="contact__input__text">Last Name*</p>
+                      <input type="text" class="contact__input" placeholder=" " required>
+                    </div>
+
+                    <div class="contact__group buy-content__block-1__group buy-content__block-1__group--left">
+                      <p class="contact__input__text">Email*</p>
+                      <input type="email" class="contact__input" required>
+                    </div>
+
+                    <div class="contact__group buy-content__block-1__group buy-content__block-1__group--right">
+                      <p class="contact__input__text">Phone Number*</p>
+                      <input type="tel" class="contact__input" required>
+                    </div>
+
+                    <div class="buy-content__block-1__amount buy-content__block-1__group--left">
+                      <p class="buy-content__block-1__region__text">Country*</p>
+                      <div class="buy-content__block-1__quantity buy-content__block-1__region">
+                        <select class="buy-content__block-1__region__select buy-content__block-1__quantity__select" name="quantity">
+                          <option value="1">Ukraine</option>
+                          <option value="2">France</option>
+                          <option value="3">Spain</option>
+                          <option value="4">United States</option>
+                          <option value="5">China</option>
+                          <option value="6">Italy</option>
+                          <option value="7">Turkey</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="buy-content__block-1__amount buy-content__block-1__group--right">
+                      <p class="buy-content__block-1__region__text">City*</p>
+                      <div class="buy-content__block-1__quantity buy-content__block-1__region">
+                        <select class="buy-content__block-1__region__select buy-content__block-1__quantity__select" name="quantity">
+                          <option value="1">Kyiv</option>
+                          <option value="2">Zaporizhia</option>
+                          <option value="3">Kharkiv</option>
+                          <option value="4">Odessa</option>
+                          <option value="5">Dnipro</option>
+                          <option value="6">Donetsk</option>
+                          <option value="7">Mykolaiv</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="contact__group buy-content__block-1__group buy-content__block-1__group--left">
+                      <p class="contact__input__text">Shipping Adress*</p>
+                      <input type="text" class="contact__input" required>
+                    </div>
+
+                    <div class="contact__group buy-content__block-1__group buy-content__block-1__group--right">
+                      <p class="contact__input__text">Shipping Adress 2</p>
+                      <input type="text" class="contact__input" required>
+                    </div>
+
+                    <label for="step2" class="btn-next">Purchase</label>
+
+                  </form>
+                </div>
+              </section>
+
+              <section class="page page--2">
+                <div class="buy-content__block-1__content">
+                  <img
+                    src="./src/images/bg-img/kat-header-img.svg"
+                    alt=""
+                    class="buy-content__block-1__photo">
+
+                  <div class="buy-content__block-1__amount-prise buy-content__block-2__amount-prise">
+
+                    <div class="buy-content__block-1__amount">
+                      <p class="buy-content__block-1__amount-prise__text">Quantity</p>
+
+                      <div class="buy-content__block-1__quantity">
+                        <select class="buy-content__block-1__quantity__select" name="quantity">
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="buy-content__block-1__prise">
+                      <p class="buy-content__block-1__amount-prise__text">Price</p>
+                      <p class="buy-content__block-1__amount-prise__number">1200$</p>
+                    </div>
+                  </div>
+
+                  <form class="buy-content__block-1__right buy-content__block-2__right" onsubmit="this.reset(); return false;">
+                    <div class="buy-content__block-2__card__wrapper">
+                      <p class="buy-content__block-2__label">
+                        Card Number*
+                      </p>
+
+                      <div class="buy-content__block-2__card-row">
+                        <div class="buy-content__block-2__card-inputs">
+                          <input
+                            id="card-1"
+                            type="text"
+                            inputmode="numeric"
+                            maxlength="4"
+                            placeholder="0000"
+                            class="buy-content__block-2__card-number contact__input buy-content__block-2__card-number--active"
+                          >
+                          <input
+                            type="text"
+                            inputmode="numeric"
+                            maxlength="4"
+                            placeholder="0000"
+                            class="buy-content__block-2__card-number contact__input"
+                          >
+                          <input
+                            type="text"
+                            inputmode="numeric"
+                            maxlength="4"
+                            placeholder="0000"
+                            class="buy-content__block-2__card-number contact__input"
+                          >
+                          <input
+                            type="text"
+                            inputmode="numeric"
+                            maxlength="4"
+                            placeholder="0000"
+                            class="buy-content__block-2__card-number contact__input"
+                          >
+                        </div>
+
+                        <div class="buy-content__block-2__card-logo">
+                          <img
+                            src="./src/images/Layer 1.1.svg"
+                            alt="Visa"
+                            class="buy-content__block-2__card-img"
+                          >
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="buy-content__block-2__group">
+                      <p class="buy-content__block-1__region__text">Card Holder Name*</p>
+                      <input
+                        id="card-holder"
+                        type="text"
+                        placeholder=""
+                        class="contact__input"
+                      >
+                    </div>
+
+                    <div class="buy-content__block-2__bottom">
+                      <div class="buy-content__block-2__group">
+                        <p class="buy-content__block-1__region__text">Expiration Date*</p>
+                        <input
+                          id="exp-date"
+                          type="text"
+                          inputmode="numeric"
+                          placeholder="MM / YY"
+                          class="buy-content__block-2__input buy-content__block-2__input-1"
+                        >
+                      </div>
+
+                      <div class="buy-content__block-2__group">
+                        <p class="buy-content__block-1__region__text">CVV*</p>
+                        <input
+                          id="cvv"
+                          type="text"
+                          inputmode="numeric"
+                          maxlength="3"
+                          placeholder="000"
+                          class="buy-content__block-2__input buy-content__block-2__input-2"
+                        >
+                      </div>
+                    </div>
+                    <label for="step3" class="btn-next">Purchase</label>
+                  </form>
+                </div>
+              </section>
+
+              <section class="page page--3">
+                <h2 class="buy-content__block-3__title">Thank you for <span class="buy-content__block-3__title__blue">your</span> order!</h2>
+                <p class="buy-content__block-3__description">Your order has been placed and is being processed. You will recive an email with the order details</p>
+
+                <a href="index.html" class="buy-content__block-3__button">Back to homepage</a>
+              </section>
+            </main>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <main>
+      <section class="more">
+        <div class="container">
+          <p class="more__title">MORE THAN <span class="help__blue">GAMING!</span></p>
+          <p class="more__description">
+            This also made for people who are interested in...
+          </p>
+
+          <div class="more__cards">
+            <article class="more__card">
+              <div class="icon icon--education more__card__icon"></div>
+              <p class="more__card__title">EDUCATION</p>
+              <p class="more__card__description">
+                Create aducational simulations, trainings and much more with unlimited virtual space and minimum physical space
+              </p>
+            </article>
+
+            <article class="more__card">
+              <div class="icon icon--building more__card__icon"></div>
+              <p class="more__card__title">REAL ESTATE</p>
+              <p class="more__card__description">
+                Desighn architectural projects in a deeply realistic environment allowing visitors to freely walk around, and feel their vibe
+              </p>
+            </article>
+
+            <article class="more__card">
+              <div class="icon icon--fitnes more__card__icon"></div>
+              <p class="more__card__title">FITNESS</p>
+              <p class="more__card__description">
+                Combine business with pleasure, and discover countless ways to stay fit while playing your favorite VR Games!
+              </p>
+            </article>
+
+            <article class="more__card">
+              <div class="icon icon--network more__card__icon"></div>
+              <p class="more__card__title">SOCIAL INTERACTIONS</p>
+              <p class="more__card__description">
+                Hang out with your friends in the virtual world when you can’t meet space requirements
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="about" id="about">
+        <div class="container">
+
+          <div class="about__content">
+            <div class="about__first">
+
+              <p class="about__first__title">ABOUT <span class="help__blue">PRODUCT</span></p>
+
+              <div class="about__first__numder">
+                <p class="about__first__numder__left about__first__numder__item">1</p>
+                <span class="about__first__numder__line about__first__numder__item">/</span>
+                <p class="about__first__numder__right about__first__numder__item">5</p>
+              </div>
+
+              <div class="about__first__left">
+                <div class="about__first__img">
+                  <img
+                    src="./src/images/about/kat-about-img.svg"
+                    alt=""
+                    class="about__first__img__photo">
+
+                  <div class="about__first__button-small">
+                    <div class="about__first__button-small__round about__first__button-small__round--active"></div>
+                    <div class="about__first__button-small__round"></div>
+                    <div class="about__first__button-small__round"></div>
+                    <div class="about__first__button-small__round"></div>
+                    <div class="about__first__button-small__round"></div>
+                  </div>
+
+                  <div class="header__bottom__switch about__first__button-big">
+                    <div class="header__bottom__switch__text">
+                      <button class="header__bottom__switch-btn header__bottom__switch-btn-left">Previous</button>
+                      <button class="header__bottom__switch-btn header__bottom__switch-btn-right">Next</button>
+                    </div>
+                    <div class="header__bottom__switch-line">
+                      <div class="header__bottom__switch-progress-1"></div>
+                      <div class="header__bottom__switch-progress-2"></div>
+                      <div class="header__bottom__switch-progress-3"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="about__first__right">
+                <p class="about__first__description">
+                  KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.
+                </p>
+                <a href="#videoModal" class="header__bottom__play-link">
+                  <img
+                    src="./src/images/bg-img/video-play.svg"
+                    alt="photo-button"
+                    class="header__bottom__play">
+                </a>
+              </div>
+            </div>
+
+            <div class="about__second">
+              <div class="about__second__left">
+                <p class="about__second__title-small">Hello,</p>
+                <p class="about__second__title">NICE TO MEET <span class=" about__second__title__blue about__second__title">YOU!</span></p>
+                <p class="about__second__description">
+                  KAT VR is an independent company dedicated to the research, development, and sales of VR Locomotion products and solutions. Founded in 2013, we have quickly grown to become one of the world’s leading professional suppliers of VR games’ & simulations’ equipment
+                </p>
+              </div>
+
+              <div class="about__second__right">
+                <img
+                  src="./src/images/about/kat-about-text.svg"
+                  alt=""
+                  class="about__second__img">
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="tech" id="tech">
+        <div class="container">
+
+          <div class="tech__content">
+            <h2 class="tech__title">TECH  <span class="tech__title tech__title-blue"> SPECS </span></h2>
+
+            <div class="tech__photo">
+              <img
+                src="./src/images/tech/Ellipse-kat.svg"
+                alt=""
+                class="tech__photo__ellips">
+              <img
+                src="./src/images/tech/tech-bg-img-kat.svg"
+                alt=""
+                class="tech__photo__img">
+            </div>
+
+            <div class="tech__blok-1">
+              <button type="button" class="icon icon--tech-plus"></button>
+              <div class="tech__blok-1__text tech__blok__text">
+                <p class="tech__blok__title">SENSOR</p>
+                <p class="tech__blok__description">
+                  Weight: 35g/1.23oz each <br>
+                  Dimension: 50mm/1.97in <br>
+                  24mm/0.94in <br>
+                  Light: LED lights
+                </p>
+              </div>
+
+              <img
+                src="./src/images/tech/block-1-kat.svg"
+                alt=""
+                class="tech__blok__img tech__blok-1__img">
+            </div>
+
+            <div class="tech__blok-2">
+              <button type="button" class="icon icon--tech-plus"></button>
+              <img
+                src="./src/images/tech/block-2-kat.svg"
+                alt=""
+                class="tech__blok__img tech__blok-2__img">
+
+              <div class="tech__blok-2__text tech__blok__text">
+                <p class="tech__blok__title">BATTERRIES</p>
+                <p class="tech__blok__description">
+                  Type: Lthium-lon polymer batteries <br>
+                  Capacity: 370mAh  <br>
+                  Battery life: 10h of continuous use 150 hours on stand by  <br>
+                  Charging: Fast charging - 1 hour  <br>
+                  Charging voltage and current: 5V = 0.5A
+                </p>
+              </div>
+
+            </div>
+
+            <div class="tech__blok-3">
+              <button type="button"  class="icon icon--tech-plus"></button>
+              <img
+                src="./src/images/tech/block-3-kat.svg"
+                alt=""
+                class="tech__blok__img tech__blok-3__img">
+
+              <div class="tech__blok-3__text tech__blok__text">
+                <p class="tech__blok__title">CONNECTION</p>
+                <p class="tech__blok__description">
+                  Wireless: Bluetooth 4.2 <br>
+                  Signal range: 5m <br>
+                  Receiver: USB 2.0 and above
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="benefits" id="benefits">
+        <div class="container">
+          <p class="benefits__title">WHY  <span class="benefits__title benefits__title__blue">KAT LOCO?</span></p>
+
+          <div class="benefits__content">
+
+            <article class="benefits__card">
+              <img
+                src="./src/images/benefits/ben-card-1-kat.svg"
+                alt="photo"
+                class="benefits__card__img benefits__card__img-1">
+              <p class="benefits__card__title">UNIVERSALLY COMPATIBLE</p>
+              <p class="benefits__card__description">KAT Loco offers universal compatibility across all major VR headsets and platforms allowing you to play any VR game with support for Free Locomotion</p>
+            </article>
+
+            <article class="benefits__card">
+              <img
+                src="./src/images/benefits/ben-card-2-kat.svg"
+                alt="photo"
+                class="benefits__card__img benefits__card__img-2">
+              <p class="benefits__card__title">VR/PC CONTROL PANEL</p>
+              <p class="benefits__card__description">Our Multifunctional Software allows for quick access to KAT Loco’s control panel both from a computer desktop, and directly from your VR headset.</p>
+            </article>
+
+            <article class="benefits__card">
+              <img
+                src="./src/images/benefits/ben-card-3-kat..svg"
+                alt="photo"
+                class="benefits__card__img benefits__card__img-3">
+              <p class="benefits__card__title">WIRELESS SENSORS</p>
+              <p class="benefits__card__description">What makes it even more advanced, KAT Loco is entirely wireless, and comes with a complete system of algorithms, super durable batteries and more!</p>
+            </article>
+
+            <a href="#buy-modal" class="benefits__button">Buy Now</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <section class="contact" id="contact">
+        <div class="container">
+          <div class="contact__content">
+
+            <div class="contact__title">
+              <p class="contact__question">Have any questions?</p>
+              <p class="contact__text">GET <span class="contact__text contact__text__blue">IN TOUCH</span></p>
+            </div>
+
+            <form class="contact__right" onsubmit="this.reset(); return false;">
+
+              <div class="contact__group">
+                <p class="contact__input__text">Name*</p>
+                <input type="text" class="contact__input" placeholder=" " required>
+              </div>
+
+              <div class="contact__group">
+                <p class="contact__input__text">Email*</p>
+                <input type="email" class="contact__input" required>
+              </div>
+
+              <div class="contact__group">
+                <p class="contact__input__text">Phone*</p>
+                <input type="tel" class="contact__input" required>
+              </div>
+
+              <div class="contact__group">
+                <p class="contact__input__text">Message</p>
+                <textarea class="contact__input contact__input__massage" required></textarea>
+              </div>
+
+              <div class="contact__buttons">
+                <button class="contact__button">Contact Us</button>
+                <a href="#header" class="contact__arrow icon icon--arrow"></a>
+              </div>
+
+            </form>
+
+            <p class="contact__description">Our manager will reply you within 15 minutes</p>
+
+
+            <div class="contact__link">
+
+              <img
+                src="./src/images/kate-log.svg"
+                alt="logo"
+                class="contact__logo">
+
+              <ul class="nav__list contact__list">
+                <li><a href="#about" class="nav__link contact__item">About</a></li>
+                <li><a href="#tech" class="nav__link contact__item">Tech</a></li>
+                <li><a href="#benefits" class="nav__link contact__item">Benefits</a></li>
+                <li><a href="#contact" class="nav__link contact__item">Contact</a></li>
+              </ul>
+
+              <div class="contact__icons">
+                <a href=https://www.facebook.com/  target="_blank" class="icon icon--facebook"></a>
+                <a href=https://twitter.com/  target="_blank" class="icon icon--twitter"></a>
+                <a href="https://www.youtube.com/" target="_blank" class="icon icon--youtube"></a>
+                <a href="https://www.reddit.com/" target="_blank" class="icon icon--redit"></a>
+              </div>
+            </div>
+
+
+            <div class="contact__data">
+              <a href="tel:+86-0571-86105373" class="contact__data__text">+86-0571-86105373</a>
+              <a href="mailto:global@katvr.com" class="contact__data__text">global@katvr.com</a>
+              <a href="mailto:overseas@katvr.com" class="contact__data__text">overseas@katvr.com</a>
+            </div>
+
+
+          </div>
+        </div>
+      </section>
+    </footer>
   </body>
 </html>
+
+

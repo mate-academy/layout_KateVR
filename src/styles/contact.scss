@@ -1,0 +1,264 @@
+.contact {
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-block: 70px 90px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px 0;
+  }
+
+  &__content {
+    position: relative;
+    align-self: start;
+
+    @include page-grid;
+  }
+
+  &__question {
+    margin: 0 0 11px;
+
+    font-family: Inter, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1;
+    color: $main-blue-color;
+    letter-spacing: 0%;
+  }
+
+  &__text {
+    margin: 0;
+
+    font-family: Inter, sans-serif;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 1;
+    color: $white-color;
+    letter-spacing: 0%;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+
+    &__blue {
+      color: $main-blue-color;
+    }
+  }
+
+  &__group {
+    margin-bottom: 24px;
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $input-border-color;
+
+    color: $main-blue-color;
+
+    background-color: transparent;
+    outline: none;
+
+    &__text {
+      margin: 0;
+
+      font-family: Inter, sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: $greu-header-color;
+      letter-spacing: 0%;
+    }
+
+    &__massage {
+      min-width: 100%;
+      max-width: 100%;
+      height: 68px;
+      min-height: 68px;
+      max-height: 68px;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-bottom: 30px;
+    border: none;
+
+    @include button;
+
+    @include on-tablet {
+      width: 200px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 48px;
+    }
+
+    @include on-desktop {
+      margin-top: 90px;
+    }
+  }
+
+  &__arrow {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &__title {
+    grid-column: 1 /-1;
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      grid-column: 1 /3;
+      margin-bottom: 50px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 /7;
+      margin-bottom: 26px;
+    }
+  }
+
+  &__right {
+    grid-column: 1 /-1;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 1 / 5;
+      margin-bottom: 130px;
+    }
+
+    @include on-desktop {
+      grid-column: 7/ -1;
+      margin-bottom: 100px;
+    }
+  }
+
+  &__link {
+    --columns: 2;
+
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(var(--columns), 1fr);
+    column-gap: 20px;
+
+    padding-top: 50px;
+
+    @include on-tablet {
+      display: flex;
+      grid-row: 5;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      margin: 0;
+      padding-top: 0;
+      padding-block: 21px;
+    }
+
+    @include on-desktop {
+      padding-block: 39px;
+    }
+  }
+
+  &__data {
+    position: absolute;
+
+    display: flex;
+    grid-column: 2 / -1;
+    grid-row: 4;
+    flex-direction: column;
+    gap: 12px;
+
+    padding-top: 74px;
+
+    @include on-tablet {
+      position: static;
+      grid-column: 1 /3;
+      grid-row: 3;
+      padding-top: 0;
+    }
+
+    &__text {
+      font-family: Inter, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 1;
+      color: $greu-header-color;
+      text-decoration: none;
+    }
+  }
+
+  &__description {
+    grid-column: 1 / -1;
+
+    margin: 0 0 50px;
+
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $greu-header-color;
+    letter-spacing: 0%;
+
+    @include on-tablet {
+      grid-column: 1 /4;
+      margin-bottom: 76px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    grid-column: 2 /-1;
+    gap: 22.5px;
+    align-items: center;
+    align-self: end;
+
+    @include on-tablet {
+      margin-bottom: 0;
+    }
+  }
+
+  &__logo {
+    width: 69px;
+    height: 14px;
+    margin-bottom: 15px;
+
+    @include on-tablet {
+      width: 72px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    grid-column: 1 /2;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 45px;
+    }
+  }
+
+  &__item {
+    font-size: 13px;
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+  }
+}
