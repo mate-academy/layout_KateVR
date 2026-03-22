@@ -1,0 +1,101 @@
+.select {
+  position: relative;
+
+  &__button {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    border: none;
+
+    text-align: left;
+
+    &::after {
+      content: '';
+
+      display: block;
+
+      width: 9px;
+      height: 6px;
+
+      background-image: url('../images/icons/triangle-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+
+      transition: transform 0.3s;
+    }
+  }
+
+  &__list {
+    position: absolute;
+    z-index: 10;
+    top: 100%;
+    left: 0;
+    transform: translateY(-10px);
+
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    visibility: hidden;
+    opacity: 0;
+    background: $menu-background;
+
+    transition: all 0.3s;
+
+    @supports not selector(::-webkit-scrollbar) {
+      scrollbar-color: $main-color transparent;
+      scrollbar-width: thin;
+    }
+
+    @supports selector(::-webkit-scrollbar) {
+      &::-webkit-scrollbar {
+        width: 1px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        cursor: pointer;
+        background-color: $main-color;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+      }
+    }
+  }
+
+  &__item {
+    cursor: pointer;
+    padding: 10px;
+    color: $title-color;
+    transition:
+      color 0.3s ease,
+      background-color 0.3s ease;
+
+    &--disabled {
+      cursor: not-allowed;
+    }
+
+    &:hover {
+      color: $main-color;
+      background-color: $menu-background-hover;
+    }
+  }
+
+  &.is-open {
+    .select__list {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .select__button::after {
+      transform: rotate(180deg);
+    }
+  }
+}

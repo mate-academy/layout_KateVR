@@ -1,0 +1,153 @@
+.help {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+
+  display: none;
+
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+
+  background-color: $menu-background;
+
+  &.is-open {
+    display: block;
+    animation: fade-in 0.3s ease-out;
+  }
+
+  @include on-tablet {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+
+  @include on-desktop {
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(
+      circle,
+      transparent 20%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+
+    &.is-open {
+      display: flex;
+    }
+  }
+
+  &__top {
+    display: flex;
+    justify-content: end;
+    padding-block: 20px;
+
+    @include on-tablet {
+      padding-block: 34px;
+    }
+  }
+
+  &__container {
+    @include container-padding;
+
+    z-index: 101;
+
+    box-sizing: border-box;
+    width: 100%;
+    height: 596px;
+
+    background: $menu-background;
+
+    @include on-desktop {
+      box-sizing: border-box;
+      width: 880px;
+      height: 550px;
+      padding-inline: 90px;
+      border-radius: 4px;
+    }
+
+    @include on-large-desktop {
+      width: 1083px;
+      padding-inline: 95px;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-block: 30px;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+  }
+
+  &__link {
+    color: $main-color;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: $title-color;
+    }
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 152px;
+    }
+  }
+
+  &__disabled {
+    cursor: not-allowed;
+  }
+
+  &__support {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: start;
+  }
+
+  &__address {
+    @include on-tablet {
+      gap: 20px;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    border: none;
+
+    background: $main-background;
+    background-image: url('../images/icons/close-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: background-image 0.3s ease;
+
+    &:hover {
+      background-image: url('../images/icons/close-hover-icon.svg');
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

@@ -1,0 +1,126 @@
+.footer {
+  padding-top: 50px;
+  background-color: $secondary-background;
+
+  @include container-padding;
+
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 22px;
+    padding-top: 70px;
+  }
+
+  @include on-desktop {
+    padding-top: 103px;
+  }
+
+  @include on-large-desktop {
+    padding-top: 156px;
+  }
+
+  &__text {
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+  }
+
+  &__subtitle {
+    margin-bottom: 11px;
+    font-size: 14px;
+    color: $main-color;
+  }
+
+  &__reply {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      align-items: start;
+    }
+  }
+
+  &__description {
+    font-size: 16px;
+
+    @include on-tablet {
+      padding-block: 50px 76px;
+    }
+  }
+
+  &__reply-mobile {
+    padding-block: 30px 50px;
+    font-size: 12px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      margin-bottom: 130px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 100px;
+    }
+
+    @include on-large-desktop {
+      margin-bottom: 205px;
+    }
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    @include on-tablet {
+      margin-top: 48px;
+    }
+
+    @include on-desktop {
+      margin-top: 90px;
+    }
+
+    @include on-large-desktop {
+      margin-top: 50px;
+    }
+  }
+
+  &__button {
+    @include on-tablet {
+      width: 200px;
+    }
+  }
+
+  &__top-button {
+    @include on-tablet {
+      width: 48px;
+      height: 48px;
+
+      background-image: url('../images/button/footer-button.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+
+      transition: background-image 0.3s ease;
+
+      &:hover {
+        background-image: url('../images/button/footer-button-hover.svg');
+      }
+    }
+  }
+}

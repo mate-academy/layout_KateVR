@@ -1,0 +1,369 @@
+.tech {
+  @include container-padding;
+
+  padding-block: 50px;
+  background-color: $secondary-background;
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  @include on-large-desktop {
+    padding-block: 160px;
+  }
+
+  &__title {
+    margin-bottom: 41px;
+
+    @include on-tablet {
+      margin-bottom: 57px;
+    }
+
+    @include on-desktop {
+      display: flex;
+      justify-content: end;
+      margin-right: 185px;
+      margin-bottom: 80px;
+    }
+
+    @include on-large-desktop {
+      margin-right: 410px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    width: 197px;
+    height: 194px;
+    margin-inline: auto;
+
+    @include on-tablet {
+      width: 358px;
+      height: 354px;
+    }
+
+    @include on-desktop {
+      width: 1055px;
+      height: 355px;
+    }
+
+    @include on-large-desktop {
+      width: 1175px;
+    }
+  }
+
+  &__image {
+    position: absolute;
+    z-index: 1;
+    right: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 100%;
+
+    @include on-desktop {
+      left: 357px;
+      width: 297px;
+      height: 294px;
+    }
+
+    @include on-large-desktop {
+      left: 375px;
+    }
+  }
+
+  &__subtitle {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      margin-bottom: 21px;
+      color: $title-color;
+    }
+  }
+
+  &__description {
+    list-style: none;
+  }
+
+  &__item {
+    font-size: 12px;
+    font-weight: 400;
+
+    @include on-desktop {
+      font-size: 16px;
+    }
+  }
+
+  &__trigger {
+    cursor: pointer;
+
+    position: absolute;
+    z-index: 3;
+
+    width: 34px;
+    height: 34px;
+
+    background-image: url('../images/tech/button-open.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition:
+      transform 0.3s ease,
+      background-image 0.3s ease;
+
+    &.is-active {
+      background-image: url('../images/tech/button-close.svg');
+    }
+
+    @include on-tablet {
+      width: 62px;
+      height: 62px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.1) rotate(180deg);
+    }
+  }
+
+  &__sensor-button {
+    top: -11px;
+    left: 60px;
+
+    @include on-tablet {
+      top: -27px;
+      left: 65px;
+    }
+  }
+
+  &__connection-button {
+    bottom: 8px;
+    left: -17px;
+
+    @include on-tablet {
+      bottom: 20px;
+      left: -58px;
+    }
+  }
+
+  &__batterries-button {
+    top: 80px;
+    right: 29px;
+
+    @include on-tablet {
+      top: 145px;
+      right: 49px;
+    }
+  }
+
+  &__info-block {
+    position: absolute;
+    z-index: 10;
+    transform: translateY(-10px);
+
+    display: block;
+
+    width: 168px;
+    padding: 17px 10px 22px;
+    border: none;
+    border-radius: 4px;
+
+    visibility: hidden;
+    opacity: 0;
+    background: $menu-background;
+
+    transition:
+      opacity 0.4s ease,
+      transform 0.4s ease;
+
+    @include on-desktop {
+      transform: none;
+
+      padding: 0;
+
+      visibility: visible;
+      opacity: 1;
+      background: transparent;
+    }
+
+    &.is-visible {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__sensor-block {
+    position: absolute;
+    top: 28px;
+    left: 55px;
+
+    @include on-tablet {
+      top: 41px;
+    }
+
+    @include on-desktop {
+      top: 5px;
+      left: 0;
+      width: 250px;
+      height: 143px;
+    }
+  }
+
+  &__connection-block {
+    position: absolute;
+    bottom: 47px;
+    left: -15px;
+
+    @include on-tablet {
+      bottom: 17px;
+      left: 11px;
+    }
+
+    @include on-desktop {
+      bottom: 15px;
+      left: 86px;
+      width: 241px;
+      height: 124px;
+    }
+
+    @include on-large-desktop {
+      left: 0;
+    }
+  }
+
+  &__batterries-block {
+    position: absolute;
+    top: 50px;
+    right: 69px;
+
+    @include on-tablet {
+      top: 147px;
+      right: 117px;
+    }
+
+    @include on-desktop {
+      top: 5px;
+      right: 0;
+      width: 338px;
+      height: 207px;
+    }
+
+    @include on-large-desktop {
+      width: 344px;
+    }
+  }
+
+  &__sensor-line {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      z-index: 2;
+      top: 9px;
+      left: 101px;
+
+      display: block;
+
+      width: 403px;
+      height: 72px;
+
+      background-image: url('../images/tech/sensor-line.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    @include on-large-desktop {
+      left: 91px;
+      width: 431px;
+      background-image: url('../images/tech/sensor-line-large.svg');
+    }
+  }
+
+  &__connection-line {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      z-index: 2;
+      top: 115px;
+      left: 226px;
+
+      display: block;
+
+      width: 134px;
+      height: 113px;
+
+      background-image: url('../images/tech/connection-line.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    @include on-large-desktop {
+      top: 118px;
+      left: 137px;
+      width: 241px;
+      background-image: url('../images/tech/connection-line-large.svg');
+    }
+  }
+
+  &__batterries-line {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      z-index: 2;
+      top: 9px;
+      right: 355px;
+
+      display: block;
+
+      width: 192px;
+      height: 245px;
+
+      background-image: url('../images/tech/batterries-line.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    @include on-large-desktop {
+      top: 9px;
+      right: 365px;
+      width: 283px;
+      background-image: url('../images/tech/batterries-line-large.svg');
+    }
+  }
+
+  &__eclipse {
+    display: none;
+
+    @include on-desktop {
+      position: absolute;
+      z-index: 2;
+      bottom: 54px;
+      left: 342px;
+
+      display: block;
+
+      width: 50px;
+      height: 201px;
+
+      background-image: url('../images/tech/eclipse.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    @include on-large-desktop {
+      left: 360px;
+    }
+  }
+}

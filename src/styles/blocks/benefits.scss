@@ -1,0 +1,107 @@
+.benefits {
+  display: grid;
+  gap: 20px;
+  padding-block: 50px;
+  background: $main-background;
+
+  @include container-padding;
+
+  @include on-tablet {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 30px 20px;
+    padding-block: 70px;
+  }
+
+  @include on-desktop {
+    gap: 20px;
+    padding-block: 100px 240px;
+  }
+
+  @include on-large-desktop {
+    gap: 20px 205px;
+    padding-block: 158px;
+  }
+
+  &__title {
+    margin-bottom: 10px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      margin-bottom: 64px;
+      text-align: center;
+    }
+  }
+
+  &__subtitle {
+    color: $title-color;
+
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @include on-tablet {
+      grid-column: span 2;
+      gap: 22px;
+      align-items: center;
+    }
+
+    @include on-desktop {
+      grid-column: span 2;
+      gap: 30px;
+    }
+
+    @include on-large-desktop {
+      gap: 84px;
+    }
+  }
+
+  &__text {
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+
+  &__compatible {
+    font-size: 16px;
+  }
+
+  &__image {
+    @include on-tablet {
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      transition: transform 0.3s ease;
+
+      &--compatible {
+        width: 80px;
+        height: 79px;
+        background-image: url('../images/benefits/compatible.svg');
+      }
+
+      &--control {
+        width: 89px;
+        height: 81px;
+        background-image: url('../images/benefits/control.svg');
+      }
+
+      &--sensor {
+        width: 105px;
+        height: 79px;
+        background-image: url('../images/benefits/sensors.svg');
+      }
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

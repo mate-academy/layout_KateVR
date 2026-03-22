@@ -1,0 +1,149 @@
+.product {
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+    gap: 23px;
+  }
+
+  @include on-large-desktop {
+    grid-template-columns: repeat(16, 1fr);
+    gap: 23px;
+  }
+
+  &__pictures {
+    @include on-tablet {
+      grid-column: 1 / 4;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 8;
+    }
+
+    @include on-large-desktop {
+      grid-column: 5 / 11;
+    }
+  }
+
+  &__image {
+    aspect-ratio: 280 / 189;
+
+    @include on-tablet {
+      aspect-ratio: 340 / 270;
+    }
+
+    @include on-desktop {
+      aspect-ratio: 430 / 290;
+    }
+
+    @include on-large-desktop {
+      aspect-ratio: 622 / 290;
+    }
+  }
+
+  &__control {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__progress {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &__line {
+    width: 20%;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 1;
+      margin-bottom: 0;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+
+    @include on-large-desktop {
+      grid-column: 12 / -1;
+    }
+  }
+
+  &__count {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 2;
+      justify-self: right;
+
+      font-size: 14px;
+      font-weight: 400;
+      color: $main-color;
+    }
+
+    @include on-large-desktop {
+      grid-column: 3;
+    }
+  }
+
+  &__content {
+    @include on-tablet {
+      grid-column: 4 / -1;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+    }
+
+    @include on-large-desktop {
+      grid-column: 12 / -1;
+    }
+  }
+
+  &__description {
+    margin-block: 20px 25px;
+
+    @include on-tablet {
+      margin-block: 60px 20px;
+    }
+
+    @include on-large-desktop {
+      margin-block: 70px 20px;
+    }
+  }
+
+  &__video-button {
+    display: block;
+
+    width: 247px;
+    height: 66px;
+
+    background-image: url('../images/button/video-button.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition: background-image 0.3s ease;
+
+    &:hover {
+      background-image: url('../images/button/video-button-hover.svg');
+    }
+  }
+}
