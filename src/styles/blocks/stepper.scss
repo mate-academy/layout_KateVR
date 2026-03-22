@@ -1,0 +1,164 @@
+.stepper {
+  &__top {
+    @include container-padding;
+
+    margin-block: 20px 15px;
+
+    @include on-tablet {
+      margin-block: 30px 10px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-block: 64px 0;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+
+    @include on-desktop {
+      grid-column: 1;
+      justify-content: start;
+    }
+  }
+
+  &__logo {
+    width: 70px;
+    height: 14px;
+    transition: transform 0.3s ease;
+
+    @include on-desktop {
+      width: 77px;
+      height: 16px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+
+    display: block;
+
+    width: 20px;
+    height: 20px;
+    border: none;
+
+    background: $main-background;
+    background-image: url('../images/icons/close-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+
+    transition: background-image 0.3s ease;
+
+    &:hover {
+      background-image: url('../images/icons/close-hover-icon.svg');
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__steps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+
+    @include on-tablet {
+      justify-content: space-around;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-column: 2 / span 3;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 0;
+    }
+  }
+
+  &__step {
+    @include on-desktop {
+      position: relative;
+      width: fit-content;
+    }
+  }
+
+  &__step--active {
+    color: $main-color;
+
+    @include on-desktop {
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -7px;
+        left: 50%;
+        transform: translateX(-100%);
+
+        display: block;
+
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+
+        background: $main-color;
+      }
+    }
+  }
+
+  &__desktop-step {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__mobile-step {
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__status {
+    position: relative;
+
+    width: 100%;
+    height: 1px;
+    margin-bottom: 30px;
+
+    background-color: $input-bottom;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__line {
+    width: 33%;
+    height: 100%;
+    background-color: $main-color;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  &__content {
+    @include container-padding;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

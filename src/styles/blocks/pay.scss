@@ -1,0 +1,233 @@
+.pay {
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+
+    &__form-visa {
+      width: 54px;
+      height: 34px;
+
+      background-image: url('../images/icons/visa-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    &__form-mastercard {
+      width: 54px;
+      height: 34px;
+
+      background-image: url('../images/icons/mastercard-icon.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+
+    &__form-visa,
+    &__form-mastercard {
+      display: none;
+      transition: transform 0.3s ease;
+    }
+
+    &__form-visa.is-active,
+    &__form-mastercard.is-active {
+      display: inline-block;
+    }
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(2, 1fr);
+    margin-block: 102px 97px;
+  }
+
+  &__quantity {
+    margin-bottom: 53px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop {
+      grid-column: 1;
+    }
+  }
+
+  &__quantity-content {
+    @include on-tablet {
+      display: grid;
+      grid-column: 1 / -1;
+      grid-template-columns: repeat(12, 1fr);
+    }
+
+    @include on-desktop {
+      display: flex;
+      gap: 86px;
+      justify-content: left;
+    }
+  }
+
+  &__count {
+    @include on-tablet {
+      grid-column: 2;
+    }
+  }
+
+  &__price {
+    @include on-tablet {
+      grid-column: 7;
+    }
+  }
+
+  &__button {
+    margin-block: 40px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      margin-inline: auto;
+    }
+
+    @include on-desktop {
+      justify-self: left;
+      margin-top: 128px;
+      margin-inline: 0;
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @include on-tablet {
+      grid-column: 2 / 12;
+    }
+
+    @include on-desktop {
+      grid-column: 2;
+      margin-top: 80px;
+    }
+  }
+
+  &__form-label {
+    position: relative;
+    display: block;
+    margin-bottom: 17px;
+  }
+
+  &__form-wrapper {
+    display: flex;
+    gap: 21px;
+    justify-content: start;
+  }
+
+  &__form-field {
+    flex: 1;
+
+    max-width: 60px;
+    padding-bottom: 9px;
+    border: none;
+    border-bottom: 1px solid $input-bottom;
+
+    font-size: 18px;
+    color: $title-color;
+    text-align: center;
+    letter-spacing: 20%;
+
+    background: transparent;
+    outline: none;
+
+    transition: border-color 0.3s ease;
+
+    &::placeholder {
+      color: $input-bottom;
+    }
+  }
+
+  &__form-error {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    color: $error-color;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition: all 0.3s ease;
+  }
+
+  &__form-name {
+    visibility: visible;
+    opacity: 1;
+    transition: all 0.3s ease;
+  }
+
+  &__card-number,
+  &__form-date,
+  &__form-cvv {
+    position: relative;
+
+    &:focus-within {
+      .pay__form-name {
+        color: $main-color;
+      }
+
+      input {
+        border-color: $main-color;
+      }
+    }
+
+    &.is-invalid {
+      .pay__form-name {
+        visibility: hidden;
+        opacity: 0;
+      }
+
+      .pay__form-error {
+        display: block;
+        visibility: visible;
+        opacity: 1;
+      }
+
+      input {
+        border-color: $error-color;
+      }
+    }
+
+    &.is-valid {
+      input {
+        border-color: $main-color;
+      }
+
+      .pay__form-name {
+        color: $main-color;
+      }
+    }
+  }
+
+  &__form-back {
+    display: flex;
+    gap: 50px;
+    margin-block: 15px 40px;
+  }
+
+  &__input-date {
+    width: 90px;
+    font-size: 18px;
+    text-align: center;
+
+    &::placeholder {
+      color: $input-bottom;
+    }
+  }
+
+  &__input-cvv {
+    width: 41px;
+    font-size: 18px;
+    text-align: center;
+
+    &::placeholder {
+      color: $input-bottom;
+    }
+  }
+}

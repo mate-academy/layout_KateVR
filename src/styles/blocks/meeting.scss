@@ -1,0 +1,84 @@
+.meeting {
+  @include on-tablet {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 11px;
+  }
+
+  @include on-desktop {
+    grid-template-columns: repeat(12, 1fr);
+  }
+
+  @include on-large-desktop {
+    grid-template-columns: repeat(16, 1fr);
+  }
+
+  &__hello {
+    font-size: 14px;
+    color: $main-color;
+  }
+
+  &__title {
+    margin-block: 11px 22px;
+
+    @include on-tablet {
+      margin-bottom: 32px;
+    }
+
+    @include on-desktop {
+      margin-top: 15px;
+    }
+  }
+
+  &__content {
+    @include on-tablet {
+      grid-column: 1 / 5;
+      align-self: center;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 5;
+    }
+
+    @include on-large-desktop {
+      grid-column: 2 / 7;
+    }
+  }
+
+  &__background {
+    display: none;
+
+    @include on-tablet {
+      overflow-x: hidden;
+      display: block;
+      grid-column: 5 / -1;
+      height: 276px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / -1;
+      height: 342px;
+    }
+
+    @include on-large-desktop {
+      grid-column: 9 / -1;
+      height: 349px;
+    }
+  }
+
+  &__image {
+    @include on-tablet {
+      width: 100%;
+      height: 100%;
+
+      background-image: url('../images/about/about-background.png');
+      background-repeat: no-repeat;
+      background-position: left;
+      background-size: cover;
+    }
+
+    @include on-desktop {
+      background-size: contain;
+    }
+  }
+}

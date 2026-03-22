@@ -1,0 +1,116 @@
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 20px;
+
+  @include on-tablet {
+    padding-block: 30px;
+  }
+
+  @include on-desktop {
+    @include container-padding;
+
+    position: fixed;
+    z-index: 90;
+    top: 0;
+    right: 0;
+    left: 0;
+
+    background: linear-gradient(
+      180deg,
+      #191536 0%,
+      rgba(25, 21, 54, 0.83) 70.31%,
+      rgba(25, 21, 54, 0) 100%
+    );
+  }
+
+  &__logo {
+    width: 70px;
+    height: 14px;
+    transition: transform 0.3s ease;
+
+    @include on-desktop {
+      width: 77px;
+      height: 16px;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__select {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      width: 46px;
+    }
+  }
+
+  &__select-button {
+    color: $main-color;
+    background: transparent;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__select-list {
+    overflow-y: auto;
+    height: 132px;
+    border-radius: 4px;
+  }
+
+  &__block {
+    @include on-desktop {
+      display: flex;
+      gap: 37px;
+      align-items: center;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      gap: 37px;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__burger-menu {
+    cursor: pointer;
+
+    display: block;
+
+    width: 30px;
+    height: 13px;
+
+    background-image: url('../images/icons/menu-icon.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    transition: transform 0.3s ease;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

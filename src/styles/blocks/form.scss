@@ -1,0 +1,136 @@
+.form {
+  &__field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__label {
+    pointer-events: none;
+
+    position: absolute;
+    top: 16px;
+    left: 0;
+
+    width: 100%;
+
+    transition: all 0.3s ease;
+  }
+
+  &__name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition:
+      top 0.3s ease,
+      font-size 0.3s ease,
+      color 0.3s ease,
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  &__error {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    color: $error-color;
+
+    visibility: hidden;
+    opacity: 0;
+
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  &__input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 0 8px;
+    border: none;
+    border-bottom: 1px solid $input-bottom;
+
+    color: $title-color;
+
+    background: transparent;
+    outline: none;
+    caret-color: $main-color;
+
+    transition: border-color 0.3s ease;
+
+    &--textarea {
+      resize: none;
+      padding-bottom: 67px;
+    }
+
+    &:focus {
+      border-bottom-color: $main-color;
+
+      ~ .form__label {
+        .form__name {
+          top: -20px;
+          color: $main-color;
+        }
+      }
+    }
+
+    &:not(:placeholder-shown) {
+      ~ .form__label {
+        .form__name {
+          top: -20px;
+        }
+      }
+    }
+
+    &.is-invalid {
+      border-bottom-color: $error-color;
+
+      ~ .form__label {
+        top: -2px;
+        color: $error-color;
+
+        .form__name {
+          visibility: hidden;
+          opacity: 0;
+        }
+
+        .form__error {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+
+    &.is-valid {
+      border-bottom-color: $main-color;
+
+      ~ .form__label {
+        color: $main-color;
+      }
+    }
+  }
+
+  &__select-name {
+    margin-bottom: 13px;
+    font-size: 14px;
+  }
+
+  &__select-button {
+    padding: 13px 16px 13px 24px;
+    border-radius: 4px;
+    color: $title-color;
+    background-color: $menu-background;
+  }
+
+  &__select-list {
+    overflow-y: auto;
+    height: 308px;
+    margin-top: 3px;
+    border-radius: 4px;
+  }
+
+  &__item {
+    padding-left: 24px;
+  }
+}

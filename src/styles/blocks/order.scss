@@ -1,0 +1,39 @@
+.order {
+  @include on-desktop {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-block: 102px 97px;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 40px;
+    }
+  }
+
+  &__input {
+    background: transparent;
+  }
+
+  &__button {
+    margin-top: 40px;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+      justify-self: center;
+      margin-top: 58px;
+    }
+
+    @include on-desktop {
+      place-self: center;
+      justify-self: left;
+      margin-top: 68px;
+    }
+  }
+}
