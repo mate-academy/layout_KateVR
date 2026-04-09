@@ -1,0 +1,109 @@
+.mobile {
+  &__link {
+    display: block;
+    font-size: 21px;
+    line-height: 49px;
+  }
+
+  &__list-item {
+    padding-left: 22px;
+    transition: background-color $transition;
+
+    @include OnTablet {
+      padding-left: 154px;
+    }
+
+    &:hover {
+      background-color: #110e25;
+    }
+  }
+
+  &__cross {
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 40px;
+
+    @include OnTablet {
+      margin-top: 34px;
+      margin-right: 34px;
+      margin-bottom: 45px;
+    }
+  }
+
+  &__back {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    margin-left: 21px;
+
+    @include OnTablet {
+      margin-top: 33px;
+      margin-bottom: 47px;
+      margin-left: 33px;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translateX(0%);
+
+    overflow-y: auto;
+
+    height: 100vh;
+
+    background-color: #191536;
+
+    transition: transform $transition;
+
+    @include OnTablet {
+      height: 570px;
+    }
+
+    &--active {
+      transform: translateX(100%);
+    }
+
+    &-actions {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &-logo {
+      display: flex;
+      justify-content: center;
+      margin-left: 22px;
+
+      @include OnTablet {
+        margin-left: 154px;
+      }
+    }
+  }
+
+  &__language {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    transform: translate(100%, -200%);
+
+    height: 100vh;
+
+    background-color: #191536;
+
+    transition: transform ($transition * 2);
+
+    @include OnTablet {
+      height: 600px;
+    }
+
+    &:target {
+      transform: translate(100%, 0%);
+    }
+
+    &-action {
+      display: flex;
+    }
+  }
+}

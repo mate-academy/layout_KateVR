@@ -1,6 +1,38 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+@use 'vars' as *;
+
+@mixin hover($property, $to-value) {
+  transition: #{$property} $transition-duration $transition-timing;
+
   &:hover {
-    #{$_property}: $_toValue;
+    #{$property}: $to-value;
   }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-wide {
+  @media (min-width: $wide-min-width) {
+    @content;
+  }
+}
+
+@mixin surface-card {
+  border: 1px solid $c-border;
+  background: linear-gradient(
+    180deg,
+    rgba(24, 29, 60, 0.9) 0%,
+    rgba(11, 14, 31, 0.9) 100%
+  );
+  backdrop-filter: blur(18px);
+  box-shadow: $shadow-surface;
 }

@@ -1,4 +1,15 @@
-%h1 {
-  font-family: Roboto, sans-serif;
+@use 'mixins' as *;
+@use 'vars' as *;
+
+%heading-quantum {
+  font-family: $font-heading;
   font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+%card-surface {
+  @include surface-card;
+
+  border-radius: $radius-m;
 }
