@@ -1,0 +1,35 @@
+.buy-button-mob {
+  z-index: 1;
+  position: fixed;
+  display: flex;
+  inset: 0;
+  pointer-events: none;
+
+  @include on-small-desktop {
+    display: none;
+  }
+
+  &__gradient {
+    background: linear-gradient(180deg, #0000, #04040496, #050505);
+    height: 112px;
+
+    width: 100%;
+    margin-top: auto;
+  }
+
+  &__container {
+    height: 100%;
+  }
+
+  &__button {
+    grid-column: 1 / -1;
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 10px;
+    pointer-events: all;
+
+    @include on-tablet {
+      grid-column: 2 / -2;
+    }
+  }
+}

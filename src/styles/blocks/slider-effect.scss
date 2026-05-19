@@ -1,0 +1,33 @@
+.slider-effect {
+  --width: 0px;
+
+  position: absolute;
+  height: 100%;
+  width: 10px;
+
+  width: calc(10px * var(--width));
+  margin-left: calc(-5px * var(--width));
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, white, $contrast-color, transparent 100%);
+  background-color: $contrast-color;
+
+  box-shadow:
+    0 0 20px $contrast-color,
+    0 0 60px $contrast-color;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: calc(-40px * var(--width));
+    z-index: -1;
+
+    // transform: translateX(-70px);
+
+    background: radial-gradient(circle, $contrast-color, transparent 60%);
+
+    filter: blur(40px);
+    opacity: 0.8;
+  }
+}

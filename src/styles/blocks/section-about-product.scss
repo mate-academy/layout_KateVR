@@ -1,0 +1,204 @@
+.section-about-product {
+  background: $gradient;
+  padding-block: 50px;
+
+  @include on-tablet {
+    padding-block: 70px 50px;
+  }
+
+  @include on-small-desktop {
+    padding-block: 100px;
+  }
+
+  @include on-desktop {
+    padding-block: 147px;
+  }
+
+  &__container-1 {
+    @include on-tablet {
+      grid-template-rows: repeat(2, min-content) 1fr;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 4 / -1;
+    }
+
+    @include on-small-desktop {
+      font-size: 38px;
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__swiper-box {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-row: 1 / 4;
+      grid-column: 1 / 4;
+    }
+
+    @include on-small-desktop {
+      grid-column: 3 / 8;
+    }
+  }
+
+  &__ex-buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__swiper-pagination-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    min-width: 150px;
+    width: 30%;
+    justify-self: center;
+
+    @include on-small-desktop {
+      width: 40%;
+
+      justify-self: start;
+    }
+  }
+
+  &__swiper {
+    width: 100%;
+    height: 50vw;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border: 2px solid transparent;
+
+    transition: border $transition;
+
+    @include on-tablet {
+      height: 35vw;
+    }
+
+    @include on-small-desktop {
+      height: 25vw;
+    }
+
+    &:hover {
+      border: 2px solid $contrast-color;
+    }
+  }
+
+  &__ex-image {
+    border-radius: 5px;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  &__p {
+    grid-column: 1 / -1;
+    margin-top: 20px;
+    @include on-tablet {
+      margin-top: 30px;
+
+      grid-column: 4 / -1;
+    }
+
+    @include on-small-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__button-play {
+    margin-top: 15px;
+    grid-column: 1 / -1;
+    @include on-tablet {
+      align-self: center;
+      grid-column: 4 / -1;
+    }
+
+    @include on-small-desktop {
+      grid-column: 9 / -1;
+    }
+  }
+
+  &__text-vertical {
+    display: none;
+    overflow: hidden;
+    width: 100%;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 4 / -1;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7 / -1;
+    }
+
+    &-box {
+      display: flex;
+      width: fit-content;
+      height: 337px;
+    }
+
+    &-image {
+      padding-right: 17px;
+      background-image: url('../images/ABOUT US 2.svg');
+      height: 337px;
+      width: 83px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+
+    & :nth-child(2n) {
+      transform: scaleX(-1);
+    }
+  }
+
+  &__about-us {
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      grid-column: 1 / 4;
+      height: fit-content;
+      align-self: center;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1 / 6;
+    }
+
+    &-container {
+      margin-top: 70px;
+
+      @include on-tablet {
+        margin-top: 80px;
+      }
+
+      @include on-small-desktop {
+        margin-top: 180px;
+      }
+    }
+
+    &-title {
+      margin-top: 11px;
+    }
+
+    &-p-1 {
+      font-weight: 400;
+      font-size: 14px;
+      color: $contrast-color;
+    }
+
+    &-p-2 {
+      margin-top: 22px;
+
+      @include on-tablet {
+        margin-top: 32px;
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+.container {
+  --count-columns: 2;
+  --padding: 20px;
+
+  box-sizing: border-box;
+  display: grid;
+  padding-inline: var(--padding);
+  column-gap: 20px;
+  grid-template-columns: repeat(var(--count-columns), 1fr);
+
+  &--no-grid {
+    display: block;
+  }
+
+  @include on-tablet {
+    --count-columns: 6;
+    --padding: 34px;
+  }
+
+  @include on-small-desktop {
+    --count-columns: 12;
+    --padding: calc(70px + (100% - 1280px) / 4);
+
+    margin-inline: auto;
+  }
+
+  @include on-desktop {
+    --count-columns: 16;
+  }
+}

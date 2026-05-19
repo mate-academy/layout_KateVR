@@ -1,0 +1,99 @@
+.footer {
+  background-color: black;
+  padding-block: 45px 100px;
+
+  @include on-tablet {
+    padding-block: 20px 100px;
+  }
+
+  @include on-small-desktop {
+    padding-block: 40px;
+  }
+
+  &__containet {
+    @include on-tablet {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  &__logo {
+    grid-column: 1 / 2;
+    padding: 0;
+  }
+
+  &__links {
+    grid-column: 2 / -1;
+    grid-row: 2 / 3;
+
+    gap: 12px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__nav {
+    margin-top: 15px;
+    grid-column: 1 / 2;
+    grid-row: 2 / 4;
+
+    @include on-tablet {
+      margin-top: 0;
+    }
+  }
+
+  &__socials {
+    &-list {
+      margin-top: 22px;
+      grid-column: 2 / -1;
+      grid-row: 3 / 4;
+
+      display: flex;
+      justify-content: space-between;
+      width: 160px;
+
+      @include on-tablet {
+        margin-top: 0;
+        width: fit-content;
+        gap: 18px;
+      }
+    }
+
+    &-item {
+      display: block;
+      height: fit-content;
+    }
+
+    &-link {
+      display: block;
+      width: 20px;
+      height: 20px;
+      background-color: $white;
+      mask-size: contain;
+      mask-position: center;
+      mask-repeat: no-repeat;
+
+      transition: background-color $transition;
+
+      &:hover {
+        background-color: $contrast-color;
+      }
+
+      &--facebook {
+        mask-image: url('../images/icon/socials/facebook.svg');
+      }
+
+      &--youtube {
+        mask-image: url('../images/icon/socials/youtube.svg');
+      }
+      &--twitter {
+        mask-image: url('../images/icon/socials/twitter.svg');
+      }
+      &--reddit {
+        mask-image: url('../images/icon/socials/reddit.svg');
+      }
+    }
+  }
+}

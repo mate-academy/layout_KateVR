@@ -1,0 +1,225 @@
+.FAQ {
+  display: block;
+  background-color: #000000b2;
+
+  &__main-container {
+    display: block;
+    padding: 0;
+    height: 100%;
+
+    @include on-small-desktop {
+      display: grid;
+      padding-inline: var(--padding);
+      padding-block: 132px 184px;
+    }
+  }
+
+  &__content {
+    background-color: #191536;
+    height: 100%;
+
+    overflow-y: auto;
+
+    @include on-small-desktop {
+      border-radius: 4px;
+      grid-column: 2 / -2;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / -3;
+    }
+  }
+
+  &__close-link-wrapper {
+    display: flex;
+    justify-content: end;
+    padding: 20px;
+
+    @include on-tablet {
+      padding: 34px;
+    }
+
+    @include on-small-desktop {
+      padding: 18px;
+    }
+  }
+
+  &__close-link {
+    display: block;
+    color: $white;
+
+    transition:
+      color $transition,
+      filter $transition;
+
+    &:hover {
+      color: $contrast-color;
+
+      filter: drop-shadow(0 0 5px $contrast-color);
+    }
+
+    & svg {
+      display: block;
+    }
+  }
+
+  &__title {
+    margin-top: 10px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      margin-top: 20px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &__cards-box {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    grid-column: 1 / -1;
+
+    @include on-tablet {
+      gap: 18px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 2 / -2;
+    }
+  }
+
+  &__more {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-self: start;
+    gap: 7px;
+    color: $contrast-color;
+    margin-top: 50px;
+    margin-bottom: 50px;
+
+    transition: color $transition;
+
+    &::after {
+      width: 9px;
+      height: 6px;
+      content: '';
+      background-color: $contrast-color;
+      mask-image: url('../images/icon/arrow-bottom.svg');
+      mask-size: contain;
+      mask-repeat: no-repeat;
+      mask-position: center;
+      -webkit-mask-image: url('../images/icon/arrow-bottom.svg');
+      -webkit-mask-size: contain;
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+
+      transition:
+        background-color $transition,
+        transform $transition;
+    }
+
+    &:hover {
+      color: $white;
+
+      &::after {
+        background-color: $white;
+        transform: translateY(5px);
+      }
+    }
+  }
+
+  &__inside-container {
+    @include on-small-desktop {
+      --count-columns: 10;
+
+      padding: 0;
+    }
+
+    @include on-desktop {
+      --count-columns: 12;
+    }
+  }
+
+  &__card {
+    border: $contrast-color solid 1px;
+    border-radius: 4px;
+
+    transition:
+      border-color $transition,
+      box-shadow $transition;
+
+    &:has(&-title:hover) {
+      border-color: $white;
+      box-shadow: 0 0 5px $contrast-color;
+    }
+
+    &-title {
+      display: flex;
+      justify-content: space-between;
+      padding: 20px 12px;
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+      color: $contrast-color;
+      cursor: pointer;
+      list-style: none;
+
+      transition: color $transition;
+
+      @include on-tablet {
+        padding: 20px 30px;
+      }
+
+      &:hover {
+        color: #1ee1ff;
+      }
+
+      &::after {
+        @include on-small-desktop {
+          content: '▶';
+          font-size: 12px;
+          transition: transform $transition;
+        }
+      }
+    }
+
+    &-box {
+      padding: 20px 12px;
+      padding-top: 0;
+
+      @include on-tablet {
+        padding: 20px 30px;
+        padding-top: 0;
+      }
+    }
+
+    &-p {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 150%;
+    }
+
+    &-data {
+      font-family: Inter, sans-serif;
+      font-weight: 400;
+      font-size: 12px;
+      line-height: 150%;
+      color: #545454;
+      margin-top: 30px;
+
+      @include on-tablet {
+        margin-top: 15px;
+      }
+    }
+
+    &[open] &-title::after {
+      transform: rotateZ(90deg);
+    }
+  }
+}

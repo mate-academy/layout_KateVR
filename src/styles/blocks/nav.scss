@@ -1,0 +1,44 @@
+.nav {
+  &-list {
+    display: flex;
+
+    &--top-bar {
+      gap: 36px;
+      align-items: center;
+    }
+
+    &--footer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: space-between;
+
+      @include on-tablet {
+        gap: 25px;
+        flex-direction: row;
+        width: 306px;
+      }
+    }
+  }
+
+  &-item {
+    height: fit-content;
+  }
+
+  &-link {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: $white;
+
+    transition: color $transition;
+
+    &:hover {
+      color: $contrast-color;
+    }
+
+    @include on-small-desktop {
+      font-size: 18px;
+    }
+  }
+}
