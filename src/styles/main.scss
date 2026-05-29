@@ -1,6 +1,54 @@
-@import 'utils';
-@import 'fonts';
-@import 'typography';
+@use 'utils/index' as *;
+@use 'aside/index' as *;
+@use 'typography' as *;
+@use 'fonts' as *;
+@use 'blocks/index';
+@use 'header/header' as *;
+@use 'footer/footer' as *;
+@use 'main/index' as *;
+
+.page {
+  position: relative;
+  scroll-behavior: smooth;
+  background-color: $bg-dark-main;
+
+  &:has(
+    .page__menu:target,
+    .page__language:target,
+    .page__help:target,
+    .page__faq:target,
+    .page__video:target
+  ) {
+    overflow: hidden;
+  }
+
+  &__video {
+    position: fixed;
+    display: none;
+
+    width: 100%;
+    height: 100vh;
+
+    top: 0;
+    z-index: 5;
+  }
+
+  &__menu {
+    @include aside;
+  }
+
+  &__language {
+    @include aside;
+  }
+
+  &__help {
+    @include aside;
+  }
+
+  &__faq {
+    @include aside;
+  }
+}
 
 body {
   background: $c-gray;

@@ -1,0 +1,127 @@
+@use '../../utils/index' as *;
+
+.benefits {
+  background: linear-gradient(
+    146.86deg,
+    $header-gradient-start -0.5%,
+    $header-gradient-end 99.5%
+  );
+
+  &__container {
+    padding-block: 50px;
+
+    @include padding-inline;
+    @include grid-page;
+
+    @include on-tablet {
+      padding-block: 70px;
+    }
+    @include on-desktop {
+      padding-block: 100px 229px;
+    }
+    @include on-design {
+      padding-block: 160px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 32px;
+    line-height: 100%;
+    color: $white;
+
+    @include on-desktop {
+      margin-bottom: 83px;
+      font-size: 36px;
+      text-align: center;
+    }
+
+    & span {
+      color: $bg-button;
+    }
+  }
+
+  &__article {
+    grid-column: 1 / -1;
+    margin-bottom: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all $transition;
+
+    &:hover {
+      box-shadow: 0 0 10px 5px $bg-button;
+
+      & p {
+        line-clamp: none;
+        -webkit-line-clamp: none;
+      }
+    }
+
+    @include on-tablet {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include on-desktop {
+      grid-column: span 4;
+    }
+
+    &--compatibility {
+      @include on-design {
+        grid-column: 1 / span 4;
+      }
+    }
+
+    &--control {
+      @include on-design {
+        grid-column: 7 / span 4;
+      }
+    }
+
+    &--sensors {
+      @include on-design {
+        grid-column: 13 / span 4;
+      }
+    }
+  }
+
+  &__image {
+    display: none;
+    margin-bottom: 23px;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__article-title {
+    margin-bottom: 11px;
+    color: $white;
+
+    @include on-tablet {
+      margin-bottom: 27px;
+      font-size: 15px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 17px;
+      font-family: 16px;
+    }
+  }
+
+  &__text {
+    @extend %plain-text;
+
+    color: $bt-disabled-text;
+
+    @include line-clamp(3);
+
+    @include on-desktop {
+      line-clamp: none;
+      -webkit-line-clamp: none;
+    }
+  }
+}

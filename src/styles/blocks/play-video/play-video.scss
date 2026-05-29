@@ -1,0 +1,32 @@
+@use '../../utils/index' as *;
+
+.play-video {
+  width: fit-content;
+  border-radius: 50px 0 0 50px;
+  transition: all $transition;
+
+  &:hover {
+    box-shadow:
+      0 0 15px 4px $bg-button,
+      inset 0 0 15px 4px $bg-button;
+  }
+
+  &__link {
+    display: block;
+    
+    width: 209px;
+    height: 66px;
+    background-color: $bg-button;
+
+    mask-image: url(../images/icons/header/button-play.svg);
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    -webkit-mask-image: url(../images/icons/header/button-play.svg);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    -webkit-mask-size: contain;
+
+    @include hover(background-color, $white);
+  }
+}

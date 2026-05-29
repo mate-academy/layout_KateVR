@@ -1,0 +1,37 @@
+@forward 'more/more';
+@forward 'about/about';
+@forward 'specs/specs';
+@forward 'benefits/benefits';
+@forward 'question/question';
+
+@use '../utils/index' as *;
+
+.main {
+  background-color: $bg-dark-main;
+
+  &__button {
+    @extend %nav-text;
+
+    display: block;
+    position: sticky;
+    bottom: 20px;
+    width: 280px;
+    height: 40px;
+    margin: auto;
+    font-size: 14px;
+    line-height: 40px;
+    text-align: center;
+    z-index: 1;
+
+    @include on-desktop {
+      position: absolute;
+      left: 50%;
+      bottom: 19%;
+      transform: translateX(-50%);
+    }
+
+    @include on-design {
+      display: none;
+    }
+  }
+}

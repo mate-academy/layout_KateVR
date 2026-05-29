@@ -1,0 +1,251 @@
+@use '../../utils/index' as *;
+
+.specs {
+  background-color: $bg-dark-main;
+
+  &__container {
+    padding-block: 50px;
+
+    @include padding-inline;
+    @include grid-page;
+
+    @include on-tablet {
+      padding-block: 80px;
+    }
+    @include on-desktop {
+      padding-block: 100px;
+    }
+    @include on-design {
+      padding-block: 160px;
+    }
+  }
+
+  &__title {
+    grid-column: 1 / -1;
+    margin-bottom: 30px;
+    line-height: 100%;
+    color: $white;
+
+    & span {
+      font-weight: 400;
+      color: $bg-button;
+    }
+
+    @include on-tablet {
+      margin-bottom: 57px;
+    }
+
+    @include on-desktop {
+      grid-column: 9 / -1;
+      margin-bottom: 141px;
+    }
+
+    @include on-design {
+      grid-column: 12 / -1;
+    }
+  }
+
+  &__content {
+    position: relative;
+    grid-column: 1 / -1;
+    place-self: center;
+    width: 200px;
+    height: 200px;
+
+    @include on-tablet {
+      width: 360px;
+      height: 360px;
+    }
+
+    @include on-desktop {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    object-fit: contain;
+    object-position: bottom;
+  }
+
+  &__button {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: $bg-button;
+    background-image: url(../images/icons/main/plus.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-position: center;
+    cursor: pointer;
+
+    &--active {
+      background-image: url(../images/icons/main/minus.svg);
+    }
+
+    &--sensor {
+      left: 30%;
+      top: -5%;
+    }
+
+    &--connection {
+      left: -5%;
+      bottom: 0;
+    }
+
+    &--batterries {
+      top: 50%;
+      left: 75%;
+
+      transform: translate(-50%, -50%);
+    }
+
+    @include hover(box-shadow, 0 0 10px 5px $bg-button);
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__title-info {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: relative;
+      margin-bottom: 21px;
+      font-size: 16px;
+      color: $white;
+    }
+  }
+
+  &__info {
+    position: absolute;
+    width: max-content;
+    max-width: 280px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $bg-aside;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity $transition;
+
+    & p {
+      @extend %plain-text;
+
+      font-size: 12px;
+      line-height: 100%;
+      color: $bt-disabled-text;
+
+      @include on-tablet {
+        font-size: 16px;
+        line-height: 150%;
+      }
+    }
+
+    &--sensor {
+      top: 15%;
+      left: -25%;
+
+      & h3::after {
+        width: 431px;
+        height: 72px;
+        left: 34%;
+        top: 50%;
+
+        @include after('../images/icons/main/sensor.svg');
+      }
+
+      @include on-desktop {
+        top: -20%;
+        left: -127%;
+      }
+    }
+
+    &--connection {
+      top: 80%;
+      left: 15%;
+
+      & h3::after {
+        width: 160px;
+        height: 80px;
+        bottom: 10%;
+        left: 57%;
+
+        @include after('../images/icons/main/connection.svg');
+      }
+
+      @include on-desktop {
+        top: 55%;
+        left: -95%;
+      }
+    }
+
+    &--batterries {
+      top: 60%;
+      left: -20%;
+
+      & h3::after {
+        width: 160px;
+        height: 260px;
+        right: 105%;
+        top: 50%;
+
+        @include after('../images/icons/main/batterries.svg');
+      }
+
+      @include on-desktop {
+        top: -20%;
+        left: 110%;
+      }
+
+      @include on-design {
+        left: 145%;
+      }
+    }
+
+    &--active {
+      opacity: 1;
+    }
+
+    @include on-tablet {
+      max-width: 100%;
+    }
+
+    @include on-desktop {
+      max-width: 120%;
+      padding: 0;
+      background-color: transparent;
+      opacity: 1;
+    }
+  }
+
+  &__ellips {
+    display: none;
+    position: absolute;
+    width: 40px;
+    height: 200px;
+    top: 15%;
+    background-image: url(../images/icons/main/ellipse.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    transform-origin: 150px 105px;
+    animation: orbit 3s ease-in-out infinite alternate;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  @keyframes orbit {
+    from {
+      transform: rotate(-40deg);
+    }
+    to {
+      transform: rotate(40deg);
+    }
+  }
+}

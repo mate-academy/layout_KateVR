@@ -1,0 +1,35 @@
+@use '../../utils/index' as *;
+
+.menu {
+  height: 100vh;
+
+  background-color: $bg-aside-main;
+
+  &__container {
+    grid-template-rows: auto 1fr;
+
+    height: 100vh;
+
+    row-gap: 24px;
+
+    background-color: $bg-aside;
+
+    @include grid-page;
+
+    @include padding-inline;
+
+    @include on-tablet {
+      row-gap: 0;
+
+      height: 568px;
+    }
+  }
+
+  &__top-bar {
+    grid-column: 1 / -1;
+  }
+
+  &__nav {
+    grid-column: 1 / -1;
+  }
+}

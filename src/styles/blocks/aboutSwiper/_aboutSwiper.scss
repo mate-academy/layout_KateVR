@@ -1,0 +1,103 @@
+@use '../../utils/index' as *;
+
+.aboutSwiper {
+  overflow: hidden;
+
+  &__picture {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 280 / 189;
+    object-fit: contain;
+
+    @include on-design {
+      aspect-ratio: 622 / 290;
+    }
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 280 / 189;
+    object-fit: contain;
+
+    @include on-design {
+      aspect-ratio: 622 / 290;
+    }
+  }
+
+  &__button-container {
+    display: none;
+    justify-content: start;
+
+    @include on-desktop {
+      display: flex;
+      gap: 103px;
+    }
+  }
+
+  &__button-prev {
+    @extend %nav-text;
+
+    cursor: pointer;
+    line-height: 150%;
+    color: $white;
+
+    &.swiper-button-disabled {
+      cursor: not-allowed;
+      color: $bt-disabled-text;
+    }
+  }
+
+  &__button-next {
+    @extend %nav-text;
+
+    line-height: 150%;
+    color: $white;
+    cursor: pointer;
+    text-align: center;
+
+    &.swiper-button-disabled {
+      cursor: not-allowed;
+      color: $bt-disabled-text;
+    }
+  }
+
+  &__scrollbar {
+    display: none;
+    width: 205px;
+    height: 2px;
+    margin-top: 10px;
+    background-color: $bg-pagination;
+
+    & .swiper-scrollbar-drag {
+      width: 41px;
+      background-color: $bg-button;
+    }
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__pagination-bullets {
+    display: flex;
+    margin-top: 14px;
+    justify-content: center;
+    gap: 6px;
+    color: $bg-button;
+
+    & .swiper-pagination-bullet {
+      width: 4px;
+      height: 4px;
+      background-color: $bg-pagination-more;
+    }
+
+    & .swiper-pagination-bullet-active {
+      background-color: $bg-button;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+}

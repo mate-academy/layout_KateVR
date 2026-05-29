@@ -1,0 +1,71 @@
+@use '../../utils/index' as *;
+
+.video {
+  padding-top: 50px;
+  background-color: #111111a2;
+
+  @include on-tablet {
+    padding-top: 70px;
+  }
+
+  @include on-desktop {
+    padding-top: 120px;
+  }
+
+  &__container {
+    @include padding-inline;
+
+    @include grid-page;
+  }
+
+  &__close {
+    display: block;
+    width: 17px;
+    height: 17px;
+
+    position: absolute;
+    right: 17px;
+    top: 17px;
+
+    background-color: $white;
+
+    -webkit-mask-image: url(../images/icons/header/close.svg);
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: contain;
+    -webkit-mask-position: center;
+
+    mask-image: url(../images/icons/header/close.svg);
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+
+    @include hover(background-color, $bg-button);
+  }
+
+  &__container-iframe {
+    position: relative;
+
+    grid-column: 1 / -1;
+
+    aspect-ratio: 560 / 315;
+
+    @include on-tablet {
+      grid-column: 2 / span 4;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / span 10;
+    }
+
+    @include on-design {
+      grid-column: 2 / span 14;
+    }
+  }
+
+  &__iframe {
+    width: 100%;
+    height: 100%;
+
+    border: none;
+  }
+}

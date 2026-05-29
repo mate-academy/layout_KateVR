@@ -1,0 +1,110 @@
+@use '../../styles/utils/index' as *;
+
+.footer {
+  background-color: $header-gradient-end;
+
+  &__container {
+    padding-block: 45px 50px;
+    row-gap: 15px;
+    @include padding-inline;
+    @include grid-page;
+
+    @include on-tablet {
+      row-gap: 0;
+      padding-block: 21px;
+    }
+
+    @include on-desktop {
+      padding-block: 40px;
+    }
+  }
+
+  &__link-logo {
+    grid-column: 1 / -1;
+    display: block;
+    width: 69px;
+    height: 14px;
+
+    @include on-tablet {
+      grid-column: 1 / span 1;
+    }
+  }
+
+  &__logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__nav-container {
+    grid-column: 1 / span 1;
+
+    @include on-tablet {
+      grid-column: 2 / span 4;
+      place-self: center center;
+    }
+
+    @include on-desktop {
+      grid-column: 5 / span 4;
+    }
+
+    @include on-design {
+      grid-column: 7 / span 4;
+    }
+  }
+
+  &__contact-container {
+    grid-column: 2 / span 1;
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+
+    @include on-tablet {
+      grid-column: 6 / span 1;
+    }
+
+    @include on-desktop {
+      grid-column: 11 / span 2;
+    }
+
+    @include on-design {
+      grid-column: 15 / span 2;
+    }
+  }
+
+  &__social {
+    display: flex;
+    gap: 18px;
+
+    @include on-desktop {
+      justify-content: end;
+    }
+  }
+
+  &__social-link {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    background-color: $white;
+
+    @include hover(background-color, $bg-button);
+
+    &--face {
+      @include mask('../images/icons/footer/face.svg');
+    }
+
+    &--twit {
+      @include mask('../images/icons/footer/x.svg');
+    }
+
+    &--youtube {
+      @include mask('../images/icons/footer/youtube.svg');
+    }
+
+    &--reddit {
+      @include mask('../images/icons/footer/reddit.svg');
+    }
+  }
+}

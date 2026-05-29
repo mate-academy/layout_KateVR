@@ -1,0 +1,118 @@
+@use '../../utils/index' as *;
+
+.help {
+  height: 100vh;
+  overflow: auto;
+  background-color: $bg-aside-main;
+
+  &__container {
+    height: 100vh;
+    padding-top: 20px;
+    padding-bottom: 73px;
+    background-color: $bg-aside;
+
+    @include padding-inline;
+
+    @include on-tablet {
+      height: fit-content;
+      padding-top: 34px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      background-color: transparent;
+    }
+  }
+
+  &__text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 16px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+    }
+  }
+
+  &__wrapper {
+    @include on-desktop {
+      grid-column: 2 / span 10;
+      padding: 60px 90px 75px;
+      background-color: $bg-aside;
+    }
+
+    @include on-design {
+      margin-top: 200px;
+    }
+  }
+
+
+  &__title {
+    color: $white;
+
+    span {
+      font-weight: 400;
+      color: $bg-button;
+    }
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__paragraph {
+    @extend %plain-text;
+
+    color: $bt-disabled-text;
+
+    @include on-tablet {
+      grid-column: 1 / -1;
+    }
+  }
+
+  &__link {
+    @extend %plain-text;
+
+    color: $bg-button;
+
+    @include hover(color, $white);
+
+    &--address {
+      width: fit-content;
+      font-style: normal;
+      line-height: 100%;
+      color: $bt-disabled-text;
+    }
+  }
+
+  &__nav {
+    @include on-tablet {
+      grid-column: 1 / span 3;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  &__address {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+
+    a:first-child {
+      margin-bottom: 3px;
+    }
+
+    @include on-tablet {
+      grid-column: 4 / span 3;
+      gap: 25px;
+    }
+  }
+}

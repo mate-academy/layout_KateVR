@@ -1,0 +1,86 @@
+@use '../../utils/index' as *;
+
+.faq {
+  height: 100vh;
+  background-color: $bg-aside-main;
+  overflow: scroll;
+
+  &__container {
+    height: 100vh;
+    padding-top: 20px;
+    overflow: auto;
+    background-color: $bg-aside;
+
+    @include padding-inline;
+
+    @include on-tablet {
+      padding-top: 34px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      column-gap: 20px;
+      height: auto;
+      background-color: transparent;
+    }
+  }
+
+  &__wrapper {
+    @include on-desktop {
+      grid-column: 2 / span 10;
+      background-color: $bg-aside;
+      padding: 60px 90px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+    color: $white;
+
+    & span {
+      font-weight: 400;
+      color: $bg-button;
+    }
+  }
+
+  &__questions {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+  }
+
+  &__question {
+    padding: 20px 12px 12px;
+    border: 1px solid $bg-button;
+    cursor: pointer;
+
+    transition: all $transition;
+  }
+
+  &__title-question {
+    margin-bottom: 18px;
+    font-weight: 400;
+    line-height: 150%;
+    color: $bg-button;
+  }
+
+  &__answer-container {
+    max-height: 0;
+    overflow: hidden;
+
+    transition: max-height $transition;
+  }
+
+  &__info {
+    @extend %plain-text;
+
+    color: $bt-disabled-text;
+
+    &--update {
+      margin-top: 36px;
+      font-size: 12px;
+      color: $secondary-text;
+    }
+  }
+}

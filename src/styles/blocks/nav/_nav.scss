@@ -1,0 +1,114 @@
+@use '../../utils/index' as *;
+
+.nav {
+  display: flex;
+  margin: auto;
+
+  &--top-bar {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+  }
+
+  &--menu {
+    margin: 0;
+    margin-inline: -20px;
+
+    @include on-tablet {
+      margin-top: -17px;
+      margin-inline: -34px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    gap: 36px;
+
+    &--menu {
+      flex-direction: column;
+      gap: 0;
+
+      width: 100%;
+    }
+
+    &--footer {
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+
+      @include on-tablet {
+        flex-direction: row;
+        gap: 45px;
+      }
+    }
+  }
+
+  &__item {
+    &--menu {
+      height: 49px;
+    }
+  }
+
+  &__link {
+    @extend %nav-text;
+
+    position: relative;
+    color: $white;
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: -5px;
+
+      width: 100%;
+      height: 2px;
+      background-color: $bg-button;
+
+      transform: scale(0);
+      transform-origin: left;
+
+      transition: $transition;
+    }
+
+    &:hover::after {
+      transform: scale(1);
+    }
+
+    &--menu {
+      @extend %nav-text;
+
+      display: flex;
+      align-items: center;
+
+      width: 100%;
+      height: 100%;
+
+      padding-left: 20px;
+
+      font-size: 21px;
+
+      @include on-tablet {
+        padding-left: 34px;
+      }
+
+      @include hover(background-color, $bg-aside-link);
+
+      &::after {
+        display: none;
+      }
+    }
+
+    &--footer {
+      font-size: 13px;
+      font-weight: 400;
+      line-height: 150%;
+
+      @include on-tablet {
+        font-size: 14px;
+      }
+    }
+  }
+}

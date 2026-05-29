@@ -1,6 +1,118 @@
+@use 'vars' as *;
+
 @mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
+  transition: all $transition;
   &:hover {
     #{$_property}: $_toValue;
   }
+}
+
+@mixin on-tablet {
+  @media (min-width: $tablet-min-width) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin on-design {
+  @media (min-width: $design-min-width) {
+    @content;
+  }
+}
+
+@mixin padding-inline {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 110px;
+  }
+
+  @include on-design {
+    max-width: $design-min-width;
+    padding-inline: 235px;
+    margin: auto;
+  }
+}
+
+@mixin grid-page {
+  --columns: 2;
+
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 1fr);
+  column-gap: 20px;
+
+  @include on-tablet {
+    --columns: 6;
+  }
+
+  @include on-desktop {
+    --columns: 12;
+  }
+
+  @include on-design {
+    --columns: 16;
+  }
+}
+
+@mixin aside {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  transform: translateY(-200%);
+
+  z-index: 2;
+
+  opacity: 0;
+
+  transition: $transition;
+
+  &:target {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@mixin after($path) {
+  position: absolute;
+  display: block;
+  content: '';
+  background-image: url($path);
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+@mixin line-clamp($line) {
+  display: -webkit-box;
+  line-clamp: $line;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+@mixin input-field($height) {
+  width: 100%;
+  height: $height;
+  border-bottom: 1px solid $br-input;
+  background-color: $bg-dark-main;
+}
+
+@mixin mask($path) {
+  mask-image: url($path);
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      -webkit-mask-image: url($path);
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      -webkit-mask-size: contain;
 }

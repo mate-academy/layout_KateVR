@@ -1,0 +1,105 @@
+@use '../../utils/index' as *;
+
+.more {
+  background-color: $bg-dark-main;
+
+  &__container {
+    padding-block: 50px;
+
+    @include padding-inline;
+
+    @include on-tablet {
+      padding-block: 70px;
+    }
+    @include on-desktop {
+      padding-block: 100px;
+    }
+    @include on-design {
+      padding-block: 158px;
+    }
+  }
+
+  &__image {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      margin-bottom: 22px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    color: $white;
+    text-align: center;
+
+    & span {
+      font-weight: 400;
+      color: $bg-button;
+    }
+
+    @include on-desktop {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__title-info {
+    margin-bottom: 30px;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0;
+    color: $bg-button;
+    text-align: center;
+  }
+
+  &__container-article {
+    row-gap: 20px;
+
+    @include grid-page;
+  }
+
+  &__article {
+    grid-column: 1 / -1;
+
+    padding: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+
+
+    transition: all $transition;
+
+    &:hover {
+      box-shadow: 0 0 10px 5px $bg-button;
+
+      line-clamp: none;
+      -webkit-line-clamp: none;
+    }
+
+    @include line-clamp(3);
+
+    @include on-tablet {
+      grid-column: span 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @include on-design {
+      grid-column: span 4;
+    }
+  }
+
+  &__article-title {
+    margin-bottom: 11px;
+    color: $white;
+  }
+
+  &__article-description {
+    @extend %plain-text;
+
+    color: $bt-disabled-text;
+    transition: all $transition;
+  }
+}

@@ -1,0 +1,98 @@
+@use '../../utils/index' as *;
+
+.form {
+  &__wrraper-input {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    margin-bottom: 30px;
+
+    @include on-tablet {
+      margin-bottom: 48px;
+    }
+
+    @include on-desktop {
+      margin-bottom: 90px;
+    }
+
+    @include on-design {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__lable {
+    @extend %plain-text;
+
+    font-size: 14px;
+    color: $bt-disabled-text;
+
+    &:focus-within {
+      color: $bg-button;
+    }
+  }
+
+  &__span {
+    &--error {
+      color: $error;
+      border-color: $error;
+    }
+  }
+
+  &__input {
+    @extend %plain-text;
+
+    color: $white;
+    transition:
+      border-color $transition,
+      color $transition;
+
+    @include input-field(20px);
+
+    &:focus {
+      border-bottom: 1px solid $bg-button;
+    }
+
+    &:is(:autofill, :-webkit-autofil) {
+      box-shadow: inset 0 0 0 1000px $bg-dark-main;
+      -webkit-text-fill-color: $white;
+    }
+
+    &--error {
+      color: $error;
+      border-color: $error;
+
+      &:focus {
+        border-color: $error;
+      }
+    }
+  }
+
+  &__textarea {
+    @extend %plain-text;
+
+    color: $white;
+    resize: none;
+    
+    @include input-field(67px);
+
+    &:focus {
+      border-bottom: 1px solid $bg-button;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    height: 40px;
+
+    @include on-tablet {
+      width: 200px;
+    }
+
+    &:disabled {
+      background-color: $bg-aside;
+      color: $br-input;
+      cursor: not-allowed;
+    }
+  }
+}

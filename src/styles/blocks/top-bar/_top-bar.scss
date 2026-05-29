@@ -1,0 +1,155 @@
+@use '../../utils/index' as *;
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 18px 14px;
+
+  @include on-tablet {
+    padding-block: 31px 53px;
+  }
+
+  @include on-desktop {
+    padding-block: 47px 101px;
+  }
+
+  &--aside, &--faq {
+    padding: 0;
+  }
+
+  &--menu {
+    justify-content: end;
+  }
+
+  &__logo-link {
+    cursor: pointer;
+    width: fit-content;
+
+    @include hover(transform, scale(1.2));
+  }
+
+  &__logo {
+    display: block;
+    width: 58px;
+    height: 12px;
+
+    @include on-tablet {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include on-desktop {
+      width: 78px;
+      height: 16px;
+    }
+  }
+
+  &__lang {
+    position: relative;
+    display: none;
+    margin-right: auto;
+    margin-left: 35px;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__lang-button {
+    @extend %nav-text;
+
+    position: relative;
+    height: 20px;
+    color: $bg-button;
+    background-color: transparent;
+    cursor: pointer;
+
+    &::after {
+      position: absolute;
+      display: block;
+      content: '';
+      top: 50%;
+      left: calc(100% + 4px);
+
+      width: 9px;
+      height: 6px;
+
+      transition: all $transition;
+
+      background-color: $bg-button;
+
+      mask-image: url('../images/icons/dropdown-arrow.svg');
+      mask-repeat: no-repeat;
+      mask-position: center;
+      mask-size: contain;
+      -webkit-mask-image: url('../images/icons/dropdown-arrow.svg');
+      -webkit-mask-repeat: no-repeat;
+      -webkit-mask-position: center;
+      -webkit-mask-size: contain;
+    }
+
+    @include hover(color, $white);
+
+    &:hover::after {
+      background-color: $white;
+    }
+  }
+
+  &__lang-list {
+    position: absolute;
+  }
+
+  &__nav-container {
+    display: flex;
+    gap: 36px;
+  }
+
+  &__button {
+    display: none;
+    width: 200px;
+    height: 48px;
+    line-height: 48px;
+    text-align: center;
+
+    @include on-desktop {
+      display: block;
+    }
+  }
+
+  &__menu {
+    display: block;
+    width: 20px;
+    height: 20px;
+
+    cursor: pointer;
+
+    background-image: url(../images/icons/header/burger-menu.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    @include hover(transform, scale(1.2));
+
+    @include on-tablet {
+      width: 30px;
+      height: 30px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+
+    &--close {
+      background-image: url(../images/icons/header/close.svg);
+
+      @include on-desktop {
+        display: block;
+      }
+    }
+
+    &--back {
+      background-image: url(../images/icons/header/back.svg);
+    }
+  }
+}

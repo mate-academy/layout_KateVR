@@ -1,0 +1,35 @@
+@use '../../utils/index' as *;
+
+.address {
+  display: none;
+  flex-direction: column;
+  gap: 10px;
+  font-style: normal;
+
+  &__link {
+    @extend %secondary-text;
+
+    font-size: 16px;
+    color: $bt-disabled-text;
+    cursor: pointer;
+
+    @include hover(color, $bg-button);
+  }
+
+  &--question {
+    @include on-tablet {
+      display: flex;
+    }
+  }
+
+  &--footer {
+    @extend %secondary-text;
+
+    display: flex;
+    font-size: 13px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+}
