@@ -1,0 +1,24 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.nav {
+  grid-column: 1;
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    justify-content: center;
+  }
+
+  &__link {
+    font-size: 13px;
+    color: $white;
+    text-decoration: none;
+
+    @include hover(null, $blue);
+  }
+}

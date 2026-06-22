@@ -1,0 +1,80 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.footer {
+  @include padd;
+  @include padd-b;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  @include tablet {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo-img {
+    height: 14px;
+    width: 69px;
+  }
+
+  &__cell {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+
+    @include tablet {
+      flex-direction: row;
+      gap: 0;
+    }
+  }
+
+  &__social {
+    display: flex;
+    align-items: center;
+    gap: 23px;
+
+    &-link {
+      display: block;
+      object-fit: contain;
+      width: 18px;
+      height: 18px;
+
+      @include hover(1.1);
+    }
+  }
+
+  &__nav-list.nav__list {
+    margin-top: 15px;
+
+    @include tablet {
+      flex-direction: row;
+      margin: 0;
+      gap: 35px;
+
+      .footer__nav-link {
+        font-size: 14px;
+
+        @include hover(null, $blue);
+      }
+    }
+
+    @include desktop {
+      gap: 40px;
+    }
+  }
+
+  &__contact-list {
+    margin: 15px 0 0;
+
+    @include tablet {
+      display: none;
+      margin: 0;
+    }
+  }
+
+  &__contact-link {
+    font-size: 13px;
+  }
+}

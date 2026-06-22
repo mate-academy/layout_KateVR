@@ -1,0 +1,130 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.why {
+  @include padd;
+  @include padd-b;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 30px;
+  background: linear-gradient(150deg, $dark-blue, $black2);
+
+  @include tablet {
+    @include grid;
+
+    padding-block: 70px;
+  }
+
+  @include desktop {
+    padding-block: 100px;
+  }
+
+  @include design {
+    padding-block: 100px 175px;
+  }
+
+  &__title {
+    @include tablet {
+      grid-column: 1/-1;
+      margin-bottom: 10px;
+    }
+
+    @include desktop {
+      grid-column: 1/-1;
+      text-align: center;
+      margin-bottom: 60px;
+    }
+  }
+
+  &-box {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    &__img {
+      display: none;
+      margin-inline: auto;
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+
+      @include tablet {
+        display: block;
+      }
+    }
+
+    @include tablet {
+      @include grid;
+
+      grid-column: 1/-1;
+    }
+  }
+
+  &__item {
+    height: 100%;
+
+    @include tablet {
+      text-align: center;
+      align-items: center;
+      grid-column: span 2;
+    }
+
+    @include desktop {
+      grid-column: span 4;
+    }
+
+    @include design {
+      grid-column: span 4;
+      justify-self: flex-start;
+
+      &:nth-child(2) {
+        grid-column: 7/11;
+      }
+
+      &:nth-child(3) {
+        grid-column: 13/-1;
+      }
+    }
+  }
+
+  &__rubric {
+    @include tablet {
+      &--font {
+        font-size: 16px;
+        white-space: nowrap;
+      }
+    }
+  }
+
+  &__description {
+    -webkit-line-clamp: 3;
+
+    @include desktop {
+      -webkit-line-clamp: none;
+      -webkit-box-orient: unset;
+      overflow: visible;
+      text-overflow: unset;
+    }
+  }
+
+  &__btn-buy {
+    grid-column: 5/9;
+    max-width: 200px;
+    justify-self: center;
+    margin-top: 70px;
+    display: none;
+
+    @include desktop {
+      display: flex;
+    }
+
+    @include design {
+      display: none;
+    }
+  }
+}

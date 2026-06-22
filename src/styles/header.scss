@@ -1,0 +1,88 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.header {
+  @include padd;
+
+  box-sizing: border-box;
+  padding-block: 20px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  @include tablet {
+    padding-block: 30px;
+  }
+
+  @include design {
+    padding-block: 45px;
+  }
+
+  .menu-btn {
+    border: none;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+
+  &__menu--open {
+    background-image: url(../images/Group.png);
+    background-size: 20px 9px;
+    height: 9px;
+    width: 20px;
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__btn-buy {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      width: 200px;
+      height: 48px;
+    }
+  }
+
+  &__nav {
+    display: none;
+
+    @include desktop {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding-inline: 35px;
+    }
+
+    &-link.nav__link {
+      @include desktop {
+        font-size: 16px;
+        line-height: 130%;
+      }
+    }
+  }
+
+  &__nav-list.nav__list {
+    flex-direction: row;
+    align-items: center;
+    gap: 35px;
+  }
+
+  &__language {
+    text-align: center;
+    color: $blue;
+    background-image: url(../images/select.png);
+    background-repeat: no-repeat;
+    background-position: 20px 14px;
+    background-size: 9px 6px;
+    padding-right: 14px;
+    cursor: pointer;
+
+    @include hover(1.1, $white);
+  }
+}

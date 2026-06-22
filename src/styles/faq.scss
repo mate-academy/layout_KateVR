@@ -1,0 +1,134 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.faq-box {
+  box-sizing: border-box;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 54;
+  inset: 0;
+  transition: all 0.3s ease;
+  transform: translateX(-200%);
+  background-color: $dark-blue;
+
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+  }
+
+  @include desktop {
+    width: 880px;
+    height: 854px;
+    margin: auto;
+    inset: 0;
+    overflow-y: auto;
+    border-radius: 4px;
+  }
+
+  @include design {
+    width: 1083px;
+    height: 793px;
+  }
+
+  &__heder {
+    padding: 18px 18px 24px;
+  }
+
+  &--open {
+    transform: translateX(0);
+    z-index: 100;
+  }
+
+  &__link-box {
+    margin-top: 50px;
+    display: none;
+
+    @include tablet {
+      display: flex;
+      align-self: center;
+    }
+  }
+
+  &__link {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    color: $blue;
+    padding-bottom: 17px;
+
+    background-image: url(../images/select.png);
+    background-position: center 35px;
+    background-repeat: no-repeat;
+    background-size: 9px 6px;
+
+    @include hover(1.1);
+  }
+
+  &__item {
+    @include padd;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 13px;
+
+    @include desktop {
+      gap: 15px;
+      padding-inline: 90px;
+    }
+  }
+
+  &__title {
+    line-height: 130%;
+    margin-bottom: 17px;
+
+    @include tablet {
+      max-width: 280px;
+    }
+
+    @include desktop {
+      max-width: 520px;
+      margin-bottom: 35px;
+    }
+
+    @include design {
+      max-width: 100%;
+      margin-bottom: 22px;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px 12px 12px;
+    border: 1px solid $blue;
+    border-radius: 4px;
+  }
+
+  &__what {
+    margin: 0;
+    color: $blue;
+  }
+
+  &__detaljer {
+    margin: 18px 0 10px;
+    color: $gray;
+  }
+
+  &__update {
+    color: rgba(84, 84, 84, 1);
+    font-size: 12px;
+    margin: 0;
+  }
+
+  &__questions {
+    padding: 18px 12px;
+    border: 1px solid $blue;
+    border-radius: 4px;
+    color: $blue;
+  }
+}

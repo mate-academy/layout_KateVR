@@ -1,0 +1,174 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.html {
+  scroll-behavior: smooth;
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  letter-spacing: 0%;
+  color: $white;
+  background-color: $black;
+}
+
+.body {
+  margin: 0;
+
+  &::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 49;
+    opacity: 0;
+    visibility: hidden;
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease;
+    pointer-events: none;
+  }
+
+  &.menu-overlay::before {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+.play-link {
+  padding-block: 25px 32px;
+  height: 66px;
+  width: 209px;
+
+  @include tablet {
+    padding-bottom: 60px;
+  }
+
+  @include desktop {
+    padding-bottom: 0;
+  }
+}
+
+.play-img {
+  height: 100%;
+  width: 100%;
+  display: block;
+  object-fit: contain;
+}
+
+.btn-buy {
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  line-height: 130%;
+  font-weight: 500;
+  background-color: $blue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  color: $white;
+  text-decoration: none;
+
+  @include hover(null, $blue, $white);
+  @include tablet {
+    height: 48px;
+  }
+}
+
+.box-flex {
+  display: none;
+
+  @include desktop {
+    display: flex;
+    gap: 103px;
+  }
+}
+
+.stiky__wrap {
+  position: relative;
+}
+
+.title {
+  font-size: 21px;
+  font-weight: 900;
+  line-height: 100%;
+  margin: 0;
+
+  &-span {
+    font-weight: 400;
+    color: $blue;
+  }
+
+  @include desktop {
+    font-size: 36px;
+  }
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+
+  @include tablet {
+    gap: 18px;
+  }
+}
+
+.rubric {
+  font-size: 16px;
+  line-height: 100%;
+  font-weight: 900;
+  margin: 0;
+
+  @include tablet {
+    font-size: 18px;
+  }
+}
+
+.description {
+  color: $gray;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.logo-img {
+  height: 12px;
+  width: 58px;
+  display: block;
+  object-fit: contain;
+
+  @include hover(1.1);
+  @include desktop {
+    width: 77.5px;
+    height: 16px;
+  }
+}
+
+.nav-span {
+  color: $blue;
+}
+
+.contact {
+  &-list {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  &-link {
+    text-decoration: none;
+    color: $gray;
+    line-height: 100%;
+
+    @include hover(null, $blue);
+  }
+}
