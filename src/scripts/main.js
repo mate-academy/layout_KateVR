@@ -257,3 +257,37 @@ function goToHeroSlide(index) {
 
 prevHero.addEventListener('click', () => goToHeroSlide(heroIndex - 1));
 nextHero.addEventListener('click', () => goToHeroSlide(heroIndex + 1));
+
+const buyNowForms = document.querySelectorAll('.buy-now__form');
+
+buyNowForms.forEach(form => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.reset();
+  });
+});
+
+const queForms = document.querySelectorAll('.questions__form');
+
+queForms.forEach(form => {
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.reset();
+  });
+});
+
+const quantitySelect = document.querySelector('.buy-now__select--1');
+const totalPriceDisplay = document.querySelector('.js-total-price');
+const BASE_PRICE = 1200;
+
+if (quantitySelect && totalPriceDisplay) {
+    quantitySelect.addEventListener('change', (e) => {
+      const quantity = parseInt(e.target.value, 10);
+
+      const currentTotal = BASE_PRICE * quantity;
+
+      // Обновляем текст на экране с сохранением знака доллара
+      totalPriceDisplay.textContent = `${currentTotal}$`;
+    });
+  }
+
