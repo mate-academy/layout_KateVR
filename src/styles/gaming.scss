@@ -1,0 +1,97 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.gaming {
+  @include padd;
+
+  position: relative;
+  padding-block: 30px 50px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include tablet {
+    @include grid;
+
+    padding-block: 70px;
+  }
+
+  @include desktop {
+    padding-block: 100px;
+    gap: 80px;
+  }
+
+  @include design {
+    padding-block: 158px;
+  }
+
+  &__img {
+    height: 85px;
+    width: 85px;
+    object-fit: contain;
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__item {
+    @include tablet {
+      grid-column: span 3;
+      align-items: center;
+      text-align: center;
+    }
+
+    @include design {
+      grid-column: span 4;
+    }
+  }
+
+  &__title-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 10px;
+
+    @include tablet {
+      grid-column: 1/-1;
+      text-align: center;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+    line-height: 100%;
+    color: $blue;
+    margin: 0;
+  }
+
+  &__btn-buy {
+    display: none;
+
+    @include tablet {
+      grid-column: 2/-2;
+      display: flex;
+      position: sticky;
+      bottom: 30px;
+      margin-top: 10px;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__description {
+    line-height: 150%;
+
+    @include tablet {
+      -webkit-line-clamp: none;
+      -webkit-box-orient: unset;
+      overflow: visible;
+      text-overflow: unset;
+    }
+  }
+}

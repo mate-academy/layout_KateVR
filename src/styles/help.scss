@@ -1,0 +1,116 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.help {
+  box-sizing: border-box;
+  position: absolute;
+  z-index: 55;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: $dark-blue;
+  transition: all 0.3s ease;
+  transform: translateY(-200%);
+
+  @include tablet {
+    height: 70%;
+  }
+
+  @include desktop {
+    height: 550px;
+    width: 880px;
+    margin: auto;
+    inset: 0;
+    border-radius: 4px;
+  }
+
+  @include design {
+    height: 518px;
+    width: 1083px;
+  }
+
+  &--open {
+    transform: translateY(0);
+  }
+
+  &__box {
+    @include padd;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 30px;
+
+    @include tablet {
+      gap: 20px;
+    }
+
+    @include desktop {
+      padding-inline: 88px;
+    }
+  }
+
+  &__title {
+    padding-top: 10px;
+    line-height: 130%;
+
+    @include tablet {
+      padding: 0;
+      margin-block: 0 10px;
+    }
+
+    @include desktop {
+      margin-block: 0 30px;
+    }
+  }
+
+  &__text {
+    color: $gray;
+    margin: 0;
+
+    &-link {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+
+  &__list {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  &__contact-list {
+    @include desktop {
+      gap: 25px;
+      margin: 0;
+    }
+  }
+
+  &__link {
+    text-decoration: none;
+    color: $blue;
+  }
+
+  &__cell {
+    @include tablet {
+      display: flex;
+      align-items: center;
+      gap: 152px;
+    }
+
+    @include desktop {
+      gap: 65px;
+    }
+  }
+
+  &__heder {
+    padding: 18px 18px 24px;
+  }
+}

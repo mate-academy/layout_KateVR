@@ -1,0 +1,69 @@
+@use './utils/mixins' as *;
+@use './utils/vars' as *;
+
+.menu {
+  position: absolute;
+  z-index: 50;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  background-color: $dark-blue;
+  transform: translateY(-100%);
+  transition: all 0.3s ease;
+
+  @include tablet {
+    height: 70%;
+  }
+
+  &__heder {
+    padding-bottom: 45px;
+  }
+
+  &--open {
+    transform: translateY(0);
+  }
+
+  &-btn--close {
+    background-image: url(../images/close.png);
+    background-size: contain;
+    height: 17px;
+    width: 17px;
+  }
+
+  &__nav {
+    @include padd;
+
+    &-list {
+      gap: 22px;
+
+      @include tablet {
+        padding-left: 152px;
+      }
+    }
+
+    &-link {
+      font-size: 21px;
+      font-weight: 500;
+      line-height: 130%;
+
+      @include hover(null, $blue);
+    }
+  }
+
+  &__language-box {
+    @include padd;
+  }
+
+  &-btn--back {
+    background-image: url(../images/back.png);
+    background-size: contain;
+    height: 17px;
+    width: 9px;
+
+    @include desktop {
+      display: none;
+    }
+  }
+}
