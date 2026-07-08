@@ -1,0 +1,19 @@
+.button {
+  @extend %button;
+  &__buy {
+    @include on-tablet {
+      grid-column: 1 / 3;
+      height: 48px;
+    }
+    @include on-desktop {
+      grid-column: 1 / 2;
+    }
+  }
+}
+
+.header.container.button {
+  @include on-tablet {
+    position: sticky;
+    bottom: 20px;
+  }
+}
