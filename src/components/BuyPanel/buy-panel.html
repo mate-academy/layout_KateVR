@@ -1,0 +1,179 @@
+<!doctype html>
+<nav
+  class="page__menu--buy buy"
+  id="buy"
+>
+  <div class="container__menu">
+    <div class="menu__content">
+      <div class="buy__top">
+        <a
+          href="#"
+          class="icon icon--logo"
+        ></a>
+        <a
+          href="#"
+          class="buy__icon icon--cross"
+        ></a>
+        <ul class="buy__list">
+          <li class="buy__item-place buy__item--place">
+            <a
+              href="#buy"
+              class="buy__link buy__link--place"
+            >
+              Place Order
+            </a>
+          </li>
+          <li class="buy__item buy__item--pay">
+            <a
+              href="#pay"
+              class="buy__link"
+            >
+              Pay
+            </a>
+          </li>
+          <li class="buy__item buy__item--complete">
+            <a
+              href="#complete"
+              class="buy__link"
+            >
+              Complete
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="buy__info">
+        <div class="buy__info-place">
+          <div class="buy__image"></div>
+          <div class="place__top">
+            <div class="place__quantity">
+              <div class="place__subtitle">Quantity</div>
+              <div class="custom-select">
+                <select name="amount">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                </select>
+              </div>
+            </div>
+            <div class="place__amount">
+              <div class="place__subtitle">Price</div>
+              <div class="place__price">1200$</div>
+            </div>
+          </div>
+        </div>
+        <form
+          action="#pay"
+          class="place__customer-info"
+          method="get"
+        >
+          <fieldset class="page__fieldset">
+            <legend class="page__legend">First Name*</legend>
+            <input
+              class="place__input"
+              type="text"
+              name="name"
+              id="first-name"
+              required
+              minlength="3"
+            />
+          </fieldset>
+          <fieldset class="page__fieldset">
+            <legend class="page__legend">Last Name*</legend>
+            <input
+              class="place__input"
+              type="text"
+              name="surname"
+              id="surname"
+              required
+              minlength="2"
+            />
+          </fieldset>
+          <fieldset class="page__fieldset">
+            <legend class="page__legend">Email*</legend>
+            <input
+              class="place__input"
+              type="email"
+              name="email"
+              id="order-email"
+              required
+            />
+          </fieldset>
+          <fieldset class="page__fieldset">
+            <legend class="page__legend">Phone Number*</legend>
+            <input
+              class="place__input"
+              type="tel"
+              name="tel"
+              id="tel"
+              required
+              pattern="[0-9+\-\s()]{7,}"
+              title="Enter a valid phone number"
+            />
+          </fieldset>
+          <fieldset class="page__fieldset">
+            <legend class="page__legend">Country*</legend>
+            <div class="country-select">
+              <select
+                name="countries"
+                required
+              >
+                <option value=" "></option>
+                <option value="ua">Ukraine</option>
+                <option value="fr">France</option>
+                <option value="es">Spain</option>
+                <option value="us">United States</option>
+                <option value="ch">China</option>
+                <option value="it">Italy</option>
+                <option value="tr">Turkey</option>
+              </select>
+            </div>
+          </fieldset>
+          <fieldset class="page__fieldset">
+            <legend class="page__legend">City*</legend>
+            <div class="city-select">
+              <select
+                name="cities"
+                required
+              >
+                <option value=" "></option>
+                <option value="kyiv">Kyiv</option>
+                <option value="zaporizhia">Zaporizhia</option>
+                <option value="kharkiv">Kharkiv</option>
+                <option value="odessa">Odessa</option>
+                <option value="dnipro">Dnipro</option>
+                <option value="ivano-frankivsk">Ivano-Frankivsk</option>
+                <option value="mykolaiv">Mykolaiv</option>
+                <option value="lviv">Lviv</option>
+              </select>
+            </div>
+          </fieldset>
+          <fieldset class="page__fieldset">
+            <legend class="page__legend">Shipping Adress*</legend>
+            <input
+              class="place__input"
+              type="text"
+              name="adress"
+              id="ship-adress-1"
+              required
+            />
+          </fieldset>
+          <fieldset class="page__fieldset">
+            <legend class="page__legend">Shipping Adress 2</legend>
+            <input
+              class="place__input"
+              type="text"
+              name="adress-2"
+              id="ship-adress-2"
+            />
+          </fieldset>
+          <button
+            class="button button__buy"
+            type="submit"
+          >
+            Purchase
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</nav>
