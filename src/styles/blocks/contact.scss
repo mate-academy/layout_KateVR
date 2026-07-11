@@ -1,0 +1,120 @@
+.contact {
+  background-color: $bg-color--secondary;
+
+  &__container {
+    @include content-limitation;
+    @include page-grid;
+
+    @include on-mobile {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+  }
+
+  &__content {
+    grid-column: span 4;
+
+    @include on-tablet {
+      grid-column: span 3;
+    }
+  }
+
+  &__tip {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.94px;
+
+    margin-bottom: 13px;
+
+    @include on-tablet {
+      margin-bottom: 11px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 26px;
+
+    @include on-tablet {
+      margin-bottom: 50px;
+    }
+
+    @include on-mobile {
+      margin-bottom: 2px;
+    }
+  }
+
+  &__desc {
+    @include text-1;
+
+    margin-bottom: 76px;
+
+    @include on-mobile {
+      font-size: 12px;
+      line-height: 18px;
+      margin-bottom: 0;
+    }
+
+    &--in {
+      @include on-mobile {
+        display: none;
+      }
+    }
+
+    &--out {
+      display: none;
+
+      @include on-mobile {
+        display: block;
+        order: 1;
+      }
+    }
+  }
+
+  &__details {
+    @include text-1;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.36px;
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+
+  &__form {
+    grid-column: 9 / span 8;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+
+    @include on-small-desktop {
+      gap: 90px;
+      grid-column: 7 / span 6;
+    }
+
+    @include on-tablet {
+      gap: 48px;
+      grid-column: span 3;
+    }
+
+    @include on-mobile {
+      gap: 30px;
+    }
+  }
+
+  &__up {
+    cursor: pointer;
+    height: 48px;
+    width: 48px;
+    background-color: transparent;
+    border-radius: 50%;
+
+    @include hover(box-shadow, #{$box-shadow});
+
+    @include on-mobile {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,59 @@
+.page {
+  scroll-behavior: smooth;
+  position: relative;
+  min-width: 320px;
+
+  &__aside {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-120%);
+    background-color: transparent;
+
+    transition:
+      opacity $hover-duration,
+      background-color $hover-duration,
+      transform $hover-duration $hover-duration;
+
+    &--active {
+      pointer-events: all;
+      opacity: 1;
+      background-color: $bg-shadow;
+      transform: translateX(0);
+
+      transition:
+        transform $hover-duration,
+        background-color $hover-duration $hover-duration;
+    }
+  }
+
+  &__menu {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    opacity: 0;
+    pointer-events: none;
+
+    @include transition(opacity);
+
+    &::before {
+      content: 'a';
+      display: block;
+      height: 100vh;
+      width: 100%;
+      background-color: $bg-shadow;
+      position: absolute;
+      z-index: 0;
+    }
+  }
+
+  &__menu--active {
+    @include on-tablet {
+      opacity: 1;
+      pointer-events: all;
+    }
+  }
+
+  &:has(&__body aside[class*='--active']) {
+    overflow-y: hidden;
+  }
+}

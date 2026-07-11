@@ -1,3 +1,41 @@
 h1 {
   @extend %h1;
 }
+
+h2 {
+  @extend %h2;
+}
+
+h3 {
+  @extend %h3;
+}
+
+@mixin btn-link {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 130%;
+
+  @include on-mobile {
+    font-size: 14px;
+  }
+}
+
+@mixin text-1 {
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: $secondary-text-color;
+}
+
+@mixin text-2 {
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: normal;
+
+  @include on-mobile {
+    font-size: 12px;
+  }
+}
