@@ -1,0 +1,47 @@
+@use '../utils' as *;
+
+.page {
+  // Base global da pagina: largura minima, fundo geral e bloqueio horizontal.
+  min-width: 320px;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(
+      circle at 18% 5%,
+      rgba(26, 23, 67, 0.95),
+      transparent 28rem
+    ),
+    linear-gradient(180deg, #15112d 0, $color-page 34rem);
+  color: $color-text;
+
+  &--menu-open,
+  &--modal-open {
+    // Evita scroll do body quando menu ou modal estao abertos.
+    overflow: hidden;
+  }
+
+  &__section {
+    // Espacamento padrao das secoes internas e compensacao para links ancora.
+    box-sizing: border-box;
+    scroll-margin-top: 96px;
+    padding-block: 56px;
+
+    @include tablet {
+      padding-block: 72px;
+    }
+
+    @include desktop {
+      scroll-margin-top: 120px;
+      padding-block: 92px;
+    }
+  }
+}
+
+section {
+  // Garante que qualquer ancora de secao pare abaixo do header visual.
+  scroll-margin-top: 96px;
+
+  @include desktop {
+    scroll-margin-top: 120px;
+  }
+}

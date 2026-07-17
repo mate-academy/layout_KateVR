@@ -1,0 +1,190 @@
+@use '../utils' as *;
+
+// O header desktop foi medido no frame de 1280px do Figma.
+// Manter esses valores nomeados deixa o alinhamento do topo explicito.
+$header-content-top: 64px;
+$header-link-height: 16px;
+$header-button-top: 47px;
+$header-button-height: 48px;
+$header-nav-button-gap: 37px;
+
+.header {
+  // O header pertence apenas a primeira tela, entao absolute mantem ele na
+  // area do hero sem acompanhar o scroll da pagina.
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 11;
+  background: transparent;
+
+  &__container {
+    @include section-container;
+
+    // No mobile, o header mantem so o logo e o botao de menu nos cantos.
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 60px;
+    gap: 24px;
+
+    @include desktop {
+      // No desktop, seguimos o frame de 1280px: conteudo com 1060px,
+      // laterais de 110px e espacos fixos entre os grupos do header.
+      display: flex;
+      align-items: start;
+      min-height: $header-link-height;
+      padding-top: $header-content-top;
+      gap: 0;
+    }
+  }
+
+  &__logo {
+    // O logo precisa ficar acima dos controles quando o menu mobile abre.
+    z-index: 12;
+
+    @include desktop {
+      flex: 0 0 78px;
+    }
+  }
+
+  &__menu-button {
+    // No mobile, o icone exportado vira duas linhas de CSS ao abrir o menu.
+    z-index: 12;
+    display: grid;
+    justify-self: end;
+    width: 48px;
+    height: 48px;
+    padding: 0;
+    border: 0;
+    background: transparent url('../images/Group.png') center / 20px 10px
+      no-repeat;
+    cursor: pointer;
+    place-content: center;
+    transition:
+      background-image 0.3s ease,
+      border-color 0.3s ease,
+      transform 0.3s ease;
+    will-change: transform;
+
+    &:hover {
+      transform: scale(1.04);
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__menu-line {
+    // As linhas ficam ocultas ate o menu abrir e entao viram o icone de fechar.
+    width: 20px;
+    height: 2px;
+    opacity: 0;
+    background: $color-text;
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+    will-change: opacity, transform;
+  }
+
+  &__nav.nav {
+    @include desktop {
+      // A nav desktop nao deve herdar o painel alto usado no menu mobile.
+      align-items: flex-start;
+      place-self: start end;
+      flex: 0 0 330px;
+      width: 330px;
+      min-height: $header-link-height;
+      height: $header-link-height;
+      margin-left: auto;
+      margin-top: 0;
+      margin-right: $header-nav-button-gap;
+      padding: 0;
+      line-height: $header-link-height;
+      transform: none;
+    }
+  }
+
+  &__actions {
+    // O CTA fica oculto no mobile porque a navegacao compacta fica no menu.
+    display: none;
+    align-items: center;
+    gap: 40px;
+
+    @include desktop {
+      display: flex;
+      flex: 0 0 200px;
+      height: $header-button-height;
+
+      // O botao comeca em y=47px, enquanto logo/nav comecam em y=64px.
+      margin-top: $header-button-top - $header-content-top;
+    }
+  }
+
+  &__button {
+    @include desktop {
+      width: 200px;
+      height: $header-button-height;
+      min-width: 200px;
+      min-height: $header-button-height;
+    }
+  }
+
+  &__language {
+    // O seletor de idioma fica no header desktop; no mobile aparece no menu.
+    position: relative;
+    display: none;
+    align-items: center;
+    gap: 7px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: $color-accent;
+    cursor: pointer;
+    font: inherit;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+    will-change: transform;
+
+    &:hover {
+      color: $color-text;
+      transform: translateY(-2px);
+    }
+
+    @include desktop {
+      display: inline-flex;
+      margin-left: 18px;
+    }
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      border-inline: 4px solid transparent;
+      border-top: 5px solid $color-accent;
+      transform: translateY(2px);
+    }
+  }
+}
+
+.page--menu-open .header__menu-line:first-child {
+  opacity: 1;
+  transform: translateY(1px) rotate(45deg);
+}
+
+.page--menu-open .header__menu-line:last-child {
+  opacity: 1;
+  transform: translateY(-1px) rotate(-45deg);
+}
+
+.page--menu-open .header__menu-button {
+  background-image: none;
+}
+
+.page--menu-open .header__logo {
+  @media (max-width: 1023px) {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

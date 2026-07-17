@@ -1,0 +1,198 @@
+@use '../utils' as *;
+
+.about {
+  // A secao usa grid para centralizar os dois blocos principais no fundo escuro.
+  display: grid;
+  align-items: center;
+  background:
+    url('../images/rectangle4.1.png') center / cover no-repeat,
+    linear-gradient(90deg, $color-panel 0, $color-page 100%);
+
+  @include desktop {
+    min-height: 1070px;
+  }
+
+  &__container {
+    @include section-container;
+
+    // O espacamento vertical separa produto e empresa como no mockup.
+    display: grid;
+    gap: 92px;
+
+    @include desktop {
+      gap: 132px;
+    }
+  }
+
+  &__product,
+  &__company {
+    // Mobile empilha conteudo; desktop usa duas colunas para imagem e texto.
+    display: grid;
+    gap: 32px;
+
+    @include desktop {
+      grid-template-columns: 1.1fr 0.9fr;
+      align-items: center;
+      column-gap: 82px;
+    }
+  }
+
+  &__media {
+    position: relative;
+  }
+
+  &__image {
+    // A foto mantem proporcao controlada e ganha feedback visual no hover.
+    display: block;
+    width: min(100%, 430px);
+    max-height: 340px;
+    cursor: pointer;
+    object-fit: cover;
+    transition:
+      filter 0.3s ease,
+      transform 0.3s ease;
+    will-change: filter, transform;
+
+    &:hover {
+      filter: saturate(1.15);
+      transform: scale(1.02);
+    }
+  }
+
+  &__slider {
+    // Controles de slider reproduzem a linha inferior do layout.
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: min(100%, 294px);
+    margin-top: 24px;
+    padding-bottom: 18px;
+    font-size: 13px;
+    line-height: 1;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 2px;
+    }
+
+    &::before {
+      width: 100%;
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    &::after {
+      width: 98px;
+      background: $color-accent;
+    }
+
+    & > :first-child {
+      color: $color-muted;
+    }
+
+    &-button {
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: inherit;
+      cursor: pointer;
+      font: inherit;
+      transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+      will-change: transform;
+
+      &:hover {
+        color: $color-accent;
+        transform: translateY(-2px);
+      }
+
+      &::before,
+      &::after {
+        display: inline-block;
+        width: 7px;
+        height: 7px;
+        border-bottom: 1px solid currentColor;
+        border-left: 1px solid currentColor;
+        content: '';
+      }
+
+      &--previous::before {
+        margin-right: 8px;
+        transform: rotate(45deg);
+      }
+
+      &--previous::after,
+      &--next::before {
+        display: none;
+      }
+
+      &--next::after {
+        margin-left: 8px;
+        transform: rotate(-135deg);
+      }
+    }
+  }
+
+  &__count,
+  &__hello {
+    color: $color-accent;
+    font-size: 13px;
+  }
+
+  &__title {
+    // Titulos da secao seguem o padrao uppercase com acento azul no span.
+    margin-top: 8px;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+
+    &-accent {
+      color: $color-accent;
+      font-weight: 400;
+    }
+  }
+
+  &__text {
+    max-width: 460px;
+    margin-top: 24px;
+    color: $color-muted;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  &__play {
+    margin-top: 28px;
+  }
+
+  &__company {
+    // O bloco institucional troca a proporcao das colunas no desktop.
+    .about__text {
+      max-width: 429px;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+
+    @include desktop {
+      grid-template-columns: minmax(300px, 480px) 1fr;
+    }
+  }
+
+  &__watermark {
+    // A marca lateral aparece apenas no desktop, como elemento decorativo.
+    display: none;
+
+    @include desktop {
+      display: block;
+      width: 498px;
+      height: 347px;
+      overflow: hidden;
+      background: url('../images/efeito.png') center / contain no-repeat;
+      color: transparent;
+      justify-self: center;
+    }
+  }
+}

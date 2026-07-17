@@ -1,0 +1,119 @@
+@use '../utils' as *;
+
+.footer {
+  // Rodape simples com logo, navegacao, redes sociais e botao de voltar ao topo.
+  display: grid;
+  align-items: center;
+  min-height: 88px;
+  background: #000;
+  padding-block: 28px;
+
+  @include desktop {
+    padding-block: 0;
+  }
+
+  &__container {
+    @include section-container;
+
+    // Desktop distribui os grupos em uma linha; mobile empilha com respiro.
+    display: grid;
+    gap: 24px;
+    align-items: center;
+
+    @include desktop {
+      grid-template-columns: auto 1fr auto auto;
+    }
+  }
+
+  &__nav,
+  &__socials {
+    // Links do rodape podem quebrar linha sem estourar a largura.
+    display: flex;
+    flex-wrap: wrap;
+    color: $color-text;
+    font-size: 13px;
+  }
+
+  &__nav {
+    gap: 24px;
+
+    @include desktop {
+      justify-content: center;
+    }
+  }
+
+  &__socials {
+    gap: 16px;
+  }
+
+  &__link {
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+    will-change: transform;
+
+    &:hover {
+      color: $color-accent;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__social {
+    // Cada rede social usa a imagem exportada e recebe feedback no hover.
+    display: grid;
+    width: 14px;
+    height: 14px;
+    place-items: center;
+    cursor: pointer;
+    transition:
+      filter 0.3s ease,
+      opacity 0.3s ease,
+      transform 0.3s ease;
+    will-change: filter, transform;
+
+    img {
+      display: block;
+      max-width: 14px;
+      max-height: 14px;
+      object-fit: contain;
+    }
+
+    &:hover {
+      filter: drop-shadow(0 0 10px rgba(5, 194, 223, 0.58));
+      opacity: 0.82;
+      transform: translateY(-2px) scale(1.08);
+    }
+  }
+
+  &__top {
+    // O circulo desenha a seta via CSS para evitar mais um asset pequeno.
+    position: relative;
+    display: grid;
+    justify-self: start;
+    width: 34px;
+    height: 34px;
+    border: 1px solid rgba(5, 194, 223, 0.6);
+    border-radius: 50%;
+    place-items: center;
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease,
+      transform 0.3s ease;
+    will-change: transform;
+
+    &::before {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-top: 2px solid $color-accent;
+      border-left: 2px solid $color-accent;
+      transform: translateY(3px) rotate(45deg);
+    }
+
+    &:hover {
+      border-color: $color-accent;
+      box-shadow: 0 0 18px rgba(5, 194, 223, 0.28);
+      transform: scale(1.14);
+    }
+  }
+}

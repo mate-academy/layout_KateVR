@@ -1,0 +1,46 @@
+@use '../utils' as *;
+
+.play {
+  // O bitmap exportado do Figma mantem o desenho exato do botao play.
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 248px;
+  min-height: 69px;
+  padding: 0;
+  border: 0;
+  background: url('../images/botao.png') center / contain no-repeat;
+  color: $color-text;
+  cursor: pointer;
+  transition:
+    color 0.3s ease,
+    filter 0.3s ease,
+    transform 0.3s ease;
+  will-change: filter, transform;
+
+  &:hover {
+    // Hover reforca que o botao abre o video externo.
+    transform: translateX(4px);
+    filter: drop-shadow(0 0 16px rgba(5, 194, 223, 0.35));
+  }
+
+  &__icon {
+    // Partes internas ficam ocultas porque a arte completa vem do bitmap.
+    display: none;
+  }
+
+  &__line {
+    display: none;
+  }
+
+  &__text {
+    // Texto fica acessivel no HTML, mas nao aparece sobre a imagem exportada.
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

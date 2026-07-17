@@ -1,0 +1,31 @@
+@use '../utils' as *;
+
+.button {
+  // Botao base reutilizado nos CTAs para manter tamanho e interacao consistentes.
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  min-width: 168px;
+  min-height: 48px;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 4px;
+  background: $color-accent;
+  color: $color-text;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 1;
+  transition:
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+  will-change: transform;
+
+  &:hover {
+    // O hover aproxima o botao do brilho azul usado nos elementos interativos.
+    background: $color-accent-dark;
+    box-shadow: 0 10px 28px rgba(5, 194, 223, 0.24);
+    transform: translateY(-2px);
+  }
+}

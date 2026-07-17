@@ -1,0 +1,46 @@
+@use '../utils' as *;
+
+.logo {
+  // O logo visual vem de imagem, enquanto o texto continua acessivel no HTML.
+  position: relative;
+  display: inline-flex;
+  width: 78px;
+  height: 16px;
+  background: url('../images/logo.png') center / contain no-repeat;
+  line-height: 1;
+  letter-spacing: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  will-change: opacity, transform;
+
+  &:hover {
+    opacity: 0.78;
+    transform: translateY(-2px);
+  }
+
+  @include desktop {
+    width: 78px;
+    height: 16px;
+  }
+
+  &__text {
+    // Texto oculto visualmente, mas preservado para leitores de tela.
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  &__accent {
+    // Mantem o "VR" sem aparecer duplicado sobre a imagem do logo.
+    position: absolute;
+    overflow: hidden;
+    width: 1px;
+    height: 1px;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}

@@ -1,0 +1,351 @@
+@use '../utils' as *;
+
+.modal {
+  // FAQ, Help e Idioma compartilham a mesma camada fixa sobre o fundo escurecido.
+  position: fixed;
+  z-index: 20;
+  inset: 0;
+  display: grid;
+  padding: 80px 16px;
+  background:
+    linear-gradient(rgba(5, 4, 10, 0.82), rgba(5, 4, 10, 0.92)),
+    url('../images/image.png') right 8% center / min(32vw, 360px) auto no-repeat;
+  opacity: 0;
+  overflow-y: auto;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  will-change: opacity;
+  place-items: center;
+
+  &--open {
+    // A classe aberta libera clique e mostra o overlay com transicao.
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__panel {
+    // Painel base dos modais; variacoes ajustam medidas por tipo de conteudo.
+    position: relative;
+    width: min(100%, 880px);
+    box-sizing: border-box;
+    padding: 56px 80px 44px;
+    border: 1px solid $color-line;
+    background: rgba(21, 17, 44, 0.98);
+
+    @media (max-width: 760px) {
+      padding: 44px 24px 32px;
+    }
+
+    &--help {
+      // Help precisa de mais altura por conter texto e lista de contatos.
+      min-height: 550px;
+      padding: 60px 88px 74px;
+
+      @media (max-width: 760px) {
+        min-height: auto;
+        padding: 56px 24px 36px;
+      }
+    }
+
+    &--faq {
+      // No mobile, o FAQ fica estreito e com borda azul como no layout.
+      @media (max-width: 760px) {
+        width: min(100%, 280px);
+        min-height: 608px;
+        padding: 20px 0 122px;
+        border-color: $color-accent;
+      }
+    }
+
+    &--language {
+      // O seletor de idioma usa painel compacto e lista vertical.
+      width: min(100%, 320px);
+      min-height: 405px;
+      padding: 75px 0 30px;
+      border-color: $color-accent;
+    }
+  }
+
+  &__close {
+    // O X de fechar e desenhado com pseudo-elementos para manter nitidez.
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    width: 22px;
+    height: 22px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition:
+      border-color 0.3s ease,
+      transform 0.3s ease;
+    will-change: transform;
+
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 12px;
+      height: 1px;
+      background: $color-accent;
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
+
+    &:hover {
+      border-color: $color-text;
+      transform: scale(1.1);
+    }
+  }
+
+  &__back {
+    // Botao de voltar usado no modal de idioma.
+    position: absolute;
+    top: 23px;
+    left: 20px;
+    width: 24px;
+    height: 24px;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+    will-change: transform;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 7px;
+      left: 8px;
+      width: 9px;
+      height: 9px;
+      border-bottom: 1px solid $color-text;
+      border-left: 1px solid $color-text;
+      transform: rotate(45deg);
+    }
+
+    &:hover {
+      transform: translateX(-2px);
+    }
+  }
+
+  &__title {
+    // Titulos dos modais repetem o padrao branco com destaque azul.
+    max-width: 520px;
+    font-size: clamp(24px, 4vw, 34px);
+    font-weight: 800;
+    line-height: 1.15;
+    text-transform: uppercase;
+
+    span {
+      color: $color-accent;
+      font-weight: 400;
+    }
+  }
+
+  &__item {
+    // Cada pergunta do FAQ usa details/summary para abrir sem JS extra.
+    max-width: 700px;
+    margin-top: 18px;
+    border: 1px solid $color-line;
+    color: $color-muted;
+
+    summary {
+      padding: 16px 24px;
+      color: $color-accent;
+      cursor: pointer;
+    }
+
+    p {
+      padding: 0 24px 16px;
+      line-height: 1.55;
+    }
+  }
+
+  &__panel--faq &__close {
+    @media (max-width: 760px) {
+      top: 4px;
+      right: 4px;
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  &__panel--faq &__title {
+    @media (max-width: 760px) {
+      max-width: 180px;
+      margin-left: 20px;
+      font-size: 11px;
+      line-height: 1.1;
+    }
+  }
+
+  &__panel--faq &__item {
+    // Ajustes especificos deixam o FAQ legivel dentro do painel mobile.
+    @media (max-width: 760px) {
+      width: 100%;
+      max-width: none;
+      box-sizing: border-box;
+      margin-top: 18px;
+      border-color: $color-accent;
+      color: $color-muted;
+
+      summary {
+        padding: 10px 20px;
+        font-size: 11px;
+        line-height: 1.25;
+      }
+
+      p {
+        padding: 0 20px 12px;
+        font-size: 11px;
+        line-height: 1.45;
+      }
+
+      &:not([open]) {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  &__updated {
+    color: rgba(146, 146, 146, 0.56);
+    font-size: 13px;
+  }
+
+  &__panel--faq &__updated {
+    @media (max-width: 760px) {
+      font-size: 10px;
+      line-height: 1.4;
+    }
+  }
+
+  &__more {
+    // Botao visual para expandir conteudo futuro; no mobile fica oculto.
+    display: grid;
+    margin: 44px auto 0;
+    border: 0;
+    background: transparent;
+    color: $color-accent;
+    cursor: pointer;
+    font: inherit;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+    will-change: transform;
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 0;
+      margin: 8px auto 0;
+      border-inline: 4px solid transparent;
+      border-top: 5px solid currentColor;
+    }
+
+    &:hover {
+      color: $color-text;
+      transform: translateY(-2px);
+    }
+  }
+
+  &__panel--faq &__more {
+    @media (max-width: 760px) {
+      display: none;
+    }
+  }
+
+  &__text {
+    // Texto corrido dos modais usa largura controlada para leitura confortavel.
+    margin-top: 22px;
+    color: $color-muted;
+    line-height: 1.55;
+
+    a {
+      color: $color-accent;
+    }
+
+    &--help {
+      max-width: 702px;
+      margin-top: 28px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
+  }
+
+  &__actions {
+    // Links e contatos do Help formam pares de acao e informacao.
+    display: grid;
+    gap: 12px;
+    margin-top: 24px;
+
+    a {
+      width: fit-content;
+      padding-bottom: 3px;
+      border-bottom: 1px solid $color-accent;
+      color: $color-accent;
+      transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+      will-change: transform;
+
+      &:hover {
+        color: $color-text;
+        transform: translateX(4px);
+      }
+    }
+
+    span {
+      color: $color-muted;
+    }
+
+    &--help {
+      grid-template-columns: 203px 1fr;
+      gap: 14px 62px;
+      max-width: 702px;
+      margin-top: 24px;
+
+      @media (max-width: 540px) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+
+  &__languages {
+    // Lista simples para manter todos os idiomas clicaveis no painel.
+    display: grid;
+    gap: 0;
+  }
+
+  &__language {
+    // Cada idioma ocupa uma linha inteira para facilitar clique/toque.
+    width: 100%;
+    min-height: 27px;
+    padding: 0 20px;
+    border: 0;
+    background: transparent;
+    color: $color-text;
+    cursor: pointer;
+    font: inherit;
+    line-height: 1.5;
+    transition:
+      color 0.3s ease,
+      transform 0.3s ease;
+    will-change: transform;
+
+    &:hover,
+    &--active {
+      background: rgba(5, 4, 10, 0.36);
+      color: $color-accent;
+    }
+  }
+}

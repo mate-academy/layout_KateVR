@@ -1,0 +1,96 @@
+@use '../utils' as *;
+
+.features {
+  // Secao de cards com usos alternativos do produto.
+  display: grid;
+  align-items: center;
+  background: $color-page;
+
+  @include desktop {
+    min-height: 620px;
+  }
+
+  &__container {
+    @include section-container;
+  }
+
+  &__grid {
+    // A grade cresce de uma coluna no mobile para quatro no desktop.
+    display: grid;
+    gap: 36px;
+    margin-top: 48px;
+
+    @include tablet {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @include desktop {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 36px;
+      margin-top: 70px;
+    }
+  }
+
+  &__item {
+    // Cada item centraliza icone, titulo e descricao curta.
+    text-align: center;
+  }
+
+  &__icon {
+    // Os icones usam imagens exportadas para preservar o desenho do Figma.
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition:
+      filter 0.3s ease,
+      transform 0.3s ease;
+    will-change: filter, transform;
+
+    &--education {
+      background-image: url('../images/pесурс2.png');
+    }
+
+    &--estate {
+      background-image: url('../images/skyline.png');
+    }
+
+    &--fitness {
+      background-image: url('../images/group2.png');
+    }
+
+    &--social {
+      background-image: url('../images/network.png');
+    }
+  }
+
+  &__item:hover &__icon {
+    // O hover da vida ao card sem mudar o fluxo da grade.
+    filter: drop-shadow(0 0 12px rgba(5, 194, 223, 0.48));
+    transform: translateY(-8px) rotate(3deg) scale(1.08);
+  }
+
+  &__name {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    width: min(100%, 250px);
+    margin: 14px auto 0;
+    color: $color-muted;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  &__nowrap {
+    // Em tablet para cima, algumas linhas ficam travadas para seguir o mockup.
+    @include tablet {
+      white-space: nowrap;
+    }
+  }
+}

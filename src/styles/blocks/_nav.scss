@@ -1,0 +1,138 @@
+@use '../utils' as *;
+
+.nav {
+  // Offset usado para alinhar os links dentro do painel mobile exportado do Figma.
+  --nav-list-offset: 15px;
+
+  // Por padrao, a nav e o menu mobile fechado.
+  position: fixed;
+  inset: 0 0 auto auto;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: min(100%, 220px);
+  min-height: 390px;
+  gap: 14px;
+  padding: 61px 0 32px;
+  overflow: hidden;
+  background: $color-panel-soft url('../images/rectanglemenu.png') center /
+    cover no-repeat;
+  color: $color-text;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  will-change: opacity, transform;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0 0 auto;
+    height: 51px;
+    background: $color-panel;
+  }
+
+  // No tablet, o mesmo menu vira um overlay maior.
+  @include tablet {
+    --nav-list-offset: 54.3vw;
+
+    inset: 0;
+    width: auto;
+    min-height: 100vh;
+    gap: 12px;
+    padding-top: 66px;
+    font-size: 21px;
+    font-weight: 800;
+    line-height: 1;
+
+    &::before {
+      height: 66px;
+    }
+  }
+
+  @include desktop {
+    // No desktop, a nav volta ao fluxo normal do header.
+    --nav-list-offset: 0;
+
+    position: static;
+    z-index: auto;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 0;
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    opacity: 1;
+    overflow: visible;
+    pointer-events: auto;
+    transform: none;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &__link {
+    // Links e botoes dividem a mesma aparencia para desktop e menu mobile.
+    position: relative;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    min-width: 0;
+    padding: 0 0 0 var(--nav-list-offset);
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+
+    @include hover(color, $color-accent);
+
+    &:first-child {
+      // Primeiro item fica destacado apenas no painel mobile.
+      padding-block: 8px;
+      background: rgba(5, 4, 10, 0.36);
+      color: $color-accent;
+    }
+
+    @include desktop {
+      width: auto;
+      padding: 0;
+
+      &:first-child {
+        padding-block: 0;
+        background: transparent;
+        color: inherit;
+      }
+    }
+  }
+
+  &__link--mobile {
+    // Itens extras existem so no menu mobile.
+    @include desktop {
+      display: none;
+    }
+  }
+}
+
+.page--menu-open .nav {
+  // Classe aplicada pelo JS para revelar o menu.
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+
+  @include desktop {
+    transform: none;
+  }
+}

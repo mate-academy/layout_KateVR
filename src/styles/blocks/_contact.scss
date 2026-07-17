@@ -1,0 +1,90 @@
+@use '../utils' as *;
+
+.contact {
+  // Bloco final da pagina, com texto de apoio ao lado do formulario no desktop.
+  display: grid;
+  align-items: center;
+  background: $color-page;
+
+  @include desktop {
+    min-height: 620px;
+  }
+
+  &__container {
+    @include section-container;
+
+    // O grid empilha no mobile e abre em duas colunas no desktop.
+    display: grid;
+    gap: 40px;
+
+    @include desktop {
+      grid-template-columns: 0.82fr 1fr;
+      gap: 96px;
+    }
+  }
+
+  &__eyebrow {
+    color: $color-accent;
+    font-size: 13px;
+  }
+
+  &__title {
+    margin-top: 6px;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+
+    span {
+      color: $color-accent;
+      font-weight: 400;
+    }
+  }
+
+  &__text {
+    margin-top: 18px;
+    color: $color-muted;
+    line-height: 1.5;
+  }
+
+  &__address {
+    // Address agrupa canais diretos mantendo semantica de contato.
+    display: grid;
+    gap: 8px;
+    margin-top: 48px;
+    color: $color-muted;
+    font-style: normal;
+
+    a {
+      width: fit-content;
+      transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+      will-change: transform;
+
+      &:hover {
+        color: $color-accent;
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  &__form {
+    // Formulario compacto no mobile e alinhado a direita no desktop.
+    display: grid;
+    gap: 18px;
+
+    @include desktop {
+      max-width: 520px;
+      justify-self: end;
+    }
+  }
+
+  &__button {
+    // O CTA do formulario fica centralizado em telas maiores.
+    margin-top: 14px;
+
+    @include tablet {
+      justify-self: center;
+    }
+  }
+}

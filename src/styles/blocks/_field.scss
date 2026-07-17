@@ -1,0 +1,81 @@
+@use '../utils' as *;
+
+.field {
+  // Campo base usado nos formularios de contato, endereco e pagamento.
+  display: grid;
+  gap: 8px;
+
+  &__label {
+    color: $color-muted;
+    font-size: 13px;
+  }
+
+  &__control {
+    // Inputs seguem o visual minimalista com linha inferior e fundo transparente.
+    width: 100%;
+    min-height: 44px;
+    box-sizing: border-box;
+    border: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    background: transparent;
+    color: $color-text;
+    outline: none;
+    transition:
+      border-color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:focus {
+      border-color: $color-accent;
+      box-shadow: 0 1px 0 $color-accent;
+    }
+
+    // A validacao nativa do navegador replica o estado de erro vermelho do UI kit.
+    &:user-invalid {
+      border-bottom-color: #ff4d4d;
+      box-shadow: 0 1px 0 #ff4d4d;
+    }
+
+    &::placeholder {
+      color: rgba(146, 146, 146, 0.64);
+    }
+
+    option {
+      background: $color-field;
+      color: $color-text;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      // Autofill do Chrome recebe fundo escuro para nao quebrar o tema visual.
+      border-bottom-color: $color-accent;
+      -webkit-text-fill-color: $color-text;
+      box-shadow: 0 0 0 1000px $color-page inset;
+      caret-color: $color-text;
+      transition: background-color 5000s ease-in-out 0s;
+    }
+
+    &--area {
+      min-height: 84px;
+      resize: vertical;
+    }
+  }
+
+  select.field__control {
+    // Select customizado desenha a seta com gradientes em vez do estilo nativo.
+    padding-inline: 24px 42px;
+    border-bottom: 0;
+    border-radius: 2px;
+    appearance: none;
+    background:
+      linear-gradient(45deg, transparent 50%, $color-accent 50%)
+        calc(100% - 18px) 50% / 5px 5px no-repeat,
+      linear-gradient(135deg, $color-accent 50%, transparent 50%)
+        calc(100% - 13px) 50% / 5px 5px no-repeat,
+      $color-field;
+
+    &:focus {
+      box-shadow: 0 0 0 1px $color-accent;
+    }
+  }
+}

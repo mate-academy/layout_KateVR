@@ -1,0 +1,55 @@
+@use '../utils' as *;
+
+.tech {
+  // Secao de especificacoes tecnicas centralizada no fundo escuro.
+  display: grid;
+  align-items: center;
+  background: $color-page;
+
+  @include desktop {
+    min-height: 675px;
+  }
+
+  &__container {
+    @include section-container;
+  }
+
+  &__title {
+    // No desktop, o titulo fica deslocado para alinhar com a composicao da imagem.
+    text-align: center;
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+
+    @include desktop {
+      width: min(100%, 900px);
+      margin-inline: auto;
+      padding-left: 650px;
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    span {
+      color: $color-accent;
+      font-weight: 400;
+    }
+  }
+
+  &__image {
+    // A imagem traz linhas e labels do Figma em um unico asset.
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin: 52px auto 0;
+    cursor: pointer;
+    transition:
+      filter 0.3s ease,
+      transform 0.3s ease;
+    will-change: filter, transform;
+
+    &:hover {
+      filter: drop-shadow(0 0 18px rgba(5, 194, 223, 0.22));
+      transform: scale(1.01);
+    }
+  }
+}

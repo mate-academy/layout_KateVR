@@ -1,6 +1,35 @@
+@use 'vars' as *;
+
 @mixin hover($_property, $_toValue) {
   transition: #{$_property} 0.3s;
+
   &:hover {
     #{$_property}: $_toValue;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: $tablet-min) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-min) {
+    @content;
+  }
+}
+
+// Keeps each section aligned to the 1280px Figma frame.
+@mixin section-container {
+  width: min(100% - 32px, $content-width);
+  margin-inline: auto;
+
+  @include tablet {
+    width: min(100% - 64px, $content-width);
+  }
+
+  @include desktop {
+    width: min(100% - 220px, 1060px);
   }
 }

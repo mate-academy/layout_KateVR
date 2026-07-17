@@ -1,0 +1,122 @@
+@use '../utils' as *;
+
+.benefits {
+  // Secao centralizada com fundo escuro para destacar os diferenciais.
+  display: grid;
+  align-items: center;
+  background:
+    linear-gradient(90deg, rgba(20, 16, 46, 0.92), rgba(5, 4, 10, 0.96)),
+    $color-page;
+
+  @include desktop {
+    min-height: 720px;
+  }
+
+  &__container {
+    @include section-container;
+
+    // Todo o bloco e alinhado ao centro no mockup.
+    text-align: center;
+  }
+
+  &__title {
+    // O span azul separa visualmente a pergunta do nome do produto.
+    font-size: 28px;
+    font-weight: 800;
+    text-transform: uppercase;
+
+    span {
+      color: $color-accent;
+      font-weight: 400;
+    }
+  }
+
+  &__grid {
+    // Mobile empilha cards; tablet/desktop distribuem em tres colunas.
+    display: grid;
+    gap: 24px;
+    margin-top: 48px;
+
+    @include tablet {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include desktop {
+      margin-top: 76px;
+    }
+  }
+
+  &__item {
+    // A borda aparece so no hover para manter o visual limpo.
+    min-height: 246px;
+    box-sizing: border-box;
+    padding: 32px 24px;
+    border: 1px solid transparent;
+    transition: border-color 0.3s ease;
+
+    &:hover {
+      border-color: $color-line;
+    }
+  }
+
+  &__icon {
+    // Icones exportados do Figma mantem fidelidade aos cards de beneficios.
+    position: relative;
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 24px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    cursor: pointer;
+    transition:
+      filter 0.3s ease,
+      transform 0.3s ease;
+    will-change: filter, transform;
+
+    &--compatible {
+      background-image: url('../images/pесурс1.png');
+    }
+
+    &--control {
+      background-image: url('../images/groupicone.png');
+    }
+
+    &--wireless {
+      background-image: url('../images/groupicone2.png');
+    }
+  }
+
+  &__item:hover &__icon {
+    // Hover destaca o icone sem alterar o tamanho do card.
+    filter: drop-shadow(0 0 12px rgba(5, 194, 223, 0.48));
+    transform: scale(1.1);
+  }
+
+  &__name {
+    font-size: 13px;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
+
+  &__text {
+    width: min(100%, 340px);
+    margin-top: 14px;
+    margin-inline: auto;
+    color: $color-muted;
+    font-size: 13px;
+    line-height: 1.45;
+  }
+
+  &__nowrap {
+    // Em telas maiores algumas frases permanecem em uma linha para bater o layout.
+    @include tablet {
+      white-space: nowrap;
+    }
+  }
+
+  &__button {
+    min-width: 200px;
+    margin-top: 52px;
+  }
+}
