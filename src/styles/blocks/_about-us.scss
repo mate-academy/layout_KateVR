@@ -73,3 +73,59 @@
 .about-us__background span:nth-child(4) {
   opacity: 0.05;
 }
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .about-us {
+    padding: 70px 0 80px;
+  }
+
+  .about-us__content {
+    grid-template-columns: minmax(0, 1fr) minmax(260px, 1fr);
+    gap: 48px;
+  }
+
+  .about-us__background {
+    gap: 20px;
+  }
+
+  .about-us__background span {
+    font-size: 42px;
+  }
+}
+
+@include on-tablet {
+  .about-us {
+    padding: 56px 0 64px;
+  }
+
+  .about-us__content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .about-us__info {
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .about-us__title {
+    margin-bottom: 24px;
+
+    font-size: 30px;
+  }
+
+  .about-us__text {
+    font-size: 14px;
+  }
+
+  .about-us__background {
+    justify-content: center;
+    gap: 12px;
+
+    overflow: hidden;
+  }
+
+  .about-us__background span {
+    font-size: 32px;
+  }
+}

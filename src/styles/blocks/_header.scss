@@ -14,18 +14,35 @@
 }
 
 .header__logo {
-  color: #fff;
-  font-weight: 700;
+  display: block;
+  flex-shrink: 0;
   text-decoration: none;
-
-  span {
-    color: #05c2df;
-  }
 }
 
 .header__lang {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+
   color: #05c2df;
   text-decoration: none;
+}
+
+.header__lang::after {
+  content: '';
+
+  width: 0;
+  height: 0;
+
+  border-top: 5px solid #05c2df;
+  border-right: 4px solid transparent;
+  border-left: 4px solid transparent;
+}
+
+.header__logo-image {
+  display: block;
+  width: 78px;
+  height: auto;
 }
 
 .header__nav {
@@ -58,6 +75,21 @@
 @include on-tablet {
   .header {
     padding: 24px 0;
+  }
+
+  .header__content {
+    justify-content: space-between;
+  }
+
+  .header__nav,
+  .header__button {
+    display: none;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .header {
+    padding: 32px 0;
   }
 
   .header__content {

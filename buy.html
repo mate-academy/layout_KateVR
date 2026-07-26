@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Purchase | KATVR</title>
+
+    <link
+      rel="stylesheet"
+      href="./src/styles/main.scss"
+    />
+  </head>
+
+  <body class="purchase-page">
+    <header class="purchase-header">
+      <div class="container">
+        <div class="purchase-header__content">
+          <a
+            href="./index.html"
+            class="purchase-header__logo"
+          >
+            <img
+              src="./src/images/logo.svg"
+              alt="KATVR"
+              class="purchase-header__logo-image"
+            />
+          </a>
+
+          <nav
+            class="purchase-progress"
+            aria-label="Purchase progress"
+          >
+            <button
+              class="purchase-progress__step purchase-progress__step--active"
+              type="button"
+              data-step-button="1"
+            >
+              Place Order
+            </button>
+
+            <button
+              class="purchase-progress__step"
+              type="button"
+              data-step-button="2"
+              disabled
+            >
+              Pay
+            </button>
+
+            <button
+              class="purchase-progress__step"
+              type="button"
+              data-step-button="3"
+              disabled
+            >
+              Order complete
+            </button>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="purchase">
+      <div class="container">
+        <form
+          class="purchase__form"
+          id="purchase-form"
+        >
+          <!-- Step 1: Place order -->
+          <section
+            class="purchase__step purchase__step--active"
+            data-purchase-step="1"
+          >
+            <div class="purchase__layout">
+              <div class="purchase__product">
+                <img
+                  src="./src/images/hero.png"
+                  alt="KATVR product"
+                  class="purchase__product-image"
+                />
+
+                <div class="purchase__summary">
+                  <label
+                    for="quantity"
+                    class="purchase__summary-item"
+                  >
+                    <span>Quantity</span>
+
+                    <select
+                      class="purchase__select purchase__select--quantity"
+                      id="quantity"
+                      name="quantity"
+                    >
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                    </select>
+                  </label>
+
+                  <div class="purchase__summary-item">
+                    <span>Price</span>
+
+                    <strong
+                      class="purchase__price"
+                      id="purchase-price"
+                    >
+                      1200$
+                    </strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="purchase__fields">
+                <div class="purchase__field">
+                  <label for="first-name">First Name*</label>
+
+                  <input
+                    id="first-name"
+                    name="firstName"
+                    type="text"
+                    required
+                  />
+                </div>
+
+                <div class="purchase__field">
+                  <label for="last-name">Last Name*</label>
+
+                  <input
+                    id="last-name"
+                    name="lastName"
+                    type="text"
+                    required
+                  />
+                </div>
+
+                <div class="purchase__field">
+                  <label for="email">Email*</label>
+
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    required
+                  />
+                </div>
+
+                <div class="purchase__field">
+                  <label for="phone">Phone Number*</label>
+
+                  <input
+                    id="phone"
+                    name="phone"
+                    type="tel"
+                    required
+                  />
+                </div>
+
+                <div class="purchase__field">
+                  <label for="country">Country*</label>
+
+                  <select
+                    id="country"
+                    name="country"
+                    required
+                  >
+                    <option value="choose-country"
+                     selected
+                     disabled
+                     >
+                     choose country
+                    </option>
+                    <option value="netherlands">Netherlands</option>
+                    <option value="portugal">Portugal</option>
+                    <option value="brazil">Brazil</option>
+                  </select>
+                </div>
+
+                <div class="purchase__field">
+                  <label for="city">City*</label>
+
+                  <input
+                    id="city"
+                    name="city"
+                    type="text"
+                    required
+                  />
+                </div>
+
+                <div class="purchase__field">
+                  <label for="address">Shipping Address*</label>
+
+                  <input
+                    id="address"
+                    name="address"
+                    type="text"
+                    required
+                  />
+                </div>
+
+                <div class="purchase__field">
+                  <label for="address-details">Shipping Address 2</label>
+
+                  <input
+                    id="address-details"
+                    name="addressDetails"
+                    type="text"
+                  />
+                </div>
+
+                <button
+                  class="purchase__button"
+                  type="button"
+                  data-next-step="2"
+                >
+                  Purchase
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Step 2: Payment -->
+          <section
+            class="purchase__step"
+            data-purchase-step="2"
+            hidden
+          >
+            <div class="purchase__layout">
+              <div class="purchase__product">
+                <img
+                  src="./src/images/hero.png"
+                  alt="KATVR product"
+                  class="purchase__product-image"
+                />
+
+                <div class="purchase__summary">
+                  <div class="purchase__summary-item">
+                    <span>Quantity</span>
+                    <strong id="payment-quantity">1</strong>
+                  </div>
+
+                  <div class="purchase__summary-item">
+                    <span>Price</span>
+
+                    <strong
+                      class="purchase__price"
+                      id="payment-price"
+                    >
+                      1200$
+                    </strong>
+                  </div>
+                </div>
+              </div>
+
+              <div class="purchase__payment">
+                <div class="purchase__field purchase__field--wide">
+                  <label for="card-number">Card Number*</label>
+
+                  <input
+                    id="card-number"
+                    name="cardNumber"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="19"
+                    placeholder="1234 0000 0000 0000"
+                    required
+                  />
+                </div>
+
+                <div class="purchase__field purchase__field--wide">
+                  <label for="card-holder">Card Holder Name*</label>
+
+                  <input
+                    id="card-holder"
+                    name="cardHolder"
+                    type="text"
+                    required
+                  />
+                </div>
+
+                <div class="purchase__field">
+                  <label for="expiration">Expiration Date*</label>
+
+                  <input
+                    id="expiration"
+                    name="expiration"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="5"
+                    placeholder="MM/YY"
+                    required
+                  />
+                </div>
+
+                <div class="purchase__field">
+                  <label for="cvv">CVV*</label>
+
+                  <input
+                    id="cvv"
+                    name="cvv"
+                    type="password"
+                    inputmode="numeric"
+                    maxlength="3"
+                    placeholder="000"
+                    required
+                  />
+                </div>
+
+                <button
+                  class="purchase__button"
+                  type="submit"
+                >
+                  Purchase
+                </button>
+              </div>
+            </div>
+          </section>
+
+          <!-- Step 3: Order complete -->
+          <section
+            class="purchase__step purchase__complete"
+            data-purchase-step="3"
+            hidden
+          >
+            <h1 class="purchase__complete-title">
+              Thank you for
+              <span>your order!</span>
+            </h1>
+
+            <p class="purchase__complete-text">
+              Your order has been placed and is being processed. You will
+              receive an email with the order details.
+            </p>
+
+            <a
+              href="./index.html"
+              class="purchase__button purchase__button--home"
+            >
+              Back to homepage
+            </a>
+          </section>
+        </form>
+      </div>
+    </main>
+
+    <script
+      type="module"
+      src="./src/scripts/purchase.js"
+    ></script>
+  </body>
+</html>
