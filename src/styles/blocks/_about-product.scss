@@ -1,0 +1,170 @@
+.about-product {
+  padding: 70px 0 90px;
+  background-color: #191536;
+}
+
+.about-product__content {
+  display: grid;
+  grid-template-columns: minmax(0, 430) minmax(0, 420px);
+  column-gap: 100px;
+  align-items: center;
+}
+
+.about-product__media {
+  position: relative;
+}
+
+.about-product__count {
+  position: absolute;
+  top: 0;
+  left: -28px;
+
+  color: #05c2df;
+  font-size: 14px;
+}
+
+.about-product__image {
+  display: block;
+  width: 100%;
+  max-width: 390px;
+  height: auto;
+}
+
+.about-product__slider {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 200px;
+  margin-top: 16px;
+  padding-bottom: 12px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.about-product__slider::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -1px;
+
+  width: 56px;
+  height: 2px;
+
+  background-color: #05c2df;
+}
+
+.about-product__link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.about-product__link--disabled {
+  color: #929292;
+}
+
+.about-product__title {
+  margin: 0 0 32px;
+
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+
+  span {
+    font-size: inherit;
+    font-weight: 400;
+    color: #05c2df;
+  }
+}
+
+.about-product__text {
+  max-width: 340px;
+  margin: 0 0 36px;
+
+  color: #929292;
+  line-height: 1.6;
+}
+
+.about-product__video {
+  display: inline-block;
+}
+
+.about-product__video-img {
+  display: block;
+  width: 200px;
+  height: 48px;
+}
+
+@media (min-width: 641px) and (max-width: 1023px) {
+  .about-product {
+    padding: 64px 0 72px;
+  }
+
+  .about-product__content {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 48px;
+  }
+
+  .about-product__image {
+    width: 100%;
+    max-width: 390px;
+  }
+
+  .about-product__title {
+    font-size: 32px;
+  }
+}
+
+@include on-tablet {
+  .about-product {
+    padding: 56px 0 64px;
+  }
+
+  .about-product__content {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-product__media {
+    width: 100%;
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .about-product__count {
+    top: -24px;
+    left: 0;
+  }
+
+  .about-product__image {
+    width: 100%;
+    max-width: 390px;
+  }
+
+  .about-product__slider {
+    width: 100%;
+    max-width: 200px;
+  }
+
+  .about-product__info {
+    max-width: 390px;
+    margin: 0 auto;
+  }
+
+  .about-product__title {
+    margin-bottom: 24px;
+
+    font-size: 30px;
+  }
+
+  .about-product__title span {
+    font-size: 36px;
+  }
+
+  .about-product__text {
+    max-width: none;
+    margin-bottom: 28px;
+  }
+}
