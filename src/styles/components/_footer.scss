@@ -1,0 +1,353 @@
+.footer {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #05040b;
+
+  &__contact {
+    padding-bottom: 50px;
+
+    @include on-tablet {
+      @include page-grid;
+    }
+  }
+
+  &__info {
+    @include on-tablet {
+      grid-column: 1/4;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1/5;
+    }
+  }
+
+  &__subtitle {
+    display: block;
+    margin-bottom: 11px;
+    font-size: 14px;
+    color: $color-accent;
+
+    @include on-small-desktop {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 32px;
+
+    @include on-tablet {
+      margin-bottom: 50px;
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 26px;
+    }
+  }
+
+  &__description {
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      margin-bottom: 76px;
+    }
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: block;
+      }
+    }
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &--tablet {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+      }
+    }
+
+    &--mobile {
+      display: flex;
+      margin-bottom: 22px;
+      font-size: 13px;
+      line-height: 100%;
+
+      @include on-tablet {
+        display: none;
+      }
+    }
+  }
+
+  &__phone,
+  &__email {
+    transition: color $effectDuration ease;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__form {
+    width: 100%;
+
+    @include on-tablet {
+      grid-column: 4/-1;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7/-1;
+    }
+
+    @include on-large-desktop {
+      grid-column: 9/-1;
+    }
+  }
+
+  &__field {
+    position: relative;
+    display: block;
+    margin-bottom: 40px;
+
+    &--message {
+      margin-bottom: 48px;
+    }
+  }
+
+  &__textarea {
+    resize: none;
+    height: 67px;
+    min-height: 67px;
+    padding-top: 18px;
+  }
+
+  &__label {
+    pointer-events: none;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    font-size: 14px;
+    line-height: 150%;
+    color: $gray;
+
+    transition:
+      top 0.3s,
+      color 0.3s,
+      font-size 0.3s;
+
+    &--error {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      display: none;
+
+      font-size: 12px;
+      line-height: 1;
+      color: #860404;
+    }
+  }
+
+  &__input,
+  &__textarea {
+    width: 100%;
+    height: 44px;
+    padding: 18px 0 0;
+    border: none;
+    border-bottom: 1px solid $dark-gray;
+
+    font-size: 16px;
+    color: $white;
+
+    background: transparent;
+
+    transition:
+      border-color 0.3s,
+      color 0.3s;
+
+    &::placeholder {
+      color: transparent;
+    }
+
+    &:focus {
+      border-bottom-color: $color-accent;
+    }
+
+    &:-webkit-autofill + .footer__label {
+      top: 0;
+      font-size: 12px;
+      color: $color-accent;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px #05040b inset;
+      transition: background-color 5000s ease-in-out 0s;
+
+      -webkit-text-fill-color: $white;
+    }
+
+    &:focus + .footer__label,
+    &:not(:placeholder-shown) + .footer__label {
+      top: 0;
+      font-size: 12px;
+      color: $color-accent;
+    }
+
+    &.touched:invalid {
+      border-bottom-color: #860404;
+    }
+  }
+
+  &__input.touched:invalid ~ .footer__error--empty,
+  &__textarea.touched:invalid ~ .footer__error--empty {
+    display: block;
+  }
+
+  &__input[type='email'].touched:invalid:not(:placeholder-shown)
+    ~ .footer__error--invalid {
+    display: block;
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 32px;
+  }
+
+  &__button {
+    @include on-tablet {
+      width: 200px;
+    }
+  }
+
+  &__scroll-top {
+    display: none;
+
+    width: 48px;
+    height: 48px;
+    border: 1px solid $color-accent;
+    border-radius: 50%;
+
+    color: $color-accent;
+
+    background: transparent;
+
+    transition:
+      background-color $effectDuration ease,
+      color $effectDuration ease;
+
+    &:hover {
+      color: $white;
+      background-color: $color-accent;
+    }
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__note {
+    margin-top: 30px;
+    font-size: 12px;
+
+    @include on-tablet {
+      display: none;
+    }
+  }
+
+  &__bottom {
+    padding-top: 45px;
+
+    @include on-tablet {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    display: flex;
+
+    width: 69px;
+    height: 14px;
+    margin-bottom: 12px;
+
+    transition:
+      opacity $effectDuration ease,
+      visibility $effectDuration ease;
+
+    @include on-tablet {
+      margin-right: 127px;
+    }
+
+    @include on-small-desktop {
+      width: 72px;
+      margin-right: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: row;
+    gap: 99px;
+    justify-content: space-between;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    @include on-tablet {
+      flex-direction: row;
+      gap: 43px;
+    }
+
+    &-link {
+      font-size: 13px;
+      line-height: 150%;
+      color: $white;
+      transition: color $effectDuration ease;
+
+      &:hover {
+        color: $color-accent;
+      }
+    }
+  }
+
+  &__socials {
+    display: flex;
+    flex-direction: row;
+    gap: 22px;
+
+    @include on-tablet {
+      gap: 18px;
+    }
+  }
+
+  &__social {
+    &-icon {
+      display: block;
+      width: 15px;
+      height: 14px;
+      transition: transform $effectDuration ease;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+}

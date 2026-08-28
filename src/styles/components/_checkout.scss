@@ -1,0 +1,536 @@
+.checkout {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+
+  overflow: hidden auto;
+  display: none;
+
+  width: 100%;
+  height: 100vh;
+  padding: 20px 0;
+  padding-bottom: 37px;
+
+  color: $white;
+
+  background: linear-gradient(to right, #191536, #000);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  -webkit-overflow-scrolling: touch;
+
+  @include on-tablet {
+    padding: 30px 0;
+  }
+
+  @include on-small-desktop {
+    padding: 100px 0;
+  }
+
+  @include on-large-desktop {
+    padding: 158px 0;
+  }
+
+  &--active {
+    display: block;
+  }
+
+  &__content {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* ---------- Header ---------- */
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+
+    img {
+      display: block;
+      width: auto;
+      height: 16px;
+
+      @include on-tablet {
+        height: 20px;
+      }
+    }
+  }
+
+  &__close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 17px;
+    height: 17px;
+
+    font-size: 24px;
+    line-height: 1;
+    color: $white;
+
+    background: transparent;
+
+    transition: color $effectDuration;
+
+    &:hover {
+      color: $color-accent;
+    }
+  }
+
+  /* ---------- Steps ---------- */
+
+  &__steps {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 30px;
+    padding-bottom: 17px;
+
+    @include on-tablet {
+      margin-bottom: 41px;
+      padding-bottom: 10px;
+    }
+
+    @include on-small-desktop {
+      margin-bottom: 102px;
+    }
+  }
+
+  &__step {
+    cursor: pointer;
+
+    flex: 1;
+
+    padding: 0;
+    border: none;
+
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 130%;
+    color: $gray;
+    text-align: center;
+
+    background: transparent;
+
+    transition: color $effectDuration;
+
+    @include on-tablet {
+      font-size: 14px;
+    }
+
+    @include on-small-desktop {
+      position: relative;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        bottom: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+
+        transition:
+          opacity 0.3s,
+          background 0.3s;
+      }
+
+      &--active::after {
+        background: $color-accent;
+      }
+    }
+
+    &:hover {
+      color: $white;
+    }
+
+    &--active {
+      color: $color-accent;
+    }
+  }
+
+  /* ---------- Progress ---------- */
+
+  &__progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    overflow: hidden;
+
+    width: 100%;
+    height: 2px;
+    border-radius: 2px;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__progress-bar {
+    will-change: transform;
+
+    display: block;
+
+    width: 33.33%;
+    height: 100%;
+
+    background: $color-accent;
+
+    transition: transform 0.35s ease;
+  }
+
+  &-page {
+    display: none;
+    animation: fade 0.25s ease;
+
+    &--active {
+      display: block;
+
+      @include on-desktop {
+        display: flex;
+        gap: 100px;
+      }
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  &-product {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 50px;
+
+    @include on-tablet {
+      gap: 40px;
+      margin-bottom: 56px;
+    }
+
+    @include on-small-desktop {
+      gap: 72px;
+      align-items: flex-start;
+      justify-content: space-between;
+
+      margin-top: 29px;
+      margin-bottom: 0;
+    }
+
+    &__image {
+      display: none;
+
+      @include on-tablet {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @include on-small-desktop {
+        margin-left: -45px;
+      }
+
+      &__img {
+        display: block;
+
+        width: 100%;
+        max-width: 524px;
+        height: auto;
+
+        object-fit: contain;
+      }
+    }
+
+    &__info {
+      flex: 1;
+
+      @include on-small-desktop {
+        flex: 0;
+      }
+    }
+
+    &__row {
+      display: flex;
+      gap: 75px;
+      align-items: flex-start;
+      justify-content: space-evenly;
+
+      @include on-tablet {
+        gap: 40px;
+        align-items: flex-end;
+        justify-content: space-between;
+        max-width: 347px;
+      }
+    }
+
+    &__label {
+      margin-bottom: 10px;
+      margin-left: 6px;
+
+      font-size: 16px;
+      line-height: 130%;
+      color: $gray;
+
+      @include on-tablet {
+        margin-bottom: 20px;
+      }
+    }
+    &__select-wrapper {
+      position: relative;
+      width: 90px;
+
+      &::after {
+        pointer-events: none;
+        content: '';
+
+        position: absolute;
+        top: 50%;
+        right: 11px;
+        transform: translateY(-50%);
+
+        width: 9px;
+        height: 7px;
+
+        background: url('../images/icons/arrow-down.svg') center / contain
+          no-repeat;
+      }
+    }
+
+    &__select {
+      cursor: pointer;
+
+      width: 100%;
+      height: 41px;
+
+      font-size: 20px;
+      color: $white;
+      text-align: center;
+      text-align-last: center;
+
+      background: #191536;
+
+      transition: border-color $effectDuration;
+
+      &:hover,
+      &:focus {
+        border-color: $color-accent;
+        outline: none;
+      }
+
+      option {
+        color: $white;
+        background: $color-accent;
+      }
+    }
+
+    &__price {
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 100%;
+      color: $color-accent;
+
+      @include on-tablet {
+        font-size: 36px;
+      }
+    }
+  }
+
+  &-complete {
+    &__title {
+      margin-bottom: 20px;
+      font-size: 46px;
+      text-align: center;
+      text-transform: uppercase;
+
+      @include on-tablet {
+        padding-inline: 97px;
+      }
+    }
+
+    &__text {
+      margin-bottom: 50px;
+
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 130%;
+      text-align: center;
+    }
+  }
+
+  &-form {
+    &__grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      row-gap: 19px;
+      margin-bottom: 58px;
+
+      @include on-tablet {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 32px 30px;
+      }
+    }
+
+    &__field {
+      position: relative;
+      display: block;
+      margin-bottom: 30px;
+
+      @include on-tablet {
+        margin-bottom: 40px;
+      }
+    }
+
+    &__label {
+      font-size: 14px;
+      color: $gray;
+    }
+
+    &__select-wrapper {
+      position: relative;
+      width: 100%;
+
+      &::after {
+        pointer-events: none;
+        content: '';
+
+        position: absolute;
+        top: 50%;
+        right: 12px;
+        transform: translateY(-50%);
+
+        width: 9px;
+        height: 7px;
+
+        background: url('../images/icons/arrow-down.svg') center / contain
+          no-repeat;
+      }
+    }
+
+    &__select {
+      cursor: pointer;
+
+      width: 100%;
+      height: 44px;
+      border: none;
+
+      font-size: 16px;
+      color: $white;
+
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background: $btn-active;
+
+      transition: border-color $effectDuration;
+
+      &:focus,
+      &:hover {
+        border-bottom-color: $color-accent;
+        outline: none;
+      }
+
+      option {
+        color: $white;
+        background: $btn-active;
+      }
+    }
+
+    &__input {
+      width: 100%;
+      height: 22px;
+      border: none;
+      border-bottom: 1px solid $dark-gray;
+
+      font-size: 16px;
+      color: $white;
+
+      background: transparent;
+
+      transition:
+        border-color 0.3s,
+        color 0.3s;
+
+      @include on-tablet {
+        height: 44px;
+        padding: 18px 0 0;
+      }
+
+      &::placeholder {
+        color: transparent;
+      }
+
+      &:focus {
+        border-bottom-color: $color-accent;
+      }
+
+      &:focus + .checkout-form__label,
+      &:not(:placeholder-shown) + .checkout-form__label {
+        top: 0;
+        font-size: 12px;
+        color: $color-accent;
+      }
+
+      &.touched:invalid {
+        border-bottom-color: #860404;
+      }
+    }
+
+    &__card-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+
+      @include on-tablet {
+        gap: 24px;
+      }
+    }
+
+    &__input--card {
+      text-align: center;
+
+      @include on-tablet {
+        font-size: 18px;
+      }
+    }
+
+    &__button {
+      width: 280px;
+      height: 40px;
+      font-size: 14px;
+
+      @include on-tablet {
+        width: 458px;
+        height: 48px;
+        font-size: 16px;
+      }
+
+      @include on-small-desktop {
+        width: 199px;
+      }
+    }
+  }
+}

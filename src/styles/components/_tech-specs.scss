@@ -1,0 +1,253 @@
+.tech {
+  &-specs {
+    position: relative;
+    padding: 50px 0;
+    background-color: #05040b;
+
+    @include on-small-desktop {
+      padding: 100px 0;
+    }
+
+    &__title {
+      margin-bottom: 41px;
+
+      @include on-small-desktop {
+        max-width: 854px;
+        margin: 0 auto;
+        margin-bottom: 141px;
+        text-align: right;
+      }
+    }
+
+    &__layout {
+      position: relative;
+    }
+
+    // IMAGE WRAPPER
+    &__media {
+      position: relative;
+      width: 100%;
+      max-width: 197px;
+      margin: 0 auto;
+
+      @include on-tablet {
+        max-width: 358px;
+      }
+
+      @include on-small-desktop {
+        max-width: 297px;
+      }
+    }
+
+    &__image {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    &__line {
+      display: none;
+
+      @include on-small-desktop {
+        pointer-events: none;
+        position: absolute;
+        z-index: 2;
+        display: block;
+      }
+
+      &--1 {
+        top: -18%;
+        right: 149px;
+        width: 320px;
+
+        @include on-desktop {
+          width: 403px;
+        }
+      }
+
+      &--2 {
+        top: -23%;
+        left: 149px;
+      }
+
+      &--3 {
+        right: 291px;
+        bottom: 41%;
+      }
+
+      &--decor {
+        right: 260px;
+        bottom: 17%;
+      }
+    }
+  }
+}
+
+/* =========================
+   SPEC POINT (HOTSPOTS)
+========================= */
+
+.spec-point {
+  position: absolute;
+  z-index: 5;
+  transform: translate(-50%, -50%);
+
+  @include on-small-desktop {
+    display: none;
+  }
+
+  &--sensor {
+    top: 4%;
+    left: 38%;
+
+    @include on-tablet {
+      left: 29%;
+    }
+  }
+
+  &--connection {
+    top: 88%;
+    left: 4%;
+  }
+
+  &--battery {
+    top: 50%;
+    left: 75%;
+  }
+
+  &__btn {
+    position: relative;
+
+    width: 34px;
+    height: 34px;
+    border: 2px solid #ffffff24;
+    border-radius: 50%;
+
+    background: $color-accent;
+
+    transition:
+      background-color 0.2s ease,
+      border-color 0.2s ease;
+
+    // PLUS
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      background: #fff;
+      transition:
+        transform 0.2s ease,
+        opacity 0.2s ease;
+    }
+
+    &::before {
+      left: 10px;
+      width: 11px;
+      height: 1px;
+    }
+
+    &::after {
+      top: 10px;
+      width: 1px;
+      height: 11px;
+    }
+
+    &:hover {
+      border-color: #ffffff24;
+      background-color: #07798b;
+    }
+  }
+
+  &__popup {
+    position: absolute;
+    z-index: 20;
+    transform: translateX(-28%);
+
+    display: none;
+
+    min-width: 168px;
+    padding: 17px 11px 22px;
+    border-radius: 4px;
+
+    color: $gray;
+
+    background: #191536;
+
+    @include on-tablet {
+      top: 0;
+      left: 124px;
+      transform: translateX(-50%);
+    }
+  }
+
+  &__title {
+    display: none;
+    margin-bottom: 6px;
+    font-size: 18px;
+    font-weight: 900;
+
+    @include on-small-desktop {
+      display: block;
+      margin-bottom: 21px;
+    }
+  }
+
+  &__text {
+    font-size: 12px;
+  }
+
+  &.is-active {
+    z-index: 8;
+
+    .spec-point__btn {
+      // PLUS → MINUS
+      &::after {
+        opacity: 0;
+      }
+    }
+
+    .spec-point__popup {
+      display: block;
+    }
+  }
+
+  &__details {
+    display: none;
+
+    @include on-small-desktop {
+      position: absolute;
+      z-index: 3;
+      inset: 0;
+      display: block;
+    }
+
+    @include on-large-desktop {
+      padding-right: 85px;
+      padding-left: 192px;
+    }
+  }
+
+  &__detail {
+    position: absolute;
+
+    &--sensor {
+      top: -60px;
+      left: -263px;
+
+      @include on-desktop {
+        left: -353px;
+      }
+    }
+
+    &--batteries {
+      top: -75px;
+      right: -331px;
+      max-width: 265px;
+    }
+
+    &--connection {
+      top: 161px;
+      left: -267px;
+    }
+  }
+}

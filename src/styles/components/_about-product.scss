@@ -1,0 +1,266 @@
+.about-product {
+  background: linear-gradient(to right, #191536, #000);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &__product-block {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    padding-top: 50px;
+    padding-bottom: 40px;
+
+    @include on-tablet {
+      @include page-grid;
+
+      gap: 30px;
+    }
+
+    @include on-small-desktop {
+      gap: 32px;
+      padding-top: 100px;
+      padding-bottom: 91px;
+    }
+
+    @include on-large-desktop {
+      padding-top: 147px;
+    }
+  }
+
+  &__title {
+    margin-bottom: 20px;
+
+    @include on-tablet {
+      margin-bottom: 30px;
+    }
+
+    &-mobile {
+      @include on-tablet {
+        display: none;
+      }
+    }
+
+    &-thin {
+      margin-bottom: 11px;
+      font-size: 14px;
+      font-weight: 400;
+      color: $color-accent;
+    }
+  }
+
+  &-ipad {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+    }
+  }
+
+  &__counter {
+    display: none;
+
+    @include on-small-desktop {
+      display: flex;
+      grid-column: 2/3;
+      justify-content: end;
+    }
+
+    @include on-large-desktop {
+      grid-column: 3/4;
+    }
+  }
+
+  &__slider {
+    @include on-tablet {
+      grid-column: 1/4;
+    }
+
+    @include on-small-desktop {
+      grid-column: 3/8;
+    }
+
+    @include on-large-desktop {
+      grid-column: 4/11;
+    }
+  }
+
+  &__image-wrap {
+    overflow: hidden;
+    width: 280px;
+    height: 189px;
+    margin-bottom: 14px;
+
+    @include on-tablet {
+      width: 340px;
+      height: 270px;
+    }
+
+    @include on-small-desktop {
+      width: 430px;
+      height: 290px;
+    }
+
+    @include on-large-desktop {
+      width: 622px;
+      height: 290px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 20px;
+
+    @include on-small-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 4px;
+    height: 4px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+
+    background: #484848;
+
+    transition:
+      background-color 0.25s ease,
+      transform 0.25s ease;
+
+    &.is-active {
+      transform: scale(1.15);
+      background: #ababab;
+    }
+  }
+
+  &__slider-nav {
+    display: none;
+
+    @include on-small-desktop {
+      display: flex;
+    }
+  }
+
+  &__content {
+    @include on-tablet {
+      grid-column: 4/-1;
+    }
+
+    @include on-small-desktop {
+      grid-column: 9/-1;
+    }
+
+    @include on-large-desktop {
+      grid-column: 12/-1;
+    }
+  }
+  &__text {
+    margin-bottom: 15px;
+  }
+
+  &__bottom {
+    padding-bottom: 50px;
+
+    @include on-tablet {
+      @include page-grid;
+
+      padding-top: 91px;
+      padding-bottom: 100px;
+    }
+
+    @include on-small-desktop {
+      padding-top: 83px;
+    }
+
+    @include on-large-desktop {
+      padding-top: 75px;
+      padding-bottom: 156px;
+    }
+  }
+
+  &__hello {
+    @include on-tablet {
+      grid-column: 1/5;
+    }
+
+    @include on-small-desktop {
+      grid-column: 1/6;
+    }
+
+    @include on-large-desktop {
+      grid-column: 2/8;
+    }
+  }
+
+  &__small-image {
+    display: none;
+
+    @include on-tablet {
+      display: flex;
+      grid-column: 5/-1;
+      flex-direction: row;
+      gap: 17px;
+    }
+
+    @include on-small-desktop {
+      grid-column: 7/-1;
+    }
+
+    @include on-large-desktop {
+      grid-column: 9/-1;
+    }
+  }
+
+  &__svg--1 {
+    opacity: 1;
+  }
+  &__svg--2 {
+    opacity: 0.5;
+  }
+
+  &__svg--3 {
+    opacity: 0.2;
+  }
+
+  &__svg--4 {
+    opacity: 0.1;
+  }
+
+  &__svg--5 {
+    opacity: 0.05;
+  }
+
+  &__svg--6 {
+    opacity: 0.03;
+  }
+
+  &__svg--7 {
+    opacity: 0.02;
+  }
+
+  &__svg--4,
+  &__svg--5,
+  &__svg--6,
+  &__svg--7 {
+    @include on-tablet {
+      display: none;
+    }
+
+    @include on-small-desktop {
+      display: inline-block;
+    }
+  }
+}

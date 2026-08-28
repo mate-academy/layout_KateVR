@@ -1,0 +1,121 @@
+.help-modal {
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  display: none;
+
+  &.is-open {
+    display: block;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &__window {
+    position: relative;
+    top: 0;
+
+    width: 100%;
+    padding: 68px 20px 73px;
+
+    background: $btn-active;
+
+    @include on-tablet {
+      padding: 102px 33px 124px 35px;
+    }
+
+    @include on-small-desktop {
+      top: 50%;
+      transform: translateY(-50%);
+
+      width: min(880px, 90vw);
+      margin: 0 auto;
+      padding: 60px 90px 80px;
+    }
+
+    @include on-large-desktop {
+      width: min(1083px, 90vw);
+      padding: 60px 93px 86px;
+    }
+  }
+
+  &__close {
+    top: 20px;
+    right: 20px;
+  }
+
+  &__title {
+    margin-bottom: 30px;
+
+    @include on-desktop {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 30px;
+  }
+
+  &__link {
+    margin-bottom: 15px;
+    color: $color-accent;
+    transition: color $effectDuration ease;
+
+    &:hover {
+      color: $white;
+    }
+  }
+
+  &__description {
+    margin-bottom: 40px;
+    color: $gray;
+  }
+
+  &__icon {
+    color: $color-accent;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  &__contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    text-align: left;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      column-gap: 65px;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    &--1 {
+      color: $color-accent;
+    }
+
+    &--2 {
+      color: $gray;
+    }
+  }
+
+  &__contact-link {
+    transition: color $effectDuration ease;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
