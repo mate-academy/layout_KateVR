@@ -1,0 +1,78 @@
+@use '../utils' as *;
+
+// GLOBAL RESET & NORMALIZATION
+
+// 1. Box sizing & spacing reset
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  height: 100%; // Guarantees proper background stretching
+}
+
+body {
+  min-height: 100%;
+
+  // Global base typography (Mobile-First)
+  font-family: $font-main;
+  font-size: $fs-text-1;
+  font-weight: $fw-regular;
+
+  // Font smoothing for crisp rendering (especially for Inter)
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: $lh-body;
+  color: $c-gray-text;
+
+  background-attachment: fixed; // Prevents gradient distortion during scroll
+}
+
+// 2. Media elements reset
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+// 3. List reset
+ul,
+ol {
+  list-style: none;
+}
+
+// Note: Base link styles moved to _typography.scss to avoid duplication.
+
+// 4. Button reset
+button {
+  cursor: pointer;
+
+  padding: 0;
+  border: none;
+
+  font: inherit; // Inherits font-family, size, and weight
+  color: inherit;
+
+  background: none;
+}
+
+// 5. Disable text selection for interactive and media elements
+a,
+button,
+img,
+svg {
+  -webkit-user-select: none;
+  user-select: none; // Safari support
+}
+
+// 6. Base link reset
+a {
+  color: inherit;
+  text-decoration: none;
+}

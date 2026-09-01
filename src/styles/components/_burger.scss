@@ -1,0 +1,128 @@
+@use '../utils' as *;
+
+// ==========================================================================
+// BURGER MENU ICON
+// Purpose: Mobile-only hamburger icon with an expanded click target for accessibility.
+// ==========================================================================
+
+%burger {
+  cursor: pointer;
+
+  position: relative;
+
+  display: block;
+
+  width: 20px;
+  height: 9px;
+  padding: 0;
+  border: none;
+
+  background: transparent;
+
+  transition:
+    transform 0.15s ease,
+    opacity 0.15s ease;
+
+  @include respond-to(tablet) {
+    width: 29px;
+    height: 13px;
+  }
+
+  @include respond-to(desktop) {
+    display: none;
+  }
+
+  // Expands click target to 44x44px (a11y standard) without affecting layout
+  &::before {
+    content: '';
+    position: absolute;
+    inset: -17px -12px;
+  }
+
+  // Main line container
+  span {
+    position: absolute;
+    top: 4px;
+    left: 0;
+
+    display: block;
+
+    width: 12px;
+    height: 1px;
+
+    background-color: $c-white;
+
+    transition:
+      background-color 0.2s ease,
+      $transition-speed $transition-effect;
+
+    @include respond-to(tablet) {
+      width: 17.3px;
+    }
+
+    // Top line (right-aligned)
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: -4.5px;
+      right: -8px;
+
+      width: 16px;
+      height: 1px;
+
+      background-color: $c-white;
+
+      transition: inherit;
+
+      @include respond-to(tablet) {
+        top: -6px;
+        right: -12px;
+        width: 24px;
+      }
+    }
+
+    // Bottom line (right-aligned)
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: -8px;
+      bottom: -4.5px;
+
+      width: 16px;
+      height: 1px;
+
+      background-color: $c-white;
+
+      transition: inherit;
+
+      @include respond-to(tablet) {
+        top: 6px;
+        right: -12px;
+        width: 24px;
+      }
+    }
+  }
+
+  // Tactile feedback on tap
+  &:active {
+    transform: scale(0.9);
+    opacity: 0.8;
+  }
+
+  // Hover state (mouse devices only)
+  @media (hover: hover) {
+    &:hover span {
+      &,
+      &::before,
+      &::after {
+        background-color: $c-cyan;
+      }
+    }
+  }
+}
+
+.burger {
+  @extend %burger;
+}

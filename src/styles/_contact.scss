@@ -1,0 +1,197 @@
+@use 'utils' as *;
+@use 'components' as *;
+@use 'sass:color';
+
+// CONTACT SECTION
+.contact {
+  padding-block: 50px;
+
+  @include respond-to(tablet) {
+    padding-block: 70px 130px;
+  }
+
+  @include respond-to(desktop) {
+    padding-block: 100px;
+  }
+
+  @include respond-to(desktop-xl) {
+    padding-block: 156px 205px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+
+    @include respond-to(tablet) {
+      flex-direction: row;
+      gap: 23px;
+      justify-content: space-between;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__subtitle {
+    margin-bottom: 11px;
+    font-size: 14px;
+    color: $c-cyan;
+
+    @include respond-to(desktop) {
+      margin-bottom: 13px;
+    }
+  }
+
+  &__title {
+    font-weight: 900;
+    color: $c-white;
+    text-transform: uppercase;
+
+    @include respond-to(tablet) {
+      margin-bottom: 50px;
+    }
+
+    @include respond-to(desktop) {
+      margin-bottom: 26px;
+    }
+
+    &-span {
+      font-weight: $fw-regular;
+      color: $c-cyan;
+    }
+  }
+
+  &__details {
+    display: none; // Hidden on mobile
+
+    @include respond-to(tablet) {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+  }
+
+  &__link {
+    font-size: $fs-text-3;
+    color: $c-gray-text;
+    text-decoration: none;
+    transition: color $transition-speed ease;
+
+    @include respond-to(tablet) {
+      font-size: $fs-text-1;
+    }
+
+    &:hover {
+      color: $c-cyan;
+    }
+  }
+
+  // Form
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+
+    @include respond-to(tablet) {
+      flex: 0 1 50%;
+    }
+
+    @include respond-to(desktop-xl) {
+      gap: 21px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding-bottom: 19px;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    font-size: $fs-text-2;
+    line-height: 1.5;
+    color: $c-white;
+
+    background: transparent;
+    outline: none;
+
+    @include respond-to(desktop-xl) {
+      padding-bottom: 17px;
+    }
+
+    &::placeholder {
+      font-size: $fs-text-3;
+      color: rgba(255, 255, 255, 0.5);
+    }
+
+    &:focus {
+      border-bottom-color: $c-cyan;
+    }
+
+    &--textarea {
+      resize: vertical;
+      padding-bottom: 0;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+
+    @include respond-to(desktop) {
+      margin-top: 57px;
+    }
+
+    @include respond-to(desktop-xl) {
+      margin-top: 26px;
+    }
+  }
+
+  // Contact button
+  &__btn {
+    @extend %btn-primary; // Inherits all styles and responsive behavior
+
+    @include respond-to(tablet) {
+      display: inline-flex;
+      max-width: 200px;
+    }
+  }
+
+  &__scroll-top {
+    display: none; // Hidden on mobile
+
+    @include respond-to(tablet) {
+      display: flex;
+    }
+  }
+
+  // Responsive text duplication for different layouts
+  &__reply-note {
+    font-size: 12px;
+    color: $c-gray-light-text;
+
+    &--mobile {
+      display: block;
+      text-align: center;
+
+      @include respond-to(tablet) {
+        display: none;
+      }
+    }
+
+    &--desktop {
+      display: none;
+      font-size: 16px;
+
+      @include respond-to(tablet) {
+        display: block;
+        margin-bottom: 76px;
+      }
+    }
+  }
+}

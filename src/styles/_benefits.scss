@@ -1,0 +1,161 @@
+@use 'utils' as *;
+@use 'components' as *;
+@use 'sass:color';
+
+// BENEFITS SECTION
+.benefits {
+  padding-block: 50px;
+
+  @include respond-to(tablet) {
+    padding-block: 70px;
+  }
+
+  @include respond-to(desktop) {
+    padding-block: 100px;
+  }
+
+  @include respond-to(desktop-xl) {
+    padding-block: 160px;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__title {
+    margin-bottom: 32px;
+    font-weight: 900;
+    line-height: $lh-tight;
+    text-transform: uppercase;
+
+    @include respond-to(desktop) {
+      margin-bottom: 85px;
+      text-align: center;
+    }
+  }
+
+  &__title-span {
+    font-weight: $fw-regular;
+    color: $c-cyan;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    @include respond-to(tablet) {
+      flex-direction: row;
+      gap: 20px;
+      justify-content: space-between;
+    }
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; // Mobile: left alignment
+
+    @include respond-to(tablet) {
+      flex: 1 1 0;
+      align-items: center; // Tablet+: center alignment
+      text-align: center;
+    }
+  }
+
+  &__icon-wrapper {
+    display: none; // Hidden on mobile
+
+    @include respond-to(tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      height: 80px;
+      margin-bottom: 25px;
+    }
+
+    @include respond-to(desktop) {
+      margin-bottom: 31px;
+    }
+
+    @include respond-to(desktop-xl) {
+      margin-bottom: 36px;
+    }
+  }
+
+  &__icon {
+    max-width: 100%;
+    height: auto;
+  }
+
+  &__item-title {
+    margin-bottom: 14px;
+
+    font-size: $fs-text-2;
+    font-weight: 700;
+    line-height: 1.2;
+    color: $c-white;
+    text-transform: uppercase;
+
+    &--small {
+      font-size: $fs-text-1;
+    }
+
+    @include respond-to(tablet) {
+      margin-bottom: 35px;
+    }
+
+    @include respond-to(desktop) {
+      margin-bottom: 16px;
+      font-size: 18px;
+    }
+
+    @include respond-to(desktop-xl) {
+      margin-bottom: 18px;
+    }
+  }
+
+  &__item-text {
+    overflow: hidden;
+
+    // Mobile: clamp to 3 lines
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    margin: 0;
+
+    color: $c-gray-text;
+
+    @include respond-to(desktop) {
+      overflow: visible;
+
+      // Desktop: reset to standard block layout, show full text
+      display: block;
+      -webkit-box-orient: unset;
+      -webkit-line-clamp: unset;
+
+      max-width: 330px;
+    }
+  }
+
+  // Purchase CTA button
+  &__btn {
+    @extend %btn-primary; // Inherits all styles and responsive behavior
+
+    display: none; // Hidden on mobile by default
+
+    @include respond-to(desktop) {
+      display: inline-flex; // Visible on desktop 1280px+
+      margin-top: 90px;
+      margin-inline: auto; // Centers the button via flexbox
+    }
+
+    @include respond-to(desktop-xl) {
+      display: none; // Hidden on 1440px+
+    }
+  }
+}

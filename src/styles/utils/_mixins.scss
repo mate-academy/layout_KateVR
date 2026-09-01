@@ -1,6 +1,54 @@
-@mixin hover($_property, $_toValue) {
-  transition: #{$_property} 0.3s;
-  &:hover {
-    #{$_property}: $_toValue;
+@use 'vars' as *;
+@use 'sass:color';
+
+// ==========================================================================
+// RESPONSIVE BREAKPOINTS (Mobile-First)
+// ==========================================================================
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (min-width: $bp-tablet) {
+      @content;
+    }
+    // stylelint-disable-next-line at-rule-empty-line-before
+  } @else if $breakpoint == desktop {
+    @media (min-width: $bp-desktop) {
+      @content;
+    }
+
+    @media (min-width: $bp-desktop-xl) {
+      @content;
+    }
+  }
+}
+
+// ==========================================================================
+// INTERACTION & ANIMATION HELPERS
+// ==========================================================================
+
+// Adds a subtle lift effect on hover (safely ignores touch devices)
+@mixin card-lift($amount: 5px, $duration: 0.3s) {
+  transition: transform $duration ease-in-out;
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-$amount);
+    }
+  }
+}
+
+// Generic hover mixin with active state fallback and hover media query check
+@mixin hover($property, $value, $duration: 0.3s) {
+  // Animates only the specific property to avoid unnecessary repaints
+  transition: $property $duration ease-in-out;
+
+  &:active {
+    #{$property}: #{$value};
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      #{$property}: #{$value};
+    }
   }
 }

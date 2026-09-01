@@ -1,4 +1,80 @@
-%h1 {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
+@use 'vars' as *;
+@use 'mixins' as *;
+
+// ==========================================================================
+// TYPOGRAPHY PLACEHOLDERS (Mobile-First)
+// ==========================================================================
+
+%font-headline-1 {
+  font-family: $font-main;
+  font-size: $fs-h1-mob;
+  font-weight: $fw-heavy;
+  line-height: $lh-tight;
+  color: $c-white;
+
+  // Override weight for specific inline spans (e.g., secondary text in heading)
+  span {
+    font-weight: $fw-regular;
+  }
+
+  @include respond-to(desktop) {
+    font-size: $fs-h1-desktop;
+  }
+
+  @include respond-to(desktop-xl) {
+    font-size: $fs-h1-xl;
+  }
+}
+
+%font-headline-2 {
+  font-family: $font-main;
+  font-size: $fs-h2-mob;
+  font-weight: $fw-heavy;
+  line-height: $lh-auto;
+  color: $c-white;
+  text-transform: uppercase;
+
+  @include respond-to(desktop) {
+    font-size: $fs-h2;
+  }
+}
+
+%font-headline-3 {
+  font-family: $font-main;
+  font-size: $fs-h3;
+  font-weight: $fw-heavy;
+  line-height: $lh-auto;
+  color: $c-white;
+}
+
+%font-text-main {
+  font-family: $font-main;
+  font-size: $fs-text-1;
+  font-weight: $fw-regular;
+  line-height: $lh-body;
+  color: $c-gray-text;
+}
+
+%font-text-secondary {
+  font-family: $font-main;
+  font-size: $fs-text-4;
+  font-weight: $fw-regular;
+  line-height: $lh-body;
+  color: $c-cyan-dark;
+
+  @include respond-to(desktop) {
+    font-size: $fs-text-3;
+  }
+}
+
+%font-btn-link {
+  font-family: $font-main;
+  font-size: $fs-text-3;
+  font-weight: $fw-medium;
+  line-height: $lh-tight;
+  letter-spacing: $ls-normal;
+
+  @include respond-to(tablet) {
+    font-size: $fs-btn;
+  }
 }

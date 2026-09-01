@@ -1,0 +1,107 @@
+@use 'utils' as *;
+@use 'components' as *;
+
+// FOOTER SECTION
+.footer {
+  padding-block: 45px 50px;
+  font-size: $fs-text-5;
+
+  @include respond-to(tablet) {
+    padding-block: 22.5px;
+  }
+
+  @include respond-to(desktop) {
+    padding-block: 40px;
+  }
+
+  &__container {
+    display: grid;
+    grid-template-areas:
+      'logo .'
+      'menu info'
+      'menu socials';
+    gap: 24px 20px;
+    align-items: start;
+    justify-content: space-between;
+
+    @include respond-to(tablet) {
+      display: flex;
+      row-gap: 0;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    display: inline-block;
+    grid-area: logo;
+    max-width: 69px;
+
+    &-img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__menu {
+    grid-area: menu;
+
+    &-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+
+      @include respond-to(tablet) {
+        flex-direction: row;
+        gap: 43px;
+      }
+    }
+
+    // Nested menu links
+    .menu__link {
+      font-size: $fs-text-5;
+      line-height: $lh-auto;
+
+      @include respond-to(tablet) {
+        font-size: $fs-text-3;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    grid-area: info;
+    flex-direction: column;
+    gap: 12px;
+
+    &-link {
+      font-size: $fs-text-5;
+      color: inherit;
+      text-decoration: none;
+      transition: opacity $transition-speed $transition-effect;
+
+      &:hover {
+        opacity: 0.7;
+      }
+
+      @include respond-to(tablet) {
+        font-size: $fs-text-3;
+      }
+    }
+
+    // Hidden on tablet+ (replaced by header/desktop contacts)
+    @include respond-to(tablet) {
+      display: none;
+    }
+  }
+
+  &__socials {
+    grid-area: socials;
+    align-self: end;
+
+    @include respond-to(tablet) {
+      align-self: center;
+    }
+  }
+}

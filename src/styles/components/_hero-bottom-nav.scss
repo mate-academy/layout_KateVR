@@ -1,0 +1,106 @@
+@use '../utils' as *;
+@use 'sass:color';
+
+// ==========================================================================
+// HERO SECTION: BOTTOM NAVIGATION BAR
+// ==========================================================================
+
+.hero {
+  &__bottom-nav {
+    display: none; // Hidden on mobile and tablet devices
+
+    @include respond-to(desktop) {
+      position: relative;
+      bottom: 84px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      width: 100%;
+    }
+
+    @include respond-to(desktop-xl) {
+      bottom: 139px;
+    }
+  }
+
+  &__bottom-links {
+    display: flex;
+    gap: 36px;
+  }
+
+  &__bottom-link {
+    font-size: 14px;
+    color: $c-white;
+    text-decoration: none;
+
+    // Reusable hover mixin for consistent transitions
+    @include hover(color, $c-cyan, $transition-speed);
+  }
+
+  &__more-arrow {
+    position: relative;
+    display: inline-block;
+    font-size: 10px; // Adjusts size of the text symbol "▼"
+    transition: transform $transition-speed ease;
+
+    // Invisible pseudo-element to expand the clickable area (a11y standard)
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: 10;
+      inset: -15px -15px -10px;
+    }
+  }
+
+  &__more-btn {
+    cursor: pointer;
+
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: center;
+
+    padding: 15px;
+    border: none;
+
+    font-size: 14px;
+    color: $c-cyan;
+
+    background: transparent;
+
+    transition: color $transition-speed;
+
+    &:hover {
+      color: $c-white;
+    }
+
+    // Shifts arrow down on hover
+    &:hover .hero__more-arrow {
+      transform: translateY(4px);
+    }
+  }
+
+  &__controls {
+    display: flex;
+    gap: 30px;
+  }
+
+  &__control-btn {
+    cursor: pointer;
+
+    padding: 0;
+    border: none;
+
+    font-size: 14px;
+    color: rgba($c-white, 0.5);
+
+    background: transparent;
+
+    // Reusable hover mixin for consistent transitions
+    @include hover(color, $c-white, $transition-speed);
+  }
+}
