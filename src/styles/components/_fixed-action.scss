@@ -1,0 +1,44 @@
+@use '../utils' as *;
+@use 'sass:color';
+
+// ==========================================================================
+// FIXED ACTION BAR (Mobile & Tablet Only)
+// ==========================================================================
+
+.fixed-action {
+  position: fixed;
+  z-index: 100; // Ensures the bar overlays scrolling content
+  right: 0;
+  bottom: 0;
+  left: 0;
+
+  padding-bottom: 20px; // Bottom spacing matching the design spec
+
+  &__container {
+    @include respond-to(tablet) {
+      text-align: center;
+    }
+  }
+
+  // Hidden on desktop (primary CTA is located elsewhere in the layout)
+  @include respond-to(desktop) {
+    display: none;
+  }
+}
+
+// ==========================================================================
+// LAYOUT COMPENSATION
+// Purpose: Prevents bottom page content from being hidden behind the fixed action bar.
+// ==========================================================================
+
+body {
+  padding-bottom: 40px;
+
+  @include respond-to(tablet) {
+    padding-bottom: 68px;
+  }
+
+  @include respond-to(desktop) {
+    padding-bottom: 0;
+  }
+}

@@ -1,0 +1,100 @@
+@use 'utils' as *;
+
+// HELP CENTER COMPONENT
+
+.help {
+  display: flex;
+  flex-direction: column;
+
+  &__desc {
+    margin-bottom: 30px;
+
+    @include respond-to(tablet) {
+      margin-bottom: 36px;
+    }
+
+    p {
+      margin-bottom: 20px;
+      color: $c-gray-light-text;
+
+      @include respond-to(tablet) {
+        margin-bottom: 36px;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__link-inline {
+    color: $c-cyan-dark;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include respond-to(tablet) {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 32px;
+      padding-top: 12px;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      margin: 0;
+      padding: 0;
+
+      list-style: none;
+    }
+
+    &-links,
+    &-contacts {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  // Primary info links
+  &__info-link {
+    line-height: $lh-body;
+    color: $c-cyan-dark;
+    transition: opacity 0.2s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        text-decoration: underline;
+        opacity: 0.8;
+      }
+    }
+  }
+
+  // Contact details
+  &__info-contact {
+    line-height: $lh-auto;
+    color: $c-gray-light-text;
+    transition: color 0.2s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        color: $c-cyan-dark;
+      }
+    }
+  }
+}

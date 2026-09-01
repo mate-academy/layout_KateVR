@@ -1,0 +1,41 @@
+@use '../utils' as *;
+@use 'sass:color';
+
+// SCROLL TO TOP BUTTON
+.scroll-top {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+  border: 1px solid $c-cyan;
+  border-radius: 50%;
+
+  color: $c-cyan; // Applies to SVG stroke="currentColor"
+
+  background-color: transparent;
+
+  transition:
+    background-color $transition-speed $transition-effect,
+    border-color $transition-speed $transition-effect,
+    color $transition-speed $transition-effect,
+    transform 0.1s ease;
+
+  &:active {
+    transform: scale(0.95); // Tactile press feedback
+  }
+
+  &__icon {
+    display: block;
+    width: 16px;
+    height: 10px;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      color: $c-white;
+      background-color: $c-cyan;
+    }
+  }
+}

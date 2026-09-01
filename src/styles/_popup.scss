@@ -1,0 +1,90 @@
+@use 'utils' as *;
+
+// POPUP MODAL BASE
+.popup {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  visibility: hidden;
+
+  // Hidden state
+  opacity: 0;
+  background-color: $c-backdrop;
+  backdrop-filter: blur(5px);
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  // Visible state
+  &.is-open {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__dialog {
+    position: relative;
+
+    width: 100%;
+    max-width: 880px;
+    border-radius: 4px;
+
+    background-color: $c-backdrop-popup;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    @include respond-to(desktop-xl) {
+      max-width: 1083px;
+    }
+  }
+
+  &__title {
+    max-width: 550px;
+    margin-bottom: 50px;
+    color: $c-white;
+
+    @include respond-to(desktop-xl) {
+      max-width: 640px;
+    }
+  }
+
+  &__accent {
+    font-weight: $fw-regular;
+    color: $c-cyan-dark;
+  }
+
+  &__close {
+    cursor: pointer; // Explicit cursor for accessibility
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    color: $c-white;
+
+    opacity: 0.7;
+
+    transition: opacity 0.3s ease;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  // Help popup specific padding overrides
+  &--help {
+    .popup__dialog {
+      padding: 24px 20px;
+
+      @include respond-to(tablet) {
+        padding: 60px 90px 80px;
+      }
+    }
+  }
+}

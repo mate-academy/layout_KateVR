@@ -1,0 +1,76 @@
+@use '../utils' as *;
+@use 'sass:color';
+
+// ==========================================================================
+// SLIDER CONTROLS
+// ==========================================================================
+
+.slider-controls {
+  position: relative;
+  display: flex;
+  gap: 103px;
+
+  // Bottom divider line
+  &::before {
+    content: '';
+
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 1px;
+
+    background: rgba($c-white, 0.2);
+  }
+}
+
+.control-btn {
+  cursor: pointer;
+
+  position: relative;
+
+  padding: 0;
+  border: none;
+
+  font-size: 14px;
+  color: rgba($c-white, 0.5);
+
+  background: transparent;
+
+  transition: color $transition-speed;
+
+  // Underline indicator
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+
+    width: 100%;
+    height: 1px;
+
+    background: transparent;
+
+    transition: background $transition-speed;
+  }
+
+  // Active state
+  &--active {
+    color: $c-white;
+
+    &::after {
+      background: $c-cyan;
+    }
+  }
+
+  // Hover state
+  &:hover {
+    color: $c-white;
+
+    &::after {
+      background: $c-cyan;
+    }
+  }
+}

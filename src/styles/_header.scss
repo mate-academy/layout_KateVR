@@ -1,0 +1,100 @@
+@use 'utils' as *;
+@use 'components' as *;
+
+// HEADER SECTION
+.header {
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  right: 0;
+  left: 0;
+
+  padding-top: 20px; // Base mobile top padding
+
+  background: linear-gradient(
+    180deg,
+    $c-purple-dark 0%,
+    rgba($c-purple-dark, 0.83) 70.31%,
+    rgba($c-purple-dark, 0) 100%
+  );
+
+  transition: padding $transition-speed $transition-effect;
+
+  @include respond-to(tablet) {
+    padding-top: 30px; // Tablet top padding
+  }
+
+  @include respond-to(desktop) {
+    padding-top: 47px; // Desktop top padding
+  }
+
+  @include respond-to(desktop-xl) {
+    // padding-top: 61px; // Uncomment if strict 61px is required for 1440px+
+  }
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; // Pushes logo and burger to opposite edges
+  }
+
+  &__logo {
+    display: inline-block;
+    flex-shrink: 0; // Prevents logo from shrinking
+
+    width: 58px;
+    height: 12px;
+    margin-right: 34px; // Spacing to language switcher
+
+    @include respond-to(tablet) {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include respond-to(desktop) {
+      width: 78px;
+      height: 16px;
+    }
+  }
+
+  &__lang {
+    display: none; // Hidden on mobile
+
+    @include respond-to(desktop) {
+      display: block;
+      margin-right: auto; // Pushes subsequent elements to the right
+    }
+  }
+
+  // Desktop navigation (hidden on mobile)
+  &__nav {
+    display: none;
+    margin-right: 36px; // Spacing to "Buy Now" button
+
+    .menu__list {
+      gap: 36px;
+    }
+
+    @include respond-to(desktop) {
+      display: block;
+    }
+  }
+
+  // Purchase CTA (hidden on mobile)
+  &__btn {
+    @extend %btn-primary; // Inherits all styles and responsive behavior
+
+    display: none;
+
+    @include respond-to(desktop) {
+      display: inline-flex; // Visible on desktop 1280px+
+    }
+  }
+
+  // Mobile burger trigger
+  &__burger {
+    @extend %burger; // Inherits base burger styles
+
+    margin-left: auto; // Pushes burger to the far right
+  }
+}

@@ -1,0 +1,200 @@
+@use 'utils' as *;
+
+// ==========================================================================
+// FAQ ACCORDION COMPONENT
+// ==========================================================================
+
+// FAQ Modal Specifics
+.popup--faq {
+  .popup__dialog {
+    overflow-y: auto;
+
+    width: 100%;
+    max-height: 85vh;
+    padding: 60px 90px 50px;
+    border-radius: 4px;
+  }
+
+  .popup__header {
+    margin-bottom: 50px;
+
+    @include respond-to(desktop-xl) {
+      margin-bottom: 37px;
+    }
+  }
+
+  .popup__accent {
+    display: block;
+    color: $c-cyan-dark;
+  }
+
+  .popup__close {
+    cursor: pointer;
+
+    padding: 4px;
+    border: none;
+
+    color: $c-white;
+
+    opacity: 0.7;
+    background: transparent;
+
+    @include hover(opacity, 1, 0.2s);
+  }
+}
+
+// FAQ List
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  // Hides items from the 3rd onwards by default on tablet+
+  @include respond-to(tablet) {
+    &:not(.is-expanded) {
+      .faq-item:nth-child(n + 3) {
+        display: none;
+      }
+    }
+  }
+}
+
+// FAQ Item Card
+.faq-item {
+  padding: 18px 27px 21px;
+  border: 1px solid rgba($c-cyan-dark, 0.25);
+  border-radius: 4px;
+
+  color: rgba($c-cyan-dark, 0.7);
+
+  background-color: rgba($c-white, 0.02);
+
+  transition:
+    border-color $transition-speed ease,
+    background-color $transition-speed ease,
+    transform $transition-speed ease;
+
+  // Trigger button
+  &__trigger {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    padding: 0;
+    border: none;
+
+    text-align: left;
+
+    background: transparent;
+
+    transition: color 0.2s ease;
+
+    // Arrow visible only in popup/desktop context
+    .popup &::after {
+      content: '';
+
+      display: inline-block;
+      flex-shrink: 0;
+
+      width: 0;
+      height: 0;
+      margin-left: 12px;
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      border-left: 5px solid $c-cyan-dark;
+
+      transition: transform $transition-speed ease;
+    }
+  }
+
+  // Open state
+  &.is-open {
+    border-color: rgba($c-cyan-dark, 0.5);
+
+    .faq-item__trigger::after {
+      transform: rotate(90deg);
+    }
+  }
+
+  // Collapsible content
+  &__body {
+    overflow: hidden;
+    height: 0;
+    opacity: 0;
+    transition:
+      height $transition-speed ease,
+      opacity $transition-speed ease,
+      margin-top $transition-speed ease;
+
+    p {
+      margin-bottom: 20px;
+      color: $c-gray-light-text;
+    }
+  }
+
+  &__date {
+    display: block;
+    font-size: 14px;
+    color: $c-text-dim;
+  }
+
+  @media (hover: hover) {
+    &:hover {
+      transform: translateY(-2px);
+      border-color: rgba($c-cyan-dark, 0.5);
+      color: rgba($c-cyan-dark, 1);
+    }
+  }
+}
+
+// "More" toggle button
+.faq-more-btn {
+  display: none;
+
+  &__arrow {
+    font-size: 10px;
+    transition: transform $transition-speed ease;
+  }
+
+  @include respond-to(tablet) {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    align-self: flex-start;
+
+    margin-top: 50px;
+    margin-inline: auto;
+
+    font-weight: $fw-medium;
+    color: rgba($c-cyan-dark, 0.7);
+
+    transition: color 0.2s ease;
+
+    @media (hover: hover) {
+      &:hover {
+        color: rgba($c-cyan-dark, 1);
+
+        .faq-more-btn__arrow {
+          transform: translateY(6px);
+        }
+      }
+    }
+  }
+
+  // Expanded state ("Less")
+  &.is-active {
+    .faq-more-btn__arrow {
+      transform: rotate(180deg);
+    }
+
+    @media (hover: hover) {
+      &:hover .faq-more-btn__arrow {
+        transform: rotate(180deg) translateY(-6px);
+      }
+    }
+  }
+}

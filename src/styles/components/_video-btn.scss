@@ -1,0 +1,37 @@
+@use '../utils' as *;
+@use 'sass:color';
+
+// VIDEO PLAY BUTTON
+.video-btn {
+  cursor: pointer;
+
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0;
+  border: none;
+
+  background: transparent;
+
+  &-text {
+    position: absolute;
+    right: 65px;
+
+    font-size: 16px;
+    font-weight: 500;
+    color: $c-white;
+    white-space: nowrap;
+  }
+
+  .video-play-icon {
+    transition: fill $transition-speed $transition-effect;
+  }
+
+  // Changes icon color on button hover
+  &:hover .video-play-icon {
+    fill: $c-white;
+  }
+}

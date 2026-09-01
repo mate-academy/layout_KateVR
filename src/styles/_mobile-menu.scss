@@ -1,0 +1,300 @@
+@use 'utils' as *;
+
+// MOBILE MENU COMPONENT
+.mobile-menu {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  transform: translateX(100%);
+
+  overflow: hidden; // Clips overflowing screens
+
+  width: 100%;
+  height: 100dvh; // Ensures full viewport height for proper backdrop
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition:
+    transform 0.4s $ease-standard,
+    opacity 0.4s ease,
+    visibility 0s 0.4s;
+
+  @include respond-to(tablet) {
+    background-color: $c-backdrop;
+  }
+
+  &__accent {
+    font-weight: $fw-regular;
+    color: $c-cyan;
+  }
+
+  &.is-open,
+  &--open {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+    transition:
+      transform 0.4s $ease-standard,
+      opacity 0.4s ease,
+      visibility 0s 0s;
+  }
+
+  // Screen containers
+  &__screen {
+    pointer-events: none;
+
+    position: absolute;
+    inset: 0;
+
+    overflow-y: auto; // Enables scrolling for long content (FAQ, lists)
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 13px; // Safe bottom padding during scroll
+
+    visibility: hidden;
+    opacity: 0;
+    background-color: $c-purple-dark;
+
+    transition:
+      transform 0.4s $ease-standard,
+      opacity 0.3s ease,
+      visibility 0s 0.4s;
+
+    @include respond-to(tablet) {
+      bottom: auto;
+
+      overflow-y: auto;
+
+      height: auto;
+      max-height: 90vh;
+      padding-top: 34px;
+    }
+
+    &.is-active {
+      pointer-events: all;
+      visibility: visible;
+      opacity: 1;
+      transition:
+        transform 0.4s $ease-standard,
+        opacity 0.3s ease,
+        visibility 0s 0s;
+    }
+
+    // Main menu: slides out to the left when inactive
+    &--main {
+      transform: translateX(0);
+
+      &:not(.is-active) {
+        transform: translateX(-100%);
+      }
+    }
+
+    // Slide screen (Language): slides in from the right
+    &--slide {
+      transform: translateX(100%);
+
+      &.is-active {
+        transform: translateX(0);
+      }
+    }
+
+    // Overlay screens (FAQ, Help): slide up from the bottom
+    &--overlay {
+      transform: translateY(100%);
+
+      &.is-active {
+        transform: translateY(0);
+      }
+
+      @include respond-to(tablet) {
+        bottom: 0;
+        height: 100dvh;
+        max-height: none;
+      }
+    }
+  }
+
+  // Screen header
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  // Close button (✕)
+  &__close {
+    cursor: pointer;
+
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    width: 14px;
+    height: 14px;
+
+    color: $c-white;
+
+    opacity: 0.7;
+
+    transition:
+      transform 0.15s ease,
+      opacity 0.3s ease;
+
+    @include respond-to(tablet) {
+      top: 34px;
+      right: 34px;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -14px; // Expands click target to 44x44px (a11y standard)
+    }
+
+    svg {
+      pointer-events: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:active {
+      transform: scale(0.9);
+      opacity: 0.8;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Back button (<)
+  &__back {
+    cursor: pointer;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 16px;
+    height: 16px;
+    margin-right: auto;
+    padding: 0;
+    border: none;
+
+    color: $c-white;
+
+    opacity: 0.7;
+    background: transparent;
+
+    transition:
+      opacity 0.3s ease,
+      transform 0.15s ease;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: -14px; // Expands click target to 44x44px (a11y standard)
+    }
+
+    svg {
+      pointer-events: none;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    &:active {
+      transform: scale(0.9);
+      opacity: 0.8;
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  // Navigation & Content areas
+  &__nav,
+  &__content {
+    width: 100%;
+    margin-top: 31px;
+
+    @include respond-to(tablet) {
+      margin-top: 50px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__item {
+    width: 100%;
+  }
+
+  &__link,
+  &__trigger {
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    min-height: 46px; // Comfortable touch target height
+    padding-inline: 20px;
+    border: none;
+
+    font-size: 18px;
+    color: $c-white;
+
+    background-color: transparent;
+
+    transition: color 0.2s ease;
+
+    @include respond-to(tablet) {
+      padding-left: 155px;
+    }
+
+    &--active {
+      color: $c-cyan;
+      background-color: $c-active-link;
+    }
+
+    @media (hover: hover) {
+      &:hover:not(&--active) {
+        color: rgba($c-cyan, 0.7);
+      }
+    }
+  }
+
+  &__title {
+    margin-bottom: 30px;
+  }
+
+  // Specific override for Help screen dimensions
+  &__screen[data-screen='help'] {
+    padding-top: 68px;
+    padding-bottom: 73px;
+
+    @include respond-to(tablet) {
+      bottom: auto;
+      height: 596px; // Matches Figma spec for iPad (767x596)
+      padding-top: 102px;
+      padding-bottom: 124px;
+    }
+  }
+}

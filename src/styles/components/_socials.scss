@@ -1,0 +1,60 @@
+@use '../utils' as *;
+
+// SOCIAL LINKS
+.socials {
+  display: flex;
+  gap: 22.7px;
+  align-items: center;
+
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  @include respond-to(tablet) {
+    gap: 17.6px;
+  }
+
+  @include respond-to(desktop) {
+    gap: 18px;
+  }
+
+  &__item {
+    display: inline-flex;
+  }
+
+  &__link {
+    will-change: transform; // Optimizes animation performance
+
+    transform-origin: center;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    color: $c-white;
+
+    transition:
+      color $transition-speed $transition-effect,
+      transform $transition-speed $transition-effect;
+
+    &:active {
+      transform: scale(0.95); // Tactile press feedback
+    }
+
+    @media (hover: hover) {
+      &:hover {
+        transform: scale(1.15);
+        color: $c-cyan;
+      }
+    }
+  }
+
+  &__icon {
+    display: block;
+
+    path {
+      fill: currentColor; // Inherits color from parent link
+    }
+  }
+}

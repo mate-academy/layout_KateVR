@@ -1,0 +1,345 @@
+@use 'utils' as *;
+@use 'sass:color';
+
+// TECH SPECS SECTION
+.tech-specs {
+  position: relative;
+  padding: 50px 0;
+
+  @include respond-to(tablet) {
+    padding: 80px 0;
+  }
+
+  @include respond-to(desktop) {
+    padding: 100px 0 101px;
+  }
+
+  @include respond-to(desktop-xl) {
+    padding: 160px 0;
+  }
+
+  &__container {
+    position: relative;
+
+    @include respond-to(desktop) {
+      display: grid;
+
+      // Grid layout: left column, center (wheel), right column
+      grid-template-columns: 300px 1fr 350px;
+      column-gap: 50px;
+      align-items: center;
+
+      max-width: 1055px;
+      margin-inline: auto;
+      padding-inline: 0;
+    }
+
+    @include respond-to(desktop-xl) {
+      max-width: 1175px;
+      margin-inline: auto;
+    }
+  }
+
+  &__title {
+    margin-bottom: 80px;
+
+    @include respond-to(tablet) {
+      margin-bottom: 57px;
+    }
+
+    @include respond-to(desktop) {
+      // Positions title strictly above the BATTERIES column
+      grid-column: 3;
+      grid-row: 1;
+
+      margin-bottom: 80px;
+      margin-left: 0;
+
+      text-align: left;
+    }
+
+    &-span {
+      font-weight: $fw-regular;
+      color: $c-cyan-dark;
+    }
+  }
+
+  &__image-wrapper {
+    position: relative;
+    max-width: 197px;
+    margin-inline: auto;
+
+    @include respond-to(tablet) {
+      max-width: 357.95px;
+    }
+
+    @include respond-to(desktop) {
+      grid-column: 2;
+      grid-row: 2;
+
+      max-width: 297.48px;
+      padding-top: 60px;
+      padding-bottom: 2px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  // SVG overlay lines (desktop only)
+  &__lines {
+    display: none;
+
+    @include respond-to(desktop) {
+      pointer-events: none;
+
+      position: absolute;
+      z-index: 2;
+      inset: 0;
+
+      display: block;
+
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  // SVG path coordinate overrides for larger screens
+  &__line {
+    &--sensor {
+      @include respond-to(desktop-xl) {
+        d: path('M 50 138 H 500 V 200');
+      }
+    }
+
+    &--connection {
+      @include respond-to(desktop-xl) {
+        d: path('M 180 355 H 255 V 260 H 350');
+      }
+    }
+
+    &--batteries {
+      @include respond-to(desktop-xl) {
+        d: path('M 725 140 V 375 H 510');
+      }
+    }
+  }
+
+  &__point {
+    &--sensor-start {
+      @include respond-to(desktop-xl) {
+        cx: 50;
+        cy: 138;
+      }
+    }
+
+    &--connection-start {
+      @include respond-to(desktop-xl) {
+        cx: 180;
+        cy: 355;
+      }
+    }
+
+    &--connection-end {
+      @include respond-to(desktop-xl) {
+        cx: 350;
+        cy: 260;
+      }
+    }
+
+    &--batteries-start {
+      @include respond-to(desktop-xl) {
+        cx: 725;
+        cy: 140;
+      }
+    }
+  }
+
+  &__arc {
+    // Precise Figma coordinates for 1280px
+    transform: translate(344px, 226px);
+    fill: none;
+    stroke: #05c2df;
+    stroke-width: 1px;
+  }
+
+  // Mobile/Tablet interactive hotspots
+  &__hotspots {
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+
+    @include respond-to(desktop) {
+      display: none;
+    }
+  }
+
+  &__hotspot {
+    pointer-events: auto;
+
+    position: absolute;
+    transform: translate(-50%, -50%);
+
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+
+    background-color: $c-cyan;
+
+    &::before,
+    &::after {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      background-color: $c-white;
+    }
+
+    &::before {
+      width: 12px;
+      height: 1px;
+
+      @include respond-to(tablet) {
+        width: 21.77px;
+      }
+    }
+
+    &::after {
+      width: 1px;
+      height: 12px;
+
+      @include respond-to(tablet) {
+        height: 21.77px;
+      }
+    }
+
+    &--sensor {
+      top: 3%;
+      left: 39%;
+
+      @include respond-to(tablet) {
+        top: 2%;
+        left: 24%;
+      }
+    }
+
+    &--battery {
+      top: 50%;
+      left: 77%;
+    }
+
+    &--connection {
+      top: 82%;
+      left: -2%;
+    }
+
+    // Hides vertical line when expanded
+    &[aria-expanded='true']::after {
+      transform: translate(-50%, -50%) rotate(90deg) scaleY(0);
+    }
+
+    @include respond-to(tablet) {
+      width: 61.68px;
+      height: 61.68px;
+    }
+  }
+
+  &__popup {
+    position: absolute;
+    top: 25px;
+    left: -40px;
+    transform: translateY(10px);
+
+    width: 168px;
+    padding: 16px 10px;
+    border-radius: 4px;
+
+    font-size: $fs-text-4;
+    line-height: $lh-body;
+    color: $c-gray-light-text;
+
+    visibility: hidden;
+    opacity: 0;
+    background-color: $c-purple-dark;
+
+    transition:
+      opacity 0.3s ease,
+      visibility 0.3s ease,
+      transform 0.3s ease;
+
+    @include respond-to(tablet) {
+      top: 45px;
+      left: 25px;
+    }
+
+    &.is-open {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  // Info blocks (uses display: contents to participate in parent grid)
+  &__info-blocks {
+    display: none;
+
+    @include respond-to(desktop) {
+      display: contents;
+    }
+  }
+
+  &__info-block {
+    display: none;
+
+    @include respond-to(desktop) {
+      position: relative;
+      z-index: 3;
+
+      display: flex;
+      flex-direction: column;
+
+      text-align: left;
+    }
+
+    &--sensor {
+      grid-column: 1;
+      grid-row: 2;
+      align-self: start;
+    }
+
+    &--battery {
+      grid-column: 3;
+      grid-row: 2;
+      align-self: start;
+    }
+
+    &--connection {
+      grid-column: 1;
+      grid-row: 2;
+      align-self: end;
+
+      margin-top: 40px;
+      padding-bottom: 20px;
+      padding-left: 80px;
+    }
+  }
+
+  &__info-title {
+    margin-bottom: 21px;
+    font-size: $fs-h3;
+    font-weight: 700;
+    color: $c-white;
+  }
+
+  &__info-text {
+    font-size: $fs-text-1;
+    line-height: $lh-body;
+    color: $c-gray-light-text;
+  }
+}

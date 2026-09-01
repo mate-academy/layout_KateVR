@@ -1,0 +1,98 @@
+@use '../utils' as *;
+@use 'sass:color';
+
+// ==========================================================================
+// LANGUAGE DROPDOWN
+// ==========================================================================
+
+.lang-dropdown {
+  position: relative; // Establishes positioning context for the dropdown list
+
+  &__btn {
+    cursor: pointer;
+
+    display: inline-flex;
+    gap: 6px;
+    align-items: center;
+
+    padding: 0;
+    border: none;
+
+    color: $c-cyan;
+
+    background: transparent;
+
+    transition: color $transition-speed;
+
+    svg path {
+      fill: $c-cyan;
+      transition: fill $transition-speed;
+    }
+
+    &:hover {
+      color: $c-white;
+
+      svg path {
+        fill: $c-white;
+      }
+    }
+  }
+
+  &__icon {
+    pointer-events: none;
+    flex-shrink: 0;
+    width: 9px;
+    height: 6px;
+  }
+
+  &__list {
+    // Positioning and dimensions
+    position: absolute;
+    z-index: 100;
+    top: calc(100% + 8px);
+    left: -10px;
+    transform: translateY(10px);
+
+    width: 45px;
+    height: 111px;
+    padding: 8px 12px;
+    border-radius: 4px;
+
+    visibility: hidden;
+
+    // Animation setup (opacity/visibility allows smooth transitions, unlike display: none)
+    opacity: 0;
+    background-color: $c-purple-dark;
+
+    transition:
+      opacity $transition-speed $transition-effect,
+      visibility $transition-speed $transition-effect,
+      transform $transition-speed $transition-effect;
+
+    // Open state (triggered when JS adds .is-open to the parent element)
+    .lang-dropdown.is-open & {
+      transform: translateY(0);
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+
+  &__item {
+    &:not(:last-child) {
+      margin-bottom: 12px; // Spacing between list items
+    }
+  }
+
+  &__link {
+    @extend %font-btn-link;
+
+    color: $c-gray-text;
+
+    // Reusable hover mixin for consistent transitions
+    @include hover(color, $c-white, $transition-speed);
+
+    &.is-active {
+      color: $c-cyan;
+    }
+  }
+}

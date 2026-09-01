@@ -1,0 +1,25 @@
+@use '../utils' as *;
+
+// GLOBAL CONTAINER
+// Centers content and manages responsive horizontal padding.
+
+.container {
+  width: 100%;
+  max-width: 1920px;
+  margin-inline: auto;
+  padding-inline: $container-padding-mobile;
+
+  @include respond-to(tablet) {
+    padding-inline: $container-padding-tablet;
+  }
+
+  @include respond-to(desktop) {
+    // Fluid padding: scales smoothly between 110px and 234px based on viewport width
+    padding-inline: clamp(110px, calc(-138px + 19.38vw), 234px);
+  }
+
+  @include respond-to(desktop-xl) {
+    // Note: Reserved for future adjustments if strict 1440px content locking is required.
+    // padding-inline: 234px;
+  }
+}

@@ -1,0 +1,165 @@
+@use 'utils' as *;
+@use 'sass:color';
+
+// HERO SECTION
+.hero {
+  position: relative;
+  overflow: hidden;
+
+  @include respond-to(desktop-xl) {
+    max-height: 1103px;
+  }
+
+  &__container {
+    position: relative; // Establishes positioning context for absolute children
+
+    overflow: hidden;
+    display: flex;
+    flex-direction: column-reverse;
+
+    padding-bottom: 45px;
+
+    @include respond-to(tablet) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding-bottom: 53px;
+    }
+
+    @include respond-to(desktop) {
+      display: block;
+      padding-top: 196px;
+      padding-bottom: 178px;
+      padding-inline: 110px;
+    }
+
+    @include respond-to(desktop-xl) {
+      min-height: 990px;
+      padding-top: 327px;
+      padding-bottom: 340px;
+      padding-inline: 254px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 2; // Ensures text stays above the image layer
+    width: 100%;
+    margin-left: 0; // Forces strict left alignment
+
+    @include respond-to(tablet) {
+      padding-top: 99px;
+      padding-inline: 0;
+    }
+
+    @include respond-to(desktop) {
+      padding-top: unset;
+      padding-inline: 0;
+    }
+
+    @include respond-to(desktop-xl) {
+      max-width: 560px;
+      padding-inline: 20px;
+    }
+  }
+
+  &__media {
+    display: flex;
+    justify-content: center;
+    margin-top: 44px;
+
+    @include respond-to(tablet) {
+      position: absolute; // Handles overlap better than flex
+      z-index: 1;
+      top: 6px;
+      right: 0;
+
+      width: 486px;
+      margin-top: 0;
+    }
+
+    @include respond-to(desktop) {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      width: 810px;
+    }
+
+    @include respond-to(desktop-xl) {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1150px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  &__title-span {
+    color: $c-cyan-dark;
+  }
+
+  &__title {
+    margin-bottom: 17px;
+
+    // Note: Consolidated duplicate desktop-xl queries, kept final 35px value
+    @include respond-to(desktop-xl) {
+      margin-bottom: 35px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 10px;
+
+    @include respond-to(tablet) {
+      max-width: 320px;
+    }
+
+    @include respond-to(desktop) {
+      max-width: 329px;
+      margin-bottom: 5px;
+      margin-left: 92px;
+    }
+
+    @include respond-to(desktop-xl) {
+      max-width: 79%;
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+  }
+
+  &__price {
+    width: fit-content;
+    margin-bottom: 25px;
+    margin-inline: auto;
+
+    font-size: $fs-text-2;
+    font-weight: 500;
+    color: $c-white;
+
+    @include respond-to(tablet) {
+      margin-bottom: 24px;
+      margin-inline: initial;
+    }
+
+    @include respond-to(desktop) {
+      margin-bottom: 19px;
+      margin-left: 92px;
+    }
+
+    @include respond-to(desktop-xl) {
+      margin-bottom: 35px;
+      font-size: 20px;
+    }
+  }
+
+  &__video {
+    @include respond-to(desktop) {
+      margin-left: 92px; // Aligns strictly to the container's left edge offset
+    }
+  }
+}

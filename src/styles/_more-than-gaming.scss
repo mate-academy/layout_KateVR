@@ -1,0 +1,149 @@
+@use 'utils' as *;
+
+// MORE THAN GAMING SECTION
+.more-than-gaming {
+  padding: 50px 0;
+
+  @include respond-to(tablet) {
+    padding: 70px 0;
+  }
+
+  @include respond-to(desktop) {
+    padding: 100px 0;
+  }
+
+  @include respond-to(desktop-xl) {
+    padding: 158px 0;
+  }
+
+  &__header {
+    margin-bottom: 37px;
+
+    @include respond-to(tablet) {
+      margin-bottom: 44px;
+      text-align: center;
+    }
+
+    @include respond-to(desktop) {
+      margin-bottom: 85px;
+    }
+
+    @include respond-to(desktop-xl) {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__title {
+    max-width: 460px;
+    margin-bottom: 12px;
+
+    @include respond-to(tablet) {
+      margin: 0 auto 12px;
+    }
+
+    @include respond-to(desktop) {
+      margin-bottom: 16px;
+    }
+
+    &-span {
+      font-weight: $fw-regular;
+      color: $c-cyan-dark;
+    }
+  }
+
+  &__subtitle {
+    max-width: 400px;
+    line-height: $lh-body;
+
+    @include respond-to(tablet) {
+      margin: 0 auto;
+    }
+
+    @include respond-to(desktop) {
+      max-width: 600px;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px 24px;
+
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 45px 20px;
+    }
+
+    @include respond-to(desktop) {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+
+    @include respond-to(tablet) {
+      align-items: center;
+      text-align: center;
+    }
+
+    @include respond-to(desktop) {
+      @include card-lift(5px);
+    }
+  }
+
+  &__icon-wrapper {
+    display: none;
+    justify-content: center;
+    margin-bottom: 28px;
+
+    @include respond-to(tablet) {
+      display: flex;
+      margin-bottom: 30px;
+    }
+
+    @include respond-to(desktop) {
+      margin-bottom: 30px;
+    }
+  }
+
+  &__icon {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  &__card-title {
+    margin-bottom: 12px;
+
+    @include respond-to(tablet) {
+      margin-bottom: 22px;
+    }
+
+    @include respond-to(desktop) {
+      margin-bottom: 22px;
+    }
+  }
+
+  &__card-text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    @include respond-to(tablet) {
+      display: block;
+      max-width: 327px;
+    }
+
+    @include respond-to(desktop) {
+      max-width: 238px;
+    }
+
+    @include respond-to(desktop-xl) {
+      max-width: 355px;
+    }
+  }
+}

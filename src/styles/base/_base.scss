@@ -1,0 +1,47 @@
+@use '../utils' as *;
+
+// GLOBAL RESETS & BASE STYLES
+html {
+  scroll-behavior: smooth;
+  scrollbar-gutter: stable;
+  scroll-padding-top: 80px;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  min-width: $bp-mobile;
+  background-color: $c-black;
+}
+
+// Locks page scroll when modal is open
+html.no-scroll {
+  overflow: hidden;
+  height: 100vh; // Prevents scroll height calculation issues
+  padding-right: var(--scrollbar-width); // Fallback for older browsers
+
+  body {
+    touch-action: none;
+    overflow: hidden;
+    height: 100%;
+
+    -webkit-overflow-scrolling: none; // Kept as-is to preserve working logic
+  }
+}
+
+// ACCESSIBILITY HELPERS
+.visually-hidden {
+  position: absolute;
+
+  overflow: hidden;
+
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+
+  white-space: nowrap;
+
+  clip: rect(0, 0, 0, 0);
+}

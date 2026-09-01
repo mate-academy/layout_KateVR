@@ -1,0 +1,722 @@
+@use 'utils' as *;
+@use 'sass:color';
+
+// ORDER MODAL (Multi-step checkout overlay)
+.order-modal {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  left: 0;
+
+  overflow-y: auto;
+  display: block;
+
+  width: 100%;
+  height: 100%;
+  padding-top: 19px;
+  padding-inline: 0;
+
+  background: linear-gradient(90deg, $c-purple-dark 0%, $c-black 100%);
+
+  @include respond-to(tablet) {
+    padding-top: 29px;
+    padding-bottom: 43px;
+  }
+
+  @include respond-to(desktop) {
+    padding-top: 61px;
+
+    // Fluid padding: smooth transition between breakpoints
+    padding-bottom: clamp(100px, calc(-238px + 26.41vw), 269px);
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+
+  // ==========================================================================
+  // MODAL HEADER
+  // ==========================================================================
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+    @include respond-to(desktop) {
+      flex-wrap: nowrap;
+
+      // Fluid gap for responsive spacing
+      gap: clamp(190px, calc(-10px + 15.63vw), 290px);
+      justify-content: flex-start;
+    }
+
+    @include respond-to(desktop-xl) {
+      width: 100%;
+      max-width: 1920px; // Constrains header width to design spec
+      margin-inline: auto; // Centers header on ultra-wide screens
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    width: 57px;
+    margin-left: 20px;
+
+    @include respond-to(tablet) {
+      width: 67px;
+      margin-left: 34px;
+    }
+
+    @include respond-to(desktop) {
+      width: 78px;
+
+      // Dynamically matches container padding
+      margin-left: clamp(110px, calc(-138px + 19.38vw), 234px);
+    }
+
+    @include respond-to(desktop-xl) {
+      // Freezes margin for fixed 1920px layout
+      margin-left: 242px;
+    }
+  }
+
+  &__close {
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    width: 14px;
+    margin-right: 20px;
+    border: none;
+
+    font-size: 28px;
+    line-height: 1;
+    color: $c-white;
+
+    background: transparent;
+
+    @include respond-to(tablet) {
+      width: 17px;
+      margin-right: 34px;
+    }
+
+    @include respond-to(desktop) {
+      display: none;
+    }
+  }
+
+  // ==========================================================================
+  // STEPS INDICATOR
+  // ==========================================================================
+
+  &__steps {
+    display: flex;
+    order: 1;
+
+    width: 100%;
+    margin-top: 16px;
+    border-bottom: 1px solid #2f2f2f;
+
+    @include respond-to(tablet) {
+      margin-top: 24px;
+    }
+
+    @include respond-to(desktop) {
+      gap: clamp(190px, calc(-10px + 15.63vw), 290px);
+      justify-content: space-between;
+      order: 0;
+
+      width: auto;
+      min-width: 647px;
+      margin-top: 0;
+      margin-left: 0;
+      border: none;
+    }
+  }
+
+  &__step {
+    cursor: pointer;
+    -webkit-user-select: none;
+    user-select: none;
+
+    position: relative;
+
+    flex: 1;
+
+    padding: 16px 0;
+
+    font-size: 12px;
+    color: $c-text-dim;
+    text-align: center;
+    white-space: nowrap;
+
+    outline: none;
+
+    transition:
+      color 0.3s ease,
+      transform 0.1s ease;
+
+    @include respond-to(tablet) {
+      padding: 10px 0;
+      font-size: 14px;
+    }
+
+    @include respond-to(desktop) {
+      flex: initial;
+      padding: 0;
+    }
+
+    // Disables interaction for unreachable steps (CSS fallback for JS logic)
+    &:not(.is-reachable) {
+      pointer-events: auto;
+      cursor: default;
+
+      @media (hover: hover) {
+        &:hover {
+          color: $c-text-dim;
+        }
+      }
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &.is-active {
+      border-bottom: 1px solid $c-cyan;
+      color: $c-cyan;
+
+      @include respond-to(desktop) {
+        border-bottom: none;
+
+        &::after {
+          content: '';
+
+          position: absolute;
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+
+          width: 4px;
+          height: 4px;
+          border-radius: 50%;
+
+          background-color: $c-cyan;
+        }
+      }
+    }
+  }
+
+  // ==========================================================================
+  // CONTENT GRID & PREVIEW
+  // ==========================================================================
+
+  &__preview {
+    @include respond-to(desktop) {
+      position: relative;
+
+      // Reserves vertical space for absolute positioned product image
+      padding-top: clamp(329px, calc(179px + 11.72vw), 404px);
+    }
+  }
+
+  &__product-img {
+    display: none;
+
+    @include respond-to(tablet) {
+      pointer-events: none;
+
+      display: block;
+
+      width: 100%;
+      max-width: 524px;
+      height: 277px;
+      margin: auto;
+      padding-top: 41px;
+
+      object-fit: cover;
+    }
+
+    @include respond-to(desktop) {
+      pointer-events: none;
+
+      position: absolute;
+      top: clamp(-43px, calc(236px - 14.53vw), 50px);
+      left: clamp(-234px, calc(108px - 17.81vw), -120px);
+
+      // Fluid positioning for all 4 axes to prevent layout jumps
+      width: clamp(701px, calc(181px + 40.63vw), 961px);
+      max-width: none;
+      height: clamp(279px, calc(-57px + 26.25vw), 447px);
+      margin: unset;
+      padding-top: 0;
+
+      object-fit: cover;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin-top: 30px;
+
+    @include respond-to(desktop) {
+      // Fluid column width transition
+      grid-template-columns: 1fr clamp(520px, calc(128px + 30.63vw), 716px);
+      gap: 0;
+      margin-top: clamp(110px, calc(-170px + 21.88vw), 250px);
+    }
+
+    @include respond-to(desktop-xl) {
+      gap: 20px;
+    }
+  }
+
+  &__screen {
+    display: none;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  // ==========================================================================
+  // CALCULATOR (Quantity & Price)
+  // ==========================================================================
+
+  &__calc {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin-inline: 14px;
+
+    color: $c-gray-light-text;
+
+    @include respond-to(tablet) {
+      max-width: 347px;
+      margin-left: clamp(122px, calc(-259.75px + 49.71vw), 376px);
+    }
+
+    @include respond-to(desktop) {
+      margin-top: clamp(0px, calc(96px - 5vw), 32px);
+      margin-bottom: 0;
+      margin-left: unset;
+    }
+  }
+
+  &__calc-field {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__calc-price {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+
+    @include respond-to(tablet) {
+      align-items: flex-start;
+    }
+
+    strong {
+      font-size: 26px;
+      font-weight: 500;
+      color: $c-cyan;
+
+      @include respond-to(tablet) {
+        font-size: 36px;
+      }
+    }
+  }
+
+  // ==========================================================================
+  // FORM FIELDS & INPUTS
+  // ==========================================================================
+
+  &__form {
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include respond-to(tablet) {
+      gap: 40px;
+      min-width: 460px;
+      margin: auto;
+    }
+
+    @include respond-to(desktop) {
+      min-width: 520px;
+      min-height: 428px;
+      margin: unset;
+    }
+
+    @include respond-to(desktop-xl) {
+      height: 462px;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding-bottom: 19px;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+    font-size: $fs-text-3;
+    color: $c-white;
+
+    background: transparent;
+    outline: none;
+
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-bottom-color: $c-cyan;
+    }
+  }
+
+  &__form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+
+    @include respond-to(tablet) {
+      flex-direction: row;
+      gap: 20px;
+
+      > * {
+        flex: 1;
+      }
+    }
+
+    @include respond-to(desktop) {
+      gap: 22px;
+    }
+  }
+
+  &__field--name {
+    gap: unset;
+
+    .order-modal__label {
+      padding-bottom: 7px;
+    }
+
+    .order-modal__input {
+      padding-bottom: 0;
+      font-size: 18px;
+    }
+  }
+
+  &__form-row--card {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+
+    > * {
+      flex: 1;
+    }
+
+    @include respond-to(tablet) {
+      gap: 0;
+    }
+
+    @include respond-to(desktop) {
+      gap: 22px;
+    }
+
+    .order-modal__label {
+      padding-bottom: 17px;
+    }
+
+    .order-modal__input {
+      max-width: 100px;
+      padding-bottom: 7px;
+    }
+
+    .order-modal__card-input--cvv {
+      max-width: 40px;
+    }
+  }
+
+  &__field {
+    display: flex;
+    flex-direction: column;
+
+    .order-modal__label {
+      padding-bottom: 13px;
+      font-size: 14px;
+      color: $c-gray-light-text;
+    }
+
+    &:has(.order-modal__input:focus) .order-modal__label,
+    &:has(.order-modal__card-input:focus) .order-modal__label {
+      color: $c-cyan;
+    }
+  }
+
+  &__select-wrapper {
+    position: relative;
+    width: 100%;
+
+    &::after {
+      pointer-events: auto;
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      right: 18px;
+      transform: translateY(-50%);
+
+      width: 0;
+      height: 0;
+      border-top: 6px solid $c-cyan;
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+    }
+  }
+
+  &__select {
+    cursor: pointer;
+
+    width: 100%;
+    padding: 13px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
+
+    font-size: 16px;
+    color: $c-white;
+
+    appearance: none;
+    background-color: $c-purple-dark;
+
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: $c-cyan;
+      outline: none;
+    }
+  }
+
+  &__select--large {
+    padding: 9px 39px;
+    font-size: 20px;
+
+    @include respond-to(tablet) {
+      padding: 12px 39px;
+    }
+  }
+
+  // ==========================================================================
+  // PAYMENT STEP SPECIFICS
+  // ==========================================================================
+
+  &__form--pay {
+    @include respond-to(desktop) {
+      width: 430px;
+      min-width: unset;
+      margin-top: 50px;
+      margin-left: 50px;
+    }
+
+    @include respond-to(desktop-xl) {
+      gap: 55px;
+      width: 533px;
+      margin-top: unset;
+      margin-left: unset;
+    }
+  }
+
+  &__card-number {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+
+    input {
+      max-width: 56px;
+      text-align: center;
+    }
+
+    @include respond-to(tablet) {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    @include respond-to(desktop) {
+      gap: 30px;
+    }
+  }
+
+  &__card-icon {
+    flex-shrink: 0;
+
+    img {
+      display: block;
+      width: 54px;
+      height: auto;
+    }
+  }
+
+  &__card-input {
+    flex: 1;
+
+    padding-bottom: 9px;
+
+    font-size: 18px;
+    color: $c-white;
+    text-align: left;
+    letter-spacing: 0.2em; // Increases spacing for card number readability
+
+    &::placeholder {
+      font-size: 18px;
+      color: $c-input-placeholder;
+      letter-spacing: 0.2em;
+
+      @include respond-to(tablet) {
+        font-size: 20px;
+      }
+    }
+
+    &:focus {
+      border-bottom: 1px solid $c-cyan;
+    }
+
+    @include respond-to(tablet) {
+      font-size: 20px;
+    }
+  }
+
+  &__input-wrapper {
+    position: relative;
+
+    .order-modal__input {
+      padding-right: 50px; // Reserves space for card icon
+    }
+  }
+
+  // ==========================================================================
+  // THANK YOU SCREEN (Step 3)
+  // ==========================================================================
+
+  &__thanks {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 227px;
+    padding-top: 90px;
+
+    text-align: center;
+
+    @include respond-to(tablet) {
+      min-height: 284px;
+      padding-top: 180px;
+    }
+
+    @include respond-to(desktop) {
+      min-height: 220px;
+      padding-top: 150px;
+    }
+
+    @include respond-to(desktop-xl) {
+      min-height: 257px;
+      padding-top: 245px;
+    }
+  }
+
+  &__thanks-title {
+    margin-bottom: 16px;
+
+    span {
+      color: $c-cyan;
+    }
+
+    @include respond-to(tablet) {
+      margin-bottom: 20px;
+      padding-inline: 50px;
+      font-size: 46px;
+    }
+
+    @include respond-to(desktop) {
+      margin-bottom: 36px;
+    }
+
+    @include respond-to(desktop-xl) {
+      margin-bottom: 56px;
+    }
+  }
+
+  &__thanks-desc {
+    margin-bottom: 30px;
+    color: $c-white;
+
+    @include respond-to(tablet) {
+      margin-bottom: 50px;
+      padding-inline: 10px;
+      font-size: 18px;
+    }
+
+    @include respond-to(desktop-xl) {
+      margin-bottom: 70px;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px 24px;
+    border-radius: 4px;
+
+    font-size: 14px;
+    font-weight: $fw-medium;
+    line-height: 1.3;
+    color: $c-white;
+
+    background: $c-cyan-dark;
+
+    transition:
+      background-color 0.3s ease,
+      transform 0.1s ease;
+
+    &:hover {
+      background: color.adjust($c-cyan-dark, $lightness: 15%);
+    }
+
+    &:active {
+      transform: scale(0.98);
+    }
+
+    @include respond-to(tablet) {
+      max-width: 458px;
+      margin-top: 19px;
+      margin-inline: auto;
+      padding: 14px 0;
+
+      font-size: 16px;
+    }
+
+    @include respond-to(desktop) {
+      max-width: 199px;
+      margin-top: clamp(50px, calc(-30px + 6.25vw), 90px);
+      margin-inline: 0;
+    }
+  }
+
+  &__btn--complete {
+    margin: unset;
+
+    @include respond-to(desktop) {
+      min-width: 218px;
+    }
+  }
+}

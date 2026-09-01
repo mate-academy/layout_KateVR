@@ -1,0 +1,17 @@
+@use '../utils' as *;
+@use 'sass:color';
+
+// MENU COMPONENT
+.menu {
+  &__list {
+    display: flex;
+  }
+
+  &__link {
+    @extend %font-btn-link;
+
+    color: $c-white;
+
+    @include hover(color, $c-cyan, $transition-speed);
+  }
+}
