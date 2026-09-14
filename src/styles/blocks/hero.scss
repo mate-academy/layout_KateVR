@@ -1,0 +1,323 @@
+.hero {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-direction: column;
+
+  @include on-tablet {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    align-items: start;
+
+    margin: 55px 0;
+  }
+
+  @include on-desktop {
+    align-self: flex-start;
+    margin: 115px 0;
+  }
+
+  @include on-desktop-big {
+    margin: 245px 0;
+  }
+
+  &__img {
+    order: -1;
+    width: 100%;
+    margin: 0 0 30px;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    @include on-tablet {
+      z-index: 0;
+
+      display: flex;
+      grid-column: 1 / -1;
+      grid-row: 1;
+      justify-content: flex-end;
+      order: 0;
+
+      width: 100%;
+      margin: 0;
+
+      img {
+        width: clamp(494px, 47.66vw + 189px, 1104px);
+        height: auto;
+        object-fit: cover;
+      }
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    @include on-tablet {
+      z-index: 1;
+      grid-column: 1 / 5;
+      grid-row: 1;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-column: 1 / 6;
+      grid-template-columns: subgrid;
+      max-width: 480px;
+    }
+  }
+
+  &__title {
+    margin: 0 0 17px;
+    color: $c-white;
+    white-space: nowrap;
+
+    span {
+      font-weight: 400;
+      color: $c-blue;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / -1;
+    }
+
+    @include on-desktop-big {
+      font-size: 54px;
+    }
+  }
+
+  &__description {
+    display: flex;
+    align-items: center;
+    margin: 0 0 8px;
+    color: $c-gray;
+
+    @include on-tablet {
+      max-width: 340px;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop-big {
+      font-size: 20px;
+    }
+  }
+
+  &__price {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 0;
+
+    color: $c-white;
+
+    @include on-tablet {
+      justify-content: flex-start;
+      margin: 20px 0;
+    }
+
+    @include on-desktop {
+      grid-column: 2 / -1;
+    }
+
+    @include on-desktop-big {
+      font-size: 20px;
+    }
+  }
+
+  &__actions {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    align-items: flex-start;
+
+    margin: 55px 0;
+
+    @include on-desktop {
+      grid-column: 2 / -1;
+    }
+  }
+
+  &__buy-bar {
+    position: sticky;
+    z-index: 999;
+    bottom: 0;
+
+    padding: 20px;
+
+    background: $c-dark-blue;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__buy {
+    @extend %main-button;
+
+    display: block;
+
+    width: min(100%, 458px);
+    margin: 0 auto;
+
+    transition:
+      background 0.3s,
+      color 0.3s;
+  }
+
+  &__nav {
+    position: relative;
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      grid-column: 1 / -1;
+      align-items: center;
+      justify-content: space-between;
+
+      margin-top: 40px;
+    }
+  }
+
+  &__nav-links {
+    display: flex;
+    gap: 39px;
+  }
+
+  &__nav-link {
+    @extend %text-2;
+
+    color: $c-white;
+    text-decoration: none;
+
+    &:hover {
+      color: $c-blue;
+    }
+  }
+
+  &__nav-more {
+    @extend %text-2;
+
+    @include hover(color, $c-white);
+
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+
+    color: $c-blue;
+
+    &:hover {
+      transform: translateX(-50%) scale(1.1);
+    }
+
+    img {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &__nav-controls {
+    position: relative;
+    display: flex;
+    gap: 103px;
+    padding-top: 8px;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+
+      height: 1px;
+
+      background: rgba($c-white, 0.2);
+    }
+  }
+
+  &__nav-btn {
+    @extend %text-2;
+
+    @include hover(color, $c-white);
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    cursor: pointer;
+
+    position: relative;
+
+    padding: 0 0 8px;
+    border: none;
+
+    color: $c-white;
+
+    background: none;
+
+    &--active {
+      color: $c-gray;
+
+      &::after {
+        content: '';
+
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+
+        height: 1px;
+
+        background: $c-blue;
+      }
+    }
+  }
+
+  img:hover {
+    transform: none;
+  }
+}
+
+.play-btn {
+  cursor: pointer;
+  position: relative;
+  display: inline-flex;
+
+  @include hover(transform, scale(1.05));
+
+  &__img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    transition: opacity 0.6s ease-in-out;
+
+    &--hover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+    }
+  }
+
+  &:hover {
+    .play-btn__img--default {
+      opacity: 0;
+    }
+
+    .play-btn__img--hover {
+      opacity: 1;
+    }
+  }
+}

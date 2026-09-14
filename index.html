@@ -6,14 +6,506 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <title>KatVR</title>
+    <link rel="icon" type="image/x-icon"
+    href="./src/images/icons/favicon.ico">
     <link
       rel="stylesheet"
       href="src/styles/main.scss"
     />
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
+  <body class="page">
+    <div class="page__body">
+
+      <!-- #region header -->
+      <header class="page__header" id="top">
+        <div class="top-bar">
+          <div class="top-bar__brand">
+            <a href="#top" class="top-bar__logo page-link">
+              <img src="./src/images/logo.png" alt="KateVR">
+            </a>
+
+            <a href="#menu-language" class="top-bar__lang">
+              En
+              <img src="./src/images/icons/chevron-down.svg" alt="Change Language">
+            </a>
+          </div>
+
+          <div class="top-bar__group">
+            <nav class="top-bar__nav">
+              <a href="#about" class="page-link">About</a>
+              <a href="#tech" class="page-link">Tech</a>
+              <a href="#benefits" class="page-link">Benefits</a>
+              <a href="#contact" class="page-link">Contact</a>
+            </nav>
+
+            <div class="top-bar__actions">
+              <button class="top-bar__buy" href="#contact">Buy Now</button>
+            </div>
+          </div>
+
+          <!-- only on mobile & tablet -->
+          <a href="#menu" class="top-bar__burger page-link">
+            <img src="./src/images/icons/icon-burger.png" alt="Menu">
+          </a>
+        </div>
+
+        <div class="hero">
+          <picture class="hero__img">
+            <source media="(min-width: 1280px)" srcset="./src/images/hero-desktop.png">
+            <source media="(min-width: 640px)" srcset="./src/images/hero-tablet.png">
+            <img src="./src/images/hero-mobile.png" alt="KAT VR loco devices">
+          </picture>
+
+          <div class="hero__content">
+            <h1 class="hero__title">THE NEW START OF <br><span>VR LOCOMOTION</span></h1>
+            <p class="hero__description">Discover the most comprehensive VR Locomotion system, and unlock infinite motion in any games on any platform!</p>
+            <p class="hero__price">1200$</p>
+
+            <div class="hero__actions">
+              <a href="#video" class="play-btn hero__play">
+                <img src="./src/images/icons/video-btn.svg" alt="Play Video"
+                class="play-btn__img play-btn__img--default">
+                <img src="./src/images/icons/video-selected-btn.svg" alt="Play Video"
+                class="play-btn__img play-btn__img--hover">
+              </a>
+            </div>
+          </div>
+
+          <!-- only desktop -->
+          <div class="hero__nav">
+            <div class="hero__nav-links">
+              <a href="#contact" class="hero__nav-link page-link">FAQ</a>
+              <a href="#menu-help" class="hero__nav-link page-link">Help</a>
+            </div>
+
+            <a href="#more" class="hero__nav-more page-link">
+              More
+              <img src="./src/images/icons/chevron-down.svg" alt="More">
+            </a>
+
+            <div class="hero__nav-controls">
+              <a href="#previous" class="page-link hero__nav-btn hero__nav-btn--active">Previous</a>
+              <a href="#next" class="page-link hero__nav-btn">Next</a>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- #endregion -->
+
+      <!-- #region menu -->
+      <!-- #region menu -->
+      <aside class="page__menu">
+        <div id="menu" class="menu">
+          <a href="#top" class="menu__close">
+            <img src="./src/images/icons/icon-close.png" alt="Close">
+          </a>
+
+          <nav class="menu__nav">
+            <a href="#about" class="page-link">About</a>
+            <a href="#tech" class="page-link">Tech</a>
+            <a href="#benefits" class="page-link">Benefits</a>
+            <a href="#contact" class="page-link">Contact</a>
+            <a href="#menu-language" class="page-link">Language</a>
+            <a href="#contact" class="page-link">FAQ</a>
+            <a href="#menu-help" class="page-link">Help</a>
+          </nav>
+        </div>
+
+        <div id="menu-language" class="menu menu--language">
+          <a href="#menu" class="menu__back">
+            <img src="./src/images/icons/icon-return.png" alt="Back">
+          </a>
+
+          <ul class="menu__lang-list">
+            <li><a href="#" class="page-link page-link--active">English</a></li>
+            <li><a href="#" class="page-link">Arabic</a></li>
+            <li><a href="#" class="page-link">Chinese (Simplified)</a></li>
+            <li><a href="#" class="page-link">Chinese (Traditional)</a></li>
+            <li><a href="#" class="page-link">French</a></li>
+            <li><a href="#" class="page-link">German</a></li>
+            <li><a href="#" class="page-link">Italian</a></li>
+            <li><a href="#" class="page-link">Polish</a></li>
+            <li><a href="#" class="page-link">Russian</a></li>
+            <li><a href="#" class="page-link">Ukrainian</a></li>
+          </ul>
+        </div>
+
+        <div class="menu menu--help" id="menu-help">
+          <a href="#top" class="menu__close">
+            <img src="./src/images/icons/icon-close.png" alt="Close menu">
+          </a>
+
+          <h2 class="menu--help-title">
+            HOW CAN WE <span>HELP</span> YOU?
+          </h2>
+
+          <p class="menu--help-text">
+            Welcome to our help center. Our goal is to make the process of getting
+            acquainted and purchase as easy and pleasant as possible. Need help with
+            your KAT VR loco product? Many product questions can be resolved by
+            reviewing our Product Support
+            <a href="#contact" class="menu--help-inline-link">FAQs</a>.
+          </p>
+
+          <p class="menu--help-text">
+            Please also feel free to
+            <a href="#contact" class="menu--help-inline-link">Contact Us</a>
+            directly should you need anything further. We're happy to help.
+          </p>
+
+          <ul class="menu--help-links">
+            <li><a href="#" class="menu--help-link">Instruction manual</a></li>
+            <li><a href="#" class="menu--help-link">Where to go for a warranty</a></li>
+            <li><a href="#" class="menu--help-link">Service Policy</a></li>
+          </ul>
+
+          <ul class="menu--help-contacts">
+            <li><a href="tel:+8605718610 5373">+86-0571-86105373</a></li>
+            <li><a href="mailto:global@katvr.com">global@katvr.com</a></li>
+            <li><a href="mailto:overseas@katvr.com">overseas@katvr.com</a></li>
+          </ul>
+        </div>
+      </aside>
+      <!-- #endregion -->
+
+      <!-- #region main -->
+      <main class="page__main">
+        <section class="more" id="benefits">
+          <div class="more__header">
+            <h2 class="more__title">MORE THAN <img src="./src/images/gaming.png" alt="GAMING!"
+              class="more__title-image">
+            </h2>
+            <p class="more__subtitle">This also made for people who are interested in...</p>
+          </div>
+
+          <ul class="more__list">
+            <li class="more__item">
+              <img src="./src/images/more-education.png" alt="Education"
+              class="more__icon">
+              <h3 class="more__item-title">EDUCATION</h3>
+              <p class="more__item-text">Create aducational simulations, trainings and much more with unlimited virtual space and minimum physical space</p>
+            </li>
+
+            <li class="more__item">
+              <img src="./src/images/more-realestate.png" alt="Real Estate"
+              class="more__icon">
+              <h3 class="more__item-title">REAL ESTATE</h3>
+              <p class="more__item-text">Desighn architectural projects in a deeply realistic environment allowing visitors to freely walk around, and feel their vibe</p>
+            </li>
+
+            <li class="more__item">
+              <img src="./src/images/more-fitness.png" alt="Fitness"
+              class="more__icon">
+              <h3 class="more__item-title">FITNESS</h3>
+              <p class="more__item-text">Combine business with pleasure, and discover countless ways to stay fit while playing your favorite VR Games!</p>
+            </li>
+
+            <li class="more__item">
+              <img src="./src/images/more-social.png" alt="Social"
+              class="more__icon">
+              <h3 class="more__item-title">SOCIAL INTERACTIONS</h3>
+              <p class="more__item-text">Hang out with your friends in the virtual world when you can't meet space requirements</p>
+            </li>
+          </ul>
+        </section>
+
+        <section class="about" id="about">
+          <div class="about__product">
+            <h2 class="about__product-title about__title">ABOUT <span>PRODUCT</span></h2>
+
+            <div class="about__slider">
+              <input type="radio" name="about-slider"
+              id="slide-1" class="about__radio"
+              checked>
+              <input type="radio" name="about-slider"
+              id="slide-2" class="about__radio">
+              <input type="radio" name="about-slider"
+              id="slide-3" class="about__radio">
+              <input type="radio" name="about-slider"
+              id="slide-4" class="about__radio">
+              <input type="radio" name="about-slider"
+              id="slide-5" class="about__radio">
+
+              <p class="about__count"></p>
+
+              <div class="about__slides">
+                <img src="./src/images/about-product.png"
+                alt="KAT loco device" class="about__slide">
+                <img src="./src/images/about-product.png"
+                alt="KAT loco device" class="about__slide">
+                <img src="./src/images/about-product.png"
+                alt="KAT loco device" class="about__slide">
+                <img src="./src/images/about-product.png"
+                alt="KAT loco device" class="about__slide">
+                <img src="./src/images/about-product.png"
+                alt="KAT loco device" class="about__slide">
+              </div>
+
+              <div class="about__dots">
+                <label for="slide-1" class="about__dot"></label>
+                <label for="slide-2" class="about__dot"></label>
+                <label for="slide-3" class="about__dot"></label>
+                <label for="slide-4" class="about__dot"></label>
+                <label for="slide-5" class="about__dot"></label>
+              </div>
+            </div>
+
+            <div class="about__product-content">
+              <p class="about__text">KAT loco is a foot-based VR locomotion system that gives complete physical control over lower-body actions, allowing you to freely walk, run, and carry out just any other movement in virtual reality.</p>
+
+              <a href="#video" class="play-btn about__play">
+                <img src="./src/images/icons/video-btn.svg" alt="Play Video"
+                class="play-btn__img play-btn__img--default">
+                <img src="./src/images/icons/video-selected-btn.svg" alt="Play Video"
+                class="play-btn__img play-btn__img--hover">
+              </a>
+            </div>
+          </div>
+
+          <div class="about__team">
+            <div class="about__label" aria-hidden="true">
+              <div class="about__label-row about__label-row--top">
+                <span class="about__label-item">ABOUT US</span>
+                <span class="about__label-item">ABOUT US</span>
+                <span class="about__label-item about__label-item--desktop">ABOUT US</span>
+                <span class="about__label-item about__label-item--desktop-big">ABOUT US</span>
+              </div>
+
+              <div class="about__label-row about__label-row--bottom">
+                <span class="about__label-item">ABOUT US</span>
+                <span class="about__label-item about__label-item--desktop">ABOUT US</span>
+                <span class="about__label-item about__label-item--desktop-big">ABOUT US</span>
+              </div>
+            </div>
+
+            <p class="about__hello">Hello,</p>
+            <h2 class="about__title">NICE TO MEET <span>YOU!</span></h2>
+            <p class="about__text">KAT VR is an independent company dedicated to the research, development, and sales of VR Locomotion products and solutions. Founded in 2013, we have quickly grown to become one of the world's leading professional suppliers of VR games' &amp; simulations' equipment</p>
+          </div>
+        </section>
+
+        <section class="tech" id="tech">
+          <h2 class="tech__title">TECH <span>SPECS</span></h2>
+
+          <div class="tech__diagram">
+            <img src="./src/images/tech-camera.png" alt="KAT VR loco device"
+            class="tech__image">
+
+            <input type="checkbox" id="tech-sensor-toggle"
+            class="tech__toggle" hidden>
+            <label for="tech-sensor-toggle" class="tech__marker tech__marker--sensor">
+              <img class="tech__marker-icon tech__marker-icon--plus" src="./src/images/icons/button-plus.png"
+              alt="Button plus">
+              <img class="tech__marker-icon tech__marker-icon--minus" src="./src/images/button-minus.png"
+              alt="Button minus">
+            </label>
+            <div class="tech__tooltip tech__tooltip--sensor">
+              <p class="tech__tooltip-text">Weight: 35g/1.23oz each<br>Dimension: 50mm/1.97in<br>24mm/0.94in<br>Light: LED lights</p>
+            </div>
+
+            <input type="checkbox" id="tech-batteries-toggle"
+            class="tech__toggle" hidden>
+            <label for="tech-batteries-toggle" class="tech__marker tech__marker--batteries">
+              <img class="tech__marker-icon tech__marker-icon--plus" src="./src/images/icons/button-plus.png"
+              alt="Button plus">
+              <img class="tech__marker-icon tech__marker-icon--minus" src="./src/images/button-minus.png"
+              alt="Button minus">
+            </label>
+            <div class="tech__tooltip tech__tooltip--batteries">
+              <p class="tech__tooltip-text">Type: Lithium-Ion polymer batteries<br>Capacity: 370mAh<br>Battery life: 10h of continuous use, 150 hours on stand by<br>Charging: Fast charging - 1 hour<br>Charging voltage and current: 5V = 0.5A</p>
+            </div>
+
+            <input type="checkbox" id="tech-connection-toggle"
+            class="tech__toggle" hidden>
+            <label for="tech-connection-toggle" class="tech__marker tech__marker--connection">
+              <img class="tech__marker-icon tech__marker-icon--plus" src="./src/images/icons/button-plus.png"
+              alt="Button plus">
+              <img class="tech__marker-icon tech__marker-icon--minus" src="./src/images/button-minus.png"
+              alt="Button minus">
+            </label>
+            <div class="tech__tooltip tech__tooltip--connection">
+              <p class="tech__tooltip-text">Wireless: Bluetooth 4.2<br>Signal range: 5m<br>Receiver: USB 2.0 and above</p>
+            </div>
+          </div>
+
+          <div class="tech__full">
+            <img src="./src/images/line1.svg" alt="Line 1"
+            class="tech__line tech__line--top">
+            <img src="./src/images/line2.svg" alt="Line 2"
+            class="tech__line tech__line--bottom-left">
+            <img src="./src/images/line3.svg" alt="Line 3"
+            class="tech__line tech__line--right">
+
+            <img src="./src/images/tech-camera.png" alt="KAT VR loco device"
+            class="tech__full-image">
+
+            <div class="tech__block tech__block--sensor">
+              <h3 class="tech__block-title">SENSOR</h3>
+              <p class="tech__block-text">Weight: 35g/1.23oz each<br>Dimension: 50mm/1.97in<br>24mm/0.94in<br>Light: LED lights</p>
+            </div>
+
+            <div class="tech__block tech__block--connection">
+              <h3 class="tech__block-title">CONNECTION</h3>
+              <p class="tech__block-text">Wireless: Bluetooth 4.2<br>Signal range: 5m<br>Receiver: USB 2.0 and above</p>
+            </div>
+
+            <div class="tech__block tech__block--batteries">
+              <h3 class="tech__block-title">BATTERIES</h3>
+              <p class="tech__block-text">Type: Lithium-Ion polymer batteries<br>Capacity: 370mAh<br>Battery life: 10h of continuous use, 150 hours on stand by<br>Charging: Fast charging - 1 hour<br>Charging voltage and current: 5V = 0.5A</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="why" id="why">
+          <h2 class="why__title">WHY <img src="./src/images/katloco.png"
+            alt="KAT LOCO?" class="why__title-image">
+          </h2>
+
+          <div class="why__grid">
+            <div class="why__item">
+              <img src="./src/images/info1.png"
+              alt="Universally compatible" class="why__icon">
+              <h3 class="why__item-title">UNIVERSALLY COMPATIBLE</h3>
+              <p class="why__item-text">KAT Loco offers universal compatibility across all major VR headsets and platforms allowing you to play any VR game with support for Free Locomotion</p>
+            </div>
+
+            <div class="why__item">
+              <img src="./src/images/info2.png"
+              alt="VR/PC control panel" class="why__icon">
+              <h3 class="why__item-title">VR/PC CONTROL PANEL</h3>
+              <p class="why__item-text">Our Multifunctional Software allows for quick access to KAT Loco's control panel both from a computer desktop, and directly from your VR headset.</p>
+            </div>
+
+            <div class="why__item">
+              <img src="./src/images/info3.png"
+              alt="Wireless sensors" class="why__icon">
+              <h3 class="why__item-title">WIRELESS SENSORS</h3>
+              <p class="why__item-text">What makes it even more advanced, KAT Loco is entirely wireless, and comes with a complete system of algorithms, super durable batteries and more!</p>
+            </div>
+          </div>
+
+          <a href="#contact" class="why__buy btn">Buy Now</a>
+        </section>
+
+        <section class="contact" id="contact">
+          <p class="contact__eyebrow">Have any questions?</p>
+          <h2 class="contact__title">GET IN <span>TOUCH</span></h2>
+
+          <p class="contact__note">Our manager will reply you within 15 minutes</p>
+
+          <ul class="contact__list">
+            <li class="contact__list-item"><a href="tel:+86057186105373">+86-0571-86105373</a></li>
+            <li class="contact__list-item"><a href="mailto:global@katvr.com">global@katvr.com</a></li>
+            <li class="contact__list-item"><a href="mailto:overseas@katvr.com">overseas@katvr.com</a></li>
+          </ul>
+
+          <form class="contact__form" action="#"
+          method="post">
+            <div class="contact__field" data-error="Please, fill your name*">
+              <input type="text" id="contact-name"
+              name="name" placeholder="Name*"
+              required class="contact__input">
+              <label for="contact-name" class="input-group__label">Name*</label>
+            </div>
+            <div class="contact__field" data-error="Please, enter a valid email*">
+              <input type="email" id="contact-email"
+              name="email" placeholder="Email*"
+              required class="contact__input">
+              <label for="contact-email" class="input-group__label">Email*</label>
+            </div>
+            <div class="contact__field" data-error="Please, enter a valid phone*">
+              <input type="tel" id="contact-phone"
+              name="phone" placeholder="Phone*"
+              required pattern="[0-9]{7,}"
+              minlength="7" inputmode="numeric"
+              class="contact__input">
+              <label for="contact-phone" class="input-group__label">Phone*</label>
+            </div>
+            <div class="contact__field">
+              <textarea id="contact-message" name="message"
+              placeholder="Message" class="contact__input contact__input--textarea"></textarea>
+              <label for="contact-message" class="input-group__label">Message</label>
+            </div>
+
+            <div class="contact__actions">
+              <button type="submit" class="contact__submit">Contact Us</button>
+              <a href="#top" class="contact__scroll-top">
+                <img src="./src/images/icons/button-up.png" alt="Scroll to top">
+              </a>
+            </div>
+          </form>
+        </section>
+
+        <!-- #region video modal -->
+        <div id="video" class="video-modal">
+          <div class="video-modal__inner">
+            <a href="#about" class="video-modal__close">
+              <img src="./src/images/icons/icon-close.png" alt="Close">
+            </a>
+
+            <video src="./src/video/promo.mp4" controls
+            class="video-modal__player"></video>
+          </div>
+        </div>
+      </main>
+      <!-- #endregion -->
+
+      <div class="hero__buy-bar">
+        <button class="hero__buy" href="#contact">Buy Now</button>
+      </div>
+    </div>
+
+    <!-- #region footer -->
+    <footer class="page__footer">
+      <div class="footer">
+        <div class="footer__logo">
+          <a href="#top" class="footer__logo-link">
+            <img src="./src/images/logo.png" alt="KateVR">
+          </a>
+        </div>
+
+        <div class="footer__row">
+          <nav class="footer__nav">
+            <ul class="footer__nav-list">
+              <li><a href="#about" class="footer__nav-link page-link">About</a></li>
+              <li><a href="#tech" class="footer__nav-link page-link">Tech</a></li>
+              <li><a href="#benefits" class="footer__nav-link page-link">Benefits</a></li>
+              <li><a href="#contact" class="footer__nav-link page-link">Contact</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer__contacts-group">
+            <ul class="footer__contacts">
+              <li><a href="tel:+86057186105373" class="footer__contact-link page-link">+86-0571-86105373</a></li>
+              <li><a href="mailto:global@katvr.com" class="footer__contact-link page-link">global@katvr.com</a></li>
+              <li><a href="mailto:overseas@katvr.com" class="footer__contact-link page-link">overseas@katvr.com</a></li>
+            </ul>
+
+            <ul class="footer__social">
+              <li>
+                <a href="https://www.facebook.com/" target="_blank"
+                class="footer__social-link page-link"><img src="./src/images/icons/facebook.svg" alt="Facebook"></a>
+              </li>
+              <li>
+                <a href="https://twitter.com/" target="_blank"
+                class="footer__social-link page-link"><img src="./src/images/icons/twitter.svg" alt="Twitter"></a>
+              </li>
+              <li>
+                <a href="https://www.youtube.com/" target="_blank"
+                class="footer__social-link page-link"><img src="./src/images/icons/youtube.svg" alt="YouTube"></a>
+              </li>
+              <li>
+                <a href="https://www.reddit.com/" target="_blank"
+                class="footer__social-link page-link"><img src="./src/images/icons/reddit.svg" alt="Reddit"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- #endregion -->
+
     <script src="src/scripts/main.js"></script>
   </body>
 </html>
