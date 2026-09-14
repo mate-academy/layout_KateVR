@@ -149,9 +149,14 @@
     z-index: 999;
     bottom: 0;
 
+    display: flex;
+    justify-content: center;
+
     padding: 20px;
 
-    background: $c-dark-blue;
+    animation: hero-buy-bar-stuck linear both;
+    animation-timeline: scroll(root block);
+    animation-range: 0 300px;
 
     @include on-desktop {
       display: none;
@@ -161,14 +166,8 @@
   &__buy {
     @extend %main-button;
 
-    display: block;
-
-    width: min(100%, 458px);
-    margin: 0 auto;
-
-    transition:
-      background 0.3s,
-      color 0.3s;
+    width: 100%;
+    max-width: 458px;
   }
 
   &__nav {
@@ -287,6 +286,16 @@
 
   img:hover {
     transform: none;
+  }
+}
+
+@keyframes hero-buy-bar-stuck {
+  from {
+    background-color: transparent;
+  }
+
+  to {
+    background-color: $c-dark-blue;
   }
 }
 
