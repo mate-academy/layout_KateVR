@@ -1,4 +1,219 @@
-%h1 {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
+%site-logo {
+  width: 58px;
+  height: 12px;
+
+  @include on-tablet {
+    width: 67px;
+    height: 14px;
+  }
+
+  @include on-desktop {
+    width: 77px;
+    height: 17px;
+  }
 }
+
+%main-text {
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+%button {
+  font-family: $font-main;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+}
+
+%text-1 {
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 150%;
+  letter-spacing: 0%;
+}
+
+%text-2 {
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 150%;
+  letter-spacing: 0%;
+}
+
+%text-3 {
+  font-family: $font-main;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  letter-spacing: 0%;
+}
+
+%button-base {
+  box-sizing: border-box;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+
+  font-family: $font-main;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 130%;
+  white-space: nowrap;
+
+  transition:
+    background 0.3s,
+    color 0.3s;
+}
+
+%main-button {
+  @extend %button-base;
+
+  background-color: $c-blue;
+  color: $c-white;
+
+  &:hover,
+  &:focus {
+    background-color: $c-white;
+    color: $c-blue;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    background-color: $c-dark-blue;
+    color: $c-dark-gray;
+  }
+}
+
+%input-base {
+  @extend %text-1;
+
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid rgba($c-white, 0.2);
+
+  padding: 8px 0;
+
+  appearance: none;
+  background: transparent;
+  outline: none;
+  box-shadow: none;
+  color: $c-white;
+
+  transition:
+    border 0.3s,
+    color 0.3s;
+
+  &::placeholder {
+    color: $c-gray;
+  }
+
+  &:not(:placeholder-shown):valid {
+    border-bottom-width: 2px;
+    border-color: $c-blue;
+  }
+
+  &:user-invalid:not(:placeholder-shown) {
+    border-color: $c-red;
+    caret-color: $c-red;
+  }
+}
+
+.input-group {
+  position: relative;
+  padding-top: 20px;
+
+  &::before {
+    content: attr(data-error);
+
+    position: absolute;
+    left: 0;
+
+    @extend %text-1;
+
+    color: $c-red;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+
+  &:has(input:user-invalid:placeholder-shown)::before,
+  &:has(textarea:user-invalid:placeholder-shown)::before {
+    bottom: 8px;
+    opacity: 1;
+  }
+
+  &:has(input:user-invalid:not(:placeholder-shown))::before,
+  &:has(textarea:user-invalid:not(:placeholder-shown))::before {
+    bottom: auto;
+    top: 100%;
+    margin-top: 6px;
+
+    @extend %text-3;
+
+    opacity: 1;
+  }
+
+  input:user-invalid:placeholder-shown::placeholder,
+  textarea:user-invalid:placeholder-shown::placeholder {
+    opacity: 0;
+  }
+
+  &--success {
+    input,
+    textarea {
+      border-bottom-width: 2px;
+      border-color: $c-blue;
+    }
+  }
+
+  &--error {
+    input,
+    textarea {
+      border-color: $c-red;
+      caret-color: $c-red;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 0;
+    bottom: 8px;
+
+    @extend %text-1;
+
+    color: $c-gray;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.2s;
+  }
+
+  &--success &__label,
+  input:not(:placeholder-shown):valid ~ &__label,
+  textarea:not(:placeholder-shown):valid ~ &__label {
+    opacity: 1;
+    bottom: calc(100% - 16px);
+
+    @extend %text-3;
+
+    color: $c-blue;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  &--error &__label,
+  input:user-invalid:not(:placeholder-shown) ~ &__label,
+  textarea:user-invalid:not(:placeholder-shown) ~ &__label {
+    opacity: 0;
+  }
+}
+
