@@ -123,9 +123,8 @@
     border-color: $c-blue;
   }
 
-  &:invalid:not(:placeholder-shown) {
+  &:user-invalid:not(:placeholder-shown) {
     border-color: $c-red;
-    color: transparent;
     caret-color: $c-red;
   }
 }
@@ -139,7 +138,6 @@
 
     position: absolute;
     left: 0;
-    bottom: 8px;
 
     @extend %text-1;
 
@@ -149,10 +147,26 @@
     transition: opacity 0.2s;
   }
 
-  &:has(input:invalid:not(:placeholder-shown))::before,
-  &:has(textarea:invalid:not(:placeholder-shown))::before,
-  &--error::before {
+  &:has(input:user-invalid:placeholder-shown)::before,
+  &:has(textarea:user-invalid:placeholder-shown)::before {
+    bottom: 8px;
     opacity: 1;
+  }
+
+  &:has(input:user-invalid:not(:placeholder-shown))::before,
+  &:has(textarea:user-invalid:not(:placeholder-shown))::before {
+    bottom: auto;
+    top: 100%;
+    margin-top: 6px;
+
+    @extend %text-3;
+
+    opacity: 1;
+  }
+
+  input:user-invalid:placeholder-shown::placeholder,
+  textarea:user-invalid:placeholder-shown::placeholder {
+    opacity: 0;
   }
 
   &--success {
@@ -167,7 +181,6 @@
     input,
     textarea {
       border-color: $c-red;
-      color: transparent;
       caret-color: $c-red;
     }
   }
@@ -198,8 +211,9 @@
 
   /* stylelint-disable-next-line no-descending-specificity */
   &--error &__label,
-  input:invalid:not(:placeholder-shown) ~ &__label,
-  textarea:invalid:not(:placeholder-shown) ~ &__label {
+  input:user-invalid:not(:placeholder-shown) ~ &__label,
+  textarea:user-invalid:not(:placeholder-shown) ~ &__label {
     opacity: 0;
   }
 }
+

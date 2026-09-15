@@ -201,3 +201,44 @@
     }
   }
 }
+
+.form-success {
+  position: fixed;
+  z-index: 200;
+  inset: 0;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba($c-black, 0.85);
+
+  &:target {
+    display: flex;
+  }
+
+  &__inner {
+    position: relative;
+    max-width: 400px;
+    padding: 32px;
+    border-radius: 8px;
+    background: $c-dark-blue;
+    text-align: center;
+  }
+
+  &__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+
+    img {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  &__text {
+    color: $c-white;
+    margin: 0;
+  }
+}

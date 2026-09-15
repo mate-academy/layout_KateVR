@@ -400,8 +400,8 @@
             <li class="contact__list-item"><a href="mailto:overseas@katvr.com">overseas@katvr.com</a></li>
           </ul>
 
-          <form class="contact__form" action="#"
-          method="post">
+          <form class="contact__form" action="#form-success"
+          method="get">
             <div class="contact__field" data-error="Please, fill your name*">
               <input type="text" id="contact-name"
               name="name" placeholder="Name*"
@@ -415,16 +415,22 @@
               <label for="contact-email" class="input-group__label">Email*</label>
             </div>
             <div class="contact__field" data-error="Please, enter a valid phone*">
-              <input type="tel" id="contact-phone"
-              name="phone" placeholder="Phone*"
-              required pattern="[0-9]{7,}"
-              minlength="7" inputmode="numeric"
-              class="contact__input">
+              <input
+                type="tel"
+                id="contact-phone"
+                name="phone"
+                placeholder="Phone*"
+                required
+                pattern="\+?[0-9\s\-()]{7,}"
+                minlength="7"
+                inputmode="tel"
+                class="contact__input"
+              >
               <label for="contact-phone" class="input-group__label">Phone*</label>
             </div>
-            <div class="contact__field">
+            <div class="contact__field" data-error="Please, write your request*">
               <textarea id="contact-message" name="message"
-              placeholder="Message" class="contact__input contact__input--textarea"></textarea>
+              placeholder="Message" required class="contact__input contact__input--textarea"></textarea>
               <label for="contact-message" class="input-group__label">Message</label>
             </div>
 
@@ -435,6 +441,15 @@
               </a>
             </div>
           </form>
+
+          <div id="form-success" class="form-success">
+            <div class="form-success__inner">
+              <a href="#contact" class="form-success__close">
+                <img src="./src/images/icons/icon-close.png" alt="Close">
+              </a>
+              <p class="form-success__text">Thank you! Your message has been sent — our manager will reply within 15 minutes.</p>
+            </div>
+          </div>
         </section>
 
         <!-- #region video modal -->
