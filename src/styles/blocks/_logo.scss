@@ -1,0 +1,23 @@
+.logo {
+  display: block;
+  flex-shrink: 0;
+  transition: opacity $transition-duration $transition-timing;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &__image {
+    display: block;
+    width: fluid(58px, 62px, $bp-mobile, $bp-tablet);
+    height: auto;
+
+    @include on-tablet {
+      width: fluid(62px, 77px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      width: 77px;
+    }
+  }
+}

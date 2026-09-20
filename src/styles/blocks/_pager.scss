@@ -1,0 +1,31 @@
+.pager {
+  position: relative;
+
+  display: flex;
+  justify-content: space-between;
+
+  width: 207px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba($c-white, 0.2);
+
+  &::after {
+    content: '';
+
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+
+    width: 69px;
+    height: 1px;
+
+    background-color: $c-accent;
+  }
+
+  &__link {
+    @extend %button-text;
+
+    color: $c-white;
+
+    @include hover(color, $c-accent);
+  }
+}

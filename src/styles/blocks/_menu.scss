@@ -1,0 +1,103 @@
+.menu {
+  position: fixed;
+  z-index: 10;
+  inset: 0;
+  transform: translateX(100%);
+
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  visibility: hidden;
+  opacity: 0;
+  background-color: $c-gradient-from;
+
+  transition:
+    transform $transition-duration $transition-timing,
+    opacity $transition-duration $transition-timing,
+    visibility $transition-duration $transition-timing;
+
+  &:target {
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
+  }
+
+  &__head {
+    display: flex;
+    flex-shrink: 0;
+    align-items: flex-start;
+
+    height: fluid(75px, 97px, $bp-mobile, $bp-tablet);
+    padding-top: fluid(20px, 34px, $bp-mobile, $bp-tablet);
+    padding-inline: fluid(21px, 34px, $bp-mobile, $bp-tablet);
+
+    @include on-tablet {
+      height: 97px;
+      padding-top: 34px;
+      padding-inline: $page-padding-tablet;
+    }
+  }
+
+  &--help &__head {
+    height: 68px;
+  }
+
+  &__close,
+  &__back {
+    height: 17px;
+    transition: opacity $transition-duration $transition-timing;
+  }
+
+  &__close {
+    width: 17px;
+    margin-left: auto;
+    background: url('../images/close.svg') no-repeat center / contain;
+  }
+
+  &__back {
+    width: 11px;
+    margin-right: auto;
+    background: url('../images/arrow-back.svg') no-repeat center / contain;
+  }
+
+  &__close:hover,
+  &__back:hover {
+    opacity: 0.7;
+  }
+
+  &__list {
+    list-style: none;
+  }
+
+  &__link {
+    display: flex;
+    align-items: center;
+
+    height: 49px;
+    padding-inline: fluid(22px, 154px, $bp-mobile, $bp-tablet);
+
+    font-family: $font-main;
+    font-size: 20px;
+    font-weight: $fw-regular;
+    line-height: 27px;
+    color: $c-white;
+
+    transition:
+      color $transition-duration $transition-timing,
+      background-color $transition-duration $transition-timing;
+
+    &:hover {
+      color: $c-accent;
+    }
+
+    &--active {
+      color: $c-accent;
+      background-color: $c-menu-active;
+    }
+
+    @include on-tablet {
+      padding-inline: 154px;
+    }
+  }
+}

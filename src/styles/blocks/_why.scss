@@ -1,0 +1,129 @@
+.why {
+  padding-top: fluid(50px, 70px, $bp-mobile, $bp-tablet);
+  padding-bottom: fluid(53px, 70px, $bp-mobile, $bp-tablet);
+  background: $gradient-bg;
+
+  @include on-tablet {
+    padding-top: fluid(70px, 100px, $bp-tablet, $bp-desktop);
+    padding-bottom: fluid(70px, 102px, $bp-tablet, $bp-desktop);
+  }
+
+  @include on-desktop {
+    padding-top: fluid(100px, 160px, $bp-desktop, $bp-desktop-xl);
+    padding-bottom: fluid(102px, 160px, $bp-desktop, $bp-desktop-xl);
+  }
+
+  @include on-desktop-xl {
+    padding-top: 160px;
+    padding-bottom: 160px;
+  }
+
+  &__title {
+    color: $c-white;
+
+    @include on-desktop {
+      text-align: center;
+    }
+  }
+
+  &__accent {
+    @extend %heading-accent;
+  }
+
+  &__list {
+    display: grid;
+    gap: 25px;
+    margin-top: 29.7px;
+    list-style: none;
+
+    @include on-tablet {
+      grid-template-columns: repeat(
+        3,
+        fluid(221px, 340px, $bp-tablet, $bp-desktop)
+      );
+      gap: 0;
+      justify-content: space-between;
+      margin-top: fluid(27.9px, 82.8px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(
+        3,
+        fluid(340px, 348px, $bp-desktop, $bp-desktop-xl)
+      );
+      margin-top: 82.8px;
+    }
+
+    @include on-desktop-xl {
+      grid-template-columns: repeat(3, 348px);
+    }
+  }
+
+  &__item {
+    @include on-tablet {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+
+  &__icon {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: auto;
+      height: 80px;
+      transition: transform $transition-duration $transition-timing;
+    }
+  }
+
+  &__item:hover &__icon {
+    transform: scale(1.1);
+  }
+
+  &__item-title {
+    color: $c-white;
+
+    @include on-tablet {
+      margin-top: fluid(25px, 34px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      margin-top: fluid(34px, 34px, $bp-desktop, $bp-desktop-xl);
+    }
+  }
+
+  &__text {
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+
+    margin-top: 11px;
+
+    color: $c-grey;
+
+    @include on-tablet {
+      margin-top: fluid(37px, 18px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      overflow: visible;
+      display: block;
+      margin-top: 18px;
+    }
+  }
+
+  &__button {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      margin-top: 90px;
+      margin-inline: auto;
+    }
+  }
+}

@@ -1,0 +1,78 @@
+.more-than {
+  padding-top: fluid(50px, 70px, $bp-mobile, $bp-tablet);
+  padding-bottom: fluid(50px, 62px, $bp-mobile, $bp-tablet);
+  background-color: $c-black;
+
+  @include on-tablet {
+    padding-top: fluid(70px, 100px, $bp-tablet, $bp-desktop);
+    padding-bottom: fluid(62px, 112px, $bp-tablet, $bp-desktop);
+  }
+
+  @include on-desktop {
+    padding-top: fluid(100px, 158px, $bp-desktop, $bp-desktop-xl);
+    padding-bottom: 112px;
+  }
+
+  @include on-desktop-xl {
+    padding-top: 158px;
+  }
+
+  &__title {
+    color: $c-white;
+
+    @include on-tablet {
+      text-align: center;
+    }
+  }
+
+  &__accent {
+    @extend %heading-accent;
+  }
+
+  &__subtitle {
+    margin-top: 12px;
+
+    font-size: $fs-text-3-mob;
+    line-height: normal;
+    color: $c-accent;
+
+    letter-spacing: -0.02em;
+
+    @include on-tablet {
+      text-align: center;
+      letter-spacing: normal;
+    }
+
+    @include on-tablet {
+      margin-top: fluid(12px, 17px, $bp-tablet, $bp-desktop);
+      font-size: fluid($fs-text-3-mob, $fs-text-2, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      margin-top: 17px;
+      font-size: $fs-text-2;
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: 24px;
+    margin-top: 42px;
+    list-style: none;
+
+    @include on-tablet {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 45px 20px;
+      margin-top: fluid(42px, 79px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: fluid(79px, 66px, $bp-desktop, $bp-desktop-xl);
+    }
+
+    @include on-desktop-xl {
+      margin-top: 66px;
+    }
+  }
+}

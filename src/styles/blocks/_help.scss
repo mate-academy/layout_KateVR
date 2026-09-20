@@ -1,0 +1,61 @@
+.help {
+  padding-bottom: 60px;
+
+  @include on-tablet {
+    max-width: 540px;
+    margin-inline: 0;
+  }
+
+  &__title {
+    color: $c-white;
+  }
+
+  &__title-accent {
+    @extend %heading-accent;
+  }
+
+  &__text {
+    margin-top: 30px;
+    color: $c-grey;
+
+    & + & {
+      margin-top: 24px;
+    }
+  }
+
+  &__list {
+    margin-top: 38px;
+    list-style: none;
+  }
+
+  &__item + &__item {
+    margin-top: 20px;
+  }
+
+  &__link {
+    @extend %text-1;
+
+    color: $c-accent;
+
+    @include hover(color, $c-white);
+  }
+
+  &__contacts {
+    margin-top: 30px;
+    list-style: none;
+  }
+
+  &__contact {
+    @extend %text-1;
+
+    display: block;
+    line-height: 19px;
+    color: $c-grey;
+
+    @include hover(color, $c-accent);
+  }
+
+  &__contacts li + li {
+    margin-top: 11px;
+  }
+}

@@ -1,0 +1,194 @@
+.about-product {
+  padding-top: fluid(50px, 63px, $bp-mobile, $bp-tablet);
+
+  @include on-tablet {
+    padding-top: fluid(63px, 105px, $bp-tablet, $bp-desktop);
+  }
+
+  @include on-desktop {
+    padding-top: fluid(105px, 178px, $bp-desktop, $bp-desktop-xl);
+  }
+
+  @include on-desktop-xl {
+    padding-top: 178px;
+  }
+
+  &__inner {
+    @include on-tablet {
+      display: grid;
+      grid-template-columns:
+        fluid(340px, 430px, $bp-tablet, $bp-desktop)
+        fluid(340px, 333px, $bp-tablet, $bp-desktop);
+      column-gap: fluid(20px, 109px, $bp-tablet, $bp-desktop);
+      align-items: start;
+      justify-content: end;
+    }
+
+    @include on-desktop {
+      grid-template-columns:
+        fluid(430px, 622px, $bp-desktop, $bp-desktop-xl)
+        fluid(333px, 437px, $bp-desktop, $bp-desktop-xl);
+      column-gap: fluid(109px, 117px, $bp-desktop, $bp-desktop-xl);
+    }
+
+    @include on-desktop-xl {
+      grid-template-columns: 622px 437px;
+      column-gap: 117px;
+    }
+  }
+
+  &__title {
+    color: $c-white;
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 1;
+    }
+  }
+
+  &__accent {
+    @extend %heading-accent;
+  }
+
+  &__media {
+    position: relative;
+    margin-top: 22px;
+
+    @include on-tablet {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+      margin-top: 0;
+    }
+
+    @include on-desktop {
+      margin-top: fluid(0, 17px, $bp-desktop, $bp-desktop-xl);
+    }
+
+    @include on-desktop-xl {
+      margin-top: 17px;
+    }
+  }
+
+  &__counter {
+    @extend %text-2;
+
+    position: absolute;
+    top: -5px;
+    left: -44px;
+
+    display: none;
+
+    color: $c-accent;
+
+    @include on-desktop {
+      top: fluid(-5px, -17px, $bp-desktop, $bp-desktop-xl);
+      display: block;
+    }
+
+    @include on-desktop-xl {
+      top: -17px;
+    }
+  }
+
+  &__image {
+    display: block;
+    width: 100%;
+
+    img {
+      display: block;
+
+      aspect-ratio: 280 / 189;
+      width: 100%;
+      border-radius: $radius-button;
+
+      object-fit: cover;
+
+      @include on-tablet {
+        aspect-ratio: auto;
+        height: fluid(270px, 290px, $bp-tablet, $bp-desktop);
+
+        object-position: 29% center;
+      }
+
+      @include on-desktop {
+        height: 290px;
+      }
+    }
+  }
+
+  &__dots {
+    display: flex;
+    gap: 6px;
+    justify-content: center;
+
+    margin-top: 14px;
+
+    list-style: none;
+
+    @include on-tablet {
+      margin-top: 15px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: rgba($c-white, 0.3);
+
+    &--active {
+      background-color: $c-accent;
+    }
+  }
+
+  &__pager {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      margin-top: 12px;
+    }
+  }
+
+  &__text {
+    margin-top: 20px;
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 2;
+      margin-top: fluid(32px, 32px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      margin-top: fluid(32px, 61px, $bp-desktop, $bp-desktop-xl);
+    }
+
+    @include on-desktop-xl {
+      margin-top: 61px;
+    }
+  }
+
+  &__description {
+    color: $c-grey;
+  }
+
+  &__play {
+    margin-top: fluid(23px, 25px, $bp-mobile, $bp-tablet);
+
+    @include on-tablet {
+      margin-top: fluid(25px, 29px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      margin-top: fluid(29px, 42px, $bp-desktop, $bp-desktop-xl);
+    }
+
+    @include on-desktop-xl {
+      margin-top: 42px;
+    }
+  }
+}

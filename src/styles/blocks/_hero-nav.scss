@@ -1,0 +1,59 @@
+.hero-nav {
+  display: none;
+
+  @include on-desktop {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: start;
+  }
+
+  &__links {
+    display: flex;
+    gap: 39px;
+  }
+
+  &__link {
+    @extend %button-text;
+
+    color: $c-white;
+
+    @include hover(color, $c-accent);
+  }
+
+  &__more {
+    @extend %button-text;
+
+    position: relative;
+    padding-bottom: 13px;
+    color: $c-white;
+    transition: color $transition-duration $transition-timing;
+
+    &::after {
+      content: '';
+
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+
+      width: 9px;
+      height: 6px;
+
+      background: url('../images/arrow-down.svg') no-repeat center / contain;
+
+      transition: transform $transition-duration $transition-timing;
+    }
+
+    &:hover {
+      color: $c-accent;
+    }
+
+    &:hover::after {
+      transform: translate(-50%, 3px);
+    }
+  }
+
+  &__pager {
+    justify-self: end;
+  }
+}

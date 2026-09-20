@@ -1,0 +1,48 @@
+.form {
+  display: grid;
+  gap: 24px;
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: fluid(6px, 24px, $bp-mobile, $bp-tablet);
+
+    @include on-tablet {
+      margin-top: fluid(24px, 66px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      margin-top: 66px;
+    }
+  }
+
+  &__submit {
+    width: 100%;
+    height: fluid(37px, 48px, $bp-mobile, $bp-tablet);
+
+    @include on-tablet {
+      width: $button-width;
+      height: $button-height;
+    }
+  }
+
+  &__top {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+
+      width: 48px;
+      height: 48px;
+
+      background: url('../images/arrow-up.svg') no-repeat center / contain;
+
+      transition: transform $transition-duration $transition-timing;
+
+      &:hover {
+        transform: scale(1.15);
+      }
+    }
+  }
+}
