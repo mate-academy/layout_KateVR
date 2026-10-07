@@ -1,0 +1,70 @@
+html {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+}
+
+body {
+  background: $gradient-main;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+img {
+  @include hover(transform, scale(1.05));
+}
+
+/* stylelint-disable selector-max-id */
+html:has([id='menu']:target),
+html:has([id='menu-language']:target),
+html:has([id='menu-help']:target),
+body:has([id='menu']:target),
+body:has([id='menu-language']:target),
+body:has([id='menu-help']:target) {
+  overflow: hidden;
+}
+/* stylelint-enable selector-max-id */
+
+/* stylelint-disable selector-max-id */
+body:has([id='menu']:target)::before,
+body:has([id='menu-language']:target)::before,
+body:has([id='menu-help']:target)::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: rgba($c-black, 0.6);
+}
+/* stylelint-enable selector-max-id */
+
+.page {
+  overflow-x: clip;
+
+  box-sizing: border-box;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  &-link {
+    color: $c-white;
+    text-decoration: none;
+    white-space: nowrap;
+
+    @include hover(transform, scale(1.1));
+
+    &--active {
+      font-weight: 700;
+    }
+  }
+
+  &__header {
+    @include page-grid;
+  }
+
+  &__main {
+    @include page-grid;
+  }
+
+  &__footer {
+    @include page-grid;
+  }
+}

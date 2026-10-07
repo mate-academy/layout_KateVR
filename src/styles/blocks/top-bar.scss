@@ -1,0 +1,80 @@
+.top-bar {
+  display: flex;
+  grid-column: 1 / -1;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 0;
+
+  &__logo img {
+    @extend %site-logo;
+  }
+
+  &__brand {
+    display: flex;
+    gap: 35px;
+    align-items: center;
+  }
+
+  &__lang {
+    display: none;
+    gap: 4px;
+    align-items: center;
+
+    color: $c-blue;
+    text-decoration: none;
+
+    @include on-desktop {
+      display: flex;
+    }
+
+    @include hover(color, $c-white);
+
+    img {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  &__group {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 37px;
+  }
+
+  &__actions {
+    display: flex;
+    gap: 37px;
+    align-items: center;
+  }
+
+  &__buy {
+    @extend %main-button;
+
+    @include on-desktop {
+      width: 200px;
+    }
+  }
+
+  &__burger {
+    display: flex;
+
+    @include on-desktop {
+      display: none;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+}
