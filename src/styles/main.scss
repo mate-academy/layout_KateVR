@@ -1,7 +1,88 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'header';
+@import 'hero';
+@import 'button';
+@import 'place-order';
+@import 'menu';
+@import 'language';
+@import 'questions';
+@import 'help';
+@import 'more-than';
+@import 'about';
+@import 'tech';
+@import 'why';
+@import 'contacts';
+@import 'footer';
+
+*,
+*::before,
+*::after {
+  scroll-behavior: smooth;
+
+  box-sizing: border-box;
+}
 
 body {
-  background: $c-gray;
+  margin: 0;
+  min-width: 320px;
+
+  font-family: Inter, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 150%;
+  color: $c-text-primary;
+
+  background: $c-background-black;
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+body:has(.menu:target) {
+  overflow: hidden;
+}
+
+body:has(.language:target) {
+  overflow: hidden;
+}
+
+body:has(.questions:target) {
+  overflow: hidden;
+}
+
+body:has(.help:target) {
+  overflow: hidden;
+}
+
+body:has(.help:target, .questions:target) .menu-overlay {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  z-index: 1000;
+}
+
+.card {
+  box-shadow: $box-shadow;
+}
+
+[id='menu'],
+.language {
+  position: fixed;
+  z-index: 1001;
+  inset: 0;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: $c-text-primary;
+  -webkit-box-shadow: 0 0 0 1000px $c-background-black inset;
+  transition: background-color 9999s ease-in-out 0s;
 }

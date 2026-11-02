@@ -6,14 +6,1463 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Title</title>
+    <link
+      rel="icon"
+      type="image/png"
+      href="./src/images/logo/favicon-s.png"
+    />
+    <title>KatVR</title>
     <link
       rel="stylesheet"
       href="src/styles/main.scss"
     />
   </head>
-  <body>
-    <h1>Hello Mate Academy</h1>
+
+  <body id="body">
+    <header class="header">
+      <div class="header__top">
+        <a
+          href="#body"
+          class="header__logo"
+        >
+          <img
+            src="./src/images/logo/logo.svg"
+            alt="katvr logo"
+          />
+        </a>
+
+        <div class="header__top-language">
+          <select
+            class="header__language-select"
+            id="header-language"
+            data-dropdown
+            aria-label="Choose language"
+          >
+            <option value="en">En</option>
+            <option value="ar">Ar</option>
+            <option value="zh-CN">ChS</option>
+            <option value="zh-TW">ChT</option>
+            <option value="fr">Fr</option>
+            <option value="de">De</option>
+            <option value="it">It</option>
+            <option value="pl">Pl</option>
+            <option value="uk">Uk</option>
+          </select>
+        </div>
+
+        <div class="header__top-bar">
+          <a
+            href="#about"
+            class="header__top-bar__item"
+          >
+            About
+          </a>
+          <a
+            href="#tech"
+            class="header__top-bar__item"
+          >
+            Tech
+          </a>
+          <a
+            href="#benefits"
+            class="header__top-bar__item"
+          >
+            Benefits
+          </a>
+          <a
+            href="#contacts"
+            class="header__top-bar__item"
+          >
+            Contact
+          </a>
+        </div>
+
+        <a
+          href="#menu"
+          class="header__menu icon icon--menu"
+          aria-label="Open menu"
+        ></a>
+
+        <button
+          class="header__top-bar__button button"
+          type="button"
+          data-order-open
+        >
+          Buy Now
+        </button>
+      </div>
+
+      <section class="hero">
+        <div class="hero-slider">
+          <div class="hero-slider__window">
+            <div class="hero-slider__items">
+              <div class="hero-slider__item">
+                <img
+                  class="hero-slider__image hero-slider__image--s"
+                  src="./src/images/products/header-product-mobile.png"
+                  alt="KAT VR product"
+                />
+                <img
+                  class="hero-slider__image hero-slider__image--m"
+                  src="./src/images/products/header-product-tablet.png"
+                  alt="KAT VR product"
+                />
+                <img
+                  class="hero-slider__image hero-slider__image--l"
+                  src="./src/images/products/header-product-desktop.png"
+                  alt="KAT VR product"
+                />
+              </div>
+
+              <div class="hero-slider__item">
+                <img
+                  class="hero-slider__image"
+                  src="./src/images/products/header-product2.png"
+                  alt="KAT VR product"
+                />
+              </div>
+
+              <div class="hero-slider__item">
+                <img
+                  class="hero-slider__image"
+                  src="./src/images/products/header-product3.png"
+                  alt="KAT VR product"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__bottom">
+          <div class="hero__top-bar">
+            <a
+              href="#questions"
+              class="hero__top-bar__item"
+            >
+              FAQ
+            </a>
+            <a
+              href="#help"
+              class="hero__top-bar__item"
+            >
+              Help
+            </a>
+          </div>
+
+          <a
+            href="#more"
+            class="hero__more"
+          >
+            More
+          </a>
+
+          <div class="hero-slider__controls">
+            <button
+              class="hero-slider__btn hero-slider__btn--prev hero-slider__line--active"
+              type="button"
+            >
+              Previous
+            </button>
+
+            <button
+              class="hero-slider__btn hero-slider__btn--next"
+              type="button"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <h1>
+            THE NEW START OF
+            <span>VR LOCOMOTION</span>
+          </h1>
+          <div class="hero-content__text">
+            <p class="text-1">
+              Discover the most comprehensive VR Locomotion system, and unlock
+              infinite motion in any games on any platforms!
+            </p>
+            <div class="hero-content__price">1200$</div>
+            <a
+              href="https://www.youtube.com/watch?v=A3NwsyZB0O8"
+              class="hero-content__item"
+            ></a>
+          </div>
+        </div>
+      </section>
+
+      <div class="header__bottom">
+        <button
+          class="header__button button"
+          type="button"
+          data-order-open
+        >
+          Buy Now
+        </button>
+      </div>
+      <!-- 1. Кнопка, яка відкриває форму -->
+
+      <!-- 2. Модальне вікно -->
+      <div
+        class="order"
+        id="order"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="order-title"
+        hidden
+      >
+        <div
+          class="order__overlay"
+          data-order-close
+        ></div>
+
+        <div
+          class="order__panel"
+          data-screen="1"
+        >
+          <header class="order__header">
+            <a
+              href="#body"
+              class="header__logo"
+            >
+              <img
+                src="./src/images/logo/logo.svg"
+                alt="katvr logo"
+              />
+            </a>
+
+            <button
+              class="order__close icon icon--close"
+              type="button"
+              aria-label="Close"
+              data-order-close
+            ></button>
+          </header>
+
+          <h2
+            class="visually-hidden"
+            id="order-title"
+          >
+            Place your order
+          </h2>
+
+          <ol class="order__steps">
+            <li class="order__step is-active">Place Order</li>
+            <li class="order__step">Pay</li>
+            <li class="order__step">Complete</li>
+          </ol>
+
+          <div class="order__body">
+            <div class="order__image order__image--mobile">
+              <img
+                src="./src/images/products/header-product-mobile.png"
+                alt="product image"
+              />
+            </div>
+            <div class="order__image order__image--desktop">
+              <img
+                src="./src/images/products/header-product-desktop.png"
+                alt="product image"
+              />
+            </div>
+            <!-- Кількість і ціна -->
+            <div
+              class="order__summary"
+              data-summary
+            >
+              <label class="order__qty">
+                <span class="order__qty-label">Quantity</span>
+                <select
+                  class="order__select order__select--qty"
+                  id="order-qty"
+                  data-dropdown
+                >
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </label>
+              <div class="order__price">
+                <span class="order__price-label">Price</span>
+                <output
+                  class="order__price-value"
+                  id="order-price"
+                  for="order-qty"
+                >
+                  1200$
+                </output>
+              </div>
+            </div>
+
+            <!-- Крок 1: дані клієнта -->
+            <form
+              class="order__screen"
+              data-form="1"
+              novalidate
+            >
+              <div class="field">
+                <input
+                  class="field__input"
+                  id="firstName"
+                  name="firstName"
+                  type="text"
+                  placeholder=" "
+                  autocomplete="given-name"
+                  required
+                />
+                <label
+                  class="field__label"
+                  for="firstName"
+                >
+                  First Name*
+                </label>
+                <span class="field__error">Enter your first name</span>
+              </div>
+              <div class="field">
+                <input
+                  class="field__input"
+                  id="lastName"
+                  name="lastName"
+                  type="text"
+                  placeholder=" "
+                  autocomplete="family-name"
+                  required
+                />
+                <label
+                  class="field__label"
+                  for="lastName"
+                >
+                  Last Name*
+                </label>
+                <span class="field__error">Enter your last name</span>
+              </div>
+              <div class="field">
+                <input
+                  class="field__input"
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder=" "
+                  autocomplete="email"
+                  required
+                />
+                <label
+                  class="field__label"
+                  for="email"
+                >
+                  Email*
+                </label>
+                <span class="field__error">Enter a valid email address</span>
+              </div>
+              <div class="field">
+                <input
+                  class="field__input"
+                  id="phone"
+                  name="phone"
+                  type="tel"
+                  placeholder=" "
+                  autocomplete="tel"
+                  required
+                />
+                <label
+                  class="field__label"
+                  for="phone"
+                >
+                  Phone Number*
+                </label>
+                <span class="field__error">Enter a valid phone number</span>
+              </div>
+
+              <div class="field field--select">
+                <label
+                  class="field__caption"
+                  for="country"
+                >
+                  Country*
+                </label>
+                <select
+                  class="order__select"
+                  id="country"
+                  name="country"
+                  required
+                  data-dropdown
+                >
+                  <option
+                    value="Ukraine"
+                    selected
+                  >
+                    Ukraine
+                  </option>
+                  <option value="Poland">Poland</option>
+                  <option value="Germany">Germany</option>
+                  <option value="USA">USA</option>
+                </select>
+              </div>
+              <div class="field field--select">
+                <label
+                  class="field__caption"
+                  for="city"
+                >
+                  City*
+                </label>
+                <select
+                  class="order__select"
+                  id="city"
+                  name="city"
+                  required
+                  data-dropdown
+                ></select>
+                <span class="field__error">Select your city</span>
+              </div>
+
+              <div class="field">
+                <input
+                  class="field__input"
+                  id="address1"
+                  name="address1"
+                  type="text"
+                  placeholder=" "
+                  autocomplete="address-line1"
+                  required
+                />
+                <label
+                  class="field__label"
+                  for="address1"
+                >
+                  Shipping Address*
+                </label>
+                <span class="field__error">Enter your shipping address</span>
+              </div>
+              <div class="field">
+                <input
+                  class="field__input"
+                  id="address2"
+                  name="address2"
+                  type="text"
+                  placeholder=" "
+                  autocomplete="address-line2"
+                />
+                <label
+                  class="field__label"
+                  for="address2"
+                >
+                  Shipping Address 2
+                </label>
+              </div>
+
+              <button
+                class="order__submit"
+                type="submit"
+              >
+                Purchase
+              </button>
+            </form>
+
+            <!-- Крок 2: оплата -->
+            <form
+              class="order__screen"
+              data-form="2"
+              novalidate
+              hidden
+            >
+              <fieldset class="card-number field">
+                <legend class="card-number__legend">Card Number*</legend>
+
+                <div class="card-number__content">
+                  <div class="card-number__row">
+                    <input
+                      class="card-number__part"
+                      type="text"
+                      inputmode="numeric"
+                      maxlength="4"
+                      placeholder="0000"
+                      autocomplete="cc-number"
+                      aria-label="Card number, digits 1–4"
+                    />
+
+                    <input
+                      class="card-number__part"
+                      type="text"
+                      inputmode="numeric"
+                      maxlength="4"
+                      placeholder="0000"
+                      aria-label="Card number, digits 5–8"
+                    />
+
+                    <input
+                      class="card-number__part"
+                      type="text"
+                      inputmode="numeric"
+                      maxlength="4"
+                      placeholder="0000"
+                      aria-label="Card number, digits 9–12"
+                    />
+
+                    <input
+                      class="card-number__part"
+                      type="text"
+                      inputmode="numeric"
+                      maxlength="4"
+                      placeholder="0000"
+                      aria-label="Card number, digits 13–16"
+                    />
+                  </div>
+
+                  <img
+                    class="card-number__icon"
+                    src="./src/images/icons/visa-card.svg"
+                    alt="Visa"
+                  />
+                </div>
+
+                <span class="field__error">
+                  Enter all 16 digits of your card number
+                </span>
+              </fieldset>
+
+              <div class="field field--mod">
+                <input
+                  class="field__input"
+                  id="holder"
+                  name="holder"
+                  type="text"
+                  placeholder=" "
+                  autocomplete="cc-name"
+                  required
+                />
+                <label
+                  class="field__label"
+                  for="holder"
+                >
+                  Card Holder Name*
+                </label>
+                <span class="field__error">Enter the card holder name</span>
+              </div>
+
+              <div class="order__row">
+                <div class="field field--stacked">
+                  <label
+                    class="field__caption"
+                    for="expiry"
+                  >
+                    Expiration Date*
+                  </label>
+                  <input
+                    class="field__input"
+                    id="expiry"
+                    name="expiry"
+                    type="text"
+                    inputmode="numeric"
+                    maxlength="7"
+                    placeholder="MM / YY"
+                    autocomplete="cc-exp"
+                    required
+                  />
+                  <span class="field__error">
+                    Enter a valid expiration date
+                  </span>
+                </div>
+                <div class="field field--stacked">
+                  <label
+                    class="field__caption"
+                    for="cvv"
+                  >
+                    CVV*
+                  </label>
+                  <input
+                    class="field__input"
+                    id="cvv"
+                    name="cvv"
+                    type="password"
+                    inputmode="numeric"
+                    maxlength="3"
+                    placeholder="000"
+                    autocomplete="cc-csc"
+                    required
+                  />
+                  <span class="field__error">Enter 3 digits</span>
+                </div>
+              </div>
+
+              <button
+                class="order__submit"
+                type="submit"
+              >
+                Purchase
+              </button>
+            </form>
+
+            <!-- Крок 3: готово -->
+            <div
+              class="order__screen order__screen--done"
+              data-form="3"
+              hidden
+            >
+              <h3 class="order__thanks">
+                Thank you for
+                <span class="order__thanks-accent">your</span>
+                order!
+              </h3>
+              <p class="order__thanks-text">
+                Your order has been placed and is being processed. You will
+                receive an email with the order details
+              </p>
+              <button
+                class="order__submit"
+                type="button"
+                data-order-close
+              >
+                Back to homepage
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="menu-overlay"></div>
+
+    <aside
+      class="menu"
+      id="menu"
+    >
+      <a
+        href="#body"
+        class="menu__icon icon icon--close"
+        aria-label="Close menu"
+      ></a>
+      <div class="menu__items">
+        <a
+          href="#about"
+          class="menu__item"
+        >
+          About
+        </a>
+        <a
+          href="#tech"
+          class="menu__item"
+        >
+          Tech
+        </a>
+        <a
+          href="#benefits"
+          class="menu__item"
+        >
+          Benefits
+        </a>
+        <a
+          href="#contacts"
+          class="menu__item"
+        >
+          Contact
+        </a>
+        <a
+          href="#language"
+          class="menu__item"
+        >
+          Language
+        </a>
+        <a
+          href="#questions"
+          class="menu__item"
+        >
+          FAQ
+        </a>
+        <a
+          href="#help"
+          class="menu__item"
+        >
+          Help
+        </a>
+      </div>
+    </aside>
+
+    <aside
+      class="language"
+      id="language"
+    >
+      <a
+        href="#menu"
+        class="language__icon icon icon--back"
+        aria-label="Close menu"
+      ></a>
+      <div class="language__items">
+        <a
+          href="#"
+          class="language__item"
+        >
+          English
+        </a>
+        <a
+          href="#"
+          class="language__item"
+        >
+          Arabic
+        </a>
+        <a
+          href="#"
+          class="language__item"
+        >
+          Chinese (Simplified)
+        </a>
+        <a
+          href="#"
+          class="language__item"
+        >
+          Chinese (Traditional)
+        </a>
+        <a
+          href="#"
+          class="language__item"
+        >
+          French
+        </a>
+        <a
+          href="#"
+          class="language__item"
+        >
+          German
+        </a>
+        <a
+          href="#"
+          class="language__item"
+        >
+          Italian
+        </a>
+        <a
+          href="#"
+          class="language__item"
+        >
+          Polish
+        </a>
+        <a
+          href="#"
+          class="language__item"
+        >
+          Ukrainian
+        </a>
+      </div>
+    </aside>
+
+    <aside
+      class="questions"
+      id="questions"
+    >
+      <a
+        href="#body"
+        class="questions__icon icon icon--close"
+        aria-label="Close menu"
+      ></a>
+      <h2>
+        FREQUENTLY ASKED
+        <span>QUESTIONS</span>
+      </h2>
+      <ul class="questions__items">
+        <li class="questions__item">
+          <a
+            href="#"
+            class="questions__item-link"
+          >
+            <div class="questions__item-head">
+              What makes KAT loco different from other systems?
+            </div>
+            <p class="questions__item-text">
+              Despite being approached from many different angles, all
+              traditional VR Locomotion systems including roomscale,
+              teleportation, and free locomotion failed to provide an optimal
+              solution capable of integrating high immersion with convenience.
+              KAT loco does all of that without repeating their flaws. Our
+              system offers a complete and versatile solution for an affordable
+              price what makes it a perfect choice for home-use. It is also 100%
+              user friendly, wireless, universally compatible, and more! It even
+              offers decoupled head and body directions!
+            </p>
+            <p class="questions__item-note">
+              Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+            </p>
+          </a>
+        </li>
+        <li class="questions__item">
+          <a
+            href="#"
+            class="questions__item-link"
+          >
+            <div class="questions__item-head">
+              Will it decrease my motion sickness?
+            </div>
+            <p class="questions__item-text">
+              Despite being approached from many different angles, all
+              traditional VR Locomotion systems including roomscale,
+              teleportation, and free locomotion failed to provide an optimal
+              solution capable of integrating high immersion with convenience.
+              KAT loco does all of that without repeating their flaws. Our
+              system offers a complete and versatile solution for an affordable
+              price what makes it a perfect choice for home-use. It is also 100%
+              user friendly, wireless, universally compatible, and more! It even
+              offers decoupled head and body directions!
+            </p>
+            <p class="questions__item-note">
+              Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+            </p>
+          </a>
+        </li>
+        <li class="questions__item">
+          <a
+            href="#"
+            class="questions__item-link"
+          >
+            <div class="questions__item-head">
+              Which VR headsets is it compatible with?
+            </div>
+            <p class="questions__item-text">
+              Despite being approached from many different angles, all
+              traditional VR Locomotion systems including roomscale,
+              teleportation, and free locomotion failed to provide an optimal
+              solution capable of integrating high immersion with convenience.
+              KAT loco does all of that without repeating their flaws. Our
+              system offers a complete and versatile solution for an affordable
+              price what makes it a perfect choice for home-use. It is also 100%
+              user friendly, wireless, universally compatible, and more! It even
+              offers decoupled head and body directions!
+            </p>
+            <p class="questions__item-note">
+              Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+            </p>
+          </a>
+        </li>
+        <li class="questions__item">
+          <a
+            href="#"
+            class="questions__item-link"
+          >
+            <div class="questions__item-head">
+              Is it compatible with Oculus Quest?
+            </div>
+            <p class="questions__item-text">
+              Despite being approached from many different angles, all
+              traditional VR Locomotion systems including roomscale,
+              teleportation, and free locomotion failed to provide an optimal
+              solution capable of integrating high immersion with convenience.
+              KAT loco does all of that without repeating their flaws. Our
+              system offers a complete and versatile solution for an affordable
+              price what makes it a perfect choice for home-use. It is also 100%
+              user friendly, wireless, universally compatible, and more! It even
+              offers decoupled head and body directions!
+            </p>
+            <p class="questions__item-note">
+              Last updated: Wed, June 12 2019 7:07 PM UTC +03:00
+            </p>
+          </a>
+        </li>
+      </ul>
+      <a
+        href="#more"
+        class="questions__more"
+      >
+        More
+      </a>
+    </aside>
+
+    <aside
+      class="help"
+      id="help"
+    >
+      <a
+        href="#body"
+        class="help__icon icon icon--close"
+        aria-label="Close menu"
+      ></a>
+
+      <h2>
+        HOW CAN WE
+        <span>HELP</span>
+        YOU?
+      </h2>
+      <div class="help__info">
+        <p>
+          Welcome to our help center. Our goal is to make the process of getting
+          acquainted and purchase as easy and pleasant as possible. Need help
+          with your KAT VR loco product? Many product questions can be resolved
+          by reviewing our Product Support
+          <a href="#questions">FAQs</a>
+          .
+          <br />
+          <br />
+          Please also feel free to
+          <a href="#contacts">Contact Us</a>
+          directly should you need anything further. We’re happy to help.
+        </p>
+      </div>
+
+      <div class="help__links">
+        <a
+          href="https://www.kat-vr.com/pages/support-result"
+          class="help__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instruction manual
+        </a>
+
+        <a
+          href="https://www.kat-vr.com/pages/warranty-policy"
+          class="help__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Where to go for a warranty
+        </a>
+
+        <a
+          href="https://www.kat-vr.com/pages/download/jwqs82v85.html"
+          class="help__link"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Service Policy
+        </a>
+      </div>
+
+      <div class="help__contacts">
+        <a href="tel:+8605786105373">+86-0571-86105373</a>
+        <a href="mailto:global@katvr.com">global@katvr.com</a>
+        <a href="mailto:overseas@katvr.com">overseas@katvr.com</a>
+      </div>
+    </aside>
+
+    <main class="main">
+      <section
+        class="more-than"
+        id="more"
+      >
+        <div class="more-than__title">
+          <h2>
+            MORE THAN
+            <span>GAMING!</span>
+          </h2>
+          <p>This also made for people who are interested in...</p>
+        </div>
+        <div class="more-than__items">
+          <div class="more-than__item">
+            <img
+              src="./src/images/icons/study.svg"
+              alt="more than icon"
+            />
+            <h3>EDUCATION</h3>
+            <p>
+              Create aducational simulations, trainings and much more with
+              unlimited virtual space and minimum physical space
+            </p>
+          </div>
+          <div class="more-than__item">
+            <img
+              src="./src/images/icons/skyline.svg"
+              alt="more than icon"
+            />
+            <h3>REAL ESTATE</h3>
+            <p>
+              Desighn architectural projects in a deeply realistic environment
+              allowing visitors to freely walk around, and feel their vibe
+            </p>
+          </div>
+          <div class="more-than__item">
+            <img
+              src="./src/images/icons/arm.svg"
+              alt="more than icon"
+            />
+            <h3>FITNESS</h3>
+            <p>
+              Combine business with pleasure, and discover countless ways to
+              stay fit while playing your favorite VR Games!
+            </p>
+          </div>
+          <div class="more-than__item">
+            <img
+              src="./src/images/icons/network.svg"
+              alt="more than icon"
+            />
+            <h3>SOCIAL INTERACTIONS</h3>
+            <p>
+              Hang out with your friends in the virtual world when you can’t
+              meet space requirements
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="about"
+        id="about"
+      >
+        <div class="about__title">
+          <h2>
+            ABOUT
+            <span>PRODUCT</span>
+          </h2>
+        </div>
+
+        <span class="about__slider-counter">
+          <span class="about__slider-current">1</span>
+          /
+          <span class="about__slider-total">5</span>
+        </span>
+
+        <div class="about__slider">
+          <div class="about__slider-window">
+            <div class="about__slider-items">
+              <div class="about__slider-item">
+                <img
+                  src="./src/images/products/about-img1.png"
+                  alt="product image"
+                />
+              </div>
+              <div class="about__slider-item">
+                <img
+                  src="./src/images/products/about-img2.png"
+                  alt="product image"
+                />
+              </div>
+              <div class="about__slider-item">
+                <img
+                  src="./src/images/products/about-img3.png"
+                  alt="product image"
+                />
+              </div>
+              <div class="about__slider-item">
+                <img
+                  src="./src/images/products/about-img4.png"
+                  alt="product image"
+                />
+              </div>
+              <div class="about__slider-item">
+                <img
+                  src="./src/images/products/about-img5.png"
+                  alt="product image"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="about__slider-dots">
+            <button
+              class="about__slider-dot about__slider-dot--active"
+              type="button"
+              aria-label="Slide 1"
+            ></button>
+            <button
+              class="about__slider-dot"
+              type="button"
+              aria-label="Slide 2"
+            ></button>
+            <button
+              class="about__slider-dot"
+              type="button"
+              aria-label="Slide 3"
+            ></button>
+            <button
+              class="about__slider-dot"
+              type="button"
+              aria-label="Slide 4"
+            ></button>
+            <button
+              class="about__slider-dot"
+              type="button"
+              aria-label="Slide 5"
+            ></button>
+          </div>
+
+          <div class="about__slider-controls">
+            <button
+              class="about__slider-btn about__slider-btn--prev about-slider__line--active"
+              type="button"
+            >
+              Previous
+            </button>
+
+            <button
+              class="about__slider-btn about__slider-btn--next"
+              type="button"
+            >
+              Next
+            </button>
+          </div>
+        </div>
+
+        <div class="about__info">
+          <p>
+            KAT loco is a foot-based VR locomotion system that gives complete
+            physical control over lower-body actions, allowing you to freely
+            walk, run, and carry out just any other movement in virtual reality.
+          </p>
+          <a
+            href="https://youtu.be/Mo6hHZ5vB9A?si=GQLwHYhRtjH9seGb"
+            class="about__info-item"
+          ></a>
+        </div>
+
+        <div class="about__us">
+          <p class="about__us-title">Hello,</p>
+          <h2>
+            NICE TO MEET
+            <span>YOU!</span>
+          </h2>
+          <p class="about__us-info">
+            KAT VR is an independent company dedicated to the research,
+            development, and sales of VR Locomotion products and solutions.
+            Founded in 2013, we have quickly grown to become one of the world’s
+            leading professional suppliers of VR games’ & simulations’ equipment
+          </p>
+          <img
+            src="./src/images/custom-text/about-us.svg"
+            alt="about us bg"
+          />
+        </div>
+      </section>
+
+      <section
+        class="tech"
+        id="tech"
+      >
+        <h2>
+          TECH
+          <span>SPECS</span>
+        </h2>
+
+        <div class="tech__product-wrapper">
+          <img
+            class="tech__product"
+            src="./src/images/products/tech-specs.png"
+            alt="Tech specs product"
+          />
+
+          <img
+            class="tech__orbit"
+            src="./src/images/decorations/ellipse.svg"
+            alt=""
+          />
+
+          <img
+            class="tech__line tech__line--sensor"
+            src="./src/images/decorations/line-sensor.svg"
+            alt=""
+          />
+
+          <img
+            class="tech__line tech__line--connection"
+            src="./src/images/decorations/line-connection.svg"
+            alt=""
+          />
+
+          <img
+            class="tech__line tech__line--batteries"
+            src="./src/images/decorations/line-batterries.svg"
+            alt=""
+          />
+
+          <a
+            href="#sensor"
+            class="tech__button tech__button--top"
+            data-target="sensor"
+            aria-label="Show sensor specifications"
+            aria-expanded="false"
+          ></a>
+
+          <a
+            href="#connection"
+            class="tech__button tech__button--left"
+            data-target="connection"
+            aria-label="Show connection specifications"
+            aria-expanded="false"
+          ></a>
+
+          <a
+            href="#batteries"
+            class="tech__button tech__button--right"
+            data-target="batteries"
+            aria-label="Show battery specifications"
+            aria-expanded="false"
+          ></a>
+
+          <div
+            class="tech__popup tech__popup--sensor"
+            id="sensor"
+          >
+            <h3>SENSOR</h3>
+            <p>
+              Weight: 35g/1.23oz each. Dimension: 50mm/1.97in × 24mm/0.94in.
+              Light: LED lights.
+            </p>
+          </div>
+
+          <div
+            class="tech__popup tech__popup--connection"
+            id="connection"
+          >
+            <h3>CONNECTION</h3>
+            <p>
+              Wireless: Bluetooth 4.2. Signal range: 5m. Receiver: USB 2.0 and
+              above.
+            </p>
+          </div>
+
+          <div
+            class="tech__popup tech__popup--batteries"
+            id="batteries"
+          >
+            <h3>BATTERIES</h3>
+            <p>
+              Type: Lithium-ion polymer batteries. Capacity: 370mAh. Battery
+              life: 10h of continuous use, 150 hours on standby. Charging: Fast
+              charging — 1 hour. Charging voltage and current: 5V = 0.5A.
+            </p>
+          </div>
+        </div>
+
+        <div class="tech__specs tech__specs--sensor">
+          <h3>SENSOR</h3>
+          <p>
+            Weight: 35g/1.23oz each
+            <br />
+            Dimension: 50mm/1.97in
+            <br />
+            24mm/0.94in
+            <br />
+            Light: LED lights
+          </p>
+        </div>
+
+        <div class="tech__specs tech__specs--connection">
+          <h3>CONNECTION</h3>
+          <p>
+            Wireless: Bluetooth 4.2
+            <br />
+            Signal range: 5m
+            <br />
+            Receiver: USB 2.0 and above
+          </p>
+        </div>
+
+        <div class="tech__specs tech__specs--batteries">
+          <h3>BATTERIES</h3>
+          <p>
+            Type: Lithium-Ion polymer batteries
+            <br />
+            Capacity: 370mAh
+            <br />
+            Battery life: 10h of continuous use 150 hours on stand by
+            <br />
+            Charging: Fast charging - 1 hour
+            <br />
+            Charging voltage and current: 5V = 0.5A
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="why"
+        id="benefits"
+      >
+        <h2>
+          WHY
+          <span>KAT LOCO?</span>
+        </h2>
+
+        <div class="why__items">
+          <div class="why__item">
+            <img
+              src="./src/images/icons/resurs.svg"
+              alt="why icons"
+            />
+            <h3>UNIVERSALLY COMPATIBLE</h3>
+            <p>
+              KAT Loco offers universal compatibility across all major VR
+              headsets and platforms allowing you to play any VR game with
+              support for Free Locomotion
+            </p>
+          </div>
+          <div class="why__item">
+            <img
+              src="./src/images/icons/vr.svg"
+              alt="why icons"
+            />
+            <h3>VR/PC CONTROL PANEL</h3>
+            <p>
+              Our Multifunctional Software allows for quick access to KAT Loco’s
+              control panel both from a computer desktop, and directly from your
+              VR headset.
+            </p>
+          </div>
+          <div class="why__item">
+            <img
+              src="./src/images/icons/sensors.svg"
+              alt="why icons"
+            />
+            <h3>WIRELESS SENSORS</h3>
+            <p>
+              What makes it even more advanced, KAT Loco is entirely wireless,
+              and comes with a complete system of algorithms, super durable
+              batteries and more!
+            </p>
+          </div>
+        </div>
+
+        <button
+          class="why__button button"
+          type="button"
+          data-order-open
+        >
+          Buy Now
+        </button>
+      </section>
+
+      <section
+        class="contacts"
+        id="contacts"
+      >
+        <div class="contacts__info">
+          <p>Have any questions?</p>
+          <h2>
+            GET IN
+            <span>TOUCH</span>
+          </h2>
+        </div>
+
+        <div class="contacts__form">
+          <form class="contacts__form-content">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name*"
+              required
+              class="contacts__form-input"
+            />
+
+            <input
+              type="email"
+              name="email"
+              placeholder="Email*"
+              required
+              class="contacts__form-input"
+            />
+
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone*"
+              class="contacts__form-input"
+            />
+
+            <textarea
+              name="message"
+              placeholder="Message"
+              class="contacts__form-textarea"
+            ></textarea>
+
+            <button
+              type="submit"
+              class="contacts__form-button button"
+            >
+              Contact Us
+            </button>
+          </form>
+        </div>
+
+        <div class="contacts__manager">
+          <p>Our manager will reply you within 15 minutes</p>
+        </div>
+
+        <div class="contacts__go-top">
+          <a
+            href="#"
+            class="contacts__go-up icon icon--go-top"
+            aria-label="Go to top"
+          ></a>
+        </div>
+
+        <div class="contacts__contacts">
+          <a href="tel:+8605786105373">+86-0571-86105373</a>
+          <a href="mailto:global@katvr.com">global@katvr.com</a>
+          <a href="mailto:overseas@katvr.com">overseas@katvr.com</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer__left">
+        <a
+          href="#body"
+          class="footer__logo"
+        >
+          <img
+            src="./src/images/logo/logo.svg"
+            alt="KAT VR"
+          />
+        </a>
+
+        <nav class="footer__menu">
+          <a
+            href="#about"
+            class="footer__menu-item"
+          >
+            About
+          </a>
+          <a
+            href="#tech"
+            class="footer__menu-item"
+          >
+            Tech
+          </a>
+          <a
+            href="#benefits"
+            class="footer__menu-item"
+          >
+            Benefits
+          </a>
+          <a
+            href="#contacts"
+            class="footer__menu-item"
+          >
+            Contact
+          </a>
+        </nav>
+      </div>
+
+      <div class="footer__right">
+        <div class="footer__contacts">
+          <a href="tel:+8605786105373">+86-0571-86105373</a>
+          <a href="mailto:global@katvr.com">global@katvr.com</a>
+          <a href="mailto:overseas@katvr.com">overseas@katvr.com</a>
+        </div>
+
+        <div class="footer__socials">
+          <a
+            href="https://www.facebook.com/katvr.global/"
+            class="footer__socials-link footer__socials-link--facebook"
+            aria-label="Facebook"
+          ></a>
+          <a
+            href="https://x.com/katvrwalk"
+            class="footer__socials-link footer__socials-link--twitter"
+            aria-label="Twitter"
+          ></a>
+          <a
+            href="https://www.youtube.com/channel/UCDLrbvh177aZzSb-4SM9DCQ/videos?view_as=subscriber"
+            class="footer__socials-link footer__socials-link--youtube"
+            aria-label="YouTube"
+          ></a>
+          <a
+            href="https://www.reddit.com/r/KATVR/"
+            class="footer__socials-link footer__socials-link--reddit"
+            aria-label="Reddit"
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="src/scripts/main.js"></script>
   </body>
 </html>

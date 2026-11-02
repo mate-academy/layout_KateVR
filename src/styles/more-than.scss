@@ -1,0 +1,110 @@
+.more-than {
+  background: $c-background-black;
+
+  @include content-padding-inline;
+
+  padding-block: 40px;
+
+  @include on-tablet {
+    padding-block: 60px;
+  }
+
+  @include on-desktop {
+    padding-block: 100px;
+  }
+
+  &__title {
+    @include on-tablet {
+      text-align: center;
+    }
+    span {
+      font-weight: 400;
+      color: $c-text-contrast;
+    }
+
+    p {
+      font-size: 12px;
+      color: $c-text-contrast;
+
+      @include on-tablet {
+        line-height: 100%;
+      }
+
+      @include on-desktop {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__items {
+    padding-bottom: 20px;
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 40px 20px;
+      margin-top: 32px;
+    }
+
+    @include on-desktop {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 40px 30px;
+      margin-top: 80px;
+    }
+  }
+
+  &__item {
+    @include on-tablet {
+      grid-column: span 3;
+      text-align: center;
+    }
+
+    @include on-desktop {
+      grid-column: span 3;
+    }
+
+    img {
+      display: none;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: scale(1.05);
+      }
+
+      @include on-tablet {
+        display: block;
+        height: 110px;
+        width: 90px;
+        margin: 0 auto;
+      }
+
+      @include on-desktop {
+        height: 120px;
+        width: 110px;
+      }
+    }
+
+    h3 {
+      padding-top: 12px;
+    }
+
+    p {
+      color: $c-text-secondary;
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+
+      @include on-tablet {
+        display: block;
+        -webkit-line-clamp: unset;
+        overflow: visible;
+      }
+
+      @include on-desktop {
+        margin-top: 30px;
+        letter-spacing: 3%;
+      }
+    }
+  }
+}
