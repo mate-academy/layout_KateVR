@@ -184,10 +184,14 @@
               infinite motion in any games on any platforms!
             </p>
             <div class="hero-content__price">1200$</div>
-            <a
-              href="https://www.youtube.com/watch?v=A3NwsyZB0O8"
+         
+            <button
+              type="button"
               class="hero-content__item"
-            ></a>
+              aria-label="Play video"
+              data-video-open
+              data-video-id="A3NwsyZB0O8"
+            ></button>
           </div>
         </div>
       </section>
@@ -1097,10 +1101,13 @@
             physical control over lower-body actions, allowing you to freely
             walk, run, and carry out just any other movement in virtual reality.
           </p>
-          <a
-            href="https://youtu.be/Mo6hHZ5vB9A?si=GQLwHYhRtjH9seGb"
+          <button
+            type="button"
             class="about__info-item"
-          ></a>
+            aria-label="Play product video"
+            data-video-open
+            data-video-id="Mo6hHZ5vB9A"
+          ></button>
         </div>
 
         <div class="about__us">
@@ -1331,7 +1338,13 @@
         </div>
 
         <div class="contacts__form">
-          <form class="contacts__form-content">
+          <form
+            class="contacts__form-content"
+            onsubmit="
+              this.reset();
+              return false;
+            "
+          >
             <input
               type="text"
               name="name"
@@ -1352,15 +1365,16 @@
               type="tel"
               name="phone"
               placeholder="Phone*"
+              required
               class="contacts__form-input"
             />
 
             <textarea
               name="message"
-              placeholder="Message"
+              placeholder="Message*"
+              required
               class="contacts__form-textarea"
             ></textarea>
-
             <button
               type="submit"
               class="contacts__form-button button"
@@ -1463,6 +1477,37 @@
     </footer>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="src/scripts/main.js"></script>
+    <script
+      type="module"
+      src="src/scripts/main.js"
+    ></script>
+    <div
+      class="video-modal"
+      data-video-modal
+    >
+      <div
+        class="video-modal__overlay"
+        data-video-close
+      ></div>
+
+      <div class="video-modal__content">
+        <button
+          type="button"
+          class="video-modal__close"
+          aria-label="Close video"
+          data-video-close
+        >
+          <span class="icon icon--close"></span>
+        </button>
+
+        <iframe
+          data-video-frame
+          src=""
+          title="KAT VR video"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </div>
   </body>
 </html>

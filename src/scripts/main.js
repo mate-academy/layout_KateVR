@@ -666,3 +666,32 @@ if (headerButton && footer) {
 
   observer.observe(footer);
 }
+
+const videoModal = document.querySelector('[data-video-modal]');
+const videoFrame = document.querySelector('[data-video-frame]');
+const videoOpenButtons = document.querySelectorAll('[data-video-open]');
+const videoClose = document.querySelectorAll('[data-video-close]');
+
+videoOpenButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const videoId = button.dataset.videoId || 'A3NwsyZB0O8';
+
+    videoFrame.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+    videoModal.classList.add('is-open');
+  });
+});
+
+const closeVideo = () => {
+  videoModal.classList.remove('is-open');
+  videoFrame.src = '';
+};
+
+videoClose.forEach((button) => {
+  button.addEventListener('click', closeVideo);
+});
+
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    closeVideo();
+  }
+});
