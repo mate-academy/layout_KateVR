@@ -1,0 +1,80 @@
+.language {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  box-sizing: border-box;
+  padding-top: 20px;
+
+  background: $c-background-blue;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+
+  @include content-padding-inline;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+
+  @include on-tablet {
+    padding-top: 32px;
+  }
+
+  &:target {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  &__icon {
+    display: flex;
+    justify-content: flex-start;
+    align-self: flex-start;
+  }
+
+  &__items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 46px;
+
+    @include on-tablet {
+      padding-inline: 153px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    width: calc(100% + 40px);
+    height: 49px;
+    margin-inline: -20px;
+    padding-inline: 20px;
+
+    text-decoration: none;
+    color: $c-text-primary;
+    font-size: 21px;
+    font-weight: 500;
+    line-height: 130%;
+
+    @include hover(color, $c-text-contrast);
+
+    &:hover {
+      background-color: $c-menu-hover;
+    }
+
+    @include on-tablet {
+      width: calc(100% + 366px);
+      margin-inline: -183px;
+      padding-inline: 183px;
+    }
+  }
+}

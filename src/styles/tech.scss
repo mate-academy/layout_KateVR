@@ -1,0 +1,304 @@
+.tech {
+  @include content-padding-inline;
+
+  padding-top: 40px;
+  padding-bottom: 80px;
+
+  @include on-desktop {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    grid-template-rows: auto auto auto;
+    column-gap: 30px;
+    position: relative;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    min-height: 850px;
+    overflow: hidden;
+
+    h2 {
+      grid-column: 9 / 13;
+      grid-row: 1;
+      margin: 0 0 100px;
+    }
+  }
+
+  span {
+    font-weight: 400;
+    color: $c-text-contrast;
+  }
+
+  &__decor {
+    display: none;
+  }
+
+  &__product-wrapper {
+    position: relative;
+    width: fit-content;
+    margin: 40px auto 0;
+
+    @include on-desktop {
+      grid-column: 5 / 9;
+      grid-row: 2 / 4;
+      position: relative;
+      width: 100%;
+      height: 450px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: visible;
+    }
+  }
+
+  &__product {
+    display: block;
+    width: auto;
+    height: 206px;
+    padding-left: 0;
+
+    @include on-tablet {
+      width: 357px;
+      height: auto;
+    }
+
+    @include on-desktop {
+      width: 298px;
+      height: auto;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__button {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    flex-shrink: 0;
+    width: 34px;
+    height: 34px;
+    background-image: url('../images/buttons/button-plus.svg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    @include on-tablet {
+      width: 61px;
+      height: 61px;
+    }
+
+    &--top {
+      top: 0;
+      left: 40%;
+      transform: translate(-50%, -50%);
+    }
+
+    &--left {
+      bottom: 15%;
+      left: 0;
+      transform: translate(-50%, 50%);
+    }
+
+    &--right {
+      top: 50%;
+      right: 40px;
+      transform: translate(50%, -50%);
+
+      @include on-tablet {
+        right: 85px;
+      }
+    }
+
+    &--active {
+      background-image: url('../images/buttons/button-minus.svg');
+    }
+  }
+
+  &__popup {
+    position: absolute;
+    z-index: 3;
+    display: none;
+    border-radius: 10px;
+    padding: 20px 10px;
+    background-color: $c-background-blue;
+    font-size: 24px;
+
+    &--active {
+      display: block;
+    }
+
+    &--sensor {
+      width: 160px;
+      top: 20px;
+      left: 25%;
+
+      @include on-tablet {
+        top: 35px;
+        width: 205px;
+      }
+    }
+
+    &--connection {
+      top: 80px;
+      left: 20px;
+      width: 180px;
+
+      @include on-tablet {
+        top: 135px;
+        width: 205px;
+      }
+    }
+
+    &--batteries {
+      left: 20px;
+      top: 122px;
+      width: 240px;
+
+      @include on-tablet {
+        top: 135px;
+        width: 285px;
+        left: -50px;
+      }
+    }
+
+    h3 {
+      margin: 0;
+      display: none;
+    }
+
+    p {
+      margin: 0;
+      color: $c-text-secondary;
+      font-size: 12px;
+
+      @include on-tablet {
+        font-size: 16px;
+      }
+    }
+  }
+
+  @include on-desktop {
+    &__button,
+    &__popup {
+      display: none;
+    }
+  }
+
+  &__specs {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: relative;
+      z-index: 2;
+
+      h3 {
+        margin: 0 0 28px;
+        color: $c-text-primary;
+        font-size: 22px;
+        font-weight: 700;
+      }
+
+      p {
+        margin: 0;
+        color: $c-text-secondary;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+    }
+
+    &--sensor {
+      @include on-desktop {
+        grid-column: 1 / 4;
+        grid-row: 2;
+        align-self: start;
+        margin-top: 0;
+      }
+    }
+
+    &--connection {
+      @include on-desktop {
+        grid-column: 2 / 5;
+        grid-row: 3;
+        align-self: start;
+        margin-top: 0;
+      }
+    }
+
+    &--batteries {
+      @include on-desktop {
+        grid-column: 9 / 13;
+        grid-row: 2 / 4;
+        align-self: start;
+        margin-left: 20px;
+      }
+    }
+  }
+
+  &__line {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+      z-index: 2;
+      height: auto;
+      max-width: none;
+      pointer-events: none;
+    }
+
+    &--sensor {
+      @include on-desktop {
+        width: clamp(300px, 32vw, 420px);
+        top: 1.6%;
+        right: 50%;
+      }
+    }
+
+    &--connection {
+      @include on-desktop {
+        width: clamp(100px, 10vw, 134px);
+        top: 30%;
+        right: 92%;
+      }
+    }
+
+    &--batteries {
+      @include on-desktop {
+        width: clamp(140px, 15vw, 192px);
+        top: 3%;
+        left: 50%;
+      }
+    }
+  }
+
+  &__orbit {
+    display: none;
+
+    @include on-desktop {
+      display: block;
+      position: absolute;
+      z-index: 2;
+      width: 46px;
+      height: 202px;
+      left: calc(50% - 160px);
+      top: calc(50% - 101px);
+      transform-origin: 160px 101px;
+      animation: orbit-move 4s ease-in-out infinite alternate;
+      pointer-events: none;
+    }
+  }
+
+  @keyframes orbit-move {
+    0% {
+      top: calc(50% - 105px);
+      left: calc(50% - 158px);
+      transform: rotate(10deg);
+    }
+
+    100% {
+      top: calc(50% - 105px);
+      left: calc(50% - 158px);
+      transform: rotate(-10deg);
+    }
+  }
+}

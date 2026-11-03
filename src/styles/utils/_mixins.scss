@@ -4,3 +4,64 @@
     #{$_property}: $_toValue;
   }
 }
+
+@mixin on-tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin on-desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin content-padding-inline() {
+  padding-inline: 20px;
+
+  @include on-tablet {
+    padding-inline: 34px;
+  }
+
+  @include on-desktop {
+    padding-inline: 110px;
+  }
+}
+
+@mixin slider-dot($block) {
+  width: 4px;
+  height: 4px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: $c-text-note;
+  cursor: pointer;
+  transition:
+    background 0.3s,
+    transform 0.3s;
+
+  &--active {
+    background: $c-text-primary;
+    transform: scale(1.25);
+  }
+}
+
+@mixin autofill-reset {
+  &:autofill {
+    color: $c-text-primary;
+    background: transparent;
+  }
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus {
+    -webkit-text-fill-color: $c-text-primary;
+    caret-color: $c-text-primary;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    transition:
+      background-color 600000s 0s,
+      color 600000s 0s;
+  }
+}

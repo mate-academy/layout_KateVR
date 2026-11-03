@@ -1,0 +1,885 @@
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+body.is-locked {
+  overflow: hidden;
+}
+
+// Поле з плаваючим підписом
+.field {
+  position: relative;
+  min-height: 66px;
+  padding-top: 18px;
+  margin: 0;
+  border: 0;
+
+  @include on-tablet {
+    grid-column: span 3;
+  }
+
+  &--mod {
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 1px solid $c-text-note;
+    background: transparent;
+    color: $c-text-primary;
+    font: inherit;
+    font-size: 16px;
+    transition: border-color 0.2s;
+
+    &::placeholder {
+      color: transparent;
+    }
+    &:focus {
+      outline: 0;
+      border-bottom-color: $c-text-contrast;
+    }
+
+    @include autofill-reset;
+
+    // для полів з постійним підписом зверху
+    .field--stacked &::placeholder {
+      color: $c-text-note;
+    }
+  }
+
+  &__label {
+    position: absolute;
+    left: 0;
+    top: 28px;
+    color: $c-text-secondary;
+    font-size: 16px;
+    pointer-events: none;
+    transition: all 0.2s;
+  }
+
+  &__input:focus + &__label,
+  &__input:not(:placeholder-shown) + &__label,
+  &__input:-webkit-autofill + &__label {
+    top: 0;
+    font-size: 12px;
+    color: $c-text-contrast;
+  }
+
+  &__caption {
+    display: block;
+    margin-bottom: 8px;
+    color: $c-text-secondary;
+    font-size: 16px;
+  }
+  &--select {
+    padding-top: 14px;
+  }
+  &--select &__caption {
+    margin-bottom: 10px;
+  }
+
+  &__error {
+    display: none;
+    margin-top: 4px;
+    color: $i-unsuccessful;
+    font-size: 12px;
+  }
+}
+
+.order {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  color: $c-text-primary;
+
+  &[hidden] {
+    display: none;
+  }
+
+  &__overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  &__panel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 480px;
+    overflow-y: auto;
+    background: linear-gradient(
+      110deg,
+      $c-background-blue 0%,
+      $c-background-black 70%
+    );
+    animation: order-in 0.25s ease-out;
+
+    @media (min-width: 768px) {
+      align-self: center;
+      max-height: 94vh;
+      border-radius: 8px;
+    }
+
+    @include on-tablet {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      max-height: none;
+      border-radius: 0;
+    }
+
+    @include on-desktop {
+      width: 100%;
+      max-width: none;
+      height: 100%;
+      max-height: none;
+      border-radius: 0;
+      overflow-y: auto;
+    }
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 18px;
+
+    @include on-tablet {
+      padding-top: 32px;
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      column-gap: 30px;
+      padding: 65px 110px 0;
+    }
+  }
+
+  &__close {
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+
+    @include on-desktop {
+      grid-column: 3;
+      grid-row: 1;
+      justify-self: end;
+    }
+  }
+
+  // Прогрес-кроки
+  &__steps {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid $c-text-note;
+
+    @include on-desktop {
+      grid-column: 2;
+      grid-row: 1;
+      place-self: center;
+      width: 100%;
+      max-width: 600px;
+      justify-content: space-between;
+      border: 0;
+      margin-top: -20px;
+    }
+  }
+
+  &__step {
+    flex: 1;
+    padding: 12px 0 14px;
+    text-align: center;
+    font-size: 14px;
+    color: $c-text-note;
+    border-bottom: 1px solid transparent;
+    margin-bottom: -1px;
+
+    &.is-done {
+      color: $c-text-primary;
+    }
+    &.is-active {
+      color: $c-text-contrast;
+      border-bottom-color: $c-text-contrast;
+    }
+
+    @include on-desktop {
+      position: relative;
+      flex: initial;
+      padding: 0;
+      margin: 0;
+      border: 0;
+
+      &::after {
+        content: none;
+      }
+
+      &.is-active {
+        border: 0;
+
+        &::after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          bottom: -14px;
+          transform: translateX(-50%);
+          width: 5px;
+          height: 5px;
+          border-radius: 50%;
+          background-color: $c-text-contrast;
+        }
+      }
+    }
+  }
+
+  &__panel[data-screen='3'] &__step:not(.is-active) {
+    color: $c-text-secondary;
+  }
+
+  &__body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 20px 28px;
+
+    @include on-tablet {
+      padding-inline: 34px;
+    }
+
+    @include on-desktop {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      column-gap: 30px;
+
+      width: 100%;
+      max-width: 1272px;
+      margin-inline: auto;
+      align-content: start;
+      padding-inline: 110px;
+      padding-top: 113px;
+    }
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    &--mobile {
+      img {
+        display: none;
+
+        @include on-tablet {
+          display: block;
+          width: 524px;
+        }
+
+        @include on-desktop {
+          display: none;
+        }
+      }
+    }
+
+    &--desktop {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        grid-column: 1 / 6;
+        grid-row: 1;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          display: block;
+          width: 701px;
+          height: auto;
+          margin-top: -120px;
+        }
+      }
+    }
+  }
+
+  // Кількість та ціна
+  &__summary {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin-bottom: 36px;
+
+    &[hidden] {
+      display: none;
+    }
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      column-gap: 20px;
+      justify-content: initial;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 6;
+      grid-row: 2;
+
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      column-gap: 20px;
+
+      margin-top: -65px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__qty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    @include on-tablet {
+      grid-column: 2 / 3;
+      align-items: flex-start;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 3;
+      align-items: flex-start;
+    }
+  }
+
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    @include on-tablet {
+      grid-column: 4 / 7;
+      align-items: flex-start;
+    }
+
+    @include on-desktop {
+      grid-column: 3 / 6;
+      align-items: flex-start;
+    }
+  }
+
+  &__qty,
+  &__price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+
+    @include on-tablet {
+      align-items: flex-start;
+    }
+  }
+
+  &__qty-label,
+  &__price-label {
+    font-size: 16px;
+    color: $c-text-secondary;
+  }
+
+  &__price-label {
+    color: $c-text-secondary;
+    padding-bottom: 12px;
+  }
+
+  &__price-value {
+    font-size: 26px;
+    font-weight: 500;
+    color: $c-text-contrast;
+
+    @include on-tablet {
+      font-size: 36px;
+    }
+  }
+
+  // Select
+  &__select {
+    width: 100%;
+    height: 48px;
+    padding: 0 40px 0 24px;
+    border: 0;
+    border-radius: 4px;
+    background-color: $c-background-blue;
+    background-image: url(../images/custom-text/dropdown-polygon.svg);
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    color: $c-text-primary;
+    font: inherit;
+    font-size: 18px;
+    appearance: none;
+    cursor: pointer;
+
+    &--qty {
+      width: 90px;
+      padding-left: 36px;
+      font-size: 20px;
+    }
+
+    &:focus-visible {
+      outline: 1px solid $c-text-contrast;
+    }
+
+    option {
+      background: $c-background-blue;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 1000px $c-background-blue inset;
+      box-shadow: 0 0 0 1000px $c-background-blue inset;
+    }
+  }
+
+  // Екрани
+  &__screen {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    &[hidden] {
+      display: none;
+    }
+
+    &--done {
+      flex: 1;
+      justify-content: center;
+      gap: 24px;
+      text-align: center;
+
+      @include on-desktop {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        gap: 24px;
+        text-align: center;
+      }
+    }
+
+    @include on-tablet {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px 20px;
+    }
+
+    @include on-desktop {
+      grid-column: 7 / 13;
+      grid-row: 1 / 3;
+
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 28px 24px;
+
+      align-content: start;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+    }
+
+    .field {
+      @include on-tablet {
+        grid-column: auto;
+      }
+    }
+  }
+
+  &__submit {
+    margin-top: 36px;
+    height: 42px;
+    border: 0;
+    border-radius: 3px;
+    background: $c-text-contrast;
+    color: $c-text-primary;
+    font: inherit;
+    font-size: 14px;
+    cursor: pointer;
+
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease,
+      box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0 0 10px $b-primary-default;
+    }
+
+    &:active {
+      background-color: $b-primary-hover;
+      color: $c-text-contrast;
+    }
+
+    &:focus-visible {
+      outline: 2px solid $c-text-primary;
+      outline-offset: 3px;
+    }
+
+    @include on-tablet {
+      grid-column: 2 / 6;
+      justify-self: stretch;
+      width: 100%;
+      height: 48px;
+      margin-bottom: 26px;
+    }
+
+    @include on-desktop {
+      grid-column: 1 / 7;
+      justify-self: start;
+
+      width: 199px;
+      height: 48px;
+      margin-top: 36px;
+      margin-bottom: 0;
+    }
+  }
+
+  &__thanks {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 1.2;
+    text-transform: uppercase;
+
+    @include on-desktop {
+      width: 100%;
+      margin: 0;
+    }
+  }
+
+  &__thanks-accent {
+    color: $c-text-contrast;
+    font-weight: 400;
+  }
+
+  &__thanks-text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+}
+
+.dropdown {
+  position: relative;
+
+  // справжній select лишається для форми, але його не видно
+  &__native {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__toggle {
+    text-align: left;
+  }
+
+  &__list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 5;
+    max-height: 245px; // 5 пунктів
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    list-style: none;
+    background-color: $c-background-blue;
+
+    &[hidden] {
+      display: none;
+    }
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    height: 49px;
+    padding-inline: 24px;
+    color: $c-text-primary;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 130%;
+    cursor: pointer;
+
+    @include hover(color, $c-text-contrast);
+
+    &:hover,
+    &.is-active {
+      background-color: $c-menu-hover;
+      color: $c-text-contrast;
+    }
+
+    &.is-selected {
+      color: $c-text-contrast;
+    }
+  }
+
+  &--qty &__item {
+    padding-inline: 36px;
+    font-size: 20px;
+  }
+}
+
+// Поля оплати: дата та CVV
+.field--stacked {
+  .field__input {
+    width: auto;
+    max-width: 100%;
+    text-align: center;
+    letter-spacing: 20%;
+    margin-bottom: 40px;
+  }
+
+  &:first-child .field__input {
+    width: 90px;
+  }
+
+  &:last-child .field__input {
+    width: 49px;
+  }
+}
+
+// Номер картки (4 групи)
+.card-number {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  margin-bottom: 18px;
+  border: 0;
+
+  @include on-tablet {
+    grid-column: 2 / 6;
+  }
+
+  @include on-desktop {
+    grid-column: 1 / 12;
+    margin-top: 36px;
+  }
+
+  &__legend {
+    padding: 0;
+    margin-bottom: 8px;
+    color: $c-text-contrast;
+    font-size: 16px;
+  }
+
+  &__content {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+    width: 100%;
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: repeat(4, 70px);
+    gap: 5px;
+    min-width: 0;
+
+    @include on-tablet {
+      gap: 15px;
+    }
+  }
+
+  &__part {
+    box-sizing: border-box;
+    width: 70px;
+    min-width: 0;
+    padding: 10px 0;
+    border: 0;
+    border-bottom: 1px solid $c-text-note;
+    border-radius: 0;
+    background: transparent;
+    color: $c-text-primary;
+    font: inherit;
+    font-size: 18px;
+    letter-spacing: 0.15em;
+    text-align: center;
+
+    &::placeholder {
+      color: $c-text-note;
+      opacity: 1;
+    }
+
+    &:focus {
+      outline: 0;
+      border-bottom-color: $c-text-contrast;
+    }
+
+    @include autofill-reset;
+  }
+
+  &__icon {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      flex-shrink: 0;
+      width: 54px;
+      height: 33px;
+      object-fit: contain;
+    }
+
+    @include on-desktop {
+      margin-left: 0;
+    }
+  }
+}
+
+// Стилі помилки валідації
+.field.is-invalid {
+  .field__error {
+    display: block;
+  }
+
+  .field__input,
+  .card-number__part {
+    border-bottom-color: $i-unsuccessful;
+  }
+}
+
+@keyframes order-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .order__panel {
+    animation: none;
+  }
+}
+
+@include on-tablet {
+  .order__panel[data-screen='3'] {
+    .order__image,
+    .order__summary {
+      display: none;
+    }
+
+    .order__body {
+      flex: 1;
+    }
+
+    .order__screen--done {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .order__thanks {
+      font-size: 46px;
+    }
+
+    .order__thanks-text {
+      font-size: 18px;
+      padding-inline: 34px;
+    }
+
+    .order__thanks,
+    .order__thanks-text {
+      width: 100%;
+      margin: 0;
+    }
+
+    .order__submit {
+      width: 458px;
+      max-width: 100%;
+      margin-top: 12px;
+    }
+  }
+}
+
+@include on-desktop {
+  .order__panel[data-screen='3'] {
+    .order__body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: -280px;
+    }
+
+    .order__screen--done {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      gap: 24px;
+      text-align: center;
+    }
+
+    .order__thanks,
+    .order__thanks-text {
+      width: 100%;
+      margin: 12px;
+    }
+
+    .order__thanks-text {
+      max-width: 880px;
+    }
+
+    .order__submit {
+      width: 199px;
+      margin: 16px 0 0;
+    }
+  }
+}

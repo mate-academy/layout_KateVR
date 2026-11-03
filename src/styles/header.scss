@@ -1,0 +1,302 @@
+.header {
+  background: $c-background;
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100%;
+
+  &__top {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    @include content-padding-inline;
+
+    padding-top: 20px;
+
+    @include on-tablet {
+      padding-top: 32px;
+    }
+
+    @include on-desktop {
+      justify-content: flex-start;
+      padding-top: 47px;
+    }
+  }
+
+  &__top-bar {
+    display: none;
+
+    @include on-desktop {
+      display: flex;
+      align-items: center;
+      gap: 36px;
+      margin-left: auto;
+    }
+
+    &__item {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      color: $c-text-primary;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 130%;
+      letter-spacing: 0%;
+
+      &:link,
+      &:visited,
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: none;
+      }
+
+      @include hover(color, $c-text-contrast);
+    }
+
+    &__button {
+      display: none;
+
+      @include on-desktop {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        width: 200px;
+        min-width: 200px;
+        height: 48px;
+
+        margin: 0 0 0 36px;
+        padding: 0;
+
+        background: $b-primary-default;
+        color: $c-text-primary;
+        box-shadow: 4px 4px 4px 0 rgba(0, 0, 0, 0.68);
+        border: none;
+        border-radius: 4px;
+
+        font: inherit;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__top-language {
+    display: none;
+
+    @include on-desktop {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin-left: 36px;
+    }
+  }
+
+  &__language-select {
+    width: 70px;
+    height: 40px;
+    padding: 0 28px 0 12px;
+    border: 0;
+    border-radius: 0;
+    background-color: transparent;
+    color: $c-text-primary;
+    font: inherit;
+    font-size: 16px;
+    appearance: none;
+    cursor: pointer;
+
+    background-image: url('../images/custom-text/dropdown-polygon.svg');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+
+    &:focus-visible {
+      outline: 1px solid $c-text-contrast;
+    }
+
+    option {
+      background-color: $c-background-black;
+      color: $c-text-primary;
+    }
+  }
+
+  &__language-dropdown {
+    position: relative;
+    width: 52px;
+
+    .dropdown__toggle {
+      width: 100%;
+      height: 18px;
+      padding: 0 28px 0 12px;
+      border: 0;
+      background-color: transparent;
+      background-image: url('../images/custom-text/dropdown-polygon.svg');
+      background-repeat: no-repeat;
+      background-position: right 10px bottom;
+      color: $c-text-contrast;
+      font: inherit;
+      font-size: 14px;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .dropdown__list {
+      max-height: none;
+      height: auto;
+      overflow: visible;
+      position: absolute;
+      top: 100%;
+      right: 0;
+      z-index: 1001;
+      min-width: 100%;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      background-color: $c-background-black;
+
+      &[hidden] {
+        display: none;
+      }
+    }
+
+    .dropdown__item {
+      padding: 8px 12px;
+      color: $c-text-primary;
+      font-size: 16px;
+      white-space: nowrap;
+      cursor: pointer;
+
+      &:hover,
+      &.is-active {
+        background-color: $c-background-blue;
+      }
+
+      &.is-selected {
+        color: $c-text-contrast;
+      }
+    }
+  }
+
+  &__logo img {
+    display: block;
+    width: 58px;
+    height: 12px;
+
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @include on-tablet {
+      width: 67px;
+      height: 14px;
+    }
+
+    @include on-desktop {
+      width: 78px;
+      height: 16px;
+    }
+  }
+
+  &__button {
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    right: 20px;
+    z-index: 1000;
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &__button--hidden {
+    @include on-tablet {
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+}
+
+.icon {
+  display: block;
+  flex-shrink: 0;
+
+  &--menu {
+    background-image: url('../images/icons/menu.svg');
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    &:hover {
+      background-image: url('../images/icons/menu-hover.svg');
+    }
+
+    @include on-tablet {
+      width: 30px;
+      height: 30px;
+    }
+
+    @include on-desktop {
+      display: none;
+    }
+  }
+
+  &--close {
+    background-image: url('../images/icons/icon-close.svg');
+    width: 17px;
+    height: 17px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    &:hover {
+      background-image: url('../images/icons/icon-close-hover.svg');
+    }
+
+    @include on-tablet {
+      width: 27px;
+      height: 27px;
+    }
+
+    @include on-desktop {
+      width: 17px;
+      height: 17px;
+    }
+  }
+
+  &--back {
+    background-image: url('../images/icons/icon-back.svg');
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    &:hover {
+      background-image: url('../images/icons/icon-back-hover.svg');
+    }
+
+    @include on-tablet {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  &--go-top {
+    background-image: url('../images/buttons/button-go-up.svg');
+    width: 49px;
+    height: 49px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+    &:hover {
+      background-image: url('../images/buttons/button-go-up-hover.svg');
+    }
+  }
+}
