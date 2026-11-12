@@ -45,16 +45,14 @@ const paymentForm = document.getElementById('paymentForm');
 const goToPayment = document.getElementById('goToPayment');
 const completeOrder = document.getElementById('completeOrder');
 
-const cardNumber = document.getElementById('cardNumber');
 const expiry = document.getElementById('expiry');
 const cvv = document.getElementById('cvv');
 
 const STEP_WIDTH = 100;
 
-
- // ============================
- // COUNTRY / CITY
- // ============================
+// ============================
+// COUNTRY / CITY
+// ============================
 
 const countrySelect = document.getElementById('country');
 const citySelect = document.getElementById('city');
@@ -70,76 +68,23 @@ const citiesByCountry = {
     'Namur',
   ],
 
-  Ukraine: [
-    'Kyiv',
-    'Lviv',
-    'Odesa',
-    'Kharkiv',
-    'Dnipro',
-    'Chernivtsi',
-  ],
+  Ukraine: ['Kyiv', 'Lviv', 'Odesa', 'Kharkiv', 'Dnipro', 'Chernivtsi'],
 
-  Poland: [
-    'Warsaw',
-    'Kraków',
-    'Wrocław',
-    'Gdańsk',
-    'Poznań',
-  ],
+  Poland: ['Warsaw', 'Kraków', 'Wrocław', 'Gdańsk', 'Poznań'],
 
-  France: [
-    'Paris',
-    'Lyon',
-    'Marseille',
-    'Nice',
-    'Toulouse',
-  ],
+  France: ['Paris', 'Lyon', 'Marseille', 'Nice', 'Toulouse'],
 
-  Germany: [
-    'Berlin',
-    'Hamburg',
-    'Munich',
-    'Cologne',
-    'Frankfurt',
-  ],
+  Germany: ['Berlin', 'Hamburg', 'Munich', 'Cologne', 'Frankfurt'],
 
-  Italy: [
-    'Rome',
-    'Milan',
-    'Naples',
-    'Turin',
-    'Florence',
-  ],
+  Italy: ['Rome', 'Milan', 'Naples', 'Turin', 'Florence'],
 
-  Netherlands: [
-    'Amsterdam',
-    'Rotterdam',
-    'Utrecht',
-    'The Hague',
-    'Eindhoven',
-  ],
+  Netherlands: ['Amsterdam', 'Rotterdam', 'Utrecht', 'The Hague', 'Eindhoven'],
 
-  Spain: [
-    'Madrid',
-    'Barcelona',
-    'Valencia',
-    'Seville',
-    'Malaga',
-  ],
+  Spain: ['Madrid', 'Barcelona', 'Valencia', 'Seville', 'Malaga'],
 
-  Austria: [
-    'Vienna',
-    'Salzburg',
-    'Graz',
-    'Innsbruck',
-  ],
+  Austria: ['Vienna', 'Salzburg', 'Graz', 'Innsbruck'],
 
-  'Czech Republic': [
-    'Prague',
-    'Brno',
-    'Ostrava',
-    'Plzen',
-  ],
+  'Czech Republic': ['Prague', 'Brno', 'Ostrava', 'Plzen'],
 };
 
 countrySelect?.addEventListener('change', () => {
@@ -272,14 +217,12 @@ completeOrder?.addEventListener('click', () => {
 // CARD FORMAT
 // ============================
 
-cardNumber?.addEventListener('input', (e) => {
-  let value = e.target.value.replace(/\D/g, '');
+const cardInputs = document.querySelectorAll('.checkout-form__input--card');
 
-  value = value.substring(0, 16);
-
-  value = value.replace(/(.{4})/g, '$1 ').trim();
-
-  e.target.value = value;
+cardInputs.forEach((input) => {
+  input.addEventListener('input', () => {
+    input.value = input.value.replace(/\D/g, '').slice(0, 4);
+  });
 });
 
 // ============================
@@ -313,7 +256,7 @@ cvv?.addEventListener('input', (e) => {
 // ============================
 
 function validateCard() {
-  const number = cardNumber.value.replace(/\s/g, '');
+  const number = [...cardInputs].map((input) => input.value).join('');
 
   if (number.length !== 16) {
     alert('Card number must contain 16 digits.');
@@ -322,7 +265,6 @@ function validateCard() {
   }
 
   const exp = expiry.value;
-
   const regex = /^(0[1-9]|1[0-2])\/([0-9]{2})$/;
 
   if (!regex.test(exp)) {
