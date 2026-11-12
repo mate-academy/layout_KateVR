@@ -1,0 +1,46 @@
+.slider {
+  position: relative;
+
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  width: 207px;
+  height: 35px;
+
+  &-nav-button {
+    position: static;
+    color: $gray;
+  }
+
+  &-progress {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    overflow: hidden;
+    display: flex;
+
+    width: 207px;
+    height: 1px;
+    margin-top: 10px;
+
+    &-item {
+      flex: 1;
+      background: #212121;
+    }
+
+    &-active {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+
+      width: 33.33%;
+      height: 1px;
+
+      background: $color-accent;
+
+      transition: transform 0.35s ease;
+    }
+  }
+}

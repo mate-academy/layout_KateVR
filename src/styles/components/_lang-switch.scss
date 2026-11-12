@@ -1,0 +1,130 @@
+.lang {
+  position: relative;
+
+  display: none;
+
+  font-weight: 500;
+  line-height: 130%;
+  color: $color-accent;
+
+  @include on-small-desktop {
+    display: inline-block;
+  }
+
+  /* =========================
+     DROPDOWN
+  ========================= */
+
+  &__dropdown {
+    scrollbar-color: $color-accent transparent;
+    scrollbar-width: thin;
+
+    position: absolute;
+    z-index: 50;
+    top: calc(100% + 6px);
+    left: 0;
+
+    overflow-y: auto;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+
+    min-width: max-content;
+    max-height: 160px;
+    padding: 12px;
+    border-radius: 4px;
+
+    background: $btn-active;
+
+    &::-webkit-scrollbar {
+      width: 1px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: $color-accent;
+    }
+  }
+
+  /* =========================
+     OPEN STATE
+  ========================= */
+
+  &.is-open {
+    .lang__dropdown {
+      display: flex;
+    }
+  }
+
+  /* =========================
+     BUTTON
+  ========================= */
+
+  &__btn {
+    cursor: pointer;
+
+    display: flex;
+    gap: 6px;
+    align-items: center;
+
+    padding: 0;
+    border: none;
+
+    color: inherit;
+
+    background: transparent;
+  }
+
+  &__current {
+    display: inline-block;
+  }
+
+  /* =========================
+     ARROW
+  ========================= */
+
+  &__arrow {
+    width: 8px;
+    height: 5px;
+
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='5' viewBox='0 0 8 5'%3E%3Cpath d='M3.89746 4.5L0 0L7.79458 0L3.89746 4.5Z' fill='%2305C2DF'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  /* =========================
+     OPTIONS
+  ========================= */
+
+  &__option {
+    cursor: pointer;
+    color: $color-accent;
+    white-space: nowrap;
+    transition: 0.2s ease;
+
+    &:hover,
+    &.is-hover {
+      color: $white;
+    }
+
+    &.is-active {
+      color: $white;
+    }
+  }
+
+  /* =========================
+     INDICATOR
+  ========================= */
+
+  &__indicator {
+    position: absolute;
+    top: 30px;
+    right: 0;
+
+    width: 0.5px;
+    height: 18px;
+
+    background: $color-accent;
+
+    transition: transform $effectDuration ease;
+  }
+}

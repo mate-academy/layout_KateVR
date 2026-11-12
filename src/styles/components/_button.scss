@@ -1,0 +1,106 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 280px;
+  height: 40px;
+  margin: 0 auto;
+  border-radius: 4px;
+
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 130%;
+  color: $white;
+  text-align: center;
+
+  background-color: $color-accent;
+
+  transition:
+    background-color $effectDuration ease,
+    color $effectDuration ease;
+
+  &:hover {
+    color: $color-accent;
+    background-color: $white;
+  }
+
+  &:active {
+    color: $dark-gray;
+    background-color: $btn-active;
+  }
+
+  &:focus-visible {
+    color: $dark-gray;
+    background-color: $btn-active;
+  }
+
+  @include on-tablet {
+    width: 458px;
+    height: 48px;
+    font-size: 16px;
+  }
+
+  @include on-small-desktop {
+    width: 200px;
+    height: 48px;
+  }
+}
+
+.buy-fixed {
+  position: fixed;
+  z-index: 9;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+  padding: 30px 0;
+
+  background: transparent;
+
+  transition: opacity $effectDuration ease;
+  &::before {
+    pointer-events: none;
+    content: '';
+
+    position: absolute;
+    z-index: 0;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 1);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    -webkit-mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 40%,
+      rgba(0, 0, 0, 0) 100%
+    );
+
+    mask-image: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 1) 0%,
+      rgba(0, 0, 0, 1) 40%,
+      rgba(0, 0, 0, 0) 100%
+    );
+  }
+
+  @include on-small-desktop {
+    display: none;
+  }
+}
+
+.buy-fixed.is-hidden {
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* кнопка поверх */
+.buy-fixed > * {
+  position: relative;
+  z-index: 1;
+}
