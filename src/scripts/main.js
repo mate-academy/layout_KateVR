@@ -482,10 +482,33 @@ window.addEventListener('resize', () => {
   FOOTER
 ========================= */
 
+
 const footerForm = document.querySelector('.footer__form');
 
 footerForm?.addEventListener('submit', (event) => {
   event.preventDefault();
+
+  footerForm.reset();
+
+  footerForm.querySelectorAll('.footer__input, .footer__textarea')
+    .forEach((input) => {
+      input.classList.remove('touched');
+
+      const field = input.closest('.footer__field');
+      const label = field.querySelector(
+        '.footer__label:not(.footer__label--error)',
+      );
+      const error = field.querySelector('.footer__label--error');
+
+      if (label) {
+        label.style.display = 'block';
+      }
+
+      if (error) {
+        error.style.display = 'none';
+        error.textContent = '';
+      }
+    });
 });
 
 document.querySelectorAll('.footer__field').forEach((field) => {
