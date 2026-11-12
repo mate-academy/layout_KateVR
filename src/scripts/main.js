@@ -50,7 +50,6 @@ videoModal?.addEventListener('click', (e) => {
     closeVideoModal();
   }
 });
-
 /* =========================
    FAQ MODAL
 ========================= */
@@ -66,9 +65,9 @@ const closeFaq = () => {
   faqModal?.classList.remove('is-open');
 };
 
-document
-  .querySelectorAll('[href="#faqModal"]')
-  .forEach((item) => item.addEventListener('click', openFaq));
+document.querySelectorAll('[href="#faqModal"]').forEach((item) => {
+  item.addEventListener('click', openFaq);
+});
 
 document.querySelector('#faqClose')?.addEventListener('click', closeFaq);
 
@@ -76,6 +75,28 @@ faqModal?.addEventListener('click', (e) => {
   if (e.target.classList.contains('faq-modal__overlay')) {
     closeFaq();
   }
+});
+
+/* =========================
+   FAQ ACCORDION
+========================= */
+
+const faqItems = document.querySelectorAll('.faq__item');
+
+faqItems.forEach((item) => {
+  const question = item.querySelector('.faq__question');
+
+  question.addEventListener('click', () => {
+    const isOpen = item.classList.contains('is-open');
+
+    faqItems.forEach((faqItem) => {
+      faqItem.classList.remove('is-open');
+    });
+
+    if (!isOpen) {
+      item.classList.add('is-open');
+    }
+  });
 });
 
 /* =========================
@@ -183,16 +204,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   render();
-});
-
-/* =========================
-   FAQ ACCORDION
-========================= */
-
-document.querySelectorAll('.faq__question').forEach((button) => {
-  button.addEventListener('click', () => {
-    button.closest('.faq__item')?.classList.toggle('is-open');
-  });
 });
 
 /* =========================
@@ -482,7 +493,6 @@ window.addEventListener('resize', () => {
   FOOTER
 ========================= */
 
-
 const footerForm = document.querySelector('.footer__form');
 
 footerForm?.addEventListener('submit', (event) => {
@@ -490,7 +500,8 @@ footerForm?.addEventListener('submit', (event) => {
 
   footerForm.reset();
 
-  footerForm.querySelectorAll('.footer__input, .footer__textarea')
+  footerForm
+    .querySelectorAll('.footer__input, .footer__textarea')
     .forEach((input) => {
       input.classList.remove('touched');
 

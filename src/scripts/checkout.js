@@ -39,6 +39,7 @@ const progressBar = document.querySelector('.checkout__progress-bar');
 const quantity = document.getElementById('quantity');
 const totalPrice = document.getElementById('totalPrice');
 
+const phone = document.getElementById('phone');
 const orderForm = document.getElementById('orderForm');
 const paymentForm = document.getElementById('paymentForm');
 
@@ -49,6 +50,14 @@ const expiry = document.getElementById('expiry');
 const cvv = document.getElementById('cvv');
 
 const STEP_WIDTH = 100;
+
+// ============================
+// PHONE
+// ============================
+
+phone?.addEventListener('input', () => {
+  phone.value = phone.value.replace(/\D/g, '');
+});
 
 // ============================
 // COUNTRY / CITY
