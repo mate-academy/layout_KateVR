@@ -51,6 +51,113 @@ const cvv = document.getElementById('cvv');
 
 const STEP_WIDTH = 100;
 
+
+ // ============================
+ // COUNTRY / CITY
+ // ============================
+
+const countrySelect = document.getElementById('country');
+const citySelect = document.getElementById('city');
+
+const citiesByCountry = {
+  Belgium: [
+    'Brussels',
+    'Antwerp',
+    'Ghent',
+    'Bruges',
+    'Leuven',
+    'Liège',
+    'Namur',
+  ],
+
+  Ukraine: [
+    'Kyiv',
+    'Lviv',
+    'Odesa',
+    'Kharkiv',
+    'Dnipro',
+    'Chernivtsi',
+  ],
+
+  Poland: [
+    'Warsaw',
+    'Kraków',
+    'Wrocław',
+    'Gdańsk',
+    'Poznań',
+  ],
+
+  France: [
+    'Paris',
+    'Lyon',
+    'Marseille',
+    'Nice',
+    'Toulouse',
+  ],
+
+  Germany: [
+    'Berlin',
+    'Hamburg',
+    'Munich',
+    'Cologne',
+    'Frankfurt',
+  ],
+
+  Italy: [
+    'Rome',
+    'Milan',
+    'Naples',
+    'Turin',
+    'Florence',
+  ],
+
+  Netherlands: [
+    'Amsterdam',
+    'Rotterdam',
+    'Utrecht',
+    'The Hague',
+    'Eindhoven',
+  ],
+
+  Spain: [
+    'Madrid',
+    'Barcelona',
+    'Valencia',
+    'Seville',
+    'Malaga',
+  ],
+
+  Austria: [
+    'Vienna',
+    'Salzburg',
+    'Graz',
+    'Innsbruck',
+  ],
+
+  'Czech Republic': [
+    'Prague',
+    'Brno',
+    'Ostrava',
+    'Plzen',
+  ],
+};
+
+countrySelect?.addEventListener('change', () => {
+  const cities = citiesByCountry[countrySelect.value] || [];
+
+  citySelect.innerHTML = `
+    <option value="" selected disabled hidden>
+      Choose city
+    </option>
+  `;
+
+  cities.forEach((city) => {
+    citySelect.add(new Option(city, city));
+  });
+
+  citySelect.disabled = cities.length === 0;
+});
+
 // ============================
 // SHOW PAGE
 // ============================
