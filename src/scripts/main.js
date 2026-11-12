@@ -11,6 +11,23 @@ import aboutImage4 from '../images/about-us/image-4.jpg';
 import aboutImage5 from '../images/about-us/image-5.jpg';
 
 /* =========================
+   MODAL SCROLL LOCK
+========================= */
+
+function updateScrollLock() {
+  const modalIsOpen = document.querySelector(
+    '#videoModal.is-open, #faqModal.is-open, #helpModal.is-open',
+  );
+
+  const burgerIsOpen = document.querySelector('.header__burger.is-open');
+
+  document.body.classList.toggle(
+    'no-scroll',
+    Boolean(modalIsOpen || burgerIsOpen),
+  );
+}
+
+/* =========================
    VIDEO MODAL
 ========================= */
 
@@ -26,19 +43,20 @@ const openVideo = () => {
   if (!videoModal || !youtubeVideo) return;
 
   youtubeVideo.src = videoUrl;
-
   videoModal.classList.add('is-open');
+
+  updateScrollLock();
 };
 
 const closeVideoModal = () => {
   if (!videoModal || !youtubeVideo) return;
 
   videoModal.classList.remove('is-open');
-
   youtubeVideo.src = '';
+
+  updateScrollLock();
 };
 
-// працює для всіх .play-button
 playButtons.forEach((button) => {
   button.addEventListener('click', openVideo);
 });
@@ -50,6 +68,7 @@ videoModal?.addEventListener('click', (e) => {
     closeVideoModal();
   }
 });
+
 /* =========================
    FAQ MODAL
 ========================= */
@@ -58,11 +77,16 @@ const faqModal = document.querySelector('#faqModal');
 
 const openFaq = (e) => {
   e?.preventDefault();
+
   faqModal?.classList.add('is-open');
+
+  updateScrollLock();
 };
 
 const closeFaq = () => {
   faqModal?.classList.remove('is-open');
+
+  updateScrollLock();
 };
 
 document.querySelectorAll('[href="#faqModal"]').forEach((item) => {
@@ -86,6 +110,8 @@ const faqItems = document.querySelectorAll('.faq__item');
 faqItems.forEach((item) => {
   const question = item.querySelector('.faq__question');
 
+  if (!question) return;
+
   question.addEventListener('click', () => {
     const isOpen = item.classList.contains('is-open');
 
@@ -107,11 +133,16 @@ const helpModal = document.querySelector('#helpModal');
 
 const openHelp = (e) => {
   e?.preventDefault();
+
   helpModal?.classList.add('is-open');
+
+  updateScrollLock();
 };
 
 const closeHelp = () => {
   helpModal?.classList.remove('is-open');
+
+  updateScrollLock();
 };
 
 document.querySelectorAll('#helpOpen, #helpOpenMobile').forEach((item) => {
@@ -136,6 +167,8 @@ const mobileMenu = document.querySelector('.mobile-menu');
 burger?.addEventListener('click', () => {
   burger.classList.toggle('is-open');
   mobileMenu?.classList.toggle('is-open');
+
+  updateScrollLock();
 });
 
 // Закриття меню при кліку на посилання
@@ -145,8 +178,9 @@ const mobileLinks = document.querySelectorAll('.header__link--mobile');
 mobileLinks.forEach((link) => {
   link.addEventListener('click', () => {
     burger?.classList.remove('is-open');
-
     mobileMenu?.classList.remove('is-open');
+
+    updateScrollLock();
   });
 });
 
@@ -168,7 +202,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const images = [headerImage1, headerImage2, headerImage3];
 
   const image = document.querySelector('.header__image');
-
   const prev = document.querySelector('.header-slider__prev');
   const next = document.querySelector('.header-slider__next');
   const progress = document.querySelector('.header-slider__active');
@@ -180,7 +213,9 @@ document.addEventListener('DOMContentLoaded', () => {
   function render() {
     image.src = images[index];
 
-    progress.style.transform = `translateX(${index * 100}%)`;
+    if (progress) {
+      progress.style.transform = `translateX(${index * 100}%)`;
+    }
   }
 
   next?.addEventListener('click', () => {
@@ -224,27 +259,22 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
 
   const image = section.querySelector('.about-product__image');
-
   const current = section.querySelector('.about-product__current');
-
   const prev = section.querySelector('.slider-nav-button--prev');
-
   const next = section.querySelector('.slider-nav-button--next');
-
   const progress = section.querySelector('.slider-progress-active');
-
   const dots = [...section.querySelectorAll('.about-product__dot')];
+
+  if (!image || !current) return;
 
   let index = 0;
 
   function renderSlider() {
     image.src = images[index];
-
     current.textContent = index + 1;
 
     if (progress) {
       progress.style.width = `${100 / images.length}%`;
-
       progress.style.transform = `translateX(${index * 100}%)`;
     }
 
@@ -283,7 +313,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function checkMode() {
     const isMobile = window.innerWidth < 1024;
-
     const controls = section.querySelector('.slider');
 
     if (isMobile) {
@@ -302,11 +331,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   renderSlider();
-
   checkMode();
 
   window.addEventListener('resize', checkMode);
 });
+
 /* =========================
    ESC CLOSE
 ========================= */
@@ -316,6 +345,11 @@ document.addEventListener('keydown', (e) => {
     closeVideoModal();
     closeFaq();
     closeHelp();
+
+    burger?.classList.remove('is-open');
+    mobileMenu?.classList.remove('is-open');
+
+    updateScrollLock();
   }
 });
 
@@ -325,13 +359,15 @@ document.addEventListener('keydown', (e) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const lang = document.querySelector('.lang');
+
   if (!lang) return;
 
   const btn = lang.querySelector('.lang__btn');
-  const dropdown = lang.querySelector('.lang__dropdown');
   const options = Array.from(lang.querySelectorAll('.lang__option'));
   const hidden = lang.querySelector('input');
   const indicator = lang.querySelector('.lang__indicator');
+
+  if (!btn) return;
 
   let current = hidden?.value || 'en';
 
@@ -340,7 +376,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (!activeOption) return;
 
-    // кнопка зверху
     btn.innerHTML = `
       <span class="lang__current">
         ${activeOption.textContent}
@@ -348,22 +383,16 @@ document.addEventListener('DOMContentLoaded', () => {
       <span class="lang__arrow"></span>
     `;
 
-    // ховаємо вибрану мову з dropdown
     options.forEach((opt) => {
       opt.classList.toggle('is-active', opt.dataset.value === current);
 
       opt.style.display = opt.dataset.value === current ? 'none' : 'block';
     });
 
-    // позиція бігунка напроти вибраної
-    const visibleOptions = options.filter(
-      (opt) => opt.dataset.value !== current,
-    );
-
-    const index = visibleOptions.indexOf(activeOption);
-
     if (indicator) {
-      indicator.style.transform = `translateY(${index * 100}%)`;
+      const activeIndex = options.indexOf(activeOption);
+
+      indicator.style.transform = `translateY(${activeIndex * 100}%)`;
     }
   };
 
@@ -375,7 +404,6 @@ document.addEventListener('DOMContentLoaded', () => {
     e.stopPropagation();
 
     updateLang();
-
     lang.classList.toggle('is-open');
   });
 
@@ -417,18 +445,23 @@ document.addEventListener('DOMContentLoaded', () => {
   points.forEach((point) => {
     const btn = point.querySelector('.spec-point__btn');
 
+    if (!btn) return;
+
     btn.addEventListener('click', () => {
       const isOpen = point.classList.contains('is-active');
 
-      // закриваємо всі відкриті
       points.forEach((p) => {
         p.classList.remove('is-active');
-        p.querySelector('button').setAttribute('aria-expanded', 'false');
+
+        p.querySelector('.spec-point__btn')?.setAttribute(
+          'aria-expanded',
+          'false',
+        );
       });
 
-      // відкриваємо тільки натиснутий
       if (!isOpen) {
         point.classList.add('is-active');
+
         btn.setAttribute('aria-expanded', 'true');
       }
     });
@@ -438,6 +471,7 @@ document.addEventListener('DOMContentLoaded', () => {
 /* =========================
    WHY KAT TEXT
 ========================= */
+
 const limit = 70;
 const mobileBreakpoint = 1024;
 
@@ -448,7 +482,7 @@ function closeText(text) {
     ${text.dataset.short}<span class="more-dots">...</span>
   `;
 
-  text.querySelector('.more-dots').addEventListener('click', () => {
+  text.querySelector('.more-dots')?.addEventListener('click', () => {
     openText(text);
   });
 }
@@ -490,7 +524,7 @@ window.addEventListener('resize', () => {
 });
 
 /* =========================
-  FOOTER
+   FOOTER
 ========================= */
 
 const footerForm = document.querySelector('.footer__form');
@@ -506,9 +540,13 @@ footerForm?.addEventListener('submit', (event) => {
       input.classList.remove('touched');
 
       const field = input.closest('.footer__field');
+
+      if (!field) return;
+
       const label = field.querySelector(
         '.footer__label:not(.footer__label--error)',
       );
+
       const error = field.querySelector('.footer__label--error');
 
       if (label) {
@@ -528,6 +566,8 @@ document.querySelectorAll('.footer__field').forEach((field) => {
     '.footer__label:not(.footer__label--error)',
   );
   const error = field.querySelector('.footer__label--error');
+
+  if (!input || !label || !error) return;
 
   input.addEventListener('blur', () => {
     let message = '';
@@ -564,7 +604,7 @@ document.querySelectorAll('.footer__field').forEach((field) => {
 
 document.addEventListener('DOMContentLoaded', () => {
   const buyFixed = document.querySelector('.buy-fixed');
-  const footer = document.querySelector('footer'); // або '.footer'
+  const footer = document.querySelector('footer');
 
   if (!buyFixed || !footer) return;
 
