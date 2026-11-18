@@ -1,3 +1,50 @@
 h1 {
-  @extend %h1;
+  color: $white;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 130%;
+
+  & span {
+    color: $contrast-color;
+    font-weight: 400;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  @include on-small-desktop {
+    font-size: 46px;
+  }
+
+  @include on-desktop {
+    font-size: 54px;
+  }
+}
+
+h2 {
+  color: $white;
+  font-weight: 900;
+  font-size: 26px;
+  line-height: 100%;
+
+  & span {
+    color: $contrast-color;
+    font-weight: 400;
+    font-size: inherit;
+    line-height: inherit;
+  }
+
+  @include on-small-desktop {
+    font-size: 36px;
+  }
+}
+
+h3 {
+  color: $white;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 100%;
+
+  @include on-small-desktop {
+    font-size: 18px;
+  }
 }

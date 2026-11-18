@@ -1,0 +1,88 @@
+.card {
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 10px;
+  padding-inline: 10px;
+  padding-block: 15px;
+
+  transition: box-shadow $transition;
+
+  @include on-tablet {
+    align-items: center;
+  }
+
+  &__image {
+    display: none;
+    width: 110px;
+    height: 110px;
+    background-image: url('../images/more-than-gaming/1.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    transition: filter $transition;
+
+    @include on-tablet {
+      display: block;
+    }
+    &--1 {
+      background-image: url('../images/more-than-gaming/1.svg');
+    }
+
+    &--2 {
+      background-image: url('../images/more-than-gaming/2.svg');
+    }
+
+    &--3 {
+      background-image: url('../images/more-than-gaming/3.svg');
+    }
+
+    &--4 {
+      background-image: url('../images/more-than-gaming/4.svg');
+    }
+
+    &--5 {
+      background-image: url('../images/why/1.svg');
+    }
+
+    &--6 {
+      background-image: url('../images/why/2.svg');
+    }
+
+    &--7 {
+      background-image: url('../images/why/3.svg');
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 0 5px $contrast-color;
+  }
+
+  &:hover &__image {
+    filter: drop-shadow(0 0 5px $contrast-color);
+  }
+
+  &__title {
+    font-weight: 900;
+    font-size: 16px;
+
+    @include on-tablet {
+      margin-top: 22px;
+    }
+  }
+
+  &__p {
+    margin-top: 11px;
+    font-family: Inter, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    color: #929292;
+
+    @include on-tablet {
+      text-align: center;
+      margin-top: 20px;
+    }
+  }
+}

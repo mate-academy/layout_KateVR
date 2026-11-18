@@ -1,0 +1,108 @@
+.page {
+  scroll-behavior: smooth;
+  position: relative;
+  font-family: Inter, sans-serif;
+  min-width: 320px;
+  background-color: $bg-color;
+  overflow-x: hidden;
+
+  &__menu {
+    transition:
+      transform $transition,
+      opacity $transition;
+    transform: translateY(-100%);
+    opacity: 0;
+
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &:has(&__menu:target) {
+    overflow: hidden;
+
+    & .page__buy-button-mob {
+      display: none;
+    }
+  }
+
+  &__help {
+    transition:
+      transform $transition,
+      opacity $transition;
+    transform: translateY(-100%);
+    opacity: 0;
+
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &:has(&__help:target) {
+    overflow: hidden;
+
+    & .page__buy-button-mob {
+      display: none;
+    }
+  }
+
+  &__FAQ {
+    transition:
+      transform $transition,
+      opacity $transition;
+    transform: translateY(-100%);
+    opacity: 0;
+
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &:has(&__FAQ:target) {
+    overflow: hidden;
+
+    & .page__buy-button-mob {
+      display: none;
+    }
+  }
+
+  &__buy {
+    transition:
+      transform $transition,
+      opacity $transition;
+    transform: translateY(-100%);
+    opacity: 0;
+
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+
+    &:target {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &:has(&__buy:target) {
+    overflow: hidden;
+
+    & .page__buy-button-mob {
+      display: none;
+    }
+  }
+}

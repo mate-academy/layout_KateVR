@@ -1,0 +1,139 @@
+.button-play {
+  background: none;
+  border: none;
+  text-decoration: none;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  color: white;
+
+  &__left-box {
+    width: 66px;
+    height: 66px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: margin 0.3s;
+    pointer-events: none;
+  }
+
+  &__triangle {
+    width: 68px;
+    height: 68px;
+
+    mask-image: url('../images/triangle.svg');
+    mask-size: contain;
+    mask-position: center;
+    mask-repeat: no-repeat;
+    background-color: #05c2df;
+    position: absolute;
+
+    transition:
+      transform cubic-bezier(0.74, -0.53, 0.44, 1.46) 0.5s,
+      background-color cubic-bezier(0.74, -0.53, 0.44, 1.46) 0.5s;
+  }
+
+  &__circle {
+    width: 68px;
+    height: 68px;
+
+    mask-image: url('../images/circle.svg');
+    mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: #05c2df;
+    position: absolute;
+
+    transition: transform 0.3s;
+  }
+
+  &__text {
+    margin-left: 40px;
+    font-family: Inter, sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 130%;
+
+    transition: transform cubic-bezier(0.33, -1.77, 0.21, 1.03) 0.5s;
+  }
+
+  &:hover &__text {
+    transform: translateX(10px);
+  }
+
+  &__half-circle {
+    width: 68px;
+    height: 68px;
+
+    mask-image: url('../images/half-circle.svg');
+
+    mask-position: center;
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    background-color: #05c2df;
+    position: absolute;
+
+    transition: transform cubic-bezier(0.11, 0.48, 0.09, 1.01) 1s;
+  }
+
+  &:hover &__left-box {
+    margin-right: 10px;
+  }
+
+  &:hover &__triangle {
+    transform: scale(1.4);
+    background-color: white;
+  }
+
+  &:hover &__circle {
+    transform: scale(1.2);
+  }
+
+  &:hover &__half-circle {
+    transform: scale(1.2) rotateZ(2160deg);
+  }
+
+  &__text-and-lines {
+    display: flex;
+    flex-direction: column;
+    width: fit-content;
+    gap: 10px;
+
+    transition:
+      text-shadow 0.5s,
+      gap 1s;
+  }
+
+  &__line {
+    background-color: #05c2df67;
+
+    transition: background-color 0.3s;
+  }
+
+  &:hover &__line {
+    background-color: #05c2df;
+  }
+
+  &:hover &__text-and-lines {
+    text-shadow: 0 0 4px #05c2df;
+    gap: 15px;
+  }
+
+  &__dots-line {
+    display: flex;
+    height: 2px;
+    align-items: center;
+    width: fit-content;
+    margin-left: -3px;
+
+    &--hover div {
+      transition:
+        transform 0.3s,
+        background-color 0.3s;
+    }
+  }
+}

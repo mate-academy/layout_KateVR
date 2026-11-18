@@ -1,0 +1,190 @@
+.form {
+  /* stylelint-disable no-descending-specificity */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  &__field {
+    border-bottom: 1px solid #2f2f2f;
+    transition: border $transition;
+
+    &--gap-17 {
+      display: flex;
+      flex-direction: column;
+      gap: 17px;
+    }
+
+    &:hover {
+      border-color: $contrast-color;
+    }
+
+    &-label {
+      pointer-events: none;
+      display: block;
+      font-size: 14px;
+      line-height: 150%;
+      font-weight: 400;
+
+      color: #929292;
+
+      transform: translateY(100%);
+      transition:
+        transform $transition,
+        color $transition;
+
+      &--no-transform {
+        transform: translateY(0);
+      }
+    }
+
+    &-input,
+    &-textarea {
+      width: 100%;
+      padding: 0;
+      border: none;
+      outline: none;
+
+      font-family: inherit;
+      font-size: 16px;
+      line-height: 150%;
+      font-weight: 400;
+      letter-spacing: 0%;
+
+      background: none;
+
+      color: #fff;
+      caret-color: $contrast-color;
+
+      &[type='number']::-webkit-outer-spin-button,
+      &[type='number']::-webkit-inner-spin-button {
+        margin: 0;
+        -webkit-appearance: none;
+      }
+
+      &[type='number'] {
+        -moz-appearance: textfield;
+      }
+
+      &:-webkit-autofill,
+      &:-webkit-autofill:hover,
+      &:-webkit-autofill:focus,
+      &:-webkit-autofill:active {
+        -webkit-box-shadow: 0 0 0 1000px transparent inset;
+        caret-color: $contrast-color;
+
+        -webkit-text-fill-color: $contrast-color;
+        transition: background-color 9999s ease-in-out 0s;
+      }
+    }
+
+    &-textarea {
+      resize: vertical;
+    }
+
+    &:has(input:focus),
+    &:has(textarea:focus) {
+      border-color: $contrast-color;
+    }
+
+    &:has(input:focus) &-label,
+    &:has(input):not(:has(input:placeholder-shown)) &-label,
+    &:has(input:-webkit-autofill) &-label,
+    &:has(textarea:focus) &-label,
+    &:has(textarea):not(:has(textarea:placeholder-shown)) &-label {
+      transform: translateY(0);
+    }
+
+    &:has(input:focus) &-label,
+    &:has(textarea:focus) &-label {
+      color: $contrast-color;
+    }
+
+    &[data-error],
+    &[data-error]:has(input:focus) {
+      border-color: $red;
+    }
+
+    &[data-error] &-label,
+    &[data-error]:has(input:focus) &-label {
+      color: $red;
+    }
+
+    &[data-error] &-input {
+      caret-color: $red;
+    }
+  }
+
+  &__card-number {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    align-items: end;
+
+    max-width: 530px;
+
+    @include on-tablet {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    &:has(input:focus) .form__field-label {
+      color: $contrast-color;
+    }
+
+    & .form__field-input {
+      text-align: center;
+    }
+  }
+
+  &__button {
+    width: 100%;
+    margin-top: 10px;
+
+    @include on-tablet {
+      width: 200px;
+      margin-top: 24px;
+    }
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+  }
+
+  &__card-image {
+    display: none;
+    place-self: flex-end center;
+
+    width: 100%;
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include on-tablet {
+      display: block;
+    }
+
+    &--visa {
+      background-image: url('../images/pay/visa.svg');
+    }
+
+    &--mastercard {
+      background-image: url('../images/pay/mastercard.svg');
+    }
+  }
+
+  &__card-number-label {
+    grid-column: 1 / -1;
+
+    &:has(~ .form__field[data-error]) {
+      color: $red;
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  /* stylelint-enable no-descending-specificity */
+}

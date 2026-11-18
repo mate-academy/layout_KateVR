@@ -1,0 +1,121 @@
+.ex {
+  &-swiper {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    touch-action: none;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+
+  &-wrapper {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    overflow: hidden;
+
+    --right: 0%;
+    --left: 0%;
+
+    clip-path: inset(0 var(--right) 0 var(--left));
+  }
+
+  &-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url('../images/bg/3720368816_w1280_h640_3720368816.webp');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    &--1 {
+      background-image: url('../images/bg/1.png');
+    }
+
+    &--2 {
+      background-size: 90%;
+      background-image: url('../images/bg/2.png');
+    }
+
+    &--3 {
+      background-size: 90%;
+
+      background-image: url('../images/bg/3.png');
+    }
+  }
+
+  &-effect {
+    --width: 0;
+    --left: 0.4;
+
+    position: absolute;
+    height: 100%;
+    width: 10px;
+    width: calc(10px * var(--width));
+    margin-left: calc((100% * var(--left)) + -5px * var(--width));
+    border-radius: 50%;
+    background: radial-gradient(
+      circle,
+      white,
+      $contrast-color,
+      transparent 100%
+    );
+    box-shadow:
+      0 0 20px $contrast-color,
+      0 0 60px $contrast-color;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: calc(-40px * var(--width));
+      z-index: -1;
+
+      background: radial-gradient(circle, $contrast-color, transparent 60%);
+
+      filter: blur(40px);
+      opacity: 0.8;
+    }
+  }
+
+  &-pagination {
+    --max-frame: 3;
+    --current-frame: 0;
+
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #212121;
+    bottom: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(100% / var(--max-frame) * var(--current-frame));
+      width: calc(100% / var(--max-frame));
+      height: 2px;
+      background-color: $contrast-color;
+      transform-origin: left;
+
+      transition: left $transition;
+    }
+  }
+
+  &-button {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    background: none;
+    border: none;
+
+    transition: color $transition;
+
+    cursor: pointer;
+
+    color: $white;
+    &:hover {
+      color: $contrast-color;
+    }
+  }
+}

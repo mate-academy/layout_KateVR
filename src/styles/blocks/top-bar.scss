@@ -1,0 +1,120 @@
+.top-bar {
+  padding-block: 18px;
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  @include on-tablet {
+    padding-block: 28px;
+  }
+
+  @include on-small-desktop {
+    padding-block: 46px;
+  }
+
+  &__nav {
+    display: none;
+
+    @include on-small-desktop {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__left-box {
+    display: flex;
+    align-items: center;
+    gap: 34px;
+  }
+
+  &__dropdown {
+    display: none;
+
+    @include on-small-desktop {
+      display: block;
+    }
+  }
+
+  &__menu-link {
+    z-index: 1;
+    padding: 5px;
+    display: block;
+    color: $white;
+    transition:
+      filter $transition,
+      color $transition;
+
+    @include on-small-desktop {
+      display: none;
+    }
+
+    & .line-2 {
+      transition: transform $transition;
+    }
+
+    &:hover {
+      color: $contrast-color;
+      filter: drop-shadow(0 0 4px #05c2df) brightness(1.2);
+
+      & .line-2 {
+        transform: translateX(5px) scaleX(1.4);
+      }
+    }
+
+    & svg {
+      display: block;
+      width: 30px;
+      height: 13px;
+    }
+  }
+
+  &__close-link {
+    display: flex;
+    width: 23px;
+    height: 23px;
+    justify-content: center;
+    align-items: center;
+    padding-inline: 5px;
+    color: $white;
+
+    transition:
+      filter $transition,
+      color $transition;
+
+    &:hover {
+      filter: drop-shadow(0 0 3px $contrast-color);
+      color: $contrast-color;
+    }
+
+    & svg {
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+
+  &__back-link {
+    display: flex;
+    width: 17px;
+    height: 17px;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+
+    transition:
+      filter $transition,
+      color $transition;
+
+    &:hover {
+      filter: drop-shadow(0 0 3px $contrast-color);
+      color: $contrast-color;
+    }
+
+    & svg {
+      display: block;
+      object-fit: contain;
+      object-position: center;
+    }
+  }
+}
