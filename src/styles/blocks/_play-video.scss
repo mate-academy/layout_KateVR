@@ -1,0 +1,46 @@
+.play-video {
+  display: inline-flex;
+  align-items: center;
+
+  &__icon {
+    flex-shrink: 0;
+
+    width: 62px;
+    height: 69px;
+
+    background: url('../images/play.svg') no-repeat center / contain;
+
+    transition: transform $transition-duration $transition-timing;
+  }
+
+  &__body {
+    display: flex;
+    align-items: center;
+
+    width: fluid(143px, 181px, $bp-mobile, $bp-tablet);
+    min-height: 46px;
+    margin-left: -6px;
+    padding-left: 38px;
+
+    background: url('../images/play-lines.svg') no-repeat left center;
+
+    @include on-tablet {
+      width: 181px;
+    }
+  }
+
+  &__label {
+    @extend %button-text;
+
+    color: $c-white;
+    transition: color $transition-duration $transition-timing;
+  }
+
+  &:hover &__icon {
+    transform: scale(1.1);
+  }
+
+  &:hover &__label {
+    color: $c-accent;
+  }
+}

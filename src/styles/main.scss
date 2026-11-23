@@ -1,7 +1,55 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'blocks';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
 
 body {
-  background: $c-gray;
+  font-family: $font-main;
+  font-weight: $fw-regular;
+  color: $c-white;
+  background-color: $c-black;
+}
+
+body:has(.menu:target) {
+  overflow: hidden;
+}
+
+img {
+  max-width: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid $c-accent;
+  outline-offset: 3px;
+}
+
+.field__input:focus-visible {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
 }

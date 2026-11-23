@@ -1,0 +1,133 @@
+.contact {
+  padding-top: fluid(50px, 70px, $bp-mobile, $bp-tablet);
+  padding-bottom: fluid(50px, 70px, $bp-mobile, $bp-tablet);
+  background-color: $c-black;
+
+  @include on-tablet {
+    padding-top: fluid(70px, 100px, $bp-tablet, $bp-desktop);
+    padding-bottom: fluid(70px, 100px, $bp-tablet, $bp-desktop);
+  }
+
+  @include on-desktop {
+    padding-top: fluid(100px, 156px, $bp-desktop, $bp-desktop-xl);
+    padding-bottom: fluid(100px, 156px, $bp-desktop, $bp-desktop-xl);
+  }
+
+  @include on-desktop-xl {
+    padding-top: 156px;
+    padding-bottom: 156px;
+  }
+
+  &__inner {
+    display: grid;
+
+    @include on-tablet {
+      grid-template-columns:
+        fluid(220px, 338px, $bp-tablet, $bp-desktop)
+        fluid(340px, 521px, $bp-tablet, $bp-desktop);
+      align-items: start;
+      justify-content: space-between;
+    }
+
+    @include on-desktop {
+      grid-template-columns:
+        fluid(338px, 447px, $bp-desktop, $bp-desktop-xl)
+        fluid(521px, 717px, $bp-desktop, $bp-desktop-xl);
+    }
+
+    @include on-desktop-xl {
+      grid-template-columns: 447px 717px;
+    }
+  }
+
+  &__intro {
+    @include on-tablet {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+
+  &__kicker {
+    @extend %text-2;
+
+    color: $c-accent;
+  }
+
+  &__title {
+    margin-top: 11px;
+    color: $c-white;
+
+    @include on-tablet {
+      margin-top: fluid(11px, 13px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      margin-top: fluid(13px, 13px, $bp-desktop, $bp-desktop-xl);
+    }
+  }
+
+  &__accent {
+    @extend %heading-accent;
+  }
+
+  &__note {
+    order: 3;
+    margin-top: 30px;
+    font-size: $fs-text-3-mob;
+    color: $c-grey;
+
+    @include on-tablet {
+      grid-column: 1;
+      grid-row: 2;
+
+      margin-top: fluid(47.7px, 26.8px, $bp-tablet, $bp-desktop);
+
+      font-size: $fs-text-1;
+
+      white-space: nowrap;
+    }
+
+    @include on-desktop {
+      margin-top: 26.8px;
+    }
+  }
+
+  &__contacts {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      grid-column: 1;
+      grid-row: 3;
+
+      margin-top: 76px;
+
+      list-style: none;
+    }
+  }
+
+  &__link {
+    @extend %text-1;
+
+    display: block;
+    line-height: 19px;
+    color: $c-grey;
+
+    @include hover(color, $c-accent);
+  }
+
+  &__contacts li + li {
+    margin-top: 11px;
+  }
+
+  &__form {
+    order: 2;
+    margin-top: 29.7px;
+
+    @include on-tablet {
+      grid-column: 2;
+      grid-row: 1 / span 3;
+      margin-top: 0;
+    }
+  }
+}

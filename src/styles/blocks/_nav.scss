@@ -1,0 +1,22 @@
+.nav {
+  display: none;
+
+  @include on-desktop {
+    display: block;
+    margin-left: auto;
+  }
+
+  &__list {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  &__link {
+    @extend %button-text;
+
+    color: $c-white;
+
+    @include hover(color, $c-accent);
+  }
+}

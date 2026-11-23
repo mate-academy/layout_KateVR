@@ -1,4 +1,126 @@
 %h1 {
-  font-family: Roboto, sans-serif;
-  font-weight: 400;
+  font-family: $font-main;
+  font-size: $fs-h1-mob;
+  font-weight: $fw-heavy;
+  line-height: $lh-h1-mob;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: fluid($fs-h1-mob, $fs-h1, $bp-tablet, $bp-desktop);
+  }
+
+  @include on-desktop {
+    font-size: $fs-h1;
+    line-height: $lh-h1;
+  }
+}
+
+%h2 {
+  font-family: $font-main;
+  font-size: $fs-h2-mob;
+  font-weight: $fw-heavy;
+  line-height: $lh-h2-mob;
+  text-transform: uppercase;
+
+  @include on-tablet {
+    font-size: fluid($fs-h2-mob, $fs-h2, $bp-tablet, $bp-desktop);
+  }
+
+  @include on-desktop {
+    font-size: $fs-h2;
+    line-height: $lh-h2;
+  }
+}
+
+%h3 {
+  font-family: $font-main;
+  font-size: $fs-h3;
+  font-weight: $fw-heavy;
+  line-height: $lh-h3;
+  text-transform: uppercase;
+}
+
+%button-text {
+  font-family: $font-main;
+  font-size: $fs-button;
+  font-weight: $fw-medium;
+  line-height: $lh-button;
+}
+
+%text-1 {
+  font-family: $font-main;
+  font-size: $fs-text-1;
+  font-weight: $fw-regular;
+  line-height: $lh-text-1;
+}
+
+%text-2 {
+  font-family: $font-main;
+  font-size: $fs-text-2;
+  font-weight: $fw-regular;
+  line-height: $lh-text-2;
+}
+
+%text-3-mob {
+  font-family: $font-main;
+  font-size: $fs-text-3-mob;
+  font-weight: $fw-regular;
+  line-height: $lh-text-3-mob;
+}
+
+%heading-accent {
+  font-weight: $fw-regular;
+  color: $c-accent;
+}
+
+%button-base {
+  @extend %button-text;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: $button-width;
+  height: $button-height;
+  border: none;
+  border-radius: $radius-button;
+
+  transition:
+    background-color $transition-duration $transition-timing,
+    color $transition-duration $transition-timing;
+}
+
+%button-primary {
+  @extend %button-base;
+
+  color: $c-white;
+  background-color: $c-accent;
+
+  &:hover {
+    color: $c-accent;
+    background-color: $c-white;
+  }
+}
+
+%button-secondary {
+  @extend %button-base;
+
+  color: $c-accent;
+  background-color: $c-white;
+
+  &:hover {
+    color: $c-white;
+    background-color: $c-accent;
+  }
+}
+
+%button-disabled {
+  @extend %button-base;
+
+  pointer-events: none;
+  cursor: default;
+  color: $c-dark-grey;
+  background-color: $c-gradient-from;
 }

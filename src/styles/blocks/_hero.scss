@@ -1,0 +1,167 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 568px;
+  background: $gradient-bg;
+
+  @include on-tablet {
+    min-height: fluid(445px, 740px, $bp-tablet, $bp-desktop);
+  }
+
+  @include on-desktop {
+    min-height: fluid(740px, 1103px, $bp-desktop, $bp-desktop-xl);
+  }
+
+  @include on-desktop-xl {
+    min-height: 1103px;
+  }
+
+  &__image {
+    position: absolute;
+    top: 38px;
+    left: -18.34%;
+
+    display: block;
+
+    width: 112.8%;
+    max-width: none;
+    height: auto;
+
+    @include on-tablet {
+      top: fluid(133px, 211px, $bp-tablet, $bp-desktop);
+      right: fluid(32px, 106px, $bp-tablet, $bp-desktop);
+      left: auto;
+      width: fluid(448px, 695px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      top: fluid(211px, 311px, $bp-desktop, $bp-desktop-xl);
+      right: fluid(106px, 234px, $bp-desktop, $bp-desktop-xl);
+      width: fluid(695px, 1104px, $bp-desktop, $bp-desktop-xl);
+    }
+
+    @include on-desktop-xl {
+      top: 311px;
+
+      right: max(
+        #{$page-padding-desktop-xl},
+        calc(50% - #{$content-width-max * 0.5})
+      );
+      width: 1104px;
+    }
+  }
+
+  &__content {
+    position: relative;
+    z-index: 1;
+
+    padding-top: 67.5%;
+
+    @include on-tablet {
+      padding-top: fluid(99px, 196px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      padding-top: fluid(196px, 327px, $bp-desktop, $bp-desktop-xl);
+    }
+
+    @include on-desktop-xl {
+      padding-top: 327px;
+    }
+  }
+
+  &__title {
+    max-width: fluid(280px, 479px, $bp-mobile, $bp-tablet);
+    color: $c-white;
+
+    @include on-tablet {
+      max-width: 479px;
+    }
+
+    @include on-desktop {
+      max-width: fluid(479px, 552px, $bp-desktop, $bp-desktop-xl);
+    }
+
+    @include on-desktop-xl {
+      max-width: 552px;
+    }
+  }
+
+  &__title-accent {
+    @extend %heading-accent;
+
+    display: block;
+  }
+
+  &__description {
+    max-width: fluid(280px, 340px, $bp-mobile, $bp-tablet);
+    margin-top: 17px;
+    color: $c-grey;
+
+    @include on-tablet {
+      max-width: fluid(340px, 336px, $bp-tablet, $bp-desktop);
+      margin-top: fluid(17px, 19px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      max-width: fluid(336px, 439px, $bp-desktop, $bp-desktop-xl);
+      margin-top: fluid(19px, 55px, $bp-desktop, $bp-desktop-xl);
+      margin-left: 92px;
+    }
+
+    @include on-desktop-xl {
+      max-width: 439px;
+      margin-top: 55px;
+    }
+  }
+
+  &__price {
+    margin-top: fluid(7px, 16px, $bp-mobile, $bp-tablet);
+    color: $c-white;
+    text-align: center;
+
+    @include on-tablet {
+      margin-top: fluid(16px, 20px, $bp-tablet, $bp-desktop);
+      text-align: left;
+    }
+
+    @include on-desktop {
+      margin-top: fluid(20px, 45px, $bp-desktop, $bp-desktop-xl);
+      margin-left: 92px;
+    }
+
+    @include on-desktop-xl {
+      margin-top: 45px;
+    }
+  }
+
+  &__play {
+    margin-top: fluid(14px, 22px, $bp-mobile, $bp-tablet);
+
+    @include on-tablet {
+      margin-top: fluid(22px, 18px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      margin-top: fluid(18px, 36px, $bp-desktop, $bp-desktop-xl);
+      margin-left: 86px;
+    }
+
+    @include on-desktop-xl {
+      margin-top: 36px;
+    }
+  }
+
+  &__bottom {
+    @include on-desktop {
+      position: absolute;
+      right: 0;
+      bottom: fluid(84px, 107px, $bp-desktop, $bp-desktop-xl);
+      left: 0;
+    }
+
+    @include on-desktop-xl {
+      bottom: 107px;
+    }
+  }
+}

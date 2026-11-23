@@ -1,0 +1,68 @@
+.field {
+  display: block;
+  border-bottom: 1px solid $c-dark-grey;
+  transition: border-color $transition-duration $transition-timing;
+
+  &:focus-within {
+    border-bottom-color: $c-accent;
+  }
+
+  &__label {
+    @extend %text-1;
+
+    display: block;
+    line-height: 21px;
+    color: $c-grey;
+    transition: color $transition-duration $transition-timing;
+  }
+
+  &:focus-within &__label {
+    color: $c-accent;
+  }
+
+  &__input {
+    display: block;
+
+    width: 100%;
+    height: 40px;
+    padding: 0;
+    border: none;
+
+    font-family: $font-main;
+    font-size: $fs-text-1;
+    line-height: 40px;
+    color: $c-white;
+
+    background-color: transparent;
+    outline: none;
+
+    &::placeholder {
+      color: $c-dark-grey;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover,
+    &:-webkit-autofill:focus {
+      box-shadow: 0 0 0 1000px $c-black inset;
+      caret-color: $c-white;
+      transition: background-color 5000s ease-in-out 0s;
+
+      -webkit-text-fill-color: $c-white;
+    }
+
+    &--area {
+      resize: none;
+      height: 80px;
+      padding-block: 10px;
+      line-height: 20px;
+    }
+  }
+
+  .form--checked &:has(:invalid) {
+    border-bottom-color: $c-error;
+  }
+
+  .form--checked &:has(:invalid) &__label {
+    color: $c-error;
+  }
+}

@@ -1,0 +1,178 @@
+.about-company {
+  position: relative;
+  overflow: hidden;
+  padding-top: fluid(88px, 135px, $bp-mobile, $bp-tablet);
+  padding-bottom: fluid(52px, 70px, $bp-mobile, $bp-tablet);
+
+  @include on-tablet {
+    padding-top: fluid(135px, 226px, $bp-tablet, $bp-desktop);
+    padding-bottom: fluid(70px, 102px, $bp-tablet, $bp-desktop);
+  }
+
+  @include on-desktop {
+    padding-top: fluid(226px, 220px, $bp-desktop, $bp-desktop-xl);
+    padding-bottom: 102px;
+  }
+
+  @include on-desktop-xl {
+    padding-top: 220px;
+  }
+
+  &__inner {
+    position: relative;
+  }
+
+  &__content {
+    @include on-desktop {
+      padding-left: fluid(0, 93px, $bp-desktop, $bp-desktop-xl);
+    }
+
+    @include on-desktop-xl {
+      padding-left: 93px;
+    }
+  }
+
+  &__hello {
+    @extend %text-2;
+
+    color: $c-accent;
+  }
+
+  &__title {
+    margin-top: 11px;
+    color: $c-white;
+
+    @include on-tablet {
+      margin-top: fluid(11px, 15px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      margin-top: fluid(15px, 15px, $bp-desktop, $bp-desktop-xl);
+    }
+  }
+
+  &__accent {
+    @extend %heading-accent;
+  }
+
+  &__description {
+    max-width: fluid(275px, 460px, $bp-mobile, $bp-tablet);
+    margin-top: fluid(20px, 30px, $bp-mobile, $bp-tablet);
+    color: $c-grey;
+
+    @include on-tablet {
+      max-width: fluid(460px, 429px, $bp-tablet, $bp-desktop);
+      margin-top: fluid(30px, 33px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      max-width: fluid(429px, 532px, $bp-desktop, $bp-desktop-xl);
+      margin-top: 33px;
+    }
+
+    @include on-desktop-xl {
+      max-width: 532px;
+    }
+  }
+
+  &__decor {
+    display: none;
+
+    @include on-tablet {
+      pointer-events: none;
+
+      position: absolute;
+      top: -37px;
+      right: fluid(
+        $page-padding-tablet,
+        $page-padding-desktop,
+        $bp-tablet,
+        $bp-desktop
+      );
+
+      display: flex;
+      gap: fluid(18px, 24px, $bp-tablet, $bp-desktop);
+    }
+
+    @include on-desktop {
+      right: fluid(
+        $page-padding-desktop,
+        $page-padding-desktop-xl,
+        $bp-desktop,
+        $bp-desktop-xl
+      );
+      gap: 24px;
+    }
+
+    @include on-desktop-xl {
+      right: $page-padding-desktop-xl;
+    }
+  }
+
+  &__decor-item {
+    writing-mode: vertical-rl;
+    font-family: $font-main;
+    font-size: fluid(49px, 65px, $bp-tablet, $bp-desktop);
+    font-weight: $fw-heavy;
+    line-height: 1.22;
+    color: transparent;
+    text-transform: uppercase;
+    white-space: nowrap;
+
+    opacity: 0.95;
+
+    -webkit-text-stroke: 1.5px $c-accent;
+
+    &:nth-child(even) {
+      transform: rotate(180deg);
+    }
+
+    &:nth-child(2) {
+      opacity: 0.48;
+    }
+
+    &:nth-child(3) {
+      opacity: 0.23;
+    }
+
+    &:nth-child(4) {
+      opacity: 0.13;
+    }
+
+    &:nth-child(5) {
+      opacity: 0.09;
+    }
+
+    &:nth-child(6) {
+      opacity: 0.06;
+    }
+
+    &:nth-child(7) {
+      opacity: 0.04;
+    }
+
+    &:nth-child(n + 4) {
+      display: none;
+    }
+
+    @include on-desktop {
+      font-size: 65px;
+    }
+
+    @include on-desktop {
+      &:nth-child(n + 4) {
+        display: block;
+      }
+
+      &:nth-child(n + 6) {
+        display: none;
+      }
+    }
+
+    @include on-desktop-xl {
+      &:nth-child(n + 6) {
+        display: block;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+.lang {
+  @extend %button-text;
+
+  display: none;
+  gap: 11px;
+  align-items: center;
+
+  color: $c-white;
+
+  transition: color $transition-duration $transition-timing;
+
+  &::after {
+    content: '';
+
+    width: 9px;
+    height: 6px;
+
+    background: url('../images/arrow-down.svg') no-repeat center / contain;
+
+    transition: transform $transition-duration $transition-timing;
+  }
+
+  &:hover {
+    color: $c-accent;
+  }
+
+  &:hover::after {
+    transform: translateY(2px);
+  }
+
+  @include on-desktop {
+    display: flex;
+  }
+}

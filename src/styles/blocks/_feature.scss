@@ -1,0 +1,49 @@
+.feature {
+  @include on-tablet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  &__icon {
+    display: none;
+
+    @include on-tablet {
+      display: block;
+      width: auto;
+      height: 84px;
+      transition: transform $transition-duration $transition-timing;
+    }
+  }
+
+  &:hover &__icon {
+    transform: scale(1.1);
+  }
+
+  &__title {
+    color: $c-white;
+
+    @include on-tablet {
+      margin-top: 30px;
+    }
+  }
+
+  &__text {
+    overflow: hidden;
+
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+
+    margin-top: 11px;
+
+    color: $c-grey;
+
+    @include on-tablet {
+      overflow: visible;
+      display: block;
+      margin-top: 21px;
+    }
+  }
+}
