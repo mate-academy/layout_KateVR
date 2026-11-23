@@ -1,0 +1,110 @@
+@use '../utils/' as *;
+
+.gaming {
+  padding-block: 50px;
+
+  @include on('tablet') {
+    padding-block: 70px;
+  }
+
+  @include on('desktop') {
+    padding-block: 100px;
+  }
+
+  &__container {
+    @include grid;
+  }
+
+  &__title,
+  &__subtitle,
+  &__list {
+    grid-column: 1 / -1;
+  }
+
+  &__title {
+    @include on('tablet') {
+      text-align: center;
+    }
+  }
+
+  &__title-accent {
+    font-weight: $fw-regular;
+    color: $c-accent;
+  }
+
+  &__subtitle {
+    margin-top: 8px;
+    font-size: $fs-text-3-mob;
+    color: $c-accent;
+
+    @include on('tablet') {
+      text-align: center;
+    }
+  }
+
+  &__list {
+    @extend %reset-list;
+
+    display: grid;
+    grid-template-columns: subgrid;
+    row-gap: 32px;
+    margin-top: 32px;
+
+    @include on('tablet') {
+      row-gap: 40px;
+      margin-top: 48px;
+    }
+  }
+
+  &__item {
+    display: flex;
+    grid-column: 1 / -1;
+    flex-direction: column;
+    gap: 8px;
+
+    @include on('tablet') {
+      grid-column: span 3;
+      gap: 12px;
+      align-items: center;
+      text-align: center;
+    }
+
+    @include on('wide') {
+      grid-column: span 4;
+    }
+  }
+
+  &__icon {
+    cursor: pointer;
+    display: none;
+    transition: transform $transition;
+
+    @include on('tablet') {
+      display: block;
+      height: 83px;
+    }
+
+    @include on-hover {
+      transform: scale(1.15);
+    }
+  }
+
+  &__text {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+
+    color: $c-gray;
+
+    @include on('tablet') {
+      overflow: hidden;
+      display: block;
+      -webkit-line-clamp: none;
+      line-clamp: none;
+
+      font-size: $fs-text-2;
+    }
+  }
+}
