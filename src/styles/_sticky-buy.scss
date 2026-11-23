@@ -1,0 +1,25 @@
+@use 'utils' as *;
+
+.sticky-buy {
+  pointer-events: none;
+  position: fixed;
+  z-index: 10;
+  inset: auto 0 20px;
+
+  @include on('desktop') {
+    display: none;
+  }
+
+  &__container {
+    @include grid;
+  }
+
+  &__button {
+    pointer-events: auto;
+    grid-column: 1 / -1;
+
+    @include on('tablet') {
+      grid-column: 2 / 6;
+    }
+  }
+}

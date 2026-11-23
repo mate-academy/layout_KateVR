@@ -1,0 +1,29 @@
+@use 'utils' as *;
+
+.play-button {
+  @extend %reset-button;
+
+  display: grid;
+  align-items: center;
+
+  &__icon,
+  &__text {
+    grid-area: 1 / 1;
+  }
+
+  &__text {
+    margin-left: 105px;
+
+    font-weight: $fw-medium;
+    color: $c-white;
+    text-align: left;
+
+    transition: color $transition;
+  }
+
+  @include on-hover {
+    .play-button__text {
+      color: $c-accent;
+    }
+  }
+}

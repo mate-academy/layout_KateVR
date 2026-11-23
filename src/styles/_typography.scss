@@ -1,3 +1,40 @@
+@use 'utils' as *;
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: $fw-heavy;
+  text-transform: uppercase;
+}
+
 h1 {
-  @extend %h1;
+  font-size: $fs-h1-mob;
+  line-height: $lh-heading;
+
+  @include on('desktop') {
+    font-size: $fs-h1;
+  }
+
+  @include on('wide') {
+    font-size: $fs-h1-wide;
+  }
+}
+
+h2 {
+  font-size: $fs-h2-mob;
+  line-height: $lh-heading;
+
+  @include on('desktop') {
+    font-size: $fs-h2;
+    line-height: normal;
+  }
+}
+
+h3 {
+  font-size: $fs-h3;
+}
+
+p {
+  margin: 0;
 }
