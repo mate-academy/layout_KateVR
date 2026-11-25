@@ -1,0 +1,197 @@
+.product{
+display: grid;
+grid-template-columns: 1fr 1fr;
+column-gap: 117px;
+
+padding-block: 150px;
+padding-inline: max(44px, (  100% - 1192px) / 2 );
+
+background-image: $gradient-bg;
+
+@include on(tablet){
+column-gap: 40px;
+}
+
+ @include on(mobile){
+ grid-template-columns: 280px;
+justify-content: center;
+
+ }
+&__image{
+max-width: 340px;
+  height: 270px;
+
+ @include on(mobile){
+  grid-row: 2;
+order: 2;
+  max-width: 280px;
+  height: 190px;
+ }
+}
+
+&__media{
+  display: grid;
+grid-template-columns: min-content 1fr;
+grid-template-rows: auto 1fr;
+gap: 12px 23px;
+
+ @include on(mobile){
+  display: contents;
+ grid-template-columns: 1fr;
+ justify-items: center;
+ max-width: 280px;
+ }
+}
+
+&__dots{
+  display: none;
+
+  @include on(tablet){
+display: flex;
+grid-column: 1;
+  grid-row:2 ;
+column-gap: 6px;
+justify-content: center;
+
+padding-bottom: 30px;
+  }
+
+   @include on(mobile){
+    grid-row: 3;
+ order: 3;
+    padding-bottom: 0;
+    padding-block: 14px 20px;
+ }
+}
+
+&__dot{
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: $c-gray;
+
+&--active{
+   width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: $c-white;
+}
+}
+
+&__controls{
+grid-column: 2;
+grid-row:2 ;
+
+ @include on(tablet){
+display: none;
+ }
+
+}
+
+&__counter{
+    font-family: inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color:$c-accent ;
+
+   @include on(tablet){
+display: none;
+ }
+}
+
+&__link{
+background-color: transparent;
+
+@include lover-text;
+@include hover-outline
+}
+
+
+&__content{
+ @include on(mobile){
+  display: contents;
+max-width: 280px
+ }
+}
+&__play{
+  @include lover-text;
+
+  cursor: pointer;
+
+  position: relative; // точка відліку для ліній
+left: 0;
+
+  display: inline-flex;
+  align-items: center;
+
+  padding: 0 40px 0 0;
+  border: none;
+
+  background-color: transparent;
+
+  @include on (tablet){
+  left: 0;
+  }
+
+   @include on(mobile){
+order: 5;
+ }
+
+  &::before {
+    content: '';
+    width: 61px;
+    height: 54px;
+    background: url('../images/play-icon.svg') center / contain no-repeat;
+  }
+
+  // лінії зверху й знизу
+  &::after {
+    content: '';
+
+    position: absolute;
+    inset: 11px 0 12px 61px; // починаються біля кола
+
+    border-block: 2px dotted $c-accent;
+
+    opacity: 0.45;
+
+    mask-image: linear-gradient(to right, #000 40%, transparent); // згасають праворуч
+  }
+
+}
+
+&__title{
+  @include upper-text;
+
+  text-transform: uppercase;
+  &--ancent{
+  font-weight: 400;
+color: $c-accent;
+  }
+
+@include on(tablet){
+font-size: 21px
+}
+
+ @include on(mobile){
+order: 1;
+padding-bottom: 20px;
+text-align: start
+ }
+}
+
+&__text{
+@include default-text;
+
+max-width: 430px;
+padding-block: 32px 42px;
+
+ @include on(mobile){
+ order: 4;
+  max-width: 280px;
+  padding-bottom: 24px;
+  padding-block: 0;
+ }
+}
+}

@@ -1,0 +1,288 @@
+.footer{
+ background-color: $c-bg;
+
+  @include on(mobile){
+   display: grid;
+   grid-template-columns: auto auto;
+   grid-template-rows: repeat(7, auto) ;
+
+   padding-block: 50px;
+   padding-inline: 16px;
+   &::before{
+  content: '';
+
+  z-index: 1;
+
+  grid-column: 1 / -1;
+  grid-row: 6 / 8;
+
+  background-color: $c-black;
+  clip-path: inset(0 -16px -50px);   // обрізаємо: зверху 0, з боків 16px, знизу 50px
+  box-shadow: 0 0 0 50px $c-black;   // чорна тінь на 50px на всі боки
+}
+  }
+ &__bottom{
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+
+  height: 100px;
+  padding-inline: max(44px, (  100% - 1192px) / 2 );
+
+  background-color:$c-black;
+
+    @include on(mobile){
+  display: contents;
+  }
+ }
+
+ &__logo{
+  align-self: center;
+
+   @include on(mobile){
+  z-index: 5;
+
+  grid-column:  1 ;
+  grid-row: 6;
+  justify-self: center;
+
+  padding-block: 45px 15px;
+ }
+ }
+
+ &__list{
+  display: flex;
+  column-gap: 45px;
+  align-items: center;
+  justify-self: center;
+
+   @include on(mobile){
+    z-index: 5;
+
+  grid-column:  1 ;
+  grid-row:7 ;
+  flex-direction: column;
+  row-gap: 15px;
+ }
+ }
+
+ &__link{
+  @include lover-text;
+@include hover-outline;
+
+font-size: 14px;
+
+ }
+}
+
+.social{
+display: flex;
+column-gap: 25px;
+align-items: center;
+justify-content: end;
+
+color: white;
+
+ @include on(mobile){
+  z-index: 5;
+
+  grid-column:  2;
+  grid-row: 7;
+  align-items: end;
+  justify-content: center;
+ }
+&__link{
+  transition: color 0.5s, transform 0.5s;
+  &:hover{
+  transform: translateY(-3px);
+ color: $c-accent;
+}
+}
+
+}
+
+.contacts{
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+ align-items: center;
+
+padding-block: 150px  200px;
+ padding-inline: max(44px, (  100% - 1192px) / 2 );
+
+  @include on(tablet){
+  padding-block: 130px 70px;
+  }
+
+  @include on(mobile){
+  display: contents;
+  }
+
+&__info{
+  display: grid;
+grid-area: 1 / 1;
+align-self: self-start;
+
+  @include on(mobile){
+  display: contents;
+  }
+}
+
+&__form{
+display: grid;
+grid-area:  1 / 2;
+grid-template-columns: 1fr 1fr;
+grid-template-rows: repeat(4, auto) minmax(0, 50px) auto;
+row-gap: 24px;
+
+  @include on(mobile){
+  grid-column:  1 / 3;
+  grid-row: 3;
+  grid-template-rows: repeat(4, auto)  auto;
+  }
+
+}
+
+&__event{
+  font-family: inter, sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1;
+  color:$c-accent ;
+
+    @include on(mobile){
+  grid-column:  1 / 3;
+  grid-row: 1;
+  }
+}
+
+&__title{
+  padding-top: 13px;
+
+  @include upper-text;
+
+  @include on(tablet){
+   font-size: 21px;
+  }
+
+  @include on(mobile){
+  grid-column:  1 / 3;
+  grid-row: 2;
+  padding-bottom: 32px;
+  }
+&--ancent{
+  font-weight: 400;
+color: $c-accent;
+}
+}
+
+&__text{
+padding-block: 26px 76px;
+
+@include default-text;
+
+  @include on(tablet){
+padding-block: 50px 76px;
+  }
+
+ @include on(mobile){
+  grid-column:  1 / 3;
+  grid-row: 4;
+  justify-self: center;
+  padding-block: 30px 50px;
+ }
+}
+
+&__address{
+display: grid;
+row-gap: 11px;
+
+ @include on(mobile){
+  z-index: 5;
+
+  grid-column:  2;
+  grid-row: 7 ;
+   align-items: start;
+   justify-content: center;
+
+   padding-bottom: 32px;
+ }
+}
+
+ &__phone, &__email, &__name{
+height: 40px;
+
+ }
+&__message{
+ height: 80px;
+
+}
+
+
+
+&__message, &__phone, &__email, &__name{
+  resize: none;
+
+grid-column: 1 / 3;
+
+  border: none;
+  border-bottom: 1px solid #2F2F2F;
+
+  background-color: transparent;
+ outline: none;
+
+&::placeholder{
+@include default-text;
+}
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus{
+    -webkit-box-shadow: 0 0 0 1000px $c-bg inset;
+    caret-color: $c-white;
+
+    -webkit-text-fill-color: $c-white;
+  }
+}
+
+&__link{
+@include default-text;
+
+opacity: 1;
+
+&:hover{
+opacity: 0.8;
+}
+}
+
+&__button{
+grid-row: 6;
+
+width: 200px;
+height: 48px;
+border-radius: 5px;
+
+background-color: $c-accent;
+
+@include lover-text;
+
+@include on(mobile){
+grid-row: 5;
+width: 280px;
+}
+}
+
+&__top{
+display: flex;
+  grid-row: 6;
+justify-self: end;
+
+width: 48px;
+height: 48px;
+border: 1px solid $c-accent;
+border-radius: 50%;
+
+object-fit: none;
+
+  @include on(mobile){
+  display:none;
+  }
+}
+}

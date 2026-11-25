@@ -1,0 +1,86 @@
+.benefits{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
+  column-gap: 10px;
+
+padding-inline: max(44px, (  100% - 1192px) / 2 );
+
+  background-image: $gradient-bg;
+
+ @include on(mobile) {
+grid-template-columns: 1fr;
+grid-template-rows: auto repeat(3, 1fr);
+ }
+  &__title{
+ grid-area: 1 / 2;
+    padding-block: 150px 80px;
+
+  @include upper-text;
+
+ @include on(tablet){
+grid-area: 1 / 1;
+padding-block: 90px 50px;
+font-size: 21px;
+ }
+
+  @include on(mobile) {
+ text-align: start;
+  }
+    &--ancent{
+      font-weight: 400;
+      color: $c-accent;
+  }
+}
+
+&--card{
+display: grid;
+grid-row: 2;
+padding-bottom: 70px;
+
+ @include on(mobile) {
+ grid-row: unset
+ }
+}
+
+&__label{
+@include upper-text;
+
+padding-block: 25px 37px;
+font-size: 16px;
+text-align: center;
+
+ @include on(mobile) {
+ text-align: start
+ }
+}
+
+&__text{
+@include default-text;
+
+text-align: center;
+
+  @include on(tablet) {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3; // показати 3 рядки, далі «…»
+  }
+
+  @include on(mobile) {
+    -webkit-line-clamp: 2; // на телефоні — 2 рядки
+    text-align: start;
+  }
+
+}
+
+&__photo{
+justify-self: center;
+
+@include hover-scale;
+
+ @include on(mobile) {
+display: none;
+ }
+}
+}

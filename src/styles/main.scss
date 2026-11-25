@@ -1,7 +1,39 @@
 @import 'utils';
 @import 'fonts';
 @import 'typography';
+@import 'header';
+@import 'use-case';
+@import 'product';
+@import 'about';
+@import 'specs';
+@import 'benefits';
+@import 'footer';
 
-body {
+html, body {
+  scroll-behavior: smooth;
+  overflow-x: clip;
+  margin: 0;
   background: $c-gray;
+
+}
+
+a, button, label{
+cursor: pointer;
+border: none;
+text-decoration: none;
+
+}
+
+h1, h2, h3, p, ul{
+margin: 0;
+padding: 0;
+list-style: none;
+}
+
+
+html:has(.menu-toggle:checked, .language-toggle:checked, .help-toggle:checked) body::after {
+   content: '';
+position: fixed;
+  inset: 0;
+  background-color: rgb(0 0 0 / 60%);
 }
